@@ -1,0 +1,23 @@
+﻿<Window x:Class="InformacioniSistemBolnice.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:InformacioniSistemBolnice"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="220" Width="667">
+
+    <Grid>
+        <Canvas>
+            <Button x:Name="upravnikDugme" Content="Upravnik" Height="30" Width="98" Canvas.Left="82" Canvas.Top="86" Click="OtvoriProzor"/>
+            <Button Content="Sekretar" Height="30" Width="98" Canvas.Left="216" Canvas.Top="86"/>
+            <Button Content="Lekar" Height="30" Width="98" Canvas.Left="346" Canvas.Top="86"/>
+            <Button Content="Pacijent" Height="30" Width="98" Canvas.Left="478" Canvas.Top="86"/>
+
+        </Canvas>
+    </Grid>
+
+
+
+</Window>
+
