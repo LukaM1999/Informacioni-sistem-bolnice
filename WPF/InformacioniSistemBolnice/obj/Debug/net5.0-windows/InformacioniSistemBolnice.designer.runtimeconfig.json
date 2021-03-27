@@ -6,7 +6,7 @@
       "version": "5.0.0"
     },
     "additionalProbingPaths": [
-      "C:\\Users\\Luka\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\PC\\.dotnet\\store\\|arch|\\|tfm|",
       "C:\\Users\\Luka\\.nuget\\packages"
     ],
     "configProperties": {

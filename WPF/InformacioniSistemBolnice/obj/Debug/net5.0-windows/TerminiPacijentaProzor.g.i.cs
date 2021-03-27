@@ -53,7 +53,7 @@ namespace InformacioniSistemBolnice {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/InformacioniSistemBolnice;component/terminipacijentaprozor.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/InformacioniSistemBolnice;V1.0.0.0;component/terminipacijentaprozor.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\TerminiPacijentaProzor.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

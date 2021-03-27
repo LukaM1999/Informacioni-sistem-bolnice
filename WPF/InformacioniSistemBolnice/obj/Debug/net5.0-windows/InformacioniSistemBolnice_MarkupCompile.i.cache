@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-D:\Informacioni-sistem-bolnice\WPF\InformacioniSistemBolnice\obj\Debug\net5.0-windows\
+C:\Users\PC\Documents\GitHub\Informacioni-sistem-bolnice\WPF\InformacioniSistemBolnice\obj\Debug\net5.0-windows\
 InformacioniSistemBolnice
 none
 false
 TRACE;DEBUG;NET;NET5_0;NETCOREAPP
-D:\Informacioni-sistem-bolnice\WPF\InformacioniSistemBolnice\App.xaml
+C:\Users\PC\Documents\GitHub\Informacioni-sistem-bolnice\WPF\InformacioniSistemBolnice\App.xaml
 41049382051
 
 351435194775
-194288559892
+193-1891726104
 MainWindow.xaml;ProstorijaForma.xaml;ProstorijeProzor.xaml;TerminiPacijentaProzor.xaml;
 
-True
+False
 
