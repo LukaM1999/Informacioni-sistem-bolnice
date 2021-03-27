@@ -6,79 +6,56 @@ namespace Model
     {
         public string ime
         {
-            get
-            {
-                throw new NotImplementedException();
-            }
-            set
-            {
-                throw new NotImplementedException();
-            }
+            get;
+            set;
+           
         }
 
         public string prezime
         {
-            get
-            {
-                throw new NotImplementedException();
-            }
-            set
-            {
-                throw new NotImplementedException();
-            }
+            get;
+            set;
         }
 
         public string jmbg
         {
-            get
-            {
-                throw new NotImplementedException();
-            }
-            set
-            {
-                throw new NotImplementedException();
-            }
+            get;
+            set;
         }
 
         public DateTime datumRodjenja
         {
-            get
-            {
-                throw new NotImplementedException();
-            }
-            set
-            {
-                throw new NotImplementedException();
-            }
+            get;
+            set;
         }
 
         public string telefon
         {
-            get
-            {
-                throw new NotImplementedException();
-            }
-            set
-            {
-                throw new NotImplementedException();
-            }
+            get;
+            set;
         }
 
         public string email
         {
-            get
-            {
-                throw new NotImplementedException();
-            }
-            set
-            {
-                throw new NotImplementedException();
-            }
+            get;
+            set;
         }
 
         public Osoba()
         {
-            throw new NotImplementedException();
+           
+        }
+
+        public Osoba(string i, string prz, string matBr, DateTime dR, string tel, string mail, Korisnik k)
+        {
+            ime = i;
+            prezime = prz;
+            jmbg = matBr;
+            datumRodjenja = dR;
+            telefon = tel;
+            email = mail;
+            korisnik = k;
+            
         }
 
         public Korisnik korisnik;

@@ -1,0 +1,47 @@
+[
+  {
+    "zdravstveniKarton": null,
+    "termin": null,
+    "korisnik": {
+      "korisnickoIme": "lolo",
+      "lozinka": "lallala",
+      "uloga": 2
+    },
+    "ime": "kris",
+    "prezime": "tam",
+    "jmbg": "0101001",
+    "datumRodjenja": "0001-01-01T00:00:00",
+    "telefon": "01010",
+    "email": "lalalla"
+  },
+  {
+    "zdravstveniKarton": null,
+    "termin": null,
+    "korisnik": {
+      "korisnickoIme": "jama",
+      "lozinka": "lalalalala",
+      "uloga": 0
+    },
+    "ime": "nema",
+    "prezime": "mama",
+    "jmbg": "12133",
+    "datumRodjenja": "0001-01-01T00:00:00",
+    "telefon": "010010",
+    "email": "kakaka"
+  },
+  {
+    "zdravstveniKarton": null,
+    "termin": null,
+    "korisnik": {
+      "korisnickoIme": "maja",
+      "lozinka": "maja",
+      "uloga": 1
+    },
+    "ime": "lalla",
+    "prezime": "lalalla",
+    "jmbg": "lallalal12.1",
+    "datumRodjenja": "0001-01-01T00:00:00",
+    "telefon": "019191",
+    "email": "lalal"
+  }
+]

@@ -33,5 +33,11 @@ namespace InformacioniSistemBolnice
             prostorijeP.Show();
 
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            PacijentiProzor pacijentiP = new PacijentiProzor();
+            pacijentiP.Show();
+        }
     }
 }

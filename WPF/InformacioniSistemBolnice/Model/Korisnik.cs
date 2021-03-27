@@ -6,46 +6,34 @@ namespace Model
    {
       public string korisnickoIme
       {
-         get
-         {
-            throw new NotImplementedException();
-         }
-         set
-         {
-            throw new NotImplementedException();
-         }
+            get;
+            set;
+         
       }
       
       public string lozinka
       {
-         get
-         {
-            throw new NotImplementedException();
-         }
-         set
-         {
-            throw new NotImplementedException();
-         }
-      }
+            get;
+            set;
+        }
       
       public UlogaKorisnika uloga
       {
-         get
-         {
-            throw new NotImplementedException();
-         }
-         set
-         {
-            throw new NotImplementedException();
-         }
-      }
+            get;
+            set;
+        }
       
       public Korisnik()
       {
-         throw new NotImplementedException();
+        
+      }
+      public Korisnik(string kI, string l, UlogaKorisnika u)
+      {
+            korisnickoIme = kI;
+            lozinka = l;
+            uloga = u;
       }
       
-      public Osoba osoba;
    
    }
 }

@@ -10,7 +10,7 @@
     <Grid>
         <Canvas>
             <Button x:Name="upravnikDugme" Content="Upravnik" Height="30" Width="98" Canvas.Left="82" Canvas.Top="86" Click="OtvoriProzor"/>
-            <Button Content="Sekretar" Height="30" Width="98" Canvas.Left="216" Canvas.Top="86"/>
+            <Button x:Name="sekretarDugme" Content="Sekretar" Height="30" Width="98" Canvas.Left="216" Canvas.Top="86" Click="Button_Click"/>
             <Button Content="Lekar" Height="30" Width="98" Canvas.Left="346" Canvas.Top="86"/>
             <Button Content="Pacijent" Height="30" Width="98" Canvas.Left="478" Canvas.Top="86"/>
 

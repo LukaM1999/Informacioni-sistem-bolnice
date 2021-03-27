@@ -15,7 +15,7 @@
             <TextBox x:Name="spratUnos" Canvas.Left="72" Canvas.Top="46" Text="" TextWrapping="Wrap" Width="120"/>
             <TextBox x:Name="idUnos" Canvas.Left="72" Canvas.Top="108" Text="" TextWrapping="Wrap" Width="120"/>
             <ComboBox x:Name="tipUnos" Canvas.Left="72" Canvas.Top="75" Width="120" Height="22" 
-                      ItemsSource="{Binding Source={local:EnumBindingSource {x:Type local:TipProstorije}}}"/>
+                    ItemsSource="{Binding Source={local:EnumBindingSource {x:Type local:TipProstorije}}}"/>
             <Button x:Name="potvrdiDugme" Content="Potvrdi" Canvas.Left="108" Canvas.Top="140" Width="48" Click="potvrdiDugme_Click"/>
         </Canvas>
 
