@@ -24,3 +24,8 @@ D:\Informacioni-sistem-bolnice\WPF\InformacioniSistemBolnice\obj\Debug\net5.0-wi
 D:\Informacioni-sistem-bolnice\WPF\InformacioniSistemBolnice\obj\Debug\net5.0-windows\InformacioniSistemBolnice.genruntimeconfig.cache
 D:\Informacioni-sistem-bolnice\WPF\InformacioniSistemBolnice\bin\Debug\net5.0-windows\Newtonsoft.Json.dll
 D:\Informacioni-sistem-bolnice\WPF\InformacioniSistemBolnice\obj\Debug\net5.0-windows\InformacioniSistemBolnice.csproj.CopyComplete
+D:\Informacioni-sistem-bolnice\WPF\InformacioniSistemBolnice\obj\Debug\net5.0-windows\ProstorijaForma.g.cs
+D:\Informacioni-sistem-bolnice\WPF\InformacioniSistemBolnice\obj\Debug\net5.0-windows\ProstorijaForma.baml
+D:\Informacioni-sistem-bolnice\WPF\InformacioniSistemBolnice\obj\Debug\net5.0-windows\GeneratedInternalTypeHelper.g.cs
+D:\Informacioni-sistem-bolnice\WPF\InformacioniSistemBolnice\obj\Debug\net5.0-windows\TerminiPacijentaProzor.g.cs
+D:\Informacioni-sistem-bolnice\WPF\InformacioniSistemBolnice\obj\Debug\net5.0-windows\TerminiPacijentaProzor.baml

@@ -10,28 +10,18 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
-
 
 namespace InformacioniSistemBolnice
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for TerminiPacijentaProzor.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class TerminiPacijentaProzor : Window
     {
-        public MainWindow()
+        public TerminiPacijentaProzor()
         {
             InitializeComponent();
-        }
-
-        private void OtvoriProzor(object sender, RoutedEventArgs e)
-        {
-            ProstorijeProzor prostorijeP = new ProstorijeProzor();
-            // this.Visibility = Visibility.Hidden;
-            prostorijeP.Show();
-
         }
     }
 }

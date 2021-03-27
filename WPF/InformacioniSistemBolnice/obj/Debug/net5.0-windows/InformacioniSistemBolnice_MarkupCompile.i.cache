@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET5_0;NETCOREAPP
 D:\Informacioni-sistem-bolnice\WPF\InformacioniSistemBolnice\App.xaml
-2-66976900
+41049382051
 
-31-1064839636
+351435194775
 194288559892
-MainWindow.xaml;ProstorijeProzor.xaml;
+MainWindow.xaml;ProstorijaForma.xaml;ProstorijeProzor.xaml;TerminiPacijentaProzor.xaml;
 
-False
+True
 

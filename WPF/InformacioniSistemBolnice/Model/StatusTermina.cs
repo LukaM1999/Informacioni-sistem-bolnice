@@ -8,6 +8,8 @@ namespace Model
       aktivan,
       otkazan,
       pomeren,
-      zavrsen
+      zavrsen,
+      slobodan
+
    }
 }

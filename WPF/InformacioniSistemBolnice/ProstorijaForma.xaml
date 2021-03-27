@@ -1,0 +1,23 @@
+﻿<Window x:Class="InformacioniSistemBolnice.ProstorijaForma"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:InformacioniSistemBolnice"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
+        mc:Ignorable="d"
+        Title="ProstorijaForma" Height="198" Width="300">
+    <Grid>
+        <Canvas>
+            <Label Content="Sprat: " Canvas.Left="23" Canvas.Top="42" Width="44" HorizontalAlignment="Right"/>
+            <Label Content="Tip: " Canvas.Left="23" Canvas.Top="73" Width="44" HorizontalAlignment="Right"/>
+            <Label Content="ID: " Canvas.Left="23" Canvas.Top="104" Width="44" HorizontalAlignment="Right"/>
+            <TextBox x:Name="spratUnos" Canvas.Left="72" Canvas.Top="46" Text="" TextWrapping="Wrap" Width="120"/>
+            <TextBox x:Name="idUnos" Canvas.Left="72" Canvas.Top="108" Text="" TextWrapping="Wrap" Width="120"/>
+            <ComboBox x:Name="tipUnos" Canvas.Left="72" Canvas.Top="75" Width="120" Height="22" 
+                      ItemsSource="{Binding Source={local:EnumBindingSource {x:Type local:TipProstorije}}}"/>
+            <Button x:Name="potvrdiDugme" Content="Potvrdi" Canvas.Left="108" Canvas.Top="140" Width="48" Click="potvrdiDugme_Click"/>
+        </Canvas>
+
+    </Grid>
+</Window>

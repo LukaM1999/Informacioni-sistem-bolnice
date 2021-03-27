@@ -17,8 +17,8 @@
             </ListView>
         </StackPanel>
         <Canvas x:Name="RukovanjeProstorijama" Margin="0,0,0,439">
-            <Button Content="Dodaj" Canvas.Left="10" Canvas.Top="13" Width="50" Click="Button_Click"/>
-            <Button Content="Obrisi" Canvas.Left="83" Canvas.Top="13" Width="50" Click="Button_Click"/>
+            <Button x:Name="dodajProstorijuDugme" Content="Dodaj" Canvas.Left="10" Canvas.Top="13" Width="50" Click="Dodaj"/>
+            <Button x:Name="obrisiProstorijuDugme" Content="Obrisi" Canvas.Left="83" Canvas.Top="13" Width="50" Click="Obrisi"/>
         </Canvas>
 
     </Grid>
