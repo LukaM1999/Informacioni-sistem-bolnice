@@ -31,7 +31,7 @@ namespace Model
 
         public Prostorija()
         {
-
+            jeZauzeta = false;
         }
 
         public Prostorija(int sp, TipProstorije t, string sifra, bool zauzeta)

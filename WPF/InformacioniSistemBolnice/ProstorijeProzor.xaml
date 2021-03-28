@@ -19,6 +19,7 @@
         <Canvas x:Name="RukovanjeProstorijama" Margin="0,0,0,439">
             <Button x:Name="dodajProstorijuDugme" Content="Dodaj" Canvas.Left="10" Canvas.Top="13" Width="50" Click="Dodaj"/>
             <Button x:Name="obrisiProstorijuDugme" Content="Obrisi" Canvas.Left="83" Canvas.Top="13" Width="50" Click="Obrisi"/>
+            <Button x:Name="izmeniProstorijuDugme" Content="Izmeni" Height="20" Canvas.Left="155" Canvas.Top="13" Width="68" Click="izmeniProstorijuDugme_Click"/>
         </Canvas>
 
     </Grid>

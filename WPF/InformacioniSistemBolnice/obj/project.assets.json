@@ -48,19 +48,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Luka\\.nuget\\packages\\": {}
+    "C:\\Users\\Nemanja\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Informacioni-sistem-bolnice\\WPF\\InformacioniSistemBolnice\\InformacioniSistemBolnice.csproj",
+      "projectUniqueName": "C:\\Users\\Nemanja\\Documents\\GitHub\\Informacioni-sistem-bolnice\\WPF\\InformacioniSistemBolnice\\InformacioniSistemBolnice.csproj",
       "projectName": "InformacioniSistemBolnice",
-      "projectPath": "D:\\Informacioni-sistem-bolnice\\WPF\\InformacioniSistemBolnice\\InformacioniSistemBolnice.csproj",
-      "packagesPath": "C:\\Users\\Luka\\.nuget\\packages\\",
-      "outputPath": "D:\\Informacioni-sistem-bolnice\\WPF\\InformacioniSistemBolnice\\obj\\",
+      "projectPath": "C:\\Users\\Nemanja\\Documents\\GitHub\\Informacioni-sistem-bolnice\\WPF\\InformacioniSistemBolnice\\InformacioniSistemBolnice.csproj",
+      "packagesPath": "C:\\Users\\Nemanja\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Nemanja\\Documents\\GitHub\\Informacioni-sistem-bolnice\\WPF\\InformacioniSistemBolnice\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Luka\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Nemanja\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -109,7 +109,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.200\\RuntimeIdentifierGraph.json"
       }
     }
   }
