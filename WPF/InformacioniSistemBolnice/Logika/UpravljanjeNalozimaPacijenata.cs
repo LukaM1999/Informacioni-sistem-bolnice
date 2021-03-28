@@ -1,18 +1,45 @@
 using System;
 using Model;
+using RadSaDatotekama;
+using System.Windows.Controls;
+using InformacioniSistemBolnice;
+
+
 namespace Logika
 {
    public class UpravljanjeNalozimaPacijenata
    {
-      public void KreiranjeNaloga()
+        private static readonly Lazy<UpravljanjeNalozimaPacijenata>
+          lazy =
+          new Lazy<UpravljanjeNalozimaPacijenata>
+              (() => new UpravljanjeNalozimaPacijenata());
+
+        public static UpravljanjeNalozimaPacijenata Instance { get { return lazy.Value; } }
+
+        public void KreiranjeNaloga()
       {
-         throw new NotImplementedException();
+            RegistracijaPacijentaForma rP = new RegistracijaPacijentaForma();
+            rP.Show();
+           
       }
       
-      public void UklanjanjeNaloga(Pacijent pacijent)
+      public void UklanjanjeNaloga(ListView ListaPacijenata)
       {
-         throw new NotImplementedException();
-      }
+            if (ListaPacijenata.SelectedValue != null)
+            {
+                Pacijent pacijent = (Pacijent)ListaPacijenata.SelectedValue;
+                Pacijenti pacijenti = Pacijenti.Instance;
+                foreach (Pacijent p in pacijenti.listaPacijenata)
+                {
+                    if (p.jmbg.Equals(pacijent.jmbg))
+                    {
+                        pacijenti.listaPacijenata.Remove(p);
+                        Pacijenti.Instance.Serijalizacija("../../../json/pacijenti.json");
+                        break;
+                    }
+                }
+            }
+        }
       
       public void IzmenaNaloga(Pacijent pacijent)
       {

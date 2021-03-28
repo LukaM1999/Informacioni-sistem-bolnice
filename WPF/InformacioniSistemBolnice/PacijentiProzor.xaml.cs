@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using RadSaDatotekama;
 using Model;
+using Logika;
 
 namespace InformacioniSistemBolnice
 {
@@ -35,8 +36,7 @@ namespace InformacioniSistemBolnice
 
         private void registrujPacijentaDugme_Click(object sender, RoutedEventArgs e)
         {
-            RegistracijaPacijentaForma rP = new RegistracijaPacijentaForma();
-            rP.Show();
+            UpravljanjeNalozimaPacijenata.Instance.KreiranjeNaloga();
         }
 
         private void izmeniPacijentaDugme_Click(object sender, RoutedEventArgs e)
@@ -50,8 +50,13 @@ namespace InformacioniSistemBolnice
             izmena.telUnos.Text = p.telefon;
             izmena.mailUnos.Text = p.email;
             izmena.korisnikUnos.Text = p.korisnik.korisnickoIme;
-            izmena.lozinkaUnos.Text = p.korisnik.lozinka;
+            izmena.lozinkaUnos.Password = p.korisnik.lozinka;
             izmena.Show();
+        }
+
+        private void ObrisiPacijenta(object sender, RoutedEventArgs e)
+        {
+            UpravljanjeNalozimaPacijenata.Instance.UklanjanjeNaloga(ListaPacijenata);
         }
     }
 }

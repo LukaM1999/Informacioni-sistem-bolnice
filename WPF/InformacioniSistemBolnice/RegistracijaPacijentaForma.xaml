@@ -17,13 +17,13 @@
             <Label Content="Korisnicko ime: " Canvas.Left="23" Canvas.Top="230" Width="94"/>
             <Label Content="Lozinka: " Canvas.Left="23" Canvas.Top="261" Width="70"/>
             <TextBox x:Name="imeUnos" Canvas.Left="132" Canvas.Top="46" Text="" TextWrapping="Wrap" Width="120"/>
-            <TextBox x:Name="JMBGUnos" Canvas.Left="132" Canvas.Top="108" Text="" TextWrapping="Wrap" Width="120" TextChanged="prezimeUnos_TextChanged"/>
+            <TextBox x:Name="JMBGUnos" Canvas.Left="132" Canvas.Top="108" Text="" TextWrapping="Wrap" Width="120"/>
             <TextBox x:Name="prezimeUnos" Canvas.Left="132" Canvas.Top="77" Width="120" Height="22" />
-            <TextBox x:Name="datumUnos" Canvas.Left="132" Canvas.Top="139" Text="" TextWrapping="Wrap" Width="120"/>
+            <DatePicker x:Name="datumUnos" Canvas.Left="132" Canvas.Top="139"  Width="120"/>
             <TextBox x:Name="telUnos" Canvas.Left="132" Canvas.Top="170" Text="" TextWrapping="Wrap" Width="120"/>
             <TextBox x:Name="mailUnos" Canvas.Left="132" Canvas.Top="203" Width="120" Height="22" />
             <TextBox x:Name="korisnikUnos" Canvas.Left="132" Canvas.Top="234" Text="" TextWrapping="Wrap" Width="120"/>
-            <TextBox x:Name="lozinkaUnos" Canvas.Left="132" Canvas.Top="265" Width="120" Height="22" />
+            <PasswordBox x:Name="lozinkaUnos" Canvas.Left="132" Canvas.Top="265" Width="120" Height="22" />
             <Button x:Name="potvrdiDugme" Content="Potvrdi" Canvas.Left="192" Canvas.Top="337" Width="60" Click="potvrdiDugme_Click" />
 
         </Canvas>

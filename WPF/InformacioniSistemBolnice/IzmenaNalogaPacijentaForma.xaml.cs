@@ -41,7 +41,7 @@ namespace InformacioniSistemBolnice
             p.email = mailUnos.Text;
             p.telefon = telUnos.Text;
             p.korisnik.korisnickoIme = korisnikUnos.Text;
-            p.korisnik.lozinka = lozinkaUnos.Text;
+            p.korisnik.lozinka = lozinkaUnos.Password;
             this.Close();
             Pacijenti.Instance.Serijalizacija("../../../json/pacijenti.json");
             Pacijenti.Instance.Deserijalizacija("../../../json/pacijenti.json");
