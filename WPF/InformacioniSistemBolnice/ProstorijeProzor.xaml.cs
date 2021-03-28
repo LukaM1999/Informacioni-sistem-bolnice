@@ -57,5 +57,15 @@ namespace InformacioniSistemBolnice
             }
         }
 
+        private void izmeniProstorijuDugme_Click(object sender, RoutedEventArgs e)
+        {
+            if (ListaProstorija.SelectedValue != null)
+            {
+                ProstorijaFormaIzmeni pf = new ProstorijaFormaIzmeni(ListaProstorija);
+                Prostorija pr = (Prostorija)ListaProstorija.SelectedValue;
+                pf.SetTextBoxValue(pr);
+                pf.Show();
+            }
+        }
     }
 }
