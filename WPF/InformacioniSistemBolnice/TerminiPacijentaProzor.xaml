@@ -5,14 +5,38 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:InformacioniSistemBolnice"
         mc:Ignorable="d"
-        Title="TerminiPacijentaProzor" Height="450" Width="800">
+        Title="TerminiPacijentaProzor" Height="480" Width="360">
     <Canvas>
-        <ListView Height="400" Width="800" Canvas.Top="34">
-            <ListView.View>
-                <GridView>
-                    <GridViewColumn/>
-                </GridView>
-            </ListView.View>
-        </ListView>
+        <TabControl Height="434" Width="332">
+            <TabItem Header="Zakazani termini">
+                <Canvas Margin="0,0,437,0">
+                    <Button x:Name="otkaziButton" Width="70" Height="26" Canvas.Top="10" Canvas.Left="10" Click="otkaziButton_Click">Otkazi</Button>
+                    <Button x:Name="pomeriButton" Width="70" Height="26" Canvas.Top="10" Canvas.Left="100" Click="pomeriButton_Click">Pomeri</Button>
+                    <Button x:Name="prikazButton" Width="70" Height="26" Canvas.Top="10" Canvas.Left="190">Prikaz</Button>
+                    <ListView x:Name="listaZakazanihTermina" Height="365" Width="330" Canvas.Top="41">
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn/>
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+
+                </Canvas>
+            </TabItem>
+            <TabItem Header="Slobodni termini">
+                <Canvas>
+                    <Button x:Name="zakaziButton" Width="70" Height="26" Canvas.Top="10" Canvas.Left="201" Click="zakaziButton_Click">Zakazi</Button>
+                    <ComboBox x:Name="datumComboBox" Width="153" Height="26" Canvas.Top="10" Canvas.Left="10"></ComboBox>
+                    <ListView x:Name="listaSlobodnihTermina" Height="365" Width="330" Canvas.Top="41">
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn/>
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+
+                </Canvas>
+            </TabItem>
+        </TabControl>
     </Canvas>
 </Window>

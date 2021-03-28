@@ -64,3 +64,7 @@ C:\Users\PC\Documents\GitHub\Informacioni-sistem-bolnice\WPF\InformacioniSistemB
 C:\Users\PC\Documents\GitHub\Informacioni-sistem-bolnice\WPF\InformacioniSistemBolnice\obj\Debug\net5.0-windows\InformacioniSistemBolnice.genruntimeconfig.cache
 C:\Users\PC\Documents\GitHub\Informacioni-sistem-bolnice\WPF\InformacioniSistemBolnice\obj\Debug\net5.0-windows\RegistracijaPacijentaForma.g.cs
 C:\Users\PC\Documents\GitHub\Informacioni-sistem-bolnice\WPF\InformacioniSistemBolnice\obj\Debug\net5.0-windows\RegistracijaPacijentaForma.baml
+D:\Informacioni-sistem-bolnice\WPF\InformacioniSistemBolnice\obj\Debug\net5.0-windows\PacijentiProzor.g.cs
+D:\Informacioni-sistem-bolnice\WPF\InformacioniSistemBolnice\obj\Debug\net5.0-windows\RegistracijaPacijentaForma.g.cs
+D:\Informacioni-sistem-bolnice\WPF\InformacioniSistemBolnice\obj\Debug\net5.0-windows\PacijentiProzor.baml
+D:\Informacioni-sistem-bolnice\WPF\InformacioniSistemBolnice\obj\Debug\net5.0-windows\RegistracijaPacijentaForma.baml

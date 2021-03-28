@@ -2,12 +2,20 @@ using System;
 using Model;
 using System.IO;
 using Newtonsoft.Json;
+using System.Collections.ObjectModel;
 
 namespace RadSaDatotekama
 {
     public class Termini : RadSaDatotekama
     {
-        public System.Collections.Generic.List<Termin> listaTermina
+        private static readonly Lazy<Termini>
+            lazy =
+            new Lazy<Termini>
+                (() => new Termini());
+
+        public static Termini Instance { get { return lazy.Value; } }
+
+        public ObservableCollection<Termin> listaTermina
         {
             get;
             set;
@@ -15,7 +23,7 @@ namespace RadSaDatotekama
 
         public void Deserijalizacija(string putanja)
         {
-            listaTermina = JsonConvert.DeserializeObject<System.Collections.Generic.List<Termin>>(File.ReadAllText(putanja));
+            listaTermina = JsonConvert.DeserializeObject<ObservableCollection<Termin>>(File.ReadAllText(putanja));
         }
 
         public void Serijalizacija(string putanja)
@@ -26,7 +34,7 @@ namespace RadSaDatotekama
 
         public Termini()
         {
-            listaTermina = new System.Collections.Generic.List<Termin>();
+            listaTermina = new ObservableCollection<Termin>();
         }
 
     }

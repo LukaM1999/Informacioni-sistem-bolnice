@@ -85,7 +85,7 @@ namespace InformacioniSistemBolnice {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/InformacioniSistemBolnice;V1.0.0.0;component/pacijentiprozor.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/InformacioniSistemBolnice;component/pacijentiprozor.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\PacijentiProzor.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

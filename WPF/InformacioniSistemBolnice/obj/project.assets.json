@@ -48,19 +48,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\PC\\.nuget\\packages\\": {}
+    "C:\\Users\\Luka\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\PC\\Documents\\GitHub\\Informacioni-sistem-bolnice\\WPF\\InformacioniSistemBolnice\\InformacioniSistemBolnice.csproj",
+      "projectUniqueName": "D:\\Informacioni-sistem-bolnice\\WPF\\InformacioniSistemBolnice\\InformacioniSistemBolnice.csproj",
       "projectName": "InformacioniSistemBolnice",
-      "projectPath": "C:\\Users\\PC\\Documents\\GitHub\\Informacioni-sistem-bolnice\\WPF\\InformacioniSistemBolnice\\InformacioniSistemBolnice.csproj",
-      "packagesPath": "C:\\Users\\PC\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\PC\\Documents\\GitHub\\Informacioni-sistem-bolnice\\WPF\\InformacioniSistemBolnice\\obj\\",
+      "projectPath": "D:\\Informacioni-sistem-bolnice\\WPF\\InformacioniSistemBolnice\\InformacioniSistemBolnice.csproj",
+      "packagesPath": "C:\\Users\\Luka\\.nuget\\packages\\",
+      "outputPath": "D:\\Informacioni-sistem-bolnice\\WPF\\InformacioniSistemBolnice\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\PC\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Luka\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

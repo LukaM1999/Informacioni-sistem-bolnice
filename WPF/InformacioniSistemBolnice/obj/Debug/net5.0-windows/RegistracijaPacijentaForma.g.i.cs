@@ -133,7 +133,7 @@ namespace InformacioniSistemBolnice {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/InformacioniSistemBolnice;V1.0.0.0;component/registracijapacijentaforma.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/InformacioniSistemBolnice;component/registracijapacijentaforma.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\RegistracijaPacijentaForma.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);
