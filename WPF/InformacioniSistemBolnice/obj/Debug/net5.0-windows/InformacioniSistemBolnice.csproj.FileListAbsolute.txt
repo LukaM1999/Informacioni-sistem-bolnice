@@ -70,3 +70,5 @@ D:\Informacioni-sistem-bolnice\WPF\InformacioniSistemBolnice\obj\Debug\net5.0-wi
 D:\Informacioni-sistem-bolnice\WPF\InformacioniSistemBolnice\obj\Debug\net5.0-windows\RegistracijaPacijentaForma.baml
 D:\Informacioni-sistem-bolnice\WPF\InformacioniSistemBolnice\obj\Debug\net5.0-windows\IzmenaNalogaPacijentaForma.g.cs
 D:\Informacioni-sistem-bolnice\WPF\InformacioniSistemBolnice\obj\Debug\net5.0-windows\IzmenaNalogaPacijentaForma.baml
+D:\Informacioni-sistem-bolnice\WPF\InformacioniSistemBolnice\obj\Debug\net5.0-windows\ProstorijaFormaIzmeni.g.cs
+D:\Informacioni-sistem-bolnice\WPF\InformacioniSistemBolnice\obj\Debug\net5.0-windows\ProstorijaFormaIzmeni.baml

@@ -28,9 +28,9 @@ namespace Model
         public Termin(DateTime dt, double tr, TipTermina tip, StatusTermina s)
         {
             vreme = dt;
-            tr = trajanje;
-            tip = tipTermina;
-            s = status;
+            trajanje = tr;
+            tipTermina = tip;
+            status = s;
         }
 
         public Termin()

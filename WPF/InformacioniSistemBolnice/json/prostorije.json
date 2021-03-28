@@ -8,16 +8,9 @@
   },
   {
     "termin": null,
-    "sprat": 321,
-    "id": "3da",
-    "jeZauzeta": false,
-    "tip": 5
-  },
-  {
-    "termin": null,
     "sprat": 23,
     "id": "kkjkk",
     "jeZauzeta": true,
-    "tip": 1
+    "tip": 3
   }
 ]
