@@ -28,11 +28,14 @@ namespace InformacioniSistemBolnice
 
         private void potvrdiDugme_Click(object sender, RoutedEventArgs e)
         {
-            Pacijent p = new Pacijent(new Osoba(imeUnos.Text, prezimeUnos.Text, JMBGUnos.Text, DateTime.Parse(datumUnos.Text), telUnos.Text, mailUnos.Text, 
-                new Korisnik(korisnikUnos.Text, lozinkaUnos.Text, (Model.UlogaKorisnika)Enum.Parse(typeof(UlogaKorisnika), tipUnosa.Text))));
+            DateTime datum = DateTime.Parse(datumUnos.Text);
+            Pacijent p = new Pacijent(new Osoba(imeUnos.Text, prezimeUnos.Text, JMBGUnos.Text, datum, telUnos.Text, mailUnos.Text, 
+                new Korisnik(korisnikUnos.Text, lozinkaUnos.Text, (Model.UlogaKorisnika)Enum.Parse(typeof(UlogaKorisnika), "pacijent"))));
+            System.Diagnostics.Debug.Print(datumUnos.Text);
             Pacijenti.Instance.listaPacijenata.Add(p);
-            Pacijenti.Instance.Serijalizacija("pacijenti.json");
-            this.Visibility = Visibility.Hidden;
+            Pacijenti.Instance.Serijalizacija("../../../json/pacijenti.json");
+            this.Close();
+
 
 
 

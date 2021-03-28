@@ -4,41 +4,90 @@ namespace Model
 {
     public class Osoba
     {
-        public string ime
+
+        public string ime;
+
+        public string ImeOsobe
         {
-            get;
-            set;
+            get
+            {
+                return ime;
+            }
+            set
+            {
+                ime = value;
+            }
            
         }
 
-        public string prezime
+        public string prezime;
+
+        public string PrezimeOsobe
         {
-            get;
-            set;
+            get
+            {
+                return prezime;
+            }
+            set
+            {
+                prezime = value;
+            }
         }
 
-        public string jmbg
+        public string jmbg;
+
+        public string JMBGOsobe
         {
-            get;
-            set;
+            get
+            {
+                return jmbg;
+            }
+            set
+            {
+                jmbg = value;
+            }
         }
 
-        public DateTime datumRodjenja
+        public DateTime datumRodjenja;
+
+        public DateTime DatumRodjenjaOsobe
         {
-            get;
-            set;
+            get
+            {
+                return datumRodjenja;
+            }
+            set
+            {
+                datumRodjenja = value;
+            }
         }
 
-        public string telefon
+        public string telefon;
+
+        public string TelefonOsobe
         {
-            get;
-            set;
+            get
+            {
+                return telefon;
+            }
+            set
+            {
+                telefon = value;
+            }
         }
 
-        public string email
+        public string email;
+
+        public string EmailOsobe
         {
-            get;
-            set;
+            get
+            {
+                return email;
+            }
+            set
+            {
+                email = value;
+            }
         }
 
         public Osoba()

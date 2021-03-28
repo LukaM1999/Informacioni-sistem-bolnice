@@ -18,7 +18,8 @@
         </StackPanel>
         <Canvas x:Name="RukovanjePacijentima" Margin="0,0,0,439">
             <Button x:Name="registrujPacijentaDugme" Content="Registruj" Canvas.Left="10" Canvas.Top="13" Width="55" Click="registrujPacijentaDugme_Click"/>
-            <Button x:Name="obrisiPacijentaDugme" Content="Obrisi" Canvas.Left="83" Canvas.Top="13" Width="50"/>
+            <Button x:Name="obrisiPacijentaDugme" Content="Obrisi" Canvas.Left="83" Canvas.Top="13" Width="55"/>
+            <Button x:Name="izmeniPacijentaDugme" Content="Izmeni" Canvas.Left="156" Canvas.Top="13" Width="55" Click="izmeniPacijentaDugme_Click"/>
         </Canvas>
 
     </Grid>

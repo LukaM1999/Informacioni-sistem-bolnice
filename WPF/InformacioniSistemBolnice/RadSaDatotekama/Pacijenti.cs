@@ -22,7 +22,7 @@ namespace RadSaDatotekama
 
         public void Deserijalizacija(string putanja)
         {
-            listaPacijenata = JsonConvert.DeserializeObject < ObservableCollection<Pacijent>>(File.ReadAllText(putanja));
+            listaPacijenata = JsonConvert.DeserializeObject <ObservableCollection<Pacijent>>(File.ReadAllText(putanja));
         }
 
         public void Serijalizacija(string putanja)

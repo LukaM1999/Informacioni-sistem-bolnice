@@ -1,0 +1,98 @@
+[
+  {
+    "zdravstveniKarton": null,
+    "termin": null,
+    "ime": "kris",
+    "prezime": "tam",
+    "jmbg": "0101001",
+    "datumRodjenja": "0001-01-01T00:00:00",
+    "telefon": "01010",
+    "email": "lalalla",
+    "korisnik": {
+      "korisnickoIme": "lolo",
+      "lozinka": "lallala",
+      "uloga": 2,
+      "KorisnickoIme": "lolo",
+      "Lozinka": "lallala",
+      "Uloga": 2
+    },
+    "ImeOsobe": "kris",
+    "PrezimeOsobe": "tam",
+    "JMBGOsobe": "0101001",
+    "DatumRodjenjaOsobe": "0001-01-01T00:00:00",
+    "TelefonOsobe": "01010",
+    "EmailOsobe": "lalalla"
+  },
+  {
+    "zdravstveniKarton": null,
+    "termin": null,
+    "ime": "nema",
+    "prezime": "mama",
+    "jmbg": "12133",
+    "datumRodjenja": "0001-01-01T00:00:00",
+    "telefon": "010010",
+    "email": "kakaka",
+    "korisnik": {
+      "korisnickoIme": "jama",
+      "lozinka": "lalalalala",
+      "uloga": 0,
+      "KorisnickoIme": "jama",
+      "Lozinka": "lalalalala",
+      "Uloga": 0
+    },
+    "ImeOsobe": "nema",
+    "PrezimeOsobe": "mama",
+    "JMBGOsobe": "12133",
+    "DatumRodjenjaOsobe": "0001-01-01T00:00:00",
+    "TelefonOsobe": "010010",
+    "EmailOsobe": "kakaka"
+  },
+  {
+    "zdravstveniKarton": null,
+    "termin": null,
+    "ime": "lknxezkfxn",
+    "prezime": "lalalla",
+    "jmbg": "lallalal12.1",
+    "datumRodjenja": "0001-01-01T00:00:00",
+    "telefon": "019191",
+    "email": "lalal",
+    "korisnik": {
+      "korisnickoIme": "majaaaaaa",
+      "lozinka": "maja",
+      "uloga": 1,
+      "KorisnickoIme": "majaaaaaa",
+      "Lozinka": "maja",
+      "Uloga": 1
+    },
+    "ImeOsobe": "lknxezkfxn",
+    "PrezimeOsobe": "lalalla",
+    "JMBGOsobe": "lallalal12.1",
+    "DatumRodjenjaOsobe": "0001-01-01T00:00:00",
+    "TelefonOsobe": "019191",
+    "EmailOsobe": "lalal"
+  },
+  {
+    "zdravstveniKarton": null,
+    "termin": null,
+    "ime": "aeiofjoaiej",
+    "prezime": "oesfjiefmi",
+    "jmbg": "12344343413",
+    "datumRodjenja": "0001-01-01T00:00:00",
+    "telefon": "329857329842",
+    "email": "lol@knsjkfns",
+    "korisnik": {
+      "korisnickoIme": "panj99",
+      "lozinka": "pfffff",
+      "uloga": 2,
+      "KorisnickoIme": "panj99",
+      "Lozinka": "pfffff",
+      "Uloga": 2
+    },
+    "ImeOsobe": "aeiofjoaiej",
+    "PrezimeOsobe": "oesfjiefmi",
+    "JMBGOsobe": "12344343413",
+    "DatumRodjenjaOsobe": "0001-01-01T00:00:00",
+    "TelefonOsobe": "329857329842",
+    "EmailOsobe": "lol@knsjkfns"
+  }
+]
