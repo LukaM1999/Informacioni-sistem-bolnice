@@ -1,0 +1,20 @@
+[
+  {
+    "vreme": "2021-04-02T08:00:00",
+    "trajanje": 30.0,
+    "tipTermina": 1,
+    "status": 3,
+    "pacijent": null,
+    "lekar": null,
+    "prostorija": null
+  },
+  {
+    "vreme": "2021-04-02T08:30:00",
+    "trajanje": 30.0,
+    "tipTermina": 1,
+    "status": 3,
+    "pacijent": null,
+    "lekar": null,
+    "prostorija": null
+  }
+]

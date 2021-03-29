@@ -22,7 +22,7 @@ namespace Logika
             Termin t = (Termin)listaSlobodnihTermina.SelectedValue;
             terminIndeks.Add(t, listaSlobodnihTermina.SelectedIndex);
             t.status = StatusTermina.zakazan;
-            Termini.Instance.Serijalizacija("../../../json/slobodniTerminiPacijenta");
+            Termini.Instance.Serijalizacija("../../../json/slobodniTerminiPacijenta.json");
             listaZakazanihTermina.Items.Add(t);
         }
 

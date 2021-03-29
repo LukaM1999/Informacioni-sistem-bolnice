@@ -36,7 +36,8 @@ namespace InformacioniSistemBolnice
 
         private void registrujPacijentaDugme_Click(object sender, RoutedEventArgs e)
         {
-            UpravljanjeNalozimaPacijenata.Instance.KreiranjeNaloga();
+            RegistracijaPacijentaForma rP = new RegistracijaPacijentaForma();
+            rP.Show();
         }
 
         private void izmeniPacijentaDugme_Click(object sender, RoutedEventArgs e)

@@ -16,12 +16,12 @@ namespace Logika
 
         public static UpravljanjeNalozimaPacijenata Instance { get { return lazy.Value; } }
 
-        public void KreiranjeNaloga()
+        public void KreiranjeNaloga(Pacijent p)
       {
-            RegistracijaPacijentaForma rP = new RegistracijaPacijentaForma();
-            rP.Show();
-           
-      }
+            Pacijenti.Instance.listaPacijenata.Add(p);
+            Pacijenti.Instance.Serijalizacija("../../../json/pacijenti.json");
+
+        }
       
       public void UklanjanjeNaloga(ListView ListaPacijenata)
       {

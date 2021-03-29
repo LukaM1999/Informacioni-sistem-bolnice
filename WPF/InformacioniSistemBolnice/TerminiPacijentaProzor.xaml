@@ -5,38 +5,18 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:InformacioniSistemBolnice"
         mc:Ignorable="d"
-        Title="TerminiPacijentaProzor" Height="480" Width="360">
+        Title="TerminiPacijentaProzor" Height="480" Width="391">
     <Canvas>
-        <TabControl Height="434" Width="332">
-            <TabItem Header="Zakazani termini">
-                <Canvas Margin="0,0,437,0">
-                    <Button x:Name="otkaziButton" Width="70" Height="26" Canvas.Top="10" Canvas.Left="10" Click="otkaziButton_Click">Otkazi</Button>
-                    <Button x:Name="pomeriButton" Width="70" Height="26" Canvas.Top="10" Canvas.Left="100" Click="pomeriButton_Click">Pomeri</Button>
-                    <Button x:Name="prikazButton" Width="70" Height="26" Canvas.Top="10" Canvas.Left="190">Prikaz</Button>
-                    <ListView x:Name="listaZakazanihTermina" Height="365" Width="330" Canvas.Top="41">
-                        <ListView.View>
-                            <GridView>
-                                <GridViewColumn/>
-                            </GridView>
-                        </ListView.View>
-                    </ListView>
-
-                </Canvas>
-            </TabItem>
-            <TabItem Header="Slobodni termini">
-                <Canvas>
-                    <Button x:Name="zakaziButton" Width="70" Height="26" Canvas.Top="10" Canvas.Left="201" Click="zakaziButton_Click">Zakazi</Button>
-                    <ComboBox x:Name="datumComboBox" Width="153" Height="26" Canvas.Top="10" Canvas.Left="10"></ComboBox>
-                    <ListView x:Name="listaSlobodnihTermina" Height="365" Width="330" Canvas.Top="41">
-                        <ListView.View>
-                            <GridView>
-                                <GridViewColumn/>
-                            </GridView>
-                        </ListView.View>
-                    </ListView>
-
-                </Canvas>
-            </TabItem>
-        </TabControl>
+        <ListView x:Name="listaZakazanihTermina" Height="405" Width="391" Canvas.Top="59">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Button x:Name="zakaziDugme" Canvas.Left="26" Canvas.Top="19" Width="64" Click="zakaziDugme_Click">Zakazi</Button>
+        <Button x:Name="otkaziDugme" Canvas.Left="116" Canvas.Top="19" Width="64" Content="Otkazi" Click="otkaziDugme_Click"/>
+        <Button x:Name="pomeriDugme" Canvas.Left="206" Canvas.Top="19" Width="64" Content="Pomeri" Click="pomeriDugme_Click"/>
+        <Button x:Name="infoDugme" Canvas.Left="297" Canvas.Top="19" Width="64" Content="Info" Click="infoDugme_Click"/>
     </Canvas>
 </Window>

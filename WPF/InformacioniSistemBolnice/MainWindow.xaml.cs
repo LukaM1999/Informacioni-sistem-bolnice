@@ -45,22 +45,8 @@ namespace InformacioniSistemBolnice
         private void pacijentButton_Click(object sender, RoutedEventArgs e)
         {
             TerminiPacijentaProzor tpp = new TerminiPacijentaProzor();
-            
-            DateTime datum = DateTime.Parse("29/03/2021 7:00");
-            for (int i = 0; i < 7; i++)
-            {
-                for (int j = 0; j < 27; j++)
-                {
-                    Termini.Instance.listaTermina.Add(new Termin(datum, 30, TipTermina.pregled, StatusTermina.slobodan));
-                    datum = datum.AddMinutes(30);
-                }
-                datum = datum.AddHours(10.5);
-            }
-            
-            Termini.Instance.Serijalizacija("../../../json/slobodniTerminiPacijenta.json");
-            
             tpp.Show();
-            
+
 
         }
     }

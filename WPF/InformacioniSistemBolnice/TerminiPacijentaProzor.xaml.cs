@@ -28,30 +28,45 @@ namespace InformacioniSistemBolnice
         {
             InitializeComponent();
 
-            Termini.Instance.Deserijalizacija("../../../json/slobodniTerminiPacijenta.json");
-            listaSlobodnihTermina.ItemsSource = Termini.Instance.listaTermina;
-            
-            
+            Termini.Instance.Deserijalizacija("../../../json/zakazaniTermini.json");
+            listaZakazanihTermina.ItemsSource = Termini.Instance.listaTermina;
+
+
         }
 
-        private void otkaziButton_Click(object sender, RoutedEventArgs e)
+        private void pomeriDugme_Click(object sender, RoutedEventArgs e)
         {
-            UpravljanjeTerminimaPacijenata.Instance.Otkazivanje(listaZakazanihTermina);
+            if (listaZakazanihTermina.SelectedIndex >= 0)
+            {
+                PomeranjeTerminaPacijentaProzor pomeranje = new PomeranjeTerminaPacijentaProzor(listaZakazanihTermina);
+                pomeranje.Show();
+            }
         }
-        private void pomeriButton_Click(object sender, RoutedEventArgs e)
+
+
+        private void zakaziDugme_Click(object sender, RoutedEventArgs e)
         {
-
+            ZakazivanjeTerminaPacijentaProzor zakazivanjeProzor = new ZakazivanjeTerminaPacijentaProzor();
+            zakazivanjeProzor.Show();
         }
 
-        private void prikazButton_Click(object sender, RoutedEventArgs e)
+        private void otkaziDugme_Click(object sender, RoutedEventArgs e)
         {
-          
+            if (listaZakazanihTermina.SelectedIndex >= 0)
+            {
+                Termin t = (Termin)listaZakazanihTermina.SelectedValue;
+                Termini.Instance.listaTermina.Remove(t);
+                Termini.Instance.Serijalizacija("../../../json/zakazaniTermini.json");
+            }
         }
 
-        private void zakaziButton_Click(object sender, RoutedEventArgs e)
+        private void infoDugme_Click(object sender, RoutedEventArgs e)
         {
-            UpravljanjeTerminimaPacijenata.Instance.Zakazivanje(listaZakazanihTermina, listaSlobodnihTermina);
+            if (listaZakazanihTermina.SelectedIndex >= 0)
+            {
+                TerminInfoProzor terminInfo = new TerminInfoProzor(listaZakazanihTermina);
+                terminInfo.Show();
+            }
         }
-
     }
 }

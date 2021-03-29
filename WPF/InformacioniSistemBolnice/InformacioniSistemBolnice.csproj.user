@@ -13,6 +13,9 @@
     <Compile Update="PacijentiProzor.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="PomeranjeTerminaPacijentaProzor.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="ProstorijaForma.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -25,7 +28,13 @@
     <Compile Update="RegistracijaPacijentaForma.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="TerminInfoProzor.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="TerminiPacijentaProzor.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="ZakazivanjeTerminaPacijentaProzor.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
@@ -37,6 +46,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="PacijentiProzor.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="PomeranjeTerminaPacijentaProzor.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="ProstorijaForma.xaml">
@@ -51,7 +63,13 @@
     <Page Update="RegistracijaPacijentaForma.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="TerminInfoProzor.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="TerminiPacijentaProzor.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="ZakazivanjeTerminaPacijentaProzor.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

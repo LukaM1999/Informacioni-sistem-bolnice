@@ -6,7 +6,6 @@ namespace Model
    {
       public Lekar()
       {
-         throw new NotImplementedException();
       }
       
       public Termin[] termin;
