@@ -16,5 +16,14 @@
     "pacijent": null,
     "lekar": null,
     "prostorija": null
+  },
+  {
+    "vreme": "2021-04-30T09:30:00",
+    "trajanje": 30.0,
+    "tipTermina": 1,
+    "status": 0,
+    "pacijent": null,
+    "lekar": null,
+    "prostorija": null
   }
 ]

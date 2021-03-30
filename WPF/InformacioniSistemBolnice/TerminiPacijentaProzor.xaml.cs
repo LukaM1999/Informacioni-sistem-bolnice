@@ -15,6 +15,7 @@ using RadSaDatotekama;
 using Model;
 using System.Collections.ObjectModel;
 using Logika;
+using InformacioniSistemBolnice;
 
 namespace InformacioniSistemBolnice
 {
@@ -52,21 +53,12 @@ namespace InformacioniSistemBolnice
 
         private void otkaziDugme_Click(object sender, RoutedEventArgs e)
         {
-            if (listaZakazanihTermina.SelectedIndex >= 0)
-            {
-                Termin t = (Termin)listaZakazanihTermina.SelectedValue;
-                Termini.Instance.listaTermina.Remove(t);
-                Termini.Instance.Serijalizacija("../../../json/zakazaniTermini.json");
-            }
+            UpravljanjeTerminimaPacijenata.Instance.Otkazivanje(listaZakazanihTermina);
         }
 
         private void infoDugme_Click(object sender, RoutedEventArgs e)
         {
-            if (listaZakazanihTermina.SelectedIndex >= 0)
-            {
-                TerminInfoProzor terminInfo = new TerminInfoProzor(listaZakazanihTermina);
-                terminInfo.Show();
-            }
+            UpravljanjeTerminimaPacijenata.Instance.Uvid(listaZakazanihTermina);
         }
     }
 }

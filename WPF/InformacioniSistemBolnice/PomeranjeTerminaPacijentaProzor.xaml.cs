@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Model;
 using RadSaDatotekama;
+using Logika;
 
 namespace InformacioniSistemBolnice
 {
@@ -42,38 +43,7 @@ namespace InformacioniSistemBolnice
 
         private void potvrdaPomeranjaDugme_Click(object sender, RoutedEventArgs e)
         {
-            if (listaSati.SelectedIndex >= 0 && datumTermina.SelectedDate != null)
-            {
-                DateTime datumTermina = (DateTime)this.datumTermina.SelectedDate;
-                string datumVrednost = (string)listaSati.SelectedValue;
-                string[] satiMinuti = datumVrednost.Split(":");
-                double sat = double.Parse(satiMinuti[0]);
-                if (satiMinuti[1].Equals("30"))
-                {
-                    sat += 0.5;
-                }
-
-                datumTermina = datumTermina.AddHours(sat);
-
-                foreach (Termin t in Termini.Instance.listaTermina)
-                {
-                    if (t.vreme == datumTermina)
-                    {
-                        return;
-                    }
-                }
-
-                zakazanTermin.vreme = datumTermina;
-                zakazanTermin.status = StatusTermina.pomeren;
-                
-              
-                Termini.Instance.Serijalizacija("../../../json/zakazaniTermini.json");
-                Termini.Instance.Deserijalizacija("../../../json/zakazaniTermini.json");
-           
-                zakazaniTermini.ItemsSource = Termini.Instance.listaTermina;
-                this.Close();
-
-            }
+            UpravljanjeTerminimaPacijenata.Instance.Pomeranje(this, zakazaniTermini, zakazanTermin);
         }
     }
 }
