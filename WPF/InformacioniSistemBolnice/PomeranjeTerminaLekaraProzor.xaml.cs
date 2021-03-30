@@ -11,20 +11,21 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using RadSaDatotekama;
 using Model;
+using RadSaDatotekama;
 
 namespace InformacioniSistemBolnice
 {
     /// <summary>
-    /// Interaction logic for ZakazivanjeTerminaPacijentaProzor.xaml
+    /// Interaction logic for PomeranjeTerminaLekaraProzor.xaml
     /// </summary>
-    public partial class ZakazivanjeTerminaPacijentaProzor : Window
+    public partial class PomeranjeTerminaLekaraProzor : Window
     {
-
+        public Termin zakazanTermin;
         public List<string> listaDatuma = new List<string>();
+        public ListView zakazaniTermini;
+        public PomeranjeTerminaLekaraProzor(ListView zakazaniTermini)
 
-        public ZakazivanjeTerminaPacijentaProzor()
         {
             InitializeComponent();
             DateTime datum = DateTime.Parse("7:00");
@@ -34,13 +35,12 @@ namespace InformacioniSistemBolnice
                 listaDatuma.Add(datum.ToString("HH:mm"));
                 datum = datum.AddMinutes(30);
             }
-
             listaSati.ItemsSource = listaDatuma;
-           
-
+            this.zakazaniTermini = zakazaniTermini;
+            zakazanTermin = (Termin)zakazaniTermini.SelectedItem;
         }
 
-        private void potvrdaZakazivanjaDugme_Click(object sender, RoutedEventArgs e)
+        private void potvrdaPomeranjaDugme_Click(object sender, RoutedEventArgs e)
         {
             if (listaSati.SelectedIndex >= 0 && datumTermina.SelectedDate != null)
             {
@@ -54,6 +54,7 @@ namespace InformacioniSistemBolnice
                 }
 
                 datumTermina = datumTermina.AddHours(sat);
+
                 foreach (Termin t in Termini.Instance.listaTermina)
                 {
                     if (t.vreme == datumTermina)
@@ -62,10 +63,16 @@ namespace InformacioniSistemBolnice
                     }
                 }
 
-                Termin zakazanTermin = new Termin(datumTermina, 30, TipTermina.pregled, StatusTermina.zakazan);
-                Termini.Instance.listaTermina.Add(zakazanTermin);
+                zakazanTermin.vreme = datumTermina;
+                zakazanTermin.status = StatusTermina.pomeren;
+                
+              
                 Termini.Instance.Serijalizacija("../../../json/zakazaniTermini.json");
+                Termini.Instance.Deserijalizacija("../../../json/zakazaniTermini.json");
+           
+                zakazaniTermini.ItemsSource = Termini.Instance.listaTermina;
                 this.Close();
+
             }
         }
     }

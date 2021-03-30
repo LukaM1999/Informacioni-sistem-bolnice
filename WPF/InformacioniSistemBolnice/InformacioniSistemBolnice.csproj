@@ -10,4 +10,31 @@
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Compile Update="PomeranjeTerminaLekaraProzor.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="TerminiLekaraProzor.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="ZakazivanjeTerminaLekaraProzor.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Page Update="PomeranjeTerminaLekaraProzor.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="TerminiLekaraProzor.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="ZakazivanjeTerminaLekaraProzor.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+
 </Project>

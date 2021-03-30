@@ -17,14 +17,14 @@ using Model;
 namespace InformacioniSistemBolnice
 {
     /// <summary>
-    /// Interaction logic for ZakazivanjeTerminaPacijentaProzor.xaml
+    /// Interaction logic for ZakazivanjeTerminaLekaraProzor.xaml
     /// </summary>
-    public partial class ZakazivanjeTerminaPacijentaProzor : Window
+    public partial class ZakazivanjeTerminaLekaraProzor : Window
     {
 
         public List<string> listaDatuma = new List<string>();
 
-        public ZakazivanjeTerminaPacijentaProzor()
+        public ZakazivanjeTerminaLekaraProzor()
         {
             InitializeComponent();
             DateTime datum = DateTime.Parse("7:00");

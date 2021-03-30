@@ -7,8 +7,17 @@ namespace Model
       public Lekar()
       {
       }
-      
-      public Termin[] termin;
+   public Lekar(Osoba o)
+   {
+        this.ime = o.ime;
+        this.prezime = o.prezime;
+        this.jmbg = o.jmbg;
+        this.telefon = o.telefon;
+        this.email = o.email;
+        this.korisnik = o.korisnik;
+   }
+
+        public Termin[] termin;
    
    }
 }

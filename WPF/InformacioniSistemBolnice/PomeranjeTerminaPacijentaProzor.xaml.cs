@@ -69,6 +69,7 @@ namespace InformacioniSistemBolnice
               
                 Termini.Instance.Serijalizacija("../../../json/zakazaniTermini.json");
                 Termini.Instance.Deserijalizacija("../../../json/zakazaniTermini.json");
+           
                 zakazaniTermini.ItemsSource = Termini.Instance.listaTermina;
                 this.Close();
 

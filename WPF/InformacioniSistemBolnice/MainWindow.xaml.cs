@@ -49,5 +49,11 @@ namespace InformacioniSistemBolnice
 
 
         }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            TerminiLekaraProzor terminiLekara = new TerminiLekaraProzor();
+            terminiLekara.Show();
+        }
     }
 }
