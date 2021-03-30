@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Model;
+using Logika;
 using RadSaDatotekama;
 
 namespace InformacioniSistemBolnice
@@ -51,19 +52,7 @@ namespace InformacioniSistemBolnice
         private void potvrdaIzmeneDugme_Click(object sender, RoutedEventArgs e)
         {
             Prostorija p = (Prostorija)l.SelectedValue;
-            p.sprat = Int32.Parse(tb1.Text);
-            p.tip = (TipProstorije)Enum.Parse(typeof(TipProstorije), tipIzmena.Text, true);
-            p.id = tb2.Text;
-            if (rb1.IsChecked == true)
-            {
-                p.jeZauzeta = true;
-            }
-            else
-            {
-                p.jeZauzeta = false;
-            }
-            Prostorije.Instance.Serijalizacija("../../../json/prostorije.json");
-            Prostorije.Instance.Deserijalizacija("../../../json/prostorije.json");
+            UpravljanjeProstorijama.Instance.IzmenaProstorije(this, p);
             l.ItemsSource = Prostorije.Instance.listaProstorija;
             this.Close();
 

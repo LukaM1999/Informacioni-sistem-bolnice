@@ -1,0 +1,19 @@
+﻿<Window x:Class="InformacioniSistemBolnice.ProstorijaInfoForma"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:InformacioniSistemBolnice"
+        mc:Ignorable="d"
+        Title="ProstorijaInfoForma" Height="389" Width="470">
+    <Grid>
+        <Label x:Name="labSprat" Content="Sprat:" HorizontalAlignment="Left" Margin="61,43,0,0" VerticalAlignment="Top" Height="32" Width="108"/>
+        <Label x:Name="labId2" Content="" HorizontalAlignment="Left" Margin="235,167,0,0" VerticalAlignment="Top" Height="32" Width="107"/>
+        <Label x:Name="labTip2" Content="" HorizontalAlignment="Left" Margin="235,101,0,0" VerticalAlignment="Top" Height="32" Width="175"/>
+        <Label x:Name="labSprat2" Content="" HorizontalAlignment="Left" Margin="235,43,0,0" VerticalAlignment="Top" Height="32" Width="107"/>
+        <Label x:Name="labId" Content="Id:" HorizontalAlignment="Left" Margin="61,169,0,0" VerticalAlignment="Top" Height="32" Width="107"/>
+        <Label x:Name="labTip" Content="Tip:" HorizontalAlignment="Left" Margin="61,101,0,0" VerticalAlignment="Top" Height="32" Width="107"/>
+        <Label x:Name="labZauzetost" Content="" HorizontalAlignment="Left" Margin="128,234,0,0" VerticalAlignment="Top" Height="32" Width="160"/>
+
+    </Grid>
+</Window>

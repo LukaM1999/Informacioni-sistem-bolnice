@@ -1,23 +1,16 @@
 [
   {
     "termin": null,
-    "sprat": 332,
+    "sprat": 5,
     "id": "K1asda",
-    "jeZauzeta": true,
-    "tip": 2
-  },
-  {
-    "termin": null,
-    "sprat": 23,
-    "id": "kkjkk",
-    "jeZauzeta": true,
+    "jeZauzeta": false,
     "tip": 3
   },
   {
     "termin": null,
-    "sprat": 6,
-    "id": "P1",
-    "jeZauzeta": false,
-    "tip": 1
+    "sprat": 5,
+    "id": "ddr5",
+    "jeZauzeta": true,
+    "tip": 0
   }
 ]

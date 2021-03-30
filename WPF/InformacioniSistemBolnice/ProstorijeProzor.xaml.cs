@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Model;
+using Logika;
 using RadSaDatotekama;
 
 namespace InformacioniSistemBolnice
@@ -41,20 +42,7 @@ namespace InformacioniSistemBolnice
 
         private void Obrisi(object sender, RoutedEventArgs e)
         {
-            if (ListaProstorija.SelectedValue != null)
-            {
-                Prostorija pr = (Prostorija)ListaProstorija.SelectedValue;
-                Prostorije prostorije = Prostorije.Instance;
-                foreach (Prostorija p in prostorije.listaProstorija)
-                {
-                    if (p.id.Equals(pr.id))
-                    {
-                        prostorije.listaProstorija.Remove(p);
-                        Prostorije.Instance.Serijalizacija("../../../json/prostorije.json");
-                        break;
-                    }
-                }
-            }
+            UpravljanjeProstorijama.Instance.UklanjanjeProstorije(ListaProstorija);
         }
 
         private void izmeniProstorijuDugme_Click(object sender, RoutedEventArgs e)
@@ -66,6 +54,16 @@ namespace InformacioniSistemBolnice
                 pf.SetTextBoxValue(pr);
                 pf.Show();
             }
+        }
+
+        private void infoDugme_Click(object sender, RoutedEventArgs e)
+        {
+            if (ListaProstorija.SelectedValue != null)
+            {
+                Prostorija pr = (Prostorija)ListaProstorija.SelectedValue;
+                UpravljanjeProstorijama.Instance.PregledProstorije(pr);
+            }
+
         }
     }
 }

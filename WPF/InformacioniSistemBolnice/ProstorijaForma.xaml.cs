@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Model;
+using Logika;
 using RadSaDatotekama;
 
 namespace InformacioniSistemBolnice
@@ -29,10 +30,8 @@ namespace InformacioniSistemBolnice
         private void potvrdiDugme_Click(object sender, RoutedEventArgs e)
         {
 
-            Prostorija novaProstorija = new Prostorija(int.Parse(spratUnos.Text), (TipProstorije) Enum.Parse(typeof(TipProstorije), tipUnos.Text), idUnos.Text, false);
-            Prostorije.Instance.listaProstorija.Add(novaProstorija);
-            Prostorije.Instance.Serijalizacija("../../../json/prostorije.json");
-            this.Visibility = Visibility.Hidden;
+            UpravljanjeProstorijama.Instance.KreiranjeProstorije(this);
+            this.Close();
 
         }
     }

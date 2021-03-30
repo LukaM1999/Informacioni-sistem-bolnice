@@ -22,6 +22,9 @@
     <Compile Update="ProstorijaFormaIzmeni.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="ProstorijaInfoForma.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="ProstorijeProzor.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -61,6 +64,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="ProstorijaFormaIzmeni.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="ProstorijaInfoForma.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="ProstorijeProzor.xaml">
