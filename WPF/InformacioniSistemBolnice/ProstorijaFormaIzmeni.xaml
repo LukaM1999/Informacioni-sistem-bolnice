@@ -4,11 +4,12 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:InformacioniSistemBolnice"
+        xmlns:model="clr-namespace:Model"
         mc:Ignorable="d"
         Title="ProstorijaFormaIzmeni" Height="409" Width="572">
     <Grid Margin="0,0,0,-6">
         <ComboBox x:Name="tipIzmena" Canvas.Left="72" Canvas.Top="75" 
-                    ItemsSource="{Binding Source={local:EnumBindingSource {x:Type local:TipProstorije}}}" Margin="136,85,286,270"/>
+                    ItemsSource="{Binding Source={local:EnumBindingSource {x:Type model:TipProstorije}}}" Margin="136,85,286,270"/>
         <Label Content="Sprat" HorizontalAlignment="Left" Margin="65,34,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.486,0.587" Cursor=""/>
         <Label Content="Tip" HorizontalAlignment="Left" Margin="71,85,0,0" VerticalAlignment="Top"/>
         <Label Content="Id" HorizontalAlignment="Left" Margin="71,130,0,0" VerticalAlignment="Top"/>
