@@ -27,6 +27,18 @@ namespace Logika
             {
                 Prostorija pr = (Prostorija)ListaProstorija.SelectedValue;
                 Prostorije prostorije = Prostorije.Instance;
+
+                foreach(Termin t in Termini.Instance.listaTermina)
+                {
+                    if (t.prostorija.id == pr.id)
+                    {
+                        t.prostorija = null;
+                        Termini.Instance.Serijalizacija("../../../json/zakazaniTermini.json");
+                        Termini.Instance.Deserijalizacija("../../../json/zakazaniTermini.json");
+                    }
+                }
+
+
                 foreach (Prostorija p in prostorije.listaProstorija)
                 {
                     if (p.id.Equals(pr.id))
@@ -41,6 +53,7 @@ namespace Logika
       
       public void IzmenaProstorije(ProstorijaFormaIzmeni izmena, Prostorija p)
       {
+            string stariId = p.id;
             p.sprat = Int32.Parse(izmena.tb1.Text);
             p.tip = (TipProstorije)Enum.Parse(typeof(TipProstorije), izmena.tipIzmena.Text, true);
             p.id = izmena.tb2.Text;
@@ -52,6 +65,20 @@ namespace Logika
             {
                 p.jeZauzeta = false;
             }
+
+            foreach (Termin t in Termini.Instance.listaTermina)
+            {
+                if (t.prostorija != null)
+                {
+                    if (t.prostorija.id == stariId)
+                    {
+                        t.prostorija = p;
+                        Termini.Instance.Serijalizacija("../../../json/zakazaniTermini.json");
+                        Termini.Instance.Deserijalizacija("../../../json/zakazaniTermini.json");
+                    }
+                }
+            }
+
             Prostorije.Instance.Serijalizacija("../../../json/prostorije.json");
             Prostorije.Instance.Deserijalizacija("../../../json/prostorije.json");
         }

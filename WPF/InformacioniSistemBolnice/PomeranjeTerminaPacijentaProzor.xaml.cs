@@ -43,7 +43,7 @@ namespace InformacioniSistemBolnice
 
         private void potvrdaPomeranjaDugme_Click(object sender, RoutedEventArgs e)
         {
-            UpravljanjeTerminimaPacijenata.Instance.Pomeranje(this, zakazaniTermini, zakazanTermin);
+            UpravljanjeTerminimaPacijenata.Instance.Pomeranje(this);
         }
     }
 }

@@ -55,7 +55,7 @@ namespace Logika
             }
         }
 
-        public void Pomeranje(PomeranjeTerminaPacijentaProzor pomeranje, ListView zakazaniTermini, Termin zakazanTermin)
+        public void Pomeranje(PomeranjeTerminaPacijentaProzor pomeranje)
         {
             if (pomeranje.listaSati.SelectedIndex >= 0 && pomeranje.datumTermina.SelectedDate != null)
             {
@@ -78,26 +78,22 @@ namespace Logika
                     }
                 }
 
-
-                zakazanTermin.vreme = datumTermina;
-                zakazanTermin.status = StatusTermina.pomeren;
+                pomeranje.zakazanTermin.vreme = datumTermina;
+                pomeranje.zakazanTermin.status = StatusTermina.pomeren;
 
 
                 Termini.Instance.Serijalizacija("../../../json/zakazaniTermini.json");
                 Termini.Instance.Deserijalizacija("../../../json/zakazaniTermini.json");
 
-                zakazaniTermini.ItemsSource = Termini.Instance.listaTermina;
+                pomeranje.zakazaniTermini.ItemsSource = Termini.Instance.listaTermina;
                 pomeranje.Close();
             }
         }
 
         public void Uvid(ListView listaZakazanihTermina)
         {
-            if (listaZakazanihTermina.SelectedIndex >= 0)
-            {
                 TerminInfoProzor terminInfo = new TerminInfoProzor(listaZakazanihTermina);
                 terminInfo.Show();
-            }
         }
 
     }

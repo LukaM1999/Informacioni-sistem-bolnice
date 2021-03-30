@@ -1,24 +1,6 @@
 [
   {
-    "vreme": "2021-04-07T09:00:00",
-    "trajanje": 30.0,
-    "tipTermina": 1,
-    "status": 3,
-    "pacijent": null,
-    "lekar": null,
-    "prostorija": null
-  },
-  {
-    "vreme": "2021-03-31T08:30:00",
-    "trajanje": 30.0,
-    "tipTermina": 1,
-    "status": 3,
-    "pacijent": null,
-    "lekar": null,
-    "prostorija": null
-  },
-  {
-    "vreme": "2021-04-30T09:30:00",
+    "vreme": "2021-03-31T18:00:00",
     "trajanje": 30.0,
     "tipTermina": 1,
     "status": 0,
@@ -27,48 +9,18 @@
     "prostorija": null
   },
   {
-    "vreme": "2021-04-10T08:30:00",
-    "trajanje": 45.0,
-    "tipTermina": 0,
+    "vreme": "2021-03-31T18:30:00",
+    "trajanje": 30.0,
+    "tipTermina": 1,
     "status": 0,
     "pacijent": null,
     "lekar": null,
     "prostorija": {
       "termin": null,
-      "sprat": 6,
+      "sprat": 2,
       "id": "P1",
       "jeZauzeta": false,
       "tip": 1
-    }
-  },
-  {
-    "vreme": "2021-04-01T16:00:00",
-    "trajanje": 60.0,
-    "tipTermina": 0,
-    "status": 0,
-    "pacijent": null,
-    "lekar": null,
-    "prostorija": {
-      "termin": null,
-      "sprat": 6,
-      "id": "P1",
-      "jeZauzeta": false,
-      "tip": 1
-    }
-  },
-  {
-    "vreme": "2021-04-09T08:30:00",
-    "trajanje": 50.0,
-    "tipTermina": 0,
-    "status": 3,
-    "pacijent": null,
-    "lekar": null,
-    "prostorija": {
-      "termin": null,
-      "sprat": 5,
-      "id": "ddr5",
-      "jeZauzeta": true,
-      "tip": 0
     }
   }
 ]

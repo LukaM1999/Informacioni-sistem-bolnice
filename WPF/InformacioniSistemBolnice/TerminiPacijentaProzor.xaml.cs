@@ -58,7 +58,10 @@ namespace InformacioniSistemBolnice
 
         private void infoDugme_Click(object sender, RoutedEventArgs e)
         {
-            UpravljanjeTerminimaPacijenata.Instance.Uvid(listaZakazanihTermina);
+            if (listaZakazanihTermina.SelectedIndex >= 0)
+            {
+                UpravljanjeTerminimaPacijenata.Instance.Uvid(listaZakazanihTermina);
+            }
         }
     }
 }

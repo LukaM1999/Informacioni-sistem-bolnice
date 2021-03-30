@@ -17,8 +17,6 @@ namespace Logika
 
         public static UpravljanjeTerminimaLekara Instance { get { return lazy.Value; } }
 
-        public Dictionary<Termin, int> terminIndeks = new Dictionary<Termin, int>();
-
         public void Zakazivanje(ZakazivanjeTerminaLekaraProzor zakazivanje)
         {
             if (zakazivanje.listaSati.SelectedIndex >= 0 && zakazivanje.datumTermina.SelectedDate != null)
@@ -44,6 +42,7 @@ namespace Logika
                 Termin zakazanTermin = new Termin(datumTermina, double.Parse(zakazivanje.trajanjeTerminaUnos.Text), 
                     (TipTermina)Enum.Parse(typeof(TipTermina), zakazivanje.tipTerminaUnos.Text), StatusTermina.zakazan);
 
+                
                 foreach (Prostorija p in Prostorije.Instance.listaProstorija)
                 {
                     if (p.id.Equals((string)zakazivanje.sala.SelectedItem))

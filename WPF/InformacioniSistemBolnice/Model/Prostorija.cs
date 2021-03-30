@@ -46,7 +46,7 @@ namespace Model
 
         public override string ToString()
         {
-            return "ID: " + this.id + ", Sprat: " + this.sprat + ", Tip: " + this.tip + ", Zauzeta: " + this.jeZauzeta;
+            return "ID: " + this.id;
         }
 
     }

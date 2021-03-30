@@ -70,29 +70,5 @@
     "DatumRodjenjaOsobe": "2001-03-24T00:00:00",
     "TelefonOsobe": "06366677788",
     "EmailOsobe": "mihajlo@gmail.com"
-  },
-  {
-    "zdravstveniKarton": null,
-    "termin": null,
-    "ime": "aa",
-    "prezime": "allaa",
-    "jmbg": "lalala",
-    "datumRodjenja": "0001-01-01T00:00:00",
-    "telefon": "aa",
-    "email": "aa",
-    "korisnik": {
-      "korisnickoIme": "aaa",
-      "lozinka": "aa",
-      "uloga": 2,
-      "KorisnickoIme": "aaa",
-      "Lozinka": "aa",
-      "Uloga": 2
-    },
-    "ImeOsobe": "aa",
-    "PrezimeOsobe": "allaa",
-    "JMBGOsobe": "lalala",
-    "DatumRodjenjaOsobe": "0001-01-01T00:00:00",
-    "TelefonOsobe": "aa",
-    "EmailOsobe": "aa"
   }
 ]
