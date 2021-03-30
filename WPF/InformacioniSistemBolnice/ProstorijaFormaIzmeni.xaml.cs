@@ -52,7 +52,7 @@ namespace InformacioniSistemBolnice
         {
             Prostorija p = (Prostorija)l.SelectedValue;
             p.sprat = Int32.Parse(tb1.Text);
-            p.tip = (Model.TipProstorije)Enum.Parse(typeof(Model.TipProstorije), tipIzmena.Text, true);
+            p.tip = (TipProstorije)Enum.Parse(typeof(TipProstorije), tipIzmena.Text, true);
             p.id = tb2.Text;
             if (rb1.IsChecked == true)
             {

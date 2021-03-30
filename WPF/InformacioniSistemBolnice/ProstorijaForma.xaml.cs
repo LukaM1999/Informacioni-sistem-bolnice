@@ -29,7 +29,7 @@ namespace InformacioniSistemBolnice
         private void potvrdiDugme_Click(object sender, RoutedEventArgs e)
         {
 
-            Prostorija novaProstorija = new Prostorija(int.Parse(spratUnos.Text), (Model.TipProstorije) Enum.Parse(typeof(TipProstorije), tipUnos.Text), idUnos.Text, false);
+            Prostorija novaProstorija = new Prostorija(int.Parse(spratUnos.Text), (TipProstorije) Enum.Parse(typeof(TipProstorije), tipUnos.Text), idUnos.Text, false);
             Prostorije.Instance.listaProstorija.Add(novaProstorija);
             Prostorije.Instance.Serijalizacija("../../../json/prostorije.json");
             this.Visibility = Visibility.Hidden;
