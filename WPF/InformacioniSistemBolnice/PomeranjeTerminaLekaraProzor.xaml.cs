@@ -24,6 +24,7 @@ namespace InformacioniSistemBolnice
         public Termin zakazanTermin;
         public List<string> listaDatuma = new List<string>();
         public ListView zakazaniTermini;
+        public List<string> prostorijeID = new List<string>();
         public PomeranjeTerminaLekaraProzor(ListView zakazaniTermini)
 
         {
@@ -38,11 +39,40 @@ namespace InformacioniSistemBolnice
             listaSati.ItemsSource = listaDatuma;
             this.zakazaniTermini = zakazaniTermini;
             zakazanTermin = (Termin)zakazaniTermini.SelectedItem;
+
+            trajanjeTerminaUnos.Text = zakazanTermin.trajanje.ToString();
+            tipTerminaUnos.Text = zakazanTermin.tipTermina.ToString();
+
+            Prostorije.Instance.Deserijalizacija("../../../json/prostorije.json");
+            listaSati.ItemsSource = listaDatuma;
+            
+            foreach (Prostorija p in Prostorije.Instance.listaProstorija)
+            {
+                prostorijeID.Add(p.id);
+            }
+            sala.ItemsSource = prostorijeID;
+
+            if (zakazanTermin.prostorija != null)
+            {
+                sala.Text = zakazanTermin.prostorija.id;
+            }
+
+            datumTermina.Text = zakazanTermin.vreme.ToString("MM/dd/yyyy");
+
+            string sat = zakazanTermin.vreme.ToString("HH:mm");
+            for (int i = 0; i < listaDatuma.Count; i++)
+            {
+                if (sat.Equals(listaDatuma[i]))
+                {
+                    listaSati.SelectedIndex = i;
+                }
+            }
+      
         }
 
         private void potvrdaPomeranjaDugme_Click(object sender, RoutedEventArgs e)
         {
-            if (listaSati.SelectedIndex >= 0 && datumTermina.SelectedDate != null)
+            if (listaSati.SelectedIndex >= 0 && datumTermina.Text != null && tipTerminaUnos.SelectedIndex >= 0)
             {
                 DateTime datumTermina = (DateTime)this.datumTermina.SelectedDate;
                 string datumVrednost = (string)listaSati.SelectedValue;
@@ -55,18 +85,24 @@ namespace InformacioniSistemBolnice
 
                 datumTermina = datumTermina.AddHours(sat);
 
-                foreach (Termin t in Termini.Instance.listaTermina)
+                if (!datumTermina.Equals(zakazanTermin.vreme))
                 {
-                    if (t.vreme == datumTermina)
+                    zakazanTermin.status = StatusTermina.pomeren;
+                }
+                
+                zakazanTermin.vreme = datumTermina;
+                zakazanTermin.trajanje = double.Parse(trajanjeTerminaUnos.Text);
+                zakazanTermin.tipTermina = (TipTermina)Enum.Parse(typeof(TipTermina), tipTerminaUnos.Text);
+                foreach (Prostorija p in Prostorije.Instance.listaProstorija)
+                {
+                    if (p.id.Equals((string)sala.SelectedItem))
                     {
-                        return;
+                        zakazanTermin.prostorija = p;
+                        break;
                     }
                 }
 
-                zakazanTermin.vreme = datumTermina;
-                zakazanTermin.status = StatusTermina.pomeren;
-                
-              
+
                 Termini.Instance.Serijalizacija("../../../json/zakazaniTermini.json");
                 Termini.Instance.Deserijalizacija("../../../json/zakazaniTermini.json");
            

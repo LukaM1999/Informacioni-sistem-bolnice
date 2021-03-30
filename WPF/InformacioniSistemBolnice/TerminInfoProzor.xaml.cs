@@ -25,11 +25,19 @@ namespace InformacioniSistemBolnice
         {
             InitializeComponent();
             Termin t = (Termin)listaZakazanih.SelectedItem;
-            datumLabela.Content = t.vreme.ToString("dd/MM/yyyy");
+            datumLabela.Content = t.vreme.ToString("MM/dd/yyyy");
             vremeLabela.Content = t.vreme.ToString("HH:mm");
             tipTerminaLabela.Content = t.tipTermina.ToString();
             statusTerminaLabela.Content = t.status.ToString();
             trajanjeLabela.Content = t.trajanje.ToString();
+            if (t.prostorija != null)
+            {
+                salaLabela.Content = t.prostorija.id;
+            }
+            else
+            {
+                salaLabela.Content = "Nepoznato";
+            }
         }
     }
 }

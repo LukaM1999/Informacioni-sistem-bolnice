@@ -5,12 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:InformacioniSistemBolnice"
         xmlns:system="clr-namespace:System;assembly=mscorlib"
+        xmlns:model="clr-namespace:Model"
         mc:Ignorable="d"
         Title="PomeranjeTerminaLekaraProzor" Height="450" Width="338">
     <Grid>
 
         <Canvas>
-            <ListView x:Name="listaSati" Height="378" Width="338" Canvas.Top="56">
+            <ListView x:Name="listaSati" Height="248" Width="338" Canvas.Top="56">
                 <ListView.View>
                     <GridView>
                         <GridViewColumn/>
@@ -19,6 +20,16 @@
             </ListView>
             <DatePicker x:Name="datumTermina" Canvas.Left="22" Canvas.Top="10" DisplayDateStart="{Binding Path=., Source={x:Static system:DateTime.Today}}"/>
             <Button x:Name="potvrdaPomeranjaDugme" Content="Potvrdi" Canvas.Left="249" Canvas.Top="12" Width="65" Click="potvrdaPomeranjaDugme_Click"/>
+            <Label Content="Trajanje:" Canvas.Left="22" Canvas.Top="309" Width="102"/>
+            <Label Content="Tip termina:" Canvas.Left="22" Canvas.Top="340" Width="102"/>
+            <Label Content="Sala:" Canvas.Left="22" Canvas.Top="371" Width="102"/>
+            <TextBox x:Name="trajanjeTerminaUnos" Canvas.Left="169" Canvas.Top="317" TextWrapping="Wrap" Width="120"/>
+            <ComboBox x:Name="tipTerminaUnos" Canvas.Left="169" Canvas.Top="344" Width="120">
+                <system:String>pregled</system:String>
+                <system:String>operacija</system:String>
+            </ComboBox>
+            <ComboBox x:Name="sala" Canvas.Left="169" Canvas.Top="375" Width="120"/>
+
         </Canvas>
 
     </Grid>

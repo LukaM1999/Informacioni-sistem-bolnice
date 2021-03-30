@@ -23,6 +23,8 @@ namespace InformacioniSistemBolnice
     {
 
         public List<string> listaDatuma = new List<string>();
+        public List<string> prostorijeID = new List<string>();
+
 
         public ZakazivanjeTerminaLekaraProzor()
         {
@@ -35,9 +37,13 @@ namespace InformacioniSistemBolnice
                 datum = datum.AddMinutes(30);
             }
 
+            Prostorije.Instance.Deserijalizacija("../../../json/prostorije.json");
             listaSati.ItemsSource = listaDatuma;
-           
-
+            foreach(Prostorija p in Prostorije.Instance.listaProstorija)
+            {
+                prostorijeID.Add(p.id);
+            }
+            sala.ItemsSource = prostorijeID;
         }
 
         private void potvrdaZakazivanjaDugme_Click(object sender, RoutedEventArgs e)
@@ -62,7 +68,17 @@ namespace InformacioniSistemBolnice
                     }
                 }
 
-                Termin zakazanTermin = new Termin(datumTermina, 30, TipTermina.pregled, StatusTermina.zakazan);
+                Termin zakazanTermin = new Termin(datumTermina, double.Parse(trajanjeTerminaUnos.Text), (TipTermina)Enum.Parse(typeof(TipTermina), tipTerminaUnos.Text), StatusTermina.zakazan);
+                
+                foreach(Prostorija p in Prostorije.Instance.listaProstorija)
+                {
+                    if (p.id.Equals((string)sala.SelectedItem))
+                    {
+                        zakazanTermin.prostorija = p;
+                        break;
+                    }
+                }
+      
                 Termini.Instance.listaTermina.Add(zakazanTermin);
                 Termini.Instance.Serijalizacija("../../../json/zakazaniTermini.json");
                 this.Close();

@@ -54,7 +54,7 @@ namespace Model
         }
         public override string ToString()
         {
-            return vreme.ToString("dd/MM/yyyy HH:mm");
+            return vreme.ToString("MM/dd/yyyy HH:mm");
         }
     }
 }

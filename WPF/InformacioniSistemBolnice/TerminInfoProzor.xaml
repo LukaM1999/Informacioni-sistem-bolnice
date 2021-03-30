@@ -19,6 +19,8 @@
             <Label x:Name="vremeLabela" Canvas.Left="130" Canvas.Top="140" Width="94"/>
             <Label x:Name="datumLabela" Canvas.Left="130" Canvas.Top="186" Width="94"/>
             <Label x:Name="trajanjeLabela" Canvas.Left="130" Canvas.Top="225" Width="94"/>
+            <Label Content="Sala: " Canvas.Left="36" Canvas.Top="256" Width="94"/>
+            <Label x:Name="salaLabela" Canvas.Left="130" Canvas.Top="259" Width="94"/>
         </Canvas>
 
     </Grid>
