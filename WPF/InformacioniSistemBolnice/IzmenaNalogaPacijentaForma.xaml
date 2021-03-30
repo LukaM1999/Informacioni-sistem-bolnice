@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:InformacioniSistemBolnice"
         mc:Ignorable="d"
-        Title="IzmenaNalogaPacijentaForma" Height="398" Width="316">
+        Title="IzmenaNalogaPacijentaForma" Height="400" Width="320">
     <Grid>
         <Canvas>
             <Label Content="Ime: " Canvas.Left="23" Canvas.Top="42" Width="44" HorizontalAlignment="Right"/>

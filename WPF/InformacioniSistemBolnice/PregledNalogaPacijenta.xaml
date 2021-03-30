@@ -1,0 +1,34 @@
+﻿<Window x:Class="InformacioniSistemBolnice.PregledNalogaPacijenta"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:InformacioniSistemBolnice"
+        mc:Ignorable="d"
+        Title="PregledNalogaPacijenta" Height="400" Width="320">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="229*"/>
+            <ColumnDefinition Width="91*"/>
+        </Grid.ColumnDefinitions>
+        <Canvas Margin="0,-8,0,-8" Grid.ColumnSpan="2">
+            <Label Content="Ime: " Canvas.Left="23" Canvas.Top="42" Width="44" HorizontalAlignment="Right"/>
+            <Label Content="Prezime: " Canvas.Left="23" Canvas.Top="73" Width="58"/>
+            <Label Content="JMBG: " Canvas.Left="23" Canvas.Top="104" Width="44" HorizontalAlignment="Right"/>
+            <Label Content="Datum rodjenja: " Canvas.Left="23" Canvas.Top="137" Width="94"/>
+            <Label Content="Telefon: " Canvas.Left="23" Canvas.Top="174" Width="58"/>
+            <Label Content="E-mail: " Canvas.Left="23" Canvas.Top="207" Width="70"/>
+            <Label Content="Korisnicko ime: " Canvas.Left="23" Canvas.Top="238" Width="94"/>
+            <Label Content="Lozinka: " Canvas.Left="23" Canvas.Top="274" Width="70"/>
+            <Label x:Name="imeLabela" Canvas.Left="148" Canvas.Top="42"  Width="120" Height="23" RenderTransformOrigin="0.492,0.567"/>
+            <Label x:Name="JMBGLabela" Canvas.Left="148" Canvas.Top="107"  Width="120" Height="23"/>
+            <Label x:Name="prezimeLabela" Canvas.Left="148" Canvas.Top="73" Width="120" Height="34" RenderTransformOrigin="0.55,0.911" />
+            <Label x:Name="datumLabela" Canvas.Left="148" Canvas.Top="138" Width="120" Height="23"/>
+            <Label x:Name="telLabela" Canvas.Left="148" Canvas.Top="174" Width="120" Height="23"/>
+            <Label x:Name="mailLabela" Canvas.Left="148" Canvas.Top="205" Width="148" Height="28" RenderTransformOrigin="0.508,0.567" />
+            <Label x:Name="korisnikLabela" Canvas.Left="148" Canvas.Top="241" Width="148" Height="28"/>
+            <Label x:Name="lozinkaLabela" Canvas.Left="148" Canvas.Top="274" Width="120" Height="30" />
+
+        </Canvas>
+    </Grid>
+</Window>

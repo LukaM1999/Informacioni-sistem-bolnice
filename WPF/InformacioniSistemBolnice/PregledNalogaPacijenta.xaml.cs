@@ -12,26 +12,18 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Model;
-using RadSaDatotekama;
-using Logika;
 
 namespace InformacioniSistemBolnice
 {
     /// <summary>
-    /// Interaction logic for RegistracijaPacijentaForma.xaml
+    /// Interaction logic for PregledNalogaPacijenta.xaml
     /// </summary>
-    public partial class RegistracijaPacijentaForma : Window
+    public partial class PregledNalogaPacijenta : Window
     {
-        public RegistracijaPacijentaForma()
+        public PregledNalogaPacijenta(ListView pacijenti)
         {
             InitializeComponent();
+           
         }
-
-        private void potvrdiDugme_Click(object sender, RoutedEventArgs e)
-        {
-            UpravljanjeNalozimaPacijenata.Instance.KreiranjeNaloga(this);
-            this.Close();
-        }
-
     }
 }

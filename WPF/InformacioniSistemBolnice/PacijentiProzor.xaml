@@ -17,9 +17,10 @@
             </ListView>
         </StackPanel>
         <Canvas x:Name="RukovanjePacijentima" Margin="0,0,0,439">
-            <Button x:Name="registrujPacijentaDugme" Content="Registruj" Canvas.Left="10" Canvas.Top="13" Width="55" Click="registrujPacijentaDugme_Click"/>
-            <Button x:Name="obrisiPacijentaDugme" Content="Obrisi" Canvas.Left="83" Canvas.Top="13" Width="55" Click="ObrisiPacijenta"/>
-            <Button x:Name="izmeniPacijentaDugme" Content="Izmeni" Canvas.Left="156" Canvas.Top="13" Width="55" Click="izmeniPacijentaDugme_Click"/>
+            <Button x:Name="registrujPacijentaDugme" Content="Registruj" Canvas.Left="20" Canvas.Top="13" Width="55" Click="registrujPacijentaDugme_Click"/>
+            <Button x:Name="obrisiPacijentaDugme" Content="Obrisi" Canvas.Left="266" Canvas.Top="13" Width="55" Click="ObrisiPacijenta"/>
+            <Button x:Name="izmeniPacijentaDugme" Content="Izmeni" Canvas.Left="185" Canvas.Top="13" Width="56" Click="izmeniPacijentaDugme_Click"/>
+            <Button x:Name="pregledajPacijentaDugme" Content="Info" Canvas.Left="103" Canvas.Top="13" Width="56" Click="pregledPacijenta" />
         </Canvas>
 
     </Grid>
