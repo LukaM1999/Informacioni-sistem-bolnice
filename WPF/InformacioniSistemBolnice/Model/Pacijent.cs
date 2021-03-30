@@ -16,6 +16,7 @@ namespace Model
         {
             this.ime = o.ime;
             this.prezime = o.prezime;
+            this.datumRodjenja = o.datumRodjenja;
             this.jmbg = o.jmbg;
             this.telefon = o.telefon;
             this.email = o.email;
