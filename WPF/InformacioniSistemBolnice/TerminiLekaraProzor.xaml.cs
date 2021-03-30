@@ -52,21 +52,12 @@ namespace InformacioniSistemBolnice
 
         private void otkaziDugme_Click(object sender, RoutedEventArgs e)
         {
-            if (listaZakazanihTerminaLekara.SelectedIndex >= 0)
-            {
-                Termin t = (Termin)listaZakazanihTerminaLekara.SelectedValue;
-                Termini.Instance.listaTermina.Remove(t);
-                Termini.Instance.Serijalizacija("../../../json/zakazaniTermini.json");
-            }
+            UpravljanjeTerminimaPacijenata.Instance.Otkazivanje(listaZakazanihTerminaLekara);
         }
 
         private void infoDugme_Click(object sender, RoutedEventArgs e)
         {
-            if (listaZakazanihTerminaLekara.SelectedIndex >= 0)
-            {
-                TerminInfoProzor terminInfo = new TerminInfoProzor(listaZakazanihTerminaLekara);
-                terminInfo.Show();
-            }
+            UpravljanjeTerminimaLekara.Instance.Uvid(listaZakazanihTerminaLekara);
         }
     }
 }

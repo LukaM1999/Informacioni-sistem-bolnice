@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Model;
 using RadSaDatotekama;
+using Logika;
 
 namespace InformacioniSistemBolnice
 {
@@ -72,44 +73,7 @@ namespace InformacioniSistemBolnice
 
         private void potvrdaPomeranjaDugme_Click(object sender, RoutedEventArgs e)
         {
-            if (listaSati.SelectedIndex >= 0 && datumTermina.Text != null && tipTerminaUnos.SelectedIndex >= 0)
-            {
-                DateTime datumTermina = (DateTime)this.datumTermina.SelectedDate;
-                string datumVrednost = (string)listaSati.SelectedValue;
-                string[] satiMinuti = datumVrednost.Split(":");
-                double sat = double.Parse(satiMinuti[0]);
-                if (satiMinuti[1].Equals("30"))
-                {
-                    sat += 0.5;
-                }
-
-                datumTermina = datumTermina.AddHours(sat);
-
-                if (!datumTermina.Equals(zakazanTermin.vreme))
-                {
-                    zakazanTermin.status = StatusTermina.pomeren;
-                }
-                
-                zakazanTermin.vreme = datumTermina;
-                zakazanTermin.trajanje = double.Parse(trajanjeTerminaUnos.Text);
-                zakazanTermin.tipTermina = (TipTermina)Enum.Parse(typeof(TipTermina), tipTerminaUnos.Text);
-                foreach (Prostorija p in Prostorije.Instance.listaProstorija)
-                {
-                    if (p.id.Equals((string)sala.SelectedItem))
-                    {
-                        zakazanTermin.prostorija = p;
-                        break;
-                    }
-                }
-
-
-                Termini.Instance.Serijalizacija("../../../json/zakazaniTermini.json");
-                Termini.Instance.Deserijalizacija("../../../json/zakazaniTermini.json");
-           
-                zakazaniTermini.ItemsSource = Termini.Instance.listaTermina;
-                this.Close();
-
-            }
+            UpravljanjeTerminimaLekara.Instance.Pomeranje(this);
         }
     }
 }

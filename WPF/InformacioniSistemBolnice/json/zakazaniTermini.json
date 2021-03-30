@@ -57,7 +57,7 @@
     }
   },
   {
-    "vreme": "2021-04-09T08:00:00",
+    "vreme": "2021-04-09T08:30:00",
     "trajanje": 50.0,
     "tipTermina": 0,
     "status": 3,
@@ -65,10 +65,10 @@
     "lekar": null,
     "prostorija": {
       "termin": null,
-      "sprat": 6,
-      "id": "P1",
-      "jeZauzeta": false,
-      "tip": 1
+      "sprat": 5,
+      "id": "ddr5",
+      "jeZauzeta": true,
+      "tip": 0
     }
   }
 ]
