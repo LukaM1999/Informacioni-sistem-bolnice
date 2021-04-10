@@ -4,9 +4,9 @@ using Newtonsoft.Json;
 using System.IO;
 using System.Collections.ObjectModel;
 
-namespace RadSaDatotekama
+namespace Repozitorijum
 {
-    public sealed class Prostorije : RadSaDatotekama
+    public sealed class Prostorije : Repozitorijum
     {
         private static readonly Lazy<Prostorije>
             lazy =

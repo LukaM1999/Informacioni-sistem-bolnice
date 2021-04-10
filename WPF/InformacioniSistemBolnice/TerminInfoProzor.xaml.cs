@@ -11,14 +11,11 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using RadSaDatotekama;
+using Repozitorijum;
 using Model;
 
 namespace InformacioniSistemBolnice
 {
-    /// <summary>
-    /// Interaction logic for TerminInfoProzor.xaml
-    /// </summary>
     public partial class TerminInfoProzor : Window
     {
         public TerminInfoProzor(ListView listaZakazanih)

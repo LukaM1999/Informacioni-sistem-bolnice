@@ -11,17 +11,15 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using RadSaDatotekama;
+using Repozitorijum;
 using Model;
 using System.Collections.ObjectModel;
-using Logika;
+using Servis;
 using InformacioniSistemBolnice;
+using Kontroler;
 
 namespace InformacioniSistemBolnice
 {
-    /// <summary>
-    /// Interaction logic for TerminiPacijentaProzor.xaml
-    /// </summary>
     public partial class TerminiPacijentaProzor : Window
     {
 
@@ -53,14 +51,14 @@ namespace InformacioniSistemBolnice
 
         private void otkaziDugme_Click(object sender, RoutedEventArgs e)
         {
-            UpravljanjeTerminimaPacijenata.Instance.Otkazivanje(listaZakazanihTermina);
+            PacijentKontroler.Instance.Otkazivanje(listaZakazanihTermina);
         }
 
         private void infoDugme_Click(object sender, RoutedEventArgs e)
         {
             if (listaZakazanihTermina.SelectedIndex >= 0)
             {
-                UpravljanjeTerminimaPacijenata.Instance.Uvid(listaZakazanihTermina);
+                PacijentKontroler.Instance.Uvid(listaZakazanihTermina);
             }
         }
     }

@@ -12,14 +12,12 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Model;
-using Logika;
-using RadSaDatotekama;
+using Servis;
+using Repozitorijum;
+using Kontroler;
 
 namespace InformacioniSistemBolnice
 {
-    /// <summary>
-    /// Interaction logic for ProstorijaForma.xaml
-    /// </summary>
     public partial class ProstorijaForma : Window
     {
         public ProstorijaForma()
@@ -30,7 +28,7 @@ namespace InformacioniSistemBolnice
         private void potvrdiDugme_Click(object sender, RoutedEventArgs e)
         {
 
-            UpravljanjeProstorijama.Instance.KreiranjeProstorije(this);
+            UpravnikKontroler.Instance.KreiranjeProstorije(this);
             this.Close();
 
         }

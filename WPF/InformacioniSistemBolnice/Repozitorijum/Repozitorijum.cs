@@ -1,8 +1,8 @@
 using System;
 
-namespace RadSaDatotekama
+namespace Repozitorijum
 {
-   public interface RadSaDatotekama
+   public interface Repozitorijum
    {
       void Serijalizacija(string putanja);
       

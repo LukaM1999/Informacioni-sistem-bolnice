@@ -11,15 +11,13 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using RadSaDatotekama;
+using Repozitorijum;
 using Model;
-using Logika;
+using Servis;
+using Kontroler;
 
 namespace InformacioniSistemBolnice
 {
-    /// <summary>
-    /// Interaction logic for ZakazivanjeTerminaLekaraProzor.xaml
-    /// </summary>
     public partial class ZakazivanjeTerminaLekaraProzor : Window
     {
 
@@ -50,7 +48,7 @@ namespace InformacioniSistemBolnice
 
         private void potvrdaZakazivanjaDugme_Click(object sender, RoutedEventArgs e)
         {
-            UpravljanjeTerminimaLekara.Instance.Zakazivanje(this);
+            LekarKontroler.Instance.Zakazivanje(this);
 
         }
     }

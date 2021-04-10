@@ -12,14 +12,12 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Model;
-using RadSaDatotekama;
-using Logika;
+using Repozitorijum;
+using Servis;
+using Kontroler;
 
 namespace InformacioniSistemBolnice
 {
-    /// <summary>
-    /// Interaction logic for IzmenaNalogaPacijentaForma.xaml
-    /// </summary>
     public partial class IzmenaNalogaPacijentaForma : Window
     {
         public ListView listaPacijenata;
@@ -36,7 +34,7 @@ namespace InformacioniSistemBolnice
         }
         private void potvrdiDugme_Click(object sender, RoutedEventArgs e)
         {
-            UpravljanjeNalozimaPacijenata.Instance.IzmenaNaloga(this,listaPacijenata);
+            SekretarKontroler.Instance.IzmenaNaloga(this, listaPacijenata);
             this.Close();
 
         }

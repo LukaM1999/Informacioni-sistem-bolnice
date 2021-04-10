@@ -15,9 +15,6 @@ using Model;
 
 namespace InformacioniSistemBolnice
 {
-    /// <summary>
-    /// Interaction logic for PregledNalogaPacijenta.xaml
-    /// </summary>
     public partial class PregledNalogaPacijenta : Window
     {
         public PregledNalogaPacijenta(ListView pacijenti)

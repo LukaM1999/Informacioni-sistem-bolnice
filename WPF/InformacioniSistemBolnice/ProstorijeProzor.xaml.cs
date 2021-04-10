@@ -12,14 +12,12 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Model;
-using Logika;
-using RadSaDatotekama;
+using Servis;
+using Repozitorijum;
+using Kontroler;
 
 namespace InformacioniSistemBolnice
 {
-    /// <summary>
-    /// Interaction logic for ProstorijeProzor.xaml
-    /// </summary>
     public partial class ProstorijeProzor : Window
     {
         public ProstorijeProzor()
@@ -42,7 +40,7 @@ namespace InformacioniSistemBolnice
 
         private void Obrisi(object sender, RoutedEventArgs e)
         {
-            UpravljanjeProstorijama.Instance.UklanjanjeProstorije(ListaProstorija);
+            UpravnikKontroler.Instance.UklanjanjeProstorije(ListaProstorija);
         }
 
         private void izmeniProstorijuDugme_Click(object sender, RoutedEventArgs e)
@@ -61,7 +59,7 @@ namespace InformacioniSistemBolnice
             if (ListaProstorija.SelectedValue != null)
             {
                 Prostorija pr = (Prostorija)ListaProstorija.SelectedValue;
-                UpravljanjeProstorijama.Instance.PregledProstorije(pr);
+                UpravnikKontroler.Instance.PregledProstorije(pr);
             }
 
         }

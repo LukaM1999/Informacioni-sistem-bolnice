@@ -9,18 +9,12 @@
     "prostorija": null
   },
   {
-    "vreme": "2021-03-31T18:30:00",
+    "vreme": "2021-04-30T12:00:00",
     "trajanje": 30.0,
     "tipTermina": 1,
-    "status": 0,
+    "status": 3,
     "pacijent": null,
     "lekar": null,
-    "prostorija": {
-      "termin": null,
-      "sprat": 2,
-      "id": "P1",
-      "jeZauzeta": false,
-      "tip": 1
-    }
+    "prostorija": null
   }
 ]

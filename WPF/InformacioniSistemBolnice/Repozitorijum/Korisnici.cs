@@ -3,9 +3,9 @@ using Model;
 using System.IO;
 using Newtonsoft.Json;
 
-namespace RadSaDatotekama
+namespace Repozitorijum
 {
-    public class Korisnici : RadSaDatotekama
+    public class Korisnici : Repozitorijum
     {
         public System.Collections.Generic.List<Korisnik> listaKorisnika
         {

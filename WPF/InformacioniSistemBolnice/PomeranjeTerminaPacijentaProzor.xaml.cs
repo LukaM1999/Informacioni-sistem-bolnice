@@ -12,14 +12,12 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Model;
-using RadSaDatotekama;
-using Logika;
+using Repozitorijum;
+using Servis;
+using Kontroler;
 
 namespace InformacioniSistemBolnice
 {
-    /// <summary>
-    /// Interaction logic for PomeranjeTerminaPacijentaProzor.xaml
-    /// </summary>
     public partial class PomeranjeTerminaPacijentaProzor : Window
     {
         public Termin zakazanTermin;
@@ -43,7 +41,7 @@ namespace InformacioniSistemBolnice
 
         private void potvrdaPomeranjaDugme_Click(object sender, RoutedEventArgs e)
         {
-            UpravljanjeTerminimaPacijenata.Instance.Pomeranje(this);
+            PacijentKontroler.Instance.Pomeranje(this);
         }
     }
 }

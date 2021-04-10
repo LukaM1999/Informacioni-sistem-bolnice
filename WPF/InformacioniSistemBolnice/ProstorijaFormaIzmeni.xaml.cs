@@ -12,14 +12,12 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Model;
-using Logika;
-using RadSaDatotekama;
+using Servis;
+using Repozitorijum;
+using Kontroler;
 
 namespace InformacioniSistemBolnice
 {
-    /// <summary>
-    /// Interaction logic for ProstorijaFormaIzmeni.xaml
-    /// </summary>
     public partial class ProstorijaFormaIzmeni : Window
     {
         private ListView l;
@@ -52,7 +50,7 @@ namespace InformacioniSistemBolnice
         private void potvrdaIzmeneDugme_Click(object sender, RoutedEventArgs e)
         {
             Prostorija p = (Prostorija)l.SelectedValue;
-            UpravljanjeProstorijama.Instance.IzmenaProstorije(this, p);
+            UpravnikKontroler.Instance.IzmenaProstorije(this, p);
             l.ItemsSource = Prostorije.Instance.listaProstorija;
             this.Close();
 

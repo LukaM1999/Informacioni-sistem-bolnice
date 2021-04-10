@@ -11,16 +11,13 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using RadSaDatotekama;
+using Repozitorijum;
 using Model;
-using Logika;
-
+using Servis;
+using Kontroler;
 
 namespace InformacioniSistemBolnice
 {
-    /// <summary>
-    /// Interaction logic for PacijentiProzor.xaml
-    /// </summary>
     public partial class PacijentiProzor : Window
     {
        
@@ -65,13 +62,13 @@ namespace InformacioniSistemBolnice
 
         private void ObrisiPacijenta(object sender, RoutedEventArgs e)
         {
-            UpravljanjeNalozimaPacijenata.Instance.UklanjanjeNaloga(ListaPacijenata);
+            SekretarKontroler.Instance.UklanjanjeNaloga(ListaPacijenata);
         }
 
        
         private void pregledPacijenta(object sender, RoutedEventArgs e)
         {
-            UpravljanjeNalozimaPacijenata.Instance.PregledNaloga(ListaPacijenata);
+            SekretarKontroler.Instance.PregledNaloga(ListaPacijenata);
 
         }
     }

@@ -15,9 +15,6 @@ using Model;
 
 namespace InformacioniSistemBolnice
 {
-    /// <summary>
-    /// Interaction logic for ProstorijaInfoForma.xaml
-    /// </summary>
     public partial class ProstorijaInfoForma : Window
     {
         public ProstorijaInfoForma()

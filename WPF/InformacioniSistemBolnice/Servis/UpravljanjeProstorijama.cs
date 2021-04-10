@@ -1,9 +1,9 @@
 using System;
 using Model;
-using RadSaDatotekama;
+using Repozitorijum;
 using InformacioniSistemBolnice;
 using System.Windows.Controls;
-namespace Logika
+namespace Servis
 {
    public class UpravljanjeProstorijama
    {

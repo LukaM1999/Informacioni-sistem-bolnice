@@ -1,12 +1,12 @@
 using System;
 using Model;
-using RadSaDatotekama;
+using Repozitorijum;
 using System.Windows.Controls;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using InformacioniSistemBolnice;
 
-namespace Logika
+namespace Servis
 {
    public class UpravljanjeTerminimaLekara
    {

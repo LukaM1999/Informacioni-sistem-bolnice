@@ -12,14 +12,12 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Model;
-using RadSaDatotekama;
-using Logika;
+using Repozitorijum;
+using Servis;
+using Kontroler;
 
 namespace InformacioniSistemBolnice
 {
-    /// <summary>
-    /// Interaction logic for RegistracijaPacijentaForma.xaml
-    /// </summary>
     public partial class RegistracijaPacijentaForma : Window
     {
         public RegistracijaPacijentaForma()
@@ -29,7 +27,7 @@ namespace InformacioniSistemBolnice
 
         private void potvrdiDugme_Click(object sender, RoutedEventArgs e)
         {
-            UpravljanjeNalozimaPacijenata.Instance.KreiranjeNaloga(this);
+            SekretarKontroler.Instance.KreiranjeNaloga(this);
             this.Close();
         }
 

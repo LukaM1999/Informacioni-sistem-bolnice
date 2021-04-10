@@ -13,14 +13,11 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Model;
-using RadSaDatotekama;
+using Repozitorijum;
 
 
 namespace InformacioniSistemBolnice
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
         public MainWindow()
@@ -31,7 +28,6 @@ namespace InformacioniSistemBolnice
         private void OtvoriProzor(object sender, RoutedEventArgs e)
         {
             ProstorijeProzor prostorijeP = new ProstorijeProzor();
-            // this.Visibility = Visibility.Hidden;
             prostorijeP.Show();
 
         }
