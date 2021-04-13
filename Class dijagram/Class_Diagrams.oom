@@ -4599,14 +4599,15 @@ Shadow=0</a:DisplayPreferences>
 <a:PaperSource>15</a:PaperSource>
 <c:Symbols>
 <o:GeneralizationSymbol Id="o15">
-<a:ModificationDate>1616687315</a:ModificationDate>
+<a:ModificationDate>1618337393</a:ModificationDate>
 <a:Rect>((4378,-16152), (8618,-11659))</a:Rect>
-<a:ListOfPoints>((8218,-15752),(8218,-13185),(5278,-13185),(5278,-12059))</a:ListOfPoints>
+<a:ListOfPoints>((8218,-15752),(8218,-13485),(5278,-13485),(5278,-12059))</a:ListOfPoints>
 <a:CornerStyle>1</a:CornerStyle>
 <a:ArrowStyle>7</a:ArrowStyle>
 <a:LineColor>16744576</a:LineColor>
 <a:ShadowColor>12632256</a:ShadowColor>
 <a:FontList>CENTER 0 Arial,8,N</a:FontList>
+<a:AutomaticRoutingState>4</a:AutomaticRoutingState>
 <c:SourceSymbol>
 <o:ClassSymbol Ref="o16"/>
 </c:SourceSymbol>
@@ -4618,14 +4619,15 @@ Shadow=0</a:DisplayPreferences>
 </c:Object>
 </o:GeneralizationSymbol>
 <o:GeneralizationSymbol Id="o19">
-<a:ModificationDate>1616687321</a:ModificationDate>
+<a:ModificationDate>1618337389</a:ModificationDate>
 <a:Rect>((-6653,-16152), (-2713,-11659))</a:Rect>
-<a:ListOfPoints>((-6253,-15752),(-6253,-13065),(-3613,-13065),(-3613,-12059))</a:ListOfPoints>
+<a:ListOfPoints>((-6253,-15752),(-6253,-13605),(-3613,-13605),(-3613,-12059))</a:ListOfPoints>
 <a:CornerStyle>1</a:CornerStyle>
 <a:ArrowStyle>7</a:ArrowStyle>
 <a:LineColor>16744576</a:LineColor>
 <a:ShadowColor>12632256</a:ShadowColor>
 <a:FontList>CENTER 0 Arial,8,N</a:FontList>
+<a:AutomaticRoutingState>4</a:AutomaticRoutingState>
 <c:SourceSymbol>
 <o:ClassSymbol Ref="o20"/>
 </c:SourceSymbol>
@@ -15324,7 +15326,7 @@ LABL 0 Arial,8,N</a:FontList>
 <a:Code>Class_Diagrams</a:Code>
 <a:CreationDate>1618063998</a:CreationDate>
 <a:Creator>Luka</a:Creator>
-<a:ModificationDate>1618334362</a:ModificationDate>
+<a:ModificationDate>1618336247</a:ModificationDate>
 <a:Modifier>Luka</a:Modifier>
 <a:TargetModelURL>file:///.</a:TargetModelURL>
 <a:TargetModelID>64451FD1-7742-4723-B948-12ECB6550DEA</a:TargetModelID>
