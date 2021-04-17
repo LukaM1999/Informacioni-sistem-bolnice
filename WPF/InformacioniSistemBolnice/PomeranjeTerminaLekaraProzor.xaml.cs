@@ -51,9 +51,9 @@ namespace InformacioniSistemBolnice
             }
             sala.ItemsSource = prostorijeID;
 
-            if (zakazanTermin.prostorija != null)
+            if (zakazanTermin.idProstorije != null)
             {
-                sala.Text = zakazanTermin.prostorija.id;
+                sala.Text = zakazanTermin.idProstorije;
             }
 
             datumTermina.Text = zakazanTermin.vreme.ToString("MM/dd/yyyy");

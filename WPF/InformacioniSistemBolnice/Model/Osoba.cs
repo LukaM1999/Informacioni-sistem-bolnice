@@ -17,7 +17,7 @@ namespace Model
             {
                 ime = value;
             }
-           
+
         }
 
         public string prezime;
@@ -92,7 +92,7 @@ namespace Model
 
         public Osoba()
         {
-           
+
         }
 
         public Osoba(string i, string prz, string matBr, DateTime dR, string tel, string mail, Korisnik k)
@@ -104,10 +104,14 @@ namespace Model
             telefon = tel;
             email = mail;
             korisnik = k;
-            
+
         }
 
-        public Korisnik korisnik;
+        public Korisnik korisnik
+        {
+            get;
+            set;
+        }
 
     }
 }

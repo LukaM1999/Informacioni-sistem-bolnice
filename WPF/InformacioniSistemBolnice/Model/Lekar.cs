@@ -19,5 +19,9 @@ namespace Model
 
         public Termin[] termin;
 
+        public override string ToString()
+        {
+            return ime + " " + prezime;
+        }
     }
 }

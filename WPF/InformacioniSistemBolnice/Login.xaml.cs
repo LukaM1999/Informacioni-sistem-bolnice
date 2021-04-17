@@ -47,7 +47,7 @@ namespace InformacioniSistemBolnice
                             break;
 
                         case Model.UlogaKorisnika.pacijent:
-                            TerminiPacijentaProzor tpp = new TerminiPacijentaProzor();
+                            TerminiPacijentaProzor tpp = new TerminiPacijentaProzor(k.korisnickoIme, k.lozinka);
                             tpp.Show();
                             this.Close();
                             break;

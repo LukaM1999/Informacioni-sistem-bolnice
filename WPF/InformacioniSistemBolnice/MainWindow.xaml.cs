@@ -40,8 +40,8 @@ namespace InformacioniSistemBolnice
 
         private void pacijentButton_Click(object sender, RoutedEventArgs e)
         {
-            TerminiPacijentaProzor tpp = new TerminiPacijentaProzor();
-            tpp.Show();
+            //TerminiPacijentaProzor tpp = new TerminiPacijentaProzor();
+            //tpp.Show();
 
 
         }

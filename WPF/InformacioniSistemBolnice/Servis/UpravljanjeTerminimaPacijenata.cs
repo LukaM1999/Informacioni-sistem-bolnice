@@ -17,31 +17,11 @@ namespace Servis
 
         public static UpravljanjeTerminimaPacijenata Instance { get { return lazy.Value; } }
 
-        public void Zakazivanje(ZakazivanjeTerminaPacijentaProzor zakazivanje)
+        public void Zakazivanje(ZakazivanjeTerminaPacijentaProzor zakazivanje, string jmbgPacijenta)
         {
-            if (zakazivanje.listaSati.SelectedIndex >= 0 && zakazivanje.datumTermina.SelectedDate != null)
-            {
-                DateTime datumTermina = (DateTime)zakazivanje.datumTermina.SelectedDate;
-                string datumVrednost = (string)zakazivanje.listaSati.SelectedValue;
-                string[] satiMinuti = datumVrednost.Split(":");
-                double sat = double.Parse(satiMinuti[0]);
-                if (satiMinuti[1].Equals("30"))
-                {
-                    sat += 0.5;
-                }
-
-                datumTermina = datumTermina.AddHours(sat);
-                foreach (Termin t in Termini.Instance.listaTermina)
-                {
-                    if (t.vreme == datumTermina)
-                    {
-                        return;
-                    }
-                }
-
-                Termin zakazanTermin = new Termin(datumTermina, 30, TipTermina.pregled, StatusTermina.zakazan);
-                Termini.Instance.listaTermina.Add(zakazanTermin);
-                Termini.Instance.Serijalizacija("../../../json/zakazaniTermini.json");
+            if (zakazivanje.minDatumTermina.SelectedDate != null && zakazivanje.maxDatumTermina != null && zakazivanje.lekari.SelectedIndex > -1)
+            {   
+                //TODO: Logika predlaganja slobodnih termina
                 zakazivanje.Close();
             }
         }

@@ -1,20 +1,29 @@
 [
   {
-    "vreme": "2021-03-31T18:00:00",
+    "vreme": "2021-04-21T10:30:00",
     "trajanje": 30.0,
     "tipTermina": 1,
     "status": 0,
-    "pacijent": null,
-    "lekar": null,
-    "prostorija": null
+    "pacijentJMBG": "2403998156177",
+    "lekarJMBG": null,
+    "idProstorije": null
   },
   {
-    "vreme": "2021-04-30T12:00:00",
+    "vreme": "2021-05-08T09:30:00",
     "trajanje": 30.0,
     "tipTermina": 1,
-    "status": 3,
-    "pacijent": null,
-    "lekar": null,
-    "prostorija": null
+    "status": 0,
+    "pacijentJMBG": "2403998156177",
+    "lekarJMBG": null,
+    "idProstorije": null
+  },
+  {
+    "vreme": "2021-04-18T18:30:00",
+    "trajanje": 30.0,
+    "tipTermina": 1,
+    "status": 0,
+    "pacijentJMBG": "1112988178178",
+    "lekarJMBG": null,
+    "idProstorije": null
   }
 ]

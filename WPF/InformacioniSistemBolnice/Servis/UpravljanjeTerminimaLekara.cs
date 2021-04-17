@@ -47,7 +47,7 @@ namespace Servis
                 {
                     if (p.id.Equals((string)zakazivanje.sala.SelectedItem))
                     {
-                        zakazanTermin.prostorija = p;
+                        zakazanTermin.idProstorije = p.id;
                         break;
                     }
                 }
@@ -95,7 +95,7 @@ namespace Servis
                 {
                     if (p.id.Equals((string)pomeranje.sala.SelectedItem))
                     {
-                        pomeranje.zakazanTermin.prostorija = p;
+                        pomeranje.zakazanTermin.idProstorije = p.id;
                         break;
                     }
                 }
