@@ -7,6 +7,13 @@ namespace Repozitorijum
 {
     public class Korisnici : Repozitorijum
     {
+        private static readonly Lazy<Korisnici>
+            lazy =
+            new Lazy<Korisnici>
+                (() => new Korisnici());
+
+        public static Korisnici Instance { get { return lazy.Value; } }
+
         public System.Collections.Generic.List<Korisnik> listaKorisnika
         {
             get;

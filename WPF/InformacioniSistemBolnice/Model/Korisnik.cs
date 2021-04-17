@@ -5,50 +5,25 @@ namespace Model
     public class Korisnik
     {
 
-        
-
-        public string korisnickoIme;
-
-        public string KorisnickoIme
+        public string korisnickoIme
         {
-            get
-            {
-                return korisnickoIme;
-            }
-            set
-            {
-                korisnickoIme = value;
-            }
+            get; 
+            set;
+           
 
         }
 
-        public string lozinka;
-
-        public string Lozinka
+        public string lozinka
         {
-            get
-            {
-                return lozinka;
-            }
-            set
-            {
-                lozinka = value;
-            }
+            get;
+            set;
 
         }
 
-        public UlogaKorisnika uloga;
-
-        public UlogaKorisnika Uloga
+        public UlogaKorisnika uloga
         {
-            get
-            {
-                return uloga;
-            }
-            set
-            {
-                uloga = value;
-            }
+            get;
+            set;
         }
 
         public Korisnik()

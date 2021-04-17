@@ -1,0 +1,37 @@
+[
+  {
+    "korisnickoIme": "upravnik1",
+    "lozinka": "upravnik1",
+    "uloga": 0
+  },
+  {
+    "korisnickoIme": "lekar1",
+    "lozinka": "lekar1",
+    "uloga": 1
+  },
+  {
+    "korisnickoIme": "pacijent1",
+    "lozinka": "pacijent1",
+    "uloga": 2
+  },
+  {
+    "korisnickoIme": "sekretar1",
+    "lozinka": "sekretar1",
+    "uloga": 3
+  },
+  {
+    "korisnickoIme": "lekar2",
+    "lozinka": "lekar2",
+    "uloga": 1
+  },
+  {
+    "korisnickoIme": "pacijent2",
+    "lozinka": "pacijent2",
+    "uloga": 2
+  },
+  {
+    "korisnickoIme": "lekar3",
+    "lozinka": "lekar3",
+    "uloga": 1
+  }
+]

@@ -10,5 +10,6 @@ namespace InformacioniSistemBolnice
 {
     public partial class App : Application
     {
+    
     }
 }
