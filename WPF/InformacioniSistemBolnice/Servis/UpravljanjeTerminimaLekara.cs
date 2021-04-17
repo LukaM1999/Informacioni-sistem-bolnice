@@ -8,8 +8,8 @@ using InformacioniSistemBolnice;
 
 namespace Servis
 {
-   public class UpravljanjeTerminimaLekara
-   {
+    public class UpravljanjeTerminimaLekara
+    {
         private static readonly Lazy<UpravljanjeTerminimaLekara>
            lazy =
            new Lazy<UpravljanjeTerminimaLekara>
@@ -39,10 +39,10 @@ namespace Servis
                     }
                 }
 
-                Termin zakazanTermin = new Termin(datumTermina, double.Parse(zakazivanje.trajanjeTerminaUnos.Text), 
+                Termin zakazanTermin = new Termin(datumTermina, double.Parse(zakazivanje.trajanjeTerminaUnos.Text),
                     (TipTermina)Enum.Parse(typeof(TipTermina), zakazivanje.tipTerminaUnos.Text), StatusTermina.zakazan);
 
-                
+
                 foreach (Prostorija p in Prostorije.Instance.listaProstorija)
                 {
                     if (p.id.Equals((string)zakazivanje.sala.SelectedItem))
@@ -59,7 +59,7 @@ namespace Servis
         }
 
         public void Otkazivanje(ListView listaZakazanihTerminaLekara)
-      {
+        {
             if (listaZakazanihTerminaLekara.SelectedIndex >= 0)
             {
                 Termin t = (Termin)listaZakazanihTerminaLekara.SelectedValue;
@@ -67,9 +67,9 @@ namespace Servis
                 Termini.Instance.Serijalizacija("../../../json/zakazaniTermini.json");
             }
         }
-      
-      public void Pomeranje(PomeranjeTerminaLekaraProzor pomeranje)
-      {
+
+        public void Pomeranje(PomeranjeTerminaLekaraProzor pomeranje)
+        {
             if (pomeranje.listaSati.SelectedIndex >= 0 && pomeranje.datumTermina.Text != null && pomeranje.tipTerminaUnos.SelectedIndex >= 0)
             {
                 DateTime datumTermina = (DateTime)pomeranje.datumTermina.SelectedDate;
@@ -109,15 +109,15 @@ namespace Servis
 
             }
         }
-      
-      public void Uvid(ListView listaZakazanihTerminaLekara)
-      {
+
+        public void Uvid(ListView listaZakazanihTerminaLekara)
+        {
             if (listaZakazanihTerminaLekara.SelectedIndex >= 0)
             {
                 TerminInfoProzor terminInfo = new TerminInfoProzor(listaZakazanihTerminaLekara);
                 terminInfo.Show();
             }
         }
-   
-   }
+
+    }
 }

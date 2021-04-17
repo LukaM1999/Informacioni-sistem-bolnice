@@ -35,6 +35,7 @@ namespace Kontroler
         }
 
         public UpravljanjeTerminimaLekara upravljanjeTerminimaLekara;
+        public IzmenaKartonaPacijenta izmenaKartonaPacijenta;
 
     }
 }

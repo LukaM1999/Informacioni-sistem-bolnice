@@ -36,6 +36,10 @@ namespace Kontroler
         }
 
         public UpravljanjeProstorijama upravljanjeProstorijama;
+        public UpravljanjeStatickomOpremom upravljanjeStatickomOpremom;
+        public UpravljanjeDinamickomOpremom upravljanjeDinamickomOpremom;
+        public RasporedjivanjeDinamickeOpreme rasporedjivanjeDinamickeOpreme;
+        public RasporedjivanjeStatickeOpreme rasporedjivanjeStatickeOpreme;
 
     }
 }

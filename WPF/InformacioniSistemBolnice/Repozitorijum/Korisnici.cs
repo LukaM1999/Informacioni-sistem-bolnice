@@ -2,6 +2,7 @@ using System;
 using Model;
 using System.IO;
 using Newtonsoft.Json;
+using System.Collections.ObjectModel;
 
 namespace Repozitorijum
 {
@@ -14,7 +15,7 @@ namespace Repozitorijum
 
         public static Korisnici Instance { get { return lazy.Value; } }
 
-        public System.Collections.Generic.List<Korisnik> listaKorisnika
+        public ObservableCollection<Korisnik> listaKorisnika
         {
             get;
             set;
@@ -22,7 +23,7 @@ namespace Repozitorijum
 
         public void Deserijalizacija(string putanja)
         {
-            listaKorisnika = JsonConvert.DeserializeObject<System.Collections.Generic.List<Korisnik>>(File.ReadAllText(putanja));
+            listaKorisnika = JsonConvert.DeserializeObject<ObservableCollection<Korisnik>>(File.ReadAllText(putanja));
         }
 
         public void Serijalizacija(string putanja)
@@ -33,7 +34,7 @@ namespace Repozitorijum
 
         public Korisnici()
         {
-            listaKorisnika = new System.Collections.Generic.List<Korisnik>();
+            listaKorisnika = new ObservableCollection<Korisnik>();
         }
 
     }

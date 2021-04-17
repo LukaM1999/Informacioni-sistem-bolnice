@@ -35,6 +35,8 @@ namespace Kontroler
         }
 
         public UpravljanjeNalozimaPacijenata upravljanjeNalozimaPacijenata;
+        public UpravljanjeAlergenima upravljanjeAlergenima;
+        public UpravljanjeTerminimaPacijenata upravljanjeTerminimaPacijenata;
 
     }
 }

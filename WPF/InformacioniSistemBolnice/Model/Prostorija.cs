@@ -1,4 +1,5 @@
 using System;
+using System.Collections.ObjectModel;
 
 namespace Model
 {
@@ -42,7 +43,8 @@ namespace Model
             jeZauzeta = zauzeta;
 
         }
-        public Termin[] termin;
+        public ObservableCollection<Termin> termin;
+        public Inventar inventar;
 
         public override string ToString()
         {

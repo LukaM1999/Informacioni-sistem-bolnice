@@ -14,6 +14,7 @@ namespace Repozitorijum
                (() => new Pacijenti());
 
         public static Pacijenti Instance { get { return lazy.Value; } }
+
         public ObservableCollection<Pacijent> listaPacijenata
         {
             get;
@@ -22,7 +23,7 @@ namespace Repozitorijum
 
         public void Deserijalizacija(string putanja)
         {
-            listaPacijenata = JsonConvert.DeserializeObject <ObservableCollection<Pacijent>>(File.ReadAllText(putanja));
+            listaPacijenata = JsonConvert.DeserializeObject<ObservableCollection<Pacijent>>(File.ReadAllText(putanja));
         }
 
         public void Serijalizacija(string putanja)

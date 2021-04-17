@@ -92,8 +92,8 @@ namespace Servis
 
         public void Uvid(ListView listaZakazanihTermina)
         {
-                TerminInfoProzor terminInfo = new TerminInfoProzor(listaZakazanihTermina);
-                terminInfo.Show();
+            TerminInfoProzor terminInfo = new TerminInfoProzor(listaZakazanihTermina);
+            terminInfo.Show();
         }
 
     }
