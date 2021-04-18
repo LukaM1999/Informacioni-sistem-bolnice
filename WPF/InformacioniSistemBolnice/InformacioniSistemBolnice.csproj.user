@@ -7,6 +7,18 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="AlergeniProzor.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="DefinisanjeAlergenaForma.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="GlavniProzorSekretara.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="IzmenaAlergenaForma.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="IzmenaNalogaPacijentaForma.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -17,6 +29,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="PomeranjeTerminaPacijentaProzor.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="PregledAlergena.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="ProstorijaForma.xaml.cs">
@@ -46,8 +61,23 @@
     <Compile Update="ZakazivanjeTerminaPacijentaProzor.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="ZdravstveniKartonForma.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Page Update="AlergeniProzor.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="DefinisanjeAlergenaForma.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="GlavniProzorSekretara.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="IzmenaAlergenaForma.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="IzmenaNalogaPacijentaForma.xaml">
       <SubType>Designer</SubType>
     </Page>
@@ -64,6 +94,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="PomeranjeTerminaPacijentaProzor.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="PregledAlergena.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="ProstorijaForma.xaml">
@@ -97,6 +130,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="ZakazivanjeTerminaPacijentaProzor.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="ZdravstveniKartonForma.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

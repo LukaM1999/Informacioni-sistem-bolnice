@@ -38,5 +38,15 @@ namespace InformacioniSistemBolnice
             this.Close();
 
         }
+
+      
+
+        private void zdravstveniKartonDugme_Click(object sender, RoutedEventArgs e)
+        {
+            //SekretarKontroler.Instance.PregledZdravstvenogKartona();
+            ZdravstveniKartonForma zdravstveniKartonForma = new ZdravstveniKartonForma();
+            zdravstveniKartonForma.Show();
+            
+        }
     }
 }

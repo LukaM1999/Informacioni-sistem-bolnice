@@ -32,5 +32,13 @@ namespace Repozitorijum
             File.WriteAllText(putanja, json);
         }
 
+
+        public Alergeni()
+        {
+            listaAlergena = new ObservableCollection<Alergen>();
+        }
+
+
+
     }
 }

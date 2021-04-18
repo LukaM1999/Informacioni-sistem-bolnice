@@ -53,8 +53,8 @@ namespace InformacioniSistemBolnice
                             break;
 
                         case Model.UlogaKorisnika.sekretar:
-                            PacijentiProzor pacijentiP = new PacijentiProzor();
-                            pacijentiP.Show();
+                            GlavniProzorSekretara glavniProzorSekretara = new GlavniProzorSekretara();
+                            glavniProzorSekretara.Show();
                             this.Close();
                             break;
 

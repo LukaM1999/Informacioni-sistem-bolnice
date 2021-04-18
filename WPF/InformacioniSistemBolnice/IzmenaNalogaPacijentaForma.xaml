@@ -25,6 +25,7 @@
             <TextBox x:Name="korisnikUnos" Canvas.Left="132" Canvas.Top="234" Text="" TextWrapping="Wrap" Width="120"/>
             <PasswordBox x:Name="lozinkaUnos" Canvas.Left="132" Canvas.Top="265" Width="120" Height="22" />
             <Button x:Name="potvrdiDugme" Content="Potvrdi" Canvas.Left="192" Canvas.Top="337" Width="60" Click="potvrdiDugme_Click" />
+            <Button Content="Zdravstveni Karton" Canvas.Left="23" Canvas.Top="297" Width="122" Height="20" Click="zdravstveniKartonDugme_Click"/>
 
         </Canvas>
 

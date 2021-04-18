@@ -7,8 +7,10 @@ namespace Model
     {
         private string brojKartona;
         private string brojKnjizice;
+        private string jmbg;
         private string imeRoditelja;
         private string liceZaZdravZastitu;
+        private Pol pol;
         private BracnoStanje bracnoStanje;
         private KategorijaZdravstveneZastite kategorijaZdravZastite;
 
@@ -17,7 +19,21 @@ namespace Model
 
         }
 
-        public PodaciOZaposlenjuIZanimanju[] podaciOZaposlenjuIZanimanju;
+        public ZdravstveniKarton(String brojKartona, String brojKnjizice, String jmbg, String imeRoditelja, String liceZaZdravZastitu, Pol pol, BracnoStanje bracnoStanje, KategorijaZdravstveneZastite kategorijaZdravZastite)
+        {
+            this.brojKartona = brojKartona;
+            this.brojKnjizice = brojKnjizice;
+            this.jmbg = jmbg;
+            this.imeRoditelja = imeRoditelja;
+            this.liceZaZdravZastitu = liceZaZdravZastitu;
+            this.pol = pol;
+            this.bracnoStanje = bracnoStanje;
+            this.kategorijaZdravZastite = kategorijaZdravZastite;
+        }
+
+
+
+        public ObservableCollection<PodaciOZaposlenjuIZanimanju> podaciOZaposlenjuIZanimanju;
         public ObservableCollection<Recept> recept;
 
         public ObservableCollection<Recept> Recept

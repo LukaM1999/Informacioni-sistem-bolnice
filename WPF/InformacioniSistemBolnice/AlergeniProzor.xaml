@@ -1,0 +1,27 @@
+﻿<Window x:Class="InformacioniSistemBolnice.AlergeniProzor"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:InformacioniSistemBolnice"
+        mc:Ignorable="d"
+        Title="AlergeniProzor" Height="450" Width="800">
+    <Grid>
+        <StackPanel Margin="0,50,0,0">
+            <ListView x:Name="ListaAlergena" Height="432">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn/>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </StackPanel>
+        <Canvas x:Name="RukovanjeAlergenima" Margin="0,0,0,439">
+            <Button x:Name="definisiAlergen" Content="Definisi novi alergen" Canvas.Left="20" Canvas.Top="13" Width="115" Click="definisiAlergen_Click"/>
+            <Button x:Name="obrisiAlergen" Content="Obrisi" Canvas.Left="315" Canvas.Top="13" Width="55" Click="obrisiAlergen_Click"/>
+            <Button x:Name="izmjeniAlergen" Content="Izmeni" Canvas.Left="234" Canvas.Top="13" Width="56" Click="izmjeniAlergen_Click"/>
+            <Button x:Name="pregledListeAlergena" Content="Info" Canvas.Left="153" Canvas.Top="13" Width="56" Click="pregledAlergena_Click" />
+        </Canvas>
+
+    </Grid>
+</Window>
