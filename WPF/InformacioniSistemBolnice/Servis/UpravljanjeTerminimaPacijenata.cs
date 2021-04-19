@@ -19,12 +19,9 @@ namespace Servis
 
         public void Zakazivanje(ZakazivanjeTerminaPacijentaProzor zakazivanje, string jmbgPacijenta)
         {
-            if (zakazivanje.minDatumTermina.SelectedDate != null && zakazivanje.maxDatumTermina != null && zakazivanje.lekari.SelectedIndex > -1)
-            {   
-                //TODO: Logika predlaganja slobodnih termina
-                zakazivanje.Close();
-            }
+            zakazivanje.Close();
         }
+
         public void Otkazivanje(ListView listaZakazanihTermina)
         {
             if (listaZakazanihTermina.SelectedIndex >= 0)

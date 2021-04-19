@@ -16,7 +16,7 @@
             <Label x:Name="minDatumLabela" Content="Min datum:" Canvas.Left="48" Canvas.Top="44"/>
             <Label x:Name="maxDatumLabela" Content="Max datum:" Canvas.Left="48" Canvas.Top="83"/>
             <Label x:Name="lekarLabela" Content="Lekar:" Canvas.Left="78" Canvas.Top="127"/>
-            <RadioButton x:Name="lekarRadio" Content="Lekar" Canvas.Left="91" Canvas.Top="185" Checked="RadioButton_Checked"/>
+            <RadioButton x:Name="lekarRadio" Content="Lekar" IsChecked="True" Canvas.Left="91" Canvas.Top="185" Checked="RadioButton_Checked"/>
             <RadioButton x:Name="vremeRadio" Content="Vreme" Canvas.Left="162" Canvas.Top="185" Checked="RadioButton_Checked"/>
             <Button x:Name="potvrdaZakazivanjaDugme" Content="Potvrdi" Canvas.Left="129" Canvas.Top="229" Width="66" Click="potvrdaZakazivanjaDugme_Click" RenderTransformOrigin="0.852,0.423"/>
         </Canvas>

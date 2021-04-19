@@ -1,50 +1,52 @@
 [
   {
-    "zdravstveniKarton": null,
-    "termin": null,
+    "zauzetiTermini": [
+      {
+        "vreme": "2021-04-21T09:30:00",
+        "trajanje": 30.0,
+        "tipTermina": 1,
+        "status": 5,
+        "pacijentJMBG": "2403998156177",
+        "lekarJMBG": "231568933",
+        "idProstorije": ""
+      }
+    ],
     "ime": "Darko",
     "prezime": "Pericic",
-    "jmbg": "1112988174478",
-    "datumRodjenja": "1979-12-11T00:00:00",
-    "telefon": "065734122",
-    "email": "dpericic@gmail.com",
+    "jmbg": "231568933",
+    "datumRodjenja": "1992-06-08T00:00:00",
+    "telefon": "064345590",
+    "email": "pdarko@gmail.com",
+    "specijalizacija": "Lekar opste prakse",
     "korisnik": {
-      "korisnickoIme": "lekar1",
-      "lozinka": "lekar1",
-      "uloga": 2,
-      "KorisnickoIme": "lekar1",
-      "Lozinka": "lekar1",
-      "Uloga": 2
-    },
-    "ImeOsobe": "Darko",
-    "PrezimeOsobe": "Pericic",
-    "JMBGOsobe": "1112988174478",
-    "DatumRodjenjaOsobe": "1979-12-11T00:00:00",
-    "TelefonOsobe": "065734122",
-    "EmailOsobe": "dpericic@gmail.com"
+      "korisnickoIme": null,
+      "lozinka": null,
+      "uloga": 0
+    }
   },
   {
-    "zdravstveniKarton": null,
-    "termin": null,
-    "ime": "Milan",
-    "prezime": "Rodic",
-    "jmbg": "1112988174569",
-    "datumRodjenja": "1990-12-11T00:00:00",
-    "telefon": "063156778",
-    "email": "mrodic@gmail.com",
+    "zauzetiTermini": [
+      {
+        "vreme": "2021-04-22T08:30:00",
+        "trajanje": 30.0,
+        "tipTermina": 1,
+        "status": 5,
+        "pacijentJMBG": "2403998156177",
+        "lekarJMBG": "985467356",
+        "idProstorije": ""
+      }
+    ],
+    "ime": "Marko",
+    "prezime": "Lazic",
+    "jmbg": "985467356",
+    "datumRodjenja": "1987-01-05T00:00:00",
+    "telefon": "063454664",
+    "email": "lmarko@gmail.com",
+    "specijalizacija": "Lekar opste prakse",
     "korisnik": {
-      "korisnickoIme": "lekar2",
-      "lozinka": "lekar2",
-      "uloga": 2,
-      "KorisnickoIme": "lekar2",
-      "Lozinka": "lekar2",
-      "Uloga": 2
-    },
-    "ImeOsobe": "Milan",
-    "PrezimeOsobe": "Rodic",
-    "JMBGOsobe": "1112988174569",
-    "DatumRodjenjaOsobe": "1990-12-11T00:00:00",
-    "TelefonOsobe": "063156778",
-    "EmailOsobe": "mrodic@gmail.com"
+      "korisnickoIme": null,
+      "lozinka": null,
+      "uloga": 0
+    }
   }
 ]
