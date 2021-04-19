@@ -58,7 +58,7 @@ namespace Servis
             }
         }
 
-        public void Otkazivanje(ListView listaZakazanihTerminaLekara)
+        public void Otkazivanje(DataGrid listaZakazanihTerminaLekara)
         {
             if (listaZakazanihTerminaLekara.SelectedIndex >= 0)
             {
@@ -110,7 +110,7 @@ namespace Servis
             }
         }
 
-        public void Uvid(ListView listaZakazanihTerminaLekara)
+        public void Uvid(DataGrid listaZakazanihTerminaLekara)
         {
             if (listaZakazanihTerminaLekara.SelectedIndex >= 0)
             {

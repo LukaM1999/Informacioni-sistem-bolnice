@@ -22,9 +22,9 @@ namespace InformacioniSistemBolnice
     {
         public Termin zakazanTermin;
         public List<string> listaDatuma = new List<string>();
-        public ListView zakazaniTermini;
+        public DataGrid zakazaniTermini;
         public List<string> prostorijeID = new List<string>();
-        public PomeranjeTerminaLekaraProzor(ListView zakazaniTermini)
+        public PomeranjeTerminaLekaraProzor(DataGrid zakazaniTermini)
 
         {
             InitializeComponent();

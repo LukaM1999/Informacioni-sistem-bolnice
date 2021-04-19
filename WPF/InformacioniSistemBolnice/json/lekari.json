@@ -28,9 +28,9 @@
     "telefon": "064345590",
     "email": "pdarko@gmail.com",
     "korisnik": {
-      "korisnickoIme": null,
-      "lozinka": null,
-      "uloga": 0
+      "korisnickoIme": "lekar1",
+      "lozinka": "lekar1",
+      "uloga": 1
     }
   },
   {
@@ -53,9 +53,9 @@
     "telefon": "063454664",
     "email": "lmarko@gmail.com",
     "korisnik": {
-      "korisnickoIme": null,
-      "lozinka": null,
-      "uloga": 0
+      "korisnickoIme": "lekar2",
+      "lozinka": "lekar2",
+      "uloga": 1
     }
   }
 ]
