@@ -7,6 +7,9 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="IzborTermina.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="IzmenaNalogaPacijentaForma.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -48,6 +51,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Page Update="IzborTermina.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="IzmenaNalogaPacijentaForma.xaml">
       <SubType>Designer</SubType>
     </Page>

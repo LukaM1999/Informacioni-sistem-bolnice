@@ -14,9 +14,9 @@ namespace Kontroler
 
         public static PacijentKontroler Instance { get { return lazy.Value; } }
 
-        public void Zakazivanje(ZakazivanjeTerminaPacijentaProzor zakazivanje, string jmbgPacijenta)
+        public void Zakazivanje(ZakazivanjeTerminaPacijentaProzor zakazivanjeTerminaPacijenta, string jmbgPacijenta)
         {
-            UpravljanjeTerminimaPacijenata.Instance.Zakazivanje(zakazivanje, jmbgPacijenta);
+            UpravljanjeTerminimaPacijenata.Instance.Zakazivanje(zakazivanjeTerminaPacijenta, jmbgPacijenta);
         }
 
         public void Otkazivanje(ListView listaZakazanihTermina)

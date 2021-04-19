@@ -47,7 +47,8 @@ namespace InformacioniSistemBolnice
 
         private void potvrdaZakazivanjaDugme_Click(object sender, RoutedEventArgs e)
         {
-            PacijentKontroler.Instance.Zakazivanje(this, pacijentJMBG);
+            IzborTermina izborTermina = new IzborTermina(this, pacijentJMBG);
+            izborTermina.Visibility = Visibility.Visible;
 
         }
 

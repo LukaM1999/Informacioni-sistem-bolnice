@@ -12,16 +12,7 @@
       "korisnickoIme": "majica",
       "lozinka": "majica",
       "uloga": 2,
-      "KorisnickoIme": "majica",
-      "Lozinka": "majica",
-      "Uloga": 2
-    },
-    "ImeOsobe": "Maja",
-    "PrezimeOsobe": "Bajic",
-    "JMBGOsobe": "1112988178178",
-    "DatumRodjenjaOsobe": "1988-12-11T00:00:00",
-    "TelefonOsobe": "0657181818",
-    "EmailOsobe": "majab@gmail.com"
+    }
   },
   {
     "zdravstveniKarton": null,
@@ -36,16 +27,7 @@
       "korisnickoIme": "kris",
       "lozinka": "lalalla",
       "uloga": 2,
-      "KorisnickoIme": "kris",
-      "Lozinka": "lalalla",
-      "Uloga": 2
-    },
-    "ImeOsobe": "Kristina",
-    "PrezimeOsobe": "Maric",
-    "JMBGOsobe": "0909999123145",
-    "DatumRodjenjaOsobe": "1999-09-09T00:00:00",
-    "TelefonOsobe": "0623456789",
-    "EmailOsobe": "kris98@gmail.com"
+    }
   },
   {
     "zdravstveniKarton": null,
@@ -60,15 +42,6 @@
       "korisnickoIme": "mihajlo",
       "lozinka": "lalala",
       "uloga": 2,
-      "KorisnickoIme": "mihajlo",
-      "Lozinka": "lalala",
-      "Uloga": 2
-    },
-    "ImeOsobe": "Mihajlo",
-    "PrezimeOsobe": "Miric",
-    "JMBGOsobe": "2403998156177",
-    "DatumRodjenjaOsobe": "2001-03-24T00:00:00",
-    "TelefonOsobe": "06366677788",
-    "EmailOsobe": "mihajlo@gmail.com"
+    }
   }
 ]
