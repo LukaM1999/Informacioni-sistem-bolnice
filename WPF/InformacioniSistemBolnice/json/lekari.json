@@ -2,22 +2,31 @@
   {
     "zauzetiTermini": [
       {
-        "vreme": "2021-04-21T09:30:00",
+        "vreme": "2021-04-22T18:00:00",
         "trajanje": 30.0,
         "tipTermina": 1,
         "status": 5,
         "pacijentJMBG": "2403998156177",
         "lekarJMBG": "231568933",
-        "idProstorije": ""
+        "idProstorije": null
+      },
+      {
+        "vreme": "2021-04-23T10:00:00",
+        "trajanje": 30.0,
+        "tipTermina": 1,
+        "status": 5,
+        "pacijentJMBG": "2403998156177",
+        "lekarJMBG": "231568933",
+        "idProstorije": null
       }
     ],
+    "specijalizacija": "Lekar opste prakse",
     "ime": "Darko",
     "prezime": "Pericic",
     "jmbg": "231568933",
     "datumRodjenja": "1992-06-08T00:00:00",
     "telefon": "064345590",
     "email": "pdarko@gmail.com",
-    "specijalizacija": "Lekar opste prakse",
     "korisnik": {
       "korisnickoIme": "lekar1",
       "lozinka": "lekar1",
@@ -33,16 +42,16 @@
         "status": 5,
         "pacijentJMBG": "2403998156177",
         "lekarJMBG": "985467356",
-        "idProstorije": ""
+        "idProstorije": null
       }
     ],
+    "specijalizacija": "Lekar opste prakse",
     "ime": "Marko",
     "prezime": "Lazic",
     "jmbg": "985467356",
     "datumRodjenja": "1987-01-05T00:00:00",
     "telefon": "063454664",
     "email": "lmarko@gmail.com",
-    "specijalizacija": "Lekar opste prakse",
     "korisnik": {
       "korisnickoIme": "lekar2",
       "lozinka": "lekar2",
