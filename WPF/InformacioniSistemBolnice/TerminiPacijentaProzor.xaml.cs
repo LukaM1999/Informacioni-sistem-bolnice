@@ -22,8 +22,6 @@ namespace InformacioniSistemBolnice
 {
     public partial class TerminiPacijentaProzor : Window
     {
-
-        //public ObservableCollection<Termin> listaTerminaUlogovanog;
         public Pacijent ulogovanPacijent;
 
         public TerminiPacijentaProzor(string korisnickoIme, string lozinka)
@@ -33,7 +31,7 @@ namespace InformacioniSistemBolnice
             Termini.Instance.Deserijalizacija("../../../json/zakazaniTermini.json");
             Pacijenti.Instance.Deserijalizacija("../../../json/pacijenti.json");
             Lekari.Instance.Deserijalizacija("../../../json/lekari.json");
-            
+
             foreach (Pacijent pacijent in Pacijenti.Instance.listaPacijenata)
             {
                 if (pacijent.korisnik.korisnickoIme.Equals(korisnickoIme) && pacijent.korisnik.lozinka.Equals(lozinka))
@@ -48,31 +46,11 @@ namespace InformacioniSistemBolnice
 
         }
 
-        /*
-        public void NadjiTermine(string korisnickoIme, string lozinka)
-        {
-            foreach (Termin termin in Termini.Instance.listaTermina)
-            {
-                if (termin.pacijentJMBG != null)
-                {
-                    if (ulogovanPacijent.jmbg.Equals(termin.pacijentJMBG))
-                    {
-                        if (korisnickoIme.Equals(ulogovanPacijent.korisnik.korisnickoIme) && lozinka.Equals(ulogovanPacijent.korisnik.lozinka))
-                        {
-                            listaTerminaUlogovanog.Add(termin);
-                        }
-                    }
-
-                }
-            }
-        }
-        */
-
         private void pomeriDugme_Click(object sender, RoutedEventArgs e)
         {
-            if (listaZakazanihTermina.SelectedIndex >= 0)
+            if (listaZakazanihTermina.SelectedIndex >= 0 && ((Termin)listaZakazanihTermina.SelectedItem).vreme > DateTime.Now.AddHours(24))
             {
-                PomeranjeTerminaPacijentaProzor pomeranje = new PomeranjeTerminaPacijentaProzor(listaZakazanihTermina);
+                PomeranjeTerminaPacijentaProzor pomeranje = new PomeranjeTerminaPacijentaProzor(this);
                 pomeranje.Show();
             }
         }
