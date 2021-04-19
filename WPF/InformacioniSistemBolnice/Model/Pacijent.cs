@@ -22,10 +22,11 @@ namespace Model
             this.telefon = o.telefon;
             this.email = o.email;
             this.korisnik = o.korisnik;
+            this.zakazaniTermini = new ObservableCollection<Termin>();
         }
 
         public ZdravstveniKarton zdravstveniKarton;
-        public ObservableCollection<Termin> zakazaniTermini;
+        public ObservableCollection<Termin> zakazaniTermini = new ObservableCollection<Termin>();
 
         public override string ToString()
         {

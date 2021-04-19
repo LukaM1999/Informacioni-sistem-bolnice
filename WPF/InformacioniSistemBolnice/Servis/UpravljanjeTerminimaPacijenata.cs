@@ -17,9 +17,41 @@ namespace Servis
 
         public static UpravljanjeTerminimaPacijenata Instance { get { return lazy.Value; } }
 
-        public void Zakazivanje(ZakazivanjeTerminaPacijentaProzor zakazivanje, string jmbgPacijenta)
+        public void Zakazivanje(IzborTermina izborTermina, string jmbgPacijenta)
         {
-            zakazivanje.Close();
+            foreach (Pacijent pacijent in Pacijenti.Instance.listaPacijenata)
+            {
+                if (pacijent.jmbg == jmbgPacijenta)
+                {
+                    foreach (Termin vecZakazan in pacijent.zakazaniTermini)
+                    {
+                        if (vecZakazan == (Termin)izborTermina.ponudjeniTermini.SelectedItem)
+                        {
+                            return;
+                        }
+                    }
+                    foreach (Lekar lekar in Lekari.Instance.listaLekara)
+                    {
+                        if (lekar.jmbg == ((Termin)izborTermina.ponudjeniTermini.SelectedItem).lekarJMBG)
+                        {
+                            pacijent.zakazaniTermini.Add((Termin)izborTermina.ponudjeniTermini.SelectedItem);
+                            lekar.zauzetiTermini.Add((Termin)izborTermina.ponudjeniTermini.SelectedItem);
+                            Termini.Instance.listaTermina.Add((Termin)izborTermina.ponudjeniTermini.SelectedItem);
+                            Lekari.Instance.Serijalizacija("../../../json/lekari.json");
+                            Pacijenti.Instance.Serijalizacija("../../../json/pacijenti.json");
+                            Termini.Instance.Serijalizacija("../../../json/zakazaniTermini.json");
+                            Pacijenti.Instance.Deserijalizacija("../../../json/pacijenti.json");
+                            Lekari.Instance.Deserijalizacija("../../../json/lekari.json");
+                            Termini.Instance.Deserijalizacija("../../../json/zakazaniTermini.json");
+                            izborTermina.zakazivanjeTerminaPacijenta.terminiPacijentaProzor.listaZakazanihTermina.ItemsSource
+                                = pacijent.zakazaniTermini;
+                            izborTermina.zakazivanjeTerminaPacijenta.Close();
+                            izborTermina.Close();
+                            break;
+                        }
+                    }
+                }
+            }
         }
 
         public void Otkazivanje(ListView listaZakazanihTermina)

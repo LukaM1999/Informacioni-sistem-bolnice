@@ -14,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Model;
 using Repozitorijum;
+using Servis;
 
 namespace InformacioniSistemBolnice
 {
@@ -21,9 +22,12 @@ namespace InformacioniSistemBolnice
     {
         private ObservableCollection<Termin> slobodniTermini;
 
+        public ZakazivanjeTerminaPacijentaProzor zakazivanjeTerminaPacijenta;
+
         public IzborTermina(ZakazivanjeTerminaPacijentaProzor zakazivanje, string jmbgPacijenta)
         {
             InitializeComponent();
+            zakazivanjeTerminaPacijenta = zakazivanje;
             if (zakazivanje.minDatumTermina.SelectedDate != null && zakazivanje.maxDatumTermina != null && zakazivanje.lekari.SelectedIndex > -1)
             {
                 slobodniTermini = new ObservableCollection<Termin>();
@@ -54,7 +58,7 @@ namespace InformacioniSistemBolnice
                         }
                     }
                 }
-                slobodniTermini.Clear();
+                //slobodniTermini.Clear();
                 if (slobodniTermini.Count == 0)
                 {
                     if ((bool)zakazivanje.lekarRadio.IsChecked)
@@ -144,7 +148,8 @@ namespace InformacioniSistemBolnice
 
         private void zakaziDugme_Click(object sender, RoutedEventArgs e)
         {
-
+            UpravljanjeTerminimaPacijenata.Instance.Zakazivanje(this, this.slobodniTermini[0].pacijentJMBG);
+            this.Close();
         }
     }
 }

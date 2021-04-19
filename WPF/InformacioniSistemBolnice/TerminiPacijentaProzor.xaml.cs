@@ -23,7 +23,7 @@ namespace InformacioniSistemBolnice
     public partial class TerminiPacijentaProzor : Window
     {
 
-        public ObservableCollection<Termin> listaTerminaUlogovanog;
+        //public ObservableCollection<Termin> listaTerminaUlogovanog;
         public Pacijent ulogovanPacijent;
 
         public TerminiPacijentaProzor(string korisnickoIme, string lozinka)
@@ -35,7 +35,6 @@ namespace InformacioniSistemBolnice
 
             foreach (Pacijent pacijent in Pacijenti.Instance.listaPacijenata)
             {
-                System.Diagnostics.Debug.WriteLine(pacijent.korisnik.korisnickoIme);
                 if (pacijent.korisnik.korisnickoIme.Equals(korisnickoIme) && pacijent.korisnik.lozinka.Equals(lozinka))
                 {
                     ulogovanPacijent = pacijent;
@@ -43,13 +42,12 @@ namespace InformacioniSistemBolnice
                 }
             }
 
-            listaTerminaUlogovanog = new ObservableCollection<Termin>();
-            NadjiTermine(korisnickoIme, lozinka);
-            listaZakazanihTermina.ItemsSource = listaTerminaUlogovanog;
+            listaZakazanihTermina.ItemsSource = ulogovanPacijent.zakazaniTermini;
 
 
         }
 
+        /*
         public void NadjiTermine(string korisnickoIme, string lozinka)
         {
             foreach (Termin termin in Termini.Instance.listaTermina)
@@ -67,6 +65,7 @@ namespace InformacioniSistemBolnice
                 }
             }
         }
+        */
 
         private void pomeriDugme_Click(object sender, RoutedEventArgs e)
         {
