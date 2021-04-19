@@ -25,6 +25,17 @@ namespace Model
             set;
         }
 
+        public Termin(DateTime dt, double tr, TipTermina tip, StatusTermina s, string jmbgPacijenta, string jmbgLekara, string sifraProstorije)
+        {
+            vreme = dt;
+            trajanje = tr;
+            tipTermina = tip;
+            status = s;
+            pacijentJMBG = jmbgPacijenta;
+            lekarJMBG = jmbgLekara;
+            idProstorije = sifraProstorije;
+        }
+
         public Termin(DateTime dt, double tr, TipTermina tip, StatusTermina s)
         {
             vreme = dt;
@@ -37,17 +48,17 @@ namespace Model
         {
 
         }
-        public Pacijent pacijent
+        public string pacijentJMBG
         {
             get;
             set;
         }
-        public Lekar lekar
+        public string lekarJMBG
         {
             get;
             set;
         }
-        public Prostorija prostorija
+        public string idProstorije
         {
             get;
             set;

@@ -18,7 +18,7 @@ namespace InformacioniSistemBolnice
 {
     public partial class TerminInfoProzor : Window
     {
-        public TerminInfoProzor(ListView listaZakazanih)
+        public TerminInfoProzor(DataGrid listaZakazanih)
         {
             InitializeComponent();
             Termin t = (Termin)listaZakazanih.SelectedItem;
@@ -27,9 +27,9 @@ namespace InformacioniSistemBolnice
             tipTerminaLabela.Content = t.tipTermina.ToString();
             statusTerminaLabela.Content = t.status.ToString();
             trajanjeLabela.Content = t.trajanje.ToString();
-            if (t.prostorija != null)
+            if (t.idProstorije != null)
             {
-                salaLabela.Content = t.prostorija.id;
+                salaLabela.Content = t.idProstorije;
             }
             else
             {

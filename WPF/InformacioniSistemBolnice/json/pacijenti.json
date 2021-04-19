@@ -1,7 +1,7 @@
 [
   {
     "zdravstveniKarton": null,
-    "termin": null,
+    "zakazaniTermini": null,
     "ime": "Maja",
     "prezime": "Bajic",
     "jmbg": "1112988178178",
@@ -9,23 +9,14 @@
     "telefon": "0657181818",
     "email": "majab@gmail.com",
     "korisnik": {
-      "korisnickoIme": "majicaaa",
-      "lozinka": "lalala",
-      "uloga": 2,
-      "KorisnickoIme": "majicaaa",
-      "Lozinka": "lalala",
-      "Uloga": 2
-    },
-    "ImeOsobe": "Maja",
-    "PrezimeOsobe": "Bajic",
-    "JMBGOsobe": "1112988178178",
-    "DatumRodjenjaOsobe": "1988-12-11T00:00:00",
-    "TelefonOsobe": "0657181818",
-    "EmailOsobe": "majab@gmail.com"
+      "korisnickoIme": "majica",
+      "lozinka": "majica",
+      "uloga": 2
+    }
   },
   {
     "zdravstveniKarton": null,
-    "termin": null,
+    "zakazaniTermini": null,
     "ime": "Kristina",
     "prezime": "Maric",
     "jmbg": "0909999123145",
@@ -35,21 +26,40 @@
     "korisnik": {
       "korisnickoIme": "kris",
       "lozinka": "lalalla",
-      "uloga": 2,
-      "KorisnickoIme": "kris",
-      "Lozinka": "lalalla",
-      "Uloga": 2
-    },
-    "ImeOsobe": "Kristina",
-    "PrezimeOsobe": "Maric",
-    "JMBGOsobe": "0909999123145",
-    "DatumRodjenjaOsobe": "1999-09-09T00:00:00",
-    "TelefonOsobe": "0623456789",
-    "EmailOsobe": "kris98@gmail.com"
+      "uloga": 2
+    }
   },
   {
     "zdravstveniKarton": null,
-    "termin": null,
+    "zakazaniTermini": [
+	  {
+		"vreme": "2021-04-22T08:30:00",
+		"trajanje": 30.0,
+		"tipTermina": 1,
+		"status": 5,
+		"pacijentJMBG": "2403998156177",
+		"lekarJMBG": "985467356",
+		"idProstorije": null
+	  },
+      {
+        "vreme": "2021-04-22T18:00:00",
+        "trajanje": 30.0,
+        "tipTermina": 1,
+        "status": 5,
+        "pacijentJMBG": "2403998156177",
+        "lekarJMBG": "231568933",
+        "idProstorije": null
+      },
+      {
+        "vreme": "2021-04-23T10:00:00",
+        "trajanje": 30.0,
+        "tipTermina": 1,
+        "status": 5,
+        "pacijentJMBG": "2403998156177",
+        "lekarJMBG": "231568933",
+        "idProstorije": null
+      }
+    ],
     "ime": "Mihajlo",
     "prezime": "Miric",
     "jmbg": "2403998156177",
@@ -59,16 +69,7 @@
     "korisnik": {
       "korisnickoIme": "mihajlo",
       "lozinka": "lalala",
-      "uloga": 2,
-      "KorisnickoIme": "mihajlo",
-      "Lozinka": "lalala",
-      "Uloga": 2
-    },
-    "ImeOsobe": "Mihajlo",
-    "PrezimeOsobe": "Miric",
-    "JMBGOsobe": "2403998156177",
-    "DatumRodjenjaOsobe": "2001-03-24T00:00:00",
-    "TelefonOsobe": "06366677788",
-    "EmailOsobe": "mihajlo@gmail.com"
+      "uloga": 2
+    }
   }
 ]

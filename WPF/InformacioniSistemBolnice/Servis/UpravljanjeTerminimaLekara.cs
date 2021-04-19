@@ -47,7 +47,7 @@ namespace Servis
                 {
                     if (p.id.Equals((string)zakazivanje.sala.SelectedItem))
                     {
-                        zakazanTermin.prostorija = p;
+                        zakazanTermin.idProstorije = p.id;
                         break;
                     }
                 }
@@ -58,7 +58,7 @@ namespace Servis
             }
         }
 
-        public void Otkazivanje(ListView listaZakazanihTerminaLekara)
+        public void Otkazivanje(DataGrid listaZakazanihTerminaLekara)
         {
             if (listaZakazanihTerminaLekara.SelectedIndex >= 0)
             {
@@ -95,7 +95,7 @@ namespace Servis
                 {
                     if (p.id.Equals((string)pomeranje.sala.SelectedItem))
                     {
-                        pomeranje.zakazanTermin.prostorija = p;
+                        pomeranje.zakazanTermin.idProstorije = p.id;
                         break;
                     }
                 }
@@ -110,7 +110,7 @@ namespace Servis
             }
         }
 
-        public void Uvid(ListView listaZakazanihTerminaLekara)
+        public void Uvid(DataGrid listaZakazanihTerminaLekara)
         {
             if (listaZakazanihTerminaLekara.SelectedIndex >= 0)
             {

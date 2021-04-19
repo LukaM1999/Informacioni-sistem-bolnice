@@ -5,94 +5,46 @@ namespace Model
     public class Osoba
     {
 
-        public string ime;
-
-        public string ImeOsobe
+        public string ime
         {
-            get
-            {
-                return ime;
-            }
-            set
-            {
-                ime = value;
-            }
-           
+            get;
+            set;
         }
 
-        public string prezime;
-
-        public string PrezimeOsobe
+    public string prezime
         {
-            get
-            {
-                return prezime;
-            }
-            set
-            {
-                prezime = value;
-            }
+            get;
+            set;
         }
 
-        public string jmbg;
-
-        public string JMBGOsobe
+        public string jmbg
         {
-            get
-            {
-                return jmbg;
-            }
-            set
-            {
-                jmbg = value;
-            }
+            get;
+            set;
         }
 
-        public DateTime datumRodjenja;
-
-        public DateTime DatumRodjenjaOsobe
+        public DateTime datumRodjenja
         {
-            get
-            {
-                return datumRodjenja;
-            }
-            set
-            {
-                datumRodjenja = value;
-            }
+            get;
+            set;
         }
 
-        public string telefon;
-
-        public string TelefonOsobe
+        public string telefon
         {
-            get
-            {
-                return telefon;
-            }
-            set
-            {
-                telefon = value;
-            }
+            get;
+            set;
         }
 
-        public string email;
-
-        public string EmailOsobe
+        public string email
         {
-            get
-            {
-                return email;
-            }
-            set
-            {
-                email = value;
-            }
+            get;
+            set;
         }
+
 
         public Osoba()
         {
-           
+
         }
 
         public Osoba(string i, string prz, string matBr, DateTime dR, string tel, string mail, Korisnik k)
@@ -104,10 +56,14 @@ namespace Model
             telefon = tel;
             email = mail;
             korisnik = k;
-            
+
         }
 
-        public Korisnik korisnik;
+        public Korisnik korisnik
+        {
+            get;
+            set;
+        }
 
     }
 }

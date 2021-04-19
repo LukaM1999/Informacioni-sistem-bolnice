@@ -22,9 +22,9 @@ namespace InformacioniSistemBolnice
     {
         public Termin zakazanTermin;
         public List<string> listaDatuma = new List<string>();
-        public ListView zakazaniTermini;
+        public DataGrid zakazaniTermini;
         public List<string> prostorijeID = new List<string>();
-        public PomeranjeTerminaLekaraProzor(ListView zakazaniTermini)
+        public PomeranjeTerminaLekaraProzor(DataGrid zakazaniTermini)
 
         {
             InitializeComponent();
@@ -51,9 +51,9 @@ namespace InformacioniSistemBolnice
             }
             sala.ItemsSource = prostorijeID;
 
-            if (zakazanTermin.prostorija != null)
+            if (zakazanTermin.idProstorije != null)
             {
-                sala.Text = zakazanTermin.prostorija.id;
+                sala.Text = zakazanTermin.idProstorije;
             }
 
             datumTermina.Text = zakazanTermin.vreme.ToString("MM/dd/yyyy");

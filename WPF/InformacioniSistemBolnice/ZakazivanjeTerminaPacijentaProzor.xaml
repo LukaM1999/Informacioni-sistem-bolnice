@@ -6,19 +6,19 @@
         xmlns:local="clr-namespace:InformacioniSistemBolnice"
         xmlns:system="clr-namespace:System;assembly=mscorlib"
         mc:Ignorable="d"
-        Title="ZakazivanjeTerminaPacijentaProzor" Height="450" Width="338">
+        Title="ZakazivanjeTerminaPacijentaProzor" Height="309" Width="324">
     <Grid>
-        
+
         <Canvas>
-            <ListView x:Name="listaSati" Height="378" Width="338" Canvas.Top="56">
-                <ListView.View>
-                    <GridView>
-                        <GridViewColumn/>
-                    </GridView>
-                </ListView.View>
-            </ListView>
-            <DatePicker x:Name="datumTermina" Canvas.Left="22" Canvas.Top="10" DisplayDateStart="{Binding Path=., Source={x:Static system:DateTime.Today}}"/>
-            <Button x:Name="potvrdaZakazivanjaDugme" Content="Potvrdi" Canvas.Left="249" Canvas.Top="12" Width="65" Click="potvrdaZakazivanjaDugme_Click"/>
+            <DatePicker x:Name="minDatumTermina" Canvas.Left="160" Canvas.Top="46" DisplayDateStart="{Binding Path=., Source={x:Static system:DateTime.Today}}"/>
+            <DatePicker x:Name="maxDatumTermina" Canvas.Left="160" Canvas.Top="84" DisplayDateStart="{Binding ., Source={x:Static system:DateTime.Today}}"/>
+            <ComboBox x:Name="lekari" Width="102" Height="23" Canvas.Left="160" Canvas.Top="127" ScrollViewer.VerticalScrollBarVisibility="Visible"></ComboBox>
+            <Label x:Name="minDatumLabela" Content="Min datum:" Canvas.Left="48" Canvas.Top="44"/>
+            <Label x:Name="maxDatumLabela" Content="Max datum:" Canvas.Left="48" Canvas.Top="83"/>
+            <Label x:Name="lekarLabela" Content="Lekar:" Canvas.Left="78" Canvas.Top="127"/>
+            <RadioButton x:Name="lekarRadio" Content="Lekar" IsChecked="True" Canvas.Left="91" Canvas.Top="185" Checked="RadioButton_Checked"/>
+            <RadioButton x:Name="vremeRadio" Content="Vreme" Canvas.Left="162" Canvas.Top="185" Checked="RadioButton_Checked"/>
+            <Button x:Name="potvrdaZakazivanjaDugme" Content="Potvrdi" Canvas.Left="129" Canvas.Top="229" Width="66" Click="potvrdaZakazivanjaDugme_Click" RenderTransformOrigin="0.852,0.423"/>
         </Canvas>
 
     </Grid>

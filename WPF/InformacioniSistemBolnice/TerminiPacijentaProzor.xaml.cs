@@ -23,15 +23,49 @@ namespace InformacioniSistemBolnice
     public partial class TerminiPacijentaProzor : Window
     {
 
-        public TerminiPacijentaProzor()
+        //public ObservableCollection<Termin> listaTerminaUlogovanog;
+        public Pacijent ulogovanPacijent;
+
+        public TerminiPacijentaProzor(string korisnickoIme, string lozinka)
         {
             InitializeComponent();
 
             Termini.Instance.Deserijalizacija("../../../json/zakazaniTermini.json");
-            listaZakazanihTermina.ItemsSource = Termini.Instance.listaTermina;
+            Pacijenti.Instance.Deserijalizacija("../../../json/pacijenti.json");
+
+            foreach (Pacijent pacijent in Pacijenti.Instance.listaPacijenata)
+            {
+                if (pacijent.korisnik.korisnickoIme.Equals(korisnickoIme) && pacijent.korisnik.lozinka.Equals(lozinka))
+                {
+                    ulogovanPacijent = pacijent;
+                    break;
+                }
+            }
+
+            listaZakazanihTermina.ItemsSource = ulogovanPacijent.zakazaniTermini;
 
 
         }
+
+        /*
+        public void NadjiTermine(string korisnickoIme, string lozinka)
+        {
+            foreach (Termin termin in Termini.Instance.listaTermina)
+            {
+                if (termin.pacijentJMBG != null)
+                {
+                    if (ulogovanPacijent.jmbg.Equals(termin.pacijentJMBG))
+                    {
+                        if (korisnickoIme.Equals(ulogovanPacijent.korisnik.korisnickoIme) && lozinka.Equals(ulogovanPacijent.korisnik.lozinka))
+                        {
+                            listaTerminaUlogovanog.Add(termin);
+                        }
+                    }
+
+                }
+            }
+        }
+        */
 
         private void pomeriDugme_Click(object sender, RoutedEventArgs e)
         {
@@ -45,7 +79,7 @@ namespace InformacioniSistemBolnice
 
         private void zakaziDugme_Click(object sender, RoutedEventArgs e)
         {
-            ZakazivanjeTerminaPacijentaProzor zakazivanjeProzor = new ZakazivanjeTerminaPacijentaProzor();
+            ZakazivanjeTerminaPacijentaProzor zakazivanjeProzor = new ZakazivanjeTerminaPacijentaProzor(ulogovanPacijent.jmbg, this);
             zakazivanjeProzor.Show();
         }
 

@@ -17,35 +17,44 @@ namespace Servis
 
         public static UpravljanjeTerminimaPacijenata Instance { get { return lazy.Value; } }
 
-        public void Zakazivanje(ZakazivanjeTerminaPacijentaProzor zakazivanje)
+        public void Zakazivanje(IzborTermina izborTermina, string jmbgPacijenta)
         {
-            if (zakazivanje.listaSati.SelectedIndex >= 0 && zakazivanje.datumTermina.SelectedDate != null)
+            foreach (Pacijent pacijent in Pacijenti.Instance.listaPacijenata)
             {
-                DateTime datumTermina = (DateTime)zakazivanje.datumTermina.SelectedDate;
-                string datumVrednost = (string)zakazivanje.listaSati.SelectedValue;
-                string[] satiMinuti = datumVrednost.Split(":");
-                double sat = double.Parse(satiMinuti[0]);
-                if (satiMinuti[1].Equals("30"))
+                if (pacijent.jmbg == jmbgPacijenta)
                 {
-                    sat += 0.5;
-                }
-
-                datumTermina = datumTermina.AddHours(sat);
-                foreach (Termin t in Termini.Instance.listaTermina)
-                {
-                    if (t.vreme == datumTermina)
+                    foreach (Termin vecZakazan in pacijent.zakazaniTermini)
                     {
-                        return;
+                        if (vecZakazan == (Termin)izborTermina.ponudjeniTermini.SelectedItem)
+                        {
+                            return;
+                        }
+                    }
+                    foreach (Lekar lekar in Lekari.Instance.listaLekara)
+                    {
+                        if (lekar.jmbg == ((Termin)izborTermina.ponudjeniTermini.SelectedItem).lekarJMBG)
+                        {
+                            pacijent.zakazaniTermini.Add((Termin)izborTermina.ponudjeniTermini.SelectedItem);
+                            lekar.zauzetiTermini.Add((Termin)izborTermina.ponudjeniTermini.SelectedItem);
+                            Termini.Instance.listaTermina.Add((Termin)izborTermina.ponudjeniTermini.SelectedItem);
+                            Lekari.Instance.Serijalizacija("../../../json/lekari.json");
+                            Pacijenti.Instance.Serijalizacija("../../../json/pacijenti.json");
+                            Termini.Instance.Serijalizacija("../../../json/zakazaniTermini.json");
+                            Pacijenti.Instance.Deserijalizacija("../../../json/pacijenti.json");
+                            Lekari.Instance.Deserijalizacija("../../../json/lekari.json");
+                            Termini.Instance.Deserijalizacija("../../../json/zakazaniTermini.json");
+                            izborTermina.zakazivanjeTerminaPacijenta.terminiPacijentaProzor.listaZakazanihTermina.ItemsSource
+                                = pacijent.zakazaniTermini;
+                            izborTermina.zakazivanjeTerminaPacijenta.Close();
+                            izborTermina.Close();
+                            break;
+                        }
                     }
                 }
-
-                Termin zakazanTermin = new Termin(datumTermina, 30, TipTermina.pregled, StatusTermina.zakazan);
-                Termini.Instance.listaTermina.Add(zakazanTermin);
-                Termini.Instance.Serijalizacija("../../../json/zakazaniTermini.json");
-                zakazivanje.Close();
             }
         }
-        public void Otkazivanje(ListView listaZakazanihTermina)
+
+        public void Otkazivanje(DataGrid listaZakazanihTermina)
         {
             if (listaZakazanihTermina.SelectedIndex >= 0)
             {
@@ -90,7 +99,7 @@ namespace Servis
             }
         }
 
-        public void Uvid(ListView listaZakazanihTermina)
+        public void Uvid(DataGrid listaZakazanihTermina)
         {
             TerminInfoProzor terminInfo = new TerminInfoProzor(listaZakazanihTermina);
             terminInfo.Show();
