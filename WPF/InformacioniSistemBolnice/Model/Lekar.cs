@@ -25,7 +25,7 @@ namespace Model
             set;
         }
 
-        public ObservableCollection<Termin> zauzetiTermini;
+        public ObservableCollection<Termin> zauzetiTermini = new ObservableCollection<Termin>();
 
         public override string ToString()
         {

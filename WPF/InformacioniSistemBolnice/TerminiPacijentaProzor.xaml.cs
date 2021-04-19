@@ -32,7 +32,8 @@ namespace InformacioniSistemBolnice
 
             Termini.Instance.Deserijalizacija("../../../json/zakazaniTermini.json");
             Pacijenti.Instance.Deserijalizacija("../../../json/pacijenti.json");
-
+            Lekari.Instance.Deserijalizacija("../../../json/lekari.json");
+            
             foreach (Pacijent pacijent in Pacijenti.Instance.listaPacijenata)
             {
                 if (pacijent.korisnik.korisnickoIme.Equals(korisnickoIme) && pacijent.korisnik.lozinka.Equals(lozinka))

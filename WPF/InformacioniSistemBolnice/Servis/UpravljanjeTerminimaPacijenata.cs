@@ -5,6 +5,7 @@ using System.Windows.Controls;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using InformacioniSistemBolnice;
+using System.Linq;
 
 namespace Servis
 {
@@ -58,9 +59,54 @@ namespace Servis
         {
             if (listaZakazanihTermina.SelectedIndex >= 0)
             {
-                Termin t = (Termin)listaZakazanihTermina.SelectedValue;
-                Termini.Instance.listaTermina.Remove(t);
-                Termini.Instance.Serijalizacija("../../../json/zakazaniTermini.json");
+                Termin t = (Termin)listaZakazanihTermina.SelectedItem;
+
+                foreach (Pacijent pacijent in Pacijenti.Instance.listaPacijenata.ToList())
+                {
+                    if (pacijent.jmbg == t.pacijentJMBG)
+                    {
+                        foreach (Termin termin in pacijent.zakazaniTermini)
+                        {
+                            if (termin.vreme == t.vreme)
+                            {
+                                pacijent.zakazaniTermini.Remove(termin);
+                                Pacijenti.Instance.Serijalizacija("../../../json/pacijenti.json");
+                                Pacijenti.Instance.Deserijalizacija("../../../json/pacijenti.json");
+                                listaZakazanihTermina.ItemsSource = null;
+                                listaZakazanihTermina.ItemsSource = pacijent.zakazaniTermini;
+                                break;
+                            }
+                        }
+
+                    }
+                }
+
+                foreach (Lekar lekar in Lekari.Instance.listaLekara)
+                {
+                    if (lekar.jmbg == t.lekarJMBG)
+                    {   
+                        foreach(Termin termin in lekar.zauzetiTermini.ToList())
+                        {
+                            if (termin.vreme == t.vreme)
+                            {
+                                lekar.zauzetiTermini.Remove(termin);
+                                Lekari.Instance.Serijalizacija("../../../json/lekari.json");
+                                Lekari.Instance.Deserijalizacija("../../../json/lekari.json");
+                                break;
+                            }
+                        }
+                    }
+                }
+
+                foreach(Termin termin in Termini.Instance.listaTermina.ToList())
+                {
+                    if (termin.vreme == t.vreme)
+                    {
+                        Termini.Instance.listaTermina.Remove(termin);
+                        Termini.Instance.Serijalizacija("../../../json/zakazaniTermini.json");
+                        Termini.Instance.Deserijalizacija("../../../json/zakazaniTermini.json");
+                    }
+                }                
             }
         }
 
