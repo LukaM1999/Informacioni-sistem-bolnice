@@ -27,7 +27,8 @@ namespace InformacioniSistemBolnice
             InitializeComponent();
 
             Termini.Instance.Deserijalizacija("../../../json/zakazaniTermini.json");
-            listaZakazanihTerminaLekara.ItemsSource = Termini.Instance.listaTermina;
+            ObservableCollection<Termin> zakazaniTermini = new ObservableCollection<Termin>();
+            listaZakazanihTerminaLekara.ItemsSource = zakazaniTermini;
 
 
         }

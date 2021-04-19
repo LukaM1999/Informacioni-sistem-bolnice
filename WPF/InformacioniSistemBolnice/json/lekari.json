@@ -19,9 +19,9 @@
     "email": "pdarko@gmail.com",
     "specijalizacija": "Lekar opste prakse",
     "korisnik": {
-      "korisnickoIme": null,
-      "lozinka": null,
-      "uloga": 0
+      "korisnickoIme": "lekar1",
+      "lozinka": "lekar1",
+      "uloga": 1
     }
   },
   {
@@ -44,9 +44,9 @@
     "email": "lmarko@gmail.com",
     "specijalizacija": "Lekar opste prakse",
     "korisnik": {
-      "korisnickoIme": null,
-      "lozinka": null,
-      "uloga": 0
+      "korisnickoIme": "lekar2",
+      "lozinka": "lekar2",
+      "uloga": 1
     }
   }
 ]

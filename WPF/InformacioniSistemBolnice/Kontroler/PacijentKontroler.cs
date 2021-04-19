@@ -19,7 +19,7 @@ namespace Kontroler
             UpravljanjeTerminimaPacijenata.Instance.Zakazivanje(zakazivanjeTerminaPacijenta, jmbgPacijenta);
         }
 
-        public void Otkazivanje(ListView listaZakazanihTermina)
+        public void Otkazivanje(DataGrid listaZakazanihTermina)
         {
             UpravljanjeTerminimaPacijenata.Instance.Otkazivanje(listaZakazanihTermina);
         }
@@ -29,7 +29,7 @@ namespace Kontroler
             UpravljanjeTerminimaPacijenata.Instance.Pomeranje(pomeranje);
         }
 
-        public void Uvid(ListView listaZakazanihTermina)
+        public void Uvid(DataGrid listaZakazanihTermina)
         {
             UpravljanjeTerminimaPacijenata.Instance.Uvid(listaZakazanihTermina);
         }

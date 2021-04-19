@@ -22,7 +22,7 @@ namespace Servis
             zakazivanje.Close();
         }
 
-        public void Otkazivanje(ListView listaZakazanihTermina)
+        public void Otkazivanje(DataGrid listaZakazanihTermina)
         {
             if (listaZakazanihTermina.SelectedIndex >= 0)
             {
@@ -67,7 +67,7 @@ namespace Servis
             }
         }
 
-        public void Uvid(ListView listaZakazanihTermina)
+        public void Uvid(DataGrid listaZakazanihTermina)
         {
             TerminInfoProzor terminInfo = new TerminInfoProzor(listaZakazanihTermina);
             terminInfo.Show();

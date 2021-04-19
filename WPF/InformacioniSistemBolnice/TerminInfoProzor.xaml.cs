@@ -18,7 +18,7 @@ namespace InformacioniSistemBolnice
 {
     public partial class TerminInfoProzor : Window
     {
-        public TerminInfoProzor(ListView listaZakazanih)
+        public TerminInfoProzor(DataGrid listaZakazanih)
         {
             InitializeComponent();
             Termin t = (Termin)listaZakazanih.SelectedItem;
