@@ -62,5 +62,15 @@ namespace InformacioniSistemBolnice
         {
             UpravnikKontroler.Instance.BrisanjeDinamickeOpreme(this);
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            if (listViewDinamOpreme.SelectedValue != null)
+            {
+                MagacinIzmeniDinamickuOpremu p = new MagacinIzmeniDinamickuOpremu(listViewDinamOpreme);
+                p.postavljanjeVrednost();
+                p.Show();
+            }
+        }
     }
 }

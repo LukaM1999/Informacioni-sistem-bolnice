@@ -22,6 +22,9 @@
     <Compile Update="MagacinDodajProzor.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="MagacinIzmeniDinamickuOpremu.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="MagacinIzmeniProzor.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -76,6 +79,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="MagacinDodajProzor.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="MagacinIzmeniDinamickuOpremu.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="MagacinIzmeniProzor.xaml">

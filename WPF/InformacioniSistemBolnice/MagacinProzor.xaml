@@ -28,6 +28,7 @@
         <Button x:Name="dugmeIzmeniStatOpremu" Content="Izmeni" HorizontalAlignment="Left" Height="30" Margin="413,20,0,0" VerticalAlignment="Top" Width="100" Click="dugmeIzmeniStatOpremu_Click"/>
         <Button x:Name="dugmeKreirajDinamickuOpremu" Content="Dodaj" HorizontalAlignment="Left" Height="30" Margin="130,55,0,0" VerticalAlignment="Top" Width="100" Click="dugmeKreirajDinamickuOpremu_Click"/>
         <Button x:Name="dugmeObrisiDinamOpremu" Content="Obrisi" HorizontalAlignment="Left" Height="32" Margin="269,54,0,0" VerticalAlignment="Top" Width="100" Click="dugmeObrisiDinamOpremu_Click"/>
+        <Button x:Name="dugmeIzmeniDinamOpremu" Content="Izmeni" HorizontalAlignment="Left" Height="30" Margin="413,55,0,0" VerticalAlignment="Top" Width="100" Click="Button_Click"/>
 
     </Grid>
 </Window>
