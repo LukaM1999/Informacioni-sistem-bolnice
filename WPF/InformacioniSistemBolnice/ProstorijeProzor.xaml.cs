@@ -63,5 +63,11 @@ namespace InformacioniSistemBolnice
             }
 
         }
+
+        private void magacinDugme_Click(object sender, RoutedEventArgs e)
+        {
+            MagacinProzor mp = new MagacinProzor();
+            mp.Show();
+        }
     }
 }

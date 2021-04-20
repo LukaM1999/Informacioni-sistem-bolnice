@@ -1,4 +1,8 @@
 using System;
+using Model;
+using Repozitorijum;
+using InformacioniSistemBolnice;
+using Model;
 
 namespace Servis
 {
@@ -11,19 +15,44 @@ namespace Servis
 
         public static UpravljanjeDinamickomOpremom Instance { get { return lazy.Value; } }
 
-        public void KreiranjeOpreme()
+        public void KreiranjeOpreme(MagacinDodajDinamickuOpremu p)
         {
-            throw new NotImplementedException();
+            Model.DinamickaOprema oprema = new Model.DinamickaOprema(Int32.Parse(p.tbKol.Text), (TipDinamickeOpreme)Enum.Parse(typeof(TipDinamickeOpreme), p.cb1.Text));
+
+            foreach (Model.DinamickaOprema so in Repozitorijum.DinamickaOprema.Instance.listaOpreme)
+            {
+                if (so.tip.Equals(oprema.tip))
+                {
+                    so.kolicina += oprema.kolicina;
+                    Repozitorijum.DinamickaOprema.Instance.Serijalizacija("../../../json/dinamickaOprema.json");
+                    Repozitorijum.DinamickaOprema.Instance.Deserijalizacija("../../../json/dinamickaOprema.json");
+                    return;
+                }
+            }
+
+            Repozitorijum.DinamickaOprema.Instance.listaOpreme.Add(oprema);
+            Repozitorijum.DinamickaOprema.Instance.Serijalizacija("../../../json/dinamickaOprema.json");
+            Repozitorijum.DinamickaOprema.Instance.Deserijalizacija("../../../json/dinamickaOprema.json");
         }
 
-        public void UklanjanjeOpreme()
+        public void UklanjanjeOpreme(MagacinProzor p)
         {
-            throw new NotImplementedException();
+            if (p.listViewDinamOpreme.SelectedValue != null)
+            {
+                Model.DinamickaOprema oprema = (Model.DinamickaOprema)p.listViewDinamOpreme.SelectedValue;
+                Repozitorijum.DinamickaOprema.Instance.listaOpreme.Remove(oprema);
+                Repozitorijum.DinamickaOprema.Instance.Serijalizacija("../../../json/dinamickaOprema.json");
+                Repozitorijum.DinamickaOprema.Instance.Deserijalizacija("../../../json/dinamickaOprema.json");
+            }
         }
 
-        public void IzmenaOpreme()
+        public void IzmenaOpreme(Model.DinamickaOprema oprema, MagacinIzmeniDinamickuOpremu p)
         {
-            throw new NotImplementedException();
+            oprema.kolicina = Int32.Parse(p.tb1.Text);
+            oprema.tip = (TipDinamickeOpreme)Enum.Parse(typeof(TipDinamickeOpreme), p.cb1.Text, true);
+
+            Repozitorijum.DinamickaOprema.Instance.Serijalizacija("../../../json/dinamickaOprema.json");
+            Repozitorijum.DinamickaOprema.Instance.Deserijalizacija("../../../json/DinamickaOprema.json");
         }
 
         public void PregledOpreme()
@@ -31,7 +60,7 @@ namespace Servis
             throw new NotImplementedException();
         }
 
-        public Repozitorijum.Magacin magacin;
+        public Repozitorijum.StatickaOprema magacin;
 
     }
 }
