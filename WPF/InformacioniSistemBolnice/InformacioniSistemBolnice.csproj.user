@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup />
   <ItemGroup>
@@ -20,6 +20,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="IzmenaAlergenaForma.xaml.cs">
+    <Compile Update="IzborTermina.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="IzmenaNalogaPacijentaForma.xaml.cs">
@@ -29,6 +30,21 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Login.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="MagacinDodajDinamickuOpremu.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="MagacinDodajProzor.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="MagacinIzmeniDinamickuOpremu.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="MagacinIzmeniProzor.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="MagacinProzor.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="PacijentiProzor.xaml.cs">
@@ -88,6 +104,7 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="IzmenaAlergenaForma.xaml">
+    <Page Update="IzborTermina.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="IzmenaNalogaPacijentaForma.xaml">
@@ -97,6 +114,21 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Login.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="MagacinDodajDinamickuOpremu.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="MagacinDodajProzor.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="MagacinIzmeniDinamickuOpremu.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="MagacinIzmeniProzor.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="MagacinProzor.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="MainWindow.xaml">

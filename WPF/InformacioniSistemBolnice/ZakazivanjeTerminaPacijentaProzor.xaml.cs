@@ -20,11 +20,16 @@ namespace InformacioniSistemBolnice
 {
     public partial class ZakazivanjeTerminaPacijentaProzor : Window
     {
-        public List<string> listaDatuma = new List<string>();
 
-        public ZakazivanjeTerminaPacijentaProzor()
+        public List<string> listaDatuma = new List<string>();
+        public string pacijentJMBG;
+        public TerminiPacijentaProzor terminiPacijentaProzor;
+
+        public ZakazivanjeTerminaPacijentaProzor(string jmbgPacijenta, TerminiPacijentaProzor termini)
         {
             InitializeComponent();
+            terminiPacijentaProzor = termini;
+            /*
             DateTime datum = DateTime.Parse("7:00");
 
             for (int j = 0; j < 27; j++)
@@ -34,13 +39,21 @@ namespace InformacioniSistemBolnice
             }
 
             listaSati.ItemsSource = listaDatuma;
-
-
+            */
+            Lekari.Instance.Deserijalizacija("../../../json/lekari.json");
+            lekari.ItemsSource = Lekari.Instance.listaLekara;
+            pacijentJMBG = jmbgPacijenta;
         }
 
         private void potvrdaZakazivanjaDugme_Click(object sender, RoutedEventArgs e)
         {
-            PacijentKontroler.Instance.Zakazivanje(this);
+            IzborTermina izborTermina = new IzborTermina(this, pacijentJMBG);
+            izborTermina.Visibility = Visibility.Visible;
+
+        }
+
+        private void RadioButton_Checked(object sender, RoutedEventArgs e)
+        {
 
         }
     }

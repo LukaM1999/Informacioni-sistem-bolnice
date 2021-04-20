@@ -11,13 +11,7 @@
     <Grid>
 
         <Canvas>
-            <ListView x:Name="listaSati" Height="248" Width="338" Canvas.Top="56">
-                <ListView.View>
-                    <GridView>
-                        <GridViewColumn/>
-                    </GridView>
-                </ListView.View>
-            </ListView>
+            <ListView x:Name="listaSati" Height="248" Width="338" Canvas.Top="56"/>
             <DatePicker x:Name="datumTermina" Canvas.Left="22" Canvas.Top="10" DisplayDateStart="{Binding Path=., Source={x:Static system:DateTime.Today}}"/>
             <Button x:Name="potvrdaPomeranjaDugme" Content="Potvrdi" Canvas.Left="249" Canvas.Top="12" Width="65" Click="potvrdaPomeranjaDugme_Click"/>
             <Label Content="Trajanje:" Canvas.Left="22" Canvas.Top="309" Width="102"/>

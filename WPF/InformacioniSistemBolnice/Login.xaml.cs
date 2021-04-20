@@ -41,13 +41,13 @@ namespace InformacioniSistemBolnice
                             break;
 
                         case Model.UlogaKorisnika.lekar:
-                            TerminiLekaraProzor terminiLekara = new TerminiLekaraProzor();
-                            terminiLekara.Show();
+                            GlavniProzorLekara glavniProzorLekara = new GlavniProzorLekara(k.korisnickoIme, k.lozinka);
+                            glavniProzorLekara.Show();
                             this.Close();
                             break;
 
                         case Model.UlogaKorisnika.pacijent:
-                            TerminiPacijentaProzor tpp = new TerminiPacijentaProzor();
+                            TerminiPacijentaProzor tpp = new TerminiPacijentaProzor(k.korisnickoIme, k.lozinka);
                             tpp.Show();
                             this.Close();
                             break;

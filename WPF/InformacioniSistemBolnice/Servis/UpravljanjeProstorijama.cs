@@ -30,9 +30,9 @@ namespace Servis
 
                 foreach(Termin t in Termini.Instance.listaTermina)
                 {
-                    if (t.prostorija.id == pr.id)
+                    if (t.idProstorije == pr.id)
                     {
-                        t.prostorija = null;
+                        t.idProstorije = null;
                         Termini.Instance.Serijalizacija("../../../json/zakazaniTermini.json");
                         Termini.Instance.Deserijalizacija("../../../json/zakazaniTermini.json");
                     }
@@ -68,11 +68,11 @@ namespace Servis
 
             foreach (Termin t in Termini.Instance.listaTermina)
             {
-                if (t.prostorija != null)
+                if (t.idProstorije != null)
                 {
-                    if (t.prostorija.id == stariId)
+                    if (t.idProstorije == stariId)
                     {
-                        t.prostorija = p;
+                        t.idProstorije = p.id;
                         Termini.Instance.Serijalizacija("../../../json/zakazaniTermini.json");
                         Termini.Instance.Deserijalizacija("../../../json/zakazaniTermini.json");
                     }

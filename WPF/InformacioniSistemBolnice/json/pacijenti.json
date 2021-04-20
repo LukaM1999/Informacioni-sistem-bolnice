@@ -1,359 +1,84 @@
 [
   {
-    "zdravstveniKarton": {
-      "Jmbg": "1206998161177",
-      "LiceZaZdravstvenuZastitu": "Ivana Markovic",
-      "PolPacijenta": 0,
-      "ImeJednogRoditelja": "Milan",
-      "BrojKnjizice": "1251515151",
-      "BrojKartona": "K1",
-      "Recept": null,
-      "KategorijaZdravstveneZastite": 1,
-      "BracnoStanje": 0,
-      "PodaciOZaposlenjuIZanimanjuPacijenta": {
-        "MestoRada": "nema",
-        "RegBroj": "nema",
-        "SifraDelatnosti": "Student",
-        "PosaoKojiObavlja": "nema",
-        "OSIZZdrZastite": "nema",
-        "RadPodPosebnimUslovima": "nema",
-        "Promene": "nema"
-      },
-      "Alergeni": [
-        {
-          "nazivAlergena": "gluten"
-        },
-        {
-          "nazivAlergena": "pencilin"
-        },
-        {
-          "nazivAlergena": "laktoza"
-        }
-      ]
-    },
-    "termin": null,
-    "ime": "Marko",
-    "prezime": "Pajic",
-    "jmbg": "1206998161177",
-    "datumRodjenja": "2021-06-12T00:00:00",
-    "telefon": "06416161616",
-    "email": "markopajic@gmail.com",
-    "adresa": {
-      "Broj": "11",
-      "Ulica": "Laze Kostica",
-      "Grad": "Novi Sad",
-      "Drzava": "Srbija"
-    },
-    "korisnik": {
-      "korisnickoIme": "marko",
-      "lozinka": "maki",
-      "uloga": 2
-    },
-    "ImeOsobe": "Marko",
-    "PrezimeOsobe": "Pajic",
-    "JMBGOsobe": "1206998161177",
-    "DatumRodjenjaOsobe": "2021-06-12T00:00:00",
-    "TelefonOsobe": "06416161616",
-    "EmailOsobe": "markopajic@gmail.com",
-    "AdresaOsobe": {
-      "Broj": "11",
-      "Ulica": "Laze Kostica",
-      "Grad": "Novi Sad",
-      "Drzava": "Srbija"
-    }
-  },
-  {
-    "zdravstveniKarton": {
-      "Jmbg": "System.Windows.Controls.TextBox: 120399919191",
-      "LiceZaZdravstvenuZastitu": "Milica ",
-      "PolPacijenta": 1,
-      "ImeJednogRoditelja": "Mitar",
-      "BrojKnjizice": "1314155151",
-      "BrojKartona": "K1",
-      "Recept": null,
-      "KategorijaZdravstveneZastite": 1,
-      "BracnoStanje": 0,
-      "PodaciOZaposlenjuIZanimanjuPacijenta": {
-        "MestoRada": "ucitelj",
-        "RegBroj": "nema",
-        "SifraDelatnosti": "nema",
-        "PosaoKojiObavlja": "nema",
-        "OSIZZdrZastite": "nema",
-        "RadPodPosebnimUslovima": "nema",
-        "Promene": "nema"
-      },
-      "Alergeni": []
-    },
-    "termin": null,
+    "zdravstveniKarton": null,
+    "zakazaniTermini": [],
     "ime": "Maja",
     "prezime": "Bajic",
-    "jmbg": "120399919191",
-    "datumRodjenja": "1999-03-12T00:00:00",
-    "telefon": "91919",
-    "email": "maja@gmail.com",
-    "adresa": {
-      "Broj": "11",
-      "Ulica": "Ive Andrica",
-      "Grad": "Novi Sad",
-      "Drzava": "Srbija"
-    },
+    "jmbg": "1112988178178",
+    "datumRodjenja": "1988-12-11T00:00:00",
+    "telefon": "0657181818",
+    "email": "majab@gmail.com",
     "korisnik": {
-      "korisnickoIme": "maja",
-      "lozinka": "lala",
+      "korisnickoIme": "majica",
+      "lozinka": "majica",
       "uloga": 2
-    },
-    "ImeOsobe": "Maja",
-    "PrezimeOsobe": "Bajic",
-    "JMBGOsobe": "120399919191",
-    "DatumRodjenjaOsobe": "1999-03-12T00:00:00",
-    "TelefonOsobe": "91919",
-    "EmailOsobe": "maja@gmail.com",
-    "AdresaOsobe": {
-      "Broj": "11",
-      "Ulica": "Ive Andrica",
-      "Grad": "Novi Sad",
-      "Drzava": "Srbija"
     }
   },
   {
-    "zdravstveniKarton": {
-      "Jmbg": "lall",
-      "LiceZaZdravstvenuZastitu": "lal",
-      "PolPacijenta": 1,
-      "ImeJednogRoditelja": "all",
-      "BrojKnjizice": "lal",
-      "BrojKartona": "lala",
-      "Recept": null,
-      "KategorijaZdravstveneZastite": 3,
-      "BracnoStanje": 0,
-      "PodaciOZaposlenjuIZanimanjuPacijenta": {
-        "MestoRada": "allaal",
-        "RegBroj": "all",
-        "SifraDelatnosti": "all",
-        "PosaoKojiObavlja": "llal",
-        "OSIZZdrZastite": "lall",
-        "RadPodPosebnimUslovima": "allaal",
-        "Promene": "l"
-      },
-      "Alergeni": []
-    },
-    "termin": null,
-    "ime": "lalla1l",
-    "prezime": "lala",
-    "jmbg": "lall",
-    "datumRodjenja": "2021-04-21T00:00:00",
-    "telefon": "alla",
-    "email": "lal",
-    "adresa": {
-      "Broj": "l",
-      "Ulica": "lal",
-      "Grad": "allal",
-      "Drzava": "allal"
-    },
+    "zdravstveniKarton": null,
+    "zakazaniTermini": [],
+    "ime": "Kristina",
+    "prezime": "Maric",
+    "jmbg": "0909999123145",
+    "datumRodjenja": "1999-09-09T00:00:00",
+    "telefon": "0623456789",
+    "email": "kris98@gmail.com",
     "korisnik": {
-      "korisnickoIme": "all",
-      "lozinka": "al",
+      "korisnickoIme": "kris",
+      "lozinka": "lalalla",
       "uloga": 2
-    },
-    "ImeOsobe": "lalla1l",
-    "PrezimeOsobe": "lala",
-    "JMBGOsobe": "lall",
-    "DatumRodjenjaOsobe": "2021-04-21T00:00:00",
-    "TelefonOsobe": "alla",
-    "EmailOsobe": "lal",
-    "AdresaOsobe": {
-      "Broj": "l",
-      "Ulica": "lal",
-      "Grad": "allal",
-      "Drzava": "allal"
     }
   },
   {
-    "zdravstveniKarton": {
-      "Jmbg": "System.Windows.Controls.Label: 1206999134134",
-      "LiceZaZdravstvenuZastitu": "Mitar Miric",
-      "PolPacijenta": 1,
-      "ImeJednogRoditelja": "Marko",
-      "BrojKnjizice": "12345678818",
-      "BrojKartona": "K1",
-      "Recept": null,
-      "KategorijaZdravstveneZastite": 5,
-      "BracnoStanje": 0,
-      "PodaciOZaposlenjuIZanimanjuPacijenta": {
-        "MestoRada": "nema",
-        "RegBroj": "nema",
-        "SifraDelatnosti": "nema",
-        "PosaoKojiObavlja": "nema",
-        "OSIZZdrZastite": "nema",
-        "RadPodPosebnimUslovima": "nema",
-        "Promene": "nema"
+    "zdravstveniKarton": null,
+    "zakazaniTermini": [
+      {
+        "vreme": "2021-04-22T08:30:00",
+        "trajanje": 30.0,
+        "tipTermina": 1,
+        "status": 5,
+        "pacijentJMBG": "2403998156177",
+        "lekarJMBG": "985467356",
+        "idProstorije": null
       },
-      "Alergeni": []
-    },
-    "termin": null,
-    "ime": "Milica",
-    "prezime": "Zivkovic",
-    "jmbg": "1206999134134",
-    "datumRodjenja": "2021-06-12T00:00:00",
-    "telefon": "064627187",
-    "email": "milica@gmailcom",
-    "adresa": {
-      "Broj": "9",
-      "Ulica": "Ive Andrica",
-      "Grad": "Novi Sad",
-      "Drzava": "Srbija"
-    },
-    "korisnik": {
-      "korisnickoIme": "milica",
-      "lozinka": "milica",
-      "uloga": 2
-    },
-    "ImeOsobe": "Milica",
-    "PrezimeOsobe": "Zivkovic",
-    "JMBGOsobe": "1206999134134",
-    "DatumRodjenjaOsobe": "2021-06-12T00:00:00",
-    "TelefonOsobe": "064627187",
-    "EmailOsobe": "milica@gmailcom",
-    "AdresaOsobe": {
-      "Broj": "9",
-      "Ulica": "Ive Andrica",
-      "Grad": "Novi Sad",
-      "Drzava": "Srbija"
-    }
-  },
-  {
-    "zdravstveniKarton": {
-      "Jmbg": "12089991425",
-      "LiceZaZdravstvenuZastitu": "Mitar Miric",
-      "PolPacijenta": 0,
-      "ImeJednogRoditelja": "Marko",
-      "BrojKnjizice": "181881",
-      "BrojKartona": "K118",
-      "Recept": null,
-      "KategorijaZdravstveneZastite": 0,
-      "BracnoStanje": 0,
-      "PodaciOZaposlenjuIZanimanjuPacijenta": {
-        "MestoRada": "alla",
-        "RegBroj": "lal",
-        "SifraDelatnosti": "laal",
-        "PosaoKojiObavlja": "prodavac",
-        "OSIZZdrZastite": "nema",
-        "RadPodPosebnimUslovima": "nema",
-        "Promene": "nema"
+      {
+        "vreme": "2021-04-23T10:00:00",
+        "trajanje": 30.0,
+        "tipTermina": 1,
+        "status": 5,
+        "pacijentJMBG": "2403998156177",
+        "lekarJMBG": "231568933",
+        "idProstorije": null
       },
-      "Alergeni": [
-        {
-          "nazivAlergena": "gluten"
-        },
-        {
-          "nazivAlergena": "pencilin"
-        },
-        {
-          "nazivAlergena": "jagode"
-        },
-        {
-          "nazivAlergena": "laktoza"
-        },
-        {
-          "nazivAlergena": "polen"
-        }
-      ]
-    },
-    "termin": null,
+      {
+        "vreme": "2021-04-24T20:00:00",
+        "trajanje": 30.0,
+        "tipTermina": 1,
+        "status": 3,
+        "pacijentJMBG": "2403998156177",
+        "lekarJMBG": "231568933",
+        "idProstorije": null
+      },
+      {
+        "vreme": "2021-04-20T07:00:00",
+        "trajanje": 30.0,
+        "tipTermina": 1,
+        "status": 5,
+        "pacijentJMBG": "2403998156177",
+        "lekarJMBG": "231568933",
+        "idProstorije": null
+      }
+    ],
     "ime": "Mihajlo",
-    "prezime": "Kisic",
-    "jmbg": "12089991425",
-    "datumRodjenja": "1999-08-12T00:00:00",
-    "telefon": "19881881",
+    "prezime": "Miric",
+    "jmbg": "2403998156177",
+    "datumRodjenja": "2001-03-24T00:00:00",
+    "telefon": "06366677788",
     "email": "mihajlo@gmail.com",
-    "adresa": {
-      "Broj": "33",
-      "Ulica": "Suboticka",
-      "Grad": "NoviSad",
-      "Drzava": "Srbija"
-    },
     "korisnik": {
       "korisnickoIme": "mihajlo",
-      "lozinka": "mihal",
+      "lozinka": "lalala",
       "uloga": 2
-    },
-    "ImeOsobe": "Mihajlo",
-    "PrezimeOsobe": "Kisic",
-    "JMBGOsobe": "12089991425",
-    "DatumRodjenjaOsobe": "1999-08-12T00:00:00",
-    "TelefonOsobe": "19881881",
-    "EmailOsobe": "mihajlo@gmail.com",
-    "AdresaOsobe": {
-      "Broj": "33",
-      "Ulica": "Suboticka",
-      "Grad": "NoviSad",
-      "Drzava": "Srbija"
-    }
-  },
-  {
-    "zdravstveniKarton": null,
-    "termin": null,
-    "ime": "Luka",
-    "prezime": "Miletic",
-    "jmbg": "132616516161",
-    "datumRodjenja": "2021-04-14T00:00:00",
-    "telefon": "lal",
-    "email": "lal",
-    "adresa": {
-      "Broj": "1",
-      "Ulica": "Lazee",
-      "Grad": "Novi Sad",
-      "Drzava": "Srbija"
-    },
-    "korisnik": {
-      "korisnickoIme": "lukaa",
-      "lozinka": "l",
-      "uloga": 2
-    },
-    "ImeOsobe": "Luka",
-    "PrezimeOsobe": "Miletic",
-    "JMBGOsobe": "132616516161",
-    "DatumRodjenjaOsobe": "2021-04-14T00:00:00",
-    "TelefonOsobe": "lal",
-    "EmailOsobe": "lal",
-    "AdresaOsobe": {
-      "Broj": "1",
-      "Ulica": "Lazee",
-      "Grad": "Novi Sad",
-      "Drzava": "Srbija"
-    }
-  },
-  {
-    "zdravstveniKarton": null,
-    "termin": null,
-    "ime": "Milan",
-    "prezime": "Maric",
-    "jmbg": "1209000198198",
-    "datumRodjenja": "2000-09-12T00:00:00",
-    "telefon": "0645252551",
-    "email": "milanm@gmail.com",
-    "adresa": {
-      "Broj": "11",
-      "Ulica": "Ive Andrica",
-      "Grad": "Novi Sad",
-      "Drzava": "Srbija"
-    },
-    "korisnik": {
-      "korisnickoIme": "milan",
-      "lozinka": "mikimilan",
-      "uloga": 2
-    },
-    "ImeOsobe": "Milan",
-    "PrezimeOsobe": "Maric",
-    "JMBGOsobe": "1209000198198",
-    "DatumRodjenjaOsobe": "2000-09-12T00:00:00",
-    "TelefonOsobe": "0645252551",
-    "EmailOsobe": "milanm@gmail.com",
-    "AdresaOsobe": {
-      "Broj": "11",
-      "Ulica": "Ive Andrica",
-      "Grad": "Novi Sad",
-      "Drzava": "Srbija"
     }
   }
 ]

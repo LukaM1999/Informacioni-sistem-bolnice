@@ -1,0 +1,20 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:InformacioniSistemBolnice"
+        xmlns:Model="clr-namespace:Model" x:Class="InformacioniSistemBolnice.MagacinDodajDinamickuOpremu"
+        mc:Ignorable="d"
+        Title="MagacinDodajDinamickuOpremu" Height="286" Width="597">
+    <Grid>
+
+        <TextBox x:Name="tbKol" HorizontalAlignment="Left" Margin="228,34,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Height="30" RenderTransformOrigin="0.508,0.561"/>
+        <Label Content="Kolicina:" HorizontalAlignment="Left" Margin="81,34,0,0" VerticalAlignment="Top" Height="30"/>
+        <ComboBox x:Name="cb1" HorizontalAlignment="Left" Height="30" Margin="226,108,0,0" VerticalAlignment="Top" Width="216"
+        ItemsSource="{Binding Source={local:EnumBindingSource {x:Type Model:TipDinamickeOpreme}}}"/>
+        <Label Content="Tip dinamicke opreme:" HorizontalAlignment="Left" Margin="81,106,0,0" VerticalAlignment="Top" Height="30"/>
+        <Button x:Name="dugmePotvrdi" Content="Potvrdi" HorizontalAlignment="Left" Height="30" Margin="337,191,0,0" VerticalAlignment="Top" Width="80" Click="dugmePotvrdi_Click"/>
+
+    </Grid>
+</Window>

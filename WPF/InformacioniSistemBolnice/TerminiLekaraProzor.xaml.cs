@@ -21,13 +21,18 @@ namespace InformacioniSistemBolnice
 {
     public partial class TerminiLekaraProzor : Window
     {
-
-        public TerminiLekaraProzor()
+        public string jmbgLekara;
+        public TerminiLekaraProzor(Lekar ulogovanLekar)
         {
             InitializeComponent();
 
+            Pacijenti.Instance.Deserijalizacija("../../../json/pacijenti.json");
+            Lekari.Instance.Deserijalizacija("../../../json/lekari.json");
             Termini.Instance.Deserijalizacija("../../../json/zakazaniTermini.json");
-            listaZakazanihTerminaLekara.ItemsSource = Termini.Instance.listaTermina;
+
+            listaZakazanihTerminaLekara.ItemsSource = ulogovanLekar.zauzetiTermini;
+            jmbgLekara = ulogovanLekar.jmbg;
+            System.Diagnostics.Debug.WriteLine(jmbgLekara);
 
 
         }
@@ -44,7 +49,7 @@ namespace InformacioniSistemBolnice
 
         private void zakaziDugme_Click(object sender, RoutedEventArgs e)
         {
-            ZakazivanjeTerminaLekaraProzor zakazivanjeProzor = new ZakazivanjeTerminaLekaraProzor();
+            ZakazivanjeTerminaLekaraProzor zakazivanjeProzor = new ZakazivanjeTerminaLekaraProzor(jmbgLekara, this.listaZakazanihTerminaLekara);
             zakazivanjeProzor.Show();
         }
 

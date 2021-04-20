@@ -1,6 +1,7 @@
 [
   {
     "termin": null,
+    "inventar": null,
     "sprat": 2,
     "id": "P1",
     "jeZauzeta": false,
@@ -8,9 +9,18 @@
   },
   {
     "termin": null,
+    "inventar": null,
     "sprat": 3,
     "id": "OS1",
     "jeZauzeta": false,
     "tip": 0
+  },
+  {
+    "termin": null,
+    "inventar": null,
+    "sprat": 4,
+    "id": "K3",
+    "jeZauzeta": false,
+    "tip": 2
   }
 ]

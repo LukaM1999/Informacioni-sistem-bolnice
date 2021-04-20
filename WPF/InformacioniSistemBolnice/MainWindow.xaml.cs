@@ -40,16 +40,16 @@ namespace InformacioniSistemBolnice
 
         private void pacijentButton_Click(object sender, RoutedEventArgs e)
         {
-            TerminiPacijentaProzor tpp = new TerminiPacijentaProzor();
-            tpp.Show();
+            //TerminiPacijentaProzor tpp = new TerminiPacijentaProzor();
+            //tpp.Show();
 
 
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            TerminiLekaraProzor terminiLekara = new TerminiLekaraProzor();
-            terminiLekara.Show();
+            //TerminiLekaraProzor terminiLekara = new TerminiLekaraProzor();
+            //terminiLekara.Show();
         }
     }
 }

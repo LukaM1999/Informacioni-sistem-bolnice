@@ -14,12 +14,12 @@ namespace Kontroler
 
         public static LekarKontroler Instance { get { return lazy.Value; } }
 
-        public void Zakazivanje(ZakazivanjeTerminaLekaraProzor zakazivanje)
+        public void Zakazivanje(ZakazivanjeTerminaLekaraProzor zakazivanje, string jmbgLekar)
         {
-            UpravljanjeTerminimaLekara.Instance.Zakazivanje(zakazivanje);
+            UpravljanjeTerminimaLekara.Instance.Zakazivanje(zakazivanje, jmbgLekar);
         }
 
-        public void Otkazivanje(ListView listaZakazanihTerminaLekara)
+        public void Otkazivanje(DataGrid listaZakazanihTerminaLekara)
         {
             UpravljanjeTerminimaLekara.Instance.Otkazivanje(listaZakazanihTerminaLekara);
         }
@@ -29,7 +29,7 @@ namespace Kontroler
             UpravljanjeTerminimaLekara.Instance.Pomeranje(pomeranje);
         }
 
-        public void Uvid(ListView listaZakazanihTerminaLekara)
+        public void Uvid(DataGrid listaZakazanihTerminaLekara)
         {
             UpravljanjeTerminimaLekara.Instance.Uvid(listaZakazanihTerminaLekara);
         }

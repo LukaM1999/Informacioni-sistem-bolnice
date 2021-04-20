@@ -22,22 +22,35 @@ namespace InformacioniSistemBolnice
 {
     public partial class TerminiPacijentaProzor : Window
     {
+        public Pacijent ulogovanPacijent;
 
-        public TerminiPacijentaProzor()
+        public TerminiPacijentaProzor(string korisnickoIme, string lozinka)
         {
             InitializeComponent();
 
             Termini.Instance.Deserijalizacija("../../../json/zakazaniTermini.json");
-            listaZakazanihTermina.ItemsSource = Termini.Instance.listaTermina;
+            Pacijenti.Instance.Deserijalizacija("../../../json/pacijenti.json");
+            Lekari.Instance.Deserijalizacija("../../../json/lekari.json");
+
+            foreach (Pacijent pacijent in Pacijenti.Instance.listaPacijenata)
+            {
+                if (pacijent.korisnik.korisnickoIme.Equals(korisnickoIme) && pacijent.korisnik.lozinka.Equals(lozinka))
+                {
+                    ulogovanPacijent = pacijent;
+                    break;
+                }
+            }
+
+            listaZakazanihTermina.ItemsSource = ulogovanPacijent.zakazaniTermini;
 
 
         }
 
         private void pomeriDugme_Click(object sender, RoutedEventArgs e)
         {
-            if (listaZakazanihTermina.SelectedIndex >= 0)
+            if (listaZakazanihTermina.SelectedIndex >= 0 && ((Termin)listaZakazanihTermina.SelectedItem).vreme > DateTime.Now.AddHours(24))
             {
-                PomeranjeTerminaPacijentaProzor pomeranje = new PomeranjeTerminaPacijentaProzor(listaZakazanihTermina);
+                PomeranjeTerminaPacijentaProzor pomeranje = new PomeranjeTerminaPacijentaProzor(this);
                 pomeranje.Show();
             }
         }
@@ -45,7 +58,7 @@ namespace InformacioniSistemBolnice
 
         private void zakaziDugme_Click(object sender, RoutedEventArgs e)
         {
-            ZakazivanjeTerminaPacijentaProzor zakazivanjeProzor = new ZakazivanjeTerminaPacijentaProzor();
+            ZakazivanjeTerminaPacijentaProzor zakazivanjeProzor = new ZakazivanjeTerminaPacijentaProzor(ulogovanPacijent.jmbg, this);
             zakazivanjeProzor.Show();
         }
 

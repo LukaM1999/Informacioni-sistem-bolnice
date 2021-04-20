@@ -1,6 +1,7 @@
 using System;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using System.Collections.ObjectModel;
 
 namespace Model
 {
@@ -22,12 +23,11 @@ namespace Model
             this.email = o.email;
             this.korisnik = o.korisnik;
             this.adresa = o.adresa;
-            
+            this.zakazaniTermini = new ObservableCollection<Termin>();
         }
 
         public ZdravstveniKarton zdravstveniKarton;
-        public Termin[] termin;
-        
+        public ObservableCollection<Termin> zakazaniTermini = new ObservableCollection<Termin>();
 
         public override string ToString()
         {

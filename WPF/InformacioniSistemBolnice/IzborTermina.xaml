@@ -1,14 +1,14 @@
-﻿<Window x:Class="InformacioniSistemBolnice.PomeranjeTerminaPacijentaProzor"
+﻿<Window x:Class="InformacioniSistemBolnice.IzborTermina"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:InformacioniSistemBolnice"
-        xmlns:system="clr-namespace:System;assembly=mscorlib"
         mc:Ignorable="d"
-        Title="PomeranjeTerminaPacijentaProzor" Height="450" Width="400">
+        Title="IzborTermina" Height="450" Width="400">
     <Canvas>
         <DataGrid x:Name="ponudjeniTermini" Height="377" Width="400" CanUserAddRows="False"/>
-        <Button x:Name="pomeriDugme" Content="Pomeri" Canvas.Left="170" Canvas.Top="394" Width="60" Click="potvrdaPomeranjaDugme_Click"/>
+        <Button x:Name="zakaziDugme" Content="Zakazi" Canvas.Left="170" Canvas.Top="394" Width="60" Click="zakaziDugme_Click"/>
+
     </Canvas>
 </Window>
