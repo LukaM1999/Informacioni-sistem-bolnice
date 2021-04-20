@@ -1,4 +1,7 @@
 using System;
+using Model;
+using Repozitorijum;
+using InformacioniSistemBolnice;
 
 namespace Servis
 {
@@ -11,14 +14,22 @@ namespace Servis
 
         public static UpravljanjeDinamickomOpremom Instance { get { return lazy.Value; } }
 
-        public void KreiranjeOpreme()
+        public void KreiranjeOpreme(MagacinDodajDinamickuOpremu p)
         {
-            throw new NotImplementedException();
+            Model.DinamickaOprema oprema = new Model.DinamickaOprema(Int32.Parse(p.tbKol.Text), (TipDinamickeOpreme)Enum.Parse(typeof(TipDinamickeOpreme), p.cb1.Text));
+            Repozitorijum.DinamickaOprema.Instance.listaOpreme.Add(oprema);
+            Repozitorijum.DinamickaOprema.Instance.Serijalizacija("../../../json/dinamickaOprema.json");
         }
 
-        public void UklanjanjeOpreme()
+        public void UklanjanjeOpreme(MagacinProzor p)
         {
-            throw new NotImplementedException();
+            if (p.listViewDinamOpreme.SelectedValue != null)
+            {
+                Model.DinamickaOprema oprema = (Model.DinamickaOprema)p.listViewDinamOpreme.SelectedValue;
+                Repozitorijum.DinamickaOprema.Instance.listaOpreme.Remove(oprema);
+                Repozitorijum.DinamickaOprema.Instance.Serijalizacija("../../../json/dinamickaOprema.json");
+                Repozitorijum.DinamickaOprema.Instance.Deserijalizacija("../../../json/dinamickaOprema.json");
+            }
         }
 
         public void IzmenaOpreme()

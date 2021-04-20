@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="MagacinProzor" Height="450" Width="800">
     <Grid>
-        <Button x:Name="dugmeKreirajOpemu" Content="Dodaj" HorizontalAlignment="Left" Height="30" Margin="130,18,0,0" VerticalAlignment="Top" Width="100" Click="dugmeKreirajOpemu_Click"/>
+        <Button x:Name="dugmeKreirajStatickuOpemu" Content="Dodaj" HorizontalAlignment="Left" Height="30" Margin="130,18,0,0" VerticalAlignment="Top" Width="100" Click="dugmeKreirajOpemu_Click"/>
         <ListView x:Name="listViewStatOpreme" HorizontalAlignment="Left" Height="241" Margin="36,136,0,0" VerticalAlignment="Top" Width="339">
             <ListView.View>
                 <GridView>
@@ -17,7 +17,7 @@
         </ListView>
         <Label Content="STATICKA -&gt;" HorizontalAlignment="Left" Height="30" Margin="36,20,0,0" VerticalAlignment="Top" Width="88"/>
         <Label Content="DINAMICKA -&gt;" HorizontalAlignment="Left" Height="30" Margin="36,55,0,0" VerticalAlignment="Top" Width="88"/>
-        <ListView x:Name="listViewDinamOpreme_Copy" HorizontalAlignment="Left" Height="241" Margin="400,136,0,0" VerticalAlignment="Top" Width="358">
+        <ListView x:Name="listViewDinamOpreme" HorizontalAlignment="Left" Height="241" Margin="400,136,0,0" VerticalAlignment="Top" Width="358">
             <ListView.View>
                 <GridView>
                     <GridViewColumn/>
@@ -26,6 +26,8 @@
         </ListView>
         <Button x:Name="dugmeObrisiStatOpremu" Content="Obrisi" HorizontalAlignment="Left" Height="30" Margin="269,20,0,0" VerticalAlignment="Top" Width="100" Click="dugmeObrisiStatOpremu_Click"/>
         <Button x:Name="dugmeIzmeniStatOpremu" Content="Izmeni" HorizontalAlignment="Left" Height="30" Margin="413,20,0,0" VerticalAlignment="Top" Width="100" Click="dugmeIzmeniStatOpremu_Click"/>
+        <Button x:Name="dugmeKreirajDinamickuOpremu" Content="Dodaj" HorizontalAlignment="Left" Height="30" Margin="130,55,0,0" VerticalAlignment="Top" Width="100" Click="dugmeKreirajDinamickuOpremu_Click"/>
+        <Button x:Name="dugmeObrisiDinamOpremu" Content="Obrisi" HorizontalAlignment="Left" Height="32" Margin="269,54,0,0" VerticalAlignment="Top" Width="100" Click="dugmeObrisiDinamOpremu_Click"/>
 
     </Grid>
 </Window>

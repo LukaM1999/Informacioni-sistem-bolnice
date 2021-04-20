@@ -50,6 +50,16 @@ namespace Kontroler
             UpravljanjeStatickomOpremom.Instance.IzmenaOpreme(oprema, p);
         }
 
+        public void KreiranjeDinamickeOpreme(MagacinDodajDinamickuOpremu p)
+        {
+            UpravljanjeDinamickomOpremom.Instance.KreiranjeOpreme(p);
+        }
+
+        public void BrisanjeDinamickeOpreme(MagacinProzor p)
+        {
+            UpravljanjeDinamickomOpremom.Instance.UklanjanjeOpreme(p);
+        }
+
         public UpravljanjeProstorijama upravljanjeProstorijama;
 
         public UpravljanjeStatickomOpremom upravljanjeStatickomOpremom;

@@ -26,7 +26,9 @@ namespace InformacioniSistemBolnice
         {
             InitializeComponent();
             StatickaOprema.Instance.Deserijalizacija("../../../json/statickaOprema.json");
+            DinamickaOprema.Instance.Deserijalizacija("../../../json/dinamickaOprema.json");
             listViewStatOpreme.ItemsSource = StatickaOprema.Instance.listaOpreme;
+            listViewDinamOpreme.ItemsSource = DinamickaOprema.Instance.listaOpreme;
         }
 
         private void dugmeKreirajOpemu_Click(object sender, RoutedEventArgs e)
@@ -48,6 +50,17 @@ namespace InformacioniSistemBolnice
                 p.postavljanjeVrednost();
                 p.Show();
             }
+        }
+
+        private void dugmeKreirajDinamickuOpremu_Click(object sender, RoutedEventArgs e)
+        {
+            MagacinDodajDinamickuOpremu p = new MagacinDodajDinamickuOpremu();
+            p.Show();
+        }
+
+        private void dugmeObrisiDinamOpremu_Click(object sender, RoutedEventArgs e)
+        {
+            UpravnikKontroler.Instance.BrisanjeDinamickeOpreme(this);
         }
     }
 }
