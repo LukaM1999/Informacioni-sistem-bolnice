@@ -42,7 +42,6 @@ namespace Servis
                 Model.DinamickaOprema oprema = (Model.DinamickaOprema)p.listViewDinamOpreme.SelectedValue;
                 Repozitorijum.DinamickaOprema.Instance.listaOpreme.Remove(oprema);
                 Repozitorijum.DinamickaOprema.Instance.Serijalizacija("../../../json/dinamickaOprema.json");
-                Repozitorijum.DinamickaOprema.Instance.Deserijalizacija("../../../json/dinamickaOprema.json");
             }
         }
 

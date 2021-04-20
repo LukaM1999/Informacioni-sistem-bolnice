@@ -1,7 +1,7 @@
 [
   {
     "tip": 5,
-    "kolicina": 123
+    "kolicina": 7
   },
   {
     "tip": 1,
@@ -9,6 +9,6 @@
   },
   {
     "tip": 4,
-    "kolicina": 300
+    "kolicina": 67
   }
 ]
