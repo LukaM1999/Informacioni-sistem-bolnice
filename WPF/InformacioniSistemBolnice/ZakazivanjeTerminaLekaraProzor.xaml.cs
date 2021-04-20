@@ -23,9 +23,12 @@ namespace InformacioniSistemBolnice
 
         public List<string> listaDatuma = new List<string>();
         public List<string> prostorijeID = new List<string>();
+        public List<string> jmbgPacijent = new List<string>();
+        public DataGrid listaZakazanihTermina;
+        public string jmbg;
+        //string jmbgPacijenta;
 
-
-        public ZakazivanjeTerminaLekaraProzor()
+        public ZakazivanjeTerminaLekaraProzor(string jmbgLekara, DataGrid listaZakazanihTerminaLekara)
         {
             InitializeComponent();
             DateTime datum = DateTime.Parse("7:00");
@@ -37,6 +40,7 @@ namespace InformacioniSistemBolnice
             }
 
             Prostorije.Instance.Deserijalizacija("../../../json/prostorije.json");
+            Pacijenti.Instance.Deserijalizacija("../../../json/pacijenti.json");
             listaSati.ItemsSource = listaDatuma;
             
             foreach(Prostorija p in Prostorije.Instance.listaProstorija)
@@ -44,11 +48,21 @@ namespace InformacioniSistemBolnice
                 prostorijeID.Add(p.id);
             }
             sala.ItemsSource = prostorijeID;
+
+            foreach (Pacijent p in Pacijenti.Instance.listaPacijenata)
+            {
+                jmbgPacijent.Add(p.jmbg);
+            }
+
+            jmbg = jmbgLekara;
+            //jmbgPacijenta = pacijent.jmbg;
+            pacijenti.ItemsSource = jmbgPacijent;
+            listaZakazanihTermina = listaZakazanihTerminaLekara;
         }
 
         private void potvrdaZakazivanjaDugme_Click(object sender, RoutedEventArgs e)
         {
-            LekarKontroler.Instance.Zakazivanje(this);
+            LekarKontroler.Instance.Zakazivanje(this, jmbg);
 
         }
     }

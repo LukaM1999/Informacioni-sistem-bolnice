@@ -41,7 +41,7 @@ namespace InformacioniSistemBolnice
                             break;
 
                         case Model.UlogaKorisnika.lekar:
-                            GlavniProzorLekara glavniProzorLekara = new GlavniProzorLekara();
+                            GlavniProzorLekara glavniProzorLekara = new GlavniProzorLekara(k.korisnickoIme, k.lozinka);
                             glavniProzorLekara.Show();
                             this.Close();
                             break;

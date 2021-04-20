@@ -1,7 +1,7 @@
 [
   {
     "zdravstveniKarton": null,
-    "zakazaniTermini": null,
+    "zakazaniTermini": [],
     "ime": "Maja",
     "prezime": "Bajic",
     "jmbg": "1112988178178",
@@ -16,7 +16,7 @@
   },
   {
     "zdravstveniKarton": null,
-    "zakazaniTermini": null,
+    "zakazaniTermini": [],
     "ime": "Kristina",
     "prezime": "Maric",
     "jmbg": "0909999123145",

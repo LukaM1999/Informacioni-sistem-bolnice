@@ -11,6 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Model;
+using Repozitorijum;
 
 namespace InformacioniSistemBolnice
 {
@@ -19,17 +21,44 @@ namespace InformacioniSistemBolnice
     /// </summary>
     public partial class GlavniProzorLekara : Window
     {
-        public GlavniProzorLekara()
+        public Lekar ulogovanLekar;
+
+        public GlavniProzorLekara(string korisnickoIme, string lozinka)
         {
             InitializeComponent();
+            Lekari.Instance.Deserijalizacija("../../../json/lekari.json");
+
+            foreach (Lekar lekar in Lekari.Instance.listaLekara)
+            {
+                System.Diagnostics.Debug.WriteLine(lekar.korisnik.korisnickoIme);
+                if (lekar.korisnik.korisnickoIme.Equals(korisnickoIme) && lekar.korisnik.lozinka.Equals(lozinka))
+                {
+                    ulogovanLekar = lekar;
+                    break;
+                }
+            }
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void RasporedBtn_Click(object sender, RoutedEventArgs e)
         {
-            TerminiLekaraProzor terminiLekara = new TerminiLekaraProzor();
+            TerminiLekaraProzor terminiLekara = new TerminiLekaraProzor(ulogovanLekar);
             terminiLekara.Show();
             this.Show();
 
+        }
+        private void PacijentiBtn_Click(object sender, RoutedEventArgs e)
+        {
+            //userControl
+            TerminiLekaraProzor terminiLekara = new TerminiLekaraProzor(ulogovanLekar);
+            terminiLekara.Show();
+            this.Show();
+
+        }
+        private void OdjavaBtn_Click(object sender, RoutedEventArgs e)
+        {
+            Login login = new Login();
+            login.Show();
+            this.Close();
         }
     }
 }

@@ -34,5 +34,14 @@
     "pacijentJMBG": "2403998156177",
     "lekarJMBG": "231568933",
     "idProstorije": null
+  },
+  {
+    "vreme": "2021-04-23T08:00:00",
+    "trajanje": 30.0,
+    "tipTermina": 1,
+    "status": 0,
+    "pacijentJMBG": "1112988178178",
+    "lekarJMBG": "985467356",
+    "idProstorije": "P1"
   }
 ]

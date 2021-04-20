@@ -7,7 +7,7 @@
         xmlns:system="clr-namespace:System;assembly=mscorlib"
         xmlns:model="clr-namespace:Model"
         mc:Ignorable="d"
-        Title="ZakazivanjeTerminaLekaraProzor" Height="450" Width="338">
+        Title="ZakazivanjeTerminaLekaraProzor" Height="500" Width="338">
     <Grid>
 
         <Canvas>
@@ -29,6 +29,8 @@
                 <system:String>operacija</system:String>
             </ComboBox>
             <ComboBox x:Name="sala" Canvas.Left="169" Canvas.Top="375" Width="120"/>
+            <Label Content="Pacijenti:" Canvas.Left="22" Canvas.Top="397" Width="102"/>
+            <ComboBox x:Name="pacijenti" Canvas.Left="169" Canvas.Top="402" Width="120"/>
 
         </Canvas>
 
