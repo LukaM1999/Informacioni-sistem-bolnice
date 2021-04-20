@@ -20,14 +20,22 @@ namespace InformacioniSistemBolnice
     /// </summary>
     public partial class MagacinDodajProzor : Window
     {
+        private DataGrid lista;
         public MagacinDodajProzor()
         {
             InitializeComponent();
         }
 
+        public MagacinDodajProzor(DataGrid lv)
+        {
+            InitializeComponent();
+            lista = lv;
+        }
+
         private void dugmePotvrdi_Click(object sender, RoutedEventArgs e)
         {
             UpravnikKontroler.Instance.KreiranjeStatickeOpreme(this);
+            lista.ItemsSource = Repozitorijum.StatickaOprema.Instance.listaOpreme;
             this.Close();
         }
     }

@@ -26,12 +26,14 @@ namespace Servis
                 {
                     so.kolicina += oprema.kolicina;
                     Repozitorijum.StatickaOprema.Instance.Serijalizacija("../../../json/statickaOprema.json");
+                    Repozitorijum.StatickaOprema.Instance.Deserijalizacija("../../../json/statickaOprema.json");
                     return;
                 }
             }
 
             Repozitorijum.StatickaOprema.Instance.listaOpreme.Add(oprema);
             Repozitorijum.StatickaOprema.Instance.Serijalizacija("../../../json/statickaOprema.json");
+            Repozitorijum.StatickaOprema.Instance.Deserijalizacija("../../../json/statickaOprema.json");
         }
 
         public void UklanjanjeOpreme(MagacinProzor p)
@@ -41,6 +43,7 @@ namespace Servis
                 Model.StatickaOprema oprema = (Model.StatickaOprema)p.listViewStatOpreme.SelectedValue;
                 Repozitorijum.StatickaOprema.Instance.listaOpreme.Remove(oprema);
                 Repozitorijum.StatickaOprema.Instance.Serijalizacija("../../../json/statickaOprema.json");
+                Repozitorijum.StatickaOprema.Instance.Deserijalizacija("../../../json/statickaOprema.json");
             }
         }
 

@@ -33,7 +33,7 @@ namespace InformacioniSistemBolnice
 
         private void dugmeKreirajOpemu_Click(object sender, RoutedEventArgs e)
         {
-            MagacinDodajProzor p = new MagacinDodajProzor();
+            MagacinDodajProzor p = new MagacinDodajProzor(listViewStatOpreme);
             p.Show();
         }
 
@@ -54,7 +54,7 @@ namespace InformacioniSistemBolnice
 
         private void dugmeKreirajDinamickuOpremu_Click(object sender, RoutedEventArgs e)
         {
-            MagacinDodajDinamickuOpremu p = new MagacinDodajDinamickuOpremu();
+            MagacinDodajDinamickuOpremu p = new MagacinDodajDinamickuOpremu(listViewDinamOpreme);
             p.Show();
         }
 

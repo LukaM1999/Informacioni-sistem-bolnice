@@ -1,1 +1,14 @@
-[]
+[
+  {
+    "tip": 2,
+    "kolicina": 1842
+  },
+  {
+    "tip": 1,
+    "kolicina": 9
+  },
+  {
+    "tip": 6,
+    "kolicina": 426
+  }
+]

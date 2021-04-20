@@ -20,14 +20,22 @@ namespace InformacioniSistemBolnice
     /// </summary>
     public partial class MagacinDodajDinamickuOpremu : Window
     {
+        private DataGrid lista;
         public MagacinDodajDinamickuOpremu()
         {
             InitializeComponent();
         }
 
+        public MagacinDodajDinamickuOpremu(DataGrid lv)
+        {
+            InitializeComponent();
+            lista = lv;
+        }
+
         private void dugmePotvrdi_Click(object sender, RoutedEventArgs e)
         {
             UpravnikKontroler.Instance.KreiranjeDinamickeOpreme(this);
+            lista.ItemsSource = Repozitorijum.DinamickaOprema.Instance.listaOpreme;
             this.Close();
         }
     }

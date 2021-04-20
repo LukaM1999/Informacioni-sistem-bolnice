@@ -20,13 +20,13 @@ namespace InformacioniSistemBolnice
     /// </summary>
     public partial class MagacinIzmeniDinamickuOpremu : Window
     {
-        private ListView lista;
+        private DataGrid lista;
         public MagacinIzmeniDinamickuOpremu()
         {
             InitializeComponent();
         }
 
-        public MagacinIzmeniDinamickuOpremu(ListView lv)
+        public MagacinIzmeniDinamickuOpremu(DataGrid lv)
         {
             InitializeComponent();
             lista = lv;
