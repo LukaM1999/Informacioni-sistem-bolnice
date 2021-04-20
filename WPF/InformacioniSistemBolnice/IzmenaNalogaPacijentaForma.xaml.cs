@@ -21,6 +21,7 @@ namespace InformacioniSistemBolnice
     public partial class IzmenaNalogaPacijentaForma : Window
     {
         public ListView listaPacijenata;
+        public PregledZdravstvenogKartona pregledZdravstvenogKartona;
         public IzmenaNalogaPacijentaForma()
         {
             InitializeComponent();
@@ -35,6 +36,7 @@ namespace InformacioniSistemBolnice
         private void potvrdiDugme_Click(object sender, RoutedEventArgs e)
         {
             SekretarKontroler.Instance.IzmenaNaloga(this, listaPacijenata);
+            SekretarKontroler.Instance.DodjelaZdravstvenogKartonaPacijentu(this);
             this.Close();
 
         }
@@ -43,10 +45,30 @@ namespace InformacioniSistemBolnice
 
         private void zdravstveniKartonDugme_Click(object sender, RoutedEventArgs e)
         {
-            //SekretarKontroler.Instance.PregledZdravstvenogKartona();
-            ZdravstveniKartonForma zdravstveniKartonForma = new ZdravstveniKartonForma();
-            zdravstveniKartonForma.Show();
-            
+            if (listaPacijenata.SelectedValue != null)
+            {
+                Pacijent p = (Pacijent)listaPacijenata.SelectedItem;
+                if (p.zdravstveniKarton != null)
+                {
+                    MessageBox.Show("Pacijent vec ima kreiran zdravstveni karton");
+                }
+                else {
+                    ZdravstveniKartonForma zdravstveniKartonForma = new ZdravstveniKartonForma(listaPacijenata);
+                    zdravstveniKartonForma.imeLabela.Content = this.imeUnos.Text;
+                    zdravstveniKartonForma.prezimeLabela.Content = this.prezimeUnos.Text;
+                    zdravstveniKartonForma.datumRodjenjaLabela.Content = this.datumUnos.Text.ToString();
+                    zdravstveniKartonForma.JMBGUnos.Text = this.JMBGUnos.Text;
+                    zdravstveniKartonForma.telefon.Content = this.telUnos.Text;
+                    zdravstveniKartonForma.adresaLabela.Content = this.drzavaUnos.Text + ", " + this.gradUnos.Text;
+                    zdravstveniKartonForma.ulicaIBrojLabela.Content = this.ulicaUnos.Text + ", " + this.brojUnos.Text;
+                    
+                    Alergeni.Instance.Deserijalizacija("../../../json/alergeni.json");
+                    zdravstveniKartonForma.ListaAlergena.ItemsSource = Alergeni.Instance.listaAlergena;
+                    zdravstveniKartonForma.Show();
+
+
+                }
+            }
         }
     }
 }

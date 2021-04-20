@@ -1,5 +1,7 @@
 using System;
 using System.Collections.ObjectModel;
+using Repozitorijum;
+
 
 namespace Model
 {
@@ -8,123 +10,83 @@ namespace Model
         private string brojKartona;
         private string brojKnjizice;
         private string jmbg;
-        private string imeRoditelja;
-        private string liceZaZdravZastitu;
-        private Pol pol;
+        private string imeJednogRoditelja;
+        private string liceZaZdravstvenuZastitu;
+        private Pol polPacijenta;
         private BracnoStanje bracnoStanje;
-        private KategorijaZdravstveneZastite kategorijaZdravZastite;
+        private KategorijaZdravstveneZastite kategorijaZdravstveneZastite;
+        private PodaciOZaposlenjuIZanimanju podaciOZaposlenjuIZanimanjuPacijenta;
+        private ObservableCollection<Alergen> alergeni; 
+        private ObservableCollection<Recept> recepti;
+       
+
+
+
+
+
+        private BracnoStanje BracnoStanjePacijenta
+        {
+            get
+            {
+                return BracnoStanje;
+            }
+            set
+            {
+                BracnoStanje = value;
+            }
+        }
+       
+
+        private KategorijaZdravstveneZastite KategorijaZdravstveneZastitePacijenta
+        {
+            get
+            {
+                return KategorijaZdravstveneZastite;
+            }
+            set
+            {
+                KategorijaZdravstveneZastite = value;
+            }
+        }
+
+        public string Jmbg { get => jmbg; set => jmbg = value; }
+        public string LiceZaZdravstvenuZastitu { get => liceZaZdravstvenuZastitu; set => liceZaZdravstvenuZastitu = value; }
+        public Pol PolPacijenta { get => polPacijenta; set => polPacijenta = value; }
+        public string ImeJednogRoditelja { get => imeJednogRoditelja; set => imeJednogRoditelja = value; }
+        public string BrojKnjizice { get => brojKnjizice; set => brojKnjizice = value; }
+        public string BrojKartona { get => brojKartona; set => brojKartona = value; }
+       
+        public ObservableCollection<Recept> Recept { get => recepti; set => recepti = value; }
+        public KategorijaZdravstveneZastite KategorijaZdravstveneZastite { get => kategorijaZdravstveneZastite; set => kategorijaZdravstveneZastite = value; }
+        public BracnoStanje BracnoStanje { get => bracnoStanje; set => bracnoStanje = value; }
+        public PodaciOZaposlenjuIZanimanju PodaciOZaposlenjuIZanimanjuPacijenta { get => podaciOZaposlenjuIZanimanjuPacijenta; set => podaciOZaposlenjuIZanimanjuPacijenta = value; }
+        public ObservableCollection<Alergen> Alergeni { get => alergeni; set => alergeni = value; }
+        
 
         public ZdravstveniKarton()
         {
 
         }
 
-        public ZdravstveniKarton(String brojKartona, String brojKnjizice, String jmbg, String imeRoditelja, String liceZaZdravZastitu, Pol pol, BracnoStanje bracnoStanje, KategorijaZdravstveneZastite kategorijaZdravZastite)
+
+
+        public ZdravstveniKarton(String brojZdrKartona, String brojZdrKnjizice, String JMBG, String imeRoditelja, String liceZaZdravZastitu, Pol pol, BracnoStanje bracnoStanjee, KategorijaZdravstveneZastite kategorijaZdravZastite, PodaciOZaposlenjuIZanimanju podaciOZaposlenjuiZanimanju)
         {
-            this.brojKartona = brojKartona;
-            this.brojKnjizice = brojKnjizice;
-            this.jmbg = jmbg;
-            this.imeRoditelja = imeRoditelja;
-            this.liceZaZdravZastitu = liceZaZdravZastitu;
-            this.pol = pol;
-            this.bracnoStanje = bracnoStanje;
-            this.kategorijaZdravZastite = kategorijaZdravZastite;
+            BrojKartona = brojZdrKartona;
+            BrojKnjizice = brojZdrKnjizice;
+            Jmbg = JMBG;
+            ImeJednogRoditelja = imeRoditelja;
+            LiceZaZdravstvenuZastitu = liceZaZdravZastitu;
+            PolPacijenta = pol;
+            BracnoStanje = bracnoStanjee;
+            KategorijaZdravstveneZastite = kategorijaZdravZastite;
+            PodaciOZaposlenjuIZanimanjuPacijenta = podaciOZaposlenjuiZanimanju;
+       
         }
 
 
 
-        public ObservableCollection<PodaciOZaposlenjuIZanimanju> podaciOZaposlenjuIZanimanju;
-        public ObservableCollection<Recept> recept;
-
-        public ObservableCollection<Recept> Recept
-        {
-            get
-            {
-                if (recept == null)
-                    recept = new ObservableCollection<Recept>();
-                return recept;
-            }
-            set
-            {
-                RemoveAllRecept();
-                if (value != null)
-                {
-                    foreach (Recept oRecept in value)
-                        AddRecept(oRecept);
-                }
-            }
-        }
-
-        public void AddRecept(Recept newRecept)
-        {
-            if (newRecept == null)
-                return;
-            if (this.recept == null)
-                this.recept = new ObservableCollection<Recept>();
-            if (!this.recept.Contains(newRecept))
-                this.recept.Add(newRecept);
-        }
-
-        public void RemoveRecept(Recept oldRecept)
-        {
-            if (oldRecept == null)
-                return;
-            if (this.recept != null)
-                if (this.recept.Contains(oldRecept))
-                    this.recept.Remove(oldRecept);
-        }
-
-        public void RemoveAllRecept()
-        {
-            if (recept != null)
-                recept.Clear();
-        }
-        public ObservableCollection<Anamneza> anamneza;
-
-        public ObservableCollection<Anamneza> Anamneza
-        {
-            get
-            {
-                if (anamneza == null)
-                    anamneza = new ObservableCollection<Anamneza>();
-                return anamneza;
-            }
-            set
-            {
-                RemoveAllAnamneza();
-                if (value != null)
-                {
-                    foreach (Anamneza oAnamneza in value)
-                        AddAnamneza(oAnamneza);
-                }
-            }
-        }
-
-        public void AddAnamneza(Anamneza newAnamneza)
-        {
-            if (newAnamneza == null)
-                return;
-            if (this.anamneza == null)
-                this.anamneza = new ObservableCollection<Anamneza>();
-            if (!this.anamneza.Contains(newAnamneza))
-                this.anamneza.Add(newAnamneza);
-        }
-
-        public void RemoveAnamneza(Anamneza oldAnamneza)
-        {
-            if (oldAnamneza == null)
-                return;
-            if (this.anamneza != null)
-                if (this.anamneza.Contains(oldAnamneza))
-                    this.anamneza.Remove(oldAnamneza);
-        }
-
-        public void RemoveAllAnamneza()
-        {
-            if (anamneza != null)
-                anamneza.Clear();
-        }
-        public Pacijent pacijent;
+        
 
     }
 }

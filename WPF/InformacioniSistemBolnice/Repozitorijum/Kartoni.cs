@@ -32,5 +32,10 @@ namespace Repozitorijum
             File.WriteAllText(putanja, json);
         }
 
+        public Kartoni()
+        {
+            listaKartona = new ObservableCollection<ZdravstveniKarton>();
+        }
+
     }
 }

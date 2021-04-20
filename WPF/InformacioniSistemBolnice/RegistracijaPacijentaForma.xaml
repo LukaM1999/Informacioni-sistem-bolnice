@@ -5,26 +5,35 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:InformacioniSistemBolnice"
         mc:Ignorable="d"
-        Title="RegistracijaPacijentaForma" Height="398" Width="316">
+        Title="RegistracijaPacijentaForma" Height="600" Width="316">
     <Grid>
         <Canvas>
             <Label Content="Ime: " Canvas.Left="23" Canvas.Top="42" Width="44" HorizontalAlignment="Right"/>
             <Label Content="Prezime: " Canvas.Left="23" Canvas.Top="73" Width="58"/>
             <Label Content="JMBG: " Canvas.Left="23" Canvas.Top="104" Width="44" HorizontalAlignment="Right"/>
             <Label Content="Datum rodjenja: " Canvas.Left="23" Canvas.Top="135" Width="94"/>
-            <Label Content="Telefon: " Canvas.Left="23" Canvas.Top="166" Width="58"/>
-            <Label Content="E-mail: " Canvas.Left="23" Canvas.Top="199" Width="70"/>
-            <Label Content="Korisnicko ime: " Canvas.Left="23" Canvas.Top="230" Width="94"/>
-            <Label Content="Lozinka: " Canvas.Left="23" Canvas.Top="261" Width="70"/>
+            <Label Content="Telefon: " Canvas.Left="23" Canvas.Top="294" Width="58"/>
+            <Label Content="E-mail: " Canvas.Left="23" Canvas.Top="327" Width="70"/>
+            <Label Content="Korisnicko ime: " Canvas.Left="23" Canvas.Top="356" Width="94"/>
+            <Label Content="Lozinka: " Canvas.Left="23" Canvas.Top="388" Width="70"/>
             <TextBox x:Name="imeUnos" Canvas.Left="132" Canvas.Top="46" Text="" TextWrapping="Wrap" Width="120"/>
-            <TextBox x:Name="JMBGUnos" Canvas.Left="132" Canvas.Top="108" Text="" TextWrapping="Wrap" Width="120"/>
             <TextBox x:Name="prezimeUnos" Canvas.Left="132" Canvas.Top="77" Width="120" Height="22" />
+            <TextBox x:Name="JMBGUnos" Canvas.Left="132" Canvas.Top="108" Text="" TextWrapping="Wrap" Width="120"/>
             <DatePicker x:Name="datumUnos" Canvas.Left="132" Canvas.Top="139"  Width="120"/>
-            <TextBox x:Name="telUnos" Canvas.Left="132" Canvas.Top="170" Text="" TextWrapping="Wrap" Width="120"/>
-            <TextBox x:Name="mailUnos" Canvas.Left="132" Canvas.Top="203" Width="120" Height="22" />
-            <TextBox x:Name="korisnikUnos" Canvas.Left="132" Canvas.Top="234" Text="" TextWrapping="Wrap" Width="120"/>
-            <PasswordBox x:Name="lozinkaUnos" Canvas.Left="132" Canvas.Top="265" Width="120" Height="22" />
-            <Button x:Name="potvrdiDugme" Content="Potvrdi" Canvas.Left="192" Canvas.Top="337" Width="60" Click="potvrdiDugme_Click" />
+            <TextBox x:Name="drzavaUnos" Canvas.Left="132" Canvas.Top="173" Text="" TextWrapping="Wrap" Width="120"/>
+            <TextBox x:Name="gradUnos" Canvas.Left="132" Canvas.Top="206" Width="120" Height="22" />
+            <TextBox x:Name="ulicaUnos" Canvas.Left="132" Canvas.Top="237" Text="" TextWrapping="Wrap" Width="120"/>
+            <TextBox x:Name="brojUnos" Canvas.Left="132" Canvas.Top="266" Width="120" Height="22" />
+            <TextBox x:Name="telUnos" Canvas.Left="132" Canvas.Top="297" Text="" TextWrapping="Wrap" Width="120"/>
+            <TextBox x:Name="mailUnos" Canvas.Left="132" Canvas.Top="329" Width="120" Height="22" />
+            <TextBox x:Name="korisnikUnos" Canvas.Left="132" Canvas.Top="360" Text="" TextWrapping="Wrap" Width="120"/>
+            <PasswordBox x:Name="lozinkaUnos" Canvas.Left="132" Canvas.Top="391" Width="120" Height="22" />
+            <Button x:Name="potvrdiDugme" Content="Potvrdi" Canvas.Left="192" Canvas.Top="443" Width="60" Click="potvrdiDugme_Click" />
+            <Label Content="Drzava: " Canvas.Left="23" Canvas.Top="169" Width="58"/>
+            <Label Content="Grad: " Canvas.Left="23" Canvas.Top="202" Width="58" Height="26"/>
+            <Label Content="Ulica: " Canvas.Left="23" Canvas.Top="233" Width="94"/>
+            <Label Content="Broj: " Canvas.Left="23" Canvas.Top="263" Width="70"/>
+            
 
         </Canvas>
 

@@ -8,13 +8,9 @@
         Title="AlergeniProzor" Height="450" Width="800">
     <Grid>
         <StackPanel Margin="0,50,0,0">
-            <ListView x:Name="ListaAlergena" Height="432">
-                <ListView.View>
-                    <GridView>
-                        <GridViewColumn/>
-                    </GridView>
-                </ListView.View>
-            </ListView>
+            <DataGrid x:Name="ListaAlergena" Height="384" Width="795"/>
+
+
         </StackPanel>
         <Canvas x:Name="RukovanjeAlergenima" Margin="0,0,0,439">
             <Button x:Name="definisiAlergen" Content="Definisi novi alergen" Canvas.Left="20" Canvas.Top="13" Width="115" Click="definisiAlergen_Click"/>

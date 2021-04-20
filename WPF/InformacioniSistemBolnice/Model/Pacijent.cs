@@ -21,10 +21,13 @@ namespace Model
             this.telefon = o.telefon;
             this.email = o.email;
             this.korisnik = o.korisnik;
+            this.adresa = o.adresa;
+            
         }
 
         public ZdravstveniKarton zdravstveniKarton;
         public Termin[] termin;
+        
 
         public override string ToString()
         {

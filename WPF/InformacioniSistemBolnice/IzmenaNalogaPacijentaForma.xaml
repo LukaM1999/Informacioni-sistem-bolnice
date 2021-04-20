@@ -5,29 +5,39 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:InformacioniSistemBolnice"
         mc:Ignorable="d"
-        Title="IzmenaNalogaPacijentaForma" Height="400" Width="320">
+        Title="IzmenaNalogaPacijentaForma" Height="600" Width="320">
     <Grid>
         <Canvas>
             <Label Content="Ime: " Canvas.Left="23" Canvas.Top="42" Width="44" HorizontalAlignment="Right"/>
             <Label Content="Prezime: " Canvas.Left="23" Canvas.Top="73" Width="58"/>
             <Label Content="JMBG: " Canvas.Left="23" Canvas.Top="104" Width="44" HorizontalAlignment="Right"/>
             <Label Content="Datum rodjenja: " Canvas.Left="23" Canvas.Top="135" Width="94"/>
-            <Label Content="Telefon: " Canvas.Left="23" Canvas.Top="166" Width="58"/>
-            <Label Content="E-mail: " Canvas.Left="23" Canvas.Top="199" Width="70"/>
-            <Label Content="Korisnicko ime: " Canvas.Left="23" Canvas.Top="230" Width="94"/>
-            <Label Content="Lozinka: " Canvas.Left="23" Canvas.Top="261" Width="70"/>
+            <Label Content="Drzava: " Margin="21,167,238,389"/>
+            <Label Content="Ulica: " Margin="21,235,200,319"/>
+            <Label Content="Broj: " Margin="22,267,225,286"/>
+            <Label Content="Grad: " Margin="22,200,200,358"/>
+            <Label Content="Telefon: " Canvas.Top="306" Width="58" Canvas.Left="23"/>
+            <Label Content="E-mail: " Canvas.Top="343" Width="70" Canvas.Left="22"/>
+            <Label Content="Korisnicko ime: " Canvas.Top="378" Width="94" Canvas.Left="21"/>
+            <Label Content="Lozinka: " Canvas.Top="419" Width="70" Canvas.Left="23"/>
             <TextBox x:Name="imeUnos" Canvas.Left="132" Canvas.Top="46" Text="" TextWrapping="Wrap" Width="120"/>
-            <TextBox x:Name="JMBGUnos" Canvas.Left="132" Canvas.Top="108" Text="" TextWrapping="Wrap" Width="120"/>
             <TextBox x:Name="prezimeUnos" Canvas.Left="132" Canvas.Top="77" Width="120" Height="22" />
-            <DatePickerTextBox x:Name="datumUnos" Canvas.Left="132" Canvas.Top="139" Text=" " TextWrapping="Wrap" Width="120"/>
-            <TextBox x:Name="telUnos" Canvas.Left="132" Canvas.Top="170" Text="" TextWrapping="Wrap" Width="120"/>
-            <TextBox x:Name="mailUnos" Canvas.Left="132" Canvas.Top="203" Width="120" Height="22" />
-            <TextBox x:Name="korisnikUnos" Canvas.Left="132" Canvas.Top="234" Text="" TextWrapping="Wrap" Width="120"/>
-            <PasswordBox x:Name="lozinkaUnos" Canvas.Left="132" Canvas.Top="265" Width="120" Height="22" />
-            <Button x:Name="potvrdiDugme" Content="Potvrdi" Canvas.Left="192" Canvas.Top="337" Width="60" Click="potvrdiDugme_Click" />
-            <Button Content="Zdravstveni Karton" Canvas.Left="23" Canvas.Top="297" Width="122" Height="20" Click="zdravstveniKartonDugme_Click"/>
-
+            <DatePickerTextBox x:Name="datumUnos" Canvas.Left="132" Canvas.Top="139" Text=" " TextWrapping="Wrap" Width="120" Height="22"/>
+            <TextBox x:Name="JMBGUnos" Canvas.Left="132" Canvas.Top="108" Text="" TextWrapping="Wrap" Width="120"/>
+            <TextBox x:Name="drzavaUnos" Canvas.Left="132" Canvas.Top="164" Text="" TextWrapping="Wrap" Width="120"/>
+            <TextBox x:Name="gradUnos" Canvas.Left="131" Canvas.Top="201" Text="" TextWrapping="Wrap" Width="120"/>
+            <TextBox x:Name="ulicaUnos" Canvas.Left="131" Canvas.Top="237" Text="" TextWrapping="Wrap" Width="120"/>
+            <TextBox x:Name="brojUnos" Canvas.Left="131" Canvas.Top="270" Text="" TextWrapping="Wrap" Width="120"/>
+            <TextBox x:Name="telUnos" Canvas.Left="131" Canvas.Top="311" Text="" TextWrapping="Wrap" Width="120"/>
+            <TextBox x:Name="mailUnos" Canvas.Left="131" Canvas.Top="346" Width="120" Height="22" />
+            <TextBox x:Name="korisnikUnos" Canvas.Left="131" Canvas.Top="384" Text="" TextWrapping="Wrap" Width="120"/>
+            <PasswordBox x:Name="lozinkaUnos" Canvas.Left="131" Canvas.Top="421" Width="120" Height="22" />
+            <Button x:Name="potvrdiDugme" Content="Potvrdi" Canvas.Left="200" Canvas.Top="491" Width="60" Click="potvrdiDugme_Click" />
+            <Button Content="Kreiraj zdravstveni karton" Canvas.Left="21" Canvas.Top="461" Width="149" Height="23" Click="zdravstveniKartonDugme_Click"/>
+            
+           
         </Canvas>
+       
 
     </Grid>
 </Window>

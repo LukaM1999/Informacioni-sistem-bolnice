@@ -35,5 +35,12 @@ namespace InformacioniSistemBolnice
             AlergeniProzor alergeniProzor = new AlergeniProzor();
             alergeniProzor.Show();
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+       
     }
 }

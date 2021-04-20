@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:InformacioniSistemBolnice"
         mc:Ignorable="d"
-        Title="PacijentiProzor" Height="500" Width="400">
+        Title="PacijentiProzor" Height="500" Width="1000">
     <Grid>
         <StackPanel Margin="0,50,0,0">
             <ListView x:Name="ListaPacijenata" Height="432">
@@ -21,6 +21,8 @@
             <Button x:Name="obrisiPacijentaDugme" Content="Obrisi" Canvas.Left="266" Canvas.Top="13" Width="55" Click="ObrisiPacijenta"/>
             <Button x:Name="izmeniPacijentaDugme" Content="Izmeni" Canvas.Left="185" Canvas.Top="13" Width="56" Click="izmeniPacijentaDugme_Click"/>
             <Button x:Name="pregledajPacijentaDugme" Content="Info" Canvas.Left="103" Canvas.Top="13" Width="56" Click="pregledPacijenta" />
+            <Button x:Name="zdravstveniKartonPacijentaDugme" Content="Zdravstveni karton pacijenta" Canvas.Left="340" Canvas.Top="13" Width="159" Click="zdravstveniKartonPacijenta"/>
+            <Button Content="Izmeni zdravstveni karton pacijenta" Canvas.Left="512" Canvas.Top="13" Click="izmjeniZdravstveniKarton_Click"/>
         </Canvas>
 
     </Grid>

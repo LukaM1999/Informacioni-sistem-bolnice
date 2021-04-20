@@ -13,6 +13,9 @@
     <Compile Update="DefinisanjeAlergenaForma.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="DodajAlergenPacijentu.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="GlavniProzorSekretara.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -20,6 +23,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="IzmenaNalogaPacijentaForma.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="IzmjenaZdravstvenogKartonaForma.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Login.xaml.cs">
@@ -32,6 +38,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="PregledAlergena.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="PregledZdravstvenogKartona.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="ProstorijaForma.xaml.cs">
@@ -72,6 +81,9 @@
     <Page Update="DefinisanjeAlergenaForma.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="DodajAlergenPacijentu.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="GlavniProzorSekretara.xaml">
       <SubType>Designer</SubType>
     </Page>
@@ -79,6 +91,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="IzmenaNalogaPacijentaForma.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="IzmjenaZdravstvenogKartonaForma.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Login.xaml">
@@ -97,6 +112,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="PregledAlergena.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="PregledZdravstvenogKartona.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="ProstorijaForma.xaml">

@@ -11,24 +11,20 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Model;
 
 namespace InformacioniSistemBolnice
 {
     /// <summary>
-    /// Interaction logic for PregledAlergena.xaml
+    /// Interaction logic for PregledZdravstvenogKartona.xaml
     /// </summary>
-    public partial class PregledAlergena : Window
+    public partial class PregledZdravstvenogKartona : Window
     {
-        public DataGrid listaAlergena;
-        public PregledAlergena()
+        public PregledZdravstvenogKartona()
         {
             InitializeComponent();
         }
 
-        public PregledAlergena(DataGrid ListaAlergena)
-        {
-            InitializeComponent();
-            listaAlergena = ListaAlergena;
-        }
+       
     }
 }

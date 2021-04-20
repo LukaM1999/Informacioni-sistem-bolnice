@@ -1,0 +1,79 @@
+﻿<Window x:Class="InformacioniSistemBolnice.PregledZdravstvenogKartona"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:InformacioniSistemBolnice"
+        xmlns:model="clr-namespace:Model"
+        mc:Ignorable="d"
+        Title="PregledZdravstvenogKartona" Height="600" Width="1000">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="300*"/>
+            <ColumnDefinition Width="400*"/>
+            <ColumnDefinition Width="300*"/>
+        </Grid.ColumnDefinitions>
+        <Canvas Margin="-16,-6,16,-10" Grid.ColumnSpan="2">
+            <Label Content="Broj kartona: " Canvas.Left="31" Canvas.Top="71" Width="96"/>
+            <Label Content="Broj knjizice: " Canvas.Left="31" Canvas.Top="102" Width="94"/>
+            <Label Content="JMBG: " Canvas.Left="31" Canvas.Top="133" Width="70"/>
+            <Label Content="Przime: " Canvas.Left="31" Canvas.Top="166" Width="94"/>
+            <Label Content="Ime jednog roditelja: " Canvas.Left="30" Canvas.Top="197" Width="143"/>
+            <Label Content="Ime: " Canvas.Left="31" Canvas.Top="232" Width="70"/>
+            <Label Content="Lice zaduzeno za zdravstvenu zastitu: " Canvas.Left="367" Canvas.Top="72" Width="212"/>
+            <Label Content="Datum rodjenja: " Canvas.Left="30" Canvas.Top="265" Width="129"/>
+            <Label Content="Adresa stanovanja: " Canvas.Left="31" Canvas.Top="298" Width="129"/>
+            <Label Content="Ulica i broj: " Canvas.Left="30" Canvas.Top="329" Width="129"/>
+            <Label Content="Telefon: " Canvas.Left="30" Canvas.Top="362" Width="129"/>
+            <Label Content="Pol: " Canvas.Left="29" Canvas.Top="398" Width="130"/>
+            <Label Content="Bracno stanje: " Canvas.Left="29" Canvas.Top="433" Width="130"/>
+            <Label Content="Kategorija zdravstvene zastite: " Canvas.Left="368" Canvas.Top="107" Width="181"/>
+            <Label Content="Podaci o zaposlenju i zanimanju " Canvas.Left="458" Canvas.Top="176" Width="187" Height="36"/>
+            <Label Content="Mesto rada: " Canvas.Left="401" Canvas.Top="202" Width="91"/>
+            <Label Content="Registarski broj: " Canvas.Left="401" Canvas.Top="239" Width="116"/>
+            <Label Content="Sifra delatnosti: " Canvas.Left="401" Canvas.Top="276" Width="116"/>
+            <Label Content="Posao koji obavlja: " Canvas.Left="402" Canvas.Top="305" Width="132"/>
+            <Label Content="OSIZ zdravstvene zastite: " Canvas.Left="401" Canvas.Top="337" Width="151" Height="29"/>
+            <Label Content="Rad pod posebnim uslovima: " Canvas.Left="401" Canvas.Top="371" Width="182"/>
+            <Label Content="Promene: " Canvas.Left="401" Canvas.Top="404" Width="116"/>
+            <TextBox x:Name="brojKartona" Canvas.Left="179" Canvas.Top="73" Text="" TextWrapping="Wrap" Width="120"/>
+            <TextBox x:Name="brojKnjizice" Canvas.Left="179" Canvas.Top="104" Text="" TextWrapping="Wrap" Width="120"/>
+            <Label x:Name="JMBG" Canvas.Left="179" Canvas.Top="132" Width="120" Height="32"/>
+            <TextBox x:Name="imeRoditelja" Canvas.Left="180" Canvas.Top="202" Text="" TextWrapping="Wrap" Width="120" Height="26"/>
+            <Label x:Name="imeLabela" Canvas.Left="183" Canvas.Top="232"   Width="120" Height="20"/>
+            <Label x:Name="adresaLabela" Canvas.Left="183" Canvas.Top="304"   Width="120" Height="20"/>
+            <Label x:Name="ulicaIBrojLabela" Canvas.Left="183" Canvas.Top="336"  Width="120" Height="19"/>
+            <TextBox x:Name="pol" Canvas.Left="180" Canvas.Top="402" Text="" TextWrapping="Wrap" Width="120" />
+            <TextBox x:Name="bracnoStanje" Canvas.Left="180" Canvas.Top="434" Text="" TextWrapping="Wrap" Width="120" />
+            <TextBox x:Name="liceZdrZastita" Canvas.Left="582" Canvas.Top="74" Text="" TextWrapping="Wrap" Width="120"/>
+            <Label Content="Podaci o zdravstvenoj zastiti " Canvas.Left="465" Canvas.Top="38" Width="180"/>
+            <Label Content="Licni podaci " Canvas.Left="147" Canvas.Top="38" Width="80"/>
+            <TextBox x:Name="prezime" Canvas.Left="180" Canvas.Top="166" Text="" TextWrapping="Wrap" Width="120" Height="26"/>
+            <TextBox x:Name="telefon" Canvas.Left="178" Canvas.Top="365" Text="" TextWrapping="Wrap" Width="120" Height="30"/>
+            <TextBox x:Name="ime" Canvas.Left="179" Canvas.Top="237" Text="" TextWrapping="Wrap" Width="120" Height="28"/>
+            <TextBox x:Name="adresa" Canvas.Left="178" Canvas.Top="299" Text="" TextWrapping="Wrap" Width="120" Height="24"/>
+            <Label x:Name="datumRodjenja" Canvas.Left="180" Canvas.Top="263" Width="68" Height="32"/>
+            <TextBox x:Name="ulicaIBroj" Canvas.Left="179" Canvas.Top="332" Text="" TextWrapping="Wrap" Width="120" Height="23"/>
+            <TextBox x:Name="kategorijaZdravZastite" Canvas.Left="579" Canvas.Top="115" Text="" TextWrapping="Wrap" Width="120"/>
+            <TextBox x:Name="radnoMjestoUnos" Canvas.Left="578" Canvas.Top="209" Text="" TextWrapping="Wrap" Width="120"/>
+            <TextBox x:Name="registarskiBrojUnos" Canvas.Left="580" Canvas.Top="243" Text="" TextWrapping="Wrap" Width="120"/>
+            <TextBox x:Name="sifraDjelatnostiUnos" Canvas.Left="580" Canvas.Top="274" Text="" TextWrapping="Wrap" Width="120"/>
+            <TextBox x:Name="posaoUnos" Canvas.Left="580" Canvas.Top="307" Text="" TextWrapping="Wrap" Width="120"/>
+            <TextBox x:Name="OSIZ" Canvas.Left="579" Canvas.Top="341" Text="" TextWrapping="Wrap" Width="120"/>
+            <TextBox x:Name="radUPosebnimUslovimaUnos" Canvas.Left="579" Canvas.Top="371" Text="" TextWrapping="Wrap" Width="120" Height="24"/>
+            <TextBox x:Name="promjene" Canvas.Left="578" Canvas.Top="407" Text="" TextWrapping="Wrap" Width="120"/>
+        </Canvas>
+        <Label Content="Zdravstveno stanje pacijenta" Grid.Column="2" HorizontalAlignment="Left" Margin="79,29,0,0" VerticalAlignment="Top"/>
+        <Label Content="Alergeni:" Grid.Column="2" HorizontalAlignment="Left" Margin="27,64,0,0" VerticalAlignment="Top" />
+        <ListView  Name ="ListaAlergena" Grid.Column="2" Margin="32,95,28,197" SelectionMode ="Multiple">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+
+    </Grid>
+
+</Window>

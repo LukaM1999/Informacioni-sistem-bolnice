@@ -2,6 +2,7 @@ using System;
 using System.Windows.Controls;
 using InformacioniSistemBolnice;
 using Servis;
+using Model;
 
 namespace Kontroler
 {
@@ -21,9 +22,13 @@ namespace Kontroler
 
         public void KreiranjeZdravstvenogKartona(ZdravstveniKartonForma zdravstveniKartonForma)
         {
-            UpravljanjeNalozimaPacijenata.Instance.KreirajZdravstveniKarton(zdravstveniKartonForma);
+            UpravljanjeNalozimaPacijenata.Instance.KreiranjeZdravstvenogKarton(zdravstveniKartonForma);
         }
 
+        public void DodjelaZdravstvenogKartonaPacijentu(IzmenaNalogaPacijentaForma izmenaNalogaPacijentaForma)
+        {
+            UpravljanjeNalozimaPacijenata.Instance.DodjelaZdravstvenogKartonaPacijentu(izmenaNalogaPacijentaForma);
+        }
 
 
         public void UklanjanjeNaloga(ListView listaPacijenata)
@@ -36,15 +41,16 @@ namespace Kontroler
             UpravljanjeNalozimaPacijenata.Instance.IzmenaNaloga(izmena, listaPacijenata);
         }
 
+        public void IzmenaZdravstvenogKartona(IzmjenaZdravstvenogKartonaForma izmjenaZdravstvenogKartonaForma, ListView listaPacijenata)
+        {
+            UpravljanjeNalozimaPacijenata.Instance.IzmjenaZdravstvenogKartona(izmjenaZdravstvenogKartonaForma, listaPacijenata);
+        }
+
         public void PregledNaloga(ListView pacijenti)
         {
             UpravljanjeNalozimaPacijenata.Instance.PregledNaloga(pacijenti);
         }
 
-        public void PregledZdravstvenogKartona()
-        {
-            UpravljanjeNalozimaPacijenata.Instance.PregledZdravstvenogKartona();
-        }
 
         public void DefinisanjeAlergena(DefinisanjeAlergenaForma definisanjeAlergenaForma)
         {
@@ -52,20 +58,32 @@ namespace Kontroler
 
         }
 
-        public void IzmjenaAlergena(ListView ListaAlergena, IzmenaAlergenaForma izmenaAlergenaForma)
+        public void IzmjenaAlergena(DataGrid ListaAlergena, IzmenaAlergenaForma izmenaAlergenaForma)
         {
             UpravljanjeAlergenima.Instance.IzmenaAlergena(ListaAlergena, izmenaAlergenaForma);
         }
 
-        public void UklanjanjeAlergena(ListView ListaAlergena)
+        public void UklanjanjeAlergena(DataGrid ListaAlergena)
         {
             UpravljanjeAlergenima.Instance.UklanjanjeAlergena(ListaAlergena);
         }
 
-        public void PregledAlergena(ListView ListaAlergena)
+        public void PregledAlergena(DataGrid ListaAlergena)
         {
             UpravljanjeAlergenima.Instance.PregledAlergena(ListaAlergena);
         }
+
+
+        public void DodavanjeAlergenaIzZdravstvenogKartona(DodajAlergenPacijentu dodajAlergenPacijentu, IzmjenaZdravstvenogKartonaForma izmjenaZdravstvenogKartonaFormadod)
+        {
+            UpravljanjeNalozimaPacijenata.Instance.DodavanjeAlergenaPacijentu(dodajAlergenPacijentu, izmjenaZdravstvenogKartonaFormadod);
+        }
+
+        public  void UklanjanjeAlergenaIzZdravstvenogKartona(IzmjenaZdravstvenogKartonaForma izmjenaZdravstvenogKartonaFormadod)
+        {
+            UpravljanjeNalozimaPacijenata.Instance.BrisanjeAlergenaPacijentu(izmjenaZdravstvenogKartonaFormadod);
+        }
+
 
 
 

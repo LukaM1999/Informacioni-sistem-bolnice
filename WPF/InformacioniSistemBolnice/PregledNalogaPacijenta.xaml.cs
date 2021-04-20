@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Model;
+using Servis;
 
 namespace InformacioniSistemBolnice
 {
@@ -21,6 +22,11 @@ namespace InformacioniSistemBolnice
         {
             InitializeComponent();
            
+        }
+
+        private void zdravstveniKartonPacijenta_Click(object sender, RoutedEventArgs e)
+        {
+           //UpravljanjeNalozimaPacijenata.Instance.PregledZdravstvenogKartona(this);
         }
     }
 }

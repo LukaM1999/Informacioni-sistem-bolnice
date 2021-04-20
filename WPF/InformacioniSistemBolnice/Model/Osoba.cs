@@ -90,12 +90,25 @@ namespace Model
             }
         }
 
+        public Adresa adresa;
+        public Adresa AdresaOsobe
+        {
+            get
+            {
+                return adresa;
+            }
+            set
+            {
+                adresa = value;
+            }
+        }
+
         public Osoba()
         {
            
         }
 
-        public Osoba(string i, string prz, string matBr, DateTime dR, string tel, string mail, Korisnik k)
+        public Osoba(string i, string prz, string matBr, DateTime dR, string tel, string mail, Korisnik k, Adresa a)
         {
             ime = i;
             prezime = prz;
@@ -104,6 +117,7 @@ namespace Model
             telefon = tel;
             email = mail;
             korisnik = k;
+            adresa = a;
             
         }
 
