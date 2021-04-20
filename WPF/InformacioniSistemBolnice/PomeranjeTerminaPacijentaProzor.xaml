@@ -6,20 +6,9 @@
         xmlns:local="clr-namespace:InformacioniSistemBolnice"
         xmlns:system="clr-namespace:System;assembly=mscorlib"
         mc:Ignorable="d"
-        Title="PomeranjeTerminaPacijentaProzor" Height="450" Width="338">
-    <Grid>
-
-        <Canvas>
-            <ListView x:Name="listaSati" Height="378" Width="338" Canvas.Top="56">
-                <ListView.View>
-                    <GridView>
-                        <GridViewColumn/>
-                    </GridView>
-                </ListView.View>
-            </ListView>
-            <DatePicker x:Name="datumTermina" Canvas.Left="22" Canvas.Top="10" DisplayDateStart="{Binding Path=., Source={x:Static system:DateTime.Today}}"/>
-            <Button x:Name="potvrdaPomeranjaDugme" Content="Potvrdi" Canvas.Left="249" Canvas.Top="12" Width="65" Click="potvrdaPomeranjaDugme_Click"/>
-        </Canvas>
-
-    </Grid>
+        Title="PomeranjeTerminaPacijentaProzor" Height="450" Width="400">
+    <Canvas>
+        <DataGrid x:Name="ponudjeniTermini" Height="377" Width="400" CanUserAddRows="False"/>
+        <Button x:Name="pomeriDugme" Content="Pomeri" Canvas.Left="170" Canvas.Top="394" Width="60" Click="potvrdaPomeranjaDugme_Click"/>
+    </Canvas>
 </Window>

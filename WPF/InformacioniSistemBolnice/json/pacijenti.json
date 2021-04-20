@@ -32,17 +32,17 @@
   {
     "zdravstveniKarton": null,
     "zakazaniTermini": [
-	  {
-		"vreme": "2021-04-22T08:30:00",
-		"trajanje": 30.0,
-		"tipTermina": 1,
-		"status": 5,
-		"pacijentJMBG": "2403998156177",
-		"lekarJMBG": "985467356",
-		"idProstorije": null
-	  },
       {
-        "vreme": "2021-04-22T18:00:00",
+        "vreme": "2021-04-22T08:30:00",
+        "trajanje": 30.0,
+        "tipTermina": 1,
+        "status": 5,
+        "pacijentJMBG": "2403998156177",
+        "lekarJMBG": "985467356",
+        "idProstorije": null
+      },
+      {
+        "vreme": "2021-04-23T10:00:00",
         "trajanje": 30.0,
         "tipTermina": 1,
         "status": 5,
@@ -51,7 +51,16 @@
         "idProstorije": null
       },
       {
-        "vreme": "2021-04-23T10:00:00",
+        "vreme": "2021-04-24T20:00:00",
+        "trajanje": 30.0,
+        "tipTermina": 1,
+        "status": 3,
+        "pacijentJMBG": "2403998156177",
+        "lekarJMBG": "231568933",
+        "idProstorije": null
+      },
+      {
+        "vreme": "2021-04-20T07:00:00",
         "trajanje": 30.0,
         "tipTermina": 1,
         "status": 5,
