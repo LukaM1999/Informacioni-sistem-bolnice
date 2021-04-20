@@ -4,10 +4,10 @@ namespace Model
 {
     public class Terapija
     {
-        private DateTime pocetakTerapije;
-        private DateTime krajTerapije;
-        private double mera;
-        private double redovnost;
+        public DateTime pocetakTerapije { get; set; }
+        public DateTime krajTerapije { get; set; }
+        public double mera { get; set; }
+        public double redovnost { get; set; }
 
         public ObservableCollection<Lek> lek;
 
@@ -53,6 +53,19 @@ namespace Model
         {
             if (lek != null)
                 lek.Clear();
+        }
+
+        public Terapija()
+        {
+
+        }
+
+        public Terapija(DateTime pocetak, DateTime kraj, double m, double r)
+        {
+            pocetakTerapije = pocetak;
+            krajTerapije = kraj;
+            mera = m;
+            redovnost = r;
         }
 
     }

@@ -4,10 +4,10 @@ namespace Model
 {
     public class Recept
     {
-        private string id;
+        public string id { get; set; }
 
-        public ObservableCollection<Terapija> terapija;
-
+        public ObservableCollection<Terapija> terapija = new ObservableCollection<Terapija>();
+/*
         public ObservableCollection<Terapija> Terapija
         {
             get
@@ -50,6 +50,16 @@ namespace Model
         {
             if (terapija != null)
                 terapija.Clear();
+        }*/
+
+        public Recept()
+        {
+
+        }
+
+        public Recept(string ID)
+        {
+            id = ID;
         }
 
     }

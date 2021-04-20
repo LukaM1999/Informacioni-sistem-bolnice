@@ -11,6 +11,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="IzmenaZdravstvenogKartonaLekar.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="PomeranjeTerminaLekaraProzor.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -23,6 +26,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Page Update="IzmenaZdravstvenogKartonaLekar.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="PomeranjeTerminaLekaraProzor.xaml">
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
       <SubType>Designer</SubType>

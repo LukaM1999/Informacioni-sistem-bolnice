@@ -16,8 +16,58 @@ namespace Model
         private BracnoStanje bracnoStanje;
         private KategorijaZdravstveneZastite kategorijaZdravstveneZastite;
         private PodaciOZaposlenjuIZanimanju podaciOZaposlenjuIZanimanjuPacijenta;
-        private ObservableCollection<Alergen> alergeni; 
-        private ObservableCollection<Recept> recepti;
+        private ObservableCollection<Alergen> alergeni;
+
+        public ObservableCollection<Alergen> Alergeni
+        {
+            get
+            {
+                if (alergeni == null)
+                    alergeni = new ObservableCollection<Alergen>();
+                return alergeni;
+            }
+            set
+            {
+                RemoveAllAlergen();
+                if (value != null)
+                {
+                    foreach (Alergen Oalergen in value)
+                        AddAlergen(Oalergen);
+                }
+            }
+        }
+
+        public void AddAlergen(Alergen newAlergen)
+        {
+            if (newAlergen == null)
+                return;
+            if (this.alergeni == null)
+                this.alergeni = new ObservableCollection<Alergen>();
+            if (!this.alergeni.Contains(newAlergen))
+                this.alergeni.Add(newAlergen);
+        }
+
+        public void RemoveAlergen(Alergen oldAlergen)
+        {
+            if (oldAlergen == null)
+                return;
+            if (this.alergeni != null)
+                if (this.alergeni.Contains(oldAlergen))
+                    this.alergeni.Remove(oldAlergen);
+        }
+
+        public void RemoveAllAlergen()
+        {
+            if (alergeni != null)
+                alergeni.Clear();
+        }
+
+
+        public Recept recept
+        {
+            get;
+            set;
+        }
        
 
 
@@ -56,11 +106,9 @@ namespace Model
         public string BrojKnjizice { get => brojKnjizice; set => brojKnjizice = value; }
         public string BrojKartona { get => brojKartona; set => brojKartona = value; }
        
-        public ObservableCollection<Recept> Recept { get => recepti; set => recepti = value; }
         public KategorijaZdravstveneZastite KategorijaZdravstveneZastite { get => kategorijaZdravstveneZastite; set => kategorijaZdravstveneZastite = value; }
         public BracnoStanje BracnoStanje { get => bracnoStanje; set => bracnoStanje = value; }
         public PodaciOZaposlenjuIZanimanju PodaciOZaposlenjuIZanimanjuPacijenta { get => podaciOZaposlenjuIZanimanjuPacijenta; set => podaciOZaposlenjuIZanimanjuPacijenta = value; }
-        public ObservableCollection<Alergen> Alergeni { get => alergeni; set => alergeni = value; }
         
 
         public ZdravstveniKarton()

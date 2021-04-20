@@ -257,13 +257,19 @@ namespace Servis
             {
                 if(p.jmbg.Equals(izmjenaZdravstvenogKartonaForma.JMBGLabela.Content))
                 {
-                    System.Diagnostics.Debug.WriteLine(p.jmbg);
-                    p.zdravstveniKarton.Alergeni.Add(a);
-                    Pacijenti.Instance.Serijalizacija("../../../json/pacijenti.json");
-                    Pacijenti.Instance.Deserijalizacija("../../../json/pacijenti.json");
+                    foreach (Alergen alergen in Alergeni.Instance.listaAlergena)
+                    {
+                        if (a.nazivAlergena == alergen.nazivAlergena)
+                        {
+                            System.Diagnostics.Debug.WriteLine(p.jmbg);
+                            p.zdravstveniKarton.AddAlergen(alergen);
+                            Pacijenti.Instance.Serijalizacija("../../../json/pacijenti.json");
+                            Pacijenti.Instance.Deserijalizacija("../../../json/pacijenti.json");
 
-                    izmjenaZdravstvenogKartonaForma.ListaAlergena.ItemsSource = p.zdravstveniKarton.Alergeni;
-                    break;
+                            izmjenaZdravstvenogKartonaForma.ListaAlergena.ItemsSource = p.zdravstveniKarton.Alergeni;
+                            break;
+                        }
+                    }
 
                 }
             }
@@ -292,7 +298,7 @@ namespace Servis
                             if (a.nazivAlergena == alergen.nazivAlergena)
                             {
                                 System.Diagnostics.Debug.WriteLine(p.jmbg);
-                                p.zdravstveniKarton.Alergeni.Remove(alergen);
+                                p.zdravstveniKarton.RemoveAlergen(alergen);
                                 Pacijenti.Instance.Serijalizacija("../../../json/pacijenti.json");
                                 Pacijenti.Instance.Deserijalizacija("../../../json/pacijenti.json");
 

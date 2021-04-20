@@ -19,9 +19,9 @@
     <Compile Update="GlavniProzorSekretara.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-	<Compile Update="IzmenaAlergenaForma.xaml.cs">
-	  <SubType>Code</SubType>
-	</Compile>
+    <Compile Update="IzmenaAlergenaForma.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="IzborTermina.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -73,6 +73,9 @@
     <Compile Update="ProstorijeProzor.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="ReceptForma.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="RegistracijaPacijentaForma.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -83,6 +86,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="TerminiPacijentaProzor.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="UCPacijenti.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="ZakazivanjeTerminaPacijentaProzor.xaml.cs">
@@ -105,13 +111,16 @@
     <Page Update="GlavniProzorSekretara.xaml">
       <SubType>Designer</SubType>
     </Page>
-	<Page Update="IzmenaAlergenaForma.xaml">
-		<SubType>Designer</SubType>
-	</Page>
+    <Page Update="IzmenaAlergenaForma.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="IzborTermina.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="IzmenaNalogaPacijentaForma.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="IzmenaZdravstvenogKartonaLekar.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="IzmjenaZdravstvenogKartonaForma.xaml">
@@ -165,6 +174,9 @@
     <Page Update="ProstorijeProzor.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="ReceptForma.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="RegistracijaPacijentaForma.xaml">
       <SubType>Designer</SubType>
     </Page>
@@ -178,6 +190,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="TerminiPacijentaProzor.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="UCPacijenti.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="ZakazivanjeTerminaLekaraProzor.xaml">

@@ -37,6 +37,7 @@ namespace InformacioniSistemBolnice
                     break;
                 }
             }
+            this.contentControl.Content = new UCPacijenti();
         }
 
         private void RasporedBtn_Click(object sender, RoutedEventArgs e)
@@ -49,8 +50,8 @@ namespace InformacioniSistemBolnice
         private void PacijentiBtn_Click(object sender, RoutedEventArgs e)
         {
             //userControl
-            TerminiLekaraProzor terminiLekara = new TerminiLekaraProzor(ulogovanLekar);
-            terminiLekara.Show();
+
+            this.contentControl.Content = new UCPacijenti();
             this.Show();
 
         }

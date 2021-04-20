@@ -25,18 +25,13 @@
     "uloga": 1
   },
   {
-    "korisnickoIme": "majica",
-    "lozinka": "majica",
-    "uloga": 2
-  },
-  {
     "korisnickoIme": "lekar3",
     "lozinka": "lekar3",
     "uloga": 1
   },
   {
-	"korisnickoIme": "mihajlo",
-	"lozinka": "lalala",
-	"uloga": 2
+    "korisnickoIme": "pilence",
+    "lozinka": "pilence",
+    "uloga": 2
   }
 ]

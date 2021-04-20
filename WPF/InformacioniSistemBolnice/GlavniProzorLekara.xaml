@@ -14,7 +14,7 @@
         <Button x:Name="Podesavanja" Content="Podesavanja" HorizontalAlignment="Left" Margin="697,10,0,0" VerticalAlignment="Top" Height="47" Width="72" />
         <Button x:Name="Profil" Content="Profil" HorizontalAlignment="Left" Margin="592,10,0,0" VerticalAlignment="Top" Height="47" Width="72" />
         <Button x:Name="Notifikacije" Content="Notifikacije" HorizontalAlignment="Left" Margin="482,10,0,0" VerticalAlignment="Top" Height="47" Width="72" />
-        <ContentControl Content="Prikaz" HorizontalAlignment="Left" Margin="122,73,0,0" VerticalAlignment="Top" Height="361" Width="678"/>
+        <ContentControl x:Name="contentControl" Content="Prikaz" HorizontalAlignment="Left" Margin="122,73,0,0" VerticalAlignment="Top" Height="361" Width="678"/>
 
     </Grid>
 </Window>
