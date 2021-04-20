@@ -45,6 +45,11 @@ namespace Kontroler
             UpravljanjeStatickomOpremom.Instance.UklanjanjeOpreme(p);
         }
 
+        public void IzmenaStatickeOpreme(StatickaOprema oprema, MagacinIzmeniProzor p)
+        {
+            UpravljanjeStatickomOpremom.Instance.IzmenaOpreme(oprema, p);
+        }
+
         public UpravljanjeProstorijama upravljanjeProstorijama;
 
         public UpravljanjeStatickomOpremom upravljanjeStatickomOpremom;

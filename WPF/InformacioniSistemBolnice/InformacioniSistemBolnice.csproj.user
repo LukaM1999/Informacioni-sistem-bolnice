@@ -19,6 +19,9 @@
     <Compile Update="MagacinDodajProzor.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="MagacinIzmeniProzor.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="MagacinProzor.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -67,6 +70,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="MagacinDodajProzor.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="MagacinIzmeniProzor.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="MagacinProzor.xaml">

@@ -39,5 +39,15 @@ namespace InformacioniSistemBolnice
         {
             UpravnikKontroler.Instance.BrisanjeStatickeOpreme(this);
         }
+
+        private void dugmeIzmeniStatOpremu_Click(object sender, RoutedEventArgs e)
+        {
+            if (listViewStatOpreme.SelectedValue != null)
+            {
+                MagacinIzmeniProzor p = new MagacinIzmeniProzor(listViewStatOpreme);
+                p.postavljanjeVrednost();
+                p.Show();
+            }
+        }
     }
 }

@@ -2,6 +2,7 @@ using System;
 using Model;
 using Repozitorijum;
 using InformacioniSistemBolnice;
+using System.Windows.Controls;
 
 namespace Servis
 {
@@ -33,9 +34,13 @@ namespace Servis
             }
         }
 
-        public void IzmenaOpreme()
+        public void IzmenaOpreme(Model.StatickaOprema oprema, MagacinIzmeniProzor p)
         {
-            throw new NotImplementedException();
+             oprema.kolicina = Int32.Parse(p.tb1.Text);
+             oprema.tip = (TipStatickeOpreme)Enum.Parse(typeof(TipStatickeOpreme), p.cb1.Text, true);
+
+             Repozitorijum.StatickaOprema.Instance.Serijalizacija("../../../json/statickaOprema.json");
+             Repozitorijum.StatickaOprema.Instance.Deserijalizacija("../../../json/statickaOprema.json"); 
         }
 
         public void PregledOpreme()

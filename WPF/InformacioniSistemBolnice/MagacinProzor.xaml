@@ -24,7 +24,8 @@
                 </GridView>
             </ListView.View>
         </ListView>
-        <Button x:Name="dugmeObrisiStatOpremu" Content="Obrisi" HorizontalAlignment="Left" Height="30" Margin="269,20,0,0" VerticalAlignment="Top" Width="106" Click="dugmeObrisiStatOpremu_Click"/>
+        <Button x:Name="dugmeObrisiStatOpremu" Content="Obrisi" HorizontalAlignment="Left" Height="30" Margin="269,20,0,0" VerticalAlignment="Top" Width="100" Click="dugmeObrisiStatOpremu_Click"/>
+        <Button x:Name="dugmeIzmeniStatOpremu" Content="Izmeni" HorizontalAlignment="Left" Height="30" Margin="413,20,0,0" VerticalAlignment="Top" Width="100" Click="dugmeIzmeniStatOpremu_Click"/>
 
     </Grid>
 </Window>
