@@ -1,4 +1,7 @@
 using System;
+using Model;
+using Repozitorijum;
+using InformacioniSistemBolnice;
 
 namespace Servis
 {
@@ -12,14 +15,22 @@ namespace Servis
 
         public static UpravljanjeStatickomOpremom Instance { get { return lazy.Value; } }
 
-        public void KreiranjeOpreme()
+        public void KreiranjeOpreme(MagacinDodajProzor p)
         {
-            throw new NotImplementedException();
+            Model.StatickaOprema oprema = new Model.StatickaOprema(Int32.Parse(p.tbKol.Text), (TipStatickeOpreme)Enum.Parse(typeof(TipStatickeOpreme), p.cb1.Text));
+            Repozitorijum.StatickaOprema.Instance.listaOpreme.Add(oprema);
+            Repozitorijum.StatickaOprema.Instance.Serijalizacija("../../../json/statickaOprema.json");
         }
 
-        public void UklanjanjeOpreme()
+        public void UklanjanjeOpreme(MagacinProzor p)
         {
-            throw new NotImplementedException();
+            if (p.listViewStatOpreme.SelectedValue != null)
+            {
+                Model.StatickaOprema oprema = (Model.StatickaOprema)p.listViewStatOpreme.SelectedValue;
+                Repozitorijum.StatickaOprema.Instance.listaOpreme.Remove(oprema);
+                Repozitorijum.StatickaOprema.Instance.Serijalizacija("../../../json/statickaOprema.json");
+                Repozitorijum.StatickaOprema.Instance.Deserijalizacija("../../../json/statickaOprema.json");
+            }
         }
 
         public void IzmenaOpreme()
@@ -32,7 +43,7 @@ namespace Servis
             throw new NotImplementedException();
         }
 
-        public Repozitorijum.Magacin magacin;
+        public Repozitorijum.StatickaOprema magacin;
 
     }
 }

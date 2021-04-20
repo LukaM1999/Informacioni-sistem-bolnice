@@ -17,7 +17,7 @@ namespace Servis
             throw new NotImplementedException();
         }
 
-        public Repozitorijum.Magacin magacin;
+        public Repozitorijum.StatickaOprema magacin;
         public Repozitorijum.Prostorije prostorije;
 
     }

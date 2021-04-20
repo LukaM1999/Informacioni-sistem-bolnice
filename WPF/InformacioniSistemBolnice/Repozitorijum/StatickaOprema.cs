@@ -6,16 +6,16 @@ using System.Collections.ObjectModel;
 
 namespace Repozitorijum
 {
-    public class Magacin : Repozitorijum
+    public class StatickaOprema : Repozitorijum
     {
-        private static readonly Lazy<Magacin>
+        private static readonly Lazy<StatickaOprema>
            lazy =
-           new Lazy<Magacin>
-               (() => new Magacin());
+           new Lazy<StatickaOprema>
+               (() => new StatickaOprema());
 
-        public static Magacin Instance { get { return lazy.Value; } }
+        public static StatickaOprema Instance { get { return lazy.Value; } }
 
-        public ObservableCollection<Oprema> listaOpreme
+        public ObservableCollection<Model.StatickaOprema> listaOpreme
         {
             get;
             set;
@@ -23,7 +23,7 @@ namespace Repozitorijum
 
         public void Deserijalizacija(string putanja)
         {
-            listaOpreme = JsonConvert.DeserializeObject<ObservableCollection<Oprema>>(File.ReadAllText(putanja));
+            listaOpreme = JsonConvert.DeserializeObject<ObservableCollection<Model.StatickaOprema>>(File.ReadAllText(putanja));
         }
 
         public void Serijalizacija(string putanja)

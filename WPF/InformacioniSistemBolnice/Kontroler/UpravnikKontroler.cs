@@ -35,10 +35,24 @@ namespace Kontroler
             UpravljanjeProstorijama.Instance.PregledProstorije(pr);
         }
 
+        public void KreiranjeStatickeOpreme(MagacinDodajProzor p)
+        {
+            UpravljanjeStatickomOpremom.Instance.KreiranjeOpreme(p);
+        }
+
+        public void BrisanjeStatickeOpreme(MagacinProzor p)
+        {
+            UpravljanjeStatickomOpremom.Instance.UklanjanjeOpreme(p);
+        }
+
         public UpravljanjeProstorijama upravljanjeProstorijama;
+
         public UpravljanjeStatickomOpremom upravljanjeStatickomOpremom;
+
         public UpravljanjeDinamickomOpremom upravljanjeDinamickomOpremom;
+
         public RasporedjivanjeDinamickeOpreme rasporedjivanjeDinamickeOpreme;
+
         public RasporedjivanjeStatickeOpreme rasporedjivanjeStatickeOpreme;
 
     }
