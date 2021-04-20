@@ -19,6 +19,17 @@ namespace Servis
         public void KreiranjeOpreme(MagacinDodajProzor p)
         {
             Model.StatickaOprema oprema = new Model.StatickaOprema(Int32.Parse(p.tbKol.Text), (TipStatickeOpreme)Enum.Parse(typeof(TipStatickeOpreme), p.cb1.Text));
+            
+            foreach (Model.StatickaOprema so in Repozitorijum.StatickaOprema.Instance.listaOpreme)
+            {
+                if (so.tip.Equals(oprema.tip))
+                {
+                    so.kolicina += oprema.kolicina;
+                    Repozitorijum.StatickaOprema.Instance.Serijalizacija("../../../json/statickaOprema.json");
+                    return;
+                }
+            }
+
             Repozitorijum.StatickaOprema.Instance.listaOpreme.Add(oprema);
             Repozitorijum.StatickaOprema.Instance.Serijalizacija("../../../json/statickaOprema.json");
         }
@@ -30,7 +41,6 @@ namespace Servis
                 Model.StatickaOprema oprema = (Model.StatickaOprema)p.listViewStatOpreme.SelectedValue;
                 Repozitorijum.StatickaOprema.Instance.listaOpreme.Remove(oprema);
                 Repozitorijum.StatickaOprema.Instance.Serijalizacija("../../../json/statickaOprema.json");
-                Repozitorijum.StatickaOprema.Instance.Deserijalizacija("../../../json/statickaOprema.json");
             }
         }
 
