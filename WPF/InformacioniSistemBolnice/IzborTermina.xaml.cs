@@ -69,13 +69,12 @@ namespace InformacioniSistemBolnice
                         {
                             for (int j = 0; j < 27; j++)
                             {
-                                foreach (Termin zauzetTermin in izabraniLekar.zauzetiTermini)
-                                {
+                                
                                     slobodniTermini.Add(new Termin(slobodanTermin, 30.0, TipTermina.pregled, StatusTermina.slobodan,
                                                                    jmbgPacijenta, izabraniLekar.jmbg, null));
 
                                     slobodanTermin = slobodanTermin.AddMinutes(30);
-                                }
+                                
                             }
                             slobodanTermin = slobodanTermin.AddHours(10.5);
                         }
@@ -84,13 +83,12 @@ namespace InformacioniSistemBolnice
                         {
                             for (int j = 0; j < 27; j++)
                             {
-                                foreach (Termin zauzetTermin in izabraniLekar.zauzetiTermini)
-                                {
+                                
                                     slobodniTermini.Add(new Termin(slobodanTermin, 30.0, TipTermina.pregled, StatusTermina.slobodan,
                                                                    jmbgPacijenta, izabraniLekar.jmbg, null));
 
                                     slobodanTermin = slobodanTermin.AddMinutes(30);
-                                }
+                                
                             }
                             slobodanTermin = slobodanTermin.AddHours(10.5);
                         }

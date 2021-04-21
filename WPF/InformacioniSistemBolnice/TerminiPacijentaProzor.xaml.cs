@@ -17,6 +17,7 @@ using System.Collections.ObjectModel;
 using Servis;
 using InformacioniSistemBolnice;
 using Kontroler;
+using System.Threading;
 
 namespace InformacioniSistemBolnice
 {
@@ -43,6 +44,23 @@ namespace InformacioniSistemBolnice
 
             listaZakazanihTermina.ItemsSource = ulogovanPacijent.zakazaniTermini;
 
+
+            if (ulogovanPacijent.zdravstveniKarton.recept != null)
+            {
+                Recept recept = ulogovanPacijent.zdravstveniKarton.recept;
+
+                Thread th = new Thread(() =>
+                {
+                    while (DateTime.Now > recept.terapija[0].pocetakTerapije && DateTime.Now < recept.terapija[0].krajTerapije)
+                    {
+                        Thread.Sleep((int)recept.terapija[0].redovnost * 1000);
+                        MessageBox.Show("Vreme je da popijete lek");
+                    }
+                });
+
+                th.Start();
+            }
+            
 
         }
 

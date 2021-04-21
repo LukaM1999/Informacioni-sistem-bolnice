@@ -1,1 +1,27 @@
-[]
+[
+  {
+    "Alergeni": [
+      {
+        "nazivAlergena": "gluten"
+      }
+    ],
+    "recept": null,
+    "Jmbg": "1277645883",
+    "LiceZaZdravstvenuZastitu": "Marija Sombic",
+    "PolPacijenta": 1,
+    "ImeJednogRoditelja": "Stevan",
+    "BrojKnjizice": "4314",
+    "BrojKartona": "4314",
+    "KategorijaZdravstveneZastite": 5,
+    "BracnoStanje": 0,
+    "PodaciOZaposlenjuIZanimanjuPacijenta": {
+      "MestoRada": "snjfej",
+      "RegBroj": "23423",
+      "SifraDelatnosti": "dnrgdk",
+      "PosaoKojiObavlja": "kndgff",
+      "OSIZZdrZastite": "fsjrfsl",
+      "RadPodPosebnimUslovima": "snjfej",
+      "Promene": "sklvvvlks"
+    }
+  }
+]

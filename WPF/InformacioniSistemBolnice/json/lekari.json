@@ -1,33 +1,7 @@
 [
   {
     "zauzetiTermini": [
-      {
-        "vreme": "2021-04-21T10:30:00",
-        "trajanje": 30.0,
-        "tipTermina": 1,
-        "status": 3,
-        "pacijentJMBG": "2403998156177",
-        "lekarJMBG": "231568933",
-        "idProstorije": null
-      },
-      {
-        "vreme": "2021-04-20T07:00:00",
-        "trajanje": 30.0,
-        "tipTermina": 0,
-        "status": 3,
-        "pacijentJMBG": "2403998156177",
-        "lekarJMBG": "231568933",
-        "idProstorije": null
-      },
-      {
-        "vreme": "2021-04-29T11:30:00",
-        "trajanje": 30.0,
-        "tipTermina": 0,
-        "status": 5,
-        "pacijentJMBG": "2403998156177",
-        "lekarJMBG": "231568933",
-        "idProstorije": "ID: P1"
-      }
+      
     ],
     "specijalizacija": "Lekar opste prakse",
     "ime": "Darko",
