@@ -36,11 +36,13 @@ namespace InformacioniSistemBolnice
             alergeniProzor.Show();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+       
+        private void zakazivanjeTerminaPacijentima_Click(object sender, RoutedEventArgs e)
         {
+            PacijentiProzor1 pacijentiProzor1 = new PacijentiProzor1();
+            pacijentiProzor1.Show();
+
 
         }
-
-       
     }
 }

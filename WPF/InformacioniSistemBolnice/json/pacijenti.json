@@ -1,58 +1,74 @@
 [
   {
-    "zdravstveniKarton": {
-      "Alergeni": [
-        {
-          "nazivAlergena": "gluten"
-        },
-        {
-          "nazivAlergena": "pencilin"
-        }
-      ],
-      "recept": {
-        "terapija": [
-          {
-            "lek": null,
-            "pocetakTerapije": "2021-04-23T00:00:00",
-            "krajTerapije": "2021-04-30T00:00:00",
-            "mera": 500.0,
-            "redovnost": 8.0,
-            "Lek": []
-          }
-        ],
-        "id": "5"
-      },
-      "Jmbg": "123456789",
-      "LiceZaZdravstvenuZastitu": "Mihajlo",
-      "PolPacijenta": 0,
-      "ImeJednogRoditelja": "Milena",
-      "BrojKnjizice": "nestojos",
-      "BrojKartona": "nesto",
-      "KategorijaZdravstveneZastite": 5,
-      "BracnoStanje": 2,
-      "PodaciOZaposlenjuIZanimanjuPacijenta": {
-        "MestoRada": "asdas",
-        "RegBroj": "asd",
-        "SifraDelatnosti": "asd",
-        "PosaoKojiObavlja": "asd",
-        "OSIZZdrZastite": "asd",
-        "RadPodPosebnimUslovima": "asdas",
-        "Promene": "asd"
-      }
-    },
+    "zdravstveniKarton": null,
     "zakazaniTermini": [],
-    "ime": "Pile",
-    "prezime": "Piletic",
-    "jmbg": "123456789",
-    "datumRodjenja": "1997-04-09T00:00:00",
-    "telefon": "06123546",
-    "email": "pile@gmail.com",
-    "adresa": {
-      "Broj": "33",
-      "Ulica": "Suboticka",
-      "Grad": "Novi Sad",
-      "Drzava": "Srbija"
-    },
+    "ime": "Maja",
+    "prezime": "Bajic",
+    "jmbg": "1112988178178",
+    "datumRodjenja": "1988-12-11T00:00:00",
+    "telefon": "0657181818",
+    "email": "majab@gmail.com",
+    "adresa": null,
+    "korisnik": {
+      "korisnickoIme": "majica",
+      "lozinka": "majica",
+      "uloga": 2
+    }
+  },
+  {
+    "zdravstveniKarton": null,
+    "zakazaniTermini": [],
+    "ime": "Kristina",
+    "prezime": "Maric",
+    "jmbg": "0909999123145",
+    "datumRodjenja": "1999-09-09T00:00:00",
+    "telefon": "0623456789",
+    "email": "kris98@gmail.com",
+    "adresa": null,
+    "korisnik": {
+      "korisnickoIme": "kris",
+      "lozinka": "lalalla",
+      "uloga": 2
+    }
+  },
+  {
+    "zdravstveniKarton": null,
+    "zakazaniTermini": [
+      {
+        "vreme": "2021-04-21T10:30:00",
+        "trajanje": 30.0,
+        "tipTermina": 1,
+        "status": 3,
+        "pacijentJMBG": "2403998156177",
+        "lekarJMBG": "231568933",
+        "idProstorije": null
+      },
+      {
+        "vreme": "2021-04-20T07:00:00",
+        "trajanje": 30.0,
+        "tipTermina": 0,
+        "status": 3,
+        "pacijentJMBG": "2403998156177",
+        "lekarJMBG": "231568933",
+        "idProstorije": null
+      },
+      {
+        "vreme": "2021-04-29T11:30:00",
+        "trajanje": 30.0,
+        "tipTermina": 0,
+        "status": 5,
+        "pacijentJMBG": "2403998156177",
+        "lekarJMBG": "231568933",
+        "idProstorije": "ID: P1"
+      }
+    ],
+    "ime": "Mihajlo",
+    "prezime": "Miric",
+    "jmbg": "2403998156177",
+    "datumRodjenja": "2001-03-24T00:00:00",
+    "telefon": "06366677788",
+    "email": "mihajlo@gmail.com",
+    "adresa": null,
     "korisnik": {
       "korisnickoIme": "pilence",
       "lozinka": "pilence",

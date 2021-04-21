@@ -62,5 +62,15 @@ namespace InformacioniSistemBolnice
         {
             LekarKontroler.Instance.Uvid(listaZakazanihTerminaLekara);
         }
+
+        private void pregledDugme_Click(object sender, RoutedEventArgs e)
+        {
+            if (listaZakazanihTerminaLekara.SelectedIndex >= 0)
+            {
+                Termin t = (Termin)listaZakazanihTerminaLekara.SelectedItem;
+                IzmenaZdravstvenogKartonaLekar izmena = new IzmenaZdravstvenogKartonaLekar(t);
+                izmena.Show();
+            }
+        }
     }
 }

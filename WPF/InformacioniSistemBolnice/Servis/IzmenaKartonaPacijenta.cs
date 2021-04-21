@@ -24,9 +24,14 @@ namespace Servis
             Pacijenti.Instance.Deserijalizacija("../../../json/pacijenti.json");
         }
 
-        public void DodavanjeAnamneze()
+
+        public void DodavanjeAnamneze(AnamnezaForma anamneza)
         {
-            throw new NotImplementedException();
+            Anamneza a = new Anamneza(anamneza.prvi.Text, anamneza.drugi.Text, anamneza.treci.Text, anamneza.cetvrti.Text, anamneza.peti.Text);
+            anamneza.p.zdravstveniKarton.anamneza = a;
+
+            Pacijenti.Instance.Serijalizacija("../../../json/pacijenti.json");
+            Pacijenti.Instance.Deserijalizacija("../../../json/pacijenti.json");
         }
 
         public Repozitorijum.Pacijenti pacijenti;
