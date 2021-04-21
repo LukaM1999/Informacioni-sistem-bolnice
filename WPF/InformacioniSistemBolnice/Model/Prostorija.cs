@@ -35,20 +35,22 @@ namespace Model
             jeZauzeta = false;
         }
 
-        public Prostorija(int sp, TipProstorije t, string sifra, bool zauzeta)
-        {
-            sprat = sp;
-            tip = t;
-            id = sifra;
-            jeZauzeta = zauzeta;
-
-        }
-        public ObservableCollection<Termin> termin;
         public Inventar inventar
         {
             get;
             set;
         }
+
+        public Prostorija(int sp, TipProstorije t, string sifra, bool zauzeta, Inventar i)
+        {
+            sprat = sp;
+            tip = t;
+            id = sifra;
+            jeZauzeta = zauzeta;
+            inventar = i;
+
+        }
+        public ObservableCollection<Termin> termin;
 
         public override string ToString()
         {

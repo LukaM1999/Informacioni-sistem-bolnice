@@ -16,9 +16,13 @@ namespace Servis
       
       public void KreiranjeProstorije(ProstorijaForma p)
       {
-            Prostorija prostorija = new Prostorija(Int32.Parse(p.spratUnos.Text), (TipProstorije)Enum.Parse(typeof(TipProstorije), p.tipUnos.Text), p.idUnos.Text, false);
+            Inventar i = new Inventar();
+            Model.DinamickaOprema oprema = new Model.DinamickaOprema();
+            i.dinamickaOprema.Add(oprema);
+            Prostorija prostorija = new Prostorija(Int32.Parse(p.spratUnos.Text), (TipProstorije)Enum.Parse(typeof(TipProstorije), p.tipUnos.Text), p.idUnos.Text, false, i);
             Prostorije.Instance.listaProstorija.Add(prostorija);
             Prostorije.Instance.Serijalizacija("../../../json/prostorije.json");
+            Prostorije.Instance.Deserijalizacija("../../../json/prostorije.json");
         }
       
       public void UklanjanjeProstorije(DataGrid ListaProstorija)
