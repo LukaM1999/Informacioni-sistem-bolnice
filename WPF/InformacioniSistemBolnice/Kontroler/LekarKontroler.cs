@@ -36,6 +36,11 @@ namespace Kontroler
 
         public UpravljanjeTerminimaLekara upravljanjeTerminimaLekara;
         public IzmenaKartonaPacijenta izmenaKartonaPacijenta;
+        
+        public void IzdavanjeRecepta(ReceptForma recept)
+        {
+            IzmenaKartonaPacijenta.Instance.IzdavanjeRecepta(recept);
+        }
 
     }
 }

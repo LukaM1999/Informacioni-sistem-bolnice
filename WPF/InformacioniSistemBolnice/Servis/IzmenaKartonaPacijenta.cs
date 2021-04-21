@@ -1,4 +1,7 @@
 using System;
+using Model;
+using Repozitorijum;
+using InformacioniSistemBolnice;
 
 namespace Servis
 {
@@ -11,9 +14,14 @@ namespace Servis
 
         public static IzmenaKartonaPacijenta Instance { get { return lazy.Value; } }
 
-        public void IzdavanjeRecepta()
+        public void IzdavanjeRecepta(ReceptForma recept)
         {
-            throw new NotImplementedException();
+            Terapija t = new Terapija((DateTime)recept.Pocetak.SelectedDate, (DateTime)recept.Kraj.SelectedDate, double.Parse(recept.Mera.Text), double.Parse(recept.Redovnost.Text));
+            Recept r = new Recept(recept.Id.Text);
+            r.terapija.Add(t);
+            recept.p.zdravstveniKarton.recept = r;
+            Pacijenti.Instance.Serijalizacija("../../../json/pacijenti.json");
+            Pacijenti.Instance.Deserijalizacija("../../../json/pacijenti.json");
         }
 
         public void DodavanjeAnamneze()

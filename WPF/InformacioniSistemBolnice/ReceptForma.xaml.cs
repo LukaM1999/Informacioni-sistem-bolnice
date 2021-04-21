@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Model;
 using Repozitorijum;
+using Kontroler;
 
 namespace InformacioniSistemBolnice
 {
@@ -30,12 +31,7 @@ namespace InformacioniSistemBolnice
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            Terapija t = new Terapija((DateTime)Pocetak.SelectedDate, (DateTime)Kraj.SelectedDate, double.Parse(Mera.Text), double.Parse(Redovnost.Text));
-            Recept r = new Recept(Id.Text);
-            r.terapija.Add(t);
-            p.zdravstveniKarton.recept = r;
-            Pacijenti.Instance.Serijalizacija("../../../json/pacijenti.json");
-            Pacijenti.Instance.Deserijalizacija("../../../json/pacijenti.json");
+            LekarKontroler.Instance.IzdavanjeRecepta(this);
             this.Close();
         }
     }
