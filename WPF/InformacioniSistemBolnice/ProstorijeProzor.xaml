@@ -5,16 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:InformacioniSistemBolnice"
         mc:Ignorable="d"
-        Title="ProstorijeProzor" Height="500" Width="400">
+        Title="ProstorijeProzor" Height="500" Width="419">
     <Grid>
         <StackPanel Margin="0,50,0,0">
-            <ListView x:Name="ListaProstorija" Height="432">
-                <ListView.View>
-                    <GridView>
-                        <GridViewColumn/>
-                    </GridView>
-                </ListView.View>
-            </ListView>
+            <DataGrid x:Name="ListaProstorija" Height="432" CanUserAddRows="False" ColumnWidth="*"/>
         </StackPanel>
         <Canvas x:Name="RukovanjeProstorijama" Margin="0,0,0,439">
             <Button x:Name="dodajProstorijuDugme" Content="Dodaj" Canvas.Left="10" Canvas.Top="13" Width="50" Click="Dodaj"/>

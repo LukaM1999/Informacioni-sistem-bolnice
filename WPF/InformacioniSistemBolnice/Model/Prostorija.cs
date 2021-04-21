@@ -44,7 +44,11 @@ namespace Model
 
         }
         public ObservableCollection<Termin> termin;
-        public Inventar inventar;
+        public Inventar inventar
+        {
+            get;
+            set;
+        }
 
         public override string ToString()
         {

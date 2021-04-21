@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using Model;
 
 namespace Servis
@@ -12,9 +13,11 @@ namespace Servis
 
         public static RasporedjivanjeDinamickeOpreme Instance { get { return lazy.Value; } }
 
-        public void Premestanje(Prostorija uProstoriju, DinamickaOprema dinamickaOprema, int kolicina)
+        public void Premestanje(Prostorija izProstorije, Prostorija uProstoriju, DinamickaOprema dinamickaOprema, int kolicina)
         {
-            throw new NotImplementedException();
+            
+
+
         }
 
         public Repozitorijum.StatickaOprema magacin;

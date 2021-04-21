@@ -5,22 +5,28 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:InformacioniSistemBolnice"
         mc:Ignorable="d"
-        Title="MagacinProzor" Height="450" Width="800">
+        Title="MagacinProzor" Height="450" Width="1006">
     <Grid>
         <Button x:Name="dugmeKreirajStatickuOpemu" Content="Dodaj" HorizontalAlignment="Left" Height="30" Margin="130,18,0,0" VerticalAlignment="Top" Width="100" Click="dugmeKreirajOpemu_Click"/>
         <DataGrid x:Name="listViewStatOpreme" HorizontalAlignment="Left" Height="241" Margin="36,136,0,0" VerticalAlignment="Top" Width="339"
-                  CanUserAddRows="False"/>
-            
+                  ColumnWidth="*" CanUserAddRows="False"/>
+
         <Label Content="STATICKA -&gt;" HorizontalAlignment="Left" Height="30" Margin="36,20,0,0" VerticalAlignment="Top" Width="88"/>
         <Label Content="DINAMICKA -&gt;" HorizontalAlignment="Left" Height="30" Margin="36,55,0,0" VerticalAlignment="Top" Width="88"/>
         <DataGrid x:Name="listViewDinamOpreme" HorizontalAlignment="Left" Height="241" Margin="400,136,0,0" VerticalAlignment="Top" Width="358"
-                  CanUserAddRows ="False"/>
+                  ColumnWidth="*" CanUserAddRows ="False" SelectionChanged="listViewDinamOpreme_SelectionChanged"/>
 
         <Button x:Name="dugmeObrisiStatOpremu" Content="Obrisi" HorizontalAlignment="Left" Height="30" Margin="269,20,0,0" VerticalAlignment="Top" Width="100" Click="dugmeObrisiStatOpremu_Click"/>
         <Button x:Name="dugmeIzmeniStatOpremu" Content="Izmeni" HorizontalAlignment="Left" Height="30" Margin="413,20,0,0" VerticalAlignment="Top" Width="100" Click="dugmeIzmeniStatOpremu_Click"/>
         <Button x:Name="dugmeKreirajDinamickuOpremu" Content="Dodaj" HorizontalAlignment="Left" Height="30" Margin="130,55,0,0" VerticalAlignment="Top" Width="100" Click="dugmeKreirajDinamickuOpremu_Click"/>
         <Button x:Name="dugmeObrisiDinamOpremu" Content="Obrisi" HorizontalAlignment="Left" Height="32" Margin="269,54,0,0" VerticalAlignment="Top" Width="100" Click="dugmeObrisiDinamOpremu_Click"/>
         <Button x:Name="dugmeIzmeniDinamOpremu" Content="Izmeni" HorizontalAlignment="Left" Height="30" Margin="413,55,0,0" VerticalAlignment="Top" Width="100" Click="Button_Click"/>
-
+        <Button x:Name="dugmeIzmeniStatOpremu_Copy" Content="Izmeni" HorizontalAlignment="Left" Height="30" Margin="413,20,0,0" VerticalAlignment="Top" Width="100" Click="dugmeIzmeniStatOpremu_Click"/>
+        <Button x:Name="dugmeIzmeniStatOpremu_Copy1" Content="Izmeni" HorizontalAlignment="Left" Height="30" Margin="413,20,0,0" VerticalAlignment="Top" Width="100" Click="dugmeIzmeniStatOpremu_Click"/>
+        <Button x:Name="dugmeRaspodeliStaticku" Content="Raspodeli" HorizontalAlignment="Left" Height="30" Margin="549,19,0,0" VerticalAlignment="Top" Width="118"/>
+        <Button x:Name="dugmeRaspodeliDinamicku" Content="Raspodeli" HorizontalAlignment="Left" Height="30" Margin="549,55,0,0" VerticalAlignment="Top" Width="118" Click="dugmeRaspodeliDinamicku_Click"/>
+        <TextBox x:Name="tbKolDin" HorizontalAlignment="Left" Height="30" Margin="688,55,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="102"/>
+        <TextBox x:Name="tbKolStat" HorizontalAlignment="Left" Height="30" Margin="688,20,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="102"/>
+        <ComboBox x:Name="listaProstorija" HorizontalAlignment="Left" Margin="824,63,0,0" VerticalAlignment="Top" Width="120"/>
     </Grid>
 </Window>

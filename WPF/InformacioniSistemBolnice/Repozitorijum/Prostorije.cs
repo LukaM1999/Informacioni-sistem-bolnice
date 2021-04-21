@@ -3,6 +3,7 @@ using Model;
 using Newtonsoft.Json;
 using System.IO;
 using System.Collections.ObjectModel;
+using System.Linq;
 
 namespace Repozitorijum
 {
@@ -30,6 +31,11 @@ namespace Repozitorijum
         {
             string json = JsonConvert.SerializeObject(listaProstorija, Formatting.Indented);
             File.WriteAllText(putanja, json);
+        }
+
+        public Prostorija getSelected(Prostorija p)
+        {
+            return listaProstorija.ElementAt(listaProstorija.IndexOf(p));
         }
 
         private Prostorije()

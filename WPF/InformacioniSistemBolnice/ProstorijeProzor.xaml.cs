@@ -58,15 +58,14 @@ namespace InformacioniSistemBolnice
         {
             if (ListaProstorija.SelectedValue != null)
             {
-                Prostorija pr = (Prostorija)ListaProstorija.SelectedValue;
-                UpravnikKontroler.Instance.PregledProstorije(pr);
+                UpravnikKontroler.Instance.PregledProstorije(this);
             }
 
         }
 
         private void magacinDugme_Click(object sender, RoutedEventArgs e)
         {
-            MagacinProzor mp = new MagacinProzor();
+            MagacinProzor mp = new MagacinProzor(this);
             mp.Show();
         }
     }

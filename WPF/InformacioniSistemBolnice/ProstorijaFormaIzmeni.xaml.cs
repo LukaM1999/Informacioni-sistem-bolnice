@@ -20,12 +20,12 @@ namespace InformacioniSistemBolnice
 {
     public partial class ProstorijaFormaIzmeni : Window
     {
-        private ListView l;
+        private DataGrid l;
         public ProstorijaFormaIzmeni()
         {
             InitializeComponent();
         }
-        public ProstorijaFormaIzmeni(ListView p)
+        public ProstorijaFormaIzmeni(DataGrid p)
         {
             InitializeComponent();
             l = p;

@@ -21,7 +21,7 @@ namespace Servis
             Prostorije.Instance.Serijalizacija("../../../json/prostorije.json");
         }
       
-      public void UklanjanjeProstorije(ListView ListaProstorija)
+      public void UklanjanjeProstorije(DataGrid ListaProstorija)
       {
             if (ListaProstorija.SelectedValue != null)
             {
@@ -83,7 +83,7 @@ namespace Servis
             Prostorije.Instance.Deserijalizacija("../../../json/prostorije.json");
         }
       
-      public void PregledProstorije(Prostorija pr)
+      public void PregledProstorije(ProstorijeProzor pr)
       {
             ProstorijaInfoForma p = new ProstorijaInfoForma(pr);
             p.Show();

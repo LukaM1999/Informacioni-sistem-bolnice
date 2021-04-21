@@ -20,7 +20,7 @@ namespace Kontroler
             UpravljanjeProstorijama.Instance.KreiranjeProstorije(p);
         }
 
-        public void UklanjanjeProstorije(ListView listaProstorija)
+        public void UklanjanjeProstorije(DataGrid listaProstorija)
         {
             UpravljanjeProstorijama.Instance.UklanjanjeProstorije(listaProstorija);
         }
@@ -30,7 +30,7 @@ namespace Kontroler
             UpravljanjeProstorijama.Instance.IzmenaProstorije(izmena, p);
         }
 
-        public void PregledProstorije(Prostorija pr)
+        public void PregledProstorije(ProstorijeProzor pr)
         {
             UpravljanjeProstorijama.Instance.PregledProstorije(pr);
         }
@@ -63,6 +63,11 @@ namespace Kontroler
         public void IzmenaDinamickeOpreme(DinamickaOprema oprema, MagacinIzmeniDinamickuOpremu p)
         {
             UpravljanjeDinamickomOpremom.Instance.IzmenaOpreme(oprema, p);
+        }
+
+        public void RasporedjivanjeDinamickeOpreme(Prostorija izProstorije, Prostorija uProstoriju, DinamickaOprema dinamickaOprema, int kolicina)
+        {
+            rasporedjivanjeDinamickeOpreme.Premestanje(izProstorije, uProstoriju, dinamickaOprema, kolicina);
         }
         public UpravljanjeProstorijama upravljanjeProstorijama;
 
