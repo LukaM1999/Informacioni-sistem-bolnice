@@ -42,5 +42,9 @@ namespace Kontroler
             IzmenaKartonaPacijenta.Instance.IzdavanjeRecepta(recept);
         }
 
+        public void DodavanjeAnamneze(AnamnezaForma anamneza)
+        {
+            IzmenaKartonaPacijenta.Instance.DodavanjeAnamneze(anamneza);
+        }
     }
 }

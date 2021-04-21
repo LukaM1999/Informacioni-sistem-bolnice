@@ -18,6 +18,12 @@ namespace Model
         private PodaciOZaposlenjuIZanimanju podaciOZaposlenjuIZanimanjuPacijenta;
         private ObservableCollection<Alergen> alergeni;
 
+        public Anamneza anamneza
+        {
+            get;
+            set;
+        }
+
         public ObservableCollection<Alergen> Alergeni
         {
             get

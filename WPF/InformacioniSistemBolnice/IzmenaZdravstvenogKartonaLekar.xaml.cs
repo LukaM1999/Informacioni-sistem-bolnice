@@ -21,22 +21,36 @@ namespace InformacioniSistemBolnice
     
     public partial class IzmenaZdravstvenogKartonaLekar : Window
     {
-        public DataGrid ListaPacijenata;
         public Pacijent p;
        
 
         public IzmenaZdravstvenogKartonaLekar(DataGrid listaPacijenata)
         {
             InitializeComponent();
-            ListaPacijenata = listaPacijenata;
             Alergeni.Instance.Deserijalizacija("../../../json/alergeni.json");
             Kartoni.Instance.Deserijalizacija("../../../json/alergeni.json");
             p = (Pacijent)listaPacijenata.SelectedItem;
         }
 
+        public IzmenaZdravstvenogKartonaLekar(Termin termin)
+        {
+            InitializeComponent();
+            Pacijenti.Instance.Deserijalizacija("../../../json/pacijenti.json");
+            foreach (Pacijent pacijent in Pacijenti.Instance.listaPacijenata)
+            {
+                if (pacijent.jmbg.Equals(termin.pacijentJMBG))
+                {
+                    Alergeni.Instance.Deserijalizacija("../../../json/alergeni.json");
+                    Kartoni.Instance.Deserijalizacija("../../../json/alergeni.json");
+                    p = pacijent;
+                }
+            }
+        }
+
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-
+            AnamnezaForma anamneza = new AnamnezaForma(p);
+            anamneza.Show();
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)

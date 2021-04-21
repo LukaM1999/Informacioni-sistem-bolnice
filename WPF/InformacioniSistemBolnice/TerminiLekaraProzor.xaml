@@ -12,5 +12,6 @@
         <Button x:Name="otkaziDugme" Canvas.Left="116" Canvas.Top="19" Width="64" Content="Otkazi" Click="otkaziDugme_Click"/>
         <Button x:Name="pomeriDugme" Canvas.Left="206" Canvas.Top="19" Width="64" Content="Izmeni" Click="pomeriDugme_Click"/>
         <Button x:Name="infoDugme" Canvas.Left="297" Canvas.Top="19" Width="64" Content="Info" Click="infoDugme_Click"/>
+        <Button x:Name="pregledDugme" Canvas.Left="393" Canvas.Top="19" Width="64" Content="Pregled" Click="pregledDugme_Click"/>
     </Canvas>
 </Window>
