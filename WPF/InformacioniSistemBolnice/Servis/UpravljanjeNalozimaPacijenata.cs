@@ -4,6 +4,7 @@ using Repozitorijum;
 using System.Windows.Controls;
 using InformacioniSistemBolnice;
 using System.Collections.ObjectModel;
+using System.Linq;
 
 namespace Servis
 {
@@ -312,6 +313,107 @@ namespace Servis
             }
 
         }
+
+
+        public void ZakazivanjeTermina(IzborTerminaPacijenta izborTermina, string jmbgPacijenta)
+        {
+            foreach (Pacijent pacijent in Pacijenti.Instance.listaPacijenata)
+            {
+                if (pacijent.jmbg == jmbgPacijenta)
+                {
+                    foreach (Termin vecZakazan in pacijent.zakazaniTermini)
+                    {
+                        if (vecZakazan == (Termin)izborTermina.ponudjeniTermini.SelectedItem)
+                        {
+                            return;
+                        }
+                    }
+                    foreach (Lekar lekar in Lekari.Instance.listaLekara)
+                    {
+                        if (lekar.jmbg == ((Termin)izborTermina.ponudjeniTermini.SelectedItem).lekarJMBG)
+                        {
+                            pacijent.zakazaniTermini.Add((Termin)izborTermina.ponudjeniTermini.SelectedItem);
+                            lekar.zauzetiTermini.Add((Termin)izborTermina.ponudjeniTermini.SelectedItem);
+                            Termini.Instance.listaTermina.Add((Termin)izborTermina.ponudjeniTermini.SelectedItem);
+                            Lekari.Instance.Serijalizacija("../../../json/lekari.json");
+                            Pacijenti.Instance.Serijalizacija("../../../json/pacijenti.json");
+                            Termini.Instance.Serijalizacija("../../../json/zakazaniTermini.json");
+                            Pacijenti.Instance.Deserijalizacija("../../../json/pacijenti.json");
+                            Lekari.Instance.Deserijalizacija("../../../json/lekari.json");
+                            Termini.Instance.Deserijalizacija("../../../json/zakazaniTermini.json");
+                            izborTermina.zakazivanjeTerminaPacijenta.terminiPacijentaProzorSekretara.listaZakazanihTermina.ItemsSource
+                                = pacijent.zakazaniTermini;
+                            izborTermina.zakazivanjeTerminaPacijenta.Close();
+                            izborTermina.Close();
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+
+
+
+        public void Pomeranje(PomjeranjeTerminaProzorSekretara pomeranje)
+        {
+            if (pomeranje.ponudjeniTermini.SelectedIndex >= 0)
+            {
+                DateTime staroVreme = ((Termin)pomeranje.terminiPacijenta.listaZakazanihTermina.SelectedItem).vreme;
+                Termin noviTermin = (Termin)pomeranje.ponudjeniTermini.SelectedItem;
+                noviTermin.status = StatusTermina.pomeren;
+
+                foreach (Termin stariTermin in Termini.Instance.listaTermina.ToList())
+                {
+                    if (stariTermin.vreme == staroVreme)
+                    {
+                        Termini.Instance.listaTermina.Remove(stariTermin);
+                        Termini.Instance.listaTermina.Add(noviTermin);
+                        Termini.Instance.Serijalizacija("../../../json/zakazaniTermini.json");
+                        Termini.Instance.Deserijalizacija("../../../json/zakazaniTermini.json");
+                        break;
+                    }
+                }
+
+                foreach (Pacijent pacijent in Pacijenti.Instance.listaPacijenata.ToList())
+                {
+                    if (pacijent.jmbg == noviTermin.pacijentJMBG)
+                    {
+                        foreach (Termin stariTermin in pacijent.zakazaniTermini)
+                        {
+                            if (stariTermin.vreme == staroVreme)
+                            {
+                                pacijent.zakazaniTermini.Remove(stariTermin);
+                                pacijent.zakazaniTermini.Add(noviTermin);
+                                pomeranje.terminiPacijenta.listaZakazanihTermina.ItemsSource = pacijent.zakazaniTermini;
+                                Pacijenti.Instance.Serijalizacija("../../../json/pacijenti.json");
+                                Pacijenti.Instance.Deserijalizacija("../../../json/pacijenti.json");
+                                break;
+                            }
+                        }
+                    }
+                }
+
+                foreach (Lekar lekar in Lekari.Instance.listaLekara.ToList())
+                {
+                    if (lekar.jmbg == noviTermin.lekarJMBG)
+                    {
+                        foreach (Termin stariTermin in lekar.zauzetiTermini)
+                        {
+                            if (stariTermin.vreme == staroVreme)
+                            {
+                                lekar.zauzetiTermini.Remove(stariTermin);
+                                lekar.zauzetiTermini.Add(noviTermin);
+                                Lekari.Instance.Serijalizacija("../../../json/lekari.json");
+                                Lekari.Instance.Deserijalizacija("../../../json/lekari.json");
+                                break;
+                            }
+                        }
+                    }
+                }
+                pomeranje.Close();
+            }
+        }
+
 
 
     }

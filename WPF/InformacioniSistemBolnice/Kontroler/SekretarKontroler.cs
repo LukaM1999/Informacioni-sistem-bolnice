@@ -84,6 +84,11 @@ namespace Kontroler
             UpravljanjeNalozimaPacijenata.Instance.BrisanjeAlergenaPacijentu(izmjenaZdravstvenogKartonaFormadod);
         }
 
+        public void PomjeranjeTerminaPacijenata(PomjeranjeTerminaProzorSekretara pomjeranjeTerminaProzorSekretara)
+        {
+            UpravljanjeNalozimaPacijenata.Instance.Pomeranje(pomjeranjeTerminaProzorSekretara);
+        }
+
 
 
 

@@ -43,6 +43,7 @@ namespace InformacioniSistemBolnice
             Lekari.Instance.Deserijalizacija("../../../json/lekari.json");
             lekari.ItemsSource = Lekari.Instance.listaLekara;
             pacijentJMBG = jmbgPacijenta;
+            
         }
 
         private void potvrdaZakazivanjaDugme_Click(object sender, RoutedEventArgs e)

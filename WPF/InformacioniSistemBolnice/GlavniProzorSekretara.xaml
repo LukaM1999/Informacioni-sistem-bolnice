@@ -8,7 +8,8 @@
         Title="GlavniProzorSekretara" Height="300" Width="500">
     <Grid>
         <Button Content="Upravljanje nalozima pacijenata" HorizontalAlignment="Center" Margin="0,81,0,0" VerticalAlignment="Top" Width="174" Click="naloziPacijenata"/>
-        <Button Content="Upravljanje alergenima" HorizontalAlignment="Center" VerticalAlignment="Top" Width="174" Click="alergeni_Click" Margin="0,126,0,0"/>
+        <Button Content="Upravljanje alergenima" HorizontalAlignment="Center" VerticalAlignment="Top" Width="174" Click="alergeni_Click" Margin="0,123,0,0"/>
+        <Button Content="Zakazivanje termina pacijentima" HorizontalAlignment="Center" Margin="0,167,0,0" VerticalAlignment="Top" Click="zakazivanjeTerminaPacijentima_Click"/>
 
     </Grid>
 </Window>
