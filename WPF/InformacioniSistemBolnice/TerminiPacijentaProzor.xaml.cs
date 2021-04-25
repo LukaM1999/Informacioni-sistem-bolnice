@@ -18,6 +18,7 @@ using Servis;
 using InformacioniSistemBolnice;
 using Kontroler;
 using System.Threading;
+using FluentScheduler;
 
 namespace InformacioniSistemBolnice
 {
@@ -45,22 +46,39 @@ namespace InformacioniSistemBolnice
             listaZakazanihTermina.ItemsSource = ulogovanPacijent.zakazaniTermini;
 
 
-            if (ulogovanPacijent.zdravstveniKarton.recept != null)
-            {
-                Recept recept = ulogovanPacijent.zdravstveniKarton.recept;
+            int mesecnihTermina = 0;
+            Thread proveraMalicioznosti = new Thread(() =>
+            { 
 
-                Thread th = new Thread(() =>
-                {
-                    while (DateTime.Now > recept.terapija[0].pocetakTerapije && DateTime.Now < recept.terapija[0].krajTerapije)
+                    while (!ulogovanPacijent.maliciozan)
                     {
-                        Thread.Sleep((int)recept.terapija[0].redovnost * 1000);
-                        MessageBox.Show("Vreme je da popijete lek");
-                    }
-                });
+                        for (int i = 1; i < 13; i++)
+                        {
+                            foreach (Termin t in ulogovanPacijent.zakazaniTermini.ToList())
+                            {
+                                if (t.vreme > DateTime.Now.AddMonths(i - 1) && t.vreme < DateTime.Now.AddMonths(i))
+                                {
+                                    mesecnihTermina++;
+                                }
+                                if (mesecnihTermina > 3)
+                                {
+                                    ulogovanPacijent.maliciozan = true;
+                                    System.Diagnostics.Debug.WriteLine("Maliciozan!");
+                                    return;
 
-                th.Start();
-            }
+                                }
+                            }
+                            mesecnihTermina = 0;
+                        }
+
+                    }
+            });
+            proveraMalicioznosti.Start();
             
+            if (ulogovanPacijent.maliciozan)
+            {
+                proveraMalicioznosti.Interrupt();
+            }
 
         }
 
@@ -93,4 +111,23 @@ namespace InformacioniSistemBolnice
             }
         }
     }
+    /*
+    public class ScheduledJobRegistry : Registry
+    {
+        public ScheduledJobRegistry(int hours)
+        {
+            Schedule<MyJob>().ToRunEvery(hours).Seconds();
+                    
+
+        }
+    }
+
+    public class MyJob : IJob
+    {
+        public void Execute()
+        {
+            MessageBox.Show("Vreme je da popijete lek");
+        }
+    }
+    */
 }

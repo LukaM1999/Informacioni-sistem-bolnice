@@ -7,6 +7,12 @@ namespace Model
 {
     public class Pacijent : Osoba
     {
+
+        public bool maliciozan
+        {
+            get;
+            set;
+        }
        
         public Pacijent()
         {
@@ -24,6 +30,7 @@ namespace Model
             this.korisnik = o.korisnik;
             this.adresa = o.adresa;
             this.zakazaniTermini = new ObservableCollection<Termin>();
+            this.maliciozan = false;
         }
 
         public ZdravstveniKarton zdravstveniKarton;

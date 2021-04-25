@@ -38,5 +38,10 @@
     "korisnickoIme": "sonja",
     "lozinka": "sonja",
     "uloga": 2
+  },
+  {
+    "korisnickoIme": "luka",
+    "lozinka": "luka",
+    "uloga": 2
   }
 ]

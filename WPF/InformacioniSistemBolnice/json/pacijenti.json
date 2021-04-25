@@ -1,3 +1,112 @@
 [
-  
+  {
+    "zdravstveniKarton": {
+      "anamneza": null,
+      "Alergeni": [],
+      "recept": {
+        "terapija": [],
+        "id": "1"
+      },
+      "Jmbg": "231456768",
+      "LiceZaZdravstvenuZastitu": "Marko",
+      "PolPacijenta": 0,
+      "ImeJednogRoditelja": "Milena",
+      "BrojKnjizice": "7343223",
+      "BrojKartona": "273612",
+      "KategorijaZdravstveneZastite": 5,
+      "BracnoStanje": 0,
+      "PodaciOZaposlenjuIZanimanjuPacijenta": {
+        "MestoRada": "lfvfsfdlk",
+        "RegBroj": "kmfsrk",
+        "SifraDelatnosti": "kdlfgnld",
+        "PosaoKojiObavlja": "pdfhld",
+        "OSIZZdrZastite": "jsxn",
+        "RadPodPosebnimUslovima": "lfvfsfdlk",
+        "Promene": "dfs"
+      }
+    },
+    "zakazaniTermini": [
+      {
+        "vreme": "2021-04-29T07:00:00",
+        "trajanje": 30.0,
+        "tipTermina": 1,
+        "status": 0,
+        "pacijentJMBG": "231456768",
+        "lekarJMBG": "231568933",
+        "idProstorije": null
+      },
+      {
+        "vreme": "2021-05-07T17:30:00",
+        "trajanje": 30.0,
+        "tipTermina": 1,
+        "status": 0,
+        "pacijentJMBG": "231456768",
+        "lekarJMBG": "231568933",
+        "idProstorije": null
+      },
+      {
+        "vreme": "2021-05-03T11:00:00",
+        "trajanje": 30.0,
+        "tipTermina": 1,
+        "status": 0,
+        "pacijentJMBG": "231456768",
+        "lekarJMBG": "231568933",
+        "idProstorije": null
+      },
+      {
+        "vreme": "2021-06-13T18:00:00",
+        "trajanje": 30.0,
+        "tipTermina": 1,
+        "status": 0,
+        "pacijentJMBG": "231456768",
+        "lekarJMBG": "231568933",
+        "idProstorije": null
+      },
+      {
+        "vreme": "2021-06-14T07:00:00",
+        "trajanje": 30.0,
+        "tipTermina": 1,
+        "status": 0,
+        "pacijentJMBG": "231456768",
+        "lekarJMBG": "231568933",
+        "idProstorije": null
+      },
+      {
+        "vreme": "2021-06-15T07:00:00",
+        "trajanje": 30.0,
+        "tipTermina": 1,
+        "status": 0,
+        "pacijentJMBG": "231456768",
+        "lekarJMBG": "231568933",
+        "idProstorije": null
+      },
+      {
+        "vreme": "2021-07-30T09:00:00",
+        "trajanje": 30.0,
+        "tipTermina": 1,
+        "status": 0,
+        "pacijentJMBG": "231456768",
+        "lekarJMBG": "231568933",
+        "idProstorije": null
+      }
+    ],
+    "maliciozan": false,
+    "ime": "Luka",
+    "prezime": "Miletic",
+    "jmbg": "231456768",
+    "datumRodjenja": "1999-09-21T00:00:00",
+    "telefon": "065788945",
+    "email": "gfcfgyfg",
+    "adresa": {
+      "Broj": "32",
+      "Ulica": "Kraljevica Marka",
+      "Grad": "Novi Sad",
+      "Drzava": "Srbija"
+    },
+    "korisnik": {
+      "korisnickoIme": "luka",
+      "lozinka": "luka",
+      "uloga": 2
+    }
+  }
 ]

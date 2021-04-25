@@ -35,6 +35,7 @@ namespace Servis
                     {
                         if (lekar.jmbg == ((Termin)izborTermina.ponudjeniTermini.SelectedItem).lekarJMBG)
                         {
+                            ((Termin)izborTermina.ponudjeniTermini.SelectedItem).status = StatusTermina.zakazan;
                             pacijent.zakazaniTermini.Add((Termin)izborTermina.ponudjeniTermini.SelectedItem);
                             lekar.zauzetiTermini.Add((Termin)izborTermina.ponudjeniTermini.SelectedItem);
                             Termini.Instance.listaTermina.Add((Termin)izborTermina.ponudjeniTermini.SelectedItem);
