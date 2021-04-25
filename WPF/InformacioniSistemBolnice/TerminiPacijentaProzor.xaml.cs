@@ -47,38 +47,61 @@ namespace InformacioniSistemBolnice
 
 
             int mesecnihTermina = 0;
+            int pomerenihTermina = 0;
             Thread proveraMalicioznosti = new Thread(() =>
-            { 
+            {
 
-                    while (!ulogovanPacijent.maliciozan)
+                while (!ulogovanPacijent.maliciozan)
+                {
+                    for (int i = 1; i < 13; i++)
                     {
-                        for (int i = 1; i < 13; i++)
+                        foreach (Termin t in ulogovanPacijent.zakazaniTermini.ToList())
                         {
-                            foreach (Termin t in ulogovanPacijent.zakazaniTermini.ToList())
+                            if (t.vreme > DateTime.Now.AddMonths(i - 1) && t.vreme < DateTime.Now.AddMonths(i))
                             {
-                                if (t.vreme > DateTime.Now.AddMonths(i - 1) && t.vreme < DateTime.Now.AddMonths(i))
-                                {
-                                    mesecnihTermina++;
-                                }
-                                if (mesecnihTermina > 3)
-                                {
-                                    ulogovanPacijent.maliciozan = true;
-                                    System.Diagnostics.Debug.WriteLine("Maliciozan!");
-                                    return;
-
-                                }
+                                mesecnihTermina++;
                             }
-                            mesecnihTermina = 0;
-                        }
+                            if (mesecnihTermina > 3)
+                            {
+                                ulogovanPacijent.maliciozan = true;
+                                System.Diagnostics.Debug.WriteLine("Precesto zakazivanje termina!");
+                                break;
 
+                            }
+                        }
+                        mesecnihTermina = 0;
+                        if (ulogovanPacijent.maliciozan)
+                        {
+                            break;
+                        }
                     }
+
+                    for (int i = 1; i < 5; i++)
+                    {
+                        foreach (Termin t in ulogovanPacijent.zakazaniTermini.ToList())
+                        {
+                            if (t.vreme > DateTime.Now.AddMonths((i - 1) * 3) && t.vreme < DateTime.Now.AddMonths(i * 3) && t.status == StatusTermina.pomeren)
+                            {
+                                pomerenihTermina++;
+                            }
+                            if (pomerenihTermina > 4)
+                            {
+                                ulogovanPacijent.maliciozan = true;
+                                System.Diagnostics.Debug.WriteLine("Precesto pomeranje termina!");
+                                break;
+                       
+                            }
+                        }
+                        pomerenihTermina = 0;
+                        if (ulogovanPacijent.maliciozan)
+                        {
+                            break;
+                        }
+                    }
+
+                }
             });
             proveraMalicioznosti.Start();
-            
-            if (ulogovanPacijent.maliciozan)
-            {
-                proveraMalicioznosti.Interrupt();
-            }
 
         }
 
@@ -111,23 +134,4 @@ namespace InformacioniSistemBolnice
             }
         }
     }
-    /*
-    public class ScheduledJobRegistry : Registry
-    {
-        public ScheduledJobRegistry(int hours)
-        {
-            Schedule<MyJob>().ToRunEvery(hours).Seconds();
-                    
-
-        }
-    }
-
-    public class MyJob : IJob
-    {
-        public void Execute()
-        {
-            MessageBox.Show("Vreme je da popijete lek");
-        }
-    }
-    */
 }

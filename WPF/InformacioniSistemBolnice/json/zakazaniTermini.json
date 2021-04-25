@@ -1,51 +1,6 @@
 [
   {
-    "vreme": "2021-04-29T07:00:00",
-    "trajanje": 30.0,
-    "tipTermina": 1,
-    "status": 5,
-    "pacijentJMBG": "231456768",
-    "lekarJMBG": "231568933",
-    "idProstorije": null
-  },
-  {
-    "vreme": "2021-05-07T17:30:00",
-    "trajanje": 30.0,
-    "tipTermina": 1,
-    "status": 5,
-    "pacijentJMBG": "231456768",
-    "lekarJMBG": "231568933",
-    "idProstorije": null
-  },
-  {
-    "vreme": "2021-05-03T11:00:00",
-    "trajanje": 30.0,
-    "tipTermina": 1,
-    "status": 5,
-    "pacijentJMBG": "231456768",
-    "lekarJMBG": "231568933",
-    "idProstorije": null
-  },
-  {
-    "vreme": "2021-06-13T18:00:00",
-    "trajanje": 30.0,
-    "tipTermina": 1,
-    "status": 5,
-    "pacijentJMBG": "231456768",
-    "lekarJMBG": "231568933",
-    "idProstorije": null
-  },
-  {
     "vreme": "2021-06-14T07:00:00",
-    "trajanje": 30.0,
-    "tipTermina": 1,
-    "status": 5,
-    "pacijentJMBG": "231456768",
-    "lekarJMBG": "231568933",
-    "idProstorije": null
-  },
-  {
-    "vreme": "2021-06-15T07:00:00",
     "trajanje": 30.0,
     "tipTermina": 1,
     "status": 5,
@@ -58,6 +13,51 @@
     "trajanje": 30.0,
     "tipTermina": 1,
     "status": 0,
+    "pacijentJMBG": "231456768",
+    "lekarJMBG": "231568933",
+    "idProstorije": null
+  },
+  {
+    "vreme": "2021-04-27T10:30:00",
+    "trajanje": 30.0,
+    "tipTermina": 1,
+    "status": 3,
+    "pacijentJMBG": "231456768",
+    "lekarJMBG": "231568933",
+    "idProstorije": null
+  },
+  {
+    "vreme": "2021-05-01T07:00:00",
+    "trajanje": 30.0,
+    "tipTermina": 1,
+    "status": 3,
+    "pacijentJMBG": "231456768",
+    "lekarJMBG": "231568933",
+    "idProstorije": null
+  },
+  {
+    "vreme": "2021-05-05T07:30:00",
+    "trajanje": 30.0,
+    "tipTermina": 1,
+    "status": 3,
+    "pacijentJMBG": "231456768",
+    "lekarJMBG": "231568933",
+    "idProstorije": null
+  },
+  {
+    "vreme": "2021-06-13T07:00:00",
+    "trajanje": 30.0,
+    "tipTermina": 1,
+    "status": 3,
+    "pacijentJMBG": "231456768",
+    "lekarJMBG": "231568933",
+    "idProstorije": null
+  },
+  {
+    "vreme": "2021-06-14T08:00:00",
+    "trajanje": 30.0,
+    "tipTermina": 1,
+    "status": 3,
     "pacijentJMBG": "231456768",
     "lekarJMBG": "231568933",
     "idProstorije": null
