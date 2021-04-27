@@ -133,5 +133,11 @@ namespace InformacioniSistemBolnice
                 PacijentKontroler.Instance.Uvid(listaZakazanihTermina);
             }
         }
+
+        private void prikaziVesti_Click(object sender, RoutedEventArgs e)
+        {
+            ProzorSaVestima prozorSaVestima = new ProzorSaVestima();
+            prozorSaVestima.Show();
+        }
     }
 }

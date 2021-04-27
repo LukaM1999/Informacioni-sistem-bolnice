@@ -3,6 +3,7 @@ using System.Windows.Controls;
 using InformacioniSistemBolnice;
 using Servis;
 using Model;
+using InformacioniSistemBolnice.Servis;
 
 namespace Kontroler
 {
@@ -89,12 +90,33 @@ namespace Kontroler
             UpravljanjeNalozimaPacijenata.Instance.Pomeranje(pomjeranjeTerminaProzorSekretara);
         }
 
+        public void KreiranjeVesti(KreirajVijestProzor kreirajVijestProzor)
+        {
+            UpravljanjeVestima.Instance.KreiranjeVesti(kreirajVijestProzor);
+        }
+
+        public void PregledVesti(ListView listaVesti)
+        {
+            UpravljanjeVestima.Instance.PregledVesti(listaVesti);
+        }
+
+        public void UklanjanjeVesti(ListView listaVesti)
+        {
+            UpravljanjeVestima.Instance.UklanjanjeVesti(listaVesti);
+        }
+
+        public void IzmenaVesti(ListView listaVesti, IzmenaVesti izmenaVesti)
+        {
+            UpravljanjeVestima.Instance.IzmenaVesti(listaVesti, izmenaVesti);
+        }
+
 
 
 
         public UpravljanjeNalozimaPacijenata upravljanjeNalozimaPacijenata;
         public UpravljanjeAlergenima upravljanjeAlergenima;
         public UpravljanjeTerminimaPacijenata upravljanjeTerminimaPacijenata;
+        
 
     }
 }

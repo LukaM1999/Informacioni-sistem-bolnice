@@ -43,9 +43,6 @@ namespace Servis
                     }
                 }
             }
-
-
-
         }
 
         public void IzmenaAlergena(DataGrid ListaAlergena, IzmenaAlergenaForma izmenaAlergenaForma)
