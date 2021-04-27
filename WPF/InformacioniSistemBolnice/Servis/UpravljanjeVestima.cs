@@ -53,6 +53,8 @@ namespace InformacioniSistemBolnice.Servis
                     {
                         vesti.listaVesti.Remove(v);
                         Vesti.Instance.Serijalizacija("../../../json/vesti.json");
+                        Vesti.Instance.Deserijalizacija("../../../json/vesti.json");
+                        listaVesti.ItemsSource = Vesti.Instance.listaVesti;
 
                         break;
                     }
