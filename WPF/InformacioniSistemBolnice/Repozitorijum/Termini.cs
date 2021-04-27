@@ -23,13 +23,19 @@ namespace Repozitorijum
 
         public void Deserijalizacija(string putanja)
         {
-            listaTermina = JsonConvert.DeserializeObject<ObservableCollection<Termin>>(File.ReadAllText(putanja));
+            lock (listaTermina)
+            {
+                listaTermina = JsonConvert.DeserializeObject<ObservableCollection<Termin>>(File.ReadAllText(putanja));
+            }
         }
 
         public void Serijalizacija(string putanja)
         {
-            string json = JsonConvert.SerializeObject(listaTermina, Formatting.Indented);
-            File.WriteAllText(putanja, json);
+            lock (listaTermina)
+            {
+                string json = JsonConvert.SerializeObject(listaTermina, Formatting.Indented);
+                File.WriteAllText(putanja, json);
+            }
         }
 
         public Termini()

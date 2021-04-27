@@ -27,28 +27,10 @@
     },
     "zakazaniTermini": [
       {
-        "vreme": "2021-06-14T07:00:00",
-        "trajanje": 30.0,
-        "tipTermina": 1,
-        "status": 0,
-        "pacijentJMBG": "231456768",
-        "lekarJMBG": "231568933",
-        "idProstorije": null
-      },
-      {
         "vreme": "2021-07-30T09:00:00",
         "trajanje": 30.0,
         "tipTermina": 1,
         "status": 0,
-        "pacijentJMBG": "231456768",
-        "lekarJMBG": "231568933",
-        "idProstorije": null
-      },
-      {
-        "vreme": "2021-04-27T10:30:00",
-        "trajanje": 30.0,
-        "tipTermina": 1,
-        "status": 3,
         "pacijentJMBG": "231456768",
         "lekarJMBG": "231568933",
         "idProstorije": null
@@ -81,7 +63,25 @@
         "idProstorije": null
       },
       {
-        "vreme": "2021-06-14T08:00:00",
+        "vreme": "2021-06-12T12:00:00",
+        "trajanje": 30.0,
+        "tipTermina": 1,
+        "status": 3,
+        "pacijentJMBG": "231456768",
+        "lekarJMBG": "231568933",
+        "idProstorije": null
+      },
+      {
+        "vreme": "2021-06-14T11:30:00",
+        "trajanje": 30.0,
+        "tipTermina": 1,
+        "status": 0,
+        "pacijentJMBG": "231456768",
+        "lekarJMBG": "231568933",
+        "idProstorije": null
+      },
+      {
+        "vreme": "2021-05-03T10:00:00",
         "trajanje": 30.0,
         "tipTermina": 1,
         "status": 0,
