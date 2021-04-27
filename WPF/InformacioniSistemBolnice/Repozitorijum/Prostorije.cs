@@ -35,7 +35,15 @@ namespace Repozitorijum
 
         public Prostorija getSelected(Prostorija p)
         {
-            return listaProstorija.ElementAt(listaProstorija.IndexOf(p));
+            Prostorija prs = null;
+            foreach (Prostorija pr in listaProstorija)
+            {
+                if (pr.id.Equals(p.id))
+                {
+                    prs = pr;
+                }
+            }
+            return listaProstorija.ElementAt(listaProstorija.IndexOf(prs));
         }
 
         private Prostorije()

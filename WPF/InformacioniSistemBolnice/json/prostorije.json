@@ -28,11 +28,15 @@
       "dinamickaOprema": [
         {
           "tip": 2,
-          "kolicina": 98
+          "kolicina": 88
         },
         {
           "tip": 3,
           "kolicina": 20
+        },
+        {
+          "tip": 1,
+          "kolicina": 5
         }
       ]
     }
@@ -47,7 +51,15 @@
       "dinamickaOprema": [
         {
           "tip": 1,
-          "kolicina": 133
+          "kolicina": 18
+        },
+        {
+          "tip": 5,
+          "kolicina": 35
+        },
+        {
+          "tip": 2,
+          "kolicina": 10
         }
       ]
     }
@@ -66,7 +78,7 @@
         },
         {
           "tip": 1,
-          "kolicina": 20
+          "kolicina": 15
         }
       ]
     }

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:InformacioniSistemBolnice"
         mc:Ignorable="d"
-        Title="ProstorijaInfoForma" Height="389" Width="993">
+        Title="ProstorijaInfoForma" Height="448" Width="1044">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
@@ -17,19 +17,23 @@
         <Label x:Name="labId" Content="Id:" HorizontalAlignment="Left" Margin="61,169,0,0" VerticalAlignment="Top" Height="32" Width="107"/>
         <Label x:Name="labTip" Content="Tip:" HorizontalAlignment="Left" Margin="61,101,0,0" VerticalAlignment="Top" Height="32" Width="107"/>
         <Label x:Name="labZauzetost" Content="" HorizontalAlignment="Left" Margin="128,234,0,0" VerticalAlignment="Top" Height="32" Width="160"/>
-        <DataGrid x:Name="listaStaticke" HorizontalAlignment="Left" Height="97" Margin="740,20,0,0" VerticalAlignment="Top" Width="212" 
+        <DataGrid x:Name="listaStaticke" HorizontalAlignment="Left" Height="98" Margin="742,68,0,0" VerticalAlignment="Top" Width="212" 
                   ColumnWidth="*" CanUserAddRows="False"/>
 
         <RadioButton x:Name="rbMagacin" Content="Magacin" HorizontalAlignment="Left" Margin="496,31,0,0" VerticalAlignment="Top" IsChecked="True" Height="15" Width="64"/>
         <RadioButton x:Name="rbProstorija" Content="Prostorije" HorizontalAlignment="Left" Margin="496,52,0,0" VerticalAlignment="Top" Height="15" Width="69"/>
-        <Button x:Name="dugmeRaspodeliDinamicku" Content="Raspodeli" HorizontalAlignment="Left" Height="30" Margin="865,319,0,0" VerticalAlignment="Top" Width="85" Click="dugmeRaspodeliDinamicku_Click"/>
+        <Button x:Name="dugmeRaspodeliDinamicku" Content="Raspodeli" HorizontalAlignment="Left" Height="30" Margin="867,377,0,0" VerticalAlignment="Top" Width="85" Click="dugmeRaspodeliDinamicku_Click"/>
         <DataGrid x:Name="listaProstorija" ColumnWidth="*" HorizontalAlignment="Left" Height="201" Margin="496,82,0,0" VerticalAlignment="Top" Width="200"
                   CanUserAddRows="False" />
-        <TextBox x:Name="tbKolicinaDinamicka" HorizontalAlignment="Left" Height="30" Margin="734,319,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="111"/>
-        <DataGrid x:Name="listaDinamicke" HorizontalAlignment="Left" Height="99" Margin="740,212,0,0" VerticalAlignment="Top" Width="210"
+        <TextBox x:Name="tbKolicinaDinamicka" HorizontalAlignment="Left" Height="30" Margin="739,377,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="111"/>
+        <DataGrid x:Name="listaDinamicke" HorizontalAlignment="Left" Height="99" Margin="739,260,0,0" VerticalAlignment="Top" Width="210"
                   ColumnWidth="*" CanUserAddRows="False"/>
-        <Button x:Name="dugmeRaspodeliStaticku" Content="Raspodeli" HorizontalAlignment="Left" Height="30" Margin="865,132,0,0" VerticalAlignment="Top" Width="85"/>
-        <TextBox x:Name="tbKolicinaStaticka" HorizontalAlignment="Left" Height="30" Margin="735,132,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="111"/>
+        <Button x:Name="dugmeRaspodeliStaticku" Content="Raspodeli" HorizontalAlignment="Left" Height="30" Margin="867,181,0,0" VerticalAlignment="Top" Width="85"/>
+        <TextBox x:Name="tbKolicinaStaticka" HorizontalAlignment="Left" Height="30" Margin="742,182,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="111"/>
+        <Label Content="Staticka oprema:" HorizontalAlignment="Left" Height="30" Margin="742,31,0,0" VerticalAlignment="Top" Width="123"/>
+        <Label Content="Dinamicka oprema:" HorizontalAlignment="Left" Height="30" Margin="740,220,0,0" VerticalAlignment="Top" Width="111"/>
+        <ComboBox x:Name="cbStaticka" HorizontalAlignment="Left" Margin="882,30,0,0" VerticalAlignment="Top" Width="134" Height="30"/>
+        <ComboBox x:Name="cbDinamicka" HorizontalAlignment="Left" Margin="883,221,0,0" VerticalAlignment="Top" Width="134" Height="30"/>
 
     </Grid>
 </Window>

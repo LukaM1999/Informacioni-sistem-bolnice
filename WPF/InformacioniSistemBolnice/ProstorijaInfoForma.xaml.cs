@@ -14,13 +14,13 @@ using System.Windows.Shapes;
 using Model;
 using Repozitorijum;
 using Kontroler;
+using System.Collections.ObjectModel;
 
 namespace InformacioniSistemBolnice
 {
     public partial class ProstorijaInfoForma : Window
     {
         private ProstorijeProzor prostorProzor;
-        private Prostorija prost;
         public ProstorijaInfoForma()
         {
             InitializeComponent();
@@ -30,7 +30,6 @@ namespace InformacioniSistemBolnice
         {
             Prostorija pr = (Prostorija)p.ListaProstorija.SelectedValue;
             prostorProzor = p;
-            prost = pr;
             InitializeComponent();
             labId2.Content = pr.id;
             labSprat2.Content = pr.sprat;
@@ -46,46 +45,41 @@ namespace InformacioniSistemBolnice
             
             listaProstorija.ItemsSource = Prostorije.Instance.listaProstorija;
             listaDinamicke.ItemsSource = pr.inventar.dinamickaOprema;
-            
 
-            
+            cbDinamicka.ItemsSource = Repozitorijum.Prostorije.Instance.listaProstorija;
+            cbStaticka.ItemsSource = Repozitorijum.Prostorije.Instance.listaProstorija;
+
+
+
+
 
         }
 
         private void dugmeRaspodeliDinamicku_Click(object sender, RoutedEventArgs e)
         {
-            int kolicina = 0;
-            if (rbMagacin.IsPressed)
+            if ((bool)rbMagacin.IsChecked)
             {
-                Model.DinamickaOprema dinamickaOprema = (Model.DinamickaOprema)listaDinamicke.SelectedValue;
-                Prostorija izProstorije = (Model.Prostorija)listaProstorija.SelectedValue;
-                kolicina = Int32.Parse(tbKolicinaDinamicka.Text);
+                Model.DinamickaOprema oprema = (Model.DinamickaOprema)listaDinamicke.SelectedItem;
+                int kolicina = Int32.Parse(tbKolicinaDinamicka.Text);
+                Prostorija prostorija = (Prostorija)prostorProzor.ListaProstorija.SelectedItem;
 
-                //Prostorija uProstoriju = (Prostorija)listaProstorija.SelectedValue;
-                //UpravnikKontroler.Instance.RasporedjivanjeDinamickeOpreme(prost, null, oprema, Int32.Parse(tbKolicinaDinamicka.Text));
-                foreach (Model.DinamickaOprema d in izProstorije.inventar.dinamickaOprema)
-                {
-                    if (d.tip.Equals(dinamickaOprema.tip))
-                    {
-                        izProstorije.inventar.dinamickaOprema.ElementAt(izProstorije.inventar.dinamickaOprema.IndexOf(d)).kolicina -= kolicina;
-                        foreach (Model.DinamickaOprema d2 in Repozitorijum.DinamickaOprema.Instance.listaOpreme)
-                        {
-                            if (d2.tip.Equals(izProstorije.inventar.dinamickaOprema.ElementAt(izProstorije.inventar.dinamickaOprema.IndexOf(d)).tip))
-                            {
-                                Repozitorijum.DinamickaOprema.Instance.listaOpreme.ElementAt(Repozitorijum.DinamickaOprema.Instance.listaOpreme.IndexOf(d2)).kolicina
-                                    += kolicina;
-                                Repozitorijum.DinamickaOprema.Instance.Serijalizacija("../../../json/dinamickaOprema.json");
-                                Repozitorijum.DinamickaOprema.Instance.Deserijalizacija("../../../json/dinamickaOprema.json");
-                                //Prostorije.Instance.Serijalizacija("../../../json/prostorije.json");
-                                //Prostorije.Instance.Deserijalizacija("../../../json/prostorije.json");
-                                return;
-                            }
-                        }
-                        //Repozitorijum.DinamickaOprema.Instance.listaOpreme.Add(new Model.DinamickaOprema(kolicina, d.tip));
-                        //Repozitorijum.DinamickaOprema.Instance.Serijalizacija("../../../json/dinamickaOprema.json");
-                        //Repozitorijum.DinamickaOprema.Instance.Deserijalizacija("../../../json/dinamickaOprema.json");
-                        return;
-                    }
+                UpravnikKontroler.Instance.RasporedjivanjeDinamickeOpreme(prostorija, null, oprema, kolicina);
+                //Repozitorijum.DinamickaOprema.Instance.listaOpreme.ElementAt(Repozitorijum.DinamickaOprema.Instance.listaOpreme.IndexOf(dinamickaOprema)).kolicina -= kolicina;
+                prostorProzor.ListaProstorija.ItemsSource = Repozitorijum.Prostorije.Instance.listaProstorija;
+                listaDinamicke.ItemsSource = Repozitorijum.Prostorije.Instance.getSelected(prostorija).inventar.dinamickaOprema;
+            }
+            else
+            {
+                if(cbDinamicka.SelectedItem != (Prostorija)prostorProzor.ListaProstorija.SelectedItem){
+                    Model.DinamickaOprema oprema = (Model.DinamickaOprema)listaDinamicke.SelectedItem;
+                    int kolicina = Int32.Parse(tbKolicinaDinamicka.Text);
+                    Prostorija izProstorije = (Prostorija)prostorProzor.ListaProstorija.SelectedItem;
+                    Prostorija uProstorije = (Prostorija)cbDinamicka.SelectedItem;
+
+                    UpravnikKontroler.Instance.RasporedjivanjeDinamickeOpreme(izProstorije, uProstorije, oprema, kolicina);
+
+                    prostorProzor.ListaProstorija.ItemsSource = Repozitorijum.Prostorije.Instance.listaProstorija;
+                    listaDinamicke.ItemsSource = Repozitorijum.Prostorije.Instance.getSelected(izProstorije).inventar.dinamickaOprema;
                 }
 
             }
