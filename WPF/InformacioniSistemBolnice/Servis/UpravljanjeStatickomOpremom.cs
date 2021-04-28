@@ -25,15 +25,15 @@ namespace Servis
                 if (so.tip.Equals(oprema.tip))
                 {
                     so.kolicina += oprema.kolicina;
-                    Repozitorijum.StatickaOprema.Instance.Serijalizacija("../../../json/statickaOprema.json");
-                    Repozitorijum.StatickaOprema.Instance.Deserijalizacija("../../../json/statickaOprema.json");
+                    Repozitorijum.StatickaOprema.Instance.Serijalizacija();
+                    Repozitorijum.StatickaOprema.Instance.Deserijalizacija();
                     return;
                 }
             }
 
             Repozitorijum.StatickaOprema.Instance.listaOpreme.Add(oprema);
-            Repozitorijum.StatickaOprema.Instance.Serijalizacija("../../../json/statickaOprema.json");
-            Repozitorijum.StatickaOprema.Instance.Deserijalizacija("../../../json/statickaOprema.json");
+            Repozitorijum.StatickaOprema.Instance.Serijalizacija();
+            Repozitorijum.StatickaOprema.Instance.Deserijalizacija();
         }
 
         public void UklanjanjeOpreme(MagacinProzor p)
@@ -42,7 +42,7 @@ namespace Servis
             {
                 Model.StatickaOprema oprema = (Model.StatickaOprema)p.listViewStatOpreme.SelectedValue;
                 Repozitorijum.StatickaOprema.Instance.listaOpreme.Remove(oprema);
-                Repozitorijum.StatickaOprema.Instance.Serijalizacija("../../../json/statickaOprema.json");
+                Repozitorijum.StatickaOprema.Instance.Serijalizacija();
             }
         }
 
@@ -51,8 +51,8 @@ namespace Servis
              oprema.kolicina = Int32.Parse(p.tb1.Text);
              oprema.tip = (TipStatickeOpreme)Enum.Parse(typeof(TipStatickeOpreme), p.cb1.Text, true);
 
-             Repozitorijum.StatickaOprema.Instance.Serijalizacija("../../../json/statickaOprema.json");
-             Repozitorijum.StatickaOprema.Instance.Deserijalizacija("../../../json/statickaOprema.json"); 
+             Repozitorijum.StatickaOprema.Instance.Serijalizacija();
+             Repozitorijum.StatickaOprema.Instance.Deserijalizacija(); 
         }
 
         public void PregledOpreme()

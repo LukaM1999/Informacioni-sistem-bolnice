@@ -8,6 +8,8 @@ namespace Repozitorijum
 {
     public class Termini : Repozitorijum
     {
+        private string putanja = "../../../json/zakazaniTermini.json";
+
         private static readonly Lazy<Termini>
             lazy =
             new Lazy<Termini>
@@ -21,7 +23,7 @@ namespace Repozitorijum
             set;
         }
 
-        public void Deserijalizacija(string putanja)
+        public void Deserijalizacija()
         {
             lock (listaTermina)
             {
@@ -29,7 +31,7 @@ namespace Repozitorijum
             }
         }
 
-        public void Serijalizacija(string putanja)
+        public void Serijalizacija()
         {
             lock (listaTermina)
             {

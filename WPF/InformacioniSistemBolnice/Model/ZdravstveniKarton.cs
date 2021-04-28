@@ -68,17 +68,7 @@ namespace Model
                 alergeni.Clear();
         }
 
-
-        public Recept recept
-        {
-            get;
-            set;
-        }
-       
-
-
-
-
+        public ObservableCollection<Recept> Recepti = new ObservableCollection<Recept>();
 
         private BracnoStanje BracnoStanjePacijenta
         {
@@ -91,7 +81,7 @@ namespace Model
                 BracnoStanje = value;
             }
         }
-       
+
 
         private KategorijaZdravstveneZastite KategorijaZdravstveneZastitePacijenta
         {
@@ -111,11 +101,11 @@ namespace Model
         public string ImeJednogRoditelja { get => imeJednogRoditelja; set => imeJednogRoditelja = value; }
         public string BrojKnjizice { get => brojKnjizice; set => brojKnjizice = value; }
         public string BrojKartona { get => brojKartona; set => brojKartona = value; }
-       
+
         public KategorijaZdravstveneZastite KategorijaZdravstveneZastite { get => kategorijaZdravstveneZastite; set => kategorijaZdravstveneZastite = value; }
         public BracnoStanje BracnoStanje { get => bracnoStanje; set => bracnoStanje = value; }
         public PodaciOZaposlenjuIZanimanju PodaciOZaposlenjuIZanimanjuPacijenta { get => podaciOZaposlenjuIZanimanjuPacijenta; set => podaciOZaposlenjuIZanimanjuPacijenta = value; }
-        
+
 
         public ZdravstveniKarton()
         {
@@ -135,12 +125,12 @@ namespace Model
             BracnoStanje = bracnoStanjee;
             KategorijaZdravstveneZastite = kategorijaZdravZastite;
             PodaciOZaposlenjuIZanimanjuPacijenta = podaciOZaposlenjuiZanimanju;
-       
+
         }
 
 
 
-        
+
 
     }
 }

@@ -42,7 +42,7 @@ namespace InformacioniSistemBolnice
             trajanjeTerminaUnos.Text = zakazanTermin.trajanje.ToString();
             tipTerminaUnos.Text = zakazanTermin.tipTermina.ToString();
 
-            Prostorije.Instance.Deserijalizacija("../../../json/prostorije.json");
+            Prostorije.Instance.Deserijalizacija();
             listaSati.ItemsSource = listaDatuma;
             
             foreach (Prostorija p in Prostorije.Instance.listaProstorija)

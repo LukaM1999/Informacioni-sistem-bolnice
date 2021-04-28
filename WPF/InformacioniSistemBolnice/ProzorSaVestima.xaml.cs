@@ -26,7 +26,7 @@ namespace InformacioniSistemBolnice
         public ProzorSaVestima()
         {
             InitializeComponent();
-            Korisnici.Instance.Deserijalizacija("../../../json/korisnici.json");
+            Korisnici.Instance.Deserijalizacija();
 
             foreach (Korisnik pacijent in Korisnici.Instance.listaKorisnika)
             {
@@ -38,7 +38,7 @@ namespace InformacioniSistemBolnice
             }
 
 
-            Vesti.Instance.Deserijalizacija("../../../json/vesti.json");
+            Vesti.Instance.Deserijalizacija();
             ListaVesti.ItemsSource = Vesti.Instance.listaVesti;
 
 

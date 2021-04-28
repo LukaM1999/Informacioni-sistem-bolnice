@@ -8,6 +8,8 @@ namespace Repozitorijum
 {
     public class Lekari : Repozitorijum
     {
+        private string putanja = "../../../json/lekari.json";
+
         private static readonly Lazy<Lekari>
            lazy =
            new Lazy<Lekari>
@@ -21,12 +23,12 @@ namespace Repozitorijum
             set;
         }
 
-        public void Deserijalizacija(string putanja)
+        public void Deserijalizacija()
         {
             listaLekara = JsonConvert.DeserializeObject<ObservableCollection<Lekar>>(File.ReadAllText(putanja));
         }
 
-        public void Serijalizacija(string putanja)
+        public void Serijalizacija()
         {
             string json = JsonConvert.SerializeObject(listaLekara, Formatting.Indented);
             File.WriteAllText(putanja, json);

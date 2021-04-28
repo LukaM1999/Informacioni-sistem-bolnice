@@ -26,7 +26,7 @@ namespace InformacioniSistemBolnice
         public GlavniProzorLekara(string korisnickoIme, string lozinka)
         {
             InitializeComponent();
-            Lekari.Instance.Deserijalizacija("../../../json/lekari.json");
+            Lekari.Instance.Deserijalizacija();
 
             foreach (Lekar lekar in Lekari.Instance.listaLekara)
             {

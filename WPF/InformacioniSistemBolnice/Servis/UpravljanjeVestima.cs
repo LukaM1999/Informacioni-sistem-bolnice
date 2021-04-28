@@ -22,8 +22,8 @@ namespace InformacioniSistemBolnice.Servis
         {
             Vest vest = new Vest(kreirajVijestProzor.sadrzajVesti.Text, kreirajVijestProzor.idVesti.Text);
             Vesti.Instance.listaVesti.Add(vest);
-            Vesti.Instance.Serijalizacija("../../../json/vesti.json");
-            Vesti.Instance.Deserijalizacija("../../../json/vesti.json");
+            Vesti.Instance.Serijalizacija();
+            Vesti.Instance.Deserijalizacija();
 
         }
 
@@ -52,8 +52,8 @@ namespace InformacioniSistemBolnice.Servis
                     if (v.Id.Equals(vest.Id))
                     {
                         vesti.listaVesti.Remove(v);
-                        Vesti.Instance.Serijalizacija("../../../json/vesti.json");
-                        Vesti.Instance.Deserijalizacija("../../../json/vesti.json");
+                        Vesti.Instance.Serijalizacija();
+                        Vesti.Instance.Deserijalizacija();
                         listaVesti.ItemsSource = Vesti.Instance.listaVesti;
 
                         break;
@@ -72,8 +72,8 @@ namespace InformacioniSistemBolnice.Servis
                 vest.Id = izmenaVesti.naslovVesti.Text;
                 vest.Sadrzaj = izmenaVesti.sadrzajVesti.Text;
 
-                Vesti.Instance.Serijalizacija("../../../json/vesti.json");
-                Vesti.Instance.Deserijalizacija("../../../json/vesti.json");
+                Vesti.Instance.Serijalizacija();
+                Vesti.Instance.Deserijalizacija();
                 listaVesti.ItemsSource = Vesti.Instance.listaVesti;
 
             }

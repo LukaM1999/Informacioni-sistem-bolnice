@@ -74,16 +74,16 @@ namespace InformacioniSistemBolnice
                             {
                                 Repozitorijum.DinamickaOprema.Instance.listaOpreme.ElementAt(Repozitorijum.DinamickaOprema.Instance.listaOpreme.IndexOf(d2)).kolicina
                                     += kolicina;
-                                Repozitorijum.DinamickaOprema.Instance.Serijalizacija("../../../json/dinamickaOprema.json");
-                                Repozitorijum.DinamickaOprema.Instance.Deserijalizacija("../../../json/dinamickaOprema.json");
-                                //Prostorije.Instance.Serijalizacija("../../../json/prostorije.json");
-                                //Prostorije.Instance.Deserijalizacija("../../../json/prostorije.json");
+                                Repozitorijum.DinamickaOprema.Instance.Serijalizacija();
+                                Repozitorijum.DinamickaOprema.Instance.Deserijalizacija();
+                                //Prostorije.Instance.Serijalizacija();
+                                //Prostorije.Instance.Deserijalizacija();
                                 return;
                             }
                         }
                         //Repozitorijum.DinamickaOprema.Instance.listaOpreme.Add(new Model.DinamickaOprema(kolicina, d.tip));
-                        //Repozitorijum.DinamickaOprema.Instance.Serijalizacija("../../../json/dinamickaOprema.json");
-                        //Repozitorijum.DinamickaOprema.Instance.Deserijalizacija("../../../json/dinamickaOprema.json");
+                        //Repozitorijum.DinamickaOprema.Instance.Serijalizacija();
+                        //Repozitorijum.DinamickaOprema.Instance.Deserijalizacija();
                         return;
                     }
                 }

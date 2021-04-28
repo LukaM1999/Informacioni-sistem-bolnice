@@ -25,7 +25,7 @@ namespace InformacioniSistemBolnice
         public PacijentiProzor1()
         {
             InitializeComponent();
-            Pacijenti.Instance.Deserijalizacija("../../../json/pacijenti.json");
+            Pacijenti.Instance.Deserijalizacija();
             ListaPacijenata.ItemsSource = Pacijenti.Instance.listaPacijenata;
         }
 

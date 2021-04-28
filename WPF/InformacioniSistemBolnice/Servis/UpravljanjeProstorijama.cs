@@ -21,8 +21,8 @@ namespace Servis
             i.dinamickaOprema.Add(oprema);
             Prostorija prostorija = new Prostorija(Int32.Parse(p.spratUnos.Text), (TipProstorije)Enum.Parse(typeof(TipProstorije), p.tipUnos.Text), p.idUnos.Text, false, i);
             Prostorije.Instance.listaProstorija.Add(prostorija);
-            Prostorije.Instance.Serijalizacija("../../../json/prostorije.json");
-            Prostorije.Instance.Deserijalizacija("../../../json/prostorije.json");
+            Prostorije.Instance.Serijalizacija();
+            Prostorije.Instance.Deserijalizacija();
         }
       
       public void UklanjanjeProstorije(DataGrid ListaProstorija)
@@ -37,8 +37,8 @@ namespace Servis
                     if (t.idProstorije == pr.id)
                     {
                         t.idProstorije = null;
-                        Termini.Instance.Serijalizacija("../../../json/zakazaniTermini.json");
-                        Termini.Instance.Deserijalizacija("../../../json/zakazaniTermini.json");
+                        Termini.Instance.Serijalizacija();
+                        Termini.Instance.Deserijalizacija();
                     }
                 }
 
@@ -48,7 +48,7 @@ namespace Servis
                     if (p.id.Equals(pr.id))
                     {
                         prostorije.listaProstorija.Remove(p);
-                        Prostorije.Instance.Serijalizacija("../../../json/prostorije.json");
+                        Prostorije.Instance.Serijalizacija();
                         break;
                     }
                 }
@@ -77,14 +77,14 @@ namespace Servis
                     if (t.idProstorije == stariId)
                     {
                         t.idProstorije = p.id;
-                        Termini.Instance.Serijalizacija("../../../json/zakazaniTermini.json");
-                        Termini.Instance.Deserijalizacija("../../../json/zakazaniTermini.json");
+                        Termini.Instance.Serijalizacija();
+                        Termini.Instance.Deserijalizacija();
                     }
                 }
             }
 
-            Prostorije.Instance.Serijalizacija("../../../json/prostorije.json");
-            Prostorije.Instance.Deserijalizacija("../../../json/prostorije.json");
+            Prostorije.Instance.Serijalizacija();
+            Prostorije.Instance.Deserijalizacija();
         }
       
       public void PregledProstorije(ProstorijeProzor pr)

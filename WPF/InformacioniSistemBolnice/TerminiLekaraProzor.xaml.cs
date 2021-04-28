@@ -26,9 +26,9 @@ namespace InformacioniSistemBolnice
         {
             InitializeComponent();
 
-            Pacijenti.Instance.Deserijalizacija("../../../json/pacijenti.json");
-            Lekari.Instance.Deserijalizacija("../../../json/lekari.json");
-            Termini.Instance.Deserijalizacija("../../../json/zakazaniTermini.json");
+            Pacijenti.Instance.Deserijalizacija();
+            Lekari.Instance.Deserijalizacija();
+            Termini.Instance.Deserijalizacija();
 
             listaZakazanihTerminaLekara.ItemsSource = ulogovanLekar.zauzetiTermini;
             jmbgLekara = ulogovanLekar.jmbg;

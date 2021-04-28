@@ -22,7 +22,7 @@ namespace InformacioniSistemBolnice
         public VestiProzor()
         {
             InitializeComponent();
-            Vesti.Instance.Deserijalizacija("../../../json/vesti.json");
+            Vesti.Instance.Deserijalizacija();
             ListaVesti.ItemsSource = Vesti.Instance.listaVesti;
         }
 

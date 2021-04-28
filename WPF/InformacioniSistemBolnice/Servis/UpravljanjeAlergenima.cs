@@ -21,7 +21,7 @@ namespace Servis
         {
             Alergen alergen = new Alergen(definisanjeAlergenaForma.nazivAlergenaUnos.Text);
             Alergeni.Instance.listaAlergena.Add(alergen);
-            Alergeni.Instance.Serijalizacija("../../../json/alergeni.json");
+            Alergeni.Instance.Serijalizacija();
            
         }
 
@@ -37,7 +37,7 @@ namespace Servis
                     if (a.nazivAlergena.Equals(alergen.nazivAlergena))
                     {
                         alergeni.listaAlergena.Remove(a);
-                        Alergeni.Instance.Serijalizacija("../../../json/alergeni.json");
+                        Alergeni.Instance.Serijalizacija();
 
                         break;
                     }
@@ -52,8 +52,8 @@ namespace Servis
             {
                 Alergen alergen = (Alergen)ListaAlergena.SelectedValue;
                 alergen.nazivAlergena = izmenaAlergenaForma.nazivAlergenaUnos.Text;
-                Alergeni.Instance.Serijalizacija("../../../json/alergeni.json");
-                Alergeni.Instance.Deserijalizacija("../../../json/alergeni.json");
+                Alergeni.Instance.Serijalizacija();
+                Alergeni.Instance.Deserijalizacija();
                 ListaAlergena.ItemsSource = Alergeni.Instance.listaAlergena;
 
             }

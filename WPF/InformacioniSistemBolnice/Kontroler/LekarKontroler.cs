@@ -2,6 +2,8 @@ using System;
 using System.Windows.Controls;
 using InformacioniSistemBolnice;
 using Servis;
+using Model;
+
 
 namespace Kontroler
 {
@@ -37,7 +39,7 @@ namespace Kontroler
         public UpravljanjeTerminimaLekara upravljanjeTerminimaLekara;
         public IzmenaKartonaPacijenta izmenaKartonaPacijenta;
         
-        public void IzdavanjeRecepta(ReceptForma recept)
+        public void IzdavanjeRecepta(ReceptDto recept)
         {
             IzmenaKartonaPacijenta.Instance.IzdavanjeRecepta(recept);
         }

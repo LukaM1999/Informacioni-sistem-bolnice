@@ -23,7 +23,7 @@ namespace InformacioniSistemBolnice
         public ProstorijeProzor()
         {
             InitializeComponent();
-            Prostorije.Instance.Deserijalizacija("../../../json/prostorije.json");
+            Prostorije.Instance.Deserijalizacija();
             ListaProstorija.ItemsSource = Prostorije.Instance.listaProstorija;
         }
 
