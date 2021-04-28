@@ -46,7 +46,7 @@ namespace InformacioniSistemBolnice
 
             listaZakazanihTermina.ItemsSource = ulogovanPacijent.zakazaniTermini;
 
-            Thread proveraMalicioznosti = new Thread(() => { UpravljanjeAntiTrollMehanizmom.Instance.ProveriMalicioznostKorisnika(ulogovanPacijent); });
+            Thread proveraMalicioznosti = new Thread(() => { UpravljanjeAntiTrollMehanizmom.Instance.ProveriMalicioznostPacijenta(ulogovanPacijent); });
             proveraMalicioznosti.Start();
 
         }
