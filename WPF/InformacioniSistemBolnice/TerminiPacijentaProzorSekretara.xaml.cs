@@ -26,9 +26,9 @@ namespace InformacioniSistemBolnice
         public TerminiPacijentaProzorSekretara(string korisnickoIme)
         {
             InitializeComponent();
-            Termini.Instance.Deserijalizacija("../../../json/zakazaniTermini.json");
-            Pacijenti.Instance.Deserijalizacija("../../../json/pacijenti.json");
-            Lekari.Instance.Deserijalizacija("../../../json/lekari.json");
+            Termini.Instance.Deserijalizacija();
+            Pacijenti.Instance.Deserijalizacija();
+            Lekari.Instance.Deserijalizacija();
 
             foreach (Pacijent pacijent in Pacijenti.Instance.listaPacijenata)
             {

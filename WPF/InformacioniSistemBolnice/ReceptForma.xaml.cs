@@ -22,16 +22,18 @@ namespace InformacioniSistemBolnice
     /// </summary>
     public partial class ReceptForma : Window
     {
-        public Pacijent p;
+        public Pacijent pacijent;
         public ReceptForma(Pacijent pacijent)
         {
             InitializeComponent();
-            p = pacijent;
+            this.pacijent = pacijent;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            LekarKontroler.Instance.IzdavanjeRecepta(this);
+            ReceptDto dtoRecept = new ReceptDto((DateTime)Pocetak.SelectedDate, (DateTime)Kraj.SelectedDate, 
+                double.Parse(Mera.Text), double.Parse(Redovnost.Text), Id.Text, pacijent);
+            LekarKontroler.Instance.IzdavanjeRecepta(dtoRecept);
             this.Close();
         }
     }

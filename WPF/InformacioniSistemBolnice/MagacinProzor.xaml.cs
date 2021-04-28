@@ -28,9 +28,9 @@ namespace InformacioniSistemBolnice
         {
             InitializeComponent();
             prostorijaProzor = p;
-            Repozitorijum.StatickaOprema.Instance.Deserijalizacija("../../../json/statickaOprema.json");
-            Repozitorijum.DinamickaOprema.Instance.Deserijalizacija("../../../json/dinamickaOprema.json");
-            Prostorije.Instance.Deserijalizacija("../../../json/prostorije.json");
+            Repozitorijum.StatickaOprema.Instance.Deserijalizacija();
+            Repozitorijum.DinamickaOprema.Instance.Deserijalizacija();
+            Prostorije.Instance.Deserijalizacija();
             listViewStatOpreme.ItemsSource = Repozitorijum.StatickaOprema.Instance.listaOpreme;
             listViewDinamOpreme.ItemsSource = Repozitorijum.DinamickaOprema.Instance.listaOpreme;
             listaProstorija.ItemsSource = Prostorije.Instance.listaProstorija;
@@ -85,7 +85,7 @@ namespace InformacioniSistemBolnice
                 Model.DinamickaOprema oprema = (Model.DinamickaOprema)listViewDinamOpreme.SelectedValue;
                 int kolicina = Int32.Parse(tbKolDin.Text);
                 Prostorija prostorija = (Prostorija)listaProstorija.SelectedItem;
-
+                
                 UpravnikKontroler.Instance.RasporedjivanjeDinamickeOpreme(null, prostorija, oprema, kolicina);
                 listViewDinamOpreme.ItemsSource = Repozitorijum.DinamickaOprema.Instance.listaOpreme;
                 prostorijaProzor.ListaProstorija.ItemsSource = Prostorije.Instance.listaProstorija;

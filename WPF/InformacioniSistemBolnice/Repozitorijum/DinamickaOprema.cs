@@ -8,6 +8,8 @@ namespace Repozitorijum
 {
     class DinamickaOprema
     {
+        private string putanja = "../../../json/dinamickaOprema.json";
+
         private static readonly Lazy<DinamickaOprema>
            lazy =
            new Lazy<DinamickaOprema>
@@ -21,12 +23,12 @@ namespace Repozitorijum
             set;
         }
 
-        public void Deserijalizacija(string putanja)
+        public void Deserijalizacija()
         {
             listaOpreme = JsonConvert.DeserializeObject<ObservableCollection<Model.DinamickaOprema>>(File.ReadAllText(putanja));
         }
 
-        public void Serijalizacija(string putanja)
+        public void Serijalizacija()
         {
             string json = JsonConvert.SerializeObject(listaOpreme, Formatting.Indented);
             File.WriteAllText(putanja, json);

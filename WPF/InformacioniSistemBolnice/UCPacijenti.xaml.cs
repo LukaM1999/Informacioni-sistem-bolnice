@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Model;
 using Repozitorijum;
 
 namespace InformacioniSistemBolnice
@@ -24,7 +25,7 @@ namespace InformacioniSistemBolnice
         public UCPacijenti()
         {
             InitializeComponent();
-            Pacijenti.Instance.Deserijalizacija("../../../json/pacijenti.json");
+            Pacijenti.Instance.Deserijalizacija();
             listaPacijenata.ItemsSource = Pacijenti.Instance.listaPacijenata;
         }
 
@@ -32,7 +33,7 @@ namespace InformacioniSistemBolnice
         {
             if (listaPacijenata.SelectedIndex > -1)
             {
-                IzmenaZdravstvenogKartonaLekar zk = new IzmenaZdravstvenogKartonaLekar(listaPacijenata);
+                IzmenaZdravstvenogKartonaLekar zk = new IzmenaZdravstvenogKartonaLekar((Pacijent)listaPacijenata.SelectedItem);
                 zk.Show();
 
             }

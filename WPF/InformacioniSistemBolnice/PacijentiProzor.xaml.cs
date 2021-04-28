@@ -25,7 +25,7 @@ namespace InformacioniSistemBolnice
         {
             InitializeComponent();
 
-            Pacijenti.Instance.Deserijalizacija("../../../json/pacijenti.json");
+            Pacijenti.Instance.Deserijalizacija();
             ListaPacijenata.ItemsSource = Pacijenti.Instance.listaPacijenata;
         }
         private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)

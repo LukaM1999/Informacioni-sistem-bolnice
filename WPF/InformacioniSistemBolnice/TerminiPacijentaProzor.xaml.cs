@@ -19,6 +19,7 @@ using InformacioniSistemBolnice;
 using Kontroler;
 using System.Threading;
 using FluentScheduler;
+using InformacioniSistemBolnice.Servis;
 
 namespace InformacioniSistemBolnice
 {
@@ -30,9 +31,9 @@ namespace InformacioniSistemBolnice
         {
             InitializeComponent();
 
-            Termini.Instance.Deserijalizacija("../../../json/zakazaniTermini.json");
-            Pacijenti.Instance.Deserijalizacija("../../../json/pacijenti.json");
-            Lekari.Instance.Deserijalizacija("../../../json/lekari.json");
+            Termini.Instance.Deserijalizacija();
+            Pacijenti.Instance.Deserijalizacija();
+            Lekari.Instance.Deserijalizacija();
 
             foreach (Pacijent pacijent in Pacijenti.Instance.listaPacijenata)
             {
@@ -45,66 +46,12 @@ namespace InformacioniSistemBolnice
 
             listaZakazanihTermina.ItemsSource = ulogovanPacijent.zakazaniTermini;
 
-
-            int mesecnihTermina = 0;
-            int pomerenihTermina = 0;
-            Thread proveraMalicioznosti = new Thread(() =>
-            {
-
-                while (!ulogovanPacijent.maliciozan)
-                {
-                    for (int i = 1; i < 13; i++)
-                    {
-                        foreach (Termin t in ulogovanPacijent.zakazaniTermini.ToList())
-                        {
-                            if (t.vreme > DateTime.Now.AddMonths(i - 1) && t.vreme < DateTime.Now.AddMonths(i))
-                            {
-                                mesecnihTermina++;
-                            }
-                            if (mesecnihTermina > 3)
-                            {
-                                ulogovanPacijent.maliciozan = true;
-                                System.Diagnostics.Debug.WriteLine("Precesto zakazivanje termina!");
-                                break;
-
-                            }
-                        }
-                        mesecnihTermina = 0;
-                        if (ulogovanPacijent.maliciozan)
-                        {
-                            break;
-                        }
-                    }
-
-                    for (int i = 1; i < 5; i++)
-                    {
-                        foreach (Termin t in ulogovanPacijent.zakazaniTermini.ToList())
-                        {
-                            if (t.vreme > DateTime.Now.AddMonths((i - 1) * 3) && t.vreme < DateTime.Now.AddMonths(i * 3) && t.status == StatusTermina.pomeren)
-                            {
-                                pomerenihTermina++;
-                            }
-                            if (pomerenihTermina > 4)
-                            {
-                                ulogovanPacijent.maliciozan = true;
-                                System.Diagnostics.Debug.WriteLine("Precesto pomeranje termina!");
-                                break;
-                       
-                            }
-                        }
-                        pomerenihTermina = 0;
-                        if (ulogovanPacijent.maliciozan)
-                        {
-                            break;
-                        }
-                    }
-
-                }
-            });
+            Thread proveraMalicioznosti = new Thread(() => { UpravljanjeAntiTrollMehanizmom.Instance.ProveriMalicioznostPacijenta(ulogovanPacijent); });
             proveraMalicioznosti.Start();
 
         }
 
+        
         private void pomeriDugme_Click(object sender, RoutedEventArgs e)
         {
             if (listaZakazanihTermina.SelectedIndex >= 0 && ((Termin)listaZakazanihTermina.SelectedItem).vreme > DateTime.Now.AddHours(24))
@@ -132,6 +79,12 @@ namespace InformacioniSistemBolnice
             {
                 PacijentKontroler.Instance.Uvid(listaZakazanihTermina);
             }
+        }
+
+        private void prikaziVesti_Click(object sender, RoutedEventArgs e)
+        {
+            ProzorSaVestima prozorSaVestima = new ProzorSaVestima();
+            prozorSaVestima.Show();
         }
     }
 }

@@ -8,6 +8,8 @@ namespace Repozitorijum
 {
     class BazaPodatakaOZaposlenjuiZanimanjuPacijenata : Repozitorijum
     {
+        private string putanja = "../../../json/podaciOZaposlenjuIZanimanjuPacijenata.json";
+
         private static readonly Lazy<BazaPodatakaOZaposlenjuiZanimanjuPacijenata>
           lazy =
           new Lazy<BazaPodatakaOZaposlenjuiZanimanjuPacijenata>
@@ -23,12 +25,12 @@ namespace Repozitorijum
 
 
 
-        public void Deserijalizacija(string putanja)
+        public void Deserijalizacija()
         {
             bazaPodatakaOZaposlenjuIZanimanjuPacijenata = JsonConvert.DeserializeObject<ObservableCollection<PodaciOZaposlenjuIZanimanju>>(File.ReadAllText(putanja));
         }
 
-        public void Serijalizacija(string putanja)
+        public void Serijalizacija()
         {
             string json = JsonConvert.SerializeObject(bazaPodatakaOZaposlenjuIZanimanjuPacijenata, Formatting.Indented);
             File.WriteAllText(putanja, json);

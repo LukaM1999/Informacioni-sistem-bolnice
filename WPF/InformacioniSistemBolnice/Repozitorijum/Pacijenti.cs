@@ -6,8 +6,12 @@ using System.Collections.ObjectModel;
 
 namespace Repozitorijum
 {
+
     public sealed class Pacijenti : Repozitorijum
     {
+
+        private string putanja = "../../../json/pacijenti.json";
+
         private static readonly Lazy<Pacijenti>
            lazy =
            new Lazy<Pacijenti>
@@ -21,15 +25,21 @@ namespace Repozitorijum
             set;
         }
 
-        public void Deserijalizacija(string putanja)
+        public void Deserijalizacija()
         {
-            listaPacijenata = JsonConvert.DeserializeObject<ObservableCollection<Pacijent>>(File.ReadAllText(putanja));
+            lock (listaPacijenata)
+            {
+                listaPacijenata = JsonConvert.DeserializeObject<ObservableCollection<Pacijent>>(File.ReadAllText(putanja));
+            }
         }
 
-        public void Serijalizacija(string putanja)
+        public void Serijalizacija()
         {
-            string json = JsonConvert.SerializeObject(listaPacijenata, Formatting.Indented);
-            File.WriteAllText(putanja, json);
+            lock (listaPacijenata)
+            {
+                string json = JsonConvert.SerializeObject(listaPacijenata, Formatting.Indented);
+                File.WriteAllText(putanja, json);
+            }
         }
 
         public Pacijenti()

@@ -4,9 +4,9 @@ namespace Repozitorijum
 {
    public interface Repozitorijum
    {
-      void Serijalizacija(string putanja);
+      void Serijalizacija();
       
-      void Deserijalizacija(string putanja);
+      void Deserijalizacija();
    
    }
 }

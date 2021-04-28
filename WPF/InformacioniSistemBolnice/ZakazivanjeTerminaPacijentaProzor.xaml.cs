@@ -40,7 +40,7 @@ namespace InformacioniSistemBolnice
 
             listaSati.ItemsSource = listaDatuma;
             */
-            Lekari.Instance.Deserijalizacija("../../../json/lekari.json");
+            Lekari.Instance.Deserijalizacija();
             lekari.ItemsSource = Lekari.Instance.listaLekara;
             pacijentJMBG = jmbgPacijenta;
             

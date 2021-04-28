@@ -7,9 +7,10 @@
         mc:Ignorable="d"
         Title="GlavniProzorSekretara" Height="300" Width="500">
     <Grid>
-        <Button Content="Upravljanje nalozima pacijenata" HorizontalAlignment="Center" Margin="0,81,0,0" VerticalAlignment="Top" Width="174" Click="naloziPacijenata"/>
-        <Button Content="Upravljanje alergenima" HorizontalAlignment="Center" VerticalAlignment="Top" Width="174" Click="alergeni_Click" Margin="0,123,0,0"/>
-        <Button Content="Zakazivanje termina pacijentima" HorizontalAlignment="Center" Margin="0,167,0,0" VerticalAlignment="Top" Click="zakazivanjeTerminaPacijentima_Click"/>
+        <Button Content="Upravljanje nalozima pacijenata" HorizontalAlignment="Center" Margin="0,65,0,0" VerticalAlignment="Top" Width="300" Click="naloziPacijenata"/>
+        <Button Content="Upravljanje alergenima" HorizontalAlignment="Center" VerticalAlignment="Top" Width="300" Click="alergeni_Click" Margin="0,107,0,0"/>
+        <Button Content="Zakazivanje termina pacijentima" HorizontalAlignment="Center" Margin="0,151,0,0" VerticalAlignment="Top" Click="zakazivanjeTerminaPacijentima_Click" Width="300"/>
+        <Button Content="Upravljanje vestima" HorizontalAlignment="Center" Margin="0,193,0,0" VerticalAlignment="Top" Click="vesti_Click" Width="299"/>
 
     </Grid>
 </Window>

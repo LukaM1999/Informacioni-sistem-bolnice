@@ -44,5 +44,11 @@ namespace InformacioniSistemBolnice
 
 
         }
+
+        private void vesti_Click(object sender, RoutedEventArgs e)
+        {
+            VestiProzor vestiProzor = new VestiProzor();
+            vestiProzor.Show();
+        }
     }
 }
