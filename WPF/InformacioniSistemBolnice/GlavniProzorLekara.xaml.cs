@@ -37,14 +37,14 @@ namespace InformacioniSistemBolnice
                     break;
                 }
             }
-            this.contentControl.Content = new UCPacijenti();
+            //this.contentControl.Content = new UCPacijenti();
         }
 
         private void RasporedBtn_Click(object sender, RoutedEventArgs e)
         {
             TerminiLekaraProzor terminiLekara = new TerminiLekaraProzor(ulogovanLekar);
             terminiLekara.Show();
-            this.Show();
+            //this.Show();
 
         }
         private void PacijentiBtn_Click(object sender, RoutedEventArgs e)
@@ -52,7 +52,7 @@ namespace InformacioniSistemBolnice
             //userControl
 
             this.contentControl.Content = new UCPacijenti();
-            this.Show();
+            //this.Show();
 
         }
         private void OdjavaBtn_Click(object sender, RoutedEventArgs e)
