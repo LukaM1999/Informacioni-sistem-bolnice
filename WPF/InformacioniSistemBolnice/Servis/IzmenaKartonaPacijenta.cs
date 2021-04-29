@@ -14,14 +14,13 @@ namespace Servis
 
         public static IzmenaKartonaPacijenta Instance { get { return lazy.Value; } }
 
-        public void IzdavanjeRecepta(ReceptForma recept)
+        public void IzdavanjeRecepta(ReceptDto receptDto)
         {
-            Terapija t = new Terapija((DateTime)recept.Pocetak.SelectedDate, (DateTime)recept.Kraj.SelectedDate, double.Parse(recept.Mera.Text), double.Parse(recept.Redovnost.Text));
-            Recept r = new Recept(recept.Id.Text);
-            r.terapija.Add(t);
-            recept.p.zdravstveniKarton.recept = r;
-            Pacijenti.Instance.Serijalizacija("../../../json/pacijenti.json");
-            Pacijenti.Instance.Deserijalizacija("../../../json/pacijenti.json");
+            Recept recept = new Recept(receptDto.Id);
+            recept.terapije.Add(new Terapija(receptDto.PocetakTerapije, receptDto.KrajTerapije, receptDto.MeraLeka, receptDto.RedovnostUzimanjaLeka));
+            receptDto.Pacijent.zdravstveniKarton.Recepti.Add(recept);
+            Pacijenti.Instance.Serijalizacija();
+            Pacijenti.Instance.Deserijalizacija();
         }
 
 
@@ -30,11 +29,10 @@ namespace Servis
             Anamneza a = new Anamneza(anamneza.prvi.Text, anamneza.drugi.Text, anamneza.treci.Text, anamneza.cetvrti.Text, anamneza.peti.Text);
             anamneza.p.zdravstveniKarton.anamneza = a;
 
-            Pacijenti.Instance.Serijalizacija("../../../json/pacijenti.json");
-            Pacijenti.Instance.Deserijalizacija("../../../json/pacijenti.json");
+            Pacijenti.Instance.Serijalizacija();
+            Pacijenti.Instance.Deserijalizacija();
         }
 
         public Repozitorijum.Pacijenti pacijenti;
-
     }
 }

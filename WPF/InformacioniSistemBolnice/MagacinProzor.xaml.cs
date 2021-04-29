@@ -28,9 +28,9 @@ namespace InformacioniSistemBolnice
         {
             InitializeComponent();
             prostorijaProzor = p;
-            Repozitorijum.StatickaOprema.Instance.Deserijalizacija("../../../json/statickaOprema.json");
-            Repozitorijum.DinamickaOprema.Instance.Deserijalizacija("../../../json/dinamickaOprema.json");
-            Prostorije.Instance.Deserijalizacija("../../../json/prostorije.json");
+            Repozitorijum.StatickaOprema.Instance.Deserijalizacija();
+            Repozitorijum.DinamickaOprema.Instance.Deserijalizacija();
+            Prostorije.Instance.Deserijalizacija();
             listViewStatOpreme.ItemsSource = Repozitorijum.StatickaOprema.Instance.listaOpreme;
             listViewDinamOpreme.ItemsSource = Repozitorijum.DinamickaOprema.Instance.listaOpreme;
             listaProstorija.ItemsSource = Prostorije.Instance.listaProstorija;
@@ -86,8 +86,8 @@ namespace InformacioniSistemBolnice
                 int kolicina = Int32.Parse(tbKolDin.Text);
 
                 Repozitorijum.DinamickaOprema.Instance.listaOpreme.ElementAt(Repozitorijum.DinamickaOprema.Instance.listaOpreme.IndexOf(oprema)).kolicina -= kolicina;
-                Repozitorijum.DinamickaOprema.Instance.Serijalizacija("../../../json/dinamickaOprema.json");
-                Repozitorijum.DinamickaOprema.Instance.Deserijalizacija("../../../json/dinamickaOprema.json");
+                Repozitorijum.DinamickaOprema.Instance.Serijalizacija();
+                Repozitorijum.DinamickaOprema.Instance.Deserijalizacija();
                 listViewDinamOpreme.ItemsSource = Repozitorijum.DinamickaOprema.Instance.listaOpreme;
                 Prostorija prostorija = (Prostorija)listaProstorija.SelectedItem;
                 //Prostorija prostorija2 = Prostorije.Instance.listaProstorija.ElementAt(Prostorije.Instance.listaProstorija.IndexOf(prostorija));
@@ -96,15 +96,15 @@ namespace InformacioniSistemBolnice
                     if (p.tip.Equals(oprema.tip))
                     {
                         Prostorije.Instance.getSelected(prostorija).inventar.getSelected(p).kolicina += kolicina;
-                        Prostorije.Instance.Serijalizacija("../../../json/prostorije.json");
-                        Prostorije.Instance.Deserijalizacija("../../../json/prostorije.json");
+                        Prostorije.Instance.Serijalizacija();
+                        Prostorije.Instance.Deserijalizacija();
                         prostorijaProzor.ListaProstorija.ItemsSource = Prostorije.Instance.listaProstorija;
                         return;
                     }
                 }
                 Prostorije.Instance.getSelected(prostorija).inventar.dinamickaOprema.Add(new Model.DinamickaOprema(kolicina, oprema.tip));
-                Prostorije.Instance.Serijalizacija("../../../json/prostorije.json");
-                Prostorije.Instance.Deserijalizacija("../../../json/prostorije.json");
+                Prostorije.Instance.Serijalizacija();
+                Prostorije.Instance.Deserijalizacija();
                 prostorijaProzor.ListaProstorija.ItemsSource = Prostorije.Instance.listaProstorija;
 
             }

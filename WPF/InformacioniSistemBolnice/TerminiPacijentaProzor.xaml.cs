@@ -31,9 +31,9 @@ namespace InformacioniSistemBolnice
         {
             InitializeComponent();
 
-            Termini.Instance.Deserijalizacija("../../../json/zakazaniTermini.json");
-            Pacijenti.Instance.Deserijalizacija("../../../json/pacijenti.json");
-            Lekari.Instance.Deserijalizacija("../../../json/lekari.json");
+            Termini.Instance.Deserijalizacija();
+            Pacijenti.Instance.Deserijalizacija();
+            Lekari.Instance.Deserijalizacija();
 
             foreach (Pacijent pacijent in Pacijenti.Instance.listaPacijenata)
             {
@@ -79,6 +79,12 @@ namespace InformacioniSistemBolnice
             {
                 PacijentKontroler.Instance.Uvid(listaZakazanihTermina);
             }
+        }
+
+        private void prikaziVesti_Click(object sender, RoutedEventArgs e)
+        {
+            ProzorSaVestima prozorSaVestima = new ProzorSaVestima();
+            prozorSaVestima.Show();
         }
     }
 }

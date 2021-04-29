@@ -9,6 +9,8 @@ namespace Repozitorijum
 {
     public sealed class Prostorije : Repozitorijum
     {
+        private string putanja = "../../../json/prostorije.json";
+
         private static readonly Lazy<Prostorije>
             lazy =
             new Lazy<Prostorije>
@@ -22,12 +24,12 @@ namespace Repozitorijum
             set;
         }
 
-        public void Deserijalizacija(string putanja)
+        public void Deserijalizacija()
         {
             listaProstorija = JsonConvert.DeserializeObject<ObservableCollection<Prostorija>>(File.ReadAllText(putanja));
         }
 
-        public void Serijalizacija(string putanja)
+        public void Serijalizacija()
         {
             string json = JsonConvert.SerializeObject(listaProstorija, Formatting.Indented);
             File.WriteAllText(putanja, json);

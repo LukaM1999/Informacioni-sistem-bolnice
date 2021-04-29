@@ -29,7 +29,7 @@ namespace InformacioniSistemBolnice
         {
             InitializeComponent();
             
-            Alergeni.Instance.Deserijalizacija("../../../json/alergeni.json");
+            Alergeni.Instance.Deserijalizacija();
             ListaAlergena.ItemsSource = Alergeni.Instance.listaAlergena;
         }
         
@@ -38,7 +38,7 @@ namespace InformacioniSistemBolnice
         {
             InitializeComponent();
             ListaPacijenata = lp;
-            Alergeni.Instance.Deserijalizacija("../../../json/alergeni.json");
+            Alergeni.Instance.Deserijalizacija();
             ListaAlergena.ItemsSource = Alergeni.Instance.listaAlergena;
           
 
@@ -46,7 +46,7 @@ namespace InformacioniSistemBolnice
 
         private void kreirajZdravstveniKarton_Click(object sender, RoutedEventArgs e)
         {
-            Pacijenti.Instance.Deserijalizacija("../../../json/pacijenti.json");
+            Pacijenti.Instance.Deserijalizacija();
 
             //UpravljanjeNalozimaPacijenata.Instance.KreirajZdravstveniKarton(this, ListaPacijenata);
             SekretarKontroler.Instance.KreiranjeZdravstvenogKartona(this);

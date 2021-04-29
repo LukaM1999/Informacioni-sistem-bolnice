@@ -34,7 +34,13 @@
     <Compile Update="IzmenaNalogaPacijentaForma.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="IzmenaVesti.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="IzmjenaZdravstvenogKartonaForma.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="KreirajVijestProzor.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Login.xaml.cs">
@@ -70,6 +76,9 @@
     <Compile Update="PregledAlergena.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="PregledVesti.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="PregledZdravstvenogKartona.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -83,6 +92,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="ProstorijeProzor.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="ProzorSaVestima.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="ReceptForma.xaml.cs">
@@ -104,6 +116,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="TerminiPacijentaProzorSekretara.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="VestiProzor.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="ZakazivanjeTerminaPacijentaProzor.xaml.cs">
@@ -144,10 +159,16 @@
     <Page Update="IzmenaNalogaPacijentaForma.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="IzmenaVesti.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="IzmenaZdravstvenogKartonaLekar.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="IzmjenaZdravstvenogKartonaForma.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="KreirajVijestProzor.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Login.xaml">
@@ -189,6 +210,9 @@
     <Page Update="PregledAlergena.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="PregledVesti.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="PregledZdravstvenogKartona.xaml">
       <SubType>Designer</SubType>
     </Page>
@@ -202,6 +226,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="ProstorijeProzor.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="ProzorSaVestima.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="ReceptForma.xaml">
@@ -226,6 +253,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="TerminiPacijentaProzorSekretara.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="VestiProzor.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="ZakazivanjeTerminaLekaraProzor.xaml">

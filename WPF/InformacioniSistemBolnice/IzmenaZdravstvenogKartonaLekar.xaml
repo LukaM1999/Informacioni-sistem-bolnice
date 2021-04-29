@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:InformacioniSistemBolnice"
         xmlns:model="clr-namespace:Model"
         mc:Ignorable="d"
-        Title="IzmenaZdravstvenogKartonaLekar" Height="600" Width="1000">
+        Title="IzmenaZdravstvenogKartonaLekar" Height="650" Width="1000">
     <Grid Margin="-4,0,4,0">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="300*"/>
@@ -63,7 +63,7 @@
         </Canvas>
         <Label Content="Zdravstveno stanje pacijenta" Grid.Column="2" HorizontalAlignment="Left" Margin="79,29,0,0" VerticalAlignment="Top"/>
         <Label Content="Alergeni:" Grid.Column="2" HorizontalAlignment="Left" Margin="27,64,0,0" VerticalAlignment="Top" />
-        <DataGrid  Name ="ListaAlergena" Grid.Column="2" Margin="32,95,28,197"/>
+        <DataGrid  Name ="ListaAlergena" Grid.Column="2" Margin="32,95,28,254"/>
 
         <Button Content="Potvrdi izmjene" Grid.Column="2" HorizontalAlignment="Left" Margin="184,442,0,0" VerticalAlignment="Top" />
         <Button Content="Dodaj" Grid.Column="2" HorizontalAlignment="Left" Margin="34,396,0,0" VerticalAlignment="Top" />

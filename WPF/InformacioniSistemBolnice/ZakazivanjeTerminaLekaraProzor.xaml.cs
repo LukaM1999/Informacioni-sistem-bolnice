@@ -39,8 +39,8 @@ namespace InformacioniSistemBolnice
                 datum = datum.AddMinutes(30);
             }
 
-            Prostorije.Instance.Deserijalizacija("../../../json/prostorije.json");
-            Pacijenti.Instance.Deserijalizacija("../../../json/pacijenti.json");
+            Prostorije.Instance.Deserijalizacija();
+            Pacijenti.Instance.Deserijalizacija();
             listaSati.ItemsSource = listaDatuma;
             
             foreach(Prostorija p in Prostorije.Instance.listaProstorija)

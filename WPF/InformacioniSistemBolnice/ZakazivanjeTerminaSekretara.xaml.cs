@@ -28,11 +28,11 @@ namespace InformacioniSistemBolnice
             InitializeComponent();
 
             terminiPacijentaProzorSekretara = termini;
-            Lekari.Instance.Deserijalizacija("../../../json/lekari.json");
+            Lekari.Instance.Deserijalizacija();
             lekari.ItemsSource = Lekari.Instance.listaLekara;
-            Pacijenti.Instance.Deserijalizacija("../../../json/pacijenti.json");
+            Pacijenti.Instance.Deserijalizacija();
             pacijenti.ItemsSource = Pacijenti.Instance.listaPacijenata;
-            Prostorije.Instance.Deserijalizacija("../../../json/prostorije.json");
+            Prostorije.Instance.Deserijalizacija();
             prostorije.ItemsSource = Prostorije.Instance.listaProstorija;
 
 

@@ -21,41 +21,41 @@ namespace InformacioniSistemBolnice
     
     public partial class IzmenaZdravstvenogKartonaLekar : Window
     {
-        public Pacijent p;
+        public Pacijent pacijent;
        
 
-        public IzmenaZdravstvenogKartonaLekar(DataGrid listaPacijenata)
+        public IzmenaZdravstvenogKartonaLekar(Pacijent pacijent)
         {
             InitializeComponent();
-            Alergeni.Instance.Deserijalizacija("../../../json/alergeni.json");
-            Kartoni.Instance.Deserijalizacija("../../../json/alergeni.json");
-            p = (Pacijent)listaPacijenata.SelectedItem;
+            Alergeni.Instance.Deserijalizacija();
+            Kartoni.Instance.Deserijalizacija();
+            this.pacijent = pacijent;
         }
 
         public IzmenaZdravstvenogKartonaLekar(Termin termin)
         {
             InitializeComponent();
-            Pacijenti.Instance.Deserijalizacija("../../../json/pacijenti.json");
+            Pacijenti.Instance.Deserijalizacija();
             foreach (Pacijent pacijent in Pacijenti.Instance.listaPacijenata)
             {
                 if (pacijent.jmbg.Equals(termin.pacijentJMBG))
                 {
-                    Alergeni.Instance.Deserijalizacija("../../../json/alergeni.json");
-                    Kartoni.Instance.Deserijalizacija("../../../json/alergeni.json");
-                    p = pacijent;
+                    Alergeni.Instance.Deserijalizacija();
+                    Kartoni.Instance.Deserijalizacija();
+                    this.pacijent = pacijent;
                 }
             }
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            AnamnezaForma anamneza = new AnamnezaForma(p);
+            AnamnezaForma anamneza = new AnamnezaForma(pacijent);
             anamneza.Show();
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            ReceptForma recept = new ReceptForma(p);
+            ReceptForma recept = new ReceptForma(pacijent);
             recept.Show();
         }
     }

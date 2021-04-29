@@ -13,7 +13,7 @@ namespace InformacioniSistemBolnice
         public AlergeniProzor()
         {
             InitializeComponent();
-            Alergeni.Instance.Deserijalizacija("../../../json/alergeni.json");
+            Alergeni.Instance.Deserijalizacija();
             ListaAlergena.ItemsSource = Alergeni.Instance.listaAlergena;
         }
 

@@ -24,15 +24,15 @@ namespace Servis
                 if (so.tip.Equals(oprema.tip))
                 {
                     so.kolicina += oprema.kolicina;
-                    Repozitorijum.DinamickaOprema.Instance.Serijalizacija("../../../json/dinamickaOprema.json");
-                    Repozitorijum.DinamickaOprema.Instance.Deserijalizacija("../../../json/dinamickaOprema.json");
+                    Repozitorijum.DinamickaOprema.Instance.Serijalizacija();
+                    Repozitorijum.DinamickaOprema.Instance.Deserijalizacija();
                     return;
                 }
             }
 
             Repozitorijum.DinamickaOprema.Instance.listaOpreme.Add(oprema);
-            Repozitorijum.DinamickaOprema.Instance.Serijalizacija("../../../json/dinamickaOprema.json");
-            Repozitorijum.DinamickaOprema.Instance.Deserijalizacija("../../../json/dinamickaOprema.json");
+            Repozitorijum.DinamickaOprema.Instance.Serijalizacija();
+            Repozitorijum.DinamickaOprema.Instance.Deserijalizacija();
         }
 
         public void UklanjanjeOpreme(MagacinProzor p)
@@ -41,7 +41,7 @@ namespace Servis
             {
                 Model.DinamickaOprema oprema = (Model.DinamickaOprema)p.listViewDinamOpreme.SelectedValue;
                 Repozitorijum.DinamickaOprema.Instance.listaOpreme.Remove(oprema);
-                Repozitorijum.DinamickaOprema.Instance.Serijalizacija("../../../json/dinamickaOprema.json");
+                Repozitorijum.DinamickaOprema.Instance.Serijalizacija();
             }
         }
 
@@ -50,8 +50,8 @@ namespace Servis
             oprema.kolicina = Int32.Parse(p.tb1.Text);
             oprema.tip = (TipDinamickeOpreme)Enum.Parse(typeof(TipDinamickeOpreme), p.cb1.Text, true);
 
-            Repozitorijum.DinamickaOprema.Instance.Serijalizacija("../../../json/dinamickaOprema.json");
-            Repozitorijum.DinamickaOprema.Instance.Deserijalizacija("../../../json/DinamickaOprema.json");
+            Repozitorijum.DinamickaOprema.Instance.Serijalizacija();
+            Repozitorijum.DinamickaOprema.Instance.Deserijalizacija();
         }
 
         public void PregledOpreme()

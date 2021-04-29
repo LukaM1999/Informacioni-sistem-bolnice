@@ -22,7 +22,7 @@ namespace InformacioniSistemBolnice
         public Login()
         {
             InitializeComponent();
-            Korisnici.Instance.Deserijalizacija("../../../json/korisnici.json");     
+            Korisnici.Instance.Deserijalizacija();     
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

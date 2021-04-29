@@ -6,8 +6,12 @@ using System.Collections.ObjectModel;
 
 namespace Repozitorijum
 {
+
     public sealed class Pacijenti : Repozitorijum
     {
+
+        private string putanja = "../../../json/pacijenti.json";
+
         private static readonly Lazy<Pacijenti>
            lazy =
            new Lazy<Pacijenti>
@@ -21,7 +25,7 @@ namespace Repozitorijum
             set;
         }
 
-        public void Deserijalizacija(string putanja)
+        public void Deserijalizacija()
         {
             lock (listaPacijenata)
             {
@@ -29,7 +33,7 @@ namespace Repozitorijum
             }
         }
 
-        public void Serijalizacija(string putanja)
+        public void Serijalizacija()
         {
             lock (listaPacijenata)
             {

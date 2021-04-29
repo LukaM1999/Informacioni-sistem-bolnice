@@ -94,10 +94,8 @@ namespace InformacioniSistemBolnice.Servis
             if (mesecnihTermina > maksimalnoTermina)
             {
                 UlogovanPacijent.maliciozan = true;
-
-                Pacijenti.Instance.Serijalizacija("../../../json/pacijenti.json");
-                Pacijenti.Instance.Deserijalizacija("../../../json/pacijenti.json");
-
+                Pacijenti.Instance.Serijalizacija();
+                Pacijenti.Instance.Deserijalizacija();
                 System.Diagnostics.Debug.WriteLine("Precesto zakazivanje termina!");
                 return true;
             }

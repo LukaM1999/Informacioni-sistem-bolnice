@@ -91,12 +91,12 @@ namespace Servis
                                 lekar.zauzetiTermini.Add(zakazanTermin);
                                 pacijent.zakazaniTermini.Add(zakazanTermin);
                                 Termini.Instance.listaTermina.Add(zakazanTermin);
-                                Termini.Instance.Serijalizacija("../../../json/zakazaniTermini.json");
-                                Lekari.Instance.Serijalizacija("../../../json/lekari.json");
-                                Pacijenti.Instance.Serijalizacija("../../../json/pacijenti.json");
-                                Pacijenti.Instance.Deserijalizacija("../../../json/pacijenti.json");
-                                Lekari.Instance.Deserijalizacija("../../../json/lekari.json");
-                                Termini.Instance.Deserijalizacija("../../../json/zakazaniTermini.json");
+                                Termini.Instance.Serijalizacija();
+                                Lekari.Instance.Serijalizacija();
+                                Pacijenti.Instance.Serijalizacija();
+                                Pacijenti.Instance.Deserijalizacija();
+                                Lekari.Instance.Deserijalizacija();
+                                Termini.Instance.Deserijalizacija();
                                 zakazivanje.listaZakazanihTermina.ItemsSource = lekar.zauzetiTermini;
 
                                 zakazivanje.Close();
@@ -121,8 +121,8 @@ namespace Servis
                             if (termin.vreme == t.vreme)
                             {
                                 pacijent.zakazaniTermini.Remove(termin);
-                                Pacijenti.Instance.Serijalizacija("../../../json/pacijenti.json");
-                                Pacijenti.Instance.Deserijalizacija("../../../json/pacijenti.json");
+                                Pacijenti.Instance.Serijalizacija();
+                                Pacijenti.Instance.Deserijalizacija();
                                 break;
                             }
                         }
@@ -139,8 +139,8 @@ namespace Servis
                             if (termin.vreme == t.vreme)
                             {
                                 lekar.zauzetiTermini.Remove(termin);
-                                Lekari.Instance.Serijalizacija("../../../json/lekari.json");
-                                Lekari.Instance.Deserijalizacija("../../../json/lekari.json");
+                                Lekari.Instance.Serijalizacija();
+                                Lekari.Instance.Deserijalizacija();
                                 listaZakazanihTerminaLekara.ItemsSource = lekar.zauzetiTermini;
                                 break;
                             }
@@ -153,8 +153,8 @@ namespace Servis
                     if (termin.vreme == t.vreme)
                     {
                         Termini.Instance.listaTermina.Remove(termin);
-                        Termini.Instance.Serijalizacija("../../../json/zakazaniTermini.json");
-                        Termini.Instance.Deserijalizacija("../../../json/zakazaniTermini.json");
+                        Termini.Instance.Serijalizacija();
+                        Termini.Instance.Deserijalizacija();
                     }
                 }
             }
@@ -201,8 +201,8 @@ namespace Servis
                                     }
                                 }
 
-                                Termini.Instance.Serijalizacija("../../../json/zakazaniTermini.json");
-                                Termini.Instance.Deserijalizacija("../../../json/zakazaniTermini.json");
+                                Termini.Instance.Serijalizacija();
+                                Termini.Instance.Deserijalizacija();
 
                                 foreach (Termin t in lekar.zauzetiTermini.ToList())
                                 {
@@ -210,8 +210,8 @@ namespace Servis
                                     {
                                         lekar.zauzetiTermini.Remove(t);
                                         lekar.zauzetiTermini.Add(pomeranje.zakazanTermin);
-                                        Lekari.Instance.Serijalizacija("../../../json/lekari.json");
-                                        Lekari.Instance.Deserijalizacija("../../../json/lekari.json");
+                                        Lekari.Instance.Serijalizacija();
+                                        Lekari.Instance.Deserijalizacija();
                                     }
                                 }                             
 
@@ -221,12 +221,12 @@ namespace Servis
                                     {
                                         pacijent.zakazaniTermini.Remove(t);
                                         pacijent.zakazaniTermini.Add(pomeranje.zakazanTermin);
-                                        Pacijenti.Instance.Serijalizacija("../../../json/pacijenti.json");
-                                        Pacijenti.Instance.Deserijalizacija("../../../json/pacijenti.json");
+                                        Pacijenti.Instance.Serijalizacija();
+                                        Pacijenti.Instance.Deserijalizacija();
                                     }
                                 }
-                                Termini.Instance.Serijalizacija("../../../json/zakazaniTermini.json");
-                                Termini.Instance.Deserijalizacija("../../../json/zakazaniTermini.json");
+                                Termini.Instance.Serijalizacija();
+                                Termini.Instance.Deserijalizacija();
                                 
                                 pomeranje.zakazaniTermini.ItemsSource = lekar.zauzetiTermini;
                                 pomeranje.Close();

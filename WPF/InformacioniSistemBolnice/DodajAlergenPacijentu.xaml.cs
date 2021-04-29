@@ -31,7 +31,7 @@ namespace InformacioniSistemBolnice
         {
             InitializeComponent();
             IzmjenaZdravstvenogKartonaForma = izmjenaZdravstvenogKartonaForma;
-            Alergeni.Instance.Deserijalizacija("../../../json/alergeni.json");
+            Alergeni.Instance.Deserijalizacija();
             ListaAlergena.ItemsSource = Alergeni.Instance.listaAlergena;
 
         }

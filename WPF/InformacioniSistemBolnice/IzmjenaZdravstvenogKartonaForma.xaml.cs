@@ -28,7 +28,7 @@ namespace InformacioniSistemBolnice
         {
             InitializeComponent();
             ListaPacijenata = lp;
-            Alergeni.Instance.Deserijalizacija("../../../json/alergeni.json");
+            Alergeni.Instance.Deserijalizacija();
             this.ListaAlergena.ItemsSource = ((Pacijent)ListaPacijenata.SelectedItem).zdravstveniKarton.Alergeni;
         }
 
