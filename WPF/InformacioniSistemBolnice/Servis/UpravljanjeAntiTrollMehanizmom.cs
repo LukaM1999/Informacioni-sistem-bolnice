@@ -1,113 +1,101 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Threading;
 using Model;
 using Repozitorijum;
-using Servis;
 
 namespace InformacioniSistemBolnice.Servis
 {
     class UpravljanjeAntiTrollMehanizmom
     {
         private static readonly Lazy<UpravljanjeAntiTrollMehanizmom>
-            lazy =
-                new Lazy<UpravljanjeAntiTrollMehanizmom>
-                    (() => new UpravljanjeAntiTrollMehanizmom());
+            Lazy = new(() => new UpravljanjeAntiTrollMehanizmom());
+        public static UpravljanjeAntiTrollMehanizmom Instance { get { return Lazy.Value; } }
 
-        public static UpravljanjeAntiTrollMehanizmom Instance { get { return lazy.Value; } }
-
-        private int maksimalniBrojMeseci = 12;
-        private int maksimalnoMesecnihTermina = 3;
-        private int maksimalnoPomerenihTermina = 4;
+        private const int MaksimalniBrojMeseci = 12;
+        private const int MaksimalnoMesecnihTermina = 3;
+        private const int MaksimalnoPomerenihTermina = 4;
+        private const int Tromesecje = 3;
 
         public Pacijent UlogovanPacijent { get; set; }
 
         public void ProveriMalicioznostPacijenta(Pacijent ulogovan)
         {
             UlogovanPacijent = ulogovan;
-            int mesecnihTermina = 0;
-            int pomerenihTermina = 0;
             while (!UlogovanPacijent.maliciozan)
             {
-                ProveraMalicioznogZakazivanjaTermina(mesecnihTermina);
-
-                ProveraMalicioznogPomeranjaTermina(pomerenihTermina);
+                if (ProveriMalicioznostZakazivanjaTermina()) break;
+                if (ProveriMalicioznostPomeranjaTermina()) break;
+                Thread.Sleep(5000);
             }
         }
 
-        private void ProveraMalicioznogPomeranjaTermina(int pomerenihTermina)
+        private bool ProveriMalicioznostPomeranjaTermina()
         {
-            for (int i = 1; i <= maksimalniBrojMeseci / 3; i++)
+            for (int i = 1; i <= MaksimalniBrojMeseci / Tromesecje; i++)
             {
-                pomerenihTermina = PrebrojPomereneTerminePacijenta(pomerenihTermina, i);
-                if (OznaciMalicioznogKorisnika(pomerenihTermina, maksimalnoPomerenihTermina)) break;
-                pomerenihTermina = 0;
+                int pomerenihTermina = PrebrojPomereneTerminePacijenta(i);
+                if (OznaciMalicioznogPacijenta(pomerenihTermina, MaksimalnoPomerenihTermina)) return true;
             }
-        }
-
-        private int PrebrojPomereneTerminePacijenta(int pomerenihTermina, int i)
-        {
-            foreach (Termin t in UlogovanPacijent.zakazaniTermini.ToList())
-            {
-                if (JeUnutarTromesecnogIntervala(t, i))
-                {
-                    pomerenihTermina++;
-                }
-            }
-
-            return pomerenihTermina;
-        }
-
-        private static bool JeUnutarTromesecnogIntervala(Termin t, int i)
-        {
-            return t.vreme > DateTime.Now.AddMonths((i - 1) * 3) && t.vreme < DateTime.Now.AddMonths(i * 3) &&
-                   t.status == StatusTermina.pomeren && t.tipTermina == TipTermina.pregled;
-        }
-
-        private void ProveraMalicioznogZakazivanjaTermina(int mesecnihTermina)
-        {
-            for (int i = 1; i <= maksimalniBrojMeseci; i++)
-            {
-                mesecnihTermina = PrebrojZakazaneTerminePacijenta(mesecnihTermina, i);
-                if (OznaciMalicioznogKorisnika(mesecnihTermina, maksimalnoMesecnihTermina)) break;
-                mesecnihTermina = 0;
-            }
-        }
-
-        private int PrebrojZakazaneTerminePacijenta(int mesecnihTermina, int i)
-        {
-            foreach (Termin t in UlogovanPacijent.zakazaniTermini.ToList())
-            {
-                if (JeUnutarMesecnogIntervala(t, i))
-                {
-                    mesecnihTermina++;
-                }
-            }
-
-            return mesecnihTermina;
-        }
-
-        private bool OznaciMalicioznogKorisnika(int mesecnihTermina, int maksimalnoTermina)
-        {
-            if (mesecnihTermina > maksimalnoTermina)
-            {
-                UlogovanPacijent.maliciozan = true;
-
-                Pacijenti.Instance.Serijalizacija();
-                Pacijenti.Instance.Deserijalizacija();
-
-                System.Diagnostics.Debug.WriteLine("Precesto zakazivanje termina!");
-                return true;
-            }
-
             return false;
         }
 
-        private static bool JeUnutarMesecnogIntervala(Termin t, int i)
+        private int PrebrojPomereneTerminePacijenta(int mesec)
         {
-            return t.vreme > DateTime.Now.AddMonths(i - 1) && t.vreme < DateTime.Now.AddMonths(i) && t.tipTermina == TipTermina.pregled;
+            int pomerenihTermina = 0;
+            foreach (Termin termin in UlogovanPacijent.zakazaniTermini.ToList())
+            {
+                if (JeUnutarTromesecnogIntervala(termin, mesec)) pomerenihTermina++;
+            }
+            return pomerenihTermina;
+        }
+
+        private static bool JeUnutarTromesecnogIntervala(Termin termin, int mesec)
+        {
+            return termin.vreme > DateTime.Now.AddMonths((mesec - 1) * 3) &&
+                   termin.vreme < DateTime.Now.AddMonths(mesec * 3) && JePomerenPregled(termin);
+        }
+
+        private static bool JePomerenPregled(Termin termin)
+        {
+            return termin.status == StatusTermina.pomeren && termin.tipTermina == TipTermina.pregled;
+        }
+
+        private bool ProveriMalicioznostZakazivanjaTermina()
+        {
+            for (int i = 1; i <= MaksimalniBrojMeseci; i++)
+            {
+                int mesecnihTermina = PrebrojZakazaneTerminePacijenta(i);
+                System.Diagnostics.Debug.WriteLine(mesecnihTermina);
+                if (OznaciMalicioznogPacijenta(mesecnihTermina, MaksimalnoMesecnihTermina)) return true;
+            }
+            return false;
+        }
+
+        private int PrebrojZakazaneTerminePacijenta(int mesec)
+        {
+            int mesecnihTermina = 0;
+            foreach (Termin termin in UlogovanPacijent.zakazaniTermini.ToList())
+            {
+                if (JeUnutarMesecnogIntervala(termin, mesec)) mesecnihTermina++;
+            }
+            return mesecnihTermina;
+        }
+
+        private static bool JeUnutarMesecnogIntervala(Termin termin, int mesec)
+        {
+            return termin.vreme > DateTime.Now.AddMonths(mesec - 1) &&
+                   termin.vreme < DateTime.Now.AddMonths(mesec) && termin.tipTermina == TipTermina.pregled;
+        }
+
+        private bool OznaciMalicioznogPacijenta(int mesecnihTermina, int maksimalnoTermina)
+        {
+            if (mesecnihTermina <= maksimalnoTermina) return false;
+            UlogovanPacijent.maliciozan = true;
+            Pacijenti.Instance.Serijalizacija();
+            Pacijenti.Instance.Deserijalizacija();
+            System.Diagnostics.Debug.WriteLine("Precesto zakazivanje termina!");
+            return true;
         }
     }
 }

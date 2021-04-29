@@ -43,12 +43,11 @@ namespace InformacioniSistemBolnice
                     break;
                 }
             }
-
             listaZakazanihTermina.ItemsSource = ulogovanPacijent.zakazaniTermini;
 
-            Thread proveraMalicioznosti = new Thread(() => { UpravljanjeAntiTrollMehanizmom.Instance.ProveriMalicioznostPacijenta(ulogovanPacijent); });
+            Thread proveraMalicioznosti = new Thread(() => 
+                { UpravljanjeAntiTrollMehanizmom.Instance.ProveriMalicioznostPacijenta(ulogovanPacijent); });
             proveraMalicioznosti.Start();
-
         }
 
         
