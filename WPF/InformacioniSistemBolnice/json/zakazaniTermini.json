@@ -4,6 +4,7 @@
     "trajanje": 30.0,
     "tipTermina": 1,
     "status": 0,
+    "AnketaOLekaru": null,
     "pacijentJMBG": "231456768",
     "lekarJMBG": "231568933",
     "idProstorije": null
@@ -13,6 +14,7 @@
     "trajanje": 30.0,
     "tipTermina": 1,
     "status": 3,
+    "AnketaOLekaru": null,
     "pacijentJMBG": "231456768",
     "lekarJMBG": "231568933",
     "idProstorije": null
@@ -22,6 +24,7 @@
     "trajanje": 30.0,
     "tipTermina": 1,
     "status": 3,
+    "AnketaOLekaru": null,
     "pacijentJMBG": "231456768",
     "lekarJMBG": "231568933",
     "idProstorije": null
@@ -31,6 +34,7 @@
     "trajanje": 30.0,
     "tipTermina": 1,
     "status": 3,
+    "AnketaOLekaru": null,
     "pacijentJMBG": "231456768",
     "lekarJMBG": "231568933",
     "idProstorije": null
@@ -40,6 +44,7 @@
     "trajanje": 30.0,
     "tipTermina": 1,
     "status": 3,
+    "AnketaOLekaru": null,
     "pacijentJMBG": "231456768",
     "lekarJMBG": "231568933",
     "idProstorije": null
@@ -49,6 +54,7 @@
     "trajanje": 30.0,
     "tipTermina": 1,
     "status": 0,
+    "AnketaOLekaru": null,
     "pacijentJMBG": "231456768",
     "lekarJMBG": "231568933",
     "idProstorije": null
@@ -58,6 +64,35 @@
     "trajanje": 30.0,
     "tipTermina": 1,
     "status": 0,
+    "AnketaOLekaru": null,
+    "pacijentJMBG": "231456768",
+    "lekarJMBG": "231568933",
+    "idProstorije": null
+  },
+  {
+    "vreme": "2021-04-30T16:10:00",
+    "trajanje": 30.0,
+    "tipTermina": 1,
+    "status": 4,
+    "AnketaOLekaru": null,
+    "pacijentJMBG": "231456768",
+    "lekarJMBG": "231568933",
+    "idProstorije": null
+  },
+  {
+    "vreme": "2021-04-30T01:00:00",
+    "trajanje": 30.0,
+    "tipTermina": 1,
+    "status": 4,
+    "AnketaOLekaru": {
+      "Ljubaznost": 5,
+      "Profesionalizam": 4,
+      "Strpljenje": 4,
+      "Komunikativnost": 3,
+      "Azurnost": 4,
+      "Korisnost": 3,
+      "GeneralniKomentari": "Komentar."
+    },
     "pacijentJMBG": "231456768",
     "lekarJMBG": "231568933",
     "idProstorije": null

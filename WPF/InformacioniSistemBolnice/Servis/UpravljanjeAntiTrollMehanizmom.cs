@@ -66,7 +66,6 @@ namespace InformacioniSistemBolnice.Servis
             for (int i = 1; i <= MaksimalniBrojMeseci; i++)
             {
                 int mesecnihTermina = PrebrojZakazaneTerminePacijenta(i);
-                System.Diagnostics.Debug.WriteLine(mesecnihTermina);
                 if (OznaciMalicioznogPacijenta(mesecnihTermina, MaksimalnoMesecnihTermina)) return true;
             }
             return false;
@@ -94,7 +93,7 @@ namespace InformacioniSistemBolnice.Servis
             UlogovanPacijent.maliciozan = true;
             Pacijenti.Instance.Serijalizacija();
             Pacijenti.Instance.Deserijalizacija();
-            System.Diagnostics.Debug.WriteLine("Precesto zakazivanje termina!");
+            System.Diagnostics.Debug.WriteLine("Oznaceni ste kao maliciozni!");
             return true;
         }
     }

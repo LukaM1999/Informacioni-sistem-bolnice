@@ -1,7 +1,9 @@
 using System;
+using PropertyChanged;
 
 namespace Model
 {
+    [AddINotifyPropertyChangedInterface]
     public class Termin
     {
         public DateTime vreme
@@ -24,6 +26,8 @@ namespace Model
             get;
             set;
         }
+
+        public AnketaOLekaru AnketaOLekaru { get; set; }
 
         public Termin(DateTime dt, double tr, TipTermina tip, StatusTermina s, string jmbgPacijenta, string jmbgLekara, string sifraProstorije)
         {
