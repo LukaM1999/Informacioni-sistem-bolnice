@@ -23,7 +23,16 @@ namespace InformacioniSistemBolnice
     /// </summary>
     public partial class MagacinProzor : Window
     {
+        private static readonly Lazy<MagacinProzor>
+           lazy =
+           new Lazy<MagacinProzor>
+               (() => new MagacinProzor());
+
+        public static MagacinProzor Instance { get { return lazy.Value; } }
+
         private ProstorijeProzor prostorijaProzor;
+
+        public MagacinProzor() { }
         public MagacinProzor(ProstorijeProzor p)
         {
             InitializeComponent();
@@ -34,6 +43,7 @@ namespace InformacioniSistemBolnice
             listViewStatOpreme.ItemsSource = Repozitorijum.StatickaOprema.Instance.listaOpreme;
             listViewDinamOpreme.ItemsSource = Repozitorijum.DinamickaOprema.Instance.listaOpreme;
             listaProstorija.ItemsSource = Prostorije.Instance.listaProstorija;
+            listaProstorijaS.ItemsSource = Prostorije.Instance.listaProstorija;
         }
 
         private void dugmeKreirajOpemu_Click(object sender, RoutedEventArgs e)
@@ -80,7 +90,7 @@ namespace InformacioniSistemBolnice
 
         private void dugmeRaspodeliDinamicku_Click(object sender, RoutedEventArgs e)
         {
-            if (listViewDinamOpreme.SelectedValue != null)
+            if (listViewDinamOpreme.SelectedValue != null && listaProstorija.SelectedValue != null)
             {
                 Model.DinamickaOprema oprema = (Model.DinamickaOprema)listViewDinamOpreme.SelectedValue;
                 int kolicina = Int32.Parse(tbKolDin.Text);
@@ -90,10 +100,24 @@ namespace InformacioniSistemBolnice
                 listViewDinamOpreme.ItemsSource = Repozitorijum.DinamickaOprema.Instance.listaOpreme;
                 prostorijaProzor.ListaProstorija.ItemsSource = Prostorije.Instance.listaProstorija;
                 prostorijaProzor.ListaProstorija.ItemsSource = Prostorije.Instance.listaProstorija;
+                
             }
 
 
         }
 
+        private void dugmeRaspodeliStaticku_Click(object sender, RoutedEventArgs e)
+        {
+            if (listViewStatOpreme.SelectedValue != null && listaProstorijaS.SelectedValue != null && datumStat.SelectedDate != null)
+            {
+                Model.StatickaOprema oprema = (Model.StatickaOprema)listViewStatOpreme.SelectedItem;
+                int kolicina = Int32.Parse(tbKolStat.Text);
+                Prostorija prostorija = (Prostorija)listaProstorijaS.SelectedItem;
+                
+                UpravnikKontroler.Instance.RasporedjivanjeStatickeOpreme(null, prostorija, oprema, kolicina, (DateTime)datumStat.SelectedDate);
+                listViewStatOpreme.ItemsSource = Repozitorijum.StatickaOprema.Instance.listaOpreme;
+                prostorijaProzor.ListaProstorija.ItemsSource = Prostorije.Instance.listaProstorija;
+            }
+        }
     }
 }

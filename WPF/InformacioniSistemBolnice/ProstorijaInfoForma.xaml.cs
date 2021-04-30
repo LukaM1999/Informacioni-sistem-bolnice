@@ -45,6 +45,7 @@ namespace InformacioniSistemBolnice
             
             listaProstorija.ItemsSource = Prostorije.Instance.listaProstorija;
             listaDinamicke.ItemsSource = pr.inventar.dinamickaOprema;
+            listaStaticke.ItemsSource = pr.inventar.statickaOprema;
 
             cbDinamicka.ItemsSource = Repozitorijum.Prostorije.Instance.listaProstorija;
             cbStaticka.ItemsSource = Repozitorijum.Prostorije.Instance.listaProstorija;

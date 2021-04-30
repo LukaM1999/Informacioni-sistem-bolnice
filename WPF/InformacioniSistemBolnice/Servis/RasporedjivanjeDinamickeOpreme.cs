@@ -19,22 +19,22 @@ namespace Servis
             if (izProstorije == null)
             {
                 Repozitorijum.DinamickaOprema.Instance.listaOpreme.ElementAt(Repozitorijum.DinamickaOprema.Instance.listaOpreme.IndexOf(dinamickaOprema)).kolicina -= kolicina;
-                Repozitorijum.DinamickaOprema.Instance.Serijalizacija("../../../json/dinamickaOprema.json");
-                Repozitorijum.DinamickaOprema.Instance.Deserijalizacija("../../../json/dinamickaOprema.json");
+                Repozitorijum.DinamickaOprema.Instance.Serijalizacija();
+                Repozitorijum.DinamickaOprema.Instance.Deserijalizacija();
 
                 foreach (Model.DinamickaOprema p in Prostorije.Instance.getSelected(uProstoriju).inventar.dinamickaOprema)
                 {
                     if (p.tip.Equals(dinamickaOprema.tip))
                     {
                         Prostorije.Instance.getSelected(uProstoriju).inventar.getSelected(p).kolicina += kolicina;
-                        Prostorije.Instance.Serijalizacija("../../../json/prostorije.json");
-                        Prostorije.Instance.Deserijalizacija("../../../json/prostorije.json");
+                        Prostorije.Instance.Serijalizacija();
+                        Prostorije.Instance.Deserijalizacija();
                         return;
                     }
                 }
                 Prostorije.Instance.getSelected(uProstoriju).inventar.dinamickaOprema.Add(new Model.DinamickaOprema(kolicina, dinamickaOprema.tip));
-                Prostorije.Instance.Serijalizacija("../../../json/prostorije.json");
-                Prostorije.Instance.Deserijalizacija("../../../json/prostorije.json");
+                Prostorije.Instance.Serijalizacija();
+                Prostorije.Instance.Deserijalizacija();
             }
             if(uProstoriju == null)
             {
@@ -43,17 +43,17 @@ namespace Servis
                     if (p.tip.Equals(dinamickaOprema.tip))
                     {
                         Prostorije.Instance.getSelected(izProstorije).inventar.getSelected(p).kolicina -= kolicina;
-                        Prostorije.Instance.Serijalizacija("../../../json/prostorije.json");
-                        Prostorije.Instance.Deserijalizacija("../../../json/prostorije.json");
-                        Repozitorijum.DinamickaOprema.Instance.Deserijalizacija("../../../json/dinamickaOprema.json");
+                        Prostorije.Instance.Serijalizacija();
+                        Prostorije.Instance.Deserijalizacija();
+                        Repozitorijum.DinamickaOprema.Instance.Deserijalizacija();
 
                         foreach (Model.DinamickaOprema n in Repozitorijum.DinamickaOprema.Instance.listaOpreme)
                         {
                             if (p.tip.Equals(n.tip))
                             {
                                 Repozitorijum.DinamickaOprema.Instance.listaOpreme.ElementAt(Repozitorijum.DinamickaOprema.Instance.listaOpreme.IndexOf(n)).kolicina += kolicina;
-                                Repozitorijum.DinamickaOprema.Instance.Serijalizacija("../../../json/dinamickaOprema.json");
-                                Repozitorijum.DinamickaOprema.Instance.Deserijalizacija("../../../json/dinamickaOprema.json");
+                                Repozitorijum.DinamickaOprema.Instance.Serijalizacija();
+                                Repozitorijum.DinamickaOprema.Instance.Deserijalizacija();
                                 return;
                             }
                         }
@@ -63,8 +63,8 @@ namespace Servis
                 }
 
                 Repozitorijum.DinamickaOprema.Instance.listaOpreme.Add(new Model.DinamickaOprema(kolicina, dinamickaOprema.tip));
-                Repozitorijum.DinamickaOprema.Instance.Serijalizacija("../../../json/dinamickaOprema.json");
-                Repozitorijum.DinamickaOprema.Instance.Deserijalizacija("../../../json/dinamickaOprema.json");
+                Repozitorijum.DinamickaOprema.Instance.Serijalizacija();
+                Repozitorijum.DinamickaOprema.Instance.Deserijalizacija();
                 return;
 
             }
@@ -75,8 +75,8 @@ namespace Servis
                     if (p.tip.Equals(dinamickaOprema.tip))
                     {
                         Prostorije.Instance.getSelected(izProstorije).inventar.getSelected(p).kolicina -= kolicina;
-                        Prostorije.Instance.Serijalizacija("../../../json/prostorije.json");
-                        Prostorije.Instance.Deserijalizacija("../../../json/prostorije.json");
+                        Prostorije.Instance.Serijalizacija();
+                        Prostorije.Instance.Deserijalizacija();
                         break;
                     }
                 }
@@ -86,14 +86,14 @@ namespace Servis
                     if (p.tip.Equals(dinamickaOprema.tip))
                     {
                         Prostorije.Instance.getSelected(uProstoriju).inventar.getSelected(p).kolicina += kolicina;
-                        Prostorije.Instance.Serijalizacija("../../../json/prostorije.json");
-                        Prostorije.Instance.Deserijalizacija("../../../json/prostorije.json");
+                        Prostorije.Instance.Serijalizacija();
+                        Prostorije.Instance.Deserijalizacija();
                         return;
                     }
                 }
                 Prostorije.Instance.getSelected(uProstoriju).inventar.dinamickaOprema.Add(new Model.DinamickaOprema(kolicina, dinamickaOprema.tip));
-                Prostorije.Instance.Serijalizacija("../../../json/prostorije.json");
-                Prostorije.Instance.Deserijalizacija("../../../json/prostorije.json");
+                Prostorije.Instance.Serijalizacija();
+                Prostorije.Instance.Deserijalizacija();
             }
             
         }

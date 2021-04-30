@@ -65,7 +65,7 @@ namespace InformacioniSistemBolnice
 
         private void magacinDugme_Click(object sender, RoutedEventArgs e)
         {
-            Repozitorijum.DinamickaOprema.Instance.Deserijalizacija("../../../json/dinamickaOprema.json");
+            Repozitorijum.DinamickaOprema.Instance.Deserijalizacija();
             MagacinProzor mp = new MagacinProzor(this);
             mp.Show();
         }

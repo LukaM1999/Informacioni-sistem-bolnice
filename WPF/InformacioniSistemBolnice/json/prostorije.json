@@ -15,6 +15,12 @@
           "tip": 1,
           "kolicina": 100
         }
+      ],
+      "statickaOprema": [
+        {
+          "tip": 1,
+          "kolicina": 1
+        }
       ]
     }
   },
@@ -37,6 +43,12 @@
         {
           "tip": 1,
           "kolicina": 5
+        }
+      ],
+      "statickaOprema": [
+        {
+          "tip": 3,
+          "kolicina": 6
         }
       ]
     }
@@ -61,6 +73,12 @@
           "tip": 2,
           "kolicina": 10
         }
+      ],
+      "statickaOprema": [
+        {
+          "tip": 3,
+          "kolicina": 23
+        }
       ]
     }
   },
@@ -80,6 +98,12 @@
           "tip": 1,
           "kolicina": 15
         }
+      ],
+      "statickaOprema": [
+        {
+          "tip": 3,
+          "kolicina": 12
+        }
       ]
     }
   },
@@ -98,6 +122,12 @@
         {
           "tip": 1,
           "kolicina": 50
+        }
+      ],
+      "statickaOprema": [
+        {
+          "tip": 3,
+          "kolicina": 10
         }
       ]
     }

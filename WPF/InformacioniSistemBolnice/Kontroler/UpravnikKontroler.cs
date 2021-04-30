@@ -70,6 +70,11 @@ namespace Kontroler
             Servis.RasporedjivanjeDinamickeOpreme.Instance.Premestanje(izProstorije, uProstoriju, dinamickaOprema, kolicina);
         }
 
+        public void RasporedjivanjeStatickeOpreme(Prostorija izProstorije, Prostorija uProstoriju, StatickaOprema statickaOprema, int kolicina, DateTime datum)
+        {
+            Servis.RasporedjivanjeStatickeOpreme.Instance.ZakazivanjePremestanja(izProstorije, uProstoriju, statickaOprema, kolicina, datum);
+        }
+
         public UpravljanjeProstorijama upravljanjeProstorijama;
 
         public UpravljanjeStatickomOpremom upravljanjeStatickomOpremom;
