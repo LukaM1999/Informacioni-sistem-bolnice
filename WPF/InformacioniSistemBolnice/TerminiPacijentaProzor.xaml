@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:InformacioniSistemBolnice"
         mc:Ignorable="d"
-        Title="TerminiPacijentaProzor" Height="480" Width="500">
+        Title="TerminiPacijentaProzor" Height="518" Width="563">
     <Canvas>
         <DataGrid x:Name="listaZakazanihTermina" Height="405" Width="391" Canvas.Top="59" CanUserAddRows="False" Canvas.Left="101"/>
         <Button x:Name="zakaziDugme" Canvas.Left="129" Canvas.Top="19" Width="64" Click="zakaziDugme_Click">Zakazi</Button>
@@ -13,5 +13,6 @@
         <Button x:Name="pomeriDugme" Canvas.Left="322" Canvas.Top="19" Width="64" Content="Pomeri" Click="pomeriDugme_Click"/>
         <Button x:Name="infoDugme" Canvas.Left="423" Canvas.Top="19" Width="64" Content="Info" Click="infoDugme_Click"/>
         <Button Content="Vesti" Canvas.Left="20" Canvas.Top="69" Width="60" Click="prikaziVesti_Click"/>
+        <Button Content="Anketa" Canvas.Left="20" Canvas.Top="117" Width="60" Click="OtvoriAnketu"/>
     </Canvas>
 </Window>

@@ -13,6 +13,9 @@
     <Compile Update="AnamnezaForma.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="AnketaOLekaruForma.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="DefinisanjeAlergenaForma.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -136,6 +139,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="AnamnezaForma.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="AnketaOLekaruForma.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="DefinisanjeAlergenaForma.xaml">

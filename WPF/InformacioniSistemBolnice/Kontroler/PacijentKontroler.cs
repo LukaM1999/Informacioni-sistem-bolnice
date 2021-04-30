@@ -1,6 +1,8 @@
 using System;
 using System.Windows.Controls;
 using InformacioniSistemBolnice;
+using InformacioniSistemBolnice.Servis;
+using Model;
 using Servis;
 
 namespace Kontroler
@@ -34,7 +36,10 @@ namespace Kontroler
             UpravljanjeTerminimaPacijenata.Instance.Uvid(listaZakazanihTermina);
         }
 
-        public UpravljanjeTerminimaPacijenata upravljanjeTerminimaPacijenata;
+        public void PopuniAnketuOLekaru(Termin zavrsenTermin)
+        {
+            PopunjavanjeAnkete.Instance.PopuniAnketuOLekaru(zavrsenTermin);
+        }
 
     }
 }
