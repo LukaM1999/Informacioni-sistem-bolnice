@@ -11,15 +11,6 @@
         "idProstorije": null
       },
       {
-        "vreme": "2021-05-01T07:00:00",
-        "trajanje": 30.0,
-        "tipTermina": 1,
-        "status": 3,
-        "pacijentJMBG": "231456768",
-        "lekarJMBG": "231568933",
-        "idProstorije": null
-      },
-      {
         "vreme": "2021-05-05T07:30:00",
         "trajanje": 30.0,
         "tipTermina": 1,

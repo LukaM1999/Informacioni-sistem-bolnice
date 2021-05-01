@@ -41,5 +41,10 @@ namespace Kontroler
             PopunjavanjeAnkete.Instance.PopuniAnketuOLekaru(zavrsenTermin);
         }
 
+        public void PopuniAnketuOBolnici(AnketaOBolnici anketa)
+        {
+            PopunjavanjeAnkete.Instance.PopuniAnketuOBolnici(anketa);
+        }
+
     }
 }
