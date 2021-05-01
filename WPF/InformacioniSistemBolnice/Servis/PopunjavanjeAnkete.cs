@@ -24,5 +24,12 @@ namespace InformacioniSistemBolnice.Servis
                 Termini.Instance.Deserijalizacija();
             }
         }
+
+        public void PopuniAnketuOBolnici(AnketaOBolnici anketa)
+        {
+            AnketeOBolnici.Instance.AnketeZaBolnicu.Add(anketa);
+            AnketeOBolnici.Instance.Serijalizacija();
+            AnketeOBolnici.Instance.Deserijalizacija();
+        }
     }
 }
