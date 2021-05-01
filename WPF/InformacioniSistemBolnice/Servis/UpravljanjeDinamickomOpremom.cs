@@ -2,7 +2,6 @@ using System;
 using Model;
 using Repozitorijum;
 using InformacioniSistemBolnice;
-using Model;
 
 namespace Servis
 {

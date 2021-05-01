@@ -3,6 +3,7 @@ using Model;
 using Newtonsoft.Json;
 using System.IO;
 using System.Collections.ObjectModel;
+using System.Linq;
 
 namespace Repozitorijum
 {
@@ -32,6 +33,19 @@ namespace Repozitorijum
         {
             string json = JsonConvert.SerializeObject(listaOpreme, Formatting.Indented);
             File.WriteAllText(putanja, json);
+        }
+
+        public Model.DinamickaOprema getSelected(Model.DinamickaOprema p)
+        {
+            Model.DinamickaOprema prs = null;
+            foreach (Model.DinamickaOprema pr in listaOpreme)
+            {
+                if (pr.tip.Equals(p.tip))
+                {
+                    prs = pr;
+                }
+            }
+            return listaOpreme.ElementAt(listaOpreme.IndexOf(prs));
         }
     }
 }

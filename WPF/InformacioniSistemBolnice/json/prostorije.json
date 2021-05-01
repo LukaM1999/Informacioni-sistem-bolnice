@@ -15,6 +15,16 @@
           "tip": 1,
           "kolicina": 100
         }
+      ],
+      "statickaOprema": [
+        {
+          "tip": 1,
+          "kolicina": 4
+        },
+        {
+          "tip": 3,
+          "kolicina": 0
+        }
       ]
     }
   },
@@ -28,11 +38,21 @@
       "dinamickaOprema": [
         {
           "tip": 2,
-          "kolicina": 98
+          "kolicina": 88
         },
         {
           "tip": 3,
           "kolicina": 20
+        },
+        {
+          "tip": 1,
+          "kolicina": 5
+        }
+      ],
+      "statickaOprema": [
+        {
+          "tip": 3,
+          "kolicina": 6
         }
       ]
     }
@@ -47,7 +67,25 @@
       "dinamickaOprema": [
         {
           "tip": 1,
-          "kolicina": 133
+          "kolicina": 18
+        },
+        {
+          "tip": 5,
+          "kolicina": 35
+        },
+        {
+          "tip": 2,
+          "kolicina": 10
+        }
+      ],
+      "statickaOprema": [
+        {
+          "tip": 3,
+          "kolicina": 10
+        },
+        {
+          "tip": 1,
+          "kolicina": 1
         }
       ]
     }
@@ -66,7 +104,13 @@
         },
         {
           "tip": 1,
-          "kolicina": 20
+          "kolicina": 15
+        }
+      ],
+      "statickaOprema": [
+        {
+          "tip": 3,
+          "kolicina": -3
         }
       ]
     }
@@ -86,6 +130,12 @@
         {
           "tip": 1,
           "kolicina": 50
+        }
+      ],
+      "statickaOprema": [
+        {
+          "tip": 3,
+          "kolicina": 10
         }
       ]
     }
