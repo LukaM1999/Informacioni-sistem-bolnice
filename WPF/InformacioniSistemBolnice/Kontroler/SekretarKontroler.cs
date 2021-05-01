@@ -90,6 +90,11 @@ namespace Kontroler
             UpravljanjeNalozimaPacijenata.Instance.Pomeranje(pomjeranjeTerminaProzorSekretara);
         }
 
+        public void OtkazivanjeTerminaPacijenta(DataGrid listaZakazanihTermina)
+        {
+            UpravljanjeNalozimaPacijenata.Instance.Otkazivanje(listaZakazanihTermina);
+        }
+
         public void KreiranjeVesti(KreirajVijestProzor kreirajVijestProzor)
         {
             UpravljanjeVestima.Instance.KreiranjeVesti(kreirajVijestProzor);

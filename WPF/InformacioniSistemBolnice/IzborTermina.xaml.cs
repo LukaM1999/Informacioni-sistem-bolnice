@@ -149,5 +149,10 @@ namespace InformacioniSistemBolnice
             UpravljanjeTerminimaPacijenata.Instance.Zakazivanje(this, this.slobodniTermini[0].pacijentJMBG);
             this.Close();
         }
+
+        private void ponudjeniTerminii_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }

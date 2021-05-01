@@ -11,7 +11,10 @@ namespace Model
             Naziv = naziv;
         }
 
-
+        public override string ToString()
+        {
+            return Naziv.ToString();
+        }
 
     }
 }

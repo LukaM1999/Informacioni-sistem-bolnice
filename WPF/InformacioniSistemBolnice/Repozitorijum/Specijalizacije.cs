@@ -18,7 +18,7 @@ namespace Repozitorijum
 
         public static Specijalizacije Instance { get { return lazy.Value; } }
 
-        public ObservableCollection<Adresa> listaSpecijalizacija
+        public ObservableCollection<Specijalizacija> listaSpecijalizacija
         {
             get;
             set;
@@ -26,7 +26,7 @@ namespace Repozitorijum
 
         public void Deserijalizacija()
         {
-            listaSpecijalizacija = JsonConvert.DeserializeObject<ObservableCollection<Adresa>>(File.ReadAllText(putanja));
+            listaSpecijalizacija = JsonConvert.DeserializeObject<ObservableCollection<Specijalizacija>>(File.ReadAllText(putanja));
         }
 
         public void Serijalizacija()
@@ -37,7 +37,7 @@ namespace Repozitorijum
 
         public Specijalizacije()
         {
-            listaSpecijalizacija = new ObservableCollection<Adresa>();
+            listaSpecijalizacija = new ObservableCollection<Specijalizacija>();
         }
 
     }

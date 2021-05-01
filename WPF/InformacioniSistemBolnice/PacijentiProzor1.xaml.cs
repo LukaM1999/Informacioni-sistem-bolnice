@@ -34,7 +34,7 @@ namespace InformacioniSistemBolnice
             if(ListaPacijenata.SelectedItem != null)
             {
                 Pacijent pacijent = (Pacijent)ListaPacijenata.SelectedItem;
-                TerminiPacijentaProzorSekretara terminiPacijentaProzorSekretara = new TerminiPacijentaProzorSekretara(pacijent.korisnik.korisnickoIme);
+                TerminiPacijentaProzorSekretara terminiPacijentaProzorSekretara = new TerminiPacijentaProzorSekretara();
                 terminiPacijentaProzorSekretara.Show();
             }
         }
