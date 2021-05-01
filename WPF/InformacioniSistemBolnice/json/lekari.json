@@ -104,5 +104,21 @@
       "lozinka": "lekar2",
       "uloga": 1
     }
+  },
+  {
+    "zauzetiTermini": [],
+    "specijalizacija": "Lekar opste prakse",
+    "ime": "Milan",
+    "prezime": "Radic",
+    "jmbg": "555556667",
+    "datumRodjenja": "1987-01-05T00:00:00",
+    "telefon": "063454664",
+    "email": "milanr@gmail.com",
+    "adresa": null,
+    "korisnik": {
+      "korisnickoIme": "lekar3",
+      "lozinka": "lekar3",
+      "uloga": 1
+    }
   }
 ]

@@ -237,5 +237,52 @@
       "lozinka": "luka",
       "uloga": 2
     }
+  },
+  {
+    "zdravstveniKarton": {
+      "Recepti": [],
+      "anamneza": null,
+      "Alergeni": [
+        {
+          "nazivAlergena": "polen"
+        }
+      ],
+      "Jmbg": "1203998134132",
+      "LiceZaZdravstvenuZastitu": "Milan Miric",
+      "PolPacijenta": 1,
+      "ImeJednogRoditelja": "Milos",
+      "BrojKnjizice": "717171771",
+      "BrojKartona": "K2",
+      "KategorijaZdravstveneZastite": 5,
+      "BracnoStanje": 0,
+      "PodaciOZaposlenjuIZanimanjuPacijenta": {
+        "MestoRada": "prodavac",
+        "RegBroj": "P1212",
+        "SifraDelatnosti": "prodavac",
+        "PosaoKojiObavlja": "prodavac",
+        "OSIZZdrZastite": "717177",
+        "RadPodPosebnimUslovima": "prodavac",
+        "Promene": "nema"
+      }
+    },
+    "zakazaniTermini": [],
+    "maliciozan": false,
+    "ime": "Maja",
+    "prezime": "Maric",
+    "jmbg": "1203998134132",
+    "datumRodjenja": "2021-03-12T00:00:00",
+    "telefon": "0642341124",
+    "email": "mmaric@gmail.com",
+    "adresa": {
+      "Broj": "5",
+      "Ulica": "Ive Andrica",
+      "Grad": "Novi Sad",
+      "Drzava": "Srbija"
+    },
+    "korisnik": {
+      "korisnickoIme": "maja",
+      "lozinka": "majica",
+      "uloga": 2
+    }
   }
 ]

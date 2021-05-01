@@ -30,23 +30,25 @@ namespace InformacioniSistemBolnice
         public ZakazivanjeTerminaSekretara zakazivanjeTerminaPacijenta;
         
 
-        public IzborTerminaPacijenta(ZakazivanjeTerminaSekretara zakazivanje, string jmbgPacijenta)
+        public IzborTerminaPacijenta(ZakazivanjeTerminaSekretara zakazivanje, TerminiPacijentaProzorSekretara terminiPacijentaProzorSekretara)
         {
             InitializeComponent();
             zakazivanjeTerminaPacijenta = zakazivanje;
+            zakazivanjeTerminaPacijenta.terminiPacijentaProzorSekretara = terminiPacijentaProzorSekretara;
             if (zakazivanje.minDatumTermina.SelectedDate != null && zakazivanje.maxDatumTermina != null && zakazivanje.lekari.SelectedIndex > -1)
             {
                 slobodniTermini = new ObservableCollection<Termin>();
                 Lekar izabraniLekar = (Lekar)zakazivanje.lekari.SelectedItem;
                 TimeSpan intervalDana = (DateTime)zakazivanje.maxDatumTermina.SelectedDate - (DateTime)zakazivanje.minDatumTermina.SelectedDate;
                 DateTime slobodanTermin = ((DateTime)zakazivanje.minDatumTermina.SelectedDate).AddHours(7);
+                Pacijent p = (Pacijent)zakazivanjeTerminaPacijenta.pacijenti.SelectedItem;
                 for (int i = 0; i < intervalDana.Days; i++)
                 {
                     for (int j = 0; j < 27; j++)
                     {
 
                         slobodniTermini.Add(new Termin(slobodanTermin, 30.0, (Model.TipTermina)Enum.Parse(typeof(Model.TipTermina), zakazivanje.tipTermina.SelectedItem.ToString()), StatusTermina.slobodan,
-                                                       jmbgPacijenta, izabraniLekar.jmbg, zakazivanje.prostorije.SelectedItem.ToString()));
+                                                       p.jmbg, izabraniLekar.jmbg, zakazivanje.prostorije.SelectedItem.ToString()));
 
 
                         slobodanTermin = slobodanTermin.AddMinutes(30);
@@ -78,7 +80,7 @@ namespace InformacioniSistemBolnice
                                 foreach (Termin zauzetTermin in izabraniLekar.zauzetiTermini)
                                 {
                                     slobodniTermini.Add(new Termin(slobodanTermin, 30.0, TipTermina.pregled, StatusTermina.slobodan,
-                                                                   jmbgPacijenta, izabraniLekar.jmbg, null));
+                                                                   p.jmbg, izabraniLekar.jmbg, null));
 
                                     slobodanTermin = slobodanTermin.AddMinutes(30);
                                 }
@@ -93,7 +95,7 @@ namespace InformacioniSistemBolnice
                                 foreach (Termin zauzetTermin in izabraniLekar.zauzetiTermini)
                                 {
                                     slobodniTermini.Add(new Termin(slobodanTermin, 30.0, TipTermina.pregled, StatusTermina.slobodan,
-                                                                   jmbgPacijenta, izabraniLekar.jmbg, null));
+                                                                   p.jmbg, izabraniLekar.jmbg, null));
 
                                     slobodanTermin = slobodanTermin.AddMinutes(30);
                                 }
@@ -126,7 +128,7 @@ namespace InformacioniSistemBolnice
                                     for (int j = 0; j < 27; j++)
                                     {
                                         slobodniTermini.Add(new Termin(slobodanTermin, 30.0, TipTermina.pregled, StatusTermina.slobodan,
-                                                                       jmbgPacijenta, drugiLekar.jmbg, null));
+                                                                       p.jmbg, drugiLekar.jmbg, null));
 
                                         slobodanTermin = slobodanTermin.AddMinutes(30);
 
@@ -155,7 +157,10 @@ namespace InformacioniSistemBolnice
         private void zakaziDugme_Click(object sender, RoutedEventArgs e)
         {
             //UpravljanjeTerminimaPacijenata.Instance.Zakazivanje(this, this.slobodniTermini[0].pacijentJMBG);
-            UpravljanjeNalozimaPacijenata.Instance.ZakazivanjeTermina(this, slobodniTermini[0].pacijentJMBG);
+           
+            UpravljanjeNalozimaPacijenata.Instance.ZakazivanjeTermina(this, zakazivanjeTerminaPacijenta);
+            Termini.Instance.Deserijalizacija();
+            
             this.Close();
         }
     }

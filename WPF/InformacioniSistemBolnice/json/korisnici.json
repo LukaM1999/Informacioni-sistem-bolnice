@@ -43,5 +43,10 @@
     "korisnickoIme": "luka",
     "lozinka": "luka",
     "uloga": 2
+  },
+  {
+    "korisnickoIme": "maja",
+    "lozinka": "majica",
+    "uloga": 2
   }
 ]

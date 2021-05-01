@@ -5,10 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:InformacioniSistemBolnice"
         mc:Ignorable="d"
-        Title="TerminiPacijentaProzorSekretara" Height="480" Width="391">
+        Title="TerminiPacijentaProzorSekretara" Height="480" Width="700">
     <Grid>
         <Canvas>
-            <DataGrid x:Name="listaZakazanihTermina" Height="405" Width="391" Canvas.Top="59" CanUserAddRows="False"/>
+            <DataGrid x:Name="listaZakazanihTermina" Height="405" Width="570" Canvas.Top="59" CanUserAddRows="False"/>
             <Button x:Name="zakaziDugme" Canvas.Left="26" Canvas.Top="19" Width="64" Click="zakaziDugme_Click">Zakazi</Button>
             <Button Content="Pomeri" Canvas.Left="213" Canvas.Top="19" Width="55" Click="pomjeriTermin_Click"/>
             <Button Content="Uvid" Canvas.Left="310" Canvas.Top="19" Click="uvidUTerminPacijenta_Click"/>

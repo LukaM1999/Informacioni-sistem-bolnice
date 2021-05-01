@@ -39,8 +39,8 @@ namespace InformacioniSistemBolnice
        
         private void zakazivanjeTerminaPacijentima_Click(object sender, RoutedEventArgs e)
         {
-            PacijentiProzor1 pacijentiProzor1 = new PacijentiProzor1();
-            pacijentiProzor1.Show();
+            TerminiPacijentaProzorSekretara terminiPacijentaProzorSekretara = new TerminiPacijentaProzorSekretara();
+            terminiPacijentaProzorSekretara.Show();
 
 
         }
@@ -49,6 +49,12 @@ namespace InformacioniSistemBolnice
         {
             VestiProzor vestiProzor = new VestiProzor();
             vestiProzor.Show();
+        }
+
+        private void upravljanjeUrgentnimSistemom_Click(object sender, RoutedEventArgs e)
+        {
+            UpravljanjeUrgentnimSistemomProzor upravljanjeUrgentnimSistemomProzor = new UpravljanjeUrgentnimSistemomProzor();
+            upravljanjeUrgentnimSistemomProzor.Show();
         }
     }
 }

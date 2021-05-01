@@ -21,13 +21,13 @@ namespace InformacioniSistemBolnice
     public partial class ZakazivanjeTerminaSekretara : Window
     {
         public List<string> listaDatuma = new List<string>();
-        public string pacijentJMBG;
+        
         public TerminiPacijentaProzorSekretara terminiPacijentaProzorSekretara;
-        public ZakazivanjeTerminaSekretara(string jmbgPacijenta, TerminiPacijentaProzorSekretara termini)
+        public ZakazivanjeTerminaSekretara(TerminiPacijentaProzorSekretara terminiPacijentaProzorSekretara)
         {
             InitializeComponent();
 
-            terminiPacijentaProzorSekretara = termini;
+            this.terminiPacijentaProzorSekretara = terminiPacijentaProzorSekretara;
             Lekari.Instance.Deserijalizacija();
             lekari.ItemsSource = Lekari.Instance.listaLekara;
             Pacijenti.Instance.Deserijalizacija();
@@ -41,7 +41,7 @@ namespace InformacioniSistemBolnice
         private void potvrdaZakazivanjaDugme_Click(object sender, RoutedEventArgs e)
         {
             Pacijent pacijent = (Pacijent)pacijenti.SelectedItem;
-            IzborTerminaPacijenta izborTermina = new IzborTerminaPacijenta(this, pacijent.jmbg);
+            IzborTerminaPacijenta izborTermina = new IzborTerminaPacijenta(this, terminiPacijentaProzorSekretara);
             izborTermina.Visibility = Visibility.Visible;
 
         }

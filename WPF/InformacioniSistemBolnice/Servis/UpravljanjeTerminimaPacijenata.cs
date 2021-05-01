@@ -75,6 +75,7 @@ namespace Servis
                                 Pacijenti.Instance.Deserijalizacija();
                                 listaZakazanihTermina.ItemsSource = null;
                                 listaZakazanihTermina.ItemsSource = pacijent.zakazaniTermini;
+                               
                                 break;
                             }
                         }
@@ -82,7 +83,7 @@ namespace Servis
                     }
                 }
 
-                foreach (Lekar lekar in Lekari.Instance.listaLekara)
+                foreach (Lekar lekar in Lekari.Instance.listaLekara.ToList())
                 {
                     if (lekar.jmbg == t.lekarJMBG)
                     {

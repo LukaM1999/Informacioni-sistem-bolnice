@@ -1,24 +1,28 @@
 [
   {
+    "Recepti": [],
     "anamneza": null,
-    "Alergeni": [],
-    "recept": null,
-    "Jmbg": "231456768",
-    "LiceZaZdravstvenuZastitu": "Marko",
-    "PolPacijenta": 0,
-    "ImeJednogRoditelja": "Milena",
-    "BrojKnjizice": "7343223",
-    "BrojKartona": "273612",
+    "Alergeni": [
+      {
+        "nazivAlergena": "polen"
+      }
+    ],
+    "Jmbg": "1203998134132",
+    "LiceZaZdravstvenuZastitu": "Milan Miric",
+    "PolPacijenta": 1,
+    "ImeJednogRoditelja": "Milos",
+    "BrojKnjizice": "717171771",
+    "BrojKartona": "K2",
     "KategorijaZdravstveneZastite": 5,
     "BracnoStanje": 0,
     "PodaciOZaposlenjuIZanimanjuPacijenta": {
-      "MestoRada": "lfvfsfdlk",
-      "RegBroj": "kmfsrk",
-      "SifraDelatnosti": "kdlfgnld",
-      "PosaoKojiObavlja": "pdfhld",
-      "OSIZZdrZastite": "jsxn",
-      "RadPodPosebnimUslovima": "lfvfsfdlk",
-      "Promene": "dfs"
+      "MestoRada": "prodavac",
+      "RegBroj": "P1212",
+      "SifraDelatnosti": "prodavac",
+      "PosaoKojiObavlja": "prodavac",
+      "OSIZZdrZastite": "717177",
+      "RadPodPosebnimUslovima": "prodavac",
+      "Promene": "nema"
     }
   }
 ]
