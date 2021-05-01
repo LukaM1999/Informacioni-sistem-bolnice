@@ -19,7 +19,11 @@
       "statickaOprema": [
         {
           "tip": 1,
-          "kolicina": 1
+          "kolicina": 4
+        },
+        {
+          "tip": 3,
+          "kolicina": 0
         }
       ]
     }
@@ -77,7 +81,11 @@
       "statickaOprema": [
         {
           "tip": 3,
-          "kolicina": 23
+          "kolicina": 10
+        },
+        {
+          "tip": 1,
+          "kolicina": 1
         }
       ]
     }
@@ -102,7 +110,7 @@
       "statickaOprema": [
         {
           "tip": 3,
-          "kolicina": 12
+          "kolicina": -3
         }
       ]
     }

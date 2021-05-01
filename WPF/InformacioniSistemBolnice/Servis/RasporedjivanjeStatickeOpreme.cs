@@ -22,21 +22,34 @@ namespace Servis
         {
             if (izProstorije == null)
             {
-                StatickaOpremaTermin novTermin = new StatickaOpremaTermin(izProstorije, uProstoriju, statickaOprema, kolicina, datum);
-                StatickaOpremaTermini.Instance.listaTermina.Add(novTermin);
+                StatickaOpremaTermin novTermin1 = new StatickaOpremaTermin(izProstorije, uProstoriju, statickaOprema, kolicina, datum);
+                StatickaOpremaTermini.Instance.listaTermina.Add(novTermin1);
                 StatickaOpremaTermini.Instance.Serijalizacija();
                 StatickaOpremaTermini.Instance.Deserijalizacija();
+                return;
             }
+            if (uProstoriju == null)
+            {
+                StatickaOpremaTermin novTermin2 = new StatickaOpremaTermin(izProstorije, uProstoriju, statickaOprema, kolicina, datum);
+                StatickaOpremaTermini.Instance.listaTermina.Add(novTermin2);
+                StatickaOpremaTermini.Instance.Serijalizacija();
+                StatickaOpremaTermini.Instance.Deserijalizacija();
+                return;
+            }
+            StatickaOpremaTermin novTermin3 = new StatickaOpremaTermin(izProstorije, uProstoriju, statickaOprema, kolicina, datum);
+            StatickaOpremaTermini.Instance.listaTermina.Add(novTermin3);
+            StatickaOpremaTermini.Instance.Serijalizacija();
+            StatickaOpremaTermini.Instance.Deserijalizacija();
         }
 
         public void ProveraPremestajaOpreme()
         {
             while (true)
             {
-                while(StatickaOpremaTermini.Instance.listaTermina.ToList().Count == 0)
-                {
-                    Thread.Sleep(10000);
-                }
+                //while(StatickaOpremaTermini.Instance.listaTermina.ToList().Count == 0)
+                //{
+                //    Thread.Sleep(10000);
+                //}
                 int temp = 0;
                 foreach(StatickaOpremaTermin t in StatickaOpremaTermini.Instance.listaTermina.ToList())
                 {
@@ -76,8 +89,68 @@ namespace Servis
                             StatickaOpremaTermini.Instance.listaTermina.Remove(t);
                             StatickaOpremaTermini.Instance.Serijalizacija();
                             StatickaOpremaTermini.Instance.Deserijalizacija();
+                        }
+                        if (t.uProstoriju == null)
+                        {
+                            foreach (Model.StatickaOprema s in t.izProstorije.inventar.statickaOprema.ToList())
+                            {
+                                if (s.tip.Equals(t.oprema.tip))
+                                {
+                                    Prostorije.Instance.getSelected(t.izProstorije).inventar.getSelectedS(s).kolicina -= t.kolicina;
+                                    break;
+                                }
+                            }
+                            Prostorije.Instance.Serijalizacija();
+                            Prostorije.Instance.Deserijalizacija();
+                            foreach (Model.StatickaOprema s in Repozitorijum.StatickaOprema.Instance.listaOpreme.ToList())
+                            {
+                                if (s.tip.Equals(t.oprema.tip))
+                                {
+                                    Repozitorijum.StatickaOprema.Instance.getSelected(s).kolicina += t.kolicina;
+                                    break;
+                                }
+                            }
+                            Repozitorijum.StatickaOprema.Instance.Serijalizacija();
+                            Repozitorijum.StatickaOprema.Instance.Deserijalizacija();
 
-                            //MagacinProzor.Instance.listViewStatOpreme.ItemsSource = Repozitorijum.StatickaOprema.Instance.listaOpreme;
+                            StatickaOpremaTermini.Instance.listaTermina.Remove(t);
+                            StatickaOpremaTermini.Instance.Serijalizacija();
+                            StatickaOpremaTermini.Instance.Deserijalizacija();
+                        }
+                        if (t.uProstoriju != null && t.izProstorije != null)
+                        {
+                            foreach (Model.StatickaOprema s in t.uProstoriju.inventar.statickaOprema.ToList())
+                            {
+                                if (s.tip.Equals(t.oprema.tip))
+                                {
+                                    Prostorije.Instance.getSelected(t.uProstoriju).inventar.getSelectedS(s).kolicina += t.kolicina;
+                                    temp = 1;
+                                    break;
+                                }
+                            }
+                            if (temp != 1)
+                            {
+                                Model.StatickaOprema stat = new Model.StatickaOprema(t.kolicina, t.oprema.tip);
+                                Prostorije.Instance.getSelected(t.uProstoriju).inventar.statickaOprema.Add(stat);
+                                temp = 0;
+                            }
+
+                            foreach (Model.StatickaOprema s in t.izProstorije.inventar.statickaOprema.ToList())
+                            {
+                                if (s.tip.Equals(t.oprema.tip))
+                                {
+                                    Prostorije.Instance.getSelected(t.izProstorije).inventar.getSelectedS(s).kolicina -= t.kolicina;
+                                    break;
+                                }
+                            }
+                            
+                            Prostorije.Instance.Serijalizacija();
+                            Prostorije.Instance.Deserijalizacija();
+                            
+
+                            StatickaOpremaTermini.Instance.listaTermina.Remove(t);
+                            StatickaOpremaTermini.Instance.Serijalizacija();
+                            StatickaOpremaTermini.Instance.Deserijalizacija();
                         }
                     }
                 }
