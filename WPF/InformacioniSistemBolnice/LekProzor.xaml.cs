@@ -42,5 +42,18 @@ namespace InformacioniSistemBolnice
             UpravnikKontroler.Instance.BrisanjeLeka(lek);
             listaLekova.ItemsSource = Lekovi.Instance.listaLekova;
         }
+
+        private void btnIzmeni_Click(object sender, RoutedEventArgs e)
+        {
+            LekIzmeniProzor prozor = new LekIzmeniProzor(listaLekova);
+            prozor.PostaviText();
+            prozor.Show();
+        }
+
+        private void btnInfo_Click(object sender, RoutedEventArgs e)
+        {
+            LekInfoProzor prozor = new LekInfoProzor((Lek)listaLekova.SelectedItem);
+            prozor.Show();
+        }
     }
 }

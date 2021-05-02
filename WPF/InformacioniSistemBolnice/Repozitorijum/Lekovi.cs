@@ -37,5 +37,18 @@ namespace Repozitorijum
             string json = JsonConvert.SerializeObject(listaLekova, Formatting.Indented);
             File.WriteAllText(putanja, json);
         }
+
+        public Lek getSelected(Lek p)
+        {
+            Lek prs = null;
+            foreach (Lek pr in listaLekova)
+            {
+                if (pr.naziv.Equals(p.naziv))
+                {
+                    prs = pr;
+                }
+            }
+            return listaLekova.ElementAt(listaLekova.IndexOf(prs));
+        }
     }
 }

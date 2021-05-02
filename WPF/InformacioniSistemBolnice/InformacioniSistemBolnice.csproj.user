@@ -55,6 +55,12 @@
     <Compile Update="LekDodajProzor.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="LekInfoProzor.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="LekIzmeniProzor.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="LekProzor.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -202,6 +208,12 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="LekDodajProzor.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="LekInfoProzor.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="LekIzmeniProzor.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="LekProzor.xaml">

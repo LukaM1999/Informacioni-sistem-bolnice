@@ -32,14 +32,13 @@ namespace Servis
             Lekovi.Instance.Deserijalizacija();
         }
 
-        public void IzmenaLeka(LekDto dto)
+        public void IzmenaLeka(LekDto dto, Lek lek)
         {
-            
-        }
-
-        public void PregledLeka()
-        {
-            throw new NotImplementedException();
+            Lekovi.Instance.getSelected(lek).naziv = dto.naziv;
+            Lekovi.Instance.getSelected(lek).proizvodjac = dto.proizvodjac;
+            Lekovi.Instance.getSelected(lek).sastojci = dto.sastojci;
+            Lekovi.Instance.Serijalizacija();
+            Lekovi.Instance.Deserijalizacija();
         }
     }
 }

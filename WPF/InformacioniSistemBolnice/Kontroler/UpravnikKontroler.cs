@@ -85,6 +85,11 @@ namespace Kontroler
             UpravljanjeLekovima.Instance.UklanjanjeLeka(lek);
         }
 
+        public void IzmenaLeka(LekDto dto, Lek lek)
+        {
+            UpravljanjeLekovima.Instance.IzmenaLeka(dto, lek);
+        }
+
         public UpravljanjeProstorijama upravljanjeProstorijama;
 
         public UpravljanjeStatickomOpremom upravljanjeStatickomOpremom;
