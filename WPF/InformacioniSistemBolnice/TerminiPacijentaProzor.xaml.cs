@@ -20,12 +20,15 @@ using Kontroler;
 using System.Threading;
 using FluentScheduler;
 using InformacioniSistemBolnice.Servis;
+using System.Diagnostics;
 
 namespace InformacioniSistemBolnice
 {
     public partial class TerminiPacijentaProzor : Window
     {
         public Pacijent ulogovanPacijent;
+        public Terapija trenutnaTerapija;
+        public Termin pacijentovTermin;
 
         private const int TerminaDoAnkete = 3;
         private const int MesecaDoAnkete = 4;
@@ -41,14 +44,92 @@ namespace InformacioniSistemBolnice
             PostaviTermineUlogovanogPacijenta();
             listaZakazanihTermina.ItemsSource = ulogovanPacijent.zakazaniTermini;
 
-            OtvoriAnketuOBolnici();
-
             Thread proveraZavrsenostiTermina = new(ProveriZavrsenostTermina);
             proveraZavrsenostiTermina.Start();
 
             Thread proveraMalicioznosti = new(() =>
-                { UpravljanjeAntiTrollMehanizmom.Instance.ProveriMalicioznostPacijenta(ulogovanPacijent); });
+            {
+                UpravljanjeAntiTrollMehanizmom.Instance.ProveriMalicioznostPacijenta(ulogovanPacijent);
+            });
             proveraMalicioznosti.Start();
+
+            OtvoriAnketuOBolnici();
+
+            Thread lekObavestenja = new(UkljuciObavestenja);
+            lekObavestenja.Start();
+
+        }
+
+        private void UkljuciObavestenja()
+        {
+            ZakaziObavestenja();
+            while (true) PrikaziObavestenja();
+        }
+
+        private void PrikaziObavestenja()
+        {
+            foreach (Recept recept in ulogovanPacijent.zdravstveniKarton.Recepti)
+            {
+                foreach (Terapija t in recept.Terapije)
+                {
+                    trenutnaTerapija = t;
+                    if (JeVremeZaPrikaz()) OmoguciPrikazObavestenja();
+                    else OnemoguciPrikazObavestenja();
+                }
+            }
+        }
+
+        private void OmoguciPrikazObavestenja()
+        {
+            JobManager.GetSchedule("prvo uzimanje: " + trenutnaTerapija.Lek.Naziv)?.Enable();
+            JobManager.GetSchedule("uzimanje: " + trenutnaTerapija.Lek.Naziv)?.Enable();
+        }
+
+        private void OnemoguciPrikazObavestenja()
+        {
+            JobManager.GetSchedule("prvo uzimanje: " + trenutnaTerapija.Lek.Naziv)?.Disable();
+            JobManager.GetSchedule("uzimanje: " + trenutnaTerapija.Lek.Naziv)?.Disable();
+        }
+
+        private bool JeVremeZaPrikaz()
+        {
+            return DateTime.Now > trenutnaTerapija.pocetakTerapije && DateTime.Now < trenutnaTerapija.krajTerapije;
+        }
+
+        private void ZakaziObavestenja()
+        {
+            foreach (Recept recept in ulogovanPacijent.zdravstveniKarton.Recepti)
+            {
+                foreach (Terapija terapija in recept.Terapije)
+                {
+                    JobManager.Initialize();
+                    ZakaziPrvoObavestenje(terapija);
+                    ZakaziDaljaObavestenja(terapija);
+                }
+            }
+        }
+
+        private static void ZakaziDaljaObavestenja(Terapija terapija)
+        {
+            int redovnost = DobaviRedovnostTerapije(terapija);
+            JobManager.AddJob(
+                () => Debug.WriteLine("Vreme je da uzmete: " + terapija.Lek.Naziv + ", " + terapija.mera + " mg."),
+                (s) => s.WithName("uzimanje: " + terapija.Lek.Naziv).ToRunEvery(redovnost).Seconds()
+                    .DelayFor(redovnost - DateTime.Now.Second % redovnost).Seconds());
+        }
+
+        private static int DobaviRedovnostTerapije(Terapija terapija)
+        {
+            return (int)terapija.redovnost;
+        }
+
+        private static void ZakaziPrvoObavestenje(Terapija terapija)
+        {
+            int redovnost = DobaviRedovnostTerapije(terapija);
+            JobManager.AddJob(
+                () => Debug.WriteLine("Vreme je da uzmete: " + terapija.Lek.Naziv + ", " + terapija.mera + " mg."),
+                (s) => s.WithName("prvo uzimanje: " + terapija.Lek.Naziv)
+                    .ToRunOnceIn(redovnost - DateTime.Now.Second % redovnost).Seconds());
         }
 
         private async void OtvoriAnketuOBolnici()
@@ -152,9 +233,10 @@ namespace InformacioniSistemBolnice
             {
                 foreach (Termin termin in Termini.Instance.listaTermina.ToList())
                 {
-                    if (!JeTerminZavrsen(termin)) continue;
+                    pacijentovTermin = termin;
+                    if (!JeTerminZavrsen()) continue;
+                    ZavrsiPacijentovTermin();
                     termin.status = StatusTermina.zavrsen;
-                    ZavrsiPacijentovTermin(termin);
                     Termini.Instance.Serijalizacija();
                     Termini.Instance.Deserijalizacija();
                     System.Diagnostics.Debug.WriteLine(DateTime.Now);
@@ -163,24 +245,25 @@ namespace InformacioniSistemBolnice
             }
         }
 
-        private void ZavrsiPacijentovTermin(Termin termin)
+        private void ZavrsiPacijentovTermin()
         {
-            foreach (Termin pacijentovTermin in ulogovanPacijent.zakazaniTermini)
+            foreach (Termin termin in ulogovanPacijent.zakazaniTermini)
             {
-                if (!JePacijentovNezavrsenTermin(termin, pacijentovTermin)) continue;
+                if (!JePacijentovNezavrsenTermin(termin)) continue;
                 pacijentovTermin.status = StatusTermina.zavrsen;
                 break;
             }
         }
 
-        private static bool JePacijentovNezavrsenTermin(Termin termin, Termin pacijentovTermin)
+        private bool JePacijentovNezavrsenTermin(Termin termin)
         {
             return termin.vreme == pacijentovTermin.vreme && pacijentovTermin.status != StatusTermina.zavrsen;
         }
 
-        private static bool JeTerminZavrsen(Termin termin)
+        private bool JeTerminZavrsen()
         {
-            return termin.vreme.AddMinutes(termin.trajanje) < DateTime.Now && termin.status != StatusTermina.zavrsen;
+            return pacijentovTermin.vreme.AddMinutes(pacijentovTermin.trajanje) < DateTime.Now && 
+                pacijentovTermin.status != StatusTermina.zavrsen;
         }
 
         private void pomeriDugme_Click(object sender, RoutedEventArgs e)

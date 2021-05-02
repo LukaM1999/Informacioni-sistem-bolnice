@@ -17,7 +17,7 @@ namespace Servis
         public void IzdavanjeRecepta(ReceptDto receptDto)
         {
             Recept recept = new Recept(receptDto.Id);
-            recept.terapije.Add(new Terapija(receptDto.PocetakTerapije, receptDto.KrajTerapije, receptDto.MeraLeka, receptDto.RedovnostUzimanjaLeka));
+            recept.Terapije.Add(new Terapija(receptDto.PocetakTerapije, receptDto.KrajTerapije, receptDto.MeraLeka, receptDto.RedovnostUzimanjaLeka));
             receptDto.Pacijent.zdravstveniKarton.Recepti.Add(recept);
             Pacijenti.Instance.Serijalizacija();
             Pacijenti.Instance.Deserijalizacija();

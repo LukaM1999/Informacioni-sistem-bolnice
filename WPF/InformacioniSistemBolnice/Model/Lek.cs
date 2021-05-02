@@ -5,8 +5,8 @@ namespace Model
 {
     public class Lek : DinamickaOprema
     {
-        private string naziv;
-        private string proizvodjac;
+        public string Naziv { get; set; }
+        public string Proizvodjac { get; set; }
 
         public ObservableCollection<Alergen> alergen;
 
