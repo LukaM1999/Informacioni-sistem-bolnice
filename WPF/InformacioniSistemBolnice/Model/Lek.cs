@@ -5,8 +5,21 @@ namespace Model
 {
     public class Lek : DinamickaOprema
     {
-        private string naziv;
-        private string proizvodjac;
+        public string naziv
+        {
+            get;
+            set;
+        }
+        public string proizvodjac
+        {
+            get;
+            set;
+        }
+        public string sastojci
+        {
+            get;
+            set;
+        }
 
         public ObservableCollection<Alergen> alergen;
 
@@ -54,5 +67,12 @@ namespace Model
                 alergen.Clear();
         }
 
+        public Lek() { }
+        public Lek(String naziv, String proizvodjac, String sastojci)
+        {
+            this.naziv = naziv;
+            this.proizvodjac = proizvodjac;
+            this.sastojci = sastojci;
+        }
     }
 }

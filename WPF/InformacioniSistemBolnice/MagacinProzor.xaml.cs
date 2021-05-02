@@ -23,13 +23,6 @@ namespace InformacioniSistemBolnice
     /// </summary>
     public partial class MagacinProzor : Window
     {
-        private static readonly Lazy<MagacinProzor>
-           lazy =
-           new Lazy<MagacinProzor>
-               (() => new MagacinProzor());
-
-        public static MagacinProzor Instance { get { return lazy.Value; } }
-
         private ProstorijeProzor prostorijaProzor;
 
         public MagacinProzor() { }

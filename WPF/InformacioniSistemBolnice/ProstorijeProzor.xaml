@@ -5,17 +5,16 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:InformacioniSistemBolnice"
         mc:Ignorable="d"
-        Title="ProstorijeProzor" Height="500" Width="419">
+        Title="ProstorijeProzor" Height="594" Width="467">
     <Grid>
-        <StackPanel Margin="0,50,0,0">
-            <DataGrid x:Name="ListaProstorija" Height="432" CanUserAddRows="False" ColumnWidth="*"/>
-        </StackPanel>
-        <Canvas x:Name="RukovanjeProstorijama" Margin="0,0,0,439">
-            <Button x:Name="dodajProstorijuDugme" Content="Dodaj" Canvas.Left="10" Canvas.Top="13" Width="50" Click="Dodaj"/>
-            <Button x:Name="obrisiProstorijuDugme" Content="Obrisi" Canvas.Left="83" Canvas.Top="13" Width="50" Click="Obrisi"/>
-            <Button x:Name="izmeniProstorijuDugme" Content="Izmeni" Height="20" Canvas.Left="155" Canvas.Top="13" Width="68" Click="izmeniProstorijuDugme_Click"/>
-            <Button x:Name="infoDugme" Content="Info" Height="20" Canvas.Left="243" Canvas.Top="13" Width="61" Click="infoDugme_Click"/>
-            <Button x:Name="magacinDugme" Content="Magacin" Height="20" Canvas.Left="320" Canvas.Top="13" Width="70" Click="magacinDugme_Click"/>
+        <DataGrid x:Name="ListaProstorija" CanUserAddRows="False" ColumnWidth="*" Width="445" Margin="11,91,11,83"/>
+        <Canvas x:Name="RukovanjeProstorijama" Margin="0,0,0,533">
+            <Button x:Name="dodajProstorijuDugme" Content="Dodaj" Canvas.Left="42" Canvas.Top="10" Width="100" Click="Dodaj" Height="31"/>
+            <Button x:Name="obrisiProstorijuDugme" Content="Obrisi" Canvas.Left="147" Canvas.Top="10" Width="100" Click="Obrisi" Height="30"/>
+            <Button x:Name="izmeniProstorijuDugme" Content="Izmeni" Height="30" Canvas.Left="252" Canvas.Top="10" Width="100" Click="izmeniProstorijuDugme_Click"/>
+            <Button x:Name="infoDugme" Content="Info" Height="30" Canvas.Left="357" Canvas.Top="10" Width="100" Click="infoDugme_Click"/>
+            <Button x:Name="magacinDugme" Content="Magacin" Height="30" Canvas.Left="42" Canvas.Top="46" Width="100" Click="magacinDugme_Click"/>
+            <Button x:Name="lekoviDugme" Content="Lekovi" Height="30" Canvas.Left="147" Canvas.Top="46" Width="100" Click="lekoviDugme_Click"/>
         </Canvas>
 
     </Grid>

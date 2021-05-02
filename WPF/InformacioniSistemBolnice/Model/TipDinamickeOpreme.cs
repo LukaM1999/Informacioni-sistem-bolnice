@@ -4,7 +4,6 @@ namespace Model
 {
     public enum TipDinamickeOpreme
     {
-        lek,
         flaster,
         stapic,
         igla,

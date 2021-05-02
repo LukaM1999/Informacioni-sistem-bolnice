@@ -69,5 +69,11 @@ namespace InformacioniSistemBolnice
             MagacinProzor mp = new MagacinProzor(this);
             mp.Show();
         }
+
+        private void lekoviDugme_Click(object sender, RoutedEventArgs e)
+        {
+            LekProzor prozor = new LekProzor();
+            prozor.Show();
+        }
     }
 }
