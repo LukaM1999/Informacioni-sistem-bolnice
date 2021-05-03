@@ -75,6 +75,21 @@ namespace Kontroler
             Servis.RasporedjivanjeStatickeOpreme.Instance.ZakazivanjePremestanja(izProstorije, uProstoriju, statickaOprema, kolicina, datum);
         }
 
+        public void KreiranjeLeka(LekDto dto)
+        {
+            UpravljanjeLekovima.Instance.KreiranjeLeka(dto);
+        }
+
+        public void BrisanjeLeka(Lek lek)
+        {
+            UpravljanjeLekovima.Instance.UklanjanjeLeka(lek);
+        }
+
+        public void IzmenaLeka(LekDto dto, Lek lek)
+        {
+            UpravljanjeLekovima.Instance.IzmenaLeka(dto, lek);
+        }
+
         public UpravljanjeProstorijama upravljanjeProstorijama;
 
         public UpravljanjeStatickomOpremom upravljanjeStatickomOpremom;
@@ -84,6 +99,8 @@ namespace Kontroler
         public RasporedjivanjeDinamickeOpreme rasporedjivanjeDinamickeOpreme;
 
         public RasporedjivanjeStatickeOpreme rasporedjivanjeStatickeOpreme;
+
+        public UpravljanjeLekovima upravljanjeLekovima;
 
     }
 }

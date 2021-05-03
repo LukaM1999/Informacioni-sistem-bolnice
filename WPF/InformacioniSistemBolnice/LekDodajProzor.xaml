@@ -1,0 +1,19 @@
+﻿<Window x:Class="InformacioniSistemBolnice.LekDodajProzor"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:InformacioniSistemBolnice"
+        mc:Ignorable="d"
+        Title="LekDodajProzor" Height="589" Width="659">
+    <Grid>
+        <Label Content="Proizvodjac:" HorizontalAlignment="Left" Margin="96,80,0,0" VerticalAlignment="Top" Height="30"/>
+        <Button x:Name="btnPotvrdi" Content="Potvrdi" HorizontalAlignment="Left" Margin="425,447,0,0" VerticalAlignment="Top" Height="30" Width="100" Click="btnPotvrdi_Click"/>
+        <TextBox x:Name="tbNaziv" HorizontalAlignment="Left" Margin="235,141,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="290" Height="30"/>
+        <Label Content="Naziv:" HorizontalAlignment="Left" Margin="96,141,0,0" VerticalAlignment="Top" Height="30"/>
+        <Label Content="Sastojci" HorizontalAlignment="Left" Margin="96,198,0,0" VerticalAlignment="Top" Height="30"/>
+        <TextBox x:Name="tbSastojci" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="290" Height="172" Margin="235,198,0,0"/>
+        <TextBox x:Name="tbProizvodjac1" HorizontalAlignment="Left" Margin="235,80,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="290" Height="30"/>
+
+    </Grid>
+</Window>

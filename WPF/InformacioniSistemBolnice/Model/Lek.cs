@@ -7,6 +7,7 @@ namespace Model
     {
         public string Naziv { get; set; }
         public string Proizvodjac { get; set; }
+		public string Sastojci { get; set; }
 
         public ObservableCollection<Alergen> alergen;
 
@@ -54,5 +55,12 @@ namespace Model
                 alergen.Clear();
         }
 
+        public Lek() { }
+        public Lek(String naziv, String proizvodjac, String sastojci)
+        {
+            this.naziv = naziv;
+            this.proizvodjac = proizvodjac;
+            this.sastojci = sastojci;
+        }
     }
 }
