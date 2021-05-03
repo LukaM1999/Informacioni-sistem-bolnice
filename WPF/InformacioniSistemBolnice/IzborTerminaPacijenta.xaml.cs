@@ -28,13 +28,15 @@ namespace InformacioniSistemBolnice
         private ObservableCollection<Termin> slobodniTermini;
 
         public ZakazivanjeTerminaSekretara zakazivanjeTerminaPacijenta;
+        public TerminiPacijentaProzorSekretara terminiPacijentaProzorSekretara;
         
 
-        public IzborTerminaPacijenta(ZakazivanjeTerminaSekretara zakazivanje, TerminiPacijentaProzorSekretara terminiPacijentaProzorSekretara)
+        public IzborTerminaPacijenta(ZakazivanjeTerminaSekretara zakazivanje, TerminiPacijentaProzorSekretara terminiPacijenta)
         {
             InitializeComponent();
             zakazivanjeTerminaPacijenta = zakazivanje;
-            zakazivanjeTerminaPacijenta.terminiPacijentaProzorSekretara = terminiPacijentaProzorSekretara;
+            terminiPacijentaProzorSekretara = terminiPacijentaProzorSekretara;
+            zakazivanjeTerminaPacijenta.terminiPacijentaProzorSekretara = terminiPacijenta;
             if (zakazivanje.minDatumTermina.SelectedDate != null && zakazivanje.maxDatumTermina != null && zakazivanje.lekari.SelectedIndex > -1)
             {
                 slobodniTermini = new ObservableCollection<Termin>();
@@ -159,7 +161,7 @@ namespace InformacioniSistemBolnice
             //UpravljanjeTerminimaPacijenata.Instance.Zakazivanje(this, this.slobodniTermini[0].pacijentJMBG);
            
             UpravljanjeNalozimaPacijenata.Instance.ZakazivanjeTermina(this, zakazivanjeTerminaPacijenta);
-            Termini.Instance.Deserijalizacija();
+            
             
             this.Close();
         }

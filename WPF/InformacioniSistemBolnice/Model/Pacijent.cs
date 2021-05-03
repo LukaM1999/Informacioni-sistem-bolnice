@@ -40,7 +40,7 @@ namespace Model
 
         public override string ToString()
         {
-            return korisnik.korisnickoIme;
+            return ime + " " + prezime;
         }
     }
 }
