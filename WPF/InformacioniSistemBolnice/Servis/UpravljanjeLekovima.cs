@@ -34,9 +34,9 @@ namespace Servis
 
         public void IzmenaLeka(LekDto dto, Lek lek)
         {
-            Lekovi.Instance.getSelected(lek).naziv = dto.naziv;
-            Lekovi.Instance.getSelected(lek).proizvodjac = dto.proizvodjac;
-            Lekovi.Instance.getSelected(lek).sastojci = dto.sastojci;
+            Lekovi.Instance.getSelected(lek).Naziv = dto.naziv;
+            Lekovi.Instance.getSelected(lek).Proizvodjac = dto.proizvodjac;
+            Lekovi.Instance.getSelected(lek).Sastojci = dto.sastojci;
             Lekovi.Instance.Serijalizacija();
             Lekovi.Instance.Deserijalizacija();
         }

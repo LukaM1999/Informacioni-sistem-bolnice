@@ -58,9 +58,9 @@ namespace Model
         public Lek() { }
         public Lek(String naziv, String proizvodjac, String sastojci)
         {
-            this.naziv = naziv;
-            this.proizvodjac = proizvodjac;
-            this.sastojci = sastojci;
+            this.Naziv = naziv;
+            this.Proizvodjac = proizvodjac;
+            this.Sastojci = sastojci;
         }
     }
 }

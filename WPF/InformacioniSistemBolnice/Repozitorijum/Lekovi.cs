@@ -43,7 +43,7 @@ namespace Repozitorijum
             Lek prs = null;
             foreach (Lek pr in listaLekova)
             {
-                if (pr.naziv.Equals(p.naziv))
+                if (pr.Naziv.Equals(p.Naziv))
                 {
                     prs = pr;
                 }

@@ -38,9 +38,9 @@ namespace InformacioniSistemBolnice
 
         public void PostaviText()
         {
-            tbNaziv.Text = lek.naziv;
-            tbProizvodjac.Text = lek.proizvodjac;
-            tbSastojci.Text = lek.sastojci;
+            tbNaziv.Text = lek.Naziv;
+            tbProizvodjac.Text = lek.Proizvodjac;
+            tbSastojci.Text = lek.Sastojci;
         }
         private void btnPotvrdi_Click(object sender, RoutedEventArgs e)
         {
