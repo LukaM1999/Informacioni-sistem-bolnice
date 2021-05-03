@@ -36,9 +36,11 @@ namespace InformacioniSistemBolnice
             zakazivanjeHitnogTermina.Show();
         }
 
-        private void pomjeriPregled_Click(object sender, RoutedEventArgs e)
-        {
 
+        private void kreirajGostujucegPacijenta_click(object sender, RoutedEventArgs e)
+        {
+            KreiranjeGostujucegPacijentaProzor kreiranjeGostujucegPacijentaProzor = new KreiranjeGostujucegPacijentaProzor();
+            kreiranjeGostujucegPacijentaProzor.Show();
         }
     }
 }

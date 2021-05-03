@@ -48,5 +48,11 @@ namespace InformacioniSistemBolnice
             Termini.Instance.Deserijalizacija();
             upravljanjeUrgentnimSistemomProzor.ListaTermina.ItemsSource = Termini.Instance.listaTermina;
         }
+
+        private void pomeriPostojeciTermin_Click(object sender, RoutedEventArgs e)
+        {
+            IzborTerminaZaPomeranje izborTerminaZaPomeranje = new IzborTerminaZaPomeranje(this);
+            izborTerminaZaPomeranje.Show();
+        }
     }
 }
