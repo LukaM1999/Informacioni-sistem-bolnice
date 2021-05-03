@@ -52,6 +52,7 @@ namespace Servis
                         break;
                     }
                 }
+                ListaProstorija.ItemsSource = Prostorije.Instance.listaProstorija;
             }
         }
       

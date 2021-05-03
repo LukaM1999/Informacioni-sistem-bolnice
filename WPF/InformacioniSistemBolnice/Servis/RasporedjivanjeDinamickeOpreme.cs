@@ -35,6 +35,7 @@ namespace Servis
                 Prostorije.Instance.getSelected(uProstoriju).inventar.dinamickaOprema.Add(new Model.DinamickaOprema(kolicina, dinamickaOprema.tip));
                 Prostorije.Instance.Serijalizacija();
                 Prostorije.Instance.Deserijalizacija();
+                return;
             }
             if(uProstoriju == null)
             {
