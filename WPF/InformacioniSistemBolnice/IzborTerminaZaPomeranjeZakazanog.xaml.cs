@@ -15,6 +15,7 @@ using System.Windows.Shapes;
 using Model;
 using Repozitorijum;
 using Servis;
+using Kontroler;
 
 namespace InformacioniSistemBolnice
 {
@@ -83,9 +84,23 @@ namespace InformacioniSistemBolnice
 
         private void pomeriDugme_Click(object sender, RoutedEventArgs e)
         {
-            UpravljanjeUrgentnimSistemom.Instance.PomeranjeTermina(this, terminiZaPomeranje);
+            if (this.ponudjeniTermini.SelectedIndex >= 0) 
+            {
+                TerminiLekaraZaPomeranjeDto terminiLekaraZaPomeranjeDto = new(
+                    (Termin)this.terminiZaPomeranje.ponudjeniTerminiZaPomeranje.SelectedItem,
+                    (Termin)this.ponudjeniTermini.SelectedItem,
+                    ((Pacijent)this.terminiZaPomeranje.zakazivanjeHitnogTermina.pacijenti.SelectedItem).jmbg);
+                SekretarKontroler.Instance.PomeranjeTermina(terminiLekaraZaPomeranjeDto);
+                Termini.Instance.Deserijalizacija();
+                terminiZaPomeranje.zakazivanjeHitnogTermina.upravljanjeUrgentnimSistemomProzor.
+                ListaTermina.ItemsSource = Termini.Instance.listaTermina;
+                this.terminiZaPomeranje.Close();
+                this.Close();
+            }
+
 
         }
+
     }
 
     
