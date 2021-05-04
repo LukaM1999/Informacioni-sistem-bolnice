@@ -29,14 +29,18 @@ namespace InformacioniSistemBolnice
             Pacijenti.Instance.Deserijalizacija();
             Lekari.Instance.Deserijalizacija();
             Termini.Instance.Deserijalizacija();
-
+            ulogovanLekar.zauzetiTermini.Clear();
+            foreach (Termin termin in Termini.Instance.listaTermina.ToList())
+            {
+                if (ulogovanLekar.jmbg.Equals(termin.lekarJMBG))
+                {
+                    ulogovanLekar.zauzetiTermini.Add(termin);
+                }
+            }
             listaZakazanihTerminaLekara.ItemsSource = ulogovanLekar.zauzetiTermini;
             jmbgLekara = ulogovanLekar.jmbg;
             System.Diagnostics.Debug.WriteLine(jmbgLekara);
-
-
         }
-
         private void pomeriDugme_Click(object sender, RoutedEventArgs e)
         {
             if (listaZakazanihTerminaLekara.SelectedIndex >= 0)

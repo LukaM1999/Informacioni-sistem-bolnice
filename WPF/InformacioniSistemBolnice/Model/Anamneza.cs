@@ -1,7 +1,8 @@
 using System;
-
+using PropertyChanged;
 namespace Model
 {
+    [AddINotifyPropertyChangedInterface]
     public class Anamneza
     {
         public Anamneza()

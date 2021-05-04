@@ -1,8 +1,9 @@
 using System;
 using System.Collections.ObjectModel;
-
+using PropertyChanged;
 namespace Model
 {
+    [AddINotifyPropertyChangedInterface]
     public class Lek : DinamickaOprema
     {
         public string Naziv { get; set; }
