@@ -28,10 +28,6 @@ namespace InformacioniSistemBolnice
     {
         public Pacijent ulogovanPacijent;
         public Terapija trenutnaTerapija;
-        public Termin pacijentovTermin;
-
-        private const int TerminaDoAnkete = 3;
-        private const int MesecaDoAnkete = 4;
 
         public TerminiPacijentaProzor(string korisnickoIme, string lozinka)
         {
@@ -44,16 +40,15 @@ namespace InformacioniSistemBolnice
             PostaviTermineUlogovanogPacijenta();
             listaZakazanihTermina.ItemsSource = ulogovanPacijent.zakazaniTermini;
 
-            Thread proveraZavrsenostiTermina = new(ProveriZavrsenostTermina);
+            Thread proveraZavrsenostiTermina = new(() => 
+                ProveraZavrsenostiTermina.Instance.ProveriZavrsenostTermina(ulogovanPacijent));
             proveraZavrsenostiTermina.Start();
 
             Thread proveraMalicioznosti = new(() =>
-            {
-                UpravljanjeAntiTrollMehanizmom.Instance.ProveriMalicioznostPacijenta(ulogovanPacijent);
-            });
+                UpravljanjeAntiTrollMehanizmom.Instance.ProveriMalicioznostPacijenta(ulogovanPacijent));
             proveraMalicioznosti.Start();
 
-            OtvoriAnketuOBolnici();
+            UpravljanjeAnketama.Instance.OtvoriAnketuOBolnici(ulogovanPacijent);
 
             Thread lekObavestenja = new(UkljuciObavestenja);
             lekObavestenja.Start();
@@ -132,73 +127,6 @@ namespace InformacioniSistemBolnice
                     .ToRunOnceIn(redovnost - DateTime.Now.Second % redovnost).Seconds());
         }
 
-        private async void OtvoriAnketuOBolnici()
-        {
-            if (!PacijentPosetioBolnicu(DobaviSortiraneTermine())) return;
-            if (PrebrojTermineDoAnkete() < TerminaDoAnkete && !JeVremeZaAnketu()) return;
-            AnketaOBolniciForma anketaOBolnici = new(ulogovanPacijent.jmbg);
-            await Task.Delay(7000);
-            anketaOBolnici.Show();
-        }
-
-        private int PrebrojTermineDoAnkete()
-        {
-            int zavrsenihTermina = 0;
-            foreach (Termin termin in DobaviSortiraneTermine())
-            {
-                if (JeNovozavrsen(termin)) zavrsenihTermina++;
-                if (JePrvaAnketa(termin)) zavrsenihTermina++;
-            }
-            return zavrsenihTermina;
-        }
-
-        private bool JePrvaAnketa(Termin termin)
-        {
-            return DobaviPacijentoveAnkete().Count == 0 && termin.status == StatusTermina.zavrsen;
-        }
-
-        private bool JeNovozavrsen(Termin termin)
-        {
-            List<AnketaOBolnici> sortiraneAnkete = DobaviSortiraneAnkete(DobaviPacijentoveAnkete());
-            if (sortiraneAnkete.Count <= 1)
-                return termin.status == StatusTermina.zavrsen && sortiraneAnkete.Count != 0 &&
-                       termin.vreme < sortiraneAnkete[0].VremePopunjavanja;
-            return termin.status == StatusTermina.zavrsen && termin.vreme > sortiraneAnkete[1].VremePopunjavanja &&
-                   termin.vreme < sortiraneAnkete[0].VremePopunjavanja;
-        }
-
-        private bool JeVremeZaAnketu()
-        {
-            List<AnketaOBolnici> sortiraneAnkete = DobaviSortiraneAnkete(DobaviPacijentoveAnkete());
-            return sortiraneAnkete[0].VremePopunjavanja.AddMonths(MesecaDoAnkete) < DateTime.Now;
-        }
-
-        private List<AnketaOBolnici> DobaviPacijentoveAnkete()
-        {
-            List<AnketaOBolnici> pacijentoveAnkete = new();
-            foreach (AnketaOBolnici anketa in AnketeOBolnici.Instance.AnketeZaBolnicu.ToList())
-            {
-                if (anketa.PacijentovJmbg == ulogovanPacijent.jmbg) pacijentoveAnkete.Add(anketa);
-            }
-            return pacijentoveAnkete;
-        }
-
-        private static List<AnketaOBolnici> DobaviSortiraneAnkete(List<AnketaOBolnici> pacijentoveAnkete)
-        {
-            return pacijentoveAnkete.OrderByDescending(anketa => anketa.VremePopunjavanja).ToList();
-        }
-
-        private List<Termin> DobaviSortiraneTermine()
-        {
-            List<Termin> sortiraniTermini = ulogovanPacijent.zakazaniTermini.OrderBy(termin => termin.vreme).ToList();
-            return sortiraniTermini;
-        }
-
-        private static bool PacijentPosetioBolnicu(List<Termin> sortiraniTermini)
-        {
-            return sortiraniTermini.Count != 0 && sortiraniTermini[0].status == StatusTermina.zavrsen;
-        }
-
         private void PostaviTermineUlogovanogPacijenta()
         {
             ObservableCollection<Termin> zakazaniTermini = new();
@@ -225,45 +153,6 @@ namespace InformacioniSistemBolnice
         private static bool JeUlogovaniPacijent(string korisnickoIme, string lozinka, Pacijent pacijent)
         {
             return pacijent.korisnik.korisnickoIme == korisnickoIme && pacijent.korisnik.lozinka == lozinka;
-        }
-
-        private void ProveriZavrsenostTermina()
-        {
-            while (true)
-            {
-                foreach (Termin termin in Termini.Instance.listaTermina.ToList())
-                {
-                    pacijentovTermin = termin;
-                    if (!JeTerminZavrsen()) continue;
-                    ZavrsiPacijentovTermin();
-                    termin.status = StatusTermina.zavrsen;
-                    Termini.Instance.Serijalizacija();
-                    Termini.Instance.Deserijalizacija();
-                    System.Diagnostics.Debug.WriteLine(DateTime.Now);
-                }
-                Thread.Sleep(1000);
-            }
-        }
-
-        private void ZavrsiPacijentovTermin()
-        {
-            foreach (Termin termin in ulogovanPacijent.zakazaniTermini)
-            {
-                if (!JePacijentovNezavrsenTermin(termin)) continue;
-                pacijentovTermin.status = StatusTermina.zavrsen;
-                break;
-            }
-        }
-
-        private bool JePacijentovNezavrsenTermin(Termin termin)
-        {
-            return termin.vreme == pacijentovTermin.vreme && pacijentovTermin.status != StatusTermina.zavrsen;
-        }
-
-        private bool JeTerminZavrsen()
-        {
-            return pacijentovTermin.vreme.AddMinutes(pacijentovTermin.trajanje) < DateTime.Now && 
-                pacijentovTermin.status != StatusTermina.zavrsen;
         }
 
         private void pomeriDugme_Click(object sender, RoutedEventArgs e)
