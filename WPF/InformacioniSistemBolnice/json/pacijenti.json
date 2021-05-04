@@ -84,54 +84,84 @@
     },
     "zakazaniTermini": [
       {
-        "vreme": "2021-05-04T18:30:00+02:00",
+        "vreme": "2021-05-11T12:00:00",
         "trajanje": 30.0,
         "tipTermina": 1,
         "status": 0,
-        "pacijentJMBG": "231456768",
+        "pacijentJMBG": "1203998134132",
         "lekarJMBG": "231568933",
-        "idProstorije": "P1",
+        "idProstorije": "ID: P1",
         "Hitan": true
       },
       {
-        "vreme": "2021-05-04T18:30:00+02:00",
+        "vreme": "2021-05-19T18:00:00",
+        "trajanje": 30.0,
+        "tipTermina": 0,
+        "status": 0,
+        "pacijentJMBG": "231456768",
+        "lekarJMBG": "985467356",
+        "idProstorije": "ID: P1",
+        "Hitan": true
+      },
+      {
+        "vreme": "2021-05-17T12:00:00",
+        "trajanje": 30.0,
+        "tipTermina": 1,
+        "status": 0,
+        "pacijentJMBG": "1203998134132",
+        "lekarJMBG": "985467356",
+        "idProstorije": null,
+        "Hitan": true
+      },
+      {
+        "vreme": "2021-05-09T08:00:00",
+        "trajanje": 30.0,
+        "tipTermina": 1,
+        "status": 0,
+        "pacijentJMBG": "1203998134132",
+        "lekarJMBG": "231568933",
+        "idProstorije": null,
+        "Hitan": true
+      },
+      {
+        "vreme": "2021-05-07T12:00:00",
+        "trajanje": 30.0,
+        "tipTermina": 1,
+        "status": 3,
+        "pacijentJMBG": "231456768",
+        "lekarJMBG": "231568933",
+        "idProstorije": null,
+        "Hitan": false
+      },
+      {
+        "vreme": "2021-05-15T07:00:00",
+        "trajanje": 30.0,
+        "tipTermina": 1,
+        "status": 0,
+        "pacijentJMBG": "1203998134132",
+        "lekarJMBG": "985467356",
+        "idProstorije": null,
+        "Hitan": true
+      },
+      {
+        "vreme": "2021-05-13T09:00:00",
         "trajanje": 30.0,
         "tipTermina": 1,
         "status": 0,
         "pacijentJMBG": "231456768",
         "lekarJMBG": "985467356",
-        "idProstorije": "P1",
+        "idProstorije": null,
         "Hitan": true
       },
       {
-        "vreme": "2021-05-04T18:30:00+02:00",
+        "vreme": "2021-05-11T14:00:00",
         "trajanje": 30.0,
         "tipTermina": 1,
-        "status": 0,
-        "pacijentJMBG": "231456768",
-        "lekarJMBG": "555556667",
-        "idProstorije": "P1",
-        "Hitan": true
-      },
-      {
-        "vreme": "2021-05-04T19:00:00+02:00",
-        "trajanje": 30.0,
-        "tipTermina": 1,
-        "status": 0,
+        "status": 3,
         "pacijentJMBG": "231456768",
         "lekarJMBG": "985467356",
-        "idProstorije": "P1",
-        "Hitan": true
-      },
-      {
-        "vreme": "2021-05-04T19:00:00+02:00",
-        "trajanje": 30.0,
-        "tipTermina": 1,
-        "status": 0,
-        "pacijentJMBG": "231456768",
-        "lekarJMBG": "231568933",
-        "idProstorije": "P1",
-        "Hitan": true
+        "idProstorije": null,
+        "Hitan": false
       }
     ],
     "maliciozan": true,
@@ -182,13 +212,43 @@
     },
     "zakazaniTermini": [
       {
-        "vreme": "2021-05-04T19:00:00+02:00",
+        "vreme": "2021-05-12T14:00:00",
         "trajanje": 30.0,
         "tipTermina": 1,
         "status": 0,
         "pacijentJMBG": "1203998134132",
         "lekarJMBG": "555556667",
-        "idProstorije": "OS1",
+        "idProstorije": "ID: P1",
+        "Hitan": true
+      },
+      {
+        "vreme": "2021-05-10T07:00:00",
+        "trajanje": 30.0,
+        "tipTermina": 1,
+        "status": 0,
+        "pacijentJMBG": "231456768",
+        "lekarJMBG": "555556667",
+        "idProstorije": null,
+        "Hitan": true
+      },
+      {
+        "vreme": "2021-05-08T08:30:00",
+        "trajanje": 30.0,
+        "tipTermina": 1,
+        "status": 3,
+        "pacijentJMBG": "1203998134132",
+        "lekarJMBG": "555556667",
+        "idProstorije": null,
+        "Hitan": false
+      },
+      {
+        "vreme": "2021-05-04T21:30:00+02:00",
+        "trajanje": 30.0,
+        "tipTermina": 1,
+        "status": 0,
+        "pacijentJMBG": "1203998134132",
+        "lekarJMBG": "985467356",
+        "idProstorije": "P1",
         "Hitan": true
       }
     ],

@@ -23,6 +23,7 @@ namespace Servis
 
         private ObservableCollection<Termin> slobodniTermini = new ObservableCollection<Termin>();
         public HitnoZakazivanjeDto zakazivanjeHitnogTerminaDto;
+        public TerminiLekaraZaPomeranjeDto terminiLekaraZaPomeranjeDto;
         public DateTime pomocni;
         public DateTime slobodanTermin = IzgenerisiPrviNaredniTermin(DateTime.Today, DateTime.Now.Hour, DateTime.Now.Minute);
         public void ZakazivanjeHitnogTermina(HitnoZakazivanjeDto zakazivanjeHitnogTerminaDto)
@@ -143,90 +144,82 @@ namespace Servis
 
 
 
-        public void PomeranjeTermina(IzborTerminaZaPomeranjeZakazanog izborTerminaZaPomeranjeZakazanog, IzborTerminaZaPomeranje izborTerminaZaPomeranje)
+        public void PomeranjeTermina(TerminiLekaraZaPomeranjeDto terminiLekaraZaPomeranjeDto)
         {
-            if (izborTerminaZaPomeranjeZakazanog.ponudjeniTermini.SelectedIndex >= 0)
-            {
-                DateTime staroVreme = ((Termin)izborTerminaZaPomeranje.ponudjeniTerminiZaPomeranje.SelectedItem).vreme;
-                string lekarJmbg = ((Termin)izborTerminaZaPomeranje.ponudjeniTerminiZaPomeranje.SelectedItem).lekarJMBG;
-                Termin noviTermin = (Termin)izborTerminaZaPomeranjeZakazanog.ponudjeniTermini.SelectedItem;
-                noviTermin.status = StatusTermina.pomeren;
-
-                foreach (Termin stariTermin in Termini.Instance.listaTermina.ToList())
-                {
-                    if (stariTermin.vreme == staroVreme && stariTermin.lekarJMBG == lekarJmbg)
-                    {
-                        //Termini.Instance.listaTermina.Remove(stariTermin);
-                        stariTermin.status = StatusTermina.zakazan;
-                        stariTermin.Hitan = true;
-                        Pacijent pacijent = (Pacijent)izborTerminaZaPomeranje.zakazivanjeHitnogTermina.pacijenti.SelectedItem;
-                        stariTermin.pacijentJMBG = pacijent.jmbg;
-                        Termini.Instance.listaTermina.Add(noviTermin);
-                        Termini.Instance.Serijalizacija();
-                        Termini.Instance.Deserijalizacija();
-                        izborTerminaZaPomeranje.zakazivanjeHitnogTermina.upravljanjeUrgentnimSistemomProzor.
-                            ListaTermina.ItemsSource = Termini.Instance.listaTermina;
-
-                        //izborTerminaZaPomeranje.ponudjeniTerminiZaPomeranje.ItemsSource = Termini.Instance.listaTermina; 
-
-                        izborTerminaZaPomeranje.Close();
-                        izborTerminaZaPomeranjeZakazanog.Close();
-
-                        break;
-                    }
-                }
-
-                foreach (Pacijent pacijent in Pacijenti.Instance.listaPacijenata.ToList())
-                {
-                    if (pacijent.jmbg == noviTermin.pacijentJMBG)
-                    {
-                        foreach (Termin stariTermin in pacijent.zakazaniTermini)
-                        {
-                            if (stariTermin.vreme == staroVreme)
-                            {
-                                //pacijent.zakazaniTermini.Remove(stariTermin);
-                                stariTermin.status = StatusTermina.zakazan;
-                                stariTermin.Hitan = true;
-                                Pacijent p = (Pacijent)izborTerminaZaPomeranje.zakazivanjeHitnogTermina.pacijenti.SelectedItem;
-                                stariTermin.pacijentJMBG = p.jmbg;
-                                pacijent.zakazaniTermini.Add(noviTermin);
-                                //izborTerminaZaPomeranje.ponudjeniTerminiZaPomeranje.ItemsSource = pacijent.zakazaniTermini;
-                                Pacijenti.Instance.Serijalizacija();
-                                Pacijenti.Instance.Deserijalizacija();
-                                break;
-                            }
-                        }
-                    }
-                }
-
-                foreach (Lekar lekar in Lekari.Instance.listaLekara.ToList())
-                {
-                    if (lekar.jmbg == noviTermin.lekarJMBG)
-                    {
-                        foreach (Termin stariTermin in lekar.zauzetiTermini)
-                        {
-                            if (stariTermin.vreme == staroVreme)
-                            {
-                                //lekar.zauzetiTermini.Remove(stariTermin);
-                                stariTermin.status = StatusTermina.zakazan;
-                                stariTermin.Hitan = true;
-                                Pacijent pacijent = (Pacijent)izborTerminaZaPomeranje.zakazivanjeHitnogTermina.pacijenti.SelectedItem;
-                                stariTermin.pacijentJMBG = pacijent.jmbg;
-                                lekar.zauzetiTermini.Add(noviTermin);
-                                Lekari.Instance.Serijalizacija();
-                                Lekari.Instance.Deserijalizacija();
-                                break;
-                            }
-                        }
-                    }
-                }
-                izborTerminaZaPomeranjeZakazanog.Close();
-            }
+            this.terminiLekaraZaPomeranjeDto = terminiLekaraZaPomeranjeDto;
+            DateTime staroVreme = ((Termin)terminiLekaraZaPomeranjeDto.terminZaPomeranje).vreme;
+            Termin noviTermin = (Termin)terminiLekaraZaPomeranjeDto.noviTermin;
+            PomeriTermin(staroVreme, noviTermin);
+            SacuvajPromeneUTerminimaPacijenta(staroVreme, noviTermin);
+            SacuvajPromeneUTerminimaLekara(staroVreme, noviTermin);
 
         }
 
+        private void PomeriTermin(DateTime staroVreme, Termin noviTermin)
+        {
+            noviTermin.status = StatusTermina.pomeren;
+            foreach (Termin stariTermin in Termini.Instance.listaTermina.ToList())
+            {
+                if (stariTermin.vreme == staroVreme && stariTermin.lekarJMBG == ((Termin)terminiLekaraZaPomeranjeDto.noviTermin).lekarJMBG)
+                {
+                    promeniParametreTermina(stariTermin);
+                    Termini.Instance.listaTermina.Add(noviTermin);
+                    Termini.Instance.Serijalizacija();
+                    Termini.Instance.Deserijalizacija();
 
+                    break;
+                }
+            }
+        }
 
+        private void SacuvajPromeneUTerminimaLekara(DateTime staroVreme, Termin noviTermin)
+        {
+            foreach (Lekar lekar in Lekari.Instance.listaLekara.ToList())
+            {
+                if (lekar.jmbg == noviTermin.lekarJMBG)
+                {
+                    foreach (Termin stariTermin in lekar.zauzetiTermini)
+                    {
+                        if (stariTermin.vreme == staroVreme)
+                        {
+                            promeniParametreTermina(stariTermin);
+                            lekar.zauzetiTermini.Add(noviTermin);
+                            Lekari.Instance.Serijalizacija();
+                            Lekari.Instance.Deserijalizacija();
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+
+        private void SacuvajPromeneUTerminimaPacijenta(DateTime staroVreme, Termin noviTermin)
+        {
+            foreach (Pacijent pacijent in Pacijenti.Instance.listaPacijenata.ToList())
+            {
+                if (pacijent.jmbg == noviTermin.pacijentJMBG)
+                {
+                    foreach (Termin stariTermin in pacijent.zakazaniTermini)
+                    {
+                        if (stariTermin.vreme == staroVreme)
+                        {
+                            promeniParametreTermina(stariTermin);
+                            pacijent.zakazaniTermini.Add(noviTermin);
+                            Pacijenti.Instance.Serijalizacija();
+                            Pacijenti.Instance.Deserijalizacija();
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+
+        private void promeniParametreTermina(Termin stariTermin)
+        {
+            stariTermin.status = StatusTermina.zakazan;
+            stariTermin.Hitan = true;
+            stariTermin.pacijentJMBG = terminiLekaraZaPomeranjeDto.jmbgPacijenta;
+        }
 
         public void KreiranjeGostujcegPacijenta(KreiranjeGostujucegPacijentaProzor kreiranjeGostujucegPacijentaProzor)
         {

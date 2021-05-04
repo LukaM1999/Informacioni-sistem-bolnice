@@ -130,6 +130,12 @@ namespace Kontroler
             UpravljanjeUrgentnimSistemom.Instance.ZakazivanjeHitnogTermina(hitnoZakazivanjeDto);
         }
 
+
+        public void PomeranjeTermina(TerminiLekaraZaPomeranjeDto terminiLekaraZaPomeranjeDto)
+        {
+            UpravljanjeUrgentnimSistemom.Instance.PomeranjeTermina(terminiLekaraZaPomeranjeDto);
+        }
+
         public UpravljanjeNalozimaPacijenata upravljanjeNalozimaPacijenata;
         public UpravljanjeAlergenima upravljanjeAlergenima;
         public UpravljanjeTerminimaPacijenata upravljanjeTerminimaPacijenata;
