@@ -1,24 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 using Repozitorijum;
 using Model;
 using System.Collections.ObjectModel;
 using Servis;
-using InformacioniSistemBolnice;
 using Kontroler;
 using System.Threading;
-using FluentScheduler;
 using InformacioniSistemBolnice.Servis;
 using System.Diagnostics;
 
@@ -27,11 +16,24 @@ namespace InformacioniSistemBolnice
     public partial class TerminiPacijentaProzor : Window
     {
         public Pacijent ulogovanPacijent;
-        public Terapija trenutnaTerapija;
 
         public TerminiPacijentaProzor(string korisnickoIme, string lozinka)
         {
             InitializeComponent();
+            InicijalizujProzor(korisnickoIme, lozinka);
+            PokreniNiti();
+        }
+
+        private void PokreniNiti()
+        {
+            new Thread(() => ProveraZavrsenostiTermina.Instance.ProveriZavrsenostTermina(ulogovanPacijent)).Start();
+            new Thread(() => UpravljanjeAntiTrollMehanizmom.Instance.ProveriMalicioznostPacijenta(ulogovanPacijent)).Start();
+            UpravljanjeAnketama.Instance.OtvoriAnketuOBolnici(ulogovanPacijent);
+            new Thread(() => UpravljanjeObavestenjimaTerapija.Instance.UkljuciObavestenja(ulogovanPacijent)).Start();
+        }
+
+        private void InicijalizujProzor(string korisnickoIme, string lozinka)
+        {
             Termini.Instance.Deserijalizacija();
             Pacijenti.Instance.Deserijalizacija();
             Lekari.Instance.Deserijalizacija();
@@ -39,92 +41,6 @@ namespace InformacioniSistemBolnice
             ulogovanPacijent = PronadjiUlogovanogPacijenta(korisnickoIme, lozinka);
             PostaviTermineUlogovanogPacijenta();
             listaZakazanihTermina.ItemsSource = ulogovanPacijent.zakazaniTermini;
-
-            Thread proveraZavrsenostiTermina = new(() => 
-                ProveraZavrsenostiTermina.Instance.ProveriZavrsenostTermina(ulogovanPacijent));
-            proveraZavrsenostiTermina.Start();
-
-            Thread proveraMalicioznosti = new(() =>
-                UpravljanjeAntiTrollMehanizmom.Instance.ProveriMalicioznostPacijenta(ulogovanPacijent));
-            proveraMalicioznosti.Start();
-
-            UpravljanjeAnketama.Instance.OtvoriAnketuOBolnici(ulogovanPacijent);
-
-            Thread lekObavestenja = new(UkljuciObavestenja);
-            lekObavestenja.Start();
-
-        }
-
-        private void UkljuciObavestenja()
-        {
-            ZakaziObavestenja();
-            while (true) PrikaziObavestenja();
-        }
-
-        private void PrikaziObavestenja()
-        {
-            foreach (Recept recept in ulogovanPacijent.zdravstveniKarton.Recepti)
-            {
-                foreach (Terapija t in recept.Terapije)
-                {
-                    trenutnaTerapija = t;
-                    if (JeVremeZaPrikaz()) OmoguciPrikazObavestenja();
-                    else OnemoguciPrikazObavestenja();
-                }
-            }
-        }
-
-        private void OmoguciPrikazObavestenja()
-        {
-            JobManager.GetSchedule("prvo uzimanje: " + trenutnaTerapija.Lek.Naziv)?.Enable();
-            JobManager.GetSchedule("uzimanje: " + trenutnaTerapija.Lek.Naziv)?.Enable();
-        }
-
-        private void OnemoguciPrikazObavestenja()
-        {
-            JobManager.GetSchedule("prvo uzimanje: " + trenutnaTerapija.Lek.Naziv)?.Disable();
-            JobManager.GetSchedule("uzimanje: " + trenutnaTerapija.Lek.Naziv)?.Disable();
-        }
-
-        private bool JeVremeZaPrikaz()
-        {
-            return DateTime.Now > trenutnaTerapija.pocetakTerapije && DateTime.Now < trenutnaTerapija.krajTerapije;
-        }
-
-        private void ZakaziObavestenja()
-        {
-            foreach (Recept recept in ulogovanPacijent.zdravstveniKarton.Recepti)
-            {
-                foreach (Terapija terapija in recept.Terapije)
-                {
-                    JobManager.Initialize();
-                    ZakaziPrvoObavestenje(terapija);
-                    ZakaziDaljaObavestenja(terapija);
-                }
-            }
-        }
-
-        private static void ZakaziDaljaObavestenja(Terapija terapija)
-        {
-            int redovnost = DobaviRedovnostTerapije(terapija);
-            JobManager.AddJob(
-                () => Debug.WriteLine("Vreme je da uzmete: " + terapija.Lek.Naziv + ", " + terapija.mera + " mg."),
-                (s) => s.WithName("uzimanje: " + terapija.Lek.Naziv).ToRunEvery(redovnost).Seconds()
-                    .DelayFor(redovnost - DateTime.Now.Second % redovnost).Seconds());
-        }
-
-        private static int DobaviRedovnostTerapije(Terapija terapija)
-        {
-            return (int)terapija.redovnost;
-        }
-
-        private static void ZakaziPrvoObavestenje(Terapija terapija)
-        {
-            int redovnost = DobaviRedovnostTerapije(terapija);
-            JobManager.AddJob(
-                () => Debug.WriteLine("Vreme je da uzmete: " + terapija.Lek.Naziv + ", " + terapija.mera + " mg."),
-                (s) => s.WithName("prvo uzimanje: " + terapija.Lek.Naziv)
-                    .ToRunOnceIn(redovnost - DateTime.Now.Second % redovnost).Seconds());
         }
 
         private void PostaviTermineUlogovanogPacijenta()
