@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Repozitorijum;
 
 namespace InformacioniSistemBolnice
 {
@@ -22,6 +23,7 @@ namespace InformacioniSistemBolnice
         public GlavniProzorSekretara()
         {
             InitializeComponent();
+            Lekari.Instance.Deserijalizacija();
         }
 
         private void naloziPacijenata(object sender, RoutedEventArgs e)

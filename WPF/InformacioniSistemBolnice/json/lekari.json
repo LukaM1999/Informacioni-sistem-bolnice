@@ -2,7 +2,17 @@
   {
     "zauzetiTermini": [
       {
-        "vreme": "2021-05-01T22:30:00+02:00",
+        "vreme": "2021-05-04T18:30:00+02:00",
+        "trajanje": 30.0,
+        "tipTermina": 1,
+        "status": 0,
+        "pacijentJMBG": "231456768",
+        "lekarJMBG": "231568933",
+        "idProstorije": "P1",
+        "Hitan": true
+      },
+      {
+        "vreme": "2021-05-04T19:00:00+02:00",
         "trajanje": 30.0,
         "tipTermina": 1,
         "status": 0,
@@ -27,7 +37,28 @@
     }
   },
   {
-    "zauzetiTermini": [],
+    "zauzetiTermini": [
+      {
+        "vreme": "2021-05-04T18:30:00+02:00",
+        "trajanje": 30.0,
+        "tipTermina": 1,
+        "status": 0,
+        "pacijentJMBG": "231456768",
+        "lekarJMBG": "985467356",
+        "idProstorije": "P1",
+        "Hitan": true
+      },
+      {
+        "vreme": "2021-05-04T19:00:00+02:00",
+        "trajanje": 30.0,
+        "tipTermina": 1,
+        "status": 0,
+        "pacijentJMBG": "231456768",
+        "lekarJMBG": "985467356",
+        "idProstorije": "P1",
+        "Hitan": true
+      }
+    ],
     "specijalizacija": "Neurolog",
     "ime": "Marko",
     "prezime": "Lazic",
@@ -43,7 +74,28 @@
     }
   },
   {
-    "zauzetiTermini": [],
+    "zauzetiTermini": [
+      {
+        "vreme": "2021-05-04T18:30:00+02:00",
+        "trajanje": 30.0,
+        "tipTermina": 1,
+        "status": 0,
+        "pacijentJMBG": "231456768",
+        "lekarJMBG": "555556667",
+        "idProstorije": "P1",
+        "Hitan": true
+      },
+      {
+        "vreme": "2021-05-04T19:00:00+02:00",
+        "trajanje": 30.0,
+        "tipTermina": 1,
+        "status": 0,
+        "pacijentJMBG": "1203998134132",
+        "lekarJMBG": "555556667",
+        "idProstorije": "OS1",
+        "Hitan": true
+      }
+    ],
     "specijalizacija": "Lekar opste prakse",
     "ime": "Milan",
     "prezime": "Radic",

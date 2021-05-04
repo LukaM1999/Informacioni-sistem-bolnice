@@ -125,6 +125,10 @@ namespace Kontroler
             UpravljanjeUrgentnimSistemom.Instance.KreiranjeGostujcegPacijenta(kreiranjeGostujucegPacijentaProzor);
         }
 
+        public void ZakazivanjeHitnogTermina(HitnoZakazivanjeDto hitnoZakazivanjeDto)
+        {
+            UpravljanjeUrgentnimSistemom.Instance.ZakazivanjeHitnogTermina(hitnoZakazivanjeDto);
+        }
 
         public UpravljanjeNalozimaPacijenata upravljanjeNalozimaPacijenata;
         public UpravljanjeAlergenima upravljanjeAlergenima;
