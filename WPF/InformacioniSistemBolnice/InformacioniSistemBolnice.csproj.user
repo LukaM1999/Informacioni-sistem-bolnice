@@ -118,6 +118,9 @@
     <Compile Update="ProstorijaInfoForma.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="ProstorijaRenoviranjeProzor.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="ProstorijeProzor.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -286,6 +289,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="ProstorijaInfoForma.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="ProstorijaRenoviranjeProzor.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="ProstorijeProzor.xaml">

@@ -7,7 +7,7 @@ using System.Linq;
 
 namespace Repozitorijum
 {
-    class DinamickaOprema
+    class DinamickaOprema:Repozitorijum
     {
         private string putanja = "../../../json/dinamickaOprema.json";
 

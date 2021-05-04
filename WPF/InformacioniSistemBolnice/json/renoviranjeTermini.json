@@ -1,0 +1,17 @@
+[
+  {
+    "PocetakRenoviranja": "2021-05-06T00:00:00",
+    "KrajRenoviranja": "2021-05-06T00:00:00",
+    "Prostorija": {
+      "termin": null,
+      "sprat": 2,
+      "id": "K32",
+      "jeZauzeta": false,
+      "tip": 2,
+      "inventar": {
+        "dinamickaOprema": [],
+        "statickaOprema": []
+      }
+    }
+  }
+]
