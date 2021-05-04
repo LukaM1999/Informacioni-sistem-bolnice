@@ -99,7 +99,30 @@
     }
   },
   {
-    "zauzetiTermini": [],
+    "zauzetiTermini": [
+      {
+        "vreme": "2021-05-07T08:00:00",
+        "trajanje": 30.0,
+        "tipTermina": 1,
+        "status": 0,
+        "AnketaOLekaru": null,
+        "pacijentJMBG": "1203998134132",
+        "lekarJMBG": "555556667",
+        "idProstorije": "P1",
+        "Hitan": true
+      },
+      {
+        "vreme": "2021-05-06T09:00:00",
+        "trajanje": 30.0,
+        "tipTermina": 1,
+        "status": 0,
+        "AnketaOLekaru": null,
+        "pacijentJMBG": "1203998134132",
+        "lekarJMBG": "555556667",
+        "idProstorije": "P1",
+        "Hitan": false
+      }
+    ],
     "specijalizacija": "Neurolog",
     "ime": "Milan",
     "prezime": "Radic",

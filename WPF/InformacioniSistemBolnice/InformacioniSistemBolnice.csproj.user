@@ -139,6 +139,12 @@
     <Compile Update="TerminiPacijentaProzor.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="UCLekInfo.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="UCLekovi.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="UCPacijenti.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -310,6 +316,12 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="TerminiPacijentaProzor.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="UCLekInfo.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="UCLekovi.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="UCPacijenti.xaml">
