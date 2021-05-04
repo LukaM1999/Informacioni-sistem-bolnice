@@ -20,6 +20,7 @@ namespace Servis
                (() => new UpravljanjeUrgentnimSistemom());
 
         public static UpravljanjeUrgentnimSistemom Instance { get { return lazy.Value; } }
+
         private ObservableCollection<Termin> slobodniTermini = new ObservableCollection<Termin>();
         public HitnoZakazivanjeDto zakazivanjeHitnogTerminaDto;
         public DateTime pomocni;
@@ -31,7 +32,8 @@ namespace Servis
             GenerisanjeNajblizegSlobodnogTerminaZaOdredjenuSpecijalizaciju();
             if (slobodniTermini.Count == 0)
             {
-                MessageBox.Show("Svi termini kod lekara izabrane specijalizacije su zakazani u narednom periodu(1h).\n NAPOMENA: Postoji mogucnost pomeranja termina koji nije urgentan!");
+                MessageBox.Show("Svi termini kod lekara izabrane specijalizacije su zakazani u narednom periodu(1h). \n" +
+                    "NAPOMENA: Postoji mogucnost pomeranja termina koji nije urgentan!");
                 return;
             }
             ZakaziHitanTermin();
@@ -41,7 +43,6 @@ namespace Servis
         private void ZakaziHitanTermin()
         {
             Termin hitan = UzmiNajbliziSlobodanTerminIzListeSlobodnihTermina();
-            Termini.Instance.Deserijalizacija();
             hitan.status = StatusTermina.zakazan;
             Termini.Instance.listaTermina.Add(hitan);
             Termini.Instance.Serijalizacija();
@@ -52,10 +53,9 @@ namespace Servis
 
         private static void SacuvajHitanTerminUListuZakazanihTerminaLekara(Termin hitan)
         {
-            string jmbgLekara = hitan.lekarJMBG;
             foreach (Lekar lekar in Lekari.Instance.listaLekara)
             {
-                if (lekar.jmbg == jmbgLekara)
+                if (lekar.jmbg == hitan.lekarJMBG)
                 {
                     lekar.zauzetiTermini.Add(hitan);
                     Lekari.Instance.Serijalizacija();
@@ -133,10 +133,7 @@ namespace Servis
 
         private static DateTime IzgenerisiPrviNaredniTermin(DateTime slobodanTermin, int sat, int minuta)
         {
-            if (minuta >= 30)
-            {
-                slobodanTermin = slobodanTermin.AddHours(sat + 1);
-            }
+            if (minuta >= 30) slobodanTermin = slobodanTermin.AddHours(sat + 1);
             else
             {
                 slobodanTermin = slobodanTermin.AddHours(sat).AddMinutes(30);

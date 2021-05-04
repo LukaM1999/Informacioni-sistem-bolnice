@@ -24,6 +24,7 @@ namespace InformacioniSistemBolnice
         {
             InitializeComponent();
             Lekari.Instance.Deserijalizacija();
+            Termini.Instance.Deserijalizacija();
         }
 
         private void naloziPacijenata(object sender, RoutedEventArgs e)
