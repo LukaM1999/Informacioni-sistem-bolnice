@@ -21,11 +21,17 @@ namespace Servis
 
         public static UpravljanjeUrgentnimSistemom Instance { get { return lazy.Value; } }
 
+
+
         private ObservableCollection<Termin> slobodniTermini = new ObservableCollection<Termin>();
         public HitnoZakazivanjeDto zakazivanjeHitnogTerminaDto;
         public TerminiLekaraZaPomeranjeDto terminiLekaraZaPomeranjeDto;
+        public GostujuciNalogDto gostujuciNalogDto;
         public DateTime pomocni;
         public DateTime slobodanTermin = IzgenerisiPrviNaredniTermin(DateTime.Today, DateTime.Now.Hour, DateTime.Now.Minute);
+
+
+
         public void ZakazivanjeHitnogTermina(HitnoZakazivanjeDto zakazivanjeHitnogTerminaDto)
         {
             pomocni = slobodanTermin;
@@ -221,27 +227,24 @@ namespace Servis
             stariTermin.pacijentJMBG = terminiLekaraZaPomeranjeDto.jmbgPacijenta;
         }
 
-        public void KreiranjeGostujcegPacijenta(KreiranjeGostujucegPacijentaProzor kreiranjeGostujucegPacijentaProzor)
-        {
-            DateTime datum = DateTime.Parse(kreiranjeGostujucegPacijentaProzor.datumUnos.Text);
-            ObservableCollection<Termin> zakazaniTermini = new ObservableCollection<Termin>();
-            Korisnik korisnik = new Korisnik(null, null, (Model.UlogaKorisnika)Enum.Parse(typeof(Model.UlogaKorisnika), "pacijent"));
-            Pacijent p = new Pacijent(new Osoba(kreiranjeGostujucegPacijentaProzor.imeUnos.Text, kreiranjeGostujucegPacijentaProzor.prezimeUnos.Text, kreiranjeGostujucegPacijentaProzor.JMBGUnos.Text,
-                datum, kreiranjeGostujucegPacijentaProzor.telUnos.Text, kreiranjeGostujucegPacijentaProzor.mailUnos.Text, korisnik, null));
-            p.zakazaniTermini = zakazaniTermini;
-            Pacijenti.Instance.listaPacijenata.Add(p);
-            Korisnici.Instance.listaKorisnika.Add(korisnik);
-            Korisnici.Instance.Serijalizacija();
-            Korisnici.Instance.Deserijalizacija();
-            Pacijenti.Instance.Serijalizacija();
-            Pacijenti.Instance.Deserijalizacija();
 
+        public void KreiranjeGostujcegPacijenta(GostujuciNalogDto gostujuciNalog)
+        {
+            gostujuciNalogDto = gostujuciNalog;
+            ObservableCollection<Termin> zakazaniTermini = new ObservableCollection<Termin>();
+            Pacijent gostujuciPacijent = new Pacijent(new Osoba(gostujuciNalogDto.ime, gostujuciNalogDto.prezime, gostujuciNalogDto.jmbg,
+                gostujuciNalogDto.datumRodjenja, gostujuciNalogDto.telefon, gostujuciNalogDto.email,
+                new Korisnik(null, null, (Model.UlogaKorisnika)Enum.Parse(typeof(Model.UlogaKorisnika), "pacijent")), null));
+            gostujuciPacijent.zakazaniTermini = zakazaniTermini;
+            DodajGostujucegPacijenta(gostujuciPacijent);
         }
 
-
-
-
-
+        private static void DodajGostujucegPacijenta(Pacijent gostujuciPacijent)
+        {
+            Pacijenti.Instance.listaPacijenata.Add(gostujuciPacijent);
+            Pacijenti.Instance.Serijalizacija();
+            Pacijenti.Instance.Deserijalizacija();
+        }
     }
 
 
