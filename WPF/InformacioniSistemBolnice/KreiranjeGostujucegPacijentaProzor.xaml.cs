@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Kontroler;
+using Model;
 
 namespace InformacioniSistemBolnice
 {
@@ -27,7 +28,9 @@ namespace InformacioniSistemBolnice
 
         private void potvrdiDugme_Click(object sender, RoutedEventArgs e)
         {
-            SekretarKontroler.Instance.KreiranjeGostujucegPacijenta(this);
+            GostujuciNalogDto gostujuciNalogDto = new GostujuciNalogDto(this.imeUnos.Text, this.prezimeUnos.Text,
+                                this.JMBGUnos.Text, DateTime.Parse(this.datumUnos.Text), this.telUnos.Text, this.mailUnos.Text);
+            SekretarKontroler.Instance.KreiranjeGostujucegPacijenta(gostujuciNalogDto);
             this.Close();
         }
     }
