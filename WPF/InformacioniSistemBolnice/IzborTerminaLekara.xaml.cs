@@ -21,14 +21,10 @@ namespace InformacioniSistemBolnice
 {
     public partial class IzborTerminaLekara : Window
     {
-       
         public ObservableCollection<Termin> slobodniTermini = new();
-        public UputDto uputDto = new();
-
         public IzborTerminaLekara(UputDto uput)
         {
             InitializeComponent();
-            uputDto = uput;
             TimeSpan intervalDana = uput.Kraj - uput.Pocetak;
             DateTime slobodanTermin = uput.Pocetak.AddHours(7);
             for (int i = 0; i < intervalDana.Days; i++)
@@ -116,12 +112,9 @@ namespace InformacioniSistemBolnice
         }
         private void zakaziDugme_Click(object sender, RoutedEventArgs e)
             {
-                //UpravljanjeTerminimaPacijenata.Instance.Zakazivanje(this, this.slobodniTermini[0].pacijentJMBG);
-
-                //UpravljanjeNalozimaPacijenata.Instance.ZakazivanjeTermina(this, zakazivanjeTerminaPacijenta);
                 if (ponudjeniTermini.SelectedIndex > -1)
                 {
-                    UpravljanjeTerminimaLekara.Instance.IzdavanjeUputa(uputDto, (Termin)ponudjeniTermini.SelectedItem);
+                    UpravljanjeTerminimaLekara.Instance.IzdavanjeUputa((Termin)ponudjeniTermini.SelectedItem);
                 }
                 this.Close();
             }

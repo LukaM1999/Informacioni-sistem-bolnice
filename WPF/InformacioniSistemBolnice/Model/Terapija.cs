@@ -1,7 +1,9 @@
 using System;
 using System.Collections.ObjectModel;
+using PropertyChanged;
 namespace Model
 {
+    [AddINotifyPropertyChangedInterface]
     public class Terapija
     {
         public DateTime pocetakTerapije { get; set; }

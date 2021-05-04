@@ -1,13 +1,15 @@
 using System;
 using System.Collections.ObjectModel;
-
+using PropertyChanged;
 namespace Model
 {
+    [AddINotifyPropertyChangedInterface]
     public class Lek : DinamickaOprema
     {
         public string Naziv { get; set; }
         public string Proizvodjac { get; set; }
 		public string Sastojci { get; set; }
+        public string Zamena { get; set; }
 
         public ObservableCollection<Alergen> alergen;
 
@@ -61,6 +63,13 @@ namespace Model
             this.Naziv = naziv;
             this.Proizvodjac = proizvodjac;
             this.Sastojci = sastojci;
+        }
+        public Lek(string naziv, string proizvodjac, string sastojci, string zamena)
+        {
+            this.Naziv = naziv;
+            this.Proizvodjac = proizvodjac;
+            this.Sastojci = sastojci;
+            this.Zamena = zamena;
         }
     }
 }

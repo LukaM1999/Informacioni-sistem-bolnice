@@ -14,29 +14,27 @@ namespace Servis
 
         public static IzmenaKartonaPacijenta Instance { get { return lazy.Value; } }
 
-        public void IzdavanjeRecepta(ReceptDto receptDto)
+        public ReceptDto receptDto;
+
+        public void IzdavanjeRecepta(ReceptDto dto)
         {
-            var recept = KreiranjeRecepta(receptDto);
+            receptDto = dto;
             foreach (Pacijent pacijent in Pacijenti.Instance.listaPacijenata)
             {
-                if (PretragaPacijenta(receptDto, pacijent, recept)) break;
+                if (PretragaPacijenta(pacijent, KreiranjeRecepta())) break;
             }
         }
 
-        private static bool PretragaPacijenta(ReceptDto receptDto, Pacijent pacijent, Recept recept)
+        private bool PretragaPacijenta(Pacijent pacijent, Recept recept)
         {
-            if (pacijent.jmbg.Equals(receptDto.Pacijent.jmbg))
-            {
-                pacijent.zdravstveniKarton.Recepti.Add(recept);
-                Pacijenti.Instance.Serijalizacija();
-                Pacijenti.Instance.Deserijalizacija();
-                return true;
-            }
-
-            return false;
+            if (!pacijent.jmbg.Equals(receptDto.Pacijent.jmbg)) return false;
+            pacijent.zdravstveniKarton.Recepti.Add(recept);
+            Pacijenti.Instance.Serijalizacija();
+            Pacijenti.Instance.Deserijalizacija();
+            return true;
         }
 
-        private static Recept KreiranjeRecepta(ReceptDto receptDto)
+        private Recept KreiranjeRecepta()
         {
             Recept recept = new Recept(receptDto.Id);
             recept.Terapije.Add(new Terapija(receptDto.PocetakTerapije, receptDto.KrajTerapije,
