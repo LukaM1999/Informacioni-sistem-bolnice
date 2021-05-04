@@ -7,17 +7,18 @@
              mc:Ignorable="d" 
              d:DesignHeight="360" d:DesignWidth="680">
     <Grid>
-        <Label Content="Label" HorizontalAlignment="Left" Margin="189,49,0,0" VerticalAlignment="Top" Height="48" Width="86"/>
-        <Label Content="Label" HorizontalAlignment="Left" Margin="189,102,0,0" VerticalAlignment="Top" Height="48" Width="86"/>
-        <Label Content="Label" HorizontalAlignment="Left" Margin="189,150,0,0" VerticalAlignment="Top" Height="48" Width="86"/>
-        <Label Content="Label" HorizontalAlignment="Left" Margin="189,198,0,0" VerticalAlignment="Top" Height="48" Width="86"/>
-        <Label Content="Label" HorizontalAlignment="Left" Margin="189,246,0,0" VerticalAlignment="Top" Height="48" Width="86"/>
-        <TextBox HorizontalAlignment="Center" Margin="0,55,0,0" Text="TextBox" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox HorizontalAlignment="Center" Margin="0,102,0,0" Text="TextBox" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox HorizontalAlignment="Center" Margin="0,156,0,0" Text="TextBox" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox HorizontalAlignment="Center" Margin="0,204,0,0" Text="TextBox" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox HorizontalAlignment="Center" Margin="0,252,0,0" Text="TextBox" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Naziv:" HorizontalAlignment="Left" Margin="146,40,0,0" VerticalAlignment="Top" Height="48" Width="86"/>
+        <Label Content="Proizvodjac:" HorizontalAlignment="Left" Margin="146,102,0,0" VerticalAlignment="Top" Height="48" Width="86"/>
+        <Label Content="Sastojci:" HorizontalAlignment="Left" Margin="146,0,0,0" VerticalAlignment="Center" Height="48" Width="86"/>
+        <Label Content="Zamena:" HorizontalAlignment="Left" Margin="146,213,0,0" VerticalAlignment="Top" Height="48" Width="86"/>
+        <Label Content="Komentar:" HorizontalAlignment="Left" Margin="146,266,0,0" VerticalAlignment="Top" Height="48" Width="86"/>
         <Button Content="Nazad" HorizontalAlignment="Left" Margin="48,34,0,0" VerticalAlignment="Top" Click="Button_Click"/>
+        <Label x:Name="naziv" Content="" HorizontalAlignment="Left" Margin="262,40,0,0" VerticalAlignment="Top" Height="48" Width="221"/>
+        <Label x:Name="proizvodjac" Content="" HorizontalAlignment="Left" Margin="262,93,0,0" VerticalAlignment="Top" Height="48" Width="221"/>
+        <TextBox x:Name="sastojci" HorizontalAlignment="Left" Margin="262,0,0,0" TextWrapping="Wrap" VerticalAlignment="Center" Width="221" Height="48"/>
+        <TextBox x:Name="zamena" HorizontalAlignment="Left" Margin="262,213,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="221" Height="48"/>
+        <TextBox x:Name="komentar" HorizontalAlignment="Left" Margin="262,266,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="221" Height="68"/>
+        <Button Content="Potvrda" HorizontalAlignment="Left" Margin="595,314,0,0" VerticalAlignment="Top" Click="Button_Click1"/>
 
     </Grid>
 </UserControl>
