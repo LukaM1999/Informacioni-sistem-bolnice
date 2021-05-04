@@ -50,7 +50,9 @@ namespace Model
             inventar = i;
 
         }
-        public ObservableCollection<Termin> termin;
+        public ObservableCollection<Termin> termin = new ObservableCollection<Termin>();
+
+        public RenoviranjeTermin Renoviranje { get; set; }
 
         public override string ToString()
         {

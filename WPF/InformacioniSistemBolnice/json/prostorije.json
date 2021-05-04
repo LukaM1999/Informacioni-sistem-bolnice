@@ -1,6 +1,18 @@
 [
   {
-    "termin": null,
+    "termin": [
+      {
+        "vreme": "2021-05-06T09:00:00",
+        "trajanje": 30.0,
+        "tipTermina": 1,
+        "status": 0,
+        "AnketaOLekaru": null,
+        "pacijentJMBG": "231456768",
+        "lekarJMBG": "231568933",
+        "idProstorije": "P1",
+        "Hitan": false
+      }
+    ],
     "sprat": 2,
     "id": "P1",
     "jeZauzeta": false,
@@ -26,10 +38,11 @@
           "kolicina": 0
         }
       ]
-    }
+    },
+    "Renoviranje": null
   },
   {
-    "termin": null,
+    "termin": [],
     "sprat": 3,
     "id": "OS1",
     "jeZauzeta": false,
@@ -55,10 +68,11 @@
           "kolicina": 6
         }
       ]
-    }
+    },
+    "Renoviranje": null
   },
   {
-    "termin": null,
+    "termin": [],
     "sprat": 4,
     "id": "K3",
     "jeZauzeta": false,
@@ -88,10 +102,11 @@
           "kolicina": 1
         }
       ]
-    }
+    },
+    "Renoviranje": null
   },
   {
-    "termin": null,
+    "termin": [],
     "sprat": 2,
     "id": "D3",
     "jeZauzeta": false,
@@ -113,10 +128,11 @@
           "kolicina": -3
         }
       ]
-    }
+    },
+    "Renoviranje": null
   },
   {
-    "termin": null,
+    "termin": [],
     "sprat": 2,
     "id": "312",
     "jeZauzeta": false,
@@ -138,10 +154,11 @@
           "kolicina": 10
         }
       ]
-    }
+    },
+    "Renoviranje": null
   },
   {
-    "termin": null,
+    "termin": [],
     "sprat": 2,
     "id": "K32",
     "jeZauzeta": false,
@@ -154,6 +171,7 @@
         }
       ],
       "statickaOprema": []
-    }
+    },
+    "Renoviranje": null
   }
 ]

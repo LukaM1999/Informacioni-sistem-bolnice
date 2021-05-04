@@ -66,6 +66,17 @@
         "lekarJMBG": "231568933",
         "idProstorije": null,
         "Hitan": false
+      },
+      {
+        "vreme": "2021-05-06T09:00:00",
+        "trajanje": 30.0,
+        "tipTermina": 1,
+        "status": 0,
+        "AnketaOLekaru": null,
+        "pacijentJMBG": "231456768",
+        "lekarJMBG": "231568933",
+        "idProstorije": "P1",
+        "Hitan": false
       }
     ],
     "specijalizacija": "Lekar opste prakse",

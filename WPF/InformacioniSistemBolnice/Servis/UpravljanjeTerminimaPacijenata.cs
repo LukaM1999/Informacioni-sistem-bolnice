@@ -35,21 +35,30 @@ namespace Servis
                     {
                         if (lekar.jmbg == ((Termin)izborTermina.ponudjeniTermini.SelectedItem).lekarJMBG)
                         {
-                            ((Termin)izborTermina.ponudjeniTermini.SelectedItem).status = StatusTermina.zakazan;
-                            pacijent.zakazaniTermini.Add((Termin)izborTermina.ponudjeniTermini.SelectedItem);
-                            lekar.zauzetiTermini.Add((Termin)izborTermina.ponudjeniTermini.SelectedItem);
-                            Termini.Instance.listaTermina.Add((Termin)izborTermina.ponudjeniTermini.SelectedItem);
-                            Lekari.Instance.Serijalizacija();
-                            Pacijenti.Instance.Serijalizacija();
-                            Termini.Instance.Serijalizacija();
-                            Pacijenti.Instance.Deserijalizacija();
-                            Lekari.Instance.Deserijalizacija();
-                            Termini.Instance.Deserijalizacija();
-                            izborTermina.zakazivanjeTerminaPacijenta.terminiPacijentaProzor.listaZakazanihTermina.ItemsSource
-                                = pacijent.zakazaniTermini;
-                            izborTermina.zakazivanjeTerminaPacijenta.Close();
-                            izborTermina.Close();
-                            break;
+                            foreach (Prostorija prostorija in Prostorije.Instance.listaProstorija)
+                            {
+                                if (prostorija.id == ((Termin) izborTermina.ponudjeniTermini.SelectedItem).idProstorije)
+                                {
+                                    ((Termin)izborTermina.ponudjeniTermini.SelectedItem).status = StatusTermina.zakazan;
+                                    pacijent.zakazaniTermini.Add((Termin)izborTermina.ponudjeniTermini.SelectedItem);
+                                    lekar.zauzetiTermini.Add((Termin)izborTermina.ponudjeniTermini.SelectedItem);
+                                    prostorija.termin.Add((Termin)izborTermina.ponudjeniTermini.SelectedItem);
+                                    Termini.Instance.listaTermina.Add((Termin)izborTermina.ponudjeniTermini.SelectedItem);
+                                    Lekari.Instance.Serijalizacija();
+                                    Pacijenti.Instance.Serijalizacija();
+                                    Termini.Instance.Serijalizacija();
+                                    Prostorije.Instance.Serijalizacija();
+                                    Pacijenti.Instance.Deserijalizacija();
+                                    Lekari.Instance.Deserijalizacija();
+                                    Termini.Instance.Deserijalizacija();
+                                    Prostorije.Instance.Deserijalizacija();
+                                    izborTermina.zakazivanjeTerminaPacijenta.terminiPacijentaProzor.listaZakazanihTermina.ItemsSource
+                                        = pacijent.zakazaniTermini;
+                                    izborTermina.zakazivanjeTerminaPacijenta.Close();
+                                    izborTermina.Close();
+                                    return;
+                                }
+                            }
                         }
                     }
                 }
@@ -79,7 +88,6 @@ namespace Servis
                                 break;
                             }
                         }
-
                     }
                 }
 
