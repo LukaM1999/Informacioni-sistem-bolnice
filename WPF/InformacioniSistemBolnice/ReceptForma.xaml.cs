@@ -26,15 +26,20 @@ namespace InformacioniSistemBolnice
         public ReceptForma(Pacijent pacijent)
         {
             InitializeComponent();
+            Lekovi.Instance.Deserijalizacija();
             this.pacijent = pacijent;
+            listaLekova.ItemsSource = Lekovi.Instance.listaLekova;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            ReceptDto dtoRecept = new ReceptDto((DateTime)Pocetak.SelectedDate, (DateTime)Kraj.SelectedDate, 
-                double.Parse(Mera.Text), double.Parse(Redovnost.Text), Id.Text, pacijent);
-            LekarKontroler.Instance.IzdavanjeRecepta(dtoRecept);
-            this.Close();
+            if (listaLekova.SelectedIndex > -1)
+            {
+                ReceptDto dtoRecept = new ReceptDto((DateTime) Pocetak.SelectedDate, (DateTime) Kraj.SelectedDate,
+                    double.Parse(Mera.Text), double.Parse(Redovnost.Text), Id.Text, pacijent, (Lek)listaLekova.SelectedItem);
+                LekarKontroler.Instance.IzdavanjeRecepta(dtoRecept);
+                this.Close();
+            }
         }
     }
 }

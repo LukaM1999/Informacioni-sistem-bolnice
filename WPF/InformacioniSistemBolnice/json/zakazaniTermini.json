@@ -58,7 +58,7 @@
     "vreme": "2021-05-03T10:00:00",
     "trajanje": 30.0,
     "tipTermina": 1,
-    "status": 0,
+    "status": 4,
     "AnketaOLekaru": null,
     "pacijentJMBG": "231456768",
     "lekarJMBG": "231568933",
@@ -73,7 +73,8 @@
     "AnketaOLekaru": null,
     "pacijentJMBG": "231456768",
     "lekarJMBG": "231568933",
-    "idProstorije": null
+    "idProstorije": null,
+    "Hitan": false
   },
   {
     "vreme": "2021-04-15T16:10:00",
@@ -83,7 +84,8 @@
     "AnketaOLekaru": null,
     "pacijentJMBG": "231456768",
     "lekarJMBG": "231568933",
-    "idProstorije": null
+    "idProstorije": null,
+    "Hitan": false
   },
   {
     "vreme": "2021-04-16T16:10:00",
@@ -93,7 +95,8 @@
     "AnketaOLekaru": null,
     "pacijentJMBG": "231456768",
     "lekarJMBG": "231568933",
-    "idProstorije": null
+    "idProstorije": null,
+    "Hitan": false
   },
   {
     "vreme": "2021-04-17T16:10:00",
@@ -103,7 +106,8 @@
     "AnketaOLekaru": null,
     "pacijentJMBG": "231456768",
     "lekarJMBG": "231568933",
-    "idProstorije": null
+    "idProstorije": null,
+    "Hitan": false
   },
   {
     "vreme": "2021-04-30T01:00:00",
@@ -128,7 +132,8 @@
     "vreme": "2021-05-01T07:30:00",
     "trajanje": 30.0,
     "tipTermina": 1,
-    "status": 0,
+    "status": 4,
+    "AnketaOLekaru": null,
     "pacijentJMBG": "231456768",
     "lekarJMBG": "231568933",
     "idProstorije": "P1",

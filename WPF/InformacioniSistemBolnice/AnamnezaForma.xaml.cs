@@ -31,7 +31,6 @@ namespace InformacioniSistemBolnice
                 this.prvi.Text = pacijent.zdravstveniKarton.anamneza.sadasnjaBolest;
                 this.drugi.Text = pacijent.zdravstveniKarton.anamneza.ranijeBolesti;
                 this.treci.Text = pacijent.zdravstveniKarton.anamneza.porodicneAnamneze;
-                this.cetvrti.Text = pacijent.zdravstveniKarton.anamneza.alergije;
                 this.peti.Text = pacijent.zdravstveniKarton.anamneza.zakljucak;
             }
         }

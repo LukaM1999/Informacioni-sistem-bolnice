@@ -6,7 +6,7 @@ namespace Model
     {
         public string id { get; set; }
 
-        public ObservableCollection<Terapija> Terapije { get; set; }
+        public ObservableCollection<Terapija> Terapije = new();
 
         public Recept()
         {

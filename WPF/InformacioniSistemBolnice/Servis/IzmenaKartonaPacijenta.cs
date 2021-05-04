@@ -17,7 +17,8 @@ namespace Servis
         public void IzdavanjeRecepta(ReceptDto receptDto)
         {
             Recept recept = new Recept(receptDto.Id);
-            recept.Terapije.Add(new Terapija(receptDto.PocetakTerapije, receptDto.KrajTerapije, receptDto.MeraLeka, receptDto.RedovnostUzimanjaLeka));
+            recept.Terapije.Add(new Terapija(receptDto.PocetakTerapije, receptDto.KrajTerapije, 
+                receptDto.MeraLeka, receptDto.RedovnostUzimanjaLeka, receptDto.Lek));
             receptDto.Pacijent.zdravstveniKarton.Recepti.Add(recept);
             Pacijenti.Instance.Serijalizacija();
             Pacijenti.Instance.Deserijalizacija();
@@ -26,7 +27,7 @@ namespace Servis
 
         public void DodavanjeAnamneze(AnamnezaForma anamneza)
         {
-            Anamneza a = new Anamneza(anamneza.prvi.Text, anamneza.drugi.Text, anamneza.treci.Text, anamneza.cetvrti.Text, anamneza.peti.Text);
+            Anamneza a = new Anamneza(anamneza.prvi.Text, anamneza.drugi.Text, anamneza.treci.Text, anamneza.peti.Text);
             anamneza.p.zdravstveniKarton.anamneza = a;
 
             Pacijenti.Instance.Serijalizacija();

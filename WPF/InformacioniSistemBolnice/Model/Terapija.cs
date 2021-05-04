@@ -11,12 +11,13 @@ namespace Model
 
         public Lek Lek { get; set; }
 
-        public Terapija(DateTime pocetak, DateTime kraj, double m, double r)
+        public Terapija(DateTime pocetak, DateTime kraj, double m, double r, Lek lek)
         {
             pocetakTerapije = pocetak;
             krajTerapije = kraj;
             mera = m;
             redovnost = r;
+            Lek = lek;
         }
 
     }

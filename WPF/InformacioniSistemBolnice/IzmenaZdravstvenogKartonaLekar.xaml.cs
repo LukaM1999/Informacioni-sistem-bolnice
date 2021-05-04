@@ -27,6 +27,7 @@ namespace InformacioniSistemBolnice
         public IzmenaZdravstvenogKartonaLekar(Pacijent pacijent)
         {
             InitializeComponent();
+            Pacijenti.Instance.Deserijalizacija();
             Alergeni.Instance.Deserijalizacija();
             Kartoni.Instance.Deserijalizacija();
             this.pacijent = pacijent;
@@ -51,7 +52,7 @@ namespace InformacioniSistemBolnice
             this.OSIZLabela.Content = pacijent.zdravstveniKarton.PodaciOZaposlenjuIZanimanjuPacijenta.OSIZZdrZastite;
             this.posebniUsloviLabela.Content = pacijent.zdravstveniKarton.PodaciOZaposlenjuIZanimanjuPacijenta.RadPodPosebnimUslovima;
             this.promeneLabela.Content = pacijent.zdravstveniKarton.PodaciOZaposlenjuIZanimanjuPacijenta.Promene;
-            this.ListaAlergena.ItemsSource = Alergeni.Instance.listaAlergena;
+            this.ListaAlergena.ItemsSource = pacijent.zdravstveniKarton.Alergeni;
         }
 
         public IzmenaZdravstvenogKartonaLekar(Termin termin)
@@ -94,7 +95,7 @@ namespace InformacioniSistemBolnice
                 this.posebniUsloviLabela.Content =
                     pacijent.zdravstveniKarton.PodaciOZaposlenjuIZanimanjuPacijenta.RadPodPosebnimUslovima;
                 this.promeneLabela.Content = pacijent.zdravstveniKarton.PodaciOZaposlenjuIZanimanjuPacijenta.Promene;
-                this.ListaAlergena.ItemsSource = Alergeni.Instance.listaAlergena;
+                this.ListaAlergena.ItemsSource = pacijent.zdravstveniKarton.Alergeni;
             }
         }
 
@@ -111,7 +112,7 @@ namespace InformacioniSistemBolnice
         }
         private void Uput_Click(object sender, RoutedEventArgs e)
         {
-            UputForma uputForma = new UputForma();
+            UputForma uputForma = new(pacijent);
             uputForma.Show();
         }
     }

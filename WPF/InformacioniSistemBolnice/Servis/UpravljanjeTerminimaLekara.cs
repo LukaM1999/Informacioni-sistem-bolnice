@@ -111,7 +111,7 @@ namespace Servis
         {
             if (listaZakazanihTerminaLekara.SelectedIndex >= 0)
             {
-                Termin t = (Termin)listaZakazanihTerminaLekara.SelectedValue;
+                Termin t = (Termin)listaZakazanihTerminaLekara.SelectedItem;
                 foreach (Pacijent pacijent in Pacijenti.Instance.listaPacijenata.ToList())
                 {
                     if (pacijent.jmbg == t.pacijentJMBG)
@@ -247,5 +247,35 @@ namespace Servis
             }
         }
 
+        public void IzdavanjeUputa(UputDto uput, Termin izabranTermin)
+        {
+            foreach (Termin vecZakazan in Termini.Instance.listaTermina)
+            {
+                if (vecZakazan.Equals(izabranTermin)) return;
+            }
+            foreach (Lekar lekar in Lekari.Instance.listaLekara)
+            {
+                if (lekar.jmbg == izabranTermin.lekarJMBG)
+                {
+                    foreach (Pacijent pacijent in Pacijenti.Instance.listaPacijenata)
+                    {
+                        if (pacijent.jmbg == izabranTermin.pacijentJMBG)
+                        {
+                            izabranTermin.status = StatusTermina.zakazan;
+                            pacijent.zakazaniTermini.Add(izabranTermin);
+                            lekar.zauzetiTermini.Add(izabranTermin);
+                            Termini.Instance.listaTermina.Add(izabranTermin);
+                            Lekari.Instance.Serijalizacija();
+                            Pacijenti.Instance.Serijalizacija();
+                            Termini.Instance.Serijalizacija();
+                            Pacijenti.Instance.Deserijalizacija();
+                            Lekari.Instance.Deserijalizacija();
+                            Termini.Instance.Deserijalizacija();
+                            break;
+                        }
+                    }
+                }
+            }
+        }
     }
 }

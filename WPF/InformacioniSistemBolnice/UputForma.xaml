@@ -4,9 +4,28 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:InformacioniSistemBolnice"
+        xmlns:system="clr-namespace:System;assembly=System.Runtime"
         mc:Ignorable="d"
         Title="UputForma" Height="450" Width="800">
     <Grid>
-        
+        <ComboBox x:Name="specijalizacije" HorizontalAlignment="Left" Margin="43,72,0,0" VerticalAlignment="Top" Width="182" Height="29"/>
+        <Label Content="Specijalizacija:" HorizontalAlignment="Left" Margin="43,41,0,0" VerticalAlignment="Top"/>
+        <DataGrid x:Name="lekari" Margin="332,72,44,121"/>
+        <Label Content="Lekar:" HorizontalAlignment="Left" Margin="332,41,0,0" VerticalAlignment="Top" Height="26" Width="90"/>
+        <Button Content="Zakazi" HorizontalAlignment="Left" Margin="682,344,0,0" VerticalAlignment="Top" Height="32" Width="74" Click="Button_Click_1"/>
+        <Button Content="Pronadji" HorizontalAlignment="Left" Margin="151,116,0,0" VerticalAlignment="Top" Height="23" Width="74" Click="Button_Click"/>
+        <DatePicker x:Name="pocetak" HorizontalAlignment="Left" Margin="108,169,0,0" VerticalAlignment="Top" Height="24" Width="117"/>
+        <Label Content="Pocetak:" HorizontalAlignment="Left" Margin="43,164,0,0" VerticalAlignment="Top" Height="34"/>
+        <DatePicker x:Name="kraj" HorizontalAlignment="Left" Margin="108,222,0,0" VerticalAlignment="Top" Height="24" Width="117"/>
+        <Label Content="Kraj:" HorizontalAlignment="Left" Margin="43,217,0,0" VerticalAlignment="Top" Height="34" Width="55"/>
+        <ComboBox x:Name="prostorija" HorizontalAlignment="Left" Margin="134,269,0,0" VerticalAlignment="Top" Width="94"/>
+        <Label Content="Prostorija:" HorizontalAlignment="Left" Margin="43,267,0,0" VerticalAlignment="Top" Height="34" Width="71"/>
+        <ComboBox x:Name="tip" HorizontalAlignment="Left" Margin="134,312,0,0" VerticalAlignment="Top" Width="94">
+            <system:String>pregled</system:String>
+            <system:String>operacija</system:String>
+        </ComboBox>
+        <Label Content="Tip:" HorizontalAlignment="Left" Margin="43,306,0,0" VerticalAlignment="Top" Height="34" Width="55"/>
+        <CheckBox x:Name="hitno" Content="Hitno" HorizontalAlignment="Left" Margin="168,353,0,0" VerticalAlignment="Top" Height="24" Width="60"/>
+
     </Grid>
 </Window>
