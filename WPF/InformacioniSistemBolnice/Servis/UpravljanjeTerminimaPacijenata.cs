@@ -84,7 +84,6 @@ namespace Servis
                                 Pacijenti.Instance.Deserijalizacija();
                                 listaZakazanihTermina.ItemsSource = null;
                                 listaZakazanihTermina.ItemsSource = pacijent.zakazaniTermini;
-                               
                                 break;
                             }
                         }
@@ -115,6 +114,7 @@ namespace Servis
                         Termini.Instance.listaTermina.Remove(termin);
                         Termini.Instance.Serijalizacija();
                         Termini.Instance.Deserijalizacija();
+                        break;
                     }
                 }
 
@@ -125,6 +125,7 @@ namespace Servis
                         prostorija.termin.Remove(t);
                         Prostorije.Instance.Serijalizacija();
                         Prostorije.Instance.Deserijalizacija();
+                        break;
                     }
                 }
             }
@@ -181,6 +182,24 @@ namespace Servis
                                 lekar.zauzetiTermini.Add(noviTermin);
                                 Lekari.Instance.Serijalizacija();
                                 Lekari.Instance.Deserijalizacija();
+                                break;
+                            }
+                        }
+                    }
+                }
+
+                foreach (Prostorija prostorija in Prostorije.Instance.listaProstorija.ToList())
+                {
+                    if (prostorija.id == noviTermin.idProstorije)
+                    {
+                        foreach (Termin stariTermin in prostorija.termin)
+                        {
+                            if (stariTermin.vreme == staroVreme)
+                            {
+                                prostorija.termin.Remove(stariTermin);
+                                prostorija.termin.Add(noviTermin);
+                                Prostorije.Instance.Serijalizacija();
+                                Prostorije.Instance.Deserijalizacija();
                                 break;
                             }
                         }
