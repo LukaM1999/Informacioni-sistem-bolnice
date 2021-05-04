@@ -129,5 +129,11 @@ namespace InformacioniSistemBolnice
             listaProstorija = Prostorije.Instance.listaProstorija;
             ListaProstorija.ItemsSource = listaProstorija;
         }
+
+        private void btnRenoviranje_Click(object sender, RoutedEventArgs e)
+        {
+            ProstorijaRenoviranjeProzor prozor = new ProstorijaRenoviranjeProzor(ListaProstorija);
+            prozor.Show();
+        }
     }
 }

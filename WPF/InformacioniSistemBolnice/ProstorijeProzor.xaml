@@ -16,14 +16,15 @@
             <Button x:Name="magacinDugme" Content="Magacin" Height="30" Canvas.Left="252" Canvas.Top="45" Width="100" Click="magacinDugme_Click"/>
             <Button x:Name="lekoviDugme" Content="Lekovi" Height="30" Canvas.Left="357" Canvas.Top="45" Width="100" Click="lekoviDugme_Click"/>
         </Canvas>
-        <RadioButton x:Name="rbStaticka" Content="Staticka" HorizontalAlignment="Left" Margin="12,65,0,0" VerticalAlignment="Top" IsChecked="True"/>
+        <RadioButton x:Name="rbStaticka" Content="Staticka" HorizontalAlignment="Left" Margin="11,88,0,0" VerticalAlignment="Top" IsChecked="True"/>
         <Label Content="Kolicina:" HorizontalAlignment="Left" Margin="220,99,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="tbKolicina" HorizontalAlignment="Left" Margin="278,97,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="55" Height="30"/>
         <Button x:Name="btnFilter" Content="Filtriraj" HorizontalAlignment="Left" Margin="344,97,0,0" VerticalAlignment="Top" Height="30" Width="54" Click="btnFilter_Click"/>
-        <RadioButton x:Name="rbDinamicka" Content="Dinamicka" HorizontalAlignment="Left" Margin="12,106,0,0" VerticalAlignment="Top"/>
-        <ComboBox x:Name="cbStaticka" HorizontalAlignment="Left" Margin="95,57,0,0" VerticalAlignment="Top" Width="120" Height="30"/>
-        <ComboBox x:Name="cbDinamicka" HorizontalAlignment="Left" Margin="95,97,0,0" VerticalAlignment="Top" Width="120" Height="30"/>
+        <RadioButton x:Name="rbDinamicka" Content="Dinamicka" HorizontalAlignment="Left" Margin="11,120,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="cbStaticka" HorizontalAlignment="Left" Margin="95,84,0,0" VerticalAlignment="Top" Width="120" Height="25"/>
+        <ComboBox x:Name="cbDinamicka" HorizontalAlignment="Left" Margin="95,115,0,0" VerticalAlignment="Top" Width="120" Height="25"/>
         <Button x:Name="btnOsvezi" Content="Osvezi" HorizontalAlignment="Left" Margin="403,97,0,0" VerticalAlignment="Top" Height="30" Width="53" Click="btnOsvezi_Click"/>
+        <Button x:Name="btnRenoviranje" Content="Renoviraj" HorizontalAlignment="Left" Margin="147,45,0,0" VerticalAlignment="Top" Height="30" Width="100" Click="btnRenoviranje_Click"/>
 
     </Grid>
 </Window>

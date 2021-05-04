@@ -139,5 +139,21 @@
         }
       ]
     }
+  },
+  {
+    "termin": null,
+    "sprat": 2,
+    "id": "K32",
+    "jeZauzeta": false,
+    "tip": 2,
+    "inventar": {
+      "dinamickaOprema": [
+        {
+          "tip": 0,
+          "kolicina": 0
+        }
+      ],
+      "statickaOprema": []
+    }
   }
 ]

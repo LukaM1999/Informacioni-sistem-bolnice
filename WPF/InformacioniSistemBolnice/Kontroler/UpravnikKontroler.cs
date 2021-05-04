@@ -90,17 +90,9 @@ namespace Kontroler
             UpravljanjeLekovima.Instance.IzmenaLeka(dto, lek);
         }
 
-        public UpravljanjeProstorijama upravljanjeProstorijama;
-
-        public UpravljanjeStatickomOpremom upravljanjeStatickomOpremom;
-
-        public UpravljanjeDinamickomOpremom upravljanjeDinamickomOpremom;
-
-        public RasporedjivanjeDinamickeOpreme rasporedjivanjeDinamickeOpreme;
-
-        public RasporedjivanjeStatickeOpreme rasporedjivanjeStatickeOpreme;
-
-        public UpravljanjeLekovima upravljanjeLekovima;
-
+        public void ZakazivanjeRenoviranja(ProstorijaRenoviranjeDto dto)
+        {
+            Renoviranje.Instance.ZakazivanjeRenoviranja(dto);
+        }
     }
 }

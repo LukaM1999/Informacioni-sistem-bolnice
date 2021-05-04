@@ -6,7 +6,7 @@ using Model;
 
 namespace Repozitorijum
 {
-    class StatickaOpremaTermini
+    class StatickaOpremaTermini:Repozitorijum
     {
         private string putanja = "../../../json/statickaOpremaTermini.json";
 
