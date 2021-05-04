@@ -28,7 +28,9 @@ namespace InformacioniSistemBolnice
             Repozitorijum.StatickaOprema.Instance.Deserijalizacija();
             Prostorije.Instance.Deserijalizacija();
             Thread proveraPremestajaOpreme = new Thread(() => {RasporedjivanjeStatickeOpreme.Instance.ProveraPremestajaOpreme(); });
+            Thread proveraRenoviranja = new Thread(() => { Renoviranje.Instance.ProveraRenoviranja(); });
             proveraPremestajaOpreme.Start();
+            proveraRenoviranja.Start();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

@@ -19,10 +19,21 @@ namespace Servis
 
         public void ZakazivanjeRenoviranja(ProstorijaRenoviranjeDto dto)
         {
-            RenoviranjeTermin novTermin = new RenoviranjeTermin(dto.PocetakRenoviranja, dto.KrajRenoviranja, dto.Prostorija);
+            RenoviranjeTermin novTermin = new RenoviranjeTermin(dto.PocetakRenoviranja, dto.KrajRenoviranja, dto.Prostorija.id);
+            Prostorije.Instance.getSelected(dto.Prostorija).renoviranjeTermin = novTermin;
+            Prostorije.Instance.Serijalizacija();
+            Prostorije.Instance.Deserijalizacija();
             RenoviranjeTermini.Instance.listaTermina.Add(novTermin);
             RenoviranjeTermini.Instance.Serijalizacija();
             RenoviranjeTermini.Instance.Deserijalizacija();
+        }
+
+        public void ProveraRenoviranja()
+        {
+            while (true)
+            {
+
+            }
         }
     }
 }

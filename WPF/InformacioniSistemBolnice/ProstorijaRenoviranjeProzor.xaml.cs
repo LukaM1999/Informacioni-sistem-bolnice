@@ -34,10 +34,7 @@ namespace InformacioniSistemBolnice
         {
             if (proveraDatumaRenoviranja())
             {
-                ProstorijaRenoviranjeDto dto = new ProstorijaRenoviranjeDto((DateTime)datumPocetkaRenoviranja.SelectedDate,
-                    (DateTime)datumPocetkaRenoviranja.SelectedDate, prostorija);
-                UpravnikKontroler.Instance.ZakazivanjeRenoviranja(dto);
-                this.Close();
+                proveraZauzetostiProstorije();
             }
             else
             {
@@ -48,6 +45,27 @@ namespace InformacioniSistemBolnice
         public bool proveraDatumaRenoviranja()
         {
             return datumPocetkaRenoviranja.SelectedDate < datumKrajaRenoviranja.SelectedDate;
+        }
+
+        public void proveraZauzetostiProstorije()
+        {
+            foreach(Termin t in prostorija.termin.ToList())
+            {
+                if(daLiPostojiTerminUIzabranomOpseguVremena(t))
+                {
+                    labelaPorukaOZauzetosti.Visibility = Visibility.Visible;
+                    return;
+                }
+            }
+            ProstorijaRenoviranjeDto dto = new ProstorijaRenoviranjeDto((DateTime)datumPocetkaRenoviranja.SelectedDate,
+                    (DateTime)datumKrajaRenoviranja.SelectedDate, prostorija);
+            UpravnikKontroler.Instance.ZakazivanjeRenoviranja(dto);
+            this.Close();
+        }
+
+        public bool daLiPostojiTerminUIzabranomOpseguVremena(Termin zakazaniTermin)
+        {
+            return zakazaniTermin.vreme >= datumPocetkaRenoviranja.SelectedDate && zakazaniTermin.vreme < datumKrajaRenoviranja.SelectedDate;
         }
     }
 }

@@ -21,17 +21,17 @@ namespace Model
             set;
         }
 
-        public Prostorija Prostorija
+        public string idProstorije
         {
             get;
             set;
         }
 
-        public RenoviranjeTermin(DateTime pocetakRenoviranja, DateTime krajRenoviranja, Prostorija prostorija)
+        public RenoviranjeTermin(DateTime pocetakRenoviranja, DateTime krajRenoviranja, string prostorija)
         {
             PocetakRenoviranja = pocetakRenoviranja;
             KrajRenoviranja = krajRenoviranja;
-            Prostorija = prostorija;
+            idProstorije = prostorija;
         }
     }
 }
