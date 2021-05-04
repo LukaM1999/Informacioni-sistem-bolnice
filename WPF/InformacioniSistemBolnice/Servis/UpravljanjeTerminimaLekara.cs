@@ -18,6 +18,8 @@ namespace Servis
 
         public static UpravljanjeTerminimaLekara Instance { get { return lazy.Value; } }
 
+        public Termin noviTermin;
+
         public void Zakazivanje(ZakazivanjeTerminaLekaraProzor zakazivanje, string jmbgLekar)
         {
             if (zakazivanje.listaSati.SelectedIndex >= 0 && zakazivanje.datumTermina.SelectedDate != null)
@@ -78,6 +80,7 @@ namespace Servis
 
                                 zakazanTermin.lekarJMBG = lekar.jmbg;
                                 zakazanTermin.pacijentJMBG = pacijent.jmbg;
+                                zakazanTermin.Hitan = (bool)zakazivanje.hitan.IsChecked;
 
                                 foreach (Prostorija p in Prostorije.Instance.listaProstorija)
                                 {
@@ -111,7 +114,7 @@ namespace Servis
         {
             if (listaZakazanihTerminaLekara.SelectedIndex >= 0)
             {
-                Termin t = (Termin)listaZakazanihTerminaLekara.SelectedValue;
+                Termin t = (Termin)listaZakazanihTerminaLekara.SelectedItem;
                 foreach (Pacijent pacijent in Pacijenti.Instance.listaPacijenata.ToList())
                 {
                     if (pacijent.jmbg == t.pacijentJMBG)
@@ -129,7 +132,15 @@ namespace Servis
 
                     }
                 }
-
+                foreach (Termin termin in Termini.Instance.listaTermina.ToList())
+                {
+                    if (termin.vreme == t.vreme)
+                    {
+                        Termini.Instance.listaTermina.Remove(termin);
+                        Termini.Instance.Serijalizacija();
+                        Termini.Instance.Deserijalizacija();
+                    }
+                }
                 foreach (Lekar lekar in Lekari.Instance.listaLekara)
                 {
                     if (lekar.jmbg == t.lekarJMBG)
@@ -145,16 +156,6 @@ namespace Servis
                                 break;
                             }
                         }
-                    }
-                }
-
-                foreach (Termin termin in Termini.Instance.listaTermina.ToList())
-                {
-                    if (termin.vreme == t.vreme)
-                    {
-                        Termini.Instance.listaTermina.Remove(termin);
-                        Termini.Instance.Serijalizacija();
-                        Termini.Instance.Deserijalizacija();
                     }
                 }
             }
@@ -247,5 +248,62 @@ namespace Servis
             }
         }
 
+        public void IzdavanjeUputa(Termin izabranTermin)
+        {
+            noviTermin = izabranTermin;
+            if (JeZauzetTermin()) return;
+            PretragaLekara();
+        }
+
+        private void PretragaLekara()
+        {
+            foreach (Lekar lekar in Lekari.Instance.listaLekara)
+            {
+                if (lekar.jmbg == noviTermin.lekarJMBG)
+                {
+                    PretragaPacijenta(lekar);
+                }
+            }
+        }
+
+        private void PretragaPacijenta(Lekar lekar)
+        {
+            foreach (Pacijent pacijent in Pacijenti.Instance.listaPacijenata)
+            {
+                if (pacijent.jmbg != noviTermin.pacijentJMBG) continue;
+                ZakazujeKodSpecijaliste(lekar, pacijent);
+                break;
+            }
+        }
+
+        private void ZakazujeKodSpecijaliste(Lekar lekar, Pacijent pacijent)
+        {
+            noviTermin.status = StatusTermina.zakazan;
+            pacijent.zakazaniTermini.Add(noviTermin);
+            lekar.zauzetiTermini.Add(noviTermin);
+            Termini.Instance.listaTermina.Add(noviTermin);
+            Lekari.Instance.Serijalizacija();
+            Pacijenti.Instance.Serijalizacija();
+            Termini.Instance.Serijalizacija();
+            Pacijenti.Instance.Deserijalizacija();
+            Lekari.Instance.Deserijalizacija();
+            Termini.Instance.Deserijalizacija();
+        }
+
+        private bool JeZauzetTermin()
+        {
+            foreach (Termin vecZakazan in Termini.Instance.listaTermina)
+            {
+                if (ZauzetiLekarIPacijent(vecZakazan)) return true;
+            }
+            return false;
+        }
+
+        private bool ZauzetiLekarIPacijent(Termin vecZakazan)
+        {
+            return vecZakazan.vreme.Equals(noviTermin.vreme) 
+                   && vecZakazan.lekarJMBG.Equals(noviTermin.lekarJMBG) 
+                   && vecZakazan.pacijentJMBG.Equals(noviTermin.pacijentJMBG);
+        }
     }
 }

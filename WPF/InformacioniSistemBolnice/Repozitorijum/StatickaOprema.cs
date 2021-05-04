@@ -3,6 +3,7 @@ using Model;
 using Newtonsoft.Json;
 using System.IO;
 using System.Collections.ObjectModel;
+using System.Linq;
 
 namespace Repozitorijum
 {
@@ -25,14 +26,37 @@ namespace Repozitorijum
 
         public void Deserijalizacija()
         {
-            listaOpreme = JsonConvert.DeserializeObject<ObservableCollection<Model.StatickaOprema>>(File.ReadAllText(putanja));
+            //lock (listaOpreme)
+            //{
+                listaOpreme = JsonConvert.DeserializeObject<ObservableCollection<Model.StatickaOprema>>(File.ReadAllText(putanja));
+            //}
         }
 
         public void Serijalizacija()
         {
-            string json = JsonConvert.SerializeObject(listaOpreme, Formatting.Indented);
-            File.WriteAllText(putanja, json);
+            //lock (listaOpreme)
+            //{
+                string json = JsonConvert.SerializeObject(listaOpreme, Formatting.Indented);
+                File.WriteAllText(putanja, json);
+            //}
         }
 
+        public StatickaOprema()
+        {
+            listaOpreme = new ObservableCollection<Model.StatickaOprema>();
+        }
+
+        public Model.StatickaOprema getSelected(Model.StatickaOprema p)
+        {
+            Model.StatickaOprema prs = null;
+            foreach (Model.StatickaOprema pr in listaOpreme)
+            {
+                if (pr.tip.Equals(p.tip))
+                {
+                    prs = pr;
+                }
+            }
+            return listaOpreme.ElementAt(listaOpreme.IndexOf(prs));
+        }
     }
 }

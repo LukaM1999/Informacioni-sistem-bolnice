@@ -15,9 +15,10 @@ namespace Model
         public DateTime KrajTerapije { get; set; }
         public double MeraLeka { get; set; }
         public double RedovnostUzimanjaLeka { get; set; }
+        public Lek Lek { get; set; }
 
         public ReceptDto(DateTime pocetakTerpaije, DateTime krajTerapije, double meraLeka,
-            double redovnostUzimanjaLeka, string id, Pacijent pacijent)
+            double redovnostUzimanjaLeka, string id, Pacijent pacijent, Lek lek)
         {
             PocetakTerapije = pocetakTerpaije;
             KrajTerapije = krajTerapije;
@@ -25,6 +26,7 @@ namespace Model
             RedovnostUzimanjaLeka = redovnostUzimanjaLeka;
             Id = id;
             Pacijent = pacijent;
+            Lek = lek;
         }
     }
 }

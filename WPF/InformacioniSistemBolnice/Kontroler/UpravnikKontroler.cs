@@ -67,17 +67,32 @@ namespace Kontroler
 
         public void RasporedjivanjeDinamickeOpreme(Prostorija izProstorije, Prostorija uProstoriju, DinamickaOprema dinamickaOprema, int kolicina)
         {
-            rasporedjivanjeDinamickeOpreme.Premestanje(izProstorije, uProstoriju, dinamickaOprema, kolicina);
+            Servis.RasporedjivanjeDinamickeOpreme.Instance.Premestanje(izProstorije, uProstoriju, dinamickaOprema, kolicina);
         }
-        public UpravljanjeProstorijama upravljanjeProstorijama;
 
-        public UpravljanjeStatickomOpremom upravljanjeStatickomOpremom;
+        public void RasporedjivanjeStatickeOpreme(Prostorija izProstorije, Prostorija uProstoriju, StatickaOprema statickaOprema, int kolicina, DateTime datum)
+        {
+            Servis.RasporedjivanjeStatickeOpreme.Instance.ZakazivanjePremestanja(izProstorije, uProstoriju, statickaOprema, kolicina, datum);
+        }
 
-        public UpravljanjeDinamickomOpremom upravljanjeDinamickomOpremom;
+        public void KreiranjeLeka(LekDto dto)
+        {
+            UpravljanjeLekovima.Instance.KreiranjeLeka(dto);
+        }
 
-        public RasporedjivanjeDinamickeOpreme rasporedjivanjeDinamickeOpreme;
+        public void BrisanjeLeka(Lek lek)
+        {
+            UpravljanjeLekovima.Instance.UklanjanjeLeka(lek);
+        }
 
-        public RasporedjivanjeStatickeOpreme rasporedjivanjeStatickeOpreme;
+        public void IzmenaLeka(LekDto dto, Lek lek)
+        {
+            UpravljanjeLekovima.Instance.IzmenaLeka(dto, lek);
+        }
 
+        public void ZakazivanjeRenoviranja(ProstorijaRenoviranjeDto dto)
+        {
+            Renoviranje.Instance.ZakazivanjeRenoviranja(dto);
+        }
     }
 }

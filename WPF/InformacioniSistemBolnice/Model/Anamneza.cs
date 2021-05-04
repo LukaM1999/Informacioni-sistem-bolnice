@@ -1,7 +1,8 @@
 using System;
-
+using PropertyChanged;
 namespace Model
 {
+    [AddINotifyPropertyChangedInterface]
     public class Anamneza
     {
         public Anamneza()
@@ -13,15 +14,13 @@ namespace Model
         public string ranijeBolesti { get; set; }
         public string porodicneAnamneze { get; set; }
         public string zakljucak { get; set; }
-        public string alergije { get; set; }
 
-        public Anamneza(string sadasnja, string ranije, string porodicne, string a, string z)
+        public Anamneza(string sadasnja, string ranije, string porodicne, string z)
         {
             sadasnjaBolest = sadasnja;
             ranijeBolesti = ranije;
             porodicneAnamneze = porodicne;
             zakljucak = z;
-            alergije = a;
         }
 
     }

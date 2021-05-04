@@ -23,14 +23,14 @@ namespace InformacioniSistemBolnice
     public partial class TerminiPacijentaProzorSekretara : Window
     {
         public Pacijent ulogovanPacijent;
-        public TerminiPacijentaProzorSekretara(string korisnickoIme)
+        public TerminiPacijentaProzorSekretara()
         {
             InitializeComponent();
             Termini.Instance.Deserijalizacija();
             Pacijenti.Instance.Deserijalizacija();
             Lekari.Instance.Deserijalizacija();
 
-            foreach (Pacijent pacijent in Pacijenti.Instance.listaPacijenata)
+            /*foreach (Pacijent pacijent in Pacijenti.Instance.listaPacijenata)
             {
                 if (pacijent.korisnik.korisnickoIme.Equals(korisnickoIme))
                 {
@@ -38,19 +38,19 @@ namespace InformacioniSistemBolnice
                     break;
                 }
             }
-
-            listaZakazanihTermina.ItemsSource = ulogovanPacijent.zakazaniTermini;
+            */
+            listaZakazanihTermina.ItemsSource = Termini.Instance.listaTermina;
         }
 
         private void zakaziDugme_Click(object sender, RoutedEventArgs e)
         {
-            ZakazivanjeTerminaSekretara zakazivanjeTerminaSekretara = new ZakazivanjeTerminaSekretara(ulogovanPacijent.jmbg, this);
+            ZakazivanjeTerminaSekretara zakazivanjeTerminaSekretara = new ZakazivanjeTerminaSekretara(this);
             zakazivanjeTerminaSekretara.Show();
         }
 
         private void otkaziTermin_Click(object sender, RoutedEventArgs e)
         {
-            PacijentKontroler.Instance.Otkazivanje(listaZakazanihTermina);
+            SekretarKontroler.Instance.OtkazivanjeTerminaPacijenta(listaZakazanihTermina);
         }
 
         private void pomjeriTermin_Click(object sender, RoutedEventArgs e)

@@ -1,0 +1,19 @@
+﻿<Window x:Class="InformacioniSistemBolnice.UpravljanjeUrgentnimSistemomProzor"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:InformacioniSistemBolnice"
+        mc:Ignorable="d"
+        Title="UpravljanjeUrgentnimSistemomProzor" Height="450" Width="800">
+    <Grid>
+        <StackPanel Margin="0,50,0,0">
+            <DataGrid x:Name="ListaTermina" Height="384" Width="795" CanUserAddRows="False">
+            </DataGrid>
+        </StackPanel>
+        <Canvas x:Name="RukovanjePacijentima" Margin="0,0,0,439"/>
+        <Button Content="Zakazi hitan pregled" HorizontalAlignment="Left" Margin="23,16,0,0" VerticalAlignment="Top" Click="zakaziHitanTermin"/>
+        <Button Content="Kreiraj gostujuceg pacijenta" HorizontalAlignment="Left" Margin="171,17,0,0" VerticalAlignment="Top" Click="kreirajGostujucegPacijenta_click"/>
+
+    </Grid>
+</Window>

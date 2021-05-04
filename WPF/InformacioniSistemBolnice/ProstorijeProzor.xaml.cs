@@ -15,16 +15,26 @@ using Model;
 using Servis;
 using Repozitorijum;
 using Kontroler;
+using System.Collections.ObjectModel;
 
 namespace InformacioniSistemBolnice
 {
     public partial class ProstorijeProzor : Window
     {
+        private ObservableCollection<Prostorija> listaProstorija
+        {
+            get;
+            set;
+        }
         public ProstorijeProzor()
         {
             InitializeComponent();
             Prostorije.Instance.Deserijalizacija();
-            ListaProstorija.ItemsSource = Prostorije.Instance.listaProstorija;
+            listaProstorija = Prostorije.Instance.listaProstorija;
+
+            ListaProstorija.ItemsSource = listaProstorija;
+            cbStaticka.ItemsSource = Enum.GetValues(typeof(TipStatickeOpreme));
+            cbDinamicka.ItemsSource = Enum.GetValues(typeof(TipDinamickeOpreme));
         }
 
         private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -34,7 +44,7 @@ namespace InformacioniSistemBolnice
 
         private void Dodaj(object sender, RoutedEventArgs e)
         {
-            ProstorijaForma pf = new ProstorijaForma();
+            ProstorijaForma pf = new ProstorijaForma(ListaProstorija);
             pf.Show();
         }
 
@@ -51,6 +61,7 @@ namespace InformacioniSistemBolnice
                 Prostorija pr = (Prostorija)ListaProstorija.SelectedValue;
                 pf.SetTextBoxValue(pr);
                 pf.Show();
+                ListaProstorija.ItemsSource = listaProstorija;
             }
         }
 
@@ -65,8 +76,64 @@ namespace InformacioniSistemBolnice
 
         private void magacinDugme_Click(object sender, RoutedEventArgs e)
         {
+            Repozitorijum.DinamickaOprema.Instance.Deserijalizacija();
             MagacinProzor mp = new MagacinProzor(this);
             mp.Show();
+        }
+
+        private void lekoviDugme_Click(object sender, RoutedEventArgs e)
+        {
+            LekProzor prozor = new LekProzor();
+            prozor.Show();
+        }
+
+        private void btnFilter_Click(object sender, RoutedEventArgs e)
+        {
+            ObservableCollection<Prostorija> novaListaProstorija = new ObservableCollection<Prostorija>();
+            int kolicina = int.Parse(tbKolicina.Text);
+            TipDinamickeOpreme tipDinamickeOpreme = (TipDinamickeOpreme)cbDinamicka.SelectedItem;
+            TipStatickeOpreme tipStatickeOpreme = (TipStatickeOpreme)cbDinamicka.SelectedItem;
+
+            if ((bool)rbStaticka.IsChecked)
+            {
+                foreach(Prostorija prostorija in Prostorije.Instance.listaProstorija.ToList())
+                {
+                    foreach(Model.StatickaOprema statickaOprema in prostorija.inventar.statickaOprema.ToList())
+                    {
+                        if (statickaOprema.tip.Equals(tipStatickeOpreme) && statickaOprema.kolicina >= kolicina)
+                        {
+                            novaListaProstorija.Add(prostorija);
+                        }
+                    }
+                }
+            }
+            else
+            {
+                foreach (Prostorija prostorija in Prostorije.Instance.listaProstorija.ToList())
+                {
+                    foreach (Model.DinamickaOprema dinamickaOprema in prostorija.inventar.dinamickaOprema.ToList())
+                    {
+                        if (dinamickaOprema.tip.Equals(tipDinamickeOpreme) && dinamickaOprema.kolicina >= kolicina)
+                        {
+                            novaListaProstorija.Add(prostorija);
+                        }
+                    }
+                }
+            }
+            listaProstorija = novaListaProstorija;
+            ListaProstorija.ItemsSource = listaProstorija;
+        }
+
+        private void btnOsvezi_Click(object sender, RoutedEventArgs e)
+        {
+            listaProstorija = Prostorije.Instance.listaProstorija;
+            ListaProstorija.ItemsSource = listaProstorija;
+        }
+
+        private void btnRenoviranje_Click(object sender, RoutedEventArgs e)
+        {
+            ProstorijaRenoviranjeProzor prozor = new ProstorijaRenoviranjeProzor(ListaProstorija);
+            prozor.Show();
         }
     }
 }

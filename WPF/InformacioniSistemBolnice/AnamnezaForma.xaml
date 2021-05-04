@@ -10,13 +10,11 @@
         <Label Content="Sadasnja bolest:" HorizontalAlignment="Left" Margin="134,46,0,0" VerticalAlignment="Top" Height="53" Width="152"/>
         <Label Content="Istorija bolesti:" HorizontalAlignment="Left" Margin="134,104,0,0" VerticalAlignment="Top" Height="53" Width="152"/>
         <Label Content="Porodicne bolesti:" HorizontalAlignment="Left" Margin="134,164,0,0" VerticalAlignment="Top" Height="53" Width="152"/>
-        <Label Content="Alergije:" HorizontalAlignment="Left" Margin="134,217,0,0" VerticalAlignment="Top" Height="53" Width="152"/>
-        <Label Content="Zakljucak:" HorizontalAlignment="Left" Margin="134,270,0,0" VerticalAlignment="Top" Height="53" Width="152"/>
+        <Label Content="Zakljucak:" HorizontalAlignment="Left" Margin="134,222,0,0" VerticalAlignment="Top" Height="53" Width="152"/>
         <TextBox Name="prvi" HorizontalAlignment="Left" Margin="256,33,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="53" Width="425" Background="{DynamicResource {x:Static SystemColors.InactiveSelectionHighlightBrushKey}}"/>
         <TextBox Name="drugi" HorizontalAlignment="Left" Margin="256,91,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="53" Width="425" Background="{DynamicResource {x:Static SystemColors.InactiveSelectionHighlightBrushKey}}"/>
         <TextBox Name="treci" HorizontalAlignment="Left" Margin="256,151,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="53" Width="425" Background="{DynamicResource {x:Static SystemColors.InactiveSelectionHighlightBrushKey}}"/>
-        <TextBox Name="cetvrti" HorizontalAlignment="Left" Margin="256,210,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="53" Width="425" Background="{DynamicResource {x:Static SystemColors.InactiveSelectionHighlightBrushKey}}"/>
-        <TextBox Name="peti" HorizontalAlignment="Left" Margin="256,270,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="110" Width="425" Background="{DynamicResource {x:Static SystemColors.InactiveSelectionHighlightBrushKey}}"/>
+        <TextBox Name="peti" HorizontalAlignment="Left" Margin="256,223,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="110" Width="425" Background="{DynamicResource {x:Static SystemColors.InactiveSelectionHighlightBrushKey}}"/>
         <Button Content="Potvrdi" HorizontalAlignment="Left" Margin="718,341,0,0" VerticalAlignment="Top" Height="39" Width="57" Click="Button_Click"/>
 
     </Grid>

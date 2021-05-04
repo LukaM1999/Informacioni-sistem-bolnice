@@ -1,10 +1,11 @@
 using System;
 using System.Collections.ObjectModel;
 using Repozitorijum;
-
+using PropertyChanged;
 
 namespace Model
 {
+    [AddINotifyPropertyChangedInterface]
     public class ZdravstveniKarton
     {
         private string brojKartona;

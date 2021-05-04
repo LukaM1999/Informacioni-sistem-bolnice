@@ -90,6 +90,16 @@ namespace Kontroler
             UpravljanjeNalozimaPacijenata.Instance.Pomeranje(pomjeranjeTerminaProzorSekretara);
         }
 
+        public void OtkazivanjeTerminaPacijenta(DataGrid listaZakazanihTermina)
+        {
+            UpravljanjeNalozimaPacijenata.Instance.Otkazivanje(listaZakazanihTermina);
+        }
+
+        public void PomeranjeVanrednogTerminaPacijenta(IzborTerminaZaNovoZakazivanje izborTerminaZaNovoZakazivanje, IzborTerminaZaPomeranje izborTerminaZaPomeranje)
+        {
+            UpravljanjeNalozimaPacijenata.Instance.PomeranjeVanrednogTermina(izborTerminaZaNovoZakazivanje, izborTerminaZaPomeranje);
+        }
+
         public void KreiranjeVesti(KreirajVijestProzor kreirajVijestProzor)
         {
             UpravljanjeVestima.Instance.KreiranjeVesti(kreirajVijestProzor);
@@ -110,7 +120,10 @@ namespace Kontroler
             UpravljanjeVestima.Instance.IzmenaVesti(listaVesti, izmenaVesti);
         }
 
-
+        public void KreiranjeGostujucegPacijenta(KreiranjeGostujucegPacijentaProzor kreiranjeGostujucegPacijentaProzor)
+        {
+            UpravljanjeUrgentnimSistemom.Instance.KreiranjeGostujcegPacijenta(kreiranjeGostujucegPacijentaProzor);
+        }
 
 
         public UpravljanjeNalozimaPacijenata upravljanjeNalozimaPacijenata;

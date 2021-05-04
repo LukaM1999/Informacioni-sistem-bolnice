@@ -27,7 +27,6 @@ namespace InformacioniSistemBolnice
         {
             InitializeComponent();
             Lekari.Instance.Deserijalizacija();
-
             foreach (Lekar lekar in Lekari.Instance.listaLekara)
             {
                 System.Diagnostics.Debug.WriteLine(lekar.korisnik.korisnickoIme);
@@ -37,29 +36,30 @@ namespace InformacioniSistemBolnice
                     break;
                 }
             }
-            this.contentControl.Content = new UCPacijenti();
         }
 
         private void RasporedBtn_Click(object sender, RoutedEventArgs e)
         {
             TerminiLekaraProzor terminiLekara = new TerminiLekaraProzor(ulogovanLekar);
             terminiLekara.Show();
-            this.Show();
-
+            //this.Show();
         }
         private void PacijentiBtn_Click(object sender, RoutedEventArgs e)
         {
             //userControl
-
             this.contentControl.Content = new UCPacijenti();
-            this.Show();
-
+            //this.Show();
         }
         private void OdjavaBtn_Click(object sender, RoutedEventArgs e)
         {
             Login login = new Login();
             login.Show();
             this.Close();
+        }
+
+        private void Lekovi_Click(object sender, RoutedEventArgs e)
+        {
+            this.contentControl.Content = new UCLekovi(this);
         }
     }
 }

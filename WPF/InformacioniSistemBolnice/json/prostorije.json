@@ -1,6 +1,18 @@
 [
   {
-    "termin": null,
+    "termin": [
+      {
+        "vreme": "2021-05-06T09:00:00",
+        "trajanje": 30.0,
+        "tipTermina": 1,
+        "status": 0,
+        "AnketaOLekaru": null,
+        "pacijentJMBG": "231456768",
+        "lekarJMBG": "231568933",
+        "idProstorije": "P1",
+        "Hitan": false
+      }
+    ],
     "sprat": 2,
     "id": "P1",
     "jeZauzeta": false,
@@ -15,11 +27,22 @@
           "tip": 1,
           "kolicina": 100
         }
+      ],
+      "statickaOprema": [
+        {
+          "tip": 1,
+          "kolicina": 4
+        },
+        {
+          "tip": 3,
+          "kolicina": 0
+        }
       ]
-    }
+    },
+    "Renoviranje": null
   },
   {
-    "termin": null,
+    "termin": [],
     "sprat": 3,
     "id": "OS1",
     "jeZauzeta": false,
@@ -28,17 +51,28 @@
       "dinamickaOprema": [
         {
           "tip": 2,
-          "kolicina": 98
+          "kolicina": 88
         },
         {
           "tip": 3,
           "kolicina": 20
+        },
+        {
+          "tip": 1,
+          "kolicina": 5
+        }
+      ],
+      "statickaOprema": [
+        {
+          "tip": 3,
+          "kolicina": 6
         }
       ]
-    }
+    },
+    "Renoviranje": null
   },
   {
-    "termin": null,
+    "termin": [],
     "sprat": 4,
     "id": "K3",
     "jeZauzeta": false,
@@ -47,13 +81,32 @@
       "dinamickaOprema": [
         {
           "tip": 1,
-          "kolicina": 133
+          "kolicina": 18
+        },
+        {
+          "tip": 5,
+          "kolicina": 35
+        },
+        {
+          "tip": 2,
+          "kolicina": 10
+        }
+      ],
+      "statickaOprema": [
+        {
+          "tip": 3,
+          "kolicina": 10
+        },
+        {
+          "tip": 1,
+          "kolicina": 1
         }
       ]
-    }
+    },
+    "Renoviranje": null
   },
   {
-    "termin": null,
+    "termin": [],
     "sprat": 2,
     "id": "D3",
     "jeZauzeta": false,
@@ -66,13 +119,20 @@
         },
         {
           "tip": 1,
-          "kolicina": 20
+          "kolicina": 15
+        }
+      ],
+      "statickaOprema": [
+        {
+          "tip": 3,
+          "kolicina": -3
         }
       ]
-    }
+    },
+    "Renoviranje": null
   },
   {
-    "termin": null,
+    "termin": [],
     "sprat": 2,
     "id": "312",
     "jeZauzeta": false,
@@ -87,7 +147,31 @@
           "tip": 1,
           "kolicina": 50
         }
+      ],
+      "statickaOprema": [
+        {
+          "tip": 3,
+          "kolicina": 10
+        }
       ]
-    }
+    },
+    "Renoviranje": null
+  },
+  {
+    "termin": [],
+    "sprat": 2,
+    "id": "K32",
+    "jeZauzeta": false,
+    "tip": 2,
+    "inventar": {
+      "dinamickaOprema": [
+        {
+          "tip": 0,
+          "kolicina": 0
+        }
+      ],
+      "statickaOprema": []
+    },
+    "Renoviranje": null
   }
 ]

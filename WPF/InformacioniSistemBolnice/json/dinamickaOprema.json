@@ -1,14 +1,18 @@
 [
   {
     "tip": 5,
-    "kolicina": 7
-  },
-  {
-    "tip": 1,
-    "kolicina": 243
+    "kolicina": 40
   },
   {
     "tip": 2,
-    "kolicina": 25
+    "kolicina": 15
+  },
+  {
+    "tip": 1,
+    "kolicina": 56
+  },
+  {
+    "tip": 0,
+    "kolicina": 30
   }
 ]
