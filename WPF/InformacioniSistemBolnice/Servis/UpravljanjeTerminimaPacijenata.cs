@@ -117,6 +117,16 @@ namespace Servis
                         Termini.Instance.Deserijalizacija();
                     }
                 }
+
+                foreach (Prostorija prostorija in Prostorije.Instance.listaProstorija.ToList())
+                {
+                    if (prostorija.id == t.idProstorije)
+                    {
+                        prostorija.termin.Remove(t);
+                        Prostorije.Instance.Serijalizacija();
+                        Prostorije.Instance.Deserijalizacija();
+                    }
+                }
             }
         }
 
