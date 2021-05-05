@@ -15,6 +15,7 @@ using Repozitorijum;
 using Model;
 using Servis;
 using Kontroler;
+using System.Collections.ObjectModel;
 
 namespace InformacioniSistemBolnice
 {
@@ -26,8 +27,17 @@ namespace InformacioniSistemBolnice
             InitializeComponent();
 
             Pacijenti.Instance.Deserijalizacija();
-            ListaPacijenata.ItemsSource = Pacijenti.Instance.listaPacijenata;
+            ObservableCollection<Pacijent> pacijenti = new ObservableCollection<Pacijent>();
+            foreach (Pacijent pacijent in Pacijenti.Instance.listaPacijenata)
+            {   
+                if(pacijent.korisnik.korisnickoIme != null)
+                {
+                    pacijenti.Add(pacijent);
+                }
+            }
+            ListaPacijenata.ItemsSource = pacijenti.ToList();
         }
+
         private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
@@ -188,6 +198,13 @@ namespace InformacioniSistemBolnice
         {
             ZdravstveniKartonForma zdravstveniKartonForma = new ZdravstveniKartonForma(ListaPacijenata);
             zdravstveniKartonForma.Show();
+
+        }
+
+        private void vidiGostujuceNaloge_Click(object sender, RoutedEventArgs e)
+        {
+            GostujuciNaloziProzor gostujuciNaloziProzor = new GostujuciNaloziProzor();
+            gostujuciNaloziProzor.Show();
 
         }
     }

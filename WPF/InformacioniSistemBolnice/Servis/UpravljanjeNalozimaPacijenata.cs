@@ -66,6 +66,40 @@ namespace Servis
             }
         }
 
+        public void UklanjanjeGostujucegNaloga(DataGrid gostujuciNalozi)
+        {
+            if (gostujuciNalozi.SelectedValue != null)
+            {
+                Pacijent pacijent = (Pacijent)gostujuciNalozi.SelectedValue;
+                Pacijenti pacijenti = Pacijenti.Instance;
+                Korisnici korisnici = Korisnici.Instance;
+                foreach (Pacijent p in pacijenti.listaPacijenata)
+                {
+                    if (p.jmbg.Equals(pacijent.jmbg))
+                    {
+                        pacijenti.listaPacijenata.Remove(p);
+                        Pacijenti.Instance.Serijalizacija();
+                        Pacijenti.Instance.Deserijalizacija();
+                        break;
+                    }
+                }
+                azurirajPrikazListeGostujucihNaloga(gostujuciNalozi);
+            }
+        }
+
+        private static void azurirajPrikazListeGostujucihNaloga(DataGrid gostujuciNalozi)
+        {
+            ObservableCollection<Pacijent> gostujuciPacijenti = new ObservableCollection<Pacijent>();
+            foreach (Pacijent gostujuciPacijent in Pacijenti.Instance.listaPacijenata)
+            {
+                if (gostujuciPacijent.korisnik.korisnickoIme == null)
+                {
+                    gostujuciPacijenti.Add(gostujuciPacijent);
+                }
+            }
+            gostujuciNalozi.ItemsSource = gostujuciPacijenti.ToList();
+        }
+
         public void IzmenaNaloga(IzmenaNalogaPacijentaForma izmena, ListView ListaPacijenata)
         {
             if (ListaPacijenata.SelectedValue != null)
