@@ -64,7 +64,7 @@ namespace Servis
                 return termin.status == StatusTermina.zavrsen && sortiraneAnkete.Count != 0 &&
                        termin.vreme < sortiraneAnkete[0].VremePopunjavanja;
             return termin.status == StatusTermina.zavrsen && termin.vreme > sortiraneAnkete[1].VremePopunjavanja &&
-                   termin.vreme < sortiraneAnkete[0].VremePopunjavanja;
+                   termin.vreme > sortiraneAnkete[0].VremePopunjavanja && termin.vreme < DateTime.Now;
         }
 
         private bool JeVremeZaAnketu()
