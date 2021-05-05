@@ -40,14 +40,14 @@ namespace InformacioniSistemBolnice
 
         private void RasporedBtn_Click(object sender, RoutedEventArgs e)
         {
-            TerminiLekaraProzor terminiLekara = new TerminiLekaraProzor(ulogovanLekar);
+            TerminiLekaraProzor terminiLekara = new TerminiLekaraProzor(ulogovanLekar, this);
             terminiLekara.Show();
             //this.Show();
         }
         private void PacijentiBtn_Click(object sender, RoutedEventArgs e)
         {
             //userControl
-            this.contentControl.Content = new UCPacijenti();
+            this.contentControl.Content = new UCPacijenti(this);
             //this.Show();
         }
         private void OdjavaBtn_Click(object sender, RoutedEventArgs e)

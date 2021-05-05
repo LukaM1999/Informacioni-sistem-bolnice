@@ -151,10 +151,16 @@
     <Compile Update="UCLekovi.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="UCListaRecepata.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="UCPacijenti.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="TerminiPacijentaProzorSekretara.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="UCReceptInfo.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="UpravljanjeUrgentnimSistemomProzor.xaml.cs">
@@ -336,10 +342,16 @@
     <Page Update="UCLekovi.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="UCListaRecepata.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="UCPacijenti.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="TerminiPacijentaProzorSekretara.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="UCReceptInfo.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="UpravljanjeUrgentnimSistemomProzor.xaml">
