@@ -48,5 +48,10 @@ namespace Kontroler
         {
             IzmenaKartonaPacijenta.Instance.DodavanjeAnamneze(anamneza);
         }
+
+        public void IzdavanjeUputa(Termin termin)
+        {
+            UpravljanjeTerminimaLekara.Instance.IzdavanjeUputa(termin);
+        }
     }
 }

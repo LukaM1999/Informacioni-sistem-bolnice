@@ -15,6 +15,7 @@ using System.Collections.ObjectModel;
 using Model;
 using Repozitorijum;
 using InformacioniSistemBolnice;
+using Kontroler;
 using Servis;
 
 namespace InformacioniSistemBolnice
@@ -116,7 +117,7 @@ namespace InformacioniSistemBolnice
             {
                 if (ponudjeniTermini.SelectedIndex > -1)
                 {
-                    UpravljanjeTerminimaLekara.Instance.IzdavanjeUputa((Termin)ponudjeniTermini.SelectedItem);
+                    LekarKontroler.Instance.IzdavanjeUputa((Termin)ponudjeniTermini.SelectedItem);
                 }
                 this.Close();
             }

@@ -282,9 +282,9 @@ namespace Servis
             pacijent.zakazaniTermini.Add(noviTermin);
             lekar.zauzetiTermini.Add(noviTermin);
             Termini.Instance.listaTermina.Add(noviTermin);
+            Termini.Instance.Serijalizacija();
             Lekari.Instance.Serijalizacija();
             Pacijenti.Instance.Serijalizacija();
-            Termini.Instance.Serijalizacija();
             Pacijenti.Instance.Deserijalizacija();
             Lekari.Instance.Deserijalizacija();
             Termini.Instance.Deserijalizacija();
