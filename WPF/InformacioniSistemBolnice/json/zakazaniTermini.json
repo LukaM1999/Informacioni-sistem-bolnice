@@ -171,15 +171,5 @@
     "lekarJMBG": "231568933",
     "idProstorije": "P1",
     "Hitan": false
-  },
-  {
-    "vreme": "2021-05-05T10:00:00+02:00",
-    "trajanje": 30.0,
-    "tipTermina": 1,
-    "status": 0,
-    "pacijentJMBG": "1203998134132",
-    "lekarJMBG": "555556667",
-    "idProstorije": "P1",
-    "Hitan": true
   }
 ]
