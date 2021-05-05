@@ -61,7 +61,7 @@ namespace Servis
                             {
                                 if (s.tip.Equals(t.oprema.tip))
                                 {
-                                    Prostorije.Instance.getSelected(t.uProstoriju).inventar.getSelectedS(s).kolicina += t.kolicina;
+                                    Prostorije.Instance.uzmiIzabranuProstoriju(t.uProstoriju).inventar.getSelectedS(s).kolicina += t.kolicina;
                                     temp = 1;
                                     break;
                                 }
@@ -69,7 +69,7 @@ namespace Servis
                             if (temp != 1)
                             {
                                 Model.StatickaOprema stat = new Model.StatickaOprema(t.kolicina, t.oprema.tip);
-                                Prostorije.Instance.getSelected(t.uProstoriju).inventar.statickaOprema.Add(stat);
+                                Prostorije.Instance.uzmiIzabranuProstoriju(t.uProstoriju).inventar.statickaOprema.Add(stat);
                                 temp = 0;
                             }
                             
@@ -96,7 +96,7 @@ namespace Servis
                             {
                                 if (s.tip.Equals(t.oprema.tip))
                                 {
-                                    Prostorije.Instance.getSelected(t.izProstorije).inventar.getSelectedS(s).kolicina -= t.kolicina;
+                                    Prostorije.Instance.uzmiIzabranuProstoriju(t.izProstorije).inventar.getSelectedS(s).kolicina -= t.kolicina;
                                     break;
                                 }
                             }
@@ -123,7 +123,7 @@ namespace Servis
                             {
                                 if (s.tip.Equals(t.oprema.tip))
                                 {
-                                    Prostorije.Instance.getSelected(t.uProstoriju).inventar.getSelectedS(s).kolicina += t.kolicina;
+                                    Prostorije.Instance.uzmiIzabranuProstoriju(t.uProstoriju).inventar.getSelectedS(s).kolicina += t.kolicina;
                                     temp = 1;
                                     break;
                                 }
@@ -131,7 +131,7 @@ namespace Servis
                             if (temp != 1)
                             {
                                 Model.StatickaOprema stat = new Model.StatickaOprema(t.kolicina, t.oprema.tip);
-                                Prostorije.Instance.getSelected(t.uProstoriju).inventar.statickaOprema.Add(stat);
+                                Prostorije.Instance.uzmiIzabranuProstoriju(t.uProstoriju).inventar.statickaOprema.Add(stat);
                                 temp = 0;
                             }
 
@@ -139,7 +139,7 @@ namespace Servis
                             {
                                 if (s.tip.Equals(t.oprema.tip))
                                 {
-                                    Prostorije.Instance.getSelected(t.izProstorije).inventar.getSelectedS(s).kolicina -= t.kolicina;
+                                    Prostorije.Instance.uzmiIzabranuProstoriju(t.izProstorije).inventar.getSelectedS(s).kolicina -= t.kolicina;
                                     break;
                                 }
                             }

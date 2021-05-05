@@ -61,7 +61,7 @@ namespace InformacioniSistemBolnice
                 UpravnikKontroler.Instance.RasporedjivanjeDinamickeOpreme(prostorija, null, oprema, kolicina);
                 //Repozitorijum.DinamickaOprema.Instance.listaOpreme.ElementAt(Repozitorijum.DinamickaOprema.Instance.listaOpreme.IndexOf(dinamickaOprema)).kolicina -= kolicina;
                 prostorProzor.ListaProstorija.ItemsSource = Repozitorijum.Prostorije.Instance.listaProstorija;
-                listaDinamicke.ItemsSource = Repozitorijum.Prostorije.Instance.getSelected(prostorija).inventar.dinamickaOprema;
+                listaDinamicke.ItemsSource = Repozitorijum.Prostorije.Instance.uzmiIzabranuProstoriju(prostorija).inventar.dinamickaOprema;
             }
             else
             {
@@ -74,7 +74,7 @@ namespace InformacioniSistemBolnice
                     UpravnikKontroler.Instance.RasporedjivanjeDinamickeOpreme(izProstorije, uProstorije, oprema, kolicina);
 
                     prostorProzor.ListaProstorija.ItemsSource = Repozitorijum.Prostorije.Instance.listaProstorija;
-                    listaDinamicke.ItemsSource = Repozitorijum.Prostorije.Instance.getSelected(izProstorije).inventar.dinamickaOprema;
+                    listaDinamicke.ItemsSource = Repozitorijum.Prostorije.Instance.uzmiIzabranuProstoriju(izProstorije).inventar.dinamickaOprema;
                 }
 
             }

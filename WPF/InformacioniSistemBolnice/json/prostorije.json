@@ -26,11 +26,7 @@
         }
       ]
     },
-    "renoviranjeTermin": {
-      "PocetakRenoviranja": "2021-05-11T00:00:00",
-      "KrajRenoviranja": "2021-05-13T00:00:00",
-      "idProstorije": "P1"
-    },
+    "renoviranjeTermin": null,
     "termin": [
       {
         "vreme": "2021-05-07T08:00:00",

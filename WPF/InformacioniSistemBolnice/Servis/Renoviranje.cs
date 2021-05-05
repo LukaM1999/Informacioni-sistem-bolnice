@@ -20,7 +20,7 @@ namespace Servis
         public void ZakazivanjeRenoviranja(ProstorijaRenoviranjeDto dto)
         {
             RenoviranjeTermin novTermin = new RenoviranjeTermin(dto.PocetakRenoviranja, dto.KrajRenoviranja, dto.Prostorija.id);
-            Prostorije.Instance.getSelected(dto.Prostorija).renoviranjeTermin = novTermin;
+            Prostorije.Instance.uzmiIzabranuProstoriju(dto.Prostorija).renoviranjeTermin = novTermin;
             Prostorije.Instance.Serijalizacija();
             Prostorije.Instance.Deserijalizacija();
             RenoviranjeTermini.Instance.listaTermina.Add(novTermin);
@@ -32,7 +32,57 @@ namespace Servis
         {
             while (true)
             {
+                foreach(RenoviranjeTermin termin in RenoviranjeTermini.Instance.listaTermina.ToList())
+                {
+                    if(daLiJeRenoviranjePocelo(termin))
+                    {
+                        zauzmiProstoriju(termin);
+                    }
+                    if (daLiSeRenoviranjeZavrsilo(termin))
+                    {
+                        oslobodiProstoriju(termin);
+                    }
+                }
+            }
+        }
 
+        public bool daLiJeRenoviranjePocelo(RenoviranjeTermin termin)
+        {
+            return termin.PocetakRenoviranja <= DateTime.Now;
+        }
+
+        public bool daLiSeRenoviranjeZavrsilo(RenoviranjeTermin termin)
+        {
+            return termin.KrajRenoviranja <= DateTime.Now;
+        }
+
+        public void zauzmiProstoriju(RenoviranjeTermin termin)
+        {
+            foreach (Prostorija prostorija in Prostorije.Instance.listaProstorija.ToList())
+            {
+                if (prostorija.id.Equals(termin.idProstorije))
+                {
+                    Prostorije.Instance.uzmiIzabranuProstoriju(prostorija).jeZauzeta = true;
+                    Prostorije.Instance.Serijalizacija();
+                    Prostorije.Instance.Deserijalizacija();
+                }
+            }
+        }
+
+        public void oslobodiProstoriju(RenoviranjeTermin termin)
+        {
+            foreach (Prostorija prostorija in Prostorije.Instance.listaProstorija.ToList())
+            {
+                if (prostorija.id.Equals(termin.idProstorije))
+                {
+                    Prostorije.Instance.uzmiIzabranuProstoriju(prostorija).jeZauzeta = false;
+                    Prostorije.Instance.uzmiIzabranuProstoriju(prostorija).renoviranjeTermin = null;
+                    RenoviranjeTermini.Instance.listaTermina.Remove(termin);
+                    Prostorije.Instance.Serijalizacija();
+                    Prostorije.Instance.Deserijalizacija();
+                    RenoviranjeTermini.Instance.Serijalizacija();
+                    RenoviranjeTermini.Instance.Deserijalizacija();
+                }
             }
         }
     }
