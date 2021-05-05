@@ -41,7 +41,7 @@ namespace Model
             set;
         }
 
-        public RenoviranjeTermin renoviranjeTermin
+        public RenoviranjeTermin Renoviranje
         {
             get;
             set;

@@ -20,7 +20,7 @@ namespace Servis
         public void ZakazivanjeRenoviranja(ProstorijaRenoviranjeDto dto)
         {
             RenoviranjeTermin novTermin = new RenoviranjeTermin(dto.PocetakRenoviranja, dto.KrajRenoviranja, dto.Prostorija.id);
-            Prostorije.Instance.uzmiIzabranuProstoriju(dto.Prostorija).renoviranjeTermin = novTermin;
+            Prostorije.Instance.uzmiIzabranuProstoriju(dto.Prostorija).Renoviranje = novTermin;
             Prostorije.Instance.Serijalizacija();
             Prostorije.Instance.Deserijalizacija();
             RenoviranjeTermini.Instance.listaTermina.Add(novTermin);
@@ -76,7 +76,7 @@ namespace Servis
                 if (prostorija.id.Equals(termin.idProstorije))
                 {
                     Prostorije.Instance.uzmiIzabranuProstoriju(prostorija).jeZauzeta = false;
-                    Prostorije.Instance.uzmiIzabranuProstoriju(prostorija).renoviranjeTermin = null;
+                    Prostorije.Instance.uzmiIzabranuProstoriju(prostorija).Renoviranje = null;
                     RenoviranjeTermini.Instance.listaTermina.Remove(termin);
                     Prostorije.Instance.Serijalizacija();
                     Prostorije.Instance.Deserijalizacija();
