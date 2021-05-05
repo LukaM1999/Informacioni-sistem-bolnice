@@ -8,7 +8,7 @@
         Title="AlergeniProzor" Height="450" Width="800">
     <Grid>
         <StackPanel Margin="0,50,0,0">
-            <DataGrid x:Name="ListaAlergena" Height="384" Width="795"/>
+            <DataGrid x:Name="ListaAlergena" Height="384" Width="795" CanUserAddRows="False"/>
 
 
         </StackPanel>

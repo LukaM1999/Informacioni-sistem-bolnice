@@ -22,6 +22,9 @@
     <Compile Update="GlavniProzorSekretara.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="GostujuciNaloziProzor.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="IzborHitnogTermina.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -172,6 +175,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="GlavniProzorSekretara.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="GostujuciNaloziProzor.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="IzborHitnogTermina.xaml">
