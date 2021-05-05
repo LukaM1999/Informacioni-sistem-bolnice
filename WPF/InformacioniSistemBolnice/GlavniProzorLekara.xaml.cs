@@ -21,7 +21,7 @@ namespace InformacioniSistemBolnice
     /// </summary>
     public partial class GlavniProzorLekara : Window
     {
-        public static Lekar ulogovanLekar;
+        public Lekar ulogovanLekar;
 
         public GlavniProzorLekara(string korisnickoIme, string lozinka)
         {

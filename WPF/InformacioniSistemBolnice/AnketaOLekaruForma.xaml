@@ -36,8 +36,8 @@
             <RadioButton GroupName="Strpljenje" x:Name="Strpljenje1" Content="" Canvas.Left="460" Canvas.Top="159" />
         </Canvas>
         <Label Content="Strpljenje:" Canvas.Left="19" Canvas.Top="149"/>
-        <RadioButton GroupName="Komunikativnost" x:Name="Komunikativnost5" Content="" Canvas.Left="140" Canvas.Top="202" />
         <Canvas x:Name="Komunikativnost">
+            <RadioButton GroupName="Komunikativnost" x:Name="Komunikativnost5" Content="" Canvas.Left="140" Canvas.Top="202" />
             <RadioButton GroupName="Komunikativnost" x:Name="Komunikativnost4" Content="" Canvas.Left="220" Canvas.Top="202" />
             <RadioButton GroupName="Komunikativnost" x:Name="Komunikativnost3" Content="" Canvas.Left="300" Canvas.Top="202" />
             <RadioButton GroupName="Komunikativnost" x:Name="Komunikativnost2" Content="" Canvas.Left="380" Canvas.Top="202" />

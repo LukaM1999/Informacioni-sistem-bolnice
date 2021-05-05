@@ -35,7 +35,7 @@ namespace InformacioniSistemBolnice
         {
             if (listaLekova.SelectedIndex > -1)
             {
-                UCLekInfo ucLek = new UCLekInfo(glavniProzorLekara);
+                UCLekInfo ucLek = new UCLekInfo(glavniProzorLekara, (Lek)listaLekova.SelectedItem);
                 glavniProzorLekara.contentControl.Content = ucLek;
             }
         }

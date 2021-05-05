@@ -24,32 +24,28 @@ namespace InformacioniSistemBolnice
         public IzborTerminaZaPomeranje(ZakazivanjeHitnogTermina zakazivanje)
         {
             InitializeComponent();
-
             zakazivanjeHitnogTermina = zakazivanje;
             Termini.Instance.Deserijalizacija();
             Lekari.Instance.Deserijalizacija();
             Specijalizacije.Instance.Deserijalizacija();
-           
+            ProveriSpecijalizacijuLekara();
+            ponudjeniTerminiZaPomeranje.ItemsSource = terminiZaPomeranje.ToList();
+        }
 
-            foreach(Lekar lekar in Lekari.Instance.listaLekara)
+        private void ProveriSpecijalizacijuLekara()
+        {
+            foreach (Lekar lekar in Lekari.Instance.listaLekara)
             {
-                if(lekar.specijalizacija == zakazivanjeHitnogTermina.specijalizacijeLekara.SelectedItem.ToString())
+                if (lekar.specijalizacija == zakazivanjeHitnogTermina.specijalizacijeLekara.SelectedItem.ToString())
                 {
-                    foreach (Termin zauzetiTermin in lekar.zauzetiTermini) 
-                    { 
-                        if(!zauzetiTermin.Hitan)
-                        {
-                            terminiZaPomeranje.Add(zauzetiTermin);
-                        }
-                    
+                    foreach (Termin zauzetiTermin in lekar.zauzetiTermini)
+                    {
+                        if (!zauzetiTermin.Hitan) terminiZaPomeranje.Add(zauzetiTermin);
                     }
 
                 }
-                    
+
             }
-
-            ponudjeniTerminiZaPomeranje.ItemsSource = terminiZaPomeranje.ToList();
-
         }
 
         private void pomeriTermin_Click(object sender, RoutedEventArgs e)

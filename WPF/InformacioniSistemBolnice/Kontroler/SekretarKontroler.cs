@@ -120,11 +120,21 @@ namespace Kontroler
             UpravljanjeVestima.Instance.IzmenaVesti(listaVesti, izmenaVesti);
         }
 
-        public void KreiranjeGostujucegPacijenta(KreiranjeGostujucegPacijentaProzor kreiranjeGostujucegPacijentaProzor)
+        public void KreiranjeGostujucegPacijenta(GostujuciNalogDto gostujuciNalogDto)
         {
-            UpravljanjeUrgentnimSistemom.Instance.KreiranjeGostujcegPacijenta(kreiranjeGostujucegPacijentaProzor);
+            UpravljanjeUrgentnimSistemom.Instance.KreiranjeGostujcegPacijenta(gostujuciNalogDto);
         }
 
+        public void ZakazivanjeHitnogTermina(HitnoZakazivanjeDto hitnoZakazivanjeDto)
+        {
+            UpravljanjeUrgentnimSistemom.Instance.ZakazivanjeHitnogTermina(hitnoZakazivanjeDto);
+        }
+
+
+        public void PomeranjeTermina(TerminiLekaraZaPomeranjeDto terminiLekaraZaPomeranjeDto)
+        {
+            UpravljanjeUrgentnimSistemom.Instance.PomeranjeTermina(terminiLekaraZaPomeranjeDto);
+        }
 
         public UpravljanjeNalozimaPacijenata upravljanjeNalozimaPacijenata;
         public UpravljanjeAlergenima upravljanjeAlergenima;

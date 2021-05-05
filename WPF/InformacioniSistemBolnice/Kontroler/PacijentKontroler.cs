@@ -1,7 +1,6 @@
 using System;
 using System.Windows.Controls;
 using InformacioniSistemBolnice;
-using InformacioniSistemBolnice.Servis;
 using Model;
 using Servis;
 
@@ -38,12 +37,12 @@ namespace Kontroler
 
         public void PopuniAnketuOLekaru(Termin zavrsenTermin)
         {
-            PopunjavanjeAnkete.Instance.PopuniAnketuOLekaru(zavrsenTermin);
+            UpravljanjeAnketama.Instance.PopuniAnketuOLekaru(zavrsenTermin);
         }
 
         public void PopuniAnketuOBolnici(AnketaOBolnici anketa)
         {
-            PopunjavanjeAnkete.Instance.PopuniAnketuOBolnici(anketa);
+            UpravljanjeAnketama.Instance.PopuniAnketuOBolnici(anketa);
         }
 
     }

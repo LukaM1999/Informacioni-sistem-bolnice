@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Model;
 using Repozitorijum;
-using Servis;
+using Kontroler;
 
 namespace InformacioniSistemBolnice
 {
@@ -43,7 +43,12 @@ namespace InformacioniSistemBolnice
 
         private void zakaziHitanTermin_Click(object sender, RoutedEventArgs e)
         {
-            UpravljanjeUrgentnimSistemom.Instance.ZakazivanjeHitnogTermina(this);
+            Pacijent pacijent = (Pacijent)this.pacijenti.SelectedItem;
+            Prostorija prostorija = (Prostorija)this.prostorije.SelectedItem;
+
+            HitnoZakazivanjeDto hitnoZakazivanjeDto = new HitnoZakazivanjeDto(this.specijalizacijeLekara.SelectedItem.ToString(),
+                pacijent.jmbg, prostorija.id);
+            SekretarKontroler.Instance.ZakazivanjeHitnogTermina(hitnoZakazivanjeDto);
             this.Close();
             Termini.Instance.Deserijalizacija();
             upravljanjeUrgentnimSistemomProzor.ListaTermina.ItemsSource = Termini.Instance.listaTermina;
