@@ -22,7 +22,8 @@ namespace InformacioniSistemBolnice
     public partial class TerminiLekaraProzor : Window
     {
         public string jmbgLekara;
-        public TerminiLekaraProzor(Lekar ulogovanLekar)
+        public GlavniProzorLekara glavniProzorLekara;
+        public TerminiLekaraProzor(Lekar ulogovanLekar, GlavniProzorLekara glavni)
         {
             InitializeComponent();
 
@@ -40,6 +41,7 @@ namespace InformacioniSistemBolnice
             listaZakazanihTerminaLekara.ItemsSource = ulogovanLekar.zauzetiTermini;
             jmbgLekara = ulogovanLekar.jmbg;
             System.Diagnostics.Debug.WriteLine(jmbgLekara);
+            glavniProzorLekara = glavni;
         }
         private void pomeriDugme_Click(object sender, RoutedEventArgs e)
         {
@@ -72,7 +74,7 @@ namespace InformacioniSistemBolnice
             if (listaZakazanihTerminaLekara.SelectedIndex >= 0)
             {
                 Termin t = (Termin)listaZakazanihTerminaLekara.SelectedItem;
-                IzmenaZdravstvenogKartonaLekar izmena = new IzmenaZdravstvenogKartonaLekar(t);
+                IzmenaZdravstvenogKartonaLekar izmena = new IzmenaZdravstvenogKartonaLekar(t, glavniProzorLekara);
                 izmena.Show();
             }
         }

@@ -37,6 +37,12 @@ namespace Kontroler
             UpravljanjeNalozimaPacijenata.Instance.UklanjanjeNaloga(listaPacijenata);
         }
 
+        public void UklanjanjeGostujucegNaloga(DataGrid listaPacijenata)
+        {
+            UpravljanjeNalozimaPacijenata.Instance.UklanjanjeGostujucegNaloga(listaPacijenata);
+        }
+
+
         public void IzmenaNaloga(IzmenaNalogaPacijentaForma izmena, ListView listaPacijenata)
         {
             UpravljanjeNalozimaPacijenata.Instance.IzmenaNaloga(izmena, listaPacijenata);
