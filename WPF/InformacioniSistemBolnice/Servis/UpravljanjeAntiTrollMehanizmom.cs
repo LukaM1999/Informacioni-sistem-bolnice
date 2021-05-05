@@ -21,12 +21,21 @@ namespace InformacioniSistemBolnice.Servis
 
         public void ProveriMalicioznostPacijenta(Pacijent ulogovan)
         {
-            UlogovanPacijent = ulogovan;
+            PronadjiUlogovanogPacijenta(ulogovan);
             while (!UlogovanPacijent.maliciozan)
             {
                 if (ProveriMalicioznostZakazivanjaTermina()) break;
                 if (ProveriMalicioznostPomeranjaTermina()) break;
                 Thread.Sleep(5000);
+            }
+        }
+
+        private void PronadjiUlogovanogPacijenta(Pacijent ulogovan)
+        {
+            foreach (Pacijent ulogovanPacijent in Pacijenti.Instance.listaPacijenata)
+            {
+                if (ulogovanPacijent.jmbg != ulogovan.jmbg) continue;
+                UlogovanPacijent = ulogovanPacijent;
             }
         }
 
@@ -84,17 +93,27 @@ namespace InformacioniSistemBolnice.Servis
         private static bool JeUnutarMesecnogIntervala(Termin termin, int mesec)
         {
             return termin.vreme > DateTime.Now.AddMonths(mesec - 1) &&
-                   termin.vreme < DateTime.Now.AddMonths(mesec) && termin.tipTermina == TipTermina.pregled;
+                   termin.vreme < DateTime.Now.AddMonths(mesec) && termin.tipTermina == TipTermina.pregled &&
+                   termin.status == StatusTermina.zakazan;
         }
 
         private bool OznaciMalicioznogPacijenta(int mesecnihTermina, int maksimalnoTermina)
         {
             if (mesecnihTermina <= maksimalnoTermina) return false;
-            UlogovanPacijent.maliciozan = true;
+            OznaciUlogovanog();
             Pacijenti.Instance.Serijalizacija();
             Pacijenti.Instance.Deserijalizacija();
             System.Diagnostics.Debug.WriteLine("Oznaceni ste kao maliciozni!");
             return true;
+        }
+
+        private void OznaciUlogovanog()
+        {
+            foreach (Pacijent maliciozanPacijent in Pacijenti.Instance.listaPacijenata)
+            {
+                if (maliciozanPacijent.jmbg != UlogovanPacijent.jmbg) continue;
+                maliciozanPacijent.maliciozan = true;
+            }
         }
     }
 }
