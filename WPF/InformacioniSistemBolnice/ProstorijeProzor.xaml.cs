@@ -91,12 +91,13 @@ namespace InformacioniSistemBolnice
         {
             ObservableCollection<Prostorija> novaListaProstorija = new ObservableCollection<Prostorija>();
             int kolicina = int.Parse(tbKolicina.Text);
-            TipDinamickeOpreme tipDinamickeOpreme = (TipDinamickeOpreme)cbDinamicka.SelectedItem;
-            TipStatickeOpreme tipStatickeOpreme = (TipStatickeOpreme)cbDinamicka.SelectedItem;
+            
+            
 
             if ((bool)rbStaticka.IsChecked)
             {
-                foreach(Prostorija prostorija in Prostorije.Instance.listaProstorija.ToList())
+                TipStatickeOpreme tipStatickeOpreme = (TipStatickeOpreme)cbStaticka.SelectedItem;
+                foreach (Prostorija prostorija in Prostorije.Instance.listaProstorija.ToList())
                 {
                     foreach(Model.StatickaOprema statickaOprema in prostorija.inventar.statickaOprema.ToList())
                     {
@@ -109,6 +110,7 @@ namespace InformacioniSistemBolnice
             }
             else
             {
+                TipDinamickeOpreme tipDinamickeOpreme = (TipDinamickeOpreme)cbDinamicka.SelectedItem;
                 foreach (Prostorija prostorija in Prostorije.Instance.listaProstorija.ToList())
                 {
                     foreach (Model.DinamickaOprema dinamickaOprema in prostorija.inventar.dinamickaOprema.ToList())

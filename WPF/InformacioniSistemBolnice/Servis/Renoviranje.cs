@@ -32,57 +32,51 @@ namespace Servis
         {
             while (true)
             {
-                foreach(RenoviranjeTermin termin in RenoviranjeTermini.Instance.listaTermina.ToList())
+                foreach (RenoviranjeTermin termin in RenoviranjeTermini.Instance.listaTermina.ToList())
                 {
-                    if(daLiJeRenoviranjePocelo(termin))
-                    {
-                        zauzmiProstoriju(termin);
-                    }
-                    if (daLiSeRenoviranjeZavrsilo(termin))
-                    {
-                        oslobodiProstoriju(termin);
-                    }
+                    if (!JeRenoviranjePocelo(termin)) continue;
+                    ZauzmiProstoriju(termin);
+                    if (!SeRenoviranjeZavrsilo(termin)) continue;
+                    OslobodiProstoriju(termin);
                 }
             }
         }
 
-        public bool daLiJeRenoviranjePocelo(RenoviranjeTermin termin)
+        public bool JeRenoviranjePocelo(RenoviranjeTermin termin)
         {
             return termin.PocetakRenoviranja <= DateTime.Now;
         }
 
-        public bool daLiSeRenoviranjeZavrsilo(RenoviranjeTermin termin)
+        public bool SeRenoviranjeZavrsilo(RenoviranjeTermin termin)
         {
             return termin.KrajRenoviranja <= DateTime.Now;
         }
 
-        public void zauzmiProstoriju(RenoviranjeTermin termin)
+        public void ZauzmiProstoriju(RenoviranjeTermin termin)
         {
             foreach (Prostorija prostorija in Prostorije.Instance.listaProstorija.ToList())
             {
-                if (prostorija.id.Equals(termin.idProstorije))
-                {
-                    Prostorije.Instance.uzmiIzabranuProstoriju(prostorija).jeZauzeta = true;
-                    Prostorije.Instance.Serijalizacija();
-                    Prostorije.Instance.Deserijalizacija();
-                }
+                if (!prostorija.id.Equals(termin.idProstorije)) continue;
+                Prostorije.Instance.uzmiIzabranuProstoriju(prostorija).jeZauzeta = true;
+                Prostorije.Instance.Serijalizacija();
+                Prostorije.Instance.Deserijalizacija();
+                break;
             }
         }
 
-        public void oslobodiProstoriju(RenoviranjeTermin termin)
+        public void OslobodiProstoriju(RenoviranjeTermin termin)
         {
             foreach (Prostorija prostorija in Prostorije.Instance.listaProstorija.ToList())
             {
-                if (prostorija.id.Equals(termin.idProstorije))
-                {
-                    Prostorije.Instance.uzmiIzabranuProstoriju(prostorija).jeZauzeta = false;
-                    Prostorije.Instance.uzmiIzabranuProstoriju(prostorija).Renoviranje = null;
-                    RenoviranjeTermini.Instance.listaTermina.Remove(termin);
-                    Prostorije.Instance.Serijalizacija();
-                    Prostorije.Instance.Deserijalizacija();
-                    RenoviranjeTermini.Instance.Serijalizacija();
-                    RenoviranjeTermini.Instance.Deserijalizacija();
-                }
+                if (!prostorija.id.Equals(termin.idProstorije)) continue;
+                Prostorije.Instance.uzmiIzabranuProstoriju(prostorija).jeZauzeta = false;
+                Prostorije.Instance.uzmiIzabranuProstoriju(prostorija).Renoviranje = null;
+                RenoviranjeTermini.Instance.listaTermina.Remove(termin);
+                Prostorije.Instance.Serijalizacija();
+                Prostorije.Instance.Deserijalizacija();
+                RenoviranjeTermini.Instance.Serijalizacija();
+                RenoviranjeTermini.Instance.Deserijalizacija();
+                break;
             }
         }
     }
