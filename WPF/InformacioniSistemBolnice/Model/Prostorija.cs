@@ -41,6 +41,18 @@ namespace Model
             set;
         }
 
+        public RenoviranjeTermin Renoviranje
+        {
+            get;
+            set;
+        }
+
+        public ObservableCollection<Termin> termin
+        {
+            get;
+            set;
+        }
+
         public Prostorija(int sp, TipProstorije t, string sifra, bool zauzeta, Inventar i)
         {
             sprat = sp;
@@ -48,9 +60,7 @@ namespace Model
             id = sifra;
             jeZauzeta = zauzeta;
             inventar = i;
-
         }
-        public ObservableCollection<Termin> termin;
 
         public override string ToString()
         {

@@ -23,6 +23,7 @@
             <Button x:Name="pregledajPacijentaDugme" Content="Info" Canvas.Left="103" Canvas.Top="13" Width="56" Click="pregledPacijenta" />
             <Button x:Name="zdravstveniKartonPacijentaDugme" Content="Zdravstveni karton pacijenta" Canvas.Left="340" Canvas.Top="13" Width="159" Click="zdravstveniKartonPacijenta"/>
             <Button Content="Izmeni zdravstveni karton pacijenta" Canvas.Left="512" Canvas.Top="13" Click="izmjeniZdravstveniKarton_Click"/>
+            <Button Content="Gostujuci nalozi" Canvas.Left="723" Canvas.Top="13" Width="110" Click="vidiGostujuceNaloge_Click"/>
         </Canvas>
 
     </Grid>

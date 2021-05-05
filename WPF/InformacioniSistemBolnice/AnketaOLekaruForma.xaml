@@ -1,0 +1,67 @@
+﻿<Window x:Class="InformacioniSistemBolnice.AnketaOLekaruForma"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:InformacioniSistemBolnice"
+        mc:Ignorable="d"
+        Title="AnketaOLekaruForma" Height="551" Width="528">
+    <Canvas>
+        <Canvas x:Name="Ljubaznost">
+            <RadioButton GroupName="Ljubaznost" x:Name="Ljubaznost5" Content="" Canvas.Left="140" Canvas.Top="77" />
+            <Label Content="Veoma&#xD;&#xA;zadovoljan" Canvas.Left="112" Canvas.Top="28" Height="44" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Width="75"/>
+            <RadioButton GroupName="Ljubaznost" x:Name="Ljubaznost4" Content="" Canvas.Left="220" Canvas.Top="77" />
+            <Label Content="Zadovoljan" Canvas.Left="192" Canvas.Top="28" Height="44" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Width="75"/>
+            <RadioButton GroupName="Ljubaznost" x:Name="Ljubaznost3" Content="" Canvas.Left="300" Canvas.Top="77" />
+            <Label Content="Uzdrzan" Canvas.Left="272" Canvas.Top="28" Height="44" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Width="75"/>
+            <RadioButton GroupName="Ljubaznost" x:Name="Ljubaznost2" Content="" Canvas.Left="380" Canvas.Top="77" />
+            <Label Content="Nezadovoljan" Canvas.Left="344" Canvas.Top="28" Height="44" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Width="91"/>
+            <RadioButton GroupName="Ljubaznost" x:Name="Ljubaznost1" Content="" Canvas.Left="460" Canvas.Top="77" />
+            <Label Content="Veoma&#xA;nezadovoljan" Canvas.Left="428" Canvas.Top="28" Height="44" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Width="84"/>
+            <Label Content="Ljubaznost:" Canvas.Left="19" Canvas.Top="67"/>
+        </Canvas>
+        <Canvas x:Name="Profesionalizam">
+            <RadioButton GroupName="Profesionalizam" x:Name="Profesionalizam5" Content="" Canvas.Left="140" Canvas.Top="117" />
+            <RadioButton GroupName="Profesionalizam" x:Name="Profesionalizam4" Content="" Canvas.Left="220" Canvas.Top="117" />
+            <RadioButton GroupName="Profesionalizam" x:Name="Profesionalizam3" Content="" Canvas.Left="300" Canvas.Top="117" />
+            <RadioButton GroupName="Profesionalizam" x:Name="Profesionalizam2" Content="" Canvas.Left="380" Canvas.Top="117" />
+            <RadioButton GroupName="Profesionalizam" x:Name="Profesionalizam1" Content="" Canvas.Left="460" Canvas.Top="117" />
+        </Canvas>
+        <Label Content="Profesionalizam:" Canvas.Left="19" Canvas.Top="107"/>
+        <Canvas x:Name="Strpljenje">
+            <RadioButton GroupName="Strpljenje" x:Name="Strpljenje5" Content="" Canvas.Left="140" Canvas.Top="159" />
+            <RadioButton GroupName="Strpljenje" x:Name="Strpljenje4" Content="" Canvas.Left="220" Canvas.Top="159" />
+            <RadioButton GroupName="Strpljenje" x:Name="Strpljenje3" Content="" Canvas.Left="300" Canvas.Top="159" />
+            <RadioButton GroupName="Strpljenje" x:Name="Strpljenje2" Content="" Canvas.Left="380" Canvas.Top="159" />
+            <RadioButton GroupName="Strpljenje" x:Name="Strpljenje1" Content="" Canvas.Left="460" Canvas.Top="159" />
+        </Canvas>
+        <Label Content="Strpljenje:" Canvas.Left="19" Canvas.Top="149"/>
+        <Canvas x:Name="Komunikativnost">
+            <RadioButton GroupName="Komunikativnost" x:Name="Komunikativnost5" Content="" Canvas.Left="140" Canvas.Top="202" />
+            <RadioButton GroupName="Komunikativnost" x:Name="Komunikativnost4" Content="" Canvas.Left="220" Canvas.Top="202" />
+            <RadioButton GroupName="Komunikativnost" x:Name="Komunikativnost3" Content="" Canvas.Left="300" Canvas.Top="202" />
+            <RadioButton GroupName="Komunikativnost" x:Name="Komunikativnost2" Content="" Canvas.Left="380" Canvas.Top="202" />
+            <RadioButton GroupName="Komunikativnost" x:Name="Komunikativnost1" Content="" Canvas.Left="460" Canvas.Top="202" />
+        </Canvas>
+        <Label Content="Komunikativnost:" Canvas.Left="19" Canvas.Top="192"/>
+        <Canvas x:Name="Azurnost">
+            <RadioButton GroupName="Azurnost" x:Name="Azurnost5" Content="" Canvas.Left="140" Canvas.Top="242" />
+            <RadioButton GroupName="Azurnost" x:Name="Azurnost4" Content="" Canvas.Left="220" Canvas.Top="242" />
+            <RadioButton GroupName="Azurnost" x:Name="Azurnost3" Content="" Canvas.Left="300" Canvas.Top="242" />
+            <RadioButton GroupName="Azurnost" x:Name="Azurnost2" Content="" Canvas.Left="380" Canvas.Top="242" />
+            <RadioButton GroupName="Azurnost" x:Name="Azurnost1" Content="" Canvas.Left="460" Canvas.Top="242" />
+        </Canvas>
+        <Label Content="Azurnost:" Canvas.Left="19" Canvas.Top="232"/>
+        <Canvas x:Name="Korisnost">
+            <RadioButton GroupName="Korisnost" x:Name="Korisnost5" Content="" Canvas.Left="140" Canvas.Top="283" />
+            <RadioButton GroupName="Korisnost" x:Name="Korisnost4" Content="" Canvas.Left="220" Canvas.Top="283" />
+            <RadioButton GroupName="Korisnost" x:Name="Korisnost3" Content="" Canvas.Left="300" Canvas.Top="283" />
+            <RadioButton GroupName="Korisnost" x:Name="Korisnost2" Content="" Canvas.Left="380" Canvas.Top="283" />
+            <RadioButton GroupName="Korisnost" x:Name="Korisnost1" Content="" Canvas.Left="460" Canvas.Top="283" />
+        </Canvas>
+        <Label Content="Korisnost:" Canvas.Left="19" Canvas.Top="273"/>
+        <Label Content="Komentari:" Canvas.Left="19" Canvas.Top="328"/>
+        <TextBox x:Name="Komentari" Canvas.Left="112" Canvas.Top="333" TextWrapping="Wrap" Height="131" Width="287"/>
+        <Button x:Name="PotvrdaDugme" Content="Potvrda" Canvas.Left="235" Canvas.Top="486" Width="58" Click="Potvrda"/>
+    </Canvas>
+</Window>

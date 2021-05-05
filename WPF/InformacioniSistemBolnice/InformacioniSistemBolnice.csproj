@@ -9,9 +9,13 @@
   <ItemGroup>
     <PackageReference Include="FluentScheduler" Version="5.5.1" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    <PackageReference Include="PropertyChanged.Fody" Version="3.3.3" />
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="IzborTerminaLekara.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="IzmenaZdravstvenogKartonaLekar.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -27,6 +31,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Page Update="IzborTerminaLekara.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="IzmenaZdravstvenogKartonaLekar.xaml">
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
       <SubType>Designer</SubType>

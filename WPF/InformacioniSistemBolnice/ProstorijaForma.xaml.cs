@@ -20,15 +20,18 @@ namespace InformacioniSistemBolnice
 {
     public partial class ProstorijaForma : Window
     {
-        public ProstorijaForma()
+        DataGrid listaProstorija;
+        public ProstorijaForma(DataGrid listaProstorija)
         {
             InitializeComponent();
+            this.listaProstorija = listaProstorija;
         }
 
         private void potvrdiDugme_Click(object sender, RoutedEventArgs e)
         {
 
             UpravnikKontroler.Instance.KreiranjeProstorije(this);
+            listaProstorija.ItemsSource = Prostorije.Instance.listaProstorija;
             this.Close();
 
         }

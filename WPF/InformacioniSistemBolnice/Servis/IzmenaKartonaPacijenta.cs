@@ -14,23 +14,48 @@ namespace Servis
 
         public static IzmenaKartonaPacijenta Instance { get { return lazy.Value; } }
 
-        public void IzdavanjeRecepta(ReceptDto receptDto)
+        public ReceptDto receptDto;
+
+        public void IzdavanjeRecepta(ReceptDto dto)
         {
-            Recept recept = new Recept(receptDto.Id);
-            recept.terapije.Add(new Terapija(receptDto.PocetakTerapije, receptDto.KrajTerapije, receptDto.MeraLeka, receptDto.RedovnostUzimanjaLeka));
-            receptDto.Pacijent.zdravstveniKarton.Recepti.Add(recept);
+            receptDto = dto;
+            foreach (Pacijent pacijent in Pacijenti.Instance.listaPacijenata)
+            {
+                if (PretragaPacijenta(pacijent, KreiranjeRecepta())) break;
+            }
+        }
+
+        private bool PretragaPacijenta(Pacijent pacijent, Recept recept)
+        {
+            if (!pacijent.jmbg.Equals(receptDto.Pacijent.jmbg)) return false;
+            pacijent.zdravstveniKarton.Recepti.Add(recept);
             Pacijenti.Instance.Serijalizacija();
             Pacijenti.Instance.Deserijalizacija();
+            return true;
+        }
+
+        private Recept KreiranjeRecepta()
+        {
+            Recept recept = new Recept(receptDto.Id);
+            recept.Terapije.Add(new Terapija(receptDto.PocetakTerapije, receptDto.KrajTerapije,
+                receptDto.MeraLeka, receptDto.RedovnostUzimanjaLeka, receptDto.Lek));
+            return recept;
         }
 
 
         public void DodavanjeAnamneze(AnamnezaForma anamneza)
         {
-            Anamneza a = new Anamneza(anamneza.prvi.Text, anamneza.drugi.Text, anamneza.treci.Text, anamneza.cetvrti.Text, anamneza.peti.Text);
-            anamneza.p.zdravstveniKarton.anamneza = a;
-
-            Pacijenti.Instance.Serijalizacija();
-            Pacijenti.Instance.Deserijalizacija();
+            Anamneza a = new Anamneza(anamneza.prvi.Text, anamneza.drugi.Text, anamneza.treci.Text, anamneza.peti.Text);
+            foreach (Pacijent pacijent in Pacijenti.Instance.listaPacijenata)
+            {
+                if (pacijent.jmbg.Equals(anamneza.p.jmbg))
+                {
+                    pacijent.zdravstveniKarton.anamneza = a;
+                    Pacijenti.Instance.Serijalizacija();
+                    Pacijenti.Instance.Deserijalizacija();
+                    break;
+                }
+            }
         }
 
         public Repozitorijum.Pacijenti pacijenti;

@@ -14,6 +14,7 @@ using System.Windows.Shapes;
 using Repozitorijum;
 using Model;
 using System.Threading;
+using Servis;
 
 namespace InformacioniSistemBolnice
 {
@@ -22,7 +23,13 @@ namespace InformacioniSistemBolnice
         public Login()
         {
             InitializeComponent();
-            Korisnici.Instance.Deserijalizacija();     
+            Korisnici.Instance.Deserijalizacija();
+            StatickaOpremaTermini.Instance.Deserijalizacija();
+            Repozitorijum.StatickaOprema.Instance.Deserijalizacija();
+            Prostorije.Instance.Deserijalizacija();
+            RenoviranjeTermini.Instance.Deserijalizacija();
+            new Thread(RasporedjivanjeStatickeOpreme.Instance.ProveraPremestajaOpreme).Start();
+            new Thread(Renoviranje.Instance.ProveraRenoviranja).Start();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -38,7 +45,7 @@ namespace InformacioniSistemBolnice
                         case Model.UlogaKorisnika.upravnik:
                             ProstorijeProzor prostorijeP = new ProstorijeProzor();
                             prostorijeP.Show();
-                            this.Close();
+                            this.Hide();
                             break;
 
                         case Model.UlogaKorisnika.lekar:

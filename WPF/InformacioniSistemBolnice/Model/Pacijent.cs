@@ -2,9 +2,11 @@ using System;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Collections.ObjectModel;
+using PropertyChanged;
 
 namespace Model
 {
+    [AddINotifyPropertyChangedInterface]
     public class Pacijent : Osoba
     {
 
@@ -29,16 +31,16 @@ namespace Model
             this.email = o.email;
             this.korisnik = o.korisnik;
             this.adresa = o.adresa;
-            this.zakazaniTermini = new ObservableCollection<Termin>();
             this.maliciozan = false;
         }
 
         public ZdravstveniKarton zdravstveniKarton;
-        public ObservableCollection<Termin> zakazaniTermini = new ObservableCollection<Termin>();
+        public ObservableCollection<Termin> zakazaniTermini { get; set; }
+        
 
         public override string ToString()
         {
-            return korisnik.korisnickoIme;
+            return ime + " " + prezime;
         }
     }
 }

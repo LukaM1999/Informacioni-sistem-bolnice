@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Repozitorijum;
 
 namespace InformacioniSistemBolnice
 {
@@ -22,6 +23,8 @@ namespace InformacioniSistemBolnice
         public GlavniProzorSekretara()
         {
             InitializeComponent();
+            Lekari.Instance.Deserijalizacija();
+            Termini.Instance.Deserijalizacija();
         }
 
         private void naloziPacijenata(object sender, RoutedEventArgs e)
@@ -39,8 +42,8 @@ namespace InformacioniSistemBolnice
        
         private void zakazivanjeTerminaPacijentima_Click(object sender, RoutedEventArgs e)
         {
-            PacijentiProzor1 pacijentiProzor1 = new PacijentiProzor1();
-            pacijentiProzor1.Show();
+            TerminiPacijentaProzorSekretara terminiPacijentaProzorSekretara = new TerminiPacijentaProzorSekretara();
+            terminiPacijentaProzorSekretara.Show();
 
 
         }
@@ -49,6 +52,12 @@ namespace InformacioniSistemBolnice
         {
             VestiProzor vestiProzor = new VestiProzor();
             vestiProzor.Show();
+        }
+
+        private void upravljanjeUrgentnimSistemom_Click(object sender, RoutedEventArgs e)
+        {
+            UpravljanjeUrgentnimSistemomProzor upravljanjeUrgentnimSistemomProzor = new UpravljanjeUrgentnimSistemomProzor();
+            upravljanjeUrgentnimSistemomProzor.Show();
         }
     }
 }

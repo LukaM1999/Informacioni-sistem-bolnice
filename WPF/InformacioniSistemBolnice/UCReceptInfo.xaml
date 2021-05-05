@@ -1,0 +1,22 @@
+﻿<UserControl x:Class="InformacioniSistemBolnice.UCReceptInfo"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:InformacioniSistemBolnice"
+             mc:Ignorable="d" 
+             d:DesignHeight="360" d:DesignWidth="680">
+    <Grid>
+        <DataGrid x:Name="listaTerapija" Margin="340,42,0,0"/>
+        <Label Content="Terapije" HorizontalAlignment="Left" Margin="340,9,0,0" VerticalAlignment="Top"/>
+        <Label Content="ID" HorizontalAlignment="Left" Margin="43,89,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="ID" Content="" HorizontalAlignment="Left" Margin="108,89,0,0" VerticalAlignment="Top" Width="108"/>
+        <Button Content="Nazad" HorizontalAlignment="Left" Margin="43,27,0,0" VerticalAlignment="Top" Height="30" Width="64" Click="Button_Click"/>
+        <Button Content="Lekovi" HorizontalAlignment="Left" Margin="43,132,0,0" VerticalAlignment="Top" Height="30" Width="64" Click="Button_Click1"/>
+        <Label x:Name="naziv" Content="Naziv" HorizontalAlignment="Left" Margin="20,180,0,0" VerticalAlignment="Top" Width="297"/>
+        <Label x:Name="proizvodjac" Content="Proizvodjac" HorizontalAlignment="Left" Margin="20,211,0,0" VerticalAlignment="Top" Width="297"/>
+        <Label x:Name="sastojci" Content="Sastojci" HorizontalAlignment="Left" Margin="20,242,0,0" VerticalAlignment="Top" Width="297" Height="47"/>
+        <Label x:Name="zamena" Content="Zamena" HorizontalAlignment="Left" Margin="20,294,0,0" VerticalAlignment="Top" Width="297" Height="56"/>
+
+    </Grid>
+</UserControl>

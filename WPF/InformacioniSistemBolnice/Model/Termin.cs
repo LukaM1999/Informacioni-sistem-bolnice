@@ -1,7 +1,9 @@
 using System;
+using PropertyChanged;
 
 namespace Model
 {
+    [AddINotifyPropertyChangedInterface]
     public class Termin
     {
         public DateTime vreme
@@ -25,6 +27,8 @@ namespace Model
             set;
         }
 
+        public AnketaOLekaru AnketaOLekaru { get; set; }
+
         public Termin(DateTime dt, double tr, TipTermina tip, StatusTermina s, string jmbgPacijenta, string jmbgLekara, string sifraProstorije)
         {
             vreme = dt;
@@ -34,6 +38,18 @@ namespace Model
             pacijentJMBG = jmbgPacijenta;
             lekarJMBG = jmbgLekara;
             idProstorije = sifraProstorije;
+        }
+
+        public Termin(DateTime dt, double tr, TipTermina tip, StatusTermina s, string jmbgPacijenta, string jmbgLekara, string sifraProstorije, bool hitan)
+        {
+            vreme = dt;
+            trajanje = tr;
+            tipTermina = tip;
+            status = s;
+            pacijentJMBG = jmbgPacijenta;
+            lekarJMBG = jmbgLekara;
+            idProstorije = sifraProstorije;
+            Hitan = hitan;
         }
 
         public Termin(DateTime dt, double tr, TipTermina tip, StatusTermina s)
@@ -46,7 +62,6 @@ namespace Model
 
         public Termin()
         {
-
         }
         public string pacijentJMBG
         {
@@ -63,9 +78,12 @@ namespace Model
             get;
             set;
         }
+
+        public bool Hitan { get; set; }
+
         public override string ToString()
         {
-            return vreme.ToString("MM/dd/yyyy HH:mm");
+            return vreme.ToString("MM/dd/yyyy HH:mm") + " " + lekarJMBG;
         }
     }
 }

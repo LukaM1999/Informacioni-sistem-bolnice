@@ -9,7 +9,7 @@
     <Grid>
         <Button x:Name="Raspored" Content="Raspored" HorizontalAlignment="Left" Margin="33,73,0,0" VerticalAlignment="Top" Height="47" Width="72" Click="RasporedBtn_Click"/>
         <Button x:Name="Pacijenti" Content="Pacijenti" HorizontalAlignment="Left" Margin="33,144,0,0" VerticalAlignment="Top" Height="47" Width="72" Click="PacijentiBtn_Click" />
-        <Button x:Name="Lekovi" Content="Lekovi" HorizontalAlignment="Left" Margin="33,217,0,0" VerticalAlignment="Top" Height="47" Width="72" />
+        <Button x:Name="Lekovi" Content="Lekovi" HorizontalAlignment="Left" Margin="33,217,0,0" VerticalAlignment="Top" Height="47" Width="72" Click="Lekovi_Click" />
         <Button x:Name="Odjava" Content="Odjavi se" HorizontalAlignment="Left" Margin="33,343,0,0" VerticalAlignment="Top" Height="47" Width="72" Click="OdjavaBtn_Click"/>
         <Button x:Name="Podesavanja" Content="Podesavanja" HorizontalAlignment="Left" Margin="697,10,0,0" VerticalAlignment="Top" Height="47" Width="72" />
         <Button x:Name="Profil" Content="Profil" HorizontalAlignment="Left" Margin="592,10,0,0" VerticalAlignment="Top" Height="47" Width="72" />

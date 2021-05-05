@@ -1,25 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 using Repozitorijum;
 using Model;
 using System.Collections.ObjectModel;
 using Servis;
-using InformacioniSistemBolnice;
 using Kontroler;
 using System.Threading;
-using FluentScheduler;
 using InformacioniSistemBolnice.Servis;
+using System.Diagnostics;
 
 namespace InformacioniSistemBolnice
 {
@@ -30,27 +20,57 @@ namespace InformacioniSistemBolnice
         public TerminiPacijentaProzor(string korisnickoIme, string lozinka)
         {
             InitializeComponent();
+            InicijalizujProzor(korisnickoIme, lozinka);
+            PokreniNiti();
+        }
 
+        private void PokreniNiti()
+        {
+            new Thread(() => ProveraZavrsenostiTermina.Instance.ProveriZavrsenostTermina(ulogovanPacijent)).Start();
+            new Thread(() => UpravljanjeAntiTrollMehanizmom.Instance.ProveriMalicioznostPacijenta(ulogovanPacijent)).Start();
+            UpravljanjeAnketama.Instance.OtvoriAnketuOBolnici(ulogovanPacijent);
+            new Thread(() => UpravljanjeObavestenjimaTerapija.Instance.UkljuciObavestenja(ulogovanPacijent)).Start();
+        }
+
+        private void InicijalizujProzor(string korisnickoIme, string lozinka)
+        {
             Termini.Instance.Deserijalizacija();
             Pacijenti.Instance.Deserijalizacija();
             Lekari.Instance.Deserijalizacija();
-
-            foreach (Pacijent pacijent in Pacijenti.Instance.listaPacijenata)
-            {
-                if (pacijent.korisnik.korisnickoIme.Equals(korisnickoIme) && pacijent.korisnik.lozinka.Equals(lozinka))
-                {
-                    ulogovanPacijent = pacijent;
-                    break;
-                }
-            }
+            AnketeOBolnici.Instance.Deserijalizacija();
+            ulogovanPacijent = PronadjiUlogovanogPacijenta(korisnickoIme, lozinka);
+            PostaviTermineUlogovanogPacijenta();
             listaZakazanihTermina.ItemsSource = ulogovanPacijent.zakazaniTermini;
-
-            Thread proveraMalicioznosti = new Thread(() => 
-                { UpravljanjeAntiTrollMehanizmom.Instance.ProveriMalicioznostPacijenta(ulogovanPacijent); });
-            proveraMalicioznosti.Start();
         }
 
-        
+        private void PostaviTermineUlogovanogPacijenta()
+        {
+            ObservableCollection<Termin> zakazaniTermini = new();
+            foreach (Termin termin in Termini.Instance.listaTermina)
+            {
+                if (termin.pacijentJMBG != ulogovanPacijent.jmbg) continue;
+                zakazaniTermini.Add(termin);
+            }
+            ulogovanPacijent.zakazaniTermini = zakazaniTermini;
+            Pacijenti.Instance.Serijalizacija();
+            Pacijenti.Instance.Deserijalizacija();
+        }
+
+        private static Pacijent PronadjiUlogovanogPacijenta(string korisnickoIme, string lozinka)
+        {
+            foreach (Pacijent pacijent in Pacijenti.Instance.listaPacijenata)
+            {
+                if (!JeUlogovaniPacijent(korisnickoIme, lozinka, pacijent)) continue;
+                return pacijent;
+            }
+            return null;
+        }
+
+        private static bool JeUlogovaniPacijent(string korisnickoIme, string lozinka, Pacijent pacijent)
+        {
+            return pacijent.korisnik.korisnickoIme == korisnickoIme && pacijent.korisnik.lozinka == lozinka;
+        }
+
         private void pomeriDugme_Click(object sender, RoutedEventArgs e)
         {
             if (listaZakazanihTermina.SelectedIndex >= 0 && ((Termin)listaZakazanihTermina.SelectedItem).vreme > DateTime.Now.AddHours(24))
@@ -59,7 +79,6 @@ namespace InformacioniSistemBolnice
                 pomeranje.Show();
             }
         }
-
 
         private void zakaziDugme_Click(object sender, RoutedEventArgs e)
         {
@@ -84,6 +103,19 @@ namespace InformacioniSistemBolnice
         {
             ProzorSaVestima prozorSaVestima = new ProzorSaVestima();
             prozorSaVestima.Show();
+        }
+
+        private void OtvoriAnketu(object sender, RoutedEventArgs e)
+        {
+            Termin izabranTermin = (Termin)listaZakazanihTermina.SelectedValue;
+            if (!JeIzabranZavrsenTermin(izabranTermin)) return;
+            AnketaOLekaruForma anketaOLekaru = new(izabranTermin);
+            anketaOLekaru.Show();
+        }
+
+        private static bool JeIzabranZavrsenTermin(Termin izabranTermin)
+        {
+            return izabranTermin is { status: StatusTermina.zavrsen, AnketaOLekaru: null };
         }
     }
 }

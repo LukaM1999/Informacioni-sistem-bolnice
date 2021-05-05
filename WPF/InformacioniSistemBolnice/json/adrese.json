@@ -1,1 +1,8 @@
-[]
+[
+  {
+    "Broj": "5",
+    "Ulica": "Ive Andrica",
+    "Grad": "Novi Sad",
+    "Drzava": "Srbija"
+  }
+]

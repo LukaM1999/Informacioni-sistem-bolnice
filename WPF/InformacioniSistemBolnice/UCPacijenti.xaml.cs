@@ -22,18 +22,20 @@ namespace InformacioniSistemBolnice
     /// </summary>
     public partial class UCPacijenti : UserControl
     {
-        public UCPacijenti()
+        private GlavniProzorLekara glavniProzorLekara;
+        public UCPacijenti(GlavniProzorLekara glavni)
         {
             InitializeComponent();
             Pacijenti.Instance.Deserijalizacija();
             listaPacijenata.ItemsSource = Pacijenti.Instance.listaPacijenata;
+            glavniProzorLekara = glavni;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             if (listaPacijenata.SelectedIndex > -1)
             {
-                IzmenaZdravstvenogKartonaLekar zk = new IzmenaZdravstvenogKartonaLekar((Pacijent)listaPacijenata.SelectedItem);
+                IzmenaZdravstvenogKartonaLekar zk = new IzmenaZdravstvenogKartonaLekar((Pacijent)listaPacijenata.SelectedItem, glavniProzorLekara);
                 zk.Show();
 
             }

@@ -24,6 +24,8 @@ namespace InformacioniSistemBolnice
     public partial class MagacinProzor : Window
     {
         private ProstorijeProzor prostorijaProzor;
+
+        public MagacinProzor() { }
         public MagacinProzor(ProstorijeProzor p)
         {
             InitializeComponent();
@@ -34,6 +36,7 @@ namespace InformacioniSistemBolnice
             listViewStatOpreme.ItemsSource = Repozitorijum.StatickaOprema.Instance.listaOpreme;
             listViewDinamOpreme.ItemsSource = Repozitorijum.DinamickaOprema.Instance.listaOpreme;
             listaProstorija.ItemsSource = Prostorije.Instance.listaProstorija;
+            listaProstorijaS.ItemsSource = Prostorije.Instance.listaProstorija;
         }
 
         private void dugmeKreirajOpemu_Click(object sender, RoutedEventArgs e)
@@ -80,56 +83,34 @@ namespace InformacioniSistemBolnice
 
         private void dugmeRaspodeliDinamicku_Click(object sender, RoutedEventArgs e)
         {
-            if (listViewDinamOpreme.SelectedValue != null)
+            if (listViewDinamOpreme.SelectedValue != null && listaProstorija.SelectedValue != null)
             {
                 Model.DinamickaOprema oprema = (Model.DinamickaOprema)listViewDinamOpreme.SelectedValue;
                 int kolicina = Int32.Parse(tbKolDin.Text);
-
-                Repozitorijum.DinamickaOprema.Instance.listaOpreme.ElementAt(Repozitorijum.DinamickaOprema.Instance.listaOpreme.IndexOf(oprema)).kolicina -= kolicina;
-                Repozitorijum.DinamickaOprema.Instance.Serijalizacija();
-                Repozitorijum.DinamickaOprema.Instance.Deserijalizacija();
-                listViewDinamOpreme.ItemsSource = Repozitorijum.DinamickaOprema.Instance.listaOpreme;
                 Prostorija prostorija = (Prostorija)listaProstorija.SelectedItem;
-                //Prostorija prostorija2 = Prostorije.Instance.listaProstorija.ElementAt(Prostorije.Instance.listaProstorija.IndexOf(prostorija));
-                foreach (Model.DinamickaOprema p in Prostorije.Instance.getSelected(prostorija).inventar.dinamickaOprema)
-                {
-                    if (p.tip.Equals(oprema.tip))
-                    {
-                        Prostorije.Instance.getSelected(prostorija).inventar.getSelected(p).kolicina += kolicina;
-                        Prostorije.Instance.Serijalizacija();
-                        Prostorije.Instance.Deserijalizacija();
-                        prostorijaProzor.ListaProstorija.ItemsSource = Prostorije.Instance.listaProstorija;
-                        return;
-                    }
-                }
-                Prostorije.Instance.getSelected(prostorija).inventar.dinamickaOprema.Add(new Model.DinamickaOprema(kolicina, oprema.tip));
-                Prostorije.Instance.Serijalizacija();
-                Prostorije.Instance.Deserijalizacija();
+                
+                UpravnikKontroler.Instance.RasporedjivanjeDinamickeOpreme(null, prostorija, oprema, kolicina);
+                listViewDinamOpreme.ItemsSource = Repozitorijum.DinamickaOprema.Instance.listaOpreme;
                 prostorijaProzor.ListaProstorija.ItemsSource = Prostorije.Instance.listaProstorija;
-
+                prostorijaProzor.ListaProstorija.ItemsSource = Prostorije.Instance.listaProstorija;
+                
             }
 
 
         }
 
-        private void listaProstorija_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void dugmeRaspodeliStaticku_Click(object sender, RoutedEventArgs e)
         {
-
-        }
-
-        private void listViewDinamOpreme_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
-
-        private void listViewStatOpreme_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
-
-        private void listViewDinamOpreme_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
-        {
-
+            if (listViewStatOpreme.SelectedValue != null && listaProstorijaS.SelectedValue != null && datumStat.SelectedDate != null)
+            {
+                Model.StatickaOprema oprema = (Model.StatickaOprema)listViewStatOpreme.SelectedItem;
+                int kolicina = Int32.Parse(tbKolStat.Text);
+                Prostorija prostorija = (Prostorija)listaProstorijaS.SelectedItem;
+                
+                UpravnikKontroler.Instance.RasporedjivanjeStatickeOpreme(null, prostorija, oprema, kolicina, (DateTime)datumStat.SelectedDate);
+                listViewStatOpreme.ItemsSource = Repozitorijum.StatickaOprema.Instance.listaOpreme;
+                prostorijaProzor.ListaProstorija.ItemsSource = Prostorije.Instance.listaProstorija;
+            }
         }
     }
 }

@@ -37,6 +37,12 @@ namespace Kontroler
             UpravljanjeNalozimaPacijenata.Instance.UklanjanjeNaloga(listaPacijenata);
         }
 
+        public void UklanjanjeGostujucegNaloga(DataGrid listaPacijenata)
+        {
+            UpravljanjeNalozimaPacijenata.Instance.UklanjanjeGostujucegNaloga(listaPacijenata);
+        }
+
+
         public void IzmenaNaloga(IzmenaNalogaPacijentaForma izmena, ListView listaPacijenata)
         {
             UpravljanjeNalozimaPacijenata.Instance.IzmenaNaloga(izmena, listaPacijenata);
@@ -90,6 +96,16 @@ namespace Kontroler
             UpravljanjeNalozimaPacijenata.Instance.Pomeranje(pomjeranjeTerminaProzorSekretara);
         }
 
+        public void OtkazivanjeTerminaPacijenta(DataGrid listaZakazanihTermina)
+        {
+            UpravljanjeNalozimaPacijenata.Instance.Otkazivanje(listaZakazanihTermina);
+        }
+
+        public void PomeranjeVanrednogTerminaPacijenta(IzborTerminaZaNovoZakazivanje izborTerminaZaNovoZakazivanje, IzborTerminaZaPomeranje izborTerminaZaPomeranje)
+        {
+            UpravljanjeNalozimaPacijenata.Instance.PomeranjeVanrednogTermina(izborTerminaZaNovoZakazivanje, izborTerminaZaPomeranje);
+        }
+
         public void KreiranjeVesti(KreirajVijestProzor kreirajVijestProzor)
         {
             UpravljanjeVestima.Instance.KreiranjeVesti(kreirajVijestProzor);
@@ -110,8 +126,21 @@ namespace Kontroler
             UpravljanjeVestima.Instance.IzmenaVesti(listaVesti, izmenaVesti);
         }
 
+        public void KreiranjeGostujucegPacijenta(GostujuciNalogDto gostujuciNalogDto)
+        {
+            UpravljanjeUrgentnimSistemom.Instance.KreiranjeGostujcegPacijenta(gostujuciNalogDto);
+        }
+
+        public void ZakazivanjeHitnogTermina(HitnoZakazivanjeDto hitnoZakazivanjeDto)
+        {
+            UpravljanjeUrgentnimSistemom.Instance.ZakazivanjeHitnogTermina(hitnoZakazivanjeDto);
+        }
 
 
+        public void PomeranjeTermina(TerminiLekaraZaPomeranjeDto terminiLekaraZaPomeranjeDto)
+        {
+            UpravljanjeUrgentnimSistemom.Instance.PomeranjeTermina(terminiLekaraZaPomeranjeDto);
+        }
 
         public UpravljanjeNalozimaPacijenata upravljanjeNalozimaPacijenata;
         public UpravljanjeAlergenima upravljanjeAlergenima;

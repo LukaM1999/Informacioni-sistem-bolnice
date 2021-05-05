@@ -26,18 +26,32 @@ namespace Repozitorijum
 
         public void Deserijalizacija()
         {
-            listaProstorija = JsonConvert.DeserializeObject<ObservableCollection<Prostorija>>(File.ReadAllText(putanja));
+            lock (listaProstorija)
+            {
+                listaProstorija = JsonConvert.DeserializeObject<ObservableCollection<Prostorija>>(File.ReadAllText(putanja));
+            }
         }
 
         public void Serijalizacija()
         {
-            string json = JsonConvert.SerializeObject(listaProstorija, Formatting.Indented);
-            File.WriteAllText(putanja, json);
+            lock (listaProstorija)
+            {
+                string json = JsonConvert.SerializeObject(listaProstorija, Formatting.Indented);
+                File.WriteAllText(putanja, json);
+            }
         }
 
-        public Prostorija getSelected(Prostorija p)
+        public Prostorija uzmiIzabranuProstoriju(Prostorija izabranaProstorija)
         {
-            return listaProstorija.ElementAt(listaProstorija.IndexOf(p));
+            Prostorija prostorija = null;
+            foreach (Prostorija p in listaProstorija)
+            {
+                if (p.id.Equals(izabranaProstorija.id))
+                {
+                    prostorija = p;
+                }
+            }
+            return listaProstorija.ElementAt(listaProstorija.IndexOf(prostorija));
         }
 
         private Prostorije()
