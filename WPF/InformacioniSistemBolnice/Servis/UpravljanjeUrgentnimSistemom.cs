@@ -168,7 +168,7 @@ namespace Servis
             {
                 if (stariTermin.vreme == staroVreme && stariTermin.lekarJMBG == ((Termin)terminiLekaraZaPomeranjeDto.noviTermin).lekarJMBG)
                 {
-                    promeniParametreTermina(stariTermin);
+                    PromeniParametreTermina(stariTermin);
                     Termini.Instance.listaTermina.Add(noviTermin);
                     Termini.Instance.Serijalizacija();
                     Termini.Instance.Deserijalizacija();
@@ -192,7 +192,7 @@ namespace Servis
             foreach (Termin stariTermin in lekar.zauzetiTermini)
             {
                 if (stariTermin.vreme != staroVreme) continue;
-                promeniParametreTermina(stariTermin);
+                PromeniParametreTermina(stariTermin);
                 lekar.zauzetiTermini.Add(noviTermin);
                 Lekari.Instance.Serijalizacija();
                 Lekari.Instance.Deserijalizacija();
@@ -218,7 +218,7 @@ namespace Servis
             {
                 if (stariTermin.vreme == staroVreme)
                 {
-                    promeniParametreTermina(stariTermin);
+                    PromeniParametreTermina(stariTermin);
                     pacijent.zakazaniTermini.Add(noviTermin);
                     Pacijenti.Instance.Serijalizacija();
                     Pacijenti.Instance.Deserijalizacija();
@@ -227,7 +227,7 @@ namespace Servis
             }
         }
 
-        private void promeniParametreTermina(Termin stariTermin)
+        private void PromeniParametreTermina(Termin stariTermin)
         {
             stariTermin.status = StatusTermina.zakazan;
             stariTermin.Hitan = true;

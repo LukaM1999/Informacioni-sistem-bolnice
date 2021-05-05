@@ -57,14 +57,12 @@ namespace InformacioniSistemBolnice
                 for (int j = 0; j < 27; j++)
                 {
                     slobodniTermini.Add(new Termin(slobodanTermin, 30.0, TipTermina.pregled, StatusTermina.slobodan,
-                                        ((Termin)terminiZaPomeranje.ponudjeniTerminiZaPomeranje.SelectedItem).pacijentJMBG, izabraniLekar.jmbg, ((Termin)terminiZaPomeranje.ponudjeniTerminiZaPomeranje.SelectedItem).idProstorije));
-
+                                        ((Termin)terminiZaPomeranje.ponudjeniTerminiZaPomeranje.SelectedItem).pacijentJMBG, izabraniLekar.jmbg, 
+                                        ((Termin)terminiZaPomeranje.ponudjeniTerminiZaPomeranje.SelectedItem).idProstorije));
                     slobodanTermin = slobodanTermin.AddMinutes(30);
-
                 }
                 slobodanTermin = slobodanTermin.AddHours(10.5);
             }
-
             return slobodanTermin;
         }
 
@@ -76,9 +74,7 @@ namespace InformacioniSistemBolnice
                 {
                     slobodniTermini.Add(new Termin(slobodanTermin, 30.0, TipTermina.pregled, StatusTermina.slobodan,
                                         ((Termin)terminiZaPomeranje.ponudjeniTerminiZaPomeranje.SelectedItem).pacijentJMBG, izabraniLekar.jmbg, null));
-
                     slobodanTermin = slobodanTermin.AddMinutes(30);
-
                 }
                 slobodanTermin = slobodanTermin.AddHours(10.5);
             }
@@ -103,23 +99,27 @@ namespace InformacioniSistemBolnice
 
         private void pomeriDugme_Click(object sender, RoutedEventArgs e)
         {
-            if (this.ponudjeniTermini.SelectedIndex >= 0) 
+            if (this.ponudjeniTermini.SelectedIndex >= 0)
             {
                 TerminiLekaraZaPomeranjeDto terminiLekaraZaPomeranjeDto = new(
                     (Termin)this.terminiZaPomeranje.ponudjeniTerminiZaPomeranje.SelectedItem,
                     (Termin)this.ponudjeniTermini.SelectedItem,
                     ((Pacijent)this.terminiZaPomeranje.zakazivanjeHitnogTermina.pacijenti.SelectedItem).jmbg);
                 SekretarKontroler.Instance.PomeranjeTermina(terminiLekaraZaPomeranjeDto);
-                Termini.Instance.Deserijalizacija();
-                terminiZaPomeranje.zakazivanjeHitnogTermina.upravljanjeUrgentnimSistemomProzor.
-                ListaTermina.ItemsSource = Termini.Instance.listaTermina;
-                this.terminiZaPomeranje.Close();
-                this.Close();
+                AzurirajPrikaz();
             }
 
 
         }
 
+        private void AzurirajPrikaz()
+        {
+            Termini.Instance.Deserijalizacija();
+            terminiZaPomeranje.zakazivanjeHitnogTermina.upravljanjeUrgentnimSistemomProzor.
+            ListaTermina.ItemsSource = Termini.Instance.listaTermina;
+            this.terminiZaPomeranje.Close();
+            this.Close();
+        }
     }
 
     
