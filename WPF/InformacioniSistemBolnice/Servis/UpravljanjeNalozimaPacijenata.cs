@@ -17,13 +17,13 @@ namespace Servis
 
         public static UpravljanjeNalozimaPacijenata Instance { get { return lazy.Value; } }
 
-        public void KreiranjeNaloga(RegistracijaPacijentaForma registracija)
+        public void KreiranjeNaloga(RegistracijaPacijentaDto registracija)
         {
             ObservableCollection<Termin> zakazaniTermini = new ObservableCollection<Termin>();
-            DateTime datum = DateTime.Parse(registracija.datumUnos.Text);
-            Korisnik korisnik = new Korisnik(registracija.korisnikUnos.Text, registracija.lozinkaUnos.Password, (Model.UlogaKorisnika)Enum.Parse(typeof(Model.UlogaKorisnika), "pacijent"));
-            Adresa adresa = new Adresa(registracija.drzavaUnos.Text, registracija.gradUnos.Text, registracija.ulicaUnos.Text, registracija.brojUnos.Text);
-            Pacijent p = new Pacijent(new Osoba(registracija.imeUnos.Text, registracija.prezimeUnos.Text, registracija.JMBGUnos.Text, datum, registracija.telUnos.Text, registracija.mailUnos.Text, korisnik, adresa));
+            DateTime datum = DateTime.Parse(registracija.datumRodjenja.ToString());
+            Korisnik korisnik = new Korisnik(registracija.korisnickoIme, registracija.lozinka, (Model.UlogaKorisnika)Enum.Parse(typeof(Model.UlogaKorisnika), "pacijent"));
+            Adresa adresa = new Adresa(registracija.drzava, registracija.grad, registracija.ulica, registracija.broj);
+            Pacijent p = new Pacijent(new Osoba(registracija.ime, registracija.prezime, registracija.jmbg, datum, registracija.telefon, registracija.email, korisnik, adresa));
             p.zakazaniTermini = zakazaniTermini;
             Pacijenti.Instance.listaPacijenata.Add(p);
             Korisnici.Instance.listaKorisnika.Add(korisnik);
@@ -57,7 +57,7 @@ namespace Servis
                         Pacijenti.Instance.Deserijalizacija();
                         Korisnici.Instance.Deserijalizacija();
                         Kartoni.Instance.Deserijalizacija();
-                        ListaPacijenata.ItemsSource = Pacijenti.Instance.listaPacijenata;
+                        //ListaPacijenata.ItemsSource = Pacijenti.Instance.listaPacijenata;
 
 
                         break;
@@ -123,7 +123,7 @@ namespace Servis
                 Korisnici.Instance.Serijalizacija();
                 Pacijenti.Instance.Serijalizacija();
                 Pacijenti.Instance.Deserijalizacija();
-                ListaPacijenata.ItemsSource = Pacijenti.Instance.listaPacijenata;
+                //ListaPacijenata.ItemsSource = Pacijenti.Instance.listaPacijenata;
 
 
             }
@@ -193,7 +193,7 @@ namespace Servis
             Kartoni.Instance.Serijalizacija();
         }
 
-        public void PregledZdravstvenogKartona(PregledNalogaPacijenta pregledNalogaPacijenta)
+       /* public void PregledZdravstvenogKartona(PregledNalogaPacijenta pregledNalogaPacijenta)
         {
             Kartoni zdravstveniKartoni = Kartoni.Instance;
             string jmbg = NadjiPacijenta(pregledNalogaPacijenta);
@@ -202,7 +202,7 @@ namespace Servis
 
                 if (jmbg.Equals(zdravstveniKarton.Jmbg))
                 {
-                    ZdravstveniKartonForma zdravstveniKartonForma = new ZdravstveniKartonForma();
+                    ZdravstveniKartonForma zdravstveniKartonForma = new ZdravstveniKartonForma(pocetnaStranicaSekretara.);
                     zdravstveniKartonForma.brojKartonaUnos.Text = zdravstveniKarton.BrojKartona;
                     zdravstveniKartonForma.brojKnjiziceUnos.Text = zdravstveniKarton.BrojKnjizice;
                     zdravstveniKartonForma.imeRoditeljaUnos.Text = zdravstveniKarton.ImeJednogRoditelja;
@@ -215,7 +215,7 @@ namespace Servis
                     zdravstveniKartonForma.sifraDjelatnostiUnos.Text = zdravstveniKarton.PodaciOZaposlenjuIZanimanjuPacijenta.SifraDelatnosti.ToString();
                     zdravstveniKartonForma.registarskiBrojUnos.Text = zdravstveniKarton.PodaciOZaposlenjuIZanimanjuPacijenta.RegBroj.ToString();
                     zdravstveniKartonForma.OSIZ.Text = zdravstveniKarton.PodaciOZaposlenjuIZanimanjuPacijenta.OSIZZdrZastite.ToString();
-                    zdravstveniKartonForma.Show();
+                    
 
 
                 }
@@ -224,7 +224,7 @@ namespace Servis
             }
         }
 
-
+        */
 
         public void DodjelaZdravstvenogKartonaPacijentu(IzmenaNalogaPacijentaForma izmenaNalogaPacijentaForma)
         {
@@ -250,7 +250,7 @@ namespace Servis
             }
         }
 
-        public void PregledNaloga(ListView pacijenti)
+       /* public void PregledNaloga(ListView pacijenti)
         {
             if (pacijenti.SelectedIndex >= 0)
             {
@@ -263,15 +263,15 @@ namespace Servis
                 pregled.mailLabela.Content = p.email;
                 pregled.telLabela.Content = p.telefon;
                 pregled.korisnikLabela.Content = p.korisnik.korisnickoIme;
-                pregled.Show();
+               
             }
         }
-
+       */
 
         public string NadjiPacijenta(PregledNalogaPacijenta pregledNalogaPacijenta)
         {
             Pacijenti pacijenti = Pacijenti.Instance;
-            string jmbg = pregledNalogaPacijenta.JMBGUnos.Text;
+            string jmbg = pregledNalogaPacijenta.JMBGUnos.Content.ToString();
 
             foreach (Pacijent pacijent in pacijenti.listaPacijenata)
             {

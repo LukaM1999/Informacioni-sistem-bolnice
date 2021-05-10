@@ -142,6 +142,9 @@
     <Compile Update="RegistracijaPacijentaForma.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="RegistrujNovogPacijenta.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="TerminiLekaraProzor.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -337,6 +340,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="RegistracijaPacijentaForma.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="RegistrujNovogPacijenta.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="TerminiLekaraProzor.xaml">

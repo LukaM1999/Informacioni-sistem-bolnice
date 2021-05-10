@@ -7,14 +7,14 @@
         mc:Ignorable="d"
         Title="PocetnaStranicaSekretara"  Height="600" MaxHeight="600" MaxWidth="800" Width="800"  MinHeight="600" MinWidth="800">
     <Grid>
-        <ContentControl x:Name="contentControl" Content="Prikaz" BorderBrush="Gray" HorizontalAlignment="Left" Margin="105,92,0,0" VerticalAlignment="Top" Height="480" Width="665"/>
+        <ContentControl x:Name="contentControl" HorizontalAlignment="Left" Margin="105,92,0,0" VerticalAlignment="Top" Height="480" Width="660"/>
         <Button Content="Menu" FontFamily="Arial" Background="White" HorizontalAlignment="Left" Margin="21,90,0,0" VerticalAlignment="Top" Click="MenuBtn_Click" Width="65"/>
         <Border BorderThickness="1" BorderBrush="Black">
-            <Border BorderThickness="3"  BorderBrush="Black" HorizontalAlignment="Left" Height="54" Margin="99,9,0,0" VerticalAlignment="Top" Width="675">
-                <Label Content="Klinika" FontFamily="Arial" FontSize=" 30" FontWeight="Bold" FontStretch="Medium" FontStyle="Italic"/>
+            <Border BorderThickness="3"  BorderBrush="Black" HorizontalAlignment="Left" Height="54" Margin="100,10,0,0" VerticalAlignment="Top" Width="1000">
+                <Label Content="Klinika" FontFamily="Arial" FontSize=" 30" FontWeight="Bold" FontStretch="Medium" FontStyle="Italic" Margin="3,0,-206,0"/>
             </Border>
         </Border>
-        <Image Source="C:\Users\PC\Documents\GitHub\Informacioni-sistem-bolnice\WPF\InformacioniSistemBolnice\images\hospital.png" Margin="10,10,700,499" Stretch="Fill"/>
+        <Image Source="C:\Users\PC\Documents\GitHub\Informacioni-sistem-bolnice\WPF\InformacioniSistemBolnice\images\hospital.png" Margin="10,10,1114,699" Stretch="Fill"/>
 
 
 

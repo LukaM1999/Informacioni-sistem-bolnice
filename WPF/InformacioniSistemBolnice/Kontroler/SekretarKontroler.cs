@@ -16,7 +16,7 @@ namespace Kontroler
 
         public static SekretarKontroler Instance { get { return lazy.Value; } }
 
-        public void KreiranjeNaloga(RegistracijaPacijentaForma registracija)
+        public void KreiranjeNaloga(RegistracijaPacijentaDto registracija)
         {
             UpravljanjeNalozimaPacijenata.Instance.KreiranjeNaloga(registracija);
         }
@@ -55,7 +55,7 @@ namespace Kontroler
 
         public void PregledNaloga(ListView pacijenti)
         {
-            UpravljanjeNalozimaPacijenata.Instance.PregledNaloga(pacijenti);
+            //UpravljanjeNalozimaPacijenata.Instance.PregledNaloga(pacijenti);
         }
 
 
@@ -132,6 +132,7 @@ namespace Kontroler
             
         }
 
+        
         public void ZakazivanjeHitnogTermina(HitnoZakazivanjeDto hitnoZakazivanjeDto)
         {
             UpravljanjeUrgentnimSistemom.Instance.ZakazivanjeHitnogTermina(hitnoZakazivanjeDto);

@@ -16,17 +16,27 @@ using Servis;
 
 namespace InformacioniSistemBolnice
 {
-    public partial class PregledNalogaPacijenta : Window
+    public partial class PregledNalogaPacijenta : UserControl
     {
-        public PregledNalogaPacijenta(ListView pacijenti)
+        public PocetnaStranicaSekretara pocetna;
+        public PacijentiProzor pacijenti;
+        public PregledNalogaPacijenta(PacijentiProzor pacijentiProzor)
         {
             InitializeComponent();
+            pacijenti = pacijentiProzor;
+            pocetna = pacijentiProzor.pocetna;
            
         }
 
         private void zdravstveniKartonPacijenta_Click(object sender, RoutedEventArgs e)
         {
            //UpravljanjeNalozimaPacijenata.Instance.PregledZdravstvenogKartona(this);
+        }
+
+        private void NazadBtn_Click(object sender, RoutedEventArgs e)
+        {
+            this.Visibility = Visibility.Hidden;
+            this.pocetna.contentControl.Content = this.pacijenti.Content;
         }
     }
 }

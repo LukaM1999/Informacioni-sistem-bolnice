@@ -1,44 +1,8 @@
 [
   {
-    "Broj": "19",
-    "Ulica": "Laze Kostica ",
-    "Grad": "Novi Sad",
-    "Drzava": "Srbija"
-  },
-  {
-    "Broj": "15",
-    "Ulica": "Kosovska",
-    "Grad": "Novi Sad",
-    "Drzava": "Srbija"
-  },
-  {
-    "Broj": "2",
-    "Ulica": "Danila Kisa",
-    "Grad": "Novi Sad",
-    "Drzava": "Srbija"
-  },
-  {
-    "Broj": "12",
-    "Ulica": "Iva Andrica",
-    "Grad": "Sombor",
-    "Drzava": "Srbija"
-  },
-  {
-    "Broj": "aal",
-    "Ulica": "all",
-    "Grad": "lalal",
-    "Drzava": "ala"
-  },
-  {
-    "Broj": "alall",
-    "Ulica": "alall",
-    "Grad": "alla",
+    "Broj": "lal",
+    "Ulica": "lal",
+    "Grad": "lall",
     "Drzava": "alla"
-  },
-  {
-    "Broj": "allal",
-    "Ulica": "allal",
-    "Grad": "allal",
-    "Drzava": "lalal"
   }
 ]

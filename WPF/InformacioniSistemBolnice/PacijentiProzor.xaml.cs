@@ -22,13 +22,24 @@ namespace InformacioniSistemBolnice
     public partial class PacijentiProzor : UserControl
     {
         public PocetnaStranicaSekretara pocetna;
+        public ObservableCollection<Pacijent> pacijenti = new ObservableCollection<Pacijent>();
         public PacijentiProzor(PocetnaStranicaSekretara pocetnaStranicaSekretara)
         {
             InitializeComponent();
             Pacijenti.Instance.Deserijalizacija();
-            ListaPacijenata.ItemsSource = Pacijenti.Instance.listaPacijenata;
+            
+            foreach (Pacijent pacijent in Pacijenti.Instance.listaPacijenata)
+            {   
+                if(pacijent.korisnik.korisnickoIme != null)
+                {
+                    pacijenti.Add(pacijent);
+                }
+            }
+            ListaPacijenata.ItemsSource = pacijenti.ToList();
             pocetna = pocetnaStranicaSekretara;
         }
+
+       
 
         private void registrujPacijentaDugme_Click(object sender, RoutedEventArgs e)
         {
@@ -63,6 +74,8 @@ namespace InformacioniSistemBolnice
         private void ObrisiPacijenta(object sender, RoutedEventArgs e)
         {
             SekretarKontroler.Instance.UklanjanjeNaloga(ListaPacijenata);
+            PacijentiProzor pacijentiProzor = new PacijentiProzor(pocetna);
+            this.pocetna.contentControl.Content = pacijentiProzor;
         }
 
 
@@ -71,11 +84,11 @@ namespace InformacioniSistemBolnice
             if (ListaPacijenata.SelectedValue != null)
             {
                 Pacijent p = (Pacijent)ListaPacijenata.SelectedItem;
-                PregledNalogaPacijenta pregledNalogaPacijenta = new PregledNalogaPacijenta(ListaPacijenata);
+                PregledNalogaPacijenta pregledNalogaPacijenta = new PregledNalogaPacijenta(this);
 
                 pregledNalogaPacijenta.imeLabela.Content = p.ime;
                 pregledNalogaPacijenta.prezimeLabela.Content = p.prezime;
-                pregledNalogaPacijenta.datumLabela.Content = p.datumRodjenja.ToString();
+                pregledNalogaPacijenta.datumLabela.Content = p.datumRodjenja.ToString("dd/MM/yyyy");
                 pregledNalogaPacijenta.drzavaLabela.Content = p.adresa.Drzava;
                 pregledNalogaPacijenta.gradLabela.Content = p.adresa.Grad;
                 pregledNalogaPacijenta.ulicaLabela.Content = p.adresa.Ulica;
@@ -83,8 +96,8 @@ namespace InformacioniSistemBolnice
                 pregledNalogaPacijenta.telLabela.Content = p.telefon;
                 pregledNalogaPacijenta.mailLabela.Content = p.email;
                 pregledNalogaPacijenta.korisnikLabela.Content = p.korisnik.korisnickoIme;
-                pregledNalogaPacijenta.JMBGUnos.Text = p.jmbg;
-                pregledNalogaPacijenta.Show();
+                pregledNalogaPacijenta.JMBGUnos.Content = p.jmbg;
+                pocetna.contentControl.Content = pregledNalogaPacijenta;
 
 
             }
@@ -123,7 +136,7 @@ namespace InformacioniSistemBolnice
                     pregledZdravstvenogKartona.ListaAlergena.ItemsSource = p.zdravstveniKarton.Alergeni;
 
 
-                    pregledZdravstvenogKartona.Show();
+                    this.pocetna.contentControl.Content = pregledZdravstvenogKartona.Content;
                 }
                 else
                 {
@@ -183,7 +196,7 @@ namespace InformacioniSistemBolnice
         private void kButton_Click(object sender, RoutedEventArgs e)
         {
             ZdravstveniKartonForma zdravstveniKartonForma = new ZdravstveniKartonForma(ListaPacijenata);
-            zdravstveniKartonForma.Show();
+            //zdravstveniKartonForma.Show();
 
         }
 
