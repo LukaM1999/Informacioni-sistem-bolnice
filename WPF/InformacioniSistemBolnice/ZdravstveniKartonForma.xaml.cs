@@ -21,15 +21,16 @@ namespace InformacioniSistemBolnice
     /// <summary>
     /// Interaction logic for ZdravstveniKartonForma.xaml
     /// </summary>
-    public partial class ZdravstveniKartonForma : Window
+    public partial class ZdravstveniKartonForma : UserControl
     {
         public ListView ListaPacijenata;
-       
-       public ZdravstveniKartonForma()
+        public PocetnaStranicaSekretara pocetna;
+       public ZdravstveniKartonForma(PocetnaStranicaSekretara pocetnaStranicaSekretara)
         {
             InitializeComponent();
             
             Alergeni.Instance.Deserijalizacija();
+            pocetna = pocetnaStranicaSekretara;
             ListaAlergena.ItemsSource = Alergeni.Instance.listaAlergena;
         }
         
@@ -50,7 +51,7 @@ namespace InformacioniSistemBolnice
 
             //UpravljanjeNalozimaPacijenata.Instance.KreirajZdravstveniKarton(this, ListaPacijenata);
             SekretarKontroler.Instance.KreiranjeZdravstvenogKartona(this);
-            this.Close();
+            this.pocetna.contentControl.Content = new PacijentiProzor(pocetna);
             
             
 

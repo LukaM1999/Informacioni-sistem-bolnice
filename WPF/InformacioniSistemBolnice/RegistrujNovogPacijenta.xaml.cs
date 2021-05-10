@@ -10,41 +10,41 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Model;
-using Repozitorijum;
-using Servis;
 using Kontroler;
 
 namespace InformacioniSistemBolnice
 {
-    public partial class RegistracijaPacijentaForma : UserControl
+    /// <summary>
+    /// Interaction logic for RegistrujNovogPacijenta.xaml
+    /// </summary>
+    public partial class RegistrujNovogPacijenta : UserControl
     {
         public PocetnaStranicaSekretara pocetna;
-        public PacijentiProzor pacijentiProzor;
-        public RegistracijaPacijentaForma(PacijentiProzor pacijentiProzor)
+        public UCMenuSekretara menu;
+        public RegistrujNovogPacijenta(UCMenuSekretara menuSekretara)
         {
             InitializeComponent();
-            this.pacijentiProzor = pacijentiProzor;
-            pocetna = pacijentiProzor.pocetna;
+            menu = menuSekretara;
+            pocetna = menuSekretara.pocetna;
         }
 
         private void potvrdiDugme_Click(object sender, RoutedEventArgs e)
         {
             RegistracijaPacijentaDto registracijaPacijentaDto = new RegistracijaPacijentaDto(this.imeUnos.Text, this.prezimeUnos.Text, this.JMBGUnos.Text,
-                DateTime.Parse(this.datumUnos.Text), this.telUnos.Text, this.mailUnos.Text, this.korisnikUnos.Text, this.lozinkaUnos.Password, 
-                this.drzavaUnos.Text, this.gradUnos.Text, this.ulicaUnos.Text, this.brojUnos.Text);
+               DateTime.Parse(this.datumUnos.Text), this.telUnos.Text, this.mailUnos.Text, this.korisnikUnos.Text, this.lozinkaUnos.Password,
+               this.drzavaUnos.Text, this.gradUnos.Text, this.ulicaUnos.Text, this.brojUnos.Text);
             SekretarKontroler.Instance.KreiranjeNaloga(registracijaPacijentaDto);
             this.Visibility = Visibility.Hidden;
-            PacijentiProzor pacijentiProzor = new PacijentiProzor(pocetna);
-            this.pocetna.contentControl.Content = pacijentiProzor;
-
+            this.pocetna.contentControl.Content = new UCMenuSekretara(menu.pocetna);
         }
 
         private void NazadBtn_Click(object sender, RoutedEventArgs e)
         {
             this.Visibility = Visibility.Hidden;
-            this.pocetna.contentControl.Content = this.pacijentiProzor.Content;
+            this.pocetna.contentControl.Content = this.menu.Content;
         }
     }
 }

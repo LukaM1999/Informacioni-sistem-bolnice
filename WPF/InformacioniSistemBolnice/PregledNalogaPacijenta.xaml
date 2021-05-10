@@ -1,41 +1,37 @@
-﻿<Window x:Class="InformacioniSistemBolnice.PregledNalogaPacijenta"
+﻿<UserControl x:Class="InformacioniSistemBolnice.PregledNalogaPacijenta"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:InformacioniSistemBolnice"
         mc:Ignorable="d"
-        Title="PregledNalogaPacijenta" Height="600" Width="400">
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="229*"/>
-            <ColumnDefinition Width="91*"/>
-        </Grid.ColumnDefinitions>
-        <Canvas Margin="0,-8,0,-8" Grid.ColumnSpan="2">
-            <Label Content="Ime: " Canvas.Left="35" Canvas.Top="41" Width="44"/>
-            <Label Content="Prezime: " Canvas.Left="33" Canvas.Top="73" Width="58"/>
-            <Label Content="JMBG: " Canvas.Left="33" Canvas.Top="113" Width="44"/>
-            <Label Content="Datum rodjenja: " Canvas.Left="32" Canvas.Top="151" Width="94"/>
-            <Label Content="Telefon: " Canvas.Left="31" Canvas.Top="357" Width="58"/>
-            <Label Content="E-mail: " Canvas.Left="30" Canvas.Top="397" Width="70"/>
-            <Label Content="Korisnicko ime: " Canvas.Left="28" Canvas.Top="434" Width="94"/>
-            <Label x:Name="imeLabela" Canvas.Left="178" Canvas.Top="34"  Width="136" Height="34" RenderTransformOrigin="0.492,0.567"/>
-            <TextBox x:Name="JMBGUnos" Canvas.Left="180" Canvas.Top="111"  Width="120" Height="34"/>
-            <Label x:Name="prezimeLabela" Canvas.Left="180" Canvas.Top="73" Width="136" Height="34" RenderTransformOrigin="0.55,0.911" />
-            <Label x:Name="datumLabela" Canvas.Left="183" Canvas.Top="155" Width="69" Height="34"/>
-            <Label x:Name="korisnikLabela" Canvas.Left="190" Canvas.Top="429" Width="136" Height="34"/>
-            <Label x:Name="drzavaLabela" Canvas.Left="182" Canvas.Top="194" Width="136" Height="34"/>
-            <Label x:Name="ulicaLabela" Canvas.Left="185" Canvas.Top="270" Width="136" Height="34" />
+       Height="480" Width="665" Background="LightGray" Margin="0,0,0,30">
+    <Grid Height="480" Width="665" HorizontalAlignment="Center" VerticalAlignment="Center">
+        <Canvas Height="460" Width="325" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="70,-20,0,0">
+            <Label Content="Ime: " Canvas.Left="31" Canvas.Top="41" Width="44"/>
+            <Label Content="Prezime: " Canvas.Left="31" Canvas.Top="73" Width="58"/>
+            <Label Content="JMBG: " Canvas.Left="31" Canvas.Top="107" Width="44"/>
+            <Label Content="Datum rodjenja: " Canvas.Left="31" Canvas.Top="141" Width="94"/>
+            <Label Content="Telefon: " Canvas.Left="32" Canvas.Top="313" Width="58"/>
+            <Label Content="E-mail: " Canvas.Left="31" Canvas.Top="350" Width="70"/>
+            <Label Content="Korisnicko ime: " Canvas.Left="31" Canvas.Top="388" Width="94"/>
+            <Label x:Name="imeLabela" Canvas.Left="180" Canvas.Top="40"  Width="150" Height="28" Background="White" FontSize="14"/>
+            <Label x:Name="JMBGUnos" Canvas.Left="180" Canvas.Top="106"  Width="150" Height="28" Background="White" FontSize="14"/>
+            <Label x:Name="prezimeLabela" Canvas.Left="180" Canvas.Top="73" Width="150" Height="28" Background="White" FontSize= "14" />
+            <Label x:Name="datumLabela" Canvas.Left="180" Canvas.Top="139" Width="150" Height="28" Background="White" FontSize="14"/>
+            <Label x:Name="korisnikLabela" Canvas.Left="180" Canvas.Top="383" Width="150" Height="28" Background="White" FontSize="14"/>
+            <Label x:Name="drzavaLabela" Canvas.Left="180" Canvas.Top="173" Width="150" Height="28" Background="White" FontSize="14"/>
+            <Label x:Name="ulicaLabela" Canvas.Left="180" Canvas.Top="242" Width="150" Height="28" Background="White" FontSize="14" />
+            <Label Content="Drzava: " Canvas.Left="30" Canvas.Top="173" Width="58"/>
+            <Label Content="Grad: " Canvas.Left="30" Canvas.Top="208" Width="92" Height="34"/>
+            <Label Content="Ulica: " Canvas.Left="31" Canvas.Top="240" Width="74" Height="23"/>
+            <Label Content="Broj: " Canvas.Left="31" Canvas.Top="275" Width="70"/>
+            <Label x:Name="telLabela" Canvas.Left="180" Canvas.Top="311" Width="150" Height="28" Background="White" FontSize="14"/>
+            <Label x:Name="mailLabela" Canvas.Left="180" Canvas.Top="345" Width="150" Height="28" Background="White" FontSize="14" />
+            <Label x:Name="brojLabela" Canvas.Left="180" Canvas.Top="276" Width="150" Height="28" Background="White" FontSize="14"/>
+            <Label x:Name="gradLabela" Canvas.Left="180" Canvas.Top="208" Width="150" Height="28" Background="White" FontSize="14" />
             <Button Content="Zdravstveni Karton" Canvas.Left="36" Canvas.Top="532" Width="122" Height="20" Click="zdravstveniKartonPacijenta_Click"/>
-            <Label Content="Drzava: " Canvas.Left="31" Canvas.Top="189" Width="58"/>
-            <Label Content="Grad: " Canvas.Left="31" Canvas.Top="231" Width="92" Height="34"/>
-            <Label Content="Ulica: " Canvas.Left="30" Canvas.Top="271" Width="74" Height="23"/>
-            <Label Content="Broj: " Canvas.Left="29" Canvas.Top="312" Width="70"/>
-            <Label x:Name="telLabela" Canvas.Left="187" Canvas.Top="352" Width="136" Height="34"/>
-            <Label x:Name="mailLabela" Canvas.Left="189" Canvas.Top="390" Width="136" Height="34" RenderTransformOrigin="0.508,0.567" />
-            <Label x:Name="brojLabela" Canvas.Left="187" Canvas.Top="310" Width="136" Height="34"/>
-            <Label x:Name="gradLabela" Canvas.Left="184" Canvas.Top="233" Width="136" Height="34" />
-
         </Canvas>
+        <Button Content="Nazad" HorizontalAlignment="Left" Margin="20,5,0,0" VerticalAlignment="Top" Click="NazadBtn_Click"/>
     </Grid>
-</Window>
+</UserControl>

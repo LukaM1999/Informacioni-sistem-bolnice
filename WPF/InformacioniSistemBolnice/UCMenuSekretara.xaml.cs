@@ -21,10 +21,13 @@ namespace InformacioniSistemBolnice
     public partial class UCMenuSekretara : UserControl
     {
         public PocetnaStranicaSekretara pocetna;
+        public PacijentiProzor pacijentiProzor;
+        public RegistracijaPacijentaForma registracija;
         public UCMenuSekretara(PocetnaStranicaSekretara pocetnaStranicaSekretara)
         {
             InitializeComponent();
             pocetna = pocetnaStranicaSekretara;
+            
         }
 
         
@@ -56,6 +59,12 @@ namespace InformacioniSistemBolnice
         {
             this.Visibility = Visibility.Hidden;
             this.pocetna.contentControl.Content = new UpravljanjeUrgentnimSistemomProzor(pocetna);
+        }
+
+        private void RegistrujPacijenta_Click(object sender, RoutedEventArgs e)
+        {
+            this.Visibility = Visibility.Hidden;
+            this.pocetna.contentControl.Content = new RegistrujNovogPacijenta(this);
         }
     }
 }

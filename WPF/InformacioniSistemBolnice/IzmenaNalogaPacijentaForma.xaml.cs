@@ -64,7 +64,7 @@ namespace InformacioniSistemBolnice
                     
                     Alergeni.Instance.Deserijalizacija();
                     zdravstveniKartonForma.ListaAlergena.ItemsSource = Alergeni.Instance.listaAlergena;
-                    zdravstveniKartonForma.Show();
+                    //zdravstveniKartonForma.Show();
 
 
                 }
