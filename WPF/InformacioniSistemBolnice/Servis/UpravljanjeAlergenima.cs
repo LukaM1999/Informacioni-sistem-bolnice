@@ -25,7 +25,7 @@ namespace Servis
            
         }
 
-        public void UklanjanjeAlergena(DataGrid ListaAlergena)
+        public void UklanjanjeAlergena(ListView ListaAlergena)
         {
             if (ListaAlergena.SelectedValue != null)
             {
@@ -45,7 +45,7 @@ namespace Servis
             }
         }
 
-        public void IzmenaAlergena(DataGrid ListaAlergena, IzmenaAlergenaForma izmenaAlergenaForma)
+        public void IzmenaAlergena(ListView ListaAlergena, IzmenaAlergenaForma izmenaAlergenaForma)
         {
             
             if (ListaAlergena.SelectedValue != null)
@@ -60,7 +60,7 @@ namespace Servis
 
         }
 
-        public void PregledAlergena(DataGrid ListaAlergena)
+        public void PregledAlergena(ListView ListaAlergena)
         {
             if (ListaAlergena.SelectedIndex >= 0)
             {

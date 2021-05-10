@@ -37,7 +37,7 @@ namespace Kontroler
             UpravljanjeNalozimaPacijenata.Instance.UklanjanjeNaloga(listaPacijenata);
         }
 
-        public void UklanjanjeGostujucegNaloga(DataGrid listaPacijenata)
+        public void UklanjanjeGostujucegNaloga(ListView listaPacijenata)
         {
             UpravljanjeNalozimaPacijenata.Instance.UklanjanjeGostujucegNaloga(listaPacijenata);
         }
@@ -65,17 +65,17 @@ namespace Kontroler
 
         }
 
-        public void IzmjenaAlergena(DataGrid ListaAlergena, IzmenaAlergenaForma izmenaAlergenaForma)
+        public void IzmjenaAlergena(ListView ListaAlergena, IzmenaAlergenaForma izmenaAlergenaForma)
         {
             UpravljanjeAlergenima.Instance.IzmenaAlergena(ListaAlergena, izmenaAlergenaForma);
         }
 
-        public void UklanjanjeAlergena(DataGrid ListaAlergena)
+        public void UklanjanjeAlergena(ListView ListaAlergena)
         {
             UpravljanjeAlergenima.Instance.UklanjanjeAlergena(ListaAlergena);
         }
 
-        public void PregledAlergena(DataGrid ListaAlergena)
+        public void PregledAlergena(ListView ListaAlergena)
         {
             UpravljanjeAlergenima.Instance.PregledAlergena(ListaAlergena);
         }
@@ -129,6 +129,7 @@ namespace Kontroler
         public void KreiranjeGostujucegPacijenta(GostujuciNalogDto gostujuciNalogDto)
         {
             UpravljanjeUrgentnimSistemom.Instance.KreiranjeGostujcegPacijenta(gostujuciNalogDto);
+            
         }
 
         public void ZakazivanjeHitnogTermina(HitnoZakazivanjeDto hitnoZakazivanjeDto)

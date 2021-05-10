@@ -9,14 +9,14 @@ namespace InformacioniSistemBolnice
     /// </summary>
     public partial class IzmenaAlergenaForma : Window
     {
-        public DataGrid listaAlergena;
+        public ListView listaAlergena;
         public IzmenaAlergenaForma()
         {
             InitializeComponent();
         }
 
 
-        public IzmenaAlergenaForma(DataGrid ListaAlergena)
+        public IzmenaAlergenaForma(ListView ListaAlergena)
         {
             InitializeComponent();
             listaAlergena = ListaAlergena;

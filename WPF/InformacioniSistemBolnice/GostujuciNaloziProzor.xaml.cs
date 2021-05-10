@@ -22,33 +22,53 @@ namespace InformacioniSistemBolnice
     /// <summary>
     /// Interaction logic for GostujuciNaloziProzor.xaml
     /// </summary>
-    public partial class GostujuciNaloziProzor : Window
+    public partial class GostujuciNaloziProzor : UserControl
     {
-        
-        public GostujuciNaloziProzor()
+        public PocetnaStranicaSekretara pocetna;
+        public ObservableCollection<Pacijent> gostujuciNalozi = new ObservableCollection<Pacijent>();
+        public GostujuciNaloziProzor(PocetnaStranicaSekretara pocetnaStranicaSekretara)
         {
             InitializeComponent();
             Pacijenti.Instance.Deserijalizacija();
-            ObservableCollection<Pacijent> gostujuciNalozi = new ObservableCollection<Pacijent>();
+            pocetna = pocetnaStranicaSekretara;
+            
             foreach (Pacijent gostujuciPacijent in Pacijenti.Instance.listaPacijenata)
             {
                 if (gostujuciPacijent.korisnik.korisnickoIme == null)
                 {
                     gostujuciNalozi.Add(gostujuciPacijent);
+                   
                 }
             }
+
+
             listaGostujucihNaloga.ItemsSource = gostujuciNalozi.ToList();
-
-
-
         }
 
         private void ukloniGostujuciNalog(object sender, RoutedEventArgs e)
         {
             SekretarKontroler.Instance.UklanjanjeGostujucegNaloga(this.listaGostujucihNaloga);
         }
-    }
 
+        private void kreirajGostujucegPacijenta_click(object sender, RoutedEventArgs e)
+        {
+            this.pocetna.contentControl.Content = new KreiranjeGostujucegPacijentaProzor(this);
+           
+        }
+
+        private void InfoBtn_Click(object sender, RoutedEventArgs e)
+        {
+            if (listaGostujucihNaloga.SelectedValue != null)
+            {
+                this.pocetna.contentControl.Content = new PregledGostujucegNaloga(this, this.listaGostujucihNaloga);
+
+            } else
+            {
+                MessageBox.Show("Morate selektovati pacijenta!");
+                this.pocetna.contentControl.Content = this;
+            }
+        }
+    }
 
 }
 

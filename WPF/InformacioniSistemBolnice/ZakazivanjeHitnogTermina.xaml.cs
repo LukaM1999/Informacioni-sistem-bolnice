@@ -20,12 +20,14 @@ namespace InformacioniSistemBolnice
     /// <summary>
     /// Interaction logic for ZakazivanjeHitnogTermina.xaml
     /// </summary>
-    public partial class ZakazivanjeHitnogTermina : Window
+    public partial class ZakazivanjeHitnogTermina : UserControl
     {
         public UpravljanjeUrgentnimSistemomProzor upravljanjeUrgentnimSistemomProzor;
+        public PocetnaStranicaSekretara pocetna;
         public ZakazivanjeHitnogTermina(UpravljanjeUrgentnimSistemomProzor upravljanje)
         {
             upravljanjeUrgentnimSistemomProzor = upravljanje;
+            pocetna = upravljanje.pocetna;
             InitializeComponent();
 
             vrijeme.Content = DateTime.Now.TimeOfDay.ToString();
@@ -49,15 +51,25 @@ namespace InformacioniSistemBolnice
             HitnoZakazivanjeDto hitnoZakazivanjeDto = new HitnoZakazivanjeDto(this.specijalizacijeLekara.SelectedItem.ToString(),
                 pacijent.jmbg, prostorija.id);
             SekretarKontroler.Instance.ZakazivanjeHitnogTermina(hitnoZakazivanjeDto);
-            this.Close();
+            
             Termini.Instance.Deserijalizacija();
             upravljanjeUrgentnimSistemomProzor.ListaTermina.ItemsSource = Termini.Instance.listaTermina;
+            this.Visibility = Visibility.Hidden;
+            this.pocetna.contentControl.Content = this.upravljanjeUrgentnimSistemomProzor.Content;
+
+
         }
 
         private void pomeriPostojeciTermin_Click(object sender, RoutedEventArgs e)
         {
             IzborTerminaZaPomeranje izborTerminaZaPomeranje = new IzborTerminaZaPomeranje(this);
             izborTerminaZaPomeranje.Show();
+        }
+
+        private void NazadBtn_Click(object sender, RoutedEventArgs e)
+        {
+            this.Visibility = Visibility.Hidden;
+            this.pocetna.contentControl.Content = this.upravljanjeUrgentnimSistemomProzor.Content;
         }
     }
 }

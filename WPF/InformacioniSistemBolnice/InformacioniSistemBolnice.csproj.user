@@ -91,6 +91,9 @@
     <Compile Update="PacijentiProzor1.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="PocetnaStranicaSekretara.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="PomeranjeTermina.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -104,6 +107,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="PregledAlergena.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="PregledGostujucegNaloga.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="PregledVesti.xaml.cs">
@@ -152,6 +158,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="UCListaRecepata.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="UCMenuSekretara.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="UCPacijenti.xaml.cs">
@@ -276,6 +285,9 @@
     <Page Update="PacijentiProzor1.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="PocetnaStranicaSekretara.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="PomeranjeTermina.xaml">
       <SubType>Designer</SubType>
     </Page>
@@ -292,6 +304,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="PregledAlergena.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="PregledGostujucegNaloga.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="PregledVesti.xaml">
@@ -343,6 +358,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="UCListaRecepata.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="UCMenuSekretara.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="UCPacijenti.xaml">

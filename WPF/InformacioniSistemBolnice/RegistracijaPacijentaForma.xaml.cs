@@ -18,18 +18,29 @@ using Kontroler;
 
 namespace InformacioniSistemBolnice
 {
-    public partial class RegistracijaPacijentaForma : Window
+    public partial class RegistracijaPacijentaForma : UserControl
     {
-        public RegistracijaPacijentaForma()
+        public PocetnaStranicaSekretara pocetna;
+        public PacijentiProzor pacijentiProzor;
+        public RegistracijaPacijentaForma(PacijentiProzor pacijentiProzor)
         {
             InitializeComponent();
+            this.pacijentiProzor = pacijentiProzor;
+            pocetna = pacijentiProzor.pocetna;
         }
 
         private void potvrdiDugme_Click(object sender, RoutedEventArgs e)
         {
             SekretarKontroler.Instance.KreiranjeNaloga(this);
-            this.Close();
+            this.Visibility = Visibility.Hidden;
+            this.pocetna.contentControl.Content = new PacijentiProzor(pacijentiProzor.pocetna);
+
         }
 
+        private void NazadBtn_Click(object sender, RoutedEventArgs e)
+        {
+            this.Visibility = Visibility.Hidden;
+            this.pocetna.contentControl.Content = this.pacijentiProzor.Content;
+        }
     }
 }

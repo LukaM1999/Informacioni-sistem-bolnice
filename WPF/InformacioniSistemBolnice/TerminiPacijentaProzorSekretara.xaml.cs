@@ -17,15 +17,15 @@ using Kontroler;
 
 namespace InformacioniSistemBolnice
 {
-    /// <summary>
-    /// Interaction logic for TerminiPacijentaProzorSekretara.xaml
-    /// </summary>
-    public partial class TerminiPacijentaProzorSekretara : Window
+  
+    public partial class TerminiPacijentaProzorSekretara : UserControl
     {
-        public Pacijent ulogovanPacijent;
-        public TerminiPacijentaProzorSekretara()
+
+        public PocetnaStranicaSekretara pocetna;
+        public TerminiPacijentaProzorSekretara(PocetnaStranicaSekretara pocetnaStranicaSekretara)
         {
             InitializeComponent();
+            pocetna = pocetnaStranicaSekretara;
             Termini.Instance.Deserijalizacija();
             Pacijenti.Instance.Deserijalizacija();
             Lekari.Instance.Deserijalizacija();

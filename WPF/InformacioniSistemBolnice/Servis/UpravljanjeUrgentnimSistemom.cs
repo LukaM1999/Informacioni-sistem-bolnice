@@ -100,7 +100,8 @@ namespace Servis
 
         private void GenerisanjeNajblizegSlobodnogTerminaZaOdredjenuSpecijalizaciju()
         {
-            foreach (Lekar lekar in Lekari.Instance.listaLekara.ToList())
+            Lekari.Instance.Deserijalizacija();
+            foreach (Lekar lekar in Lekari.Instance.listaLekara)
             {
                 if (lekar.specijalizacija == zakazivanjeHitnogTerminaDto.specijalizacija)
                 {

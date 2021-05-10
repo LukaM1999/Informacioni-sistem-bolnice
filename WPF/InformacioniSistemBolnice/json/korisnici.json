@@ -48,5 +48,30 @@
     "korisnickoIme": "maja",
     "lozinka": "majica",
     "uloga": 2
+  },
+  {
+    "korisnickoIme": "milos",
+    "lozinka": "milosm",
+    "uloga": 2
+  },
+  {
+    "korisnickoIme": "marija",
+    "lozinka": "marija",
+    "uloga": 2
+  },
+  {
+    "korisnickoIme": "zoran",
+    "lozinka": "zoranzoran",
+    "uloga": 2
+  },
+  {
+    "korisnickoIme": "mitar",
+    "lozinka": "mitarm",
+    "uloga": 2
+  },
+  {
+    "korisnickoIme": "all",
+    "lozinka": "lla",
+    "uloga": 2
   }
 ]

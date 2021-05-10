@@ -29,21 +29,21 @@ namespace InformacioniSistemBolnice
 
         private void naloziPacijenata(object sender, RoutedEventArgs e)
         {
-            PacijentiProzor pacijentiProzor = new PacijentiProzor();
-            pacijentiProzor.Show();
+            //PacijentiProzor pacijentiProzor = new PacijentiProzor();
+            //pacijentiProzor.Show();
         }
 
         private void alergeni_Click(object sender, RoutedEventArgs e)
         {
-            AlergeniProzor alergeniProzor = new AlergeniProzor();
-            alergeniProzor.Show();
+            //AlergeniProzor alergeniProzor = new AlergeniProzor();
+           // alergeniProzor.Show();
         }
 
        
         private void zakazivanjeTerminaPacijentima_Click(object sender, RoutedEventArgs e)
         {
-            TerminiPacijentaProzorSekretara terminiPacijentaProzorSekretara = new TerminiPacijentaProzorSekretara();
-            terminiPacijentaProzorSekretara.Show();
+            //TerminiPacijentaProzorSekretara terminiPacijentaProzorSekretara = new TerminiPacijentaProzorSekretara();
+            //terminiPacijentaProzorSekretara.Show();
 
 
         }
@@ -56,8 +56,8 @@ namespace InformacioniSistemBolnice
 
         private void upravljanjeUrgentnimSistemom_Click(object sender, RoutedEventArgs e)
         {
-            UpravljanjeUrgentnimSistemomProzor upravljanjeUrgentnimSistemomProzor = new UpravljanjeUrgentnimSistemomProzor();
-            upravljanjeUrgentnimSistemomProzor.Show();
+            //UpravljanjeUrgentnimSistemomProzor upravljanjeUrgentnimSistemomProzor = new UpravljanjeUrgentnimSistemomProzor();
+            //upravljanjeUrgentnimSistemomProzor.Show();
         }
     }
 }

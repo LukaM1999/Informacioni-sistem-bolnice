@@ -19,28 +19,30 @@ namespace InformacioniSistemBolnice
     /// <summary>
     /// Interaction logic for UpravljanjeUrgentnimSistemomProzor.xaml
     /// </summary>
-    public partial class UpravljanjeUrgentnimSistemomProzor : Window
+    public partial class UpravljanjeUrgentnimSistemomProzor : UserControl
     {
-        public UpravljanjeUrgentnimSistemomProzor()
+        public PocetnaStranicaSekretara pocetna;
+        public UpravljanjeUrgentnimSistemomProzor(PocetnaStranicaSekretara pocetnaStranicaSekretara)
         {
             InitializeComponent();
             Pacijenti.Instance.Deserijalizacija();
             Termini.Instance.Deserijalizacija();
             ListaTermina.ItemsSource = Termini.Instance.listaTermina;
+            pocetna = pocetnaStranicaSekretara;
 
         }
 
         private void zakaziHitanTermin(object sender, RoutedEventArgs e)
         {
-            ZakazivanjeHitnogTermina zakazivanjeHitnogTermina = new ZakazivanjeHitnogTermina(this);
-            zakazivanjeHitnogTermina.Show();
+            this.Visibility = Visibility.Hidden;
+            this.pocetna.contentControl.Content = new ZakazivanjeHitnogTermina(this);
         }
 
 
         private void kreirajGostujucegPacijenta_click(object sender, RoutedEventArgs e)
         {
-            KreiranjeGostujucegPacijentaProzor kreiranjeGostujucegPacijentaProzor = new KreiranjeGostujucegPacijentaProzor();
-            kreiranjeGostujucegPacijentaProzor.Show();
+            this.Visibility = Visibility.Hidden;
+            //this.pocetna.contentControl.Content = new KreiranjeGostujucegPacijentaProzor(this);
         }
     }
 }

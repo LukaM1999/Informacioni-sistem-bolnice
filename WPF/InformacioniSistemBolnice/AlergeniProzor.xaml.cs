@@ -2,17 +2,17 @@
 using Repozitorijum;
 using Kontroler;
 using Model;
+using System.Windows.Controls;
 
 namespace InformacioniSistemBolnice
 {
-    /// <summary>
-    /// Interaction logic for AlergeniProzor.xaml
-    /// </summary>
-    public partial class AlergeniProzor : Window
+    public partial class AlergeniProzor : UserControl
     {
-        public AlergeniProzor()
+        public PocetnaStranicaSekretara pocetna;
+        public AlergeniProzor(PocetnaStranicaSekretara pocetnaStranicaSekretara)
         {
             InitializeComponent();
+            pocetna = pocetnaStranicaSekretara;
             Alergeni.Instance.Deserijalizacija();
             ListaAlergena.ItemsSource = Alergeni.Instance.listaAlergena;
         }

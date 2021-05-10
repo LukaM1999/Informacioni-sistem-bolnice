@@ -19,34 +19,20 @@ using System.Collections.ObjectModel;
 
 namespace InformacioniSistemBolnice
 {
-    public partial class PacijentiProzor : Window
+    public partial class PacijentiProzor : UserControl
     {
-
-        public PacijentiProzor()
+        public PocetnaStranicaSekretara pocetna;
+        public PacijentiProzor(PocetnaStranicaSekretara pocetnaStranicaSekretara)
         {
             InitializeComponent();
-
             Pacijenti.Instance.Deserijalizacija();
-            ObservableCollection<Pacijent> pacijenti = new ObservableCollection<Pacijent>();
-            foreach (Pacijent pacijent in Pacijenti.Instance.listaPacijenata)
-            {   
-                if(pacijent.korisnik.korisnickoIme != null)
-                {
-                    pacijenti.Add(pacijent);
-                }
-            }
-            ListaPacijenata.ItemsSource = pacijenti.ToList();
-        }
-
-        private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
+            ListaPacijenata.ItemsSource = Pacijenti.Instance.listaPacijenata;
+            pocetna = pocetnaStranicaSekretara;
         }
 
         private void registrujPacijentaDugme_Click(object sender, RoutedEventArgs e)
         {
-            RegistracijaPacijentaForma rP = new RegistracijaPacijentaForma();
-            rP.Show();
+            this.pocetna.contentControl.Content = new RegistracijaPacijentaForma(this);
         }
 
         private void izmeniPacijentaDugme_Click(object sender, RoutedEventArgs e)
@@ -201,11 +187,6 @@ namespace InformacioniSistemBolnice
 
         }
 
-        private void vidiGostujuceNaloge_Click(object sender, RoutedEventArgs e)
-        {
-            GostujuciNaloziProzor gostujuciNaloziProzor = new GostujuciNaloziProzor();
-            gostujuciNaloziProzor.Show();
-
-        }
+       
     }
 }

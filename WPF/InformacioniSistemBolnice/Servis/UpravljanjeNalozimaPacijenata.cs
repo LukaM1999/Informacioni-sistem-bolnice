@@ -66,7 +66,7 @@ namespace Servis
             }
         }
 
-        public void UklanjanjeGostujucegNaloga(DataGrid gostujuciNalozi)
+        public void UklanjanjeGostujucegNaloga(ListView gostujuciNalozi)
         {
             if (gostujuciNalozi.SelectedValue != null)
             {
@@ -87,7 +87,7 @@ namespace Servis
             }
         }
 
-        private static void azurirajPrikazListeGostujucihNaloga(DataGrid gostujuciNalozi)
+        private static void azurirajPrikazListeGostujucihNaloga(ListView gostujuciNalozi)
         {
             ObservableCollection<Pacijent> gostujuciPacijenti = new ObservableCollection<Pacijent>();
             foreach (Pacijent gostujuciPacijent in Pacijenti.Instance.listaPacijenata)

@@ -34,8 +34,8 @@ namespace InformacioniSistemBolnice
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            PacijentiProzor pacijentiP = new PacijentiProzor();
-            pacijentiP.Show();
+            ///PacijentiProzor pacijentiP = new PacijentiProzor();
+            //pacijentiP.Show();
         }
 
         private void pacijentButton_Click(object sender, RoutedEventArgs e)

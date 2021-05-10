@@ -15,20 +15,24 @@ using System.Windows.Shapes;
 namespace InformacioniSistemBolnice
 {
     /// <summary>
-    /// Interaction logic for PregledAlergena.xaml
+    /// Interaction logic for PocetnaStranicaSekretara.xaml
     /// </summary>
-    public partial class PregledAlergena : Window
+    public partial class PocetnaStranicaSekretara : Window
     {
-        public ListView listaAlergena;
-        public PregledAlergena()
+        public PocetnaStranicaSekretara()
         {
             InitializeComponent();
+            
         }
 
-        public PregledAlergena(ListView ListaAlergena)
+        private void MenuBtn_Click(object sender, RoutedEventArgs e)
         {
-            InitializeComponent();
-            listaAlergena = ListaAlergena;
+            this.contentControl.Content = new UCMenuSekretara(this);
+        }
+
+        private void Window_SizeChanged(object sender, SizeChangedEventArgs e)
+        {
+
         }
     }
 }
