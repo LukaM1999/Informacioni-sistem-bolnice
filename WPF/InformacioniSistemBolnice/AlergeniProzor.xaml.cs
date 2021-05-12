@@ -41,7 +41,7 @@ namespace InformacioniSistemBolnice
 
         private void pregledAlergena_Click(object sender, RoutedEventArgs e)
         {
-            SekretarKontroler.Instance.PregledAlergena(ListaAlergena);
+            SekretarKontroler.Instance.PregledAlergena(this);
 
         }
 

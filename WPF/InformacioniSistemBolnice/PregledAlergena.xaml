@@ -1,15 +1,15 @@
-﻿<Window x:Class="InformacioniSistemBolnice.PregledAlergena"
+﻿<UserControl x:Class="InformacioniSistemBolnice.PregledAlergena"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:InformacioniSistemBolnice"
         mc:Ignorable="d"
-        Title="PregledAlergena" Height="250" Width="544">
-    <Grid>
-        <Label Content="Alergen:" HorizontalAlignment="Left"  VerticalAlignment="Top" RenderTransformOrigin="0.486,0.587" Cursor="" Margin="147,73,0,0"/>
-
-        <Label x:Name="labelaAlergen" HorizontalAlignment="Center" VerticalAlignment="Top" Width="136" Height="41" Margin="0,74,0,0"/>
-
+        Height="460" Width="660" Margin="0,0,0,20">
+    <Grid Height="480" Width="660" Background="LightGray">
+        <Label Content="Novi alergen:" HorizontalAlignment="Left"  VerticalAlignment="Top" RenderTransformOrigin="0.486,0.587" Cursor="" Margin="195,80,0,0" Width="100" FontSize="14"/>
+        <Label x:Name="labelaAlergen" HorizontalAlignment="Left" Background="White" Width="155" Height="34" Margin="300,80,0,366" FontSize="14"/>
+     
+        <Button Content="Nazad" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Click="NazadBtn_Click" Width="100" Background="White"/>
     </Grid>
-</Window>
+</UserControl>

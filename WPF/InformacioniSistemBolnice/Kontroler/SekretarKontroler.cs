@@ -75,9 +75,9 @@ namespace Kontroler
             UpravljanjeAlergenima.Instance.UklanjanjeAlergena(ListaAlergena);
         }
 
-        public void PregledAlergena(ListView ListaAlergena)
+        public void PregledAlergena(AlergeniProzor alergeniProzor)
         {
-            UpravljanjeAlergenima.Instance.PregledAlergena(ListaAlergena);
+            UpravljanjeAlergenima.Instance.PregledAlergena(alergeniProzor);
         }
 
 

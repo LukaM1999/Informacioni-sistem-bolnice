@@ -14,21 +14,22 @@ using System.Windows.Shapes;
 
 namespace InformacioniSistemBolnice
 {
-    /// <summary>
-    /// Interaction logic for PregledAlergena.xaml
-    /// </summary>
-    public partial class PregledAlergena : Window
+    public partial class PregledAlergena : UserControl
     {
         public ListView listaAlergena;
-        public PregledAlergena()
+        public PocetnaStranicaSekretara pocetna;
+        public AlergeniProzor alergeni;
+        public PregledAlergena(AlergeniProzor alergeniProzor)
         {
             InitializeComponent();
+            alergeni = alergeniProzor;
+            pocetna = alergeniProzor.pocetna;
         }
 
-        public PregledAlergena(ListView ListaAlergena)
+       
+        private void NazadBtn_Click(object sender, RoutedEventArgs e)
         {
-            InitializeComponent();
-            listaAlergena = ListaAlergena;
+            this.pocetna.contentControl.Content = new AlergeniProzor(this.pocetna);
         }
     }
 }
