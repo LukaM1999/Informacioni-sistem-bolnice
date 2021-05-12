@@ -5,14 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:InformacioniSistemBolnice"
         mc:Ignorable="d"
-        Title="Login" Height="500" Width="800" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+        Title="Login" Height="768" Width="1024" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <Grid>
-        <Label Content="Login page" HorizontalAlignment="Center" Margin="0,41,0,0" VerticalAlignment="Top" Height="114" Width="250" FontSize="48"/>
-        <Label Content="Username:" HorizontalAlignment="Left" Margin="300,160,0,0" VerticalAlignment="Top" FontSize="18"/>
-        <Label Content="Password:" HorizontalAlignment="Left" Margin="300,242,0,0" VerticalAlignment="Top" FontSize="18"/>
-        <TextBox Name="username" HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" Height="38" FontSize="14" Margin="0,194,0,0"/>
-        <PasswordBox x:Name="password" HorizontalAlignment="Center" Margin="0,281,0,0" VerticalAlignment="Top" Width="200" Height="38"/>
-        <Button Content="Confirm" HorizontalAlignment="Center" Margin="0,346,0,0" VerticalAlignment="Top" Height="37" Width="96" Click="Button_Click"/>
+        <Label Content="Login page" HorizontalAlignment="Center" Margin="0,53,0,0" VerticalAlignment="Top" Height="114" Width="250" FontSize="48"/>
+        <Label Content="Username:" HorizontalAlignment="Left" Margin="356,236,0,0" VerticalAlignment="Top" FontSize="18"/>
+        <Label Content="Password:" HorizontalAlignment="Left" Margin="356,372,0,0" VerticalAlignment="Top" FontSize="18"/>
+        <TextBox Name="username" HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Top" Width="312" Height="38" FontSize="18" Margin="0,273,0,0" VerticalContentAlignment="Center"/>
+        <PasswordBox x:Name="password" HorizontalAlignment="Center" VerticalAlignment="Top" Width="312" Height="38" VerticalContentAlignment="Center" FontSize="18" Margin="0,409,0,0"/>
+        <Button Content="Confirm" HorizontalAlignment="Center" Margin="0,528,0,0" VerticalAlignment="Top" Height="37" Width="96" Click="Button_Click"/>
 
     </Grid>
 </Window>

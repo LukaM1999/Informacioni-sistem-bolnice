@@ -5,11 +5,11 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:InformacioniSistemBolnice"
              mc:Ignorable="d" 
-             d:DesignHeight="360" d:DesignWidth="680">
+             d:DesignHeight="612" Width="834">
     <Grid>
-        <DataGrid x:Name="listaRecepata" Margin="118,0,0,0"/>
-        <Button Content="Nazad" HorizontalAlignment="Left" Margin="30,34,0,0" VerticalAlignment="Top" Height="29" Width="53" Click="Button_Click"/>
-        <Button Content="Info" HorizontalAlignment="Left" Margin="30,285,0,0" VerticalAlignment="Top" Height="29" Width="53" Click="Button_Click1"/>
+        <DataGrid x:Name="listaRecepata" Margin="174,0,0,0"/>
+        <Button Content="Nazad" HorizontalAlignment="Left" Margin="50,35,0,0" VerticalAlignment="Top" Height="29" Width="53" Click="Button_Click"/>
+        <Button Content="Info" HorizontalAlignment="Left" Margin="50,95,0,0" VerticalAlignment="Top" Height="29" Width="53" Click="Button_Click1"/>
 
     </Grid>
 </UserControl>

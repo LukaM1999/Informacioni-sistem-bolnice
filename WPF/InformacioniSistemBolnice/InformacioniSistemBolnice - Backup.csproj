@@ -7,28 +7,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="images\bell.png" />
-    <None Remove="images\gear.png" />
-    <None Remove="images\hospital.png" />
-    <None Remove="images\logout.png" />
-    <None Remove="images\medicine.png" />
-    <None Remove="images\profile.png" />
-    <None Remove="images\schedule.png" />
-    <None Remove="images\users.png" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="FluentScheduler" Version="5.5.1" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
     <PackageReference Include="PropertyChanged.Fody" Version="3.3.3" />
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="Properties\Resources.Designer.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
     <Compile Update="Views\Lekar\IzborTerminaLekara.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -74,20 +58,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="images\bell.png" />
-    <Resource Include="images\gear.png" />
-    <Resource Include="images\hospital.png" />
-    <Resource Include="images\logout.png" />
-    <Resource Include="images\medicine.png" />
-    <Resource Include="images\profile.png" />
-    <Resource Include="images\schedule.png" />
-    <Resource Include="images\users.png" />
-  </ItemGroup>
-
-  <ItemGroup>
     <EmbeddedResource Update="Properties\Resources.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <Generator>ResXFileCodeGenerator</Generator>
     </EmbeddedResource>
   </ItemGroup>
 

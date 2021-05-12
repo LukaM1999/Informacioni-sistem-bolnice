@@ -28,9 +28,9 @@ namespace InformacioniSistemBolnice
         {
             InitializeComponent();
             uput = noviUput;
-            /*TimeSpan intervalDana = uput.Kraj - uput.Pocetak;
-            DateTime slobodanTermin = uput.Pocetak.AddHours(7);*/
-            GeneriseSlobodneTermine(uput.Kraj - uput.Pocetak, uput.Pocetak.AddHours(7));
+            TimeSpan intervalDana = uput.Kraj - uput.Pocetak;
+            DateTime slobodanTermin = uput.Pocetak.AddHours(7);
+            GeneriseSlobodneTermine(intervalDana, slobodanTermin);
             IzbacujeZauzeteTermineLekara();
             //slobodniTermini.Clear();
             NemaSlobodnihTermina();

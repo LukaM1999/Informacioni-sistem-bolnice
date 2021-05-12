@@ -61,10 +61,8 @@ namespace InformacioniSistemBolnice
                             break;
 
                         case Model.UlogaKorisnika.sekretar:
-                            //GlavniProzorSekretara glavniProzorSekretara = new GlavniProzorSekretara();
-                            //glavniProzorSekretara.Show();
-                            PocetnaStranicaSekretara pocetnaStranicaSekretara = new();
-                            pocetnaStranicaSekretara.Show();
+                            PocetnaStranicaSekretara pocetnaStranica = new();
+                            pocetnaStranica.Show();
                             this.Close();
                             break;
 

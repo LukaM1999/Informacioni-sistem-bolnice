@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Xml;
 using Model;
 using Repozitorijum;
 
@@ -42,19 +43,20 @@ namespace InformacioniSistemBolnice
             UCLekovi lekovi = new UCLekovi(glavniProzorLekara);
             glavniProzorLekara.contentControl.Content = lekovi;
         }
+
         private void Button_Click1(object sender, RoutedEventArgs e)
         {
             lek.Sastojci = sastojci.Text;
             lek.Zamena = zamena.Text;
-            Zahtev zahtev = new Zahtev(komentar.Text,
-                (glavniProzorLekara.ulogovanLekar.ime + " " + glavniProzorLekara.ulogovanLekar.prezime).ToString());
-            if (zahtev!=null)
+            if (komentar.Text != "")
             {
+                Zahtev zahtev = new Zahtev(komentar.Text,
+                (glavniProzorLekara.ulogovanLekar.ime + " " + glavniProzorLekara.ulogovanLekar.prezime).ToString());
                 MessageBox.Show("Uspesno ste poslali zahtev");
+                Zahtevi.Instance.listaZahteva.Add(zahtev);
+                Zahtevi.Instance.Serijalizacija();
+                Zahtevi.Instance.Deserijalizacija();
             }
-            Zahtevi.Instance.listaZahteva.Add(zahtev);
-            Zahtevi.Instance.Serijalizacija();
-            Zahtevi.Instance.Deserijalizacija();
             Lekovi.Instance.Serijalizacija();
             Lekovi.Instance.Deserijalizacija();
             UCLekovi lekovi = new UCLekovi(glavniProzorLekara);

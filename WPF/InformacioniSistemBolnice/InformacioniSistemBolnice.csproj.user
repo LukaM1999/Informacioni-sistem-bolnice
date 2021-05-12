@@ -195,6 +195,15 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Page Update="ResourceDictionaries\Dictionary1.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Lekar\GlavniProzorLekara.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Lekar\UputForma.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Views\Sekretar\AlergeniProzor.xaml">
       <SubType>Designer</SubType>
     </Page>
@@ -277,9 +286,6 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\Upravnik\MagacinProzor.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="MainWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\Sekretar\PacijentiProzor.xaml">

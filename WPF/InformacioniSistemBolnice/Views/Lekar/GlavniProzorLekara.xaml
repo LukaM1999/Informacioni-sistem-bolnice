@@ -5,16 +5,51 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:InformacioniSistemBolnice"
         mc:Ignorable="d"
-        Title="GlavniProzorLekara" Height="450" Width="800">
+        Title="Main Window" Height="768" Width="1024" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <Grid>
-        <Button x:Name="Raspored" Content="Raspored" HorizontalAlignment="Left" Margin="33,73,0,0" VerticalAlignment="Top" Height="47" Width="72" Click="RasporedBtn_Click"/>
-        <Button x:Name="Pacijenti" Content="Pacijenti" HorizontalAlignment="Left" Margin="33,144,0,0" VerticalAlignment="Top" Height="47" Width="72" Click="PacijentiBtn_Click" />
-        <Button x:Name="Lekovi" Content="Lekovi" HorizontalAlignment="Left" Margin="33,217,0,0" VerticalAlignment="Top" Height="47" Width="72" Click="Lekovi_Click" />
-        <Button x:Name="Odjava" Content="Odjavi se" HorizontalAlignment="Left" Margin="33,343,0,0" VerticalAlignment="Top" Height="47" Width="72" Click="OdjavaBtn_Click"/>
-        <Button x:Name="Podesavanja" Content="Podesavanja" HorizontalAlignment="Left" Margin="697,10,0,0" VerticalAlignment="Top" Height="47" Width="72" />
-        <Button x:Name="Profil" Content="Profil" HorizontalAlignment="Left" Margin="592,10,0,0" VerticalAlignment="Top" Height="47" Width="72" />
-        <Button x:Name="Notifikacije" Content="Notifikacije" HorizontalAlignment="Left" Margin="482,10,0,0" VerticalAlignment="Top" Height="47" Width="72" />
-        <ContentControl x:Name="contentControl" Content="Prikaz" HorizontalAlignment="Left" Margin="122,73,0,0" VerticalAlignment="Top" Height="361" Width="678"/>
-
+        <ContentControl x:Name="contentControl" Content="Kalendar termina" Margin="190,140,0,0"/>
+        <Button Style="{StaticResource ResourceKey=MainButtons}" x:Name="Raspored" Margin="40,140,0,0" Click="RasporedBtn_Click" HorizontalAlignment="Left" VerticalAlignment="Top">
+            <StackPanel Orientation="Vertical">
+                <Image Source="../../images/schedule.png" Width="50" Height="50" RenderOptions.BitmapScalingMode="Fant"/>
+                <TextBlock Text="Raspored" VerticalAlignment="Center" FontSize="14"/>
+            </StackPanel>
+        </Button>
+        <Button Style="{StaticResource ResourceKey=MainButtons}" x:Name="Pacijenti" Margin="40,270,0,0" Click="PacijentiBtn_Click" HorizontalAlignment="Left" VerticalAlignment="Top">
+            <StackPanel Orientation="Vertical">
+                <Image Source="../../images/users.png" Width="50" Height="50" RenderOptions.BitmapScalingMode="Fant"/>
+                <TextBlock Text="Pacijenti" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="14"/>
+            </StackPanel>
+        </Button>
+        <Button Style="{StaticResource ResourceKey=MainButtons}" x:Name="Lekovi" Margin="40,400,0,0" Click="Lekovi_Click" HorizontalAlignment="Left" VerticalAlignment="Top">
+            <StackPanel Orientation="Vertical">
+                <Image Source="../../images/medicine.png" Width="50" Height="50" RenderOptions.BitmapScalingMode="Fant"/>
+                <TextBlock Text="Lekovi" VerticalAlignment="Center" FontSize="14" HorizontalAlignment="Center"/>
+            </StackPanel>
+        </Button>
+        <Button Style="{StaticResource ResourceKey=MainButtons}" x:Name="Odjava" Margin="40,630,0,0" Click="OdjavaBtn_Click" HorizontalAlignment="Left" VerticalAlignment="Top">
+            <StackPanel Orientation="Vertical">
+                <Image Source="../../images/logout.png" Width="50" Height="50" RenderOptions.BitmapScalingMode="Fant"/>
+                <TextBlock Text="Odjavi se" VerticalAlignment="Center" FontSize="14" HorizontalAlignment="Center"/>
+            </StackPanel>
+        </Button>
+        <Button Style="{StaticResource ResourceKey=MainButtons}" x:Name="Podesavanja" Margin="879,26,0,0" HorizontalAlignment="Left" VerticalAlignment="Top">
+            <StackPanel Orientation="Vertical">
+                <Image Source="../../images/gear.png" Width="50" Height="50" RenderOptions.BitmapScalingMode="Fant"/>
+                <TextBlock Text="Podesavanja" VerticalAlignment="Center" FontSize="14" HorizontalAlignment="Center"/>
+            </StackPanel>
+        </Button>
+        <Button Style="{StaticResource ResourceKey=MainButtons}" x:Name="Profil" Margin="749,26,0,0" HorizontalAlignment="Left" VerticalAlignment="Top">
+            <StackPanel Orientation="Vertical">
+                <Image Source="../../images/profile.png" Width="50" Height="50" RenderOptions.BitmapScalingMode="Fant"/>
+                <TextBlock Text="Profil" VerticalAlignment="Center" FontSize="14" HorizontalAlignment="Center"/>
+            </StackPanel>
+        </Button>
+        <Button Style="{StaticResource ResourceKey=MainButtons}" x:Name="Notifikacije" Margin="619,26,0,0" HorizontalAlignment="Left" VerticalAlignment="Top">
+            <StackPanel Orientation="Vertical">
+                <Image Source="../../images/bell.png" Width="50" Height="50" RenderOptions.BitmapScalingMode="Fant"/>
+                <TextBlock Text="Notifikacije" VerticalAlignment="Center" FontSize="14" HorizontalAlignment="Center"/>
+            </StackPanel>
+        </Button>
+        <Image Source="../../images/hospital.png" RenderOptions.BitmapScalingMode="Fant" HorizontalAlignment="Left" Height="100" Margin="10,10,0,0" VerticalAlignment="Top" Width="100"/>
     </Grid>
 </Window>
