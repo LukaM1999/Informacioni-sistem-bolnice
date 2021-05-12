@@ -6,8 +6,8 @@ using Model;
 
 namespace Repozitorijum
 {
-   public class Vesti : Repozitorijum
-   {
+    public class Vesti : Repozitorijum
+    {
         private string putanja = "../../../json/vesti.json";
 
         private static readonly Lazy<Vesti>
@@ -24,15 +24,19 @@ namespace Repozitorijum
         }
 
         public void Deserijalizacija()
-      {
+        {
             listaVesti = JsonConvert.DeserializeObject<ObservableCollection<Vest>>(File.ReadAllText(putanja));
         }
-      
-      public void Serijalizacija()
-      {
+
+        public void Serijalizacija()
+        {
             string json = JsonConvert.SerializeObject(listaVesti, Formatting.Indented);
             File.WriteAllText(putanja, json);
         }
-   
-   }
+        public void SacuvajPromene()
+        {
+            Serijalizacija();
+            Deserijalizacija();
+        }
+    }
 }

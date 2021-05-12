@@ -38,5 +38,10 @@ namespace Repozitorijum
             listaAdresa = new ObservableCollection<Adresa>();
         }
 
+        public void SacuvajPromene()
+        {
+            Serijalizacija();
+            Deserijalizacija();
+        }
     }
 }

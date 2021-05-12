@@ -128,5 +128,10 @@
     "korisnickoIme": "lal",
     "lozinka": "lal",
     "uloga": 2
+  },
+  {
+    "korisnickoIme": "serg",
+    "lozinka": "serg",
+    "uloga": 2
   }
 ]

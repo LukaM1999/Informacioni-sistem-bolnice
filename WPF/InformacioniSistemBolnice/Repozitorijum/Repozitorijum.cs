@@ -4,9 +4,11 @@ namespace Repozitorijum
 {
    public interface Repozitorijum
    {
-      void Serijalizacija();
+      public void Serijalizacija();
       
-      void Deserijalizacija();
-   
+      public void Deserijalizacija();
+
+      public void SacuvajPromene();
+
    }
 }

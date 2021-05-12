@@ -58,6 +58,10 @@ namespace Repozitorijum
         {
             listaProstorija = new ObservableCollection<Prostorija>();
         }
-
+        public void SacuvajPromene()
+        {
+            Serijalizacija();
+            Deserijalizacija();
+        }
     }
 }

@@ -38,6 +38,10 @@ namespace Repozitorijum
         {
             listaKartona = new ObservableCollection<ZdravstveniKarton>();
         }
-
+        public void SacuvajPromene()
+        {
+            Serijalizacija();
+            Deserijalizacija();
+        }
     }
 }

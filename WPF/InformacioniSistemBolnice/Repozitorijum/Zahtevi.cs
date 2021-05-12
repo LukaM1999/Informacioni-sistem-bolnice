@@ -38,5 +38,11 @@ namespace Repozitorijum
         {
             listaZahteva = new ObservableCollection<Zahtev>();
         }
+
+        public void SacuvajPromene()
+        {
+            Serijalizacija();
+            Deserijalizacija();
+        }
     }
 }

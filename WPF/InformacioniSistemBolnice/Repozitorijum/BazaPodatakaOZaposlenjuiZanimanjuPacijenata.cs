@@ -6,7 +6,7 @@ using System.Collections.ObjectModel;
 
 namespace Repozitorijum
 {
-    class BazaPodatakaOZaposlenjuiZanimanjuPacijenata : Repozitorijum
+    public class BazaPodatakaOZaposlenjuiZanimanjuPacijenata : Repozitorijum
     {
         private string putanja = "../../../json/podaciOZaposlenjuIZanimanjuPacijenata.json";
 
@@ -28,6 +28,12 @@ namespace Repozitorijum
         public void Deserijalizacija()
         {
             bazaPodatakaOZaposlenjuIZanimanjuPacijenata = JsonConvert.DeserializeObject<ObservableCollection<PodaciOZaposlenjuIZanimanju>>(File.ReadAllText(putanja));
+        }
+
+        public void SacuvajPromene()
+        {
+            Serijalizacija();
+            Deserijalizacija();
         }
 
         public void Serijalizacija()

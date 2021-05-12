@@ -7,7 +7,7 @@ using System.Linq;
 
 namespace Repozitorijum
 {
-    class DinamickaOprema:Repozitorijum
+    public class DinamickaOprema:Repozitorijum
     {
         private string putanja = "../../../json/dinamickaOprema.json";
 
@@ -46,6 +46,32 @@ namespace Repozitorijum
                 }
             }
             return listaOpreme.ElementAt(listaOpreme.IndexOf(prs));
+        }
+
+        public Model.DinamickaOprema NadjiPoTipu(TipDinamickeOpreme tip)
+        {
+            foreach (Model.DinamickaOprema pronadjena in listaOpreme)
+            {
+                if (!pronadjena.tip.Equals(tip)) continue;
+                return pronadjena;
+            }
+            return null;
+        }
+
+        public bool BrisiPoTipu(TipDinamickeOpreme tip)
+        {
+            foreach (Model.DinamickaOprema pronadjena in listaOpreme)
+            {
+                if (pronadjena.tip != tip) continue;
+                return listaOpreme.Remove(pronadjena);
+            }
+            return false;
+        }
+
+        public void SacuvajPromene()
+        {
+            Serijalizacija();
+            Deserijalizacija();
         }
     }
 }

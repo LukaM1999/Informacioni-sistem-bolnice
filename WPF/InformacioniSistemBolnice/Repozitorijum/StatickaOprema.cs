@@ -58,5 +58,10 @@ namespace Repozitorijum
             }
             return listaOpreme.ElementAt(listaOpreme.IndexOf(prs));
         }
+        public void SacuvajPromene()
+        {
+            Serijalizacija();
+            Deserijalizacija();
+        }
     }
 }

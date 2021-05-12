@@ -42,6 +42,32 @@ namespace Repozitorijum
             }
         }
 
+        public Pacijent NadjiPoJmbg(string jmbg)
+        {
+            foreach (Pacijent pronadjen in listaPacijenata)
+            {
+                if (pronadjen.jmbg != jmbg) continue;
+                return pronadjen;
+            }
+            return null;
+        }
+
+        public bool BrisiPoJmbg(string jmbg)
+        {
+            foreach (Pacijent pronadjen in listaPacijenata)
+            {
+                if (pronadjen.jmbg != jmbg) continue;
+                return listaPacijenata.Remove(pronadjen);
+            }
+            return false;
+        }
+
+        public void SacuvajPromene()
+        {
+            Serijalizacija();
+            Deserijalizacija();
+        }
+
         public Pacijenti()
         {
             listaPacijenata = new ObservableCollection<Pacijent>();

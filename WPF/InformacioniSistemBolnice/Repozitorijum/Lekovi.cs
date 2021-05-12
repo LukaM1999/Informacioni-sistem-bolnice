@@ -50,5 +50,30 @@ namespace Repozitorijum
             }
             return listaLekova.ElementAt(listaLekova.IndexOf(prs));
         }
+
+        public Lek NadjiPoNazivu(string naziv)
+        {
+            foreach (Lek pronadjen in listaLekova)
+            {
+                if (pronadjen.Naziv == naziv) return pronadjen;
+            }
+            return null;
+        }
+
+        public bool BrisiPoNazivu(string naziv)
+        {
+            foreach (Lek pronadjen in listaLekova)
+            {
+                if (pronadjen.Naziv != naziv) continue;
+                return listaLekova.Remove(pronadjen);
+            }
+            return false;
+        }
+
+        public void SacuvajPromene()
+        {
+            Serijalizacija();
+            Deserijalizacija();
+        }
     }
 }

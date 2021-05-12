@@ -13,44 +13,48 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="IzborTerminaLekara.xaml.cs">
+    <Compile Update="Views\Lekar\IzborTerminaLekara.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="IzmenaZdravstvenogKartonaLekar.xaml.cs">
+    <Compile Update="Views\Lekar\IzmenaZdravstvenogKartonaLekar.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="PomeranjeTerminaLekaraProzor.xaml.cs">
+    <Compile Update="Views\Lekar\PomeranjeTerminaLekaraProzor.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="TerminiLekaraProzor.xaml.cs">
+    <Compile Update="Views\Lekar\TerminiLekaraProzor.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="ZakazivanjeTerminaLekaraProzor.xaml.cs">
+    <Compile Update="Views\Lekar\ZakazivanjeTerminaLekaraProzor.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
 
   <ItemGroup>
-    <Page Update="IzborTerminaLekara.xaml">
+    <Page Update="Views\Lekar\IzborTerminaLekara.xaml">
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="IzmenaZdravstvenogKartonaLekar.xaml">
+    <Page Update="Views\Lekar\IzmenaZdravstvenogKartonaLekar.xaml">
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="PomeranjeTerminaLekaraProzor.xaml">
+    <Page Update="Views\Lekar\PomeranjeTerminaLekaraProzor.xaml">
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="TerminiLekaraProzor.xaml">
+    <Page Update="Views\Lekar\TerminiLekaraProzor.xaml">
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="ZakazivanjeTerminaLekaraProzor.xaml">
+    <Page Update="Views\Lekar\ZakazivanjeTerminaLekaraProzor.xaml">
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
       <SubType>Designer</SubType>
     </Page>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="ViewModels\" />
   </ItemGroup>
 
 </Project>

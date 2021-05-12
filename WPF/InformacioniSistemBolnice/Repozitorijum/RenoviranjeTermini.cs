@@ -42,5 +42,10 @@ namespace Repozitorijum
         {
             listaTermina = new ObservableCollection<RenoviranjeTermin>();
         }
+        public void SacuvajPromene()
+        {
+            Serijalizacija();
+            Deserijalizacija();
+        }
     }
 }

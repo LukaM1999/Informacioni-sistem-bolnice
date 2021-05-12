@@ -2,8 +2,6 @@ using System;
 using Model;
 using Repozitorijum;
 using System.Windows.Controls;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using InformacioniSistemBolnice;
 using System.Linq;
 
@@ -268,12 +266,7 @@ namespace Servis
 
         private void PretragaPacijenta(Lekar lekar)
         {
-            foreach (Pacijent pacijent in Pacijenti.Instance.listaPacijenata)
-            {
-                if (pacijent.jmbg != noviTermin.pacijentJMBG) continue;
-                ZakazujeKodSpecijaliste(lekar, pacijent);
-                break;
-            }
+            ZakazujeKodSpecijaliste(lekar, Pacijenti.Instance.NadjiPoJmbg(noviTermin.pacijentJMBG));
         }
 
         private void ZakazujeKodSpecijaliste(Lekar lekar, Pacijent pacijent)
@@ -283,10 +276,8 @@ namespace Servis
             lekar.zauzetiTermini.Add(noviTermin);
             Termini.Instance.listaTermina.Add(noviTermin);
             Termini.Instance.Serijalizacija();
-            Lekari.Instance.Serijalizacija();
-            Pacijenti.Instance.Serijalizacija();
-            Pacijenti.Instance.Deserijalizacija();
-            Lekari.Instance.Deserijalizacija();
+            Pacijenti.Instance.SacuvajPromene();
+            //Lekari.Instance.SacuvajPromene();
             Termini.Instance.Deserijalizacija();
         }
 

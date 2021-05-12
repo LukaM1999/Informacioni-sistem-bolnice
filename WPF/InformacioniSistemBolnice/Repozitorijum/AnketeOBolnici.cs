@@ -41,6 +41,12 @@ namespace Repozitorijum
         {
             AnketeZaBolnicu = new ObservableCollection<AnketaOBolnici>();
         }
+
+        public void SacuvajPromene()
+        {
+            Serijalizacija();
+            Deserijalizacija();
+        }
     }
 }
 

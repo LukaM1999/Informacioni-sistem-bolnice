@@ -44,5 +44,10 @@ namespace Repozitorijum
         {
             listaTermina = new ObservableCollection<StatickaOpremaTermin>();            
         }
+        public void SacuvajPromene()
+        {
+            Serijalizacija();
+            Deserijalizacija();
+        }
     }
 }

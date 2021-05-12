@@ -34,5 +34,30 @@ namespace Repozitorijum
             File.WriteAllText(putanja, json);
         }
 
+        public Lekar NadjiPoJmbg(string jmbg)
+        {
+            foreach (Lekar pronadjen in listaLekara)
+            {
+                if (pronadjen.jmbg == jmbg) return pronadjen;
+            }
+            return null;
+        }
+
+        public bool BrisiPoJmbg(string jmbg)
+        {
+            foreach (Lekar pronadjen in listaLekara)
+            {
+                if (pronadjen.jmbg != jmbg) continue;
+                return listaLekara.Remove(pronadjen);
+            }
+            return false;
+        }
+
+        public void SacuvajPromene()
+        {
+            Serijalizacija();
+            Deserijalizacija();
+        }
+
     }
 }

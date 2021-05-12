@@ -34,5 +34,10 @@ namespace Repozitorijum
             File.WriteAllText(putanja, json);
         }
 
+        public void SacuvajPromene()
+        {
+            Serijalizacija();
+            Deserijalizacija();
+        }
     }
 }

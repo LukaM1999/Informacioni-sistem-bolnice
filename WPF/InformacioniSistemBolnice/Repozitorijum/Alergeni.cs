@@ -40,7 +40,31 @@ namespace Repozitorijum
             listaAlergena = new ObservableCollection<Alergen>();
         }
 
+        public Alergen NadjiPoNazivu(string naziv)
+        {
+            foreach (Alergen pronadjen in listaAlergena)
+            {
+                if (pronadjen.nazivAlergena != naziv) continue;
+                return pronadjen;
+            }
+            return null;
+        }
 
+        public bool BrisiPoNazivu(string naziv)
+        {
+            foreach (Alergen pronadjen in listaAlergena)
+            {
+                if (pronadjen.nazivAlergena != naziv) continue;
+                return listaAlergena.Remove(pronadjen);
+            }
+            return false;
+        }
+
+        public void SacuvajPromene()
+        {
+            Serijalizacija();
+            Deserijalizacija();
+        }
 
     }
 }

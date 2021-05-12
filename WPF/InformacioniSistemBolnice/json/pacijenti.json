@@ -1,1 +1,24 @@
-[]
+[
+  {
+    "zdravstveniKarton": null,
+    "maliciozan": false,
+    "zakazaniTermini": [],
+    "ime": "Luka",
+    "prezime": "Miletic",
+    "jmbg": "2110995408",
+    "datumRodjenja": "2021-05-20T00:00:00",
+    "telefon": "4325",
+    "email": "gasrewr",
+    "adresa": {
+      "Broj": "345",
+      "Ulica": "newg",
+      "Grad": "Novi Sad",
+      "Drzava": "Srbija"
+    },
+    "korisnik": {
+      "korisnickoIme": "luka",
+      "lozinka": "luka",
+      "uloga": 2
+    }
+  }
+]

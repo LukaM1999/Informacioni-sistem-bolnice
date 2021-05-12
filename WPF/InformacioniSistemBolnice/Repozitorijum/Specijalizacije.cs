@@ -39,6 +39,10 @@ namespace Repozitorijum
         {
             listaSpecijalizacija = new ObservableCollection<Specijalizacija>();
         }
-
+        public void SacuvajPromene()
+        {
+            Serijalizacija();
+            Deserijalizacija();
+        }
     }
 }

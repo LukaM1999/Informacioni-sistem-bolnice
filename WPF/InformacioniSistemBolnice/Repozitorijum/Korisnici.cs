@@ -38,6 +38,10 @@ namespace Repozitorijum
         {
             listaKorisnika = new ObservableCollection<Korisnik>();
         }
-
+        public void SacuvajPromene()
+        {
+            Serijalizacija();
+            Deserijalizacija();
+        }
     }
 }
