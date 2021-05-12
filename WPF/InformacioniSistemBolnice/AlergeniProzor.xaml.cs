@@ -19,8 +19,7 @@ namespace InformacioniSistemBolnice
 
         private void definisiAlergen_Click(object sender, RoutedEventArgs e)
         {
-            DefinisanjeAlergenaForma definisanjeAlergenaForma = new DefinisanjeAlergenaForma();
-            definisanjeAlergenaForma.Show();
+            this.pocetna.contentControl.Content = new DefinisanjeAlergenaForma(this);
         }
 
         private void obrisiAlergen_Click(object sender, RoutedEventArgs e)
