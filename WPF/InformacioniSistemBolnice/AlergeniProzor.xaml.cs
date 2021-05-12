@@ -33,9 +33,9 @@ namespace InformacioniSistemBolnice
             if (ListaAlergena.SelectedValue != null)
             {
                 Alergen alergen = (Alergen)ListaAlergena.SelectedItem;
-                IzmenaAlergenaForma izmenaAlergenaForma = new IzmenaAlergenaForma(ListaAlergena);
+                IzmenaAlergenaForma izmenaAlergenaForma = new IzmenaAlergenaForma(this);
                 izmenaAlergenaForma.nazivAlergenaUnos.Text = alergen.nazivAlergena;
-                izmenaAlergenaForma.Show();
+                pocetna.contentControl.Content = izmenaAlergenaForma.Content;
             }
         }
 
