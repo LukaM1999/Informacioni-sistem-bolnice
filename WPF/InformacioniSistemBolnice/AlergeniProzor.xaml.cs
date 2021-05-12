@@ -19,8 +19,7 @@ namespace InformacioniSistemBolnice
 
         private void definisiAlergen_Click(object sender, RoutedEventArgs e)
         {
-            DefinisanjeAlergenaForma definisanjeAlergenaForma = new DefinisanjeAlergenaForma();
-            definisanjeAlergenaForma.Show();
+            this.pocetna.contentControl.Content = new DefinisanjeAlergenaForma(this);
         }
 
         private void obrisiAlergen_Click(object sender, RoutedEventArgs e)
@@ -34,15 +33,15 @@ namespace InformacioniSistemBolnice
             if (ListaAlergena.SelectedValue != null)
             {
                 Alergen alergen = (Alergen)ListaAlergena.SelectedItem;
-                IzmenaAlergenaForma izmenaAlergenaForma = new IzmenaAlergenaForma(ListaAlergena);
+                IzmenaAlergenaForma izmenaAlergenaForma = new IzmenaAlergenaForma(this);
                 izmenaAlergenaForma.nazivAlergenaUnos.Text = alergen.nazivAlergena;
-                izmenaAlergenaForma.Show();
+                pocetna.contentControl.Content = izmenaAlergenaForma.Content;
             }
         }
 
         private void pregledAlergena_Click(object sender, RoutedEventArgs e)
         {
-            SekretarKontroler.Instance.PregledAlergena(ListaAlergena);
+            SekretarKontroler.Instance.PregledAlergena(this);
 
         }
 

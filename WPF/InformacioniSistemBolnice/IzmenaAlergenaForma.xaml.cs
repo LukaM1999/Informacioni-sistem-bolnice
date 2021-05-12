@@ -7,25 +7,30 @@ namespace InformacioniSistemBolnice
     /// <summary>
     /// Interaction logic for IzmenaAlergenaForma.xaml
     /// </summary>
-    public partial class IzmenaAlergenaForma : Window
+    public partial class IzmenaAlergenaForma : UserControl
     {
         public ListView listaAlergena;
-        public IzmenaAlergenaForma()
+        public PocetnaStranicaSekretara pocetna;
+        public AlergeniProzor alergeni;
+       
+        public IzmenaAlergenaForma(AlergeniProzor alergeniProzor)
         {
             InitializeComponent();
+            alergeni = alergeniProzor;
+            pocetna = alergeniProzor.pocetna;
+            listaAlergena = alergeniProzor.ListaAlergena;
+
         }
 
-
-        public IzmenaAlergenaForma(ListView ListaAlergena)
-        {
-            InitializeComponent();
-            listaAlergena = ListaAlergena;
-        }
-
-        private void izmjeniAlergenDugme_Click(object sender, RoutedEventArgs e)
+        private void potvrdiIzmeneDugme_Click(object sender, RoutedEventArgs e)
         {
             SekretarKontroler.Instance.IzmjenaAlergena(listaAlergena, this);
-            this.Close();
+            pocetna.contentControl.Content = alergeni.Content;
+        }
+
+        private void NazadBtn_Click(object sender, RoutedEventArgs e)
+        {
+            this.pocetna.contentControl.Content = new AlergeniProzor(this.pocetna);
         }
     }
 }

@@ -15,20 +15,27 @@ using Kontroler;
 
 namespace InformacioniSistemBolnice
 {
-    /// <summary>
-    /// Interaction logic for DefinisanjeAlergenaForma.xaml
-    /// </summary>
-    public partial class DefinisanjeAlergenaForma : Window
+    public partial class DefinisanjeAlergenaForma : UserControl
     {
-        public DefinisanjeAlergenaForma()
+        public PocetnaStranicaSekretara pocetna;
+        public AlergeniProzor alergeni;
+        public DefinisanjeAlergenaForma(AlergeniProzor alergeniProzor)
         {
             InitializeComponent();
+            alergeni = alergeniProzor;
+            pocetna = alergeniProzor.pocetna;
         }
 
         private void definisiAlergenDugme_Click(object sender, RoutedEventArgs e)
         {
             SekretarKontroler.Instance.DefinisanjeAlergena(this);
-            this.Close();
+            this.pocetna.contentControl.Content = new AlergeniProzor(this.pocetna);
+        }
+
+        private void NazadBtn_Click(object sender, RoutedEventArgs e)
+        {
+            this.pocetna.contentControl.Content = new AlergeniProzor(this.pocetna);
         }
     }
+
 }

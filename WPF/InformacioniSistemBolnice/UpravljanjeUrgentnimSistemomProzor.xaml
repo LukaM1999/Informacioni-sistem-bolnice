@@ -5,8 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:InformacioniSistemBolnice"
         mc:Ignorable="d"
-        Height="480" Width="665" Background="LightGray" Margin="0,0,0,30">
-    <Grid Height="480" Width="665">
+        Height="475" Width="665" Background="LightGray" Margin="0,0,0,30">
+    <Grid Height="475" Width="665">
         <StackPanel Margin="0,50,0,0">
             <DataGrid x:Name="ListaTermina" Height="430" Width="655" CanUserAddRows="False" Margin="5,5,5,5"/>
         </StackPanel>

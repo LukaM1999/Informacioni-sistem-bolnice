@@ -60,14 +60,14 @@ namespace Servis
 
         }
 
-        public void PregledAlergena(ListView ListaAlergena)
+        public void PregledAlergena(AlergeniProzor alergeni)
         {
-            if (ListaAlergena.SelectedIndex >= 0)
+            if (alergeni.ListaAlergena.SelectedIndex >= 0)
             {
-                PregledAlergena pregledAlergena = new PregledAlergena(ListaAlergena);
-                Alergen alergen = (Alergen)ListaAlergena.SelectedItem;
+                PregledAlergena pregledAlergena = new PregledAlergena(alergeni);
+                Alergen alergen = (Alergen)alergeni.ListaAlergena.SelectedItem;
                 pregledAlergena.labelaAlergen.Content = alergen.nazivAlergena;
-                pregledAlergena.Show();
+                pregledAlergena.pocetna.contentControl.Content = pregledAlergena.Content;
 
             }
         }
