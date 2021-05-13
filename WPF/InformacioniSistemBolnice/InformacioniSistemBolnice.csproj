@@ -7,11 +7,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="images\back.png" />
     <None Remove="images\bell.png" />
     <None Remove="images\gear.png" />
     <None Remove="images\hospital.png" />
     <None Remove="images\logout.png" />
     <None Remove="images\medicine.png" />
+    <None Remove="images\menu.png" />
     <None Remove="images\profile.png" />
     <None Remove="images\schedule.png" />
     <None Remove="images\users.png" />
@@ -74,11 +76,13 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="images\back.png" />
     <Resource Include="images\bell.png" />
     <Resource Include="images\gear.png" />
     <Resource Include="images\hospital.png" />
     <Resource Include="images\logout.png" />
     <Resource Include="images\medicine.png" />
+    <Resource Include="images\menu.png" />
     <Resource Include="images\profile.png" />
     <Resource Include="images\schedule.png" />
     <Resource Include="images\users.png" />

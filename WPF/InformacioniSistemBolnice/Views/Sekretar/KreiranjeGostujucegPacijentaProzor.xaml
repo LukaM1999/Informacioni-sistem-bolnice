@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:InformacioniSistemBolnice"
         mc:Ignorable="d"
         Height="650" Width="1000" Background="LightGray" Margin="0,0,0,30">
-    <Grid Height="650" Width="665" HorizontalAlignment="Center" VerticalAlignment="Center">
+    <Grid Height="650" Width="1000" HorizontalAlignment="Center" VerticalAlignment="Center">
         <Canvas  Height="650" Width="320" HorizontalAlignment="Center" VerticalAlignment="Center">
             <Label Content="Ime: " Canvas.Left="40" Canvas.Top="50" Width="44" HorizontalAlignment="Right" FontSize="14"/>
             <Label Content="Prezime: " Canvas.Left="40" Canvas.Top="100" Width="75" FontSize="14"/>
@@ -21,8 +21,13 @@
             <TextBox x:Name="telUnos" Text="" TextWrapping="Wrap" Canvas.Top="250" Canvas.Left="160" Width="140" Height="27" FontSize="14"/>
             <TextBox x:Name="mailUnos" Text="" TextWrapping="Wrap"  Canvas.Top="300"  Canvas.Left="160" Width="140" Height="27" FontSize="14" />
             <Button x:Name="potvrdiDugme" Content="Potvrdi" Canvas.Left="220" Canvas.Top="375" Width="140" Height="30" Click="potvrdiDugme_Click" Background="White" FontSize="14"/>
+            <Button Style="{StaticResource ResourceKey=MainButtons}" x:Name="Nazad"  Click="NazadBtn_Click" HorizontalAlignment="Left" VerticalAlignment="Top" Background="LightGray"  Width="50" Height="60" Margin="-150,10,0,0">
+                <StackPanel Orientation="Vertical">
+                    <Image Source="../../images/back.png" Width="30" Height="30" RenderOptions.BitmapScalingMode="Fant"/>
+                    <TextBlock Text="Nazad" VerticalAlignment="Center" FontSize="14"/>
+                </StackPanel>
+            </Button>
         </Canvas>
-        <Button Content="Nazad" Margin="-150,30,685,595"  Width="120" Height="25" Click="NazadBtn_Click"/>
     </Grid>
 
 

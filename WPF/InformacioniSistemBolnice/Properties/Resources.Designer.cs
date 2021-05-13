@@ -63,6 +63,16 @@ namespace InformacioniSistemBolnice.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        public static byte[] back {
+            get {
+                object obj = ResourceManager.GetObject("back", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         public static byte[] bell {
             get {
                 object obj = ResourceManager.GetObject("bell", resourceCulture);
@@ -106,6 +116,16 @@ namespace InformacioniSistemBolnice.Properties {
         public static byte[] medicine {
             get {
                 object obj = ResourceManager.GetObject("medicine", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] menu {
+            get {
+                object obj = ResourceManager.GetObject("menu", resourceCulture);
                 return ((byte[])(obj));
             }
         }

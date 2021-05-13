@@ -1,23 +1,34 @@
-﻿<Window x:Class="InformacioniSistemBolnice.VestiProzor"
+﻿<UserControl x:Class="InformacioniSistemBolnice.VestiProzor"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:InformacioniSistemBolnice"
         mc:Ignorable="d"
-        Title="VestiProzor" Height="450" Width="800">
+        Height="650" Width="1000">
     <Grid>
-        <StackPanel Margin="0,50,0,0">
-            <ListView x:Name="ListaVesti" Height="384" Width="795"/>
-
-
+        <StackPanel Margin="0,60,0,0">
+            <ListView x:Name="ListaVesti" Height="560" Width="900" FontSize="16">
+                <ListView.ItemContainerStyle>
+                    <Style TargetType="ListViewItem">
+                        <Setter Property="Background" Value="White" />
+                        <Setter Property="BorderBrush" Value="LightGray" />
+                        <Setter Property="BorderThickness" Value="2" />
+                        <Style.Triggers>
+                            <Trigger Property="IsSelected" Value="True">
+                                <Setter Property="Foreground" Value="White" />
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </ListView.ItemContainerStyle>
+            </ListView>
         </StackPanel>
-        <Canvas x:Name="RukovanjeVestima" Margin="0,0,0,439">
-            <Button x:Name="kreirajVijest" Content="Kreiraj Vest" Canvas.Left="20" Canvas.Top="13" Width="90" Click="kreirajVest_Clik"/>
-            <Button x:Name="obrisiVijest" Content="Obrisi vest" Canvas.Left="335" Canvas.Top="13" Width="75" Click="obrisiVesti_Clik" />
-            <Button x:Name="izmjeniVijest" Content="Izmeni vest" Canvas.Left="240" Canvas.Top="13" Width="75" Click="izmeniVest_Click"/>
-            <Button x:Name="pregledVijesti" Content="Pregled vesti" Canvas.Left="135" Canvas.Top="13" Width="82" Click="pregledVesti_Click"/>
+        <Canvas x:Name="RukovanjeVestima" Margin="0,0,0,600">
+            <Button x:Name="kreirajVijest" Content="Kreiraj Vest" Canvas.Left="100" Canvas.Top="13" Width="100" Click="kreirajVest_Clik" Background="White" FontSize="14"/>
+            <Button x:Name="obrisiVijest" Content="Obrisi vest" Canvas.Left="250" Canvas.Top="13" Width="100" Click="obrisiVesti_Clik" Background="White" FontSize="14"/>
+            <Button x:Name="izmjeniVijest" Content="Izmeni vest" Canvas.Left="400" Canvas.Top="13" Width="100" Click="izmeniVest_Click" Background="White" FontSize="14"/>
+            <Button x:Name="pregledVijesti" Content="Pregled vesti" Canvas.Left="550" Canvas.Top="13" Width="100" Click="pregledVesti_Click" Background="White" FontSize="14"/>
         </Canvas>
         
     </Grid>
-</Window>
+</UserControl>

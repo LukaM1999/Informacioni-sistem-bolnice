@@ -2,8 +2,10 @@ using System;
 
 namespace Model
 {
+
     public class Vest
     {
+
         public string Sadrzaj { get; set; }
         public string Id { get; set; }
 

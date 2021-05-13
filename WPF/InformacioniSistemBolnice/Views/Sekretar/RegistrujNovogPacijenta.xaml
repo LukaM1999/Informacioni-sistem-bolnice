@@ -33,10 +33,14 @@
             <Label Content="Grad: " Canvas.Left="23" Canvas.Top="240" Width="58" Height="26"/>
             <Label Content="Ulica: " Canvas.Left="23" Canvas.Top="280" Width="94"/>
             <Label Content="Broj: " Canvas.Left="23" Canvas.Top="320" Width="70"/>
-
-
+            <Button Style="{StaticResource ResourceKey=MainButtons}" x:Name="Nazad"  Click="NazadBtn_Click" HorizontalAlignment="Left" VerticalAlignment="Top" Background="LightGray"  Width="50" Height="60" Margin="-150,0" >
+                <StackPanel Orientation="Vertical">
+                    <Image Source="../../images/back.png" Width="30" Height="30" RenderOptions.BitmapScalingMode="Fant"/>
+                    <TextBlock Text="Nazad" VerticalAlignment="Center" FontSize="14"/>
+                </StackPanel>
+            </Button>
         </Canvas>
-        <Button Content="Nazad" HorizontalAlignment="Left" Margin="50,32,0,0" VerticalAlignment="Top" Click="NazadBtn_Click" Width="120" Height="25"/>
+        
 
     </Grid>
 </UserControl>

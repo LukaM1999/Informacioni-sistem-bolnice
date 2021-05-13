@@ -17,19 +17,20 @@ using Model;
 
 namespace InformacioniSistemBolnice
 {
-    public partial class VestiProzor : Window
+    public partial class VestiProzor : UserControl
     {
-        public VestiProzor()
+        public UCMenuSekretara menu;
+        public VestiProzor(UCMenuSekretara menuSekretara)
         {
             InitializeComponent();
+            menu = menuSekretara;
             Vesti.Instance.Deserijalizacija();
             ListaVesti.ItemsSource = Vesti.Instance.listaVesti;
         }
 
         private void kreirajVest_Clik(object sender, RoutedEventArgs e)
         {
-            KreirajVijestProzor kreirajVijestProzor = new KreirajVijestProzor();
-            kreirajVijestProzor.Show();
+            menu.pocetna.contentControl.Content = new KreirajVijestProzor(menu.pocetna, menu, this);
         }
 
        
@@ -45,13 +46,13 @@ namespace InformacioniSistemBolnice
 
         private void izmeniVest_Click(object sender, RoutedEventArgs e)
         {
-            if (ListaVesti.SelectedValue != null)
+            if (this.ListaVesti.SelectedValue != null)
             {
                Vest vest = (Vest)ListaVesti.SelectedItem;
-                IzmenaVesti izmenaAVesti = new IzmenaVesti(ListaVesti);
+                IzmenaVesti izmenaAVesti = new IzmenaVesti(this, this.menu.pocetna);
                 izmenaAVesti.naslovVesti.Text = vest.Id;
                 izmenaAVesti.sadrzajVesti.Text = vest.Sadrzaj;
-                izmenaAVesti.Show();
+                this.menu.pocetna.contentControl.Content = izmenaAVesti.Content;
             }
         }
     }

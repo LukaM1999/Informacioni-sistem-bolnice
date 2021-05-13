@@ -8,7 +8,7 @@
         Height="650" Width="1000" Background="LightGray">
     <Grid>
         <StackPanel Margin="0,50,0,0">
-            <ListView x:Name="ListaAlergena" Height="550" Width="900" FontSize="14">
+            <ListView x:Name="ListaAlergena" Height="550" Width="900" FontSize="16">
                 <ListView.ItemContainerStyle>
                     <Style TargetType="{x:Type ListViewItem}">
                         <Setter Property="Background" Value="White" />

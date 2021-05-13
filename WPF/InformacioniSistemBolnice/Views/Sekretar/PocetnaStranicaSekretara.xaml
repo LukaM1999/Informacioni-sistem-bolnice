@@ -10,12 +10,17 @@
         <Border BorderThickness="3" BorderBrush="Black"  Height="650" Width="1000" Margin="100,70,0,0" Background="LightGray">
             <ContentControl x:Name="contentControl" HorizontalAlignment="Left" VerticalAlignment="Top" Height="650" Width="1000" />
         </Border>
-        <Button Content="Menu" FontFamily="Arial" Background="White" HorizontalAlignment="Left" Margin="20,100,0,0" VerticalAlignment="Top" Click="MenuBtn_Click" Width="65"/>
+        <Button Style="{StaticResource ResourceKey=MainButtons}" x:Name="Nazad"  Click="MenuBtn_Click" HorizontalAlignment="Left" VerticalAlignment="Top"  Width="45" Height="51" Margin="45,100,0,0">
+            <StackPanel Orientation="Vertical">
+                <Image Source="../../images/menu.png" Width="30" Height="30" RenderOptions.BitmapScalingMode="Fant"/>
+                <TextBlock Text="Menu" VerticalAlignment="Center" FontSize="11"/>
+            </StackPanel>
+        </Button>
         <Border BorderThickness="1" BorderBrush="Black">
             <Border BorderThickness="3"   Background="LightGray" BorderBrush="Black" HorizontalAlignment="Left" Height="54" Margin="140,20,0,0" VerticalAlignment="Top" Width="1000">
                 <Label Content="Klinika" FontFamily="Arial" FontSize=" 30" FontWeight="Bold" FontStretch="Medium" FontStyle="Italic" Margin="3,0,333,0"/>
             </Border>
         </Border>
-        <Image Source="C:\Users\PC\Documents\GitHub\Informacioni-sistem-bolnice\WPF\InformacioniSistemBolnice\images\hospital.png" Margin="20,20,1112,699" Stretch="Fill"/>
+        <Image Source="C:\Users\PC\Documents\GitHub\Informacioni-sistem-bolnice\WPF\InformacioniSistemBolnice\images\hospital.png" Margin="30,22,1085,684" Stretch="Fill"/>
     </Grid>
 </Window>
