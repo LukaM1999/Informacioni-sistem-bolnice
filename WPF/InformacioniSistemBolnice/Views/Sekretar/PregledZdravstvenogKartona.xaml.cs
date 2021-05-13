@@ -18,13 +18,21 @@ namespace InformacioniSistemBolnice
     /// <summary>
     /// Interaction logic for PregledZdravstvenogKartona.xaml
     /// </summary>
-    public partial class PregledZdravstvenogKartona : Window
+    public partial class PregledZdravstvenogKartona : UserControl
     {
-        public PregledZdravstvenogKartona()
+        public PocetnaStranicaSekretara pocetna;
+        public PacijentiProzor pacijentiProzor;
+        
+        public PregledZdravstvenogKartona(PacijentiProzor pacijentiProzor)
         {
             InitializeComponent();
+            this.pacijentiProzor = pacijentiProzor;
+            pocetna = pacijentiProzor.pocetna;
         }
 
-       
+        private void NazadBtn_Click(object sender, RoutedEventArgs e)
+        {
+            pocetna.contentControl.Content = pacijentiProzor.Content;
+        }
     }
 }

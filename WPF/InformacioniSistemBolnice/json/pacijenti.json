@@ -6,6 +6,9 @@
       "Alergeni": [
         {
           "nazivAlergena": "pencilin"
+        },
+        {
+          "nazivAlergena": "jagode"
         }
       ],
       "Jmbg": "1203998123123",
@@ -52,6 +55,9 @@
       "anamneza": null,
       "Alergeni": [
         {
+          "nazivAlergena": "pencilin"
+        },
+        {
           "nazivAlergena": "jagode"
         }
       ],
@@ -59,8 +65,8 @@
       "LiceZaZdravstvenuZastitu": "Mitar Miric",
       "PolPacijenta": 1,
       "ImeJednogRoditelja": "Zoran",
-      "BrojKnjizice": "1315151515",
-      "BrojKartona": "K1323",
+      "BrojKnjizice": "1231415151",
+      "BrojKartona": "K132333",
       "KategorijaZdravstveneZastite": 5,
       "BracnoStanje": 0,
       "PodaciOZaposlenjuIZanimanjuPacijenta": {
@@ -82,7 +88,7 @@
     "telefon": "0654141414",
     "email": "mmilica@gmail.com",
     "adresa": {
-      "Broj": "12",
+      "Broj": "18",
       "Ulica": "Laze Kostica",
       "Grad": "Novi Sad",
       "Drzava": "Srbija"

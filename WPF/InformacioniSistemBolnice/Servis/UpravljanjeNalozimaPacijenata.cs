@@ -135,11 +135,11 @@ namespace Servis
             if (ListaPacijenata.SelectedValue != null)
             {
                 Pacijent p = (Pacijent)ListaPacijenata.SelectedItem;
-                p.zdravstveniKarton.BrojKartona = izmjenaZdravstvenogKartonaForma.brojKartonaUnos.Text;
-                p.zdravstveniKarton.BrojKnjizice = izmjenaZdravstvenogKartonaForma.brojKnjiziceUnos.Text;
-                p.zdravstveniKarton.Jmbg = izmjenaZdravstvenogKartonaForma.JMBGLabela.ToString();
-                p.zdravstveniKarton.ImeJednogRoditelja = izmjenaZdravstvenogKartonaForma.imeRoditeljaUnos.Text;
-                p.zdravstveniKarton.LiceZaZdravstvenuZastitu = izmjenaZdravstvenogKartonaForma.liceZdrZastitaUnos.Text;
+                p.zdravstveniKarton.BrojKartona = izmjenaZdravstvenogKartonaForma.brojKartona.Text;
+                p.zdravstveniKarton.BrojKnjizice = izmjenaZdravstvenogKartonaForma.brojKnjizice.Text;
+                p.zdravstveniKarton.Jmbg = izmjenaZdravstvenogKartonaForma.ToString();
+                p.zdravstveniKarton.ImeJednogRoditelja = izmjenaZdravstvenogKartonaForma.imeRoditelja.Text;
+                p.zdravstveniKarton.LiceZaZdravstvenuZastitu = izmjenaZdravstvenogKartonaForma.liceZdrZastita.Text;
                 p.zdravstveniKarton.BracnoStanje = (Model.BracnoStanje)Enum.Parse(typeof(Model.BracnoStanje), izmjenaZdravstvenogKartonaForma.bracnoStanjeUnos.Text);
                 p.zdravstveniKarton.PolPacijenta = (Model.Pol)Enum.Parse(typeof(Model.Pol), izmjenaZdravstvenogKartonaForma.polUnos.Text);
                 p.zdravstveniKarton.KategorijaZdravstveneZastite = (Model.KategorijaZdravstveneZastite)Enum.Parse(typeof(Model.KategorijaZdravstveneZastite), izmjenaZdravstvenogKartonaForma.kategorijaZdrZastiteUnos.Text);
@@ -149,7 +149,7 @@ namespace Servis
                 p.zdravstveniKarton.PodaciOZaposlenjuIZanimanjuPacijenta.RadPodPosebnimUslovima = izmjenaZdravstvenogKartonaForma.radUPosebnimUslovimaUnos.Text;
                 p.zdravstveniKarton.PodaciOZaposlenjuIZanimanjuPacijenta.Promene = izmjenaZdravstvenogKartonaForma.promjene.Text;
                 p.zdravstveniKarton.PodaciOZaposlenjuIZanimanjuPacijenta.OSIZZdrZastite = izmjenaZdravstvenogKartonaForma.OSIZ.Text;
-               
+
                 Kartoni zdravstveniKartoni = Kartoni.Instance;
                 foreach (ZdravstveniKarton zdravstveniKarton in zdravstveniKartoni.listaKartona)
                 {
@@ -193,38 +193,6 @@ namespace Servis
             Kartoni.Instance.Serijalizacija();
         }
 
-       /* public void PregledZdravstvenogKartona(PregledNalogaPacijenta pregledNalogaPacijenta)
-        {
-            Kartoni zdravstveniKartoni = Kartoni.Instance;
-            string jmbg = NadjiPacijenta(pregledNalogaPacijenta);
-            foreach (ZdravstveniKarton zdravstveniKarton in zdravstveniKartoni.listaKartona)
-            {
-
-                if (jmbg.Equals(zdravstveniKarton.Jmbg))
-                {
-                    ZdravstveniKartonForma zdravstveniKartonForma = new ZdravstveniKartonForma(pocetnaStranicaSekretara.);
-                    zdravstveniKartonForma.brojKartonaUnos.Text = zdravstveniKarton.BrojKartona;
-                    zdravstveniKartonForma.brojKnjiziceUnos.Text = zdravstveniKarton.BrojKnjizice;
-                    zdravstveniKartonForma.imeRoditeljaUnos.Text = zdravstveniKarton.ImeJednogRoditelja;
-                    zdravstveniKartonForma.liceZdrZastitaUnos.Text = zdravstveniKarton.LiceZaZdravstvenuZastitu;
-                    zdravstveniKartonForma.polUnos.Text = zdravstveniKarton.PolPacijenta.ToString();
-                    zdravstveniKartonForma.bracnoStanjeUnos.Text = zdravstveniKarton.BracnoStanje.ToString();
-                    zdravstveniKartonForma.kategorijaZdrZastiteUnos.Text = zdravstveniKarton.KategorijaZdravstveneZastite.ToString();
-                    zdravstveniKartonForma.radnoMjestoUnos.Text = zdravstveniKarton.PodaciOZaposlenjuIZanimanjuPacijenta.MestoRada.ToString();
-                    zdravstveniKartonForma.radUPosebnimUslovimaUnos.Text = zdravstveniKarton.PodaciOZaposlenjuIZanimanjuPacijenta.RadPodPosebnimUslovima.ToString();
-                    zdravstveniKartonForma.sifraDjelatnostiUnos.Text = zdravstveniKarton.PodaciOZaposlenjuIZanimanjuPacijenta.SifraDelatnosti.ToString();
-                    zdravstveniKartonForma.registarskiBrojUnos.Text = zdravstveniKarton.PodaciOZaposlenjuIZanimanjuPacijenta.RegBroj.ToString();
-                    zdravstveniKartonForma.OSIZ.Text = zdravstveniKarton.PodaciOZaposlenjuIZanimanjuPacijenta.OSIZZdrZastite.ToString();
-                    
-
-
-                }
-
-
-            }
-        }
-
-        */
 
         public void DodjelaZdravstvenogKartonaPacijentu(IzmenaNalogaPacijentaForma izmenaNalogaPacijentaForma)
         {
@@ -250,52 +218,19 @@ namespace Servis
             }
         }
 
-       /* public void PregledNaloga(ListView pacijenti)
-        {
-            if (pacijenti.SelectedIndex >= 0)
-            {
-                PregledNalogaPacijenta pregled = new PregledNalogaPacijenta(pacijenti);
-                Pacijent p = (Pacijent)pacijenti.SelectedItem;
-                pregled.imeLabela.Content = p.ime;
-                pregled.prezimeLabela.Content = p.prezime;
-                pregled.JMBGUnos.Text = p.jmbg;
-                pregled.datumLabela.Content = p.datumRodjenja.ToString("MM/dd/yyyy");
-                pregled.mailLabela.Content = p.email;
-                pregled.telLabela.Content = p.telefon;
-                pregled.korisnikLabela.Content = p.korisnik.korisnickoIme;
-               
-            }
-        }
-       */
-
-        public string NadjiPacijenta(PregledNalogaPacijenta pregledNalogaPacijenta)
-        {
-            Pacijenti pacijenti = Pacijenti.Instance;
-            string jmbg = pregledNalogaPacijenta.JMBGUnos.Content.ToString();
-
-            foreach (Pacijent pacijent in pacijenti.ListaPacijenata)
-            {
-                if (jmbg.Equals(pacijent.jmbg))
-                {
-                    return pacijent.jmbg;
-                }
-            }
-
-            return "Nije nadjen";
-        }
 
 
-
-        public void DodavanjeAlergenaPacijentu(DodajAlergenPacijentu dodajAlergenPacijentu ,IzmjenaZdravstvenogKartonaForma izmjenaZdravstvenogKartonaForma)
+        public void DodavanjeAlergenaPacijentu(DodajAlergenPacijentu dodajAlergenPacijentu, IzmjenaZdravstvenogKartonaForma izmjenaZdravstvenogKartonaForma)
         {
             Alergen a = (Alergen)dodajAlergenPacijentu.ListaAlergena.SelectedItem;
-            
-            foreach(Pacijent p in Pacijenti.Instance.ListaPacijenata)
+
+            foreach (Pacijent p in Pacijenti.Instance.listaPacijenata)
             {
-                if(p.jmbg.Equals(izmjenaZdravstvenogKartonaForma.JMBGLabela.Content))
+                if (p.jmbg.Equals(izmjenaZdravstvenogKartonaForma.JMBGLabela.Content))
                 {
                     foreach (Alergen alergen in Alergeni.Instance.listaAlergena)
                     {
+
                         if (a.nazivAlergena == alergen.nazivAlergena)
                         {
                             System.Diagnostics.Debug.WriteLine(p.jmbg);
@@ -306,14 +241,11 @@ namespace Servis
                             izmjenaZdravstvenogKartonaForma.ListaAlergena.ItemsSource = p.zdravstveniKarton.Alergeni;
                             break;
                         }
+
                     }
 
                 }
             }
-
-            
-
-
         }
 
 
@@ -321,21 +253,22 @@ namespace Servis
 
         public void BrisanjeAlergenaPacijentu(IzmjenaZdravstvenogKartonaForma izmjenaZdravstvenogKartonaForma)
         {
-            if (izmjenaZdravstvenogKartonaForma.ListaAlergena.SelectedIndex > -1)
+            if (izmjenaZdravstvenogKartonaForma.ListaAlergena.SelectedItem != null)
             {
                 Alergen a = (Alergen)izmjenaZdravstvenogKartonaForma.ListaAlergena.SelectedItem;
-
-
-                foreach (Pacijent p in Pacijenti.Instance.ListaPacijenata)
+                System.Diagnostics.Debug.WriteLine(a);
+                foreach (Pacijent p in Pacijenti.Instance.listaPacijenata)
                 {
                     if (p.jmbg.Equals(izmjenaZdravstvenogKartonaForma.JMBGLabela.Content))
                     {
-                        foreach (Alergen alergen in Alergeni.Instance.listaAlergena)
+                        System.Diagnostics.Debug.WriteLine(p.jmbg);
+                        System.Diagnostics.Debug.WriteLine(izmjenaZdravstvenogKartonaForma.JMBGLabela.Content);
+                        foreach (Alergen alergen in p.zdravstveniKarton.Alergeni)
                         {
                             if (a.nazivAlergena == alergen.nazivAlergena)
                             {
                                 System.Diagnostics.Debug.WriteLine(p.jmbg);
-                                p.zdravstveniKarton.RemoveAlergen(alergen);
+                                p.zdravstveniKarton.Alergeni.Remove(alergen);
                                 Pacijenti.Instance.Serijalizacija();
                                 Pacijenti.Instance.Deserijalizacija();
 
@@ -382,7 +315,7 @@ namespace Servis
                             Termini.Instance.Deserijalizacija();
                             zakazivanjeTerminaSekretara.terminiPacijentaProzorSekretara.listaZakazanihTermina.ItemsSource
                                 = Termini.Instance.listaTermina;
-                            
+
                             izborTermina.zakazivanjeTerminaPacijenta.Close();
                             izborTermina.Close();
                             break;
@@ -510,7 +443,7 @@ namespace Servis
             }
         }
 
-       public void PomeranjeVanrednogTermina(IzborTerminaZaNovoZakazivanje izborTerminaZaNovoZakazivanje, IzborTerminaZaPomeranje izborTerminaZaPomeranje)
+        public void PomeranjeVanrednogTermina(IzborTerminaZaNovoZakazivanje izborTerminaZaNovoZakazivanje, IzborTerminaZaPomeranje izborTerminaZaPomeranje)
         {
             if (izborTerminaZaNovoZakazivanje.ponudjeniTerminiZaNovoZakazivanje.SelectedIndex >= 0)
             {
@@ -570,10 +503,10 @@ namespace Servis
             }
         }
 
-        
+
     }
 
 }
 
 
-   
+

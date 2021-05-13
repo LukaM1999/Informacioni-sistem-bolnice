@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:InformacioniSistemBolnice"
         mc:Ignorable="d"
-        Title="DodajAlergenPacijentu" Height="450" Width="500">
+        Title="DodajAlergenPacijentu" Height="450" MaxHeight="450"  MinHeight="450" Width="500" MaxWidth="500" MinWidth="500">
     <Grid>
         <StackPanel Margin="0,50,0,0">
             <ListView x:Name="ListaAlergena" Height="384" Width="500">
@@ -16,7 +16,7 @@
                 </ListView.View>
             </ListView>
         </StackPanel>
-        <Button Content="Potvrdi" HorizontalAlignment="Left" Margin="446,10,0,0" VerticalAlignment="Top" Click="dodajAlergenPacijentu_Click"/>
+        <Button Content="Potvrdi" HorizontalAlignment="Left" Margin="394,14,0,0" VerticalAlignment="Top" Click="dodajAlergenPacijentu_Click" Width="81" Height="24"/>
 
     </Grid>
 </Window>
