@@ -50,8 +50,8 @@ namespace InformacioniSistemBolnice
 
         private void vesti_Click(object sender, RoutedEventArgs e)
         {
-            VestiProzor vestiProzor = new VestiProzor();
-            vestiProzor.Show();
+            //VestiProzor vestiProzor = new VestiProzor();
+            //vestiProzor.Show();
         }
 
         private void upravljanjeUrgentnimSistemom_Click(object sender, RoutedEventArgs e)

@@ -66,5 +66,11 @@ namespace InformacioniSistemBolnice
             this.Visibility = Visibility.Hidden;
             this.pocetna.contentControl.Content = new RegistrujNovogPacijenta(this);
         }
+
+        private void UpravljanjeVestima_Click(object sender, RoutedEventArgs e)
+        {
+            this.Visibility = Visibility.Hidden;
+            this.pocetna.contentControl.Content = new VestiProzor(this);
+        }
     }
 }

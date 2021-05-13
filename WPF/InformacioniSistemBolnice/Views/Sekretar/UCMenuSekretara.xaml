@@ -24,7 +24,7 @@
             </MenuItem>
             <MenuItem Header="Zakazivanje pregleda" BorderBrush="Black" FontFamily="Arial" FontSize="25" HorizontalAlignment="Center" Click="TerminiPacijenata_Click" Width="500"/>
             <MenuItem Header="Upravljanje alergenima"  BorderBrush="Black" FontFamily="Arial" FontSize="25"  HorizontalAlignment="Center" Click="UpravljanjeAlergenima_Click" Width="500"/>
-            <MenuItem Header="Upravljanje vestima" BorderBrush="Black" FontFamily="Arial" FontSize="25"  HorizontalAlignment="Center" Width="500"/>
+            <MenuItem Header="Upravljanje vestima" BorderBrush="Black" FontFamily="Arial" FontSize="25"  HorizontalAlignment="Center" Width="500" Click="UpravljanjeVestima_Click"/>
             <MenuItem Header="Upravljanje nalozima lekara" BorderBrush="Black" FontFamily="Arial" FontSize="25" HorizontalAlignment="Center" Width="500"/>
         </Menu>
     </Grid>

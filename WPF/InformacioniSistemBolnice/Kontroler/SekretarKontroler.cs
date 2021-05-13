@@ -121,9 +121,9 @@ namespace Kontroler
             UpravljanjeVestima.Instance.UklanjanjeVesti(listaVesti);
         }
 
-        public void IzmenaVesti(ListView listaVesti, IzmenaVesti izmenaVesti)
+        public void IzmenaVesti(VestiProzor vestiProzor, IzmenaVesti izmenaVesti)
         {
-            UpravljanjeVestima.Instance.IzmenaVesti(listaVesti, izmenaVesti);
+            UpravljanjeVestima.Instance.IzmenaVesti(vestiProzor, izmenaVesti);
         }
 
         public void KreiranjeGostujucegPacijenta(GostujuciNalogDto gostujuciNalogDto)

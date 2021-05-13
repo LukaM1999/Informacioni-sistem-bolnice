@@ -16,19 +16,27 @@ using Kontroler;
 namespace InformacioniSistemBolnice
 {
     
-    public partial class IzmenaVesti : Window
+    public partial class IzmenaVesti : UserControl
     {
-        public ListView listaVesti;
-        public IzmenaVesti(ListView lista)
+        public PocetnaStranicaSekretara pocetna;
+        public VestiProzor vesti;
+        public IzmenaVesti(VestiProzor vestiProzor, PocetnaStranicaSekretara pocetnaStranicaSekretara)
         {
             InitializeComponent();
-            listaVesti = lista;
+            vesti = vestiProzor;
+            pocetna = pocetnaStranicaSekretara;
         }
 
         private void izmeniVest_Click(object sender, RoutedEventArgs e)
         {
-            SekretarKontroler.Instance.IzmenaVesti(this.listaVesti, this);
-            this.Close();
+            SekretarKontroler.Instance.IzmenaVesti(vesti, this);
+            pocetna.contentControl.Content = vesti.Content;
+            
+        }
+
+        private void NazadBtn_Click(object sender, RoutedEventArgs e)
+        {
+            pocetna.contentControl.Content = vesti.Content;
         }
     }
 }
