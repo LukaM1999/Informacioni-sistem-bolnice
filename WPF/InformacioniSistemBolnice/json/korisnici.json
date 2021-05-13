@@ -133,5 +133,15 @@
     "korisnickoIme": "serg",
     "lozinka": "serg",
     "uloga": 2
+  },
+  {
+    "korisnickoIme": "milan",
+    "lozinka": "milan",
+    "uloga": 2
+  },
+  {
+    "korisnickoIme": "milica",
+    "lozinka": "milica",
+    "uloga": 2
   }
 ]

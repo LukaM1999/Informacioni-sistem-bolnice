@@ -18,26 +18,26 @@ using Kontroler;
 
 namespace InformacioniSistemBolnice
 {
-    public partial class IzmenaNalogaPacijentaForma : Window
+    public partial class IzmenaNalogaPacijentaForma : UserControl
     {
         public ListView listaPacijenata;
         public PregledZdravstvenogKartona pregledZdravstvenogKartona;
-        public IzmenaNalogaPacijentaForma()
-        {
-            InitializeComponent();
-            
-        }
+        public PocetnaStranicaSekretara pocetna;
+        public PacijentiProzor pacijentiProzor;
+        
 
-        public IzmenaNalogaPacijentaForma(ListView lp)
+        public IzmenaNalogaPacijentaForma(PacijentiProzor pacijentiProzor, PocetnaStranicaSekretara pocetnaStranicaSekretara)
         {
             InitializeComponent();
-            listaPacijenata = lp;
+            this.pacijentiProzor = pacijentiProzor;
+            listaPacijenata = pacijentiProzor.ListaPacijenata;
+            this.pocetna = pocetnaStranicaSekretara;
         }
         private void potvrdiDugme_Click(object sender, RoutedEventArgs e)
         {
             SekretarKontroler.Instance.IzmenaNaloga(this, listaPacijenata);
             SekretarKontroler.Instance.DodjelaZdravstvenogKartonaPacijentu(this);
-            this.Close();
+            pocetna.contentControl.Content = pacijentiProzor.Content;
 
         }
 
@@ -53,7 +53,7 @@ namespace InformacioniSistemBolnice
                     MessageBox.Show("Pacijent vec ima kreiran zdravstveni karton");
                 }
                 else {
-                    ZdravstveniKartonForma zdravstveniKartonForma = new ZdravstveniKartonForma(listaPacijenata);
+                    ZdravstveniKartonForma zdravstveniKartonForma = new ZdravstveniKartonForma(listaPacijenata, pocetna, this);
                     zdravstveniKartonForma.imeLabela.Content = this.imeUnos.Text;
                     zdravstveniKartonForma.prezimeLabela.Content = this.prezimeUnos.Text;
                     zdravstveniKartonForma.datumRodjenjaLabela.Content = this.datumUnos.Text.ToString();
@@ -64,7 +64,7 @@ namespace InformacioniSistemBolnice
                     
                     Alergeni.Instance.Deserijalizacija();
                     zdravstveniKartonForma.ListaAlergena.ItemsSource = Alergeni.Instance.listaAlergena;
-                    //zdravstveniKartonForma.Show();
+                    pocetna.contentControl.Content = zdravstveniKartonForma.Content;
 
 
                 }

@@ -52,7 +52,7 @@ namespace InformacioniSistemBolnice
             if (ListaPacijenata.SelectedValue != null)
             {
                 Pacijent p = (Pacijent)ListaPacijenata.SelectedItem;
-                IzmenaNalogaPacijentaForma izmena = new IzmenaNalogaPacijentaForma(ListaPacijenata);
+                IzmenaNalogaPacijentaForma izmena = new IzmenaNalogaPacijentaForma(this, pocetna);
                 izmena.imeUnos.Text = p.ime;
                 izmena.prezimeUnos.Text = p.prezime;
                 izmena.JMBGUnos.Text = p.jmbg;
@@ -65,7 +65,7 @@ namespace InformacioniSistemBolnice
                 izmena.mailUnos.Text = p.email;
                 izmena.korisnikUnos.Text = p.korisnik.korisnickoIme;
                 izmena.lozinkaUnos.Password = p.korisnik.lozinka;
-                izmena.Show();
+                pocetna.contentControl.Content = izmena.Content;
             }
 
 
@@ -195,7 +195,7 @@ namespace InformacioniSistemBolnice
 
         private void kButton_Click(object sender, RoutedEventArgs e)
         {
-            ZdravstveniKartonForma zdravstveniKartonForma = new ZdravstveniKartonForma(ListaPacijenata);
+            //ZdravstveniKartonForma zdravstveniKartonForma = new ZdravstveniKartonForma(ListaPacijenata, pocetna, izmenaNalogaPacijentaForma);
             //zdravstveniKartonForma.Show();
 
         }

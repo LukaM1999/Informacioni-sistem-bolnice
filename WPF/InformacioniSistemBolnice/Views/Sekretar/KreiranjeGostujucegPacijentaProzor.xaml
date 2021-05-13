@@ -5,24 +5,24 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:InformacioniSistemBolnice"
         mc:Ignorable="d"
-        Height="480" Width="665" Background="LightGray" Margin="0,0,0,30">
-    <Grid Height="480" Width="665" HorizontalAlignment="Center" VerticalAlignment="Center">
-        <Canvas  Height="460" Width="325" HorizontalAlignment="Center" VerticalAlignment="Center">
-            <Label Content="Ime: " Canvas.Left="23" Canvas.Top="42" Width="44" HorizontalAlignment="Right"/>
-            <Label Content="Prezime: " Canvas.Left="23" Canvas.Top="73" Width="58"/>
-            <Label Content="JMBG: " Canvas.Left="23" Canvas.Top="104" Width="44" HorizontalAlignment="Right"/>
-            <Label Content="Datum rodjenja: " Canvas.Left="23" Canvas.Top="135" Width="94"/>
-            <Label Content="Telefon: " Margin="23,167,-81,275"/>
-            <Label Content="E-mail: " Margin="23,197,-93,229"/>
-            <TextBox x:Name="imeUnos" Canvas.Left="132" Canvas.Top="46" Text="" TextWrapping="Wrap" Width="120"/>
-            <TextBox x:Name="prezimeUnos" Canvas.Left="132" Canvas.Top="77" Width="120" Height="22" />
-            <TextBox x:Name="JMBGUnos" Canvas.Left="132" Canvas.Top="108" Text="" TextWrapping="Wrap" Width="120"/>
-            <DatePicker x:Name="datumUnos" Canvas.Left="132" Canvas.Top="139"  Width="120"/>
-            <TextBox x:Name="telUnos" Text="" TextWrapping="Wrap" Canvas.Left="132" Canvas.Top="169"  Width="120"/>
-            <TextBox x:Name="mailUnos" Text="" TextWrapping="Wrap" Canvas.Left="132" Canvas.Top="199"  Width="120" />
-            <Button x:Name="potvrdiDugme" Content="Potvrdi" Canvas.Left="192" Canvas.Top="280" Width="60" Click="potvrdiDugme_Click" Background="White" />
+        Height="650" Width="1000" Background="LightGray" Margin="0,0,0,30">
+    <Grid Height="650" Width="665" HorizontalAlignment="Center" VerticalAlignment="Center">
+        <Canvas  Height="650" Width="320" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Label Content="Ime: " Canvas.Left="40" Canvas.Top="50" Width="44" HorizontalAlignment="Right" FontSize="14"/>
+            <Label Content="Prezime: " Canvas.Left="40" Canvas.Top="100" Width="75" FontSize="14"/>
+            <Label Content="JMBG: " Canvas.Left="40" Canvas.Top="150" Width="44" HorizontalAlignment="Right" FontSize="14"/>
+            <Label Content="Datum rodjenja: " Canvas.Left="40" Canvas.Top="200" Width="150" FontSize="14"/>
+            <Label Content="Telefon: " Canvas.Left="40" Canvas.Top="250"  Width="95" FontSize="14"/>
+            <Label Content="E-mail: "  Canvas.Left="40" Canvas.Top="300"  Width="95" FontSize="14"/>
+            <TextBox x:Name="imeUnos" Canvas.Top="50" Canvas.Left="160" Width="140" Height="27" FontSize="14"/>
+            <TextBox x:Name="prezimeUnos"  Canvas.Top="100" Canvas.Left="160" Width="140" Height="27" FontSize="14"/>
+            <TextBox x:Name="JMBGUnos"  Canvas.Top="150" Canvas.Left="160" Width="140" Height="27" FontSize="14"/>
+            <DatePicker x:Name="datumUnos"  Canvas.Top="200" Canvas.Left="160" Width="140" Height="27" FontSize="14"/>
+            <TextBox x:Name="telUnos" Text="" TextWrapping="Wrap" Canvas.Top="250" Canvas.Left="160" Width="140" Height="27" FontSize="14"/>
+            <TextBox x:Name="mailUnos" Text="" TextWrapping="Wrap"  Canvas.Top="300"  Canvas.Left="160" Width="140" Height="27" FontSize="14" />
+            <Button x:Name="potvrdiDugme" Content="Potvrdi" Canvas.Left="220" Canvas.Top="375" Width="140" Height="30" Click="potvrdiDugme_Click" Background="White" FontSize="14"/>
         </Canvas>
-        <Button Content="Nazad" HorizontalAlignment="Left" Margin="20,16,0,0" VerticalAlignment="Top" Click="NazadBtn_Click"/>
+        <Button Content="Nazad" Margin="-150,30,685,595"  Width="120" Height="25" Click="NazadBtn_Click"/>
     </Grid>
 
 

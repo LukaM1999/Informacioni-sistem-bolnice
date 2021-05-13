@@ -5,13 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:InformacioniSistemBolnice"
         mc:Ignorable="d"
-        Height="475" Width="665" Background="LightGray" Margin="0,0,0,30">
-    <Grid Height="475" Width="665">
-        <StackPanel Margin="0,50,0,0">
-            <DataGrid x:Name="ListaTermina" Height="430" Width="655" CanUserAddRows="False" Margin="5,5,5,5"/>
+        Height="650" Width="1000" Background="LightGray" Margin="0,0,0,30">
+    <Grid Height="650" Width="1000">
+        <StackPanel Margin="0,60,0,0">
+            <DataGrid x:Name="ListaTermina" Height="550" Width="659" CanUserAddRows="False" Margin="5,5,5,5"/>
         </StackPanel>
         <Canvas x:Name="RukovanjePacijentima" />
-        <Button Content="Zakazi hitan pregled" HorizontalAlignment="Left" VerticalAlignment="Top" Click="zakaziHitanTermin" Margin="10,10,0,0" Background="White"/>
-        <Button Content="Kreiraj gostujuceg pacijenta" HorizontalAlignment="Left" Margin="150,10,0,0" VerticalAlignment="Top" Click="kreirajGostujucegPacijenta_click" Background="White"/>
+        <Button Content="Zakazi hitan pregled" HorizontalAlignment="Left" VerticalAlignment="Top" Click="zakaziHitanTermin" Margin="197,20,0,0" Background="White"/>
+        <Button Content="Kreiraj gostujuceg pacijenta" HorizontalAlignment="Left" Margin="348,20,0,0" VerticalAlignment="Top" Click="kreirajGostujucegPacijenta_click" Background="White"/>
     </Grid>
 </UserControl>

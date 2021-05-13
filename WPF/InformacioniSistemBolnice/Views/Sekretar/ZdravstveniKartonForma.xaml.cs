@@ -23,24 +23,19 @@ namespace InformacioniSistemBolnice
     /// </summary>
     public partial class ZdravstveniKartonForma : UserControl
     {
-        public ListView ListaPacijenata;
+        public ListView listaPacijenata;
         public PocetnaStranicaSekretara pocetna;
-       public ZdravstveniKartonForma(PocetnaStranicaSekretara pocetnaStranicaSekretara)
-        {
-            InitializeComponent();
-            
-            Alergeni.Instance.Deserijalizacija();
-            pocetna = pocetnaStranicaSekretara;
-            ListaAlergena.ItemsSource = Alergeni.Instance.listaAlergena;
-        }
-        
+        public IzmenaNalogaPacijentaForma izmenaNalogaPacijentaForma;
        
-        public ZdravstveniKartonForma(ListView lp)
+        
+        public ZdravstveniKartonForma(ListView pacijenti, PocetnaStranicaSekretara pocetnaStranicaSekretara, IzmenaNalogaPacijentaForma izmenaNalogaPacijentaForma)
         {
             InitializeComponent();
-            ListaPacijenata = lp;
+            listaPacijenata = pacijenti;
             Alergeni.Instance.Deserijalizacija();
             ListaAlergena.ItemsSource = Alergeni.Instance.listaAlergena;
+            pocetna = pocetnaStranicaSekretara;
+            this.izmenaNalogaPacijentaForma = izmenaNalogaPacijentaForma;
           
 
         }
@@ -51,10 +46,8 @@ namespace InformacioniSistemBolnice
 
             //UpravljanjeNalozimaPacijenata.Instance.KreirajZdravstveniKarton(this, ListaPacijenata);
             SekretarKontroler.Instance.KreiranjeZdravstvenogKartona(this);
-            this.pocetna.contentControl.Content = new PacijentiProzor(pocetna);
+            pocetna.contentControl.Content = izmenaNalogaPacijentaForma;
             
-            
-
         }
     }
 }

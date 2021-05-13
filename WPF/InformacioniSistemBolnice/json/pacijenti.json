@@ -1,23 +1,95 @@
 [
   {
-    "zdravstveniKarton": null,
+    "zdravstveniKarton": {
+      "Recepti": [],
+      "anamneza": null,
+      "Alergeni": [
+        {
+          "nazivAlergena": "pencilin"
+        }
+      ],
+      "Jmbg": "1203998123123",
+      "LiceZaZdravstvenuZastitu": "Mitar Miric",
+      "PolPacijenta": 0,
+      "ImeJednogRoditelja": "Milos",
+      "BrojKnjizice": "1515155151",
+      "BrojKartona": "K121",
+      "KategorijaZdravstveneZastite": 5,
+      "BracnoStanje": 0,
+      "PodaciOZaposlenjuIZanimanjuPacijenta": {
+        "MestoRada": "nema",
+        "RegBroj": "nema",
+        "SifraDelatnosti": "nema",
+        "PosaoKojiObavlja": "nema",
+        "OSIZZdrZastite": "nema",
+        "RadPodPosebnimUslovima": "nema",
+        "Promene": "nema"
+      }
+    },
     "maliciozan": false,
     "zakazaniTermini": [],
-    "ime": "Luka",
-    "prezime": "Miletic",
-    "jmbg": "2110995408",
-    "datumRodjenja": "2021-05-20T00:00:00",
-    "telefon": "4325",
-    "email": "gasrewr",
+    "ime": "Milan",
+    "prezime": "Maric",
+    "jmbg": "1203998123123",
+    "datumRodjenja": "1998-03-12T00:00:00",
+    "telefon": "06455151551",
+    "email": "milanm@gmail.com",
     "adresa": {
-      "Broj": "345",
-      "Ulica": "newg",
+      "Broj": "5",
+      "Ulica": "Kosovska",
       "Grad": "Novi Sad",
       "Drzava": "Srbija"
     },
     "korisnik": {
-      "korisnickoIme": "luka",
-      "lozinka": "luka",
+      "korisnickoIme": "milan",
+      "lozinka": "milan",
+      "uloga": 2
+    }
+  },
+  {
+    "zdravstveniKarton": {
+      "Recepti": [],
+      "anamneza": null,
+      "Alergeni": [
+        {
+          "nazivAlergena": "jagode"
+        }
+      ],
+      "Jmbg": "1905981123124",
+      "LiceZaZdravstvenuZastitu": "Mitar Miric",
+      "PolPacijenta": 1,
+      "ImeJednogRoditelja": "Zoran",
+      "BrojKnjizice": "1315151515",
+      "BrojKartona": "K1323",
+      "KategorijaZdravstveneZastite": 5,
+      "BracnoStanje": 0,
+      "PodaciOZaposlenjuIZanimanjuPacijenta": {
+        "MestoRada": "nema",
+        "RegBroj": "nema",
+        "SifraDelatnosti": "nema",
+        "PosaoKojiObavlja": "nema",
+        "OSIZZdrZastite": "nema",
+        "RadPodPosebnimUslovima": "nema",
+        "Promene": "nema"
+      }
+    },
+    "maliciozan": false,
+    "zakazaniTermini": [],
+    "ime": "Milica",
+    "prezime": "Markovic",
+    "jmbg": "1905981123124",
+    "datumRodjenja": "1981-05-19T00:00:00",
+    "telefon": "0654141414",
+    "email": "mmilica@gmail.com",
+    "adresa": {
+      "Broj": "12",
+      "Ulica": "Laze Kostica",
+      "Grad": "Novi Sad",
+      "Drzava": "Srbija"
+    },
+    "korisnik": {
+      "korisnickoIme": "milica",
+      "lozinka": "milica",
       "uloga": 2
     }
   }

@@ -5,18 +5,18 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:InformacioniSistemBolnice"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800"
-             Height="480" Width="665" Background="LightGray" Margin="0,0,0,30">
-    <Grid>
-        <Menu BorderBrush="White" Width="500" HorizontalContentAlignment="Left" HorizontalAlignment="Center" FlowDirection="RightToLeft">
+             d:DesignHeight="450"
+             Height="650" Width="1000" Background="LightGray" Margin="0,0,0,30">
+    <Grid  Height="650" Width="1000">
+        <Menu BorderBrush="White" Width="500" Height="650" HorizontalContentAlignment="Left"  HorizontalAlignment="Center" FlowDirection="RightToLeft">
             <Menu.ItemsPanel>
                 <ItemsPanelTemplate >
                     <StackPanel/>
                 </ItemsPanelTemplate>
             </Menu.ItemsPanel>
             <MenuItem Header="Upravljanje urgentnim sistemom" BorderBrush="Black" FontFamily="Arial" FontSize="23" HorizontalAlignment="Center" Width="500">
-            <MenuItem  Header="Gostujuci nalozi" FontSize="21" HorizontalAlignment="Left" FlowDirection="RightToLeft" IsSubmenuOpen="True" Background="LightGray" Width ="300" BorderBrush="Gray" Click="GostujuciNalozi_Click" />
-            <MenuItem  Header="Zakazi hitan pregled" FontSize="21" HorizontalAlignment="Left" FlowDirection="RightToLeft"  IsSubmenuOpen="True" Background="LightGray"  Width ="300" BorderBrush="Gray" Click="ZakaziHitanPregled_Click"/>
+                <MenuItem  Header="Gostujuci nalozi" FontSize="21" HorizontalAlignment="Left" FlowDirection="RightToLeft" IsSubmenuOpen="True" Background="LightGray" Width ="300" BorderBrush="Gray" Click="GostujuciNalozi_Click" />
+                <MenuItem  Header="Zakazi hitan pregled" FontSize="21" HorizontalAlignment="Left" FlowDirection="RightToLeft"  IsSubmenuOpen="True" Background="LightGray"  Width ="300" BorderBrush="Gray" Click="ZakaziHitanPregled_Click"/>
             </MenuItem>
             <MenuItem Header="Upravljanje nalozima pacijenata" BorderBrush="Black" FontFamily="Arial" FontSize="23"  HorizontalAlignment="Center" Width="500">
                 <MenuItem Header="Nalozi pacijenata" FontSize="21" HorizontalAlignment="Left" FlowDirection="RightToLeft" IsSubmenuOpen="True" Background="LightGray" Width ="330" BorderBrush="Gray" Click="UpravljanjeNalozimaPacijenata_Click"/>

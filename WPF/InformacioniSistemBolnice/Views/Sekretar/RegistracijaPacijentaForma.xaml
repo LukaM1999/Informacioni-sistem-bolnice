@@ -5,38 +5,38 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:InformacioniSistemBolnice"
         mc:Ignorable="d"
-        Height="480" Width="665" Background="LightGray" Margin="0,0,0,30">
-    <Grid Height="480" Width="665" HorizontalAlignment="Center" VerticalAlignment="Center">
-        <Canvas Height="460" Width="325" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="70,-20,0,0">
-            <Label Content="Ime: " Canvas.Left="23" Canvas.Top="42" Width="44" HorizontalAlignment="Right"/>
-            <Label Content="Prezime: " Canvas.Left="23" Canvas.Top="73" Width="58"/>
-            <Label Content="JMBG: " Canvas.Left="23" Canvas.Top="104" Width="44" HorizontalAlignment="Right"/>
-            <Label Content="Datum rodjenja: " Canvas.Left="23" Canvas.Top="135" Width="94"/>
-            <Label Content="Telefon: " Canvas.Left="23" Canvas.Top="294" Width="58"/>
-            <Label Content="E-mail: " Canvas.Left="23" Canvas.Top="327" Width="70"/>
-            <Label Content="Korisnicko ime: " Canvas.Left="23" Canvas.Top="356" Width="94"/>
-            <Label Content="Lozinka: " Canvas.Left="23" Canvas.Top="388" Width="70"/>
-            <TextBox x:Name="imeUnos" Canvas.Left="132" Canvas.Top="46" Text="" TextWrapping="Wrap" Width="120"/>
-            <TextBox x:Name="prezimeUnos" Canvas.Left="132" Canvas.Top="77" Width="120" Height="22" />
-            <TextBox x:Name="JMBGUnos" Canvas.Left="132" Canvas.Top="108" Text="" TextWrapping="Wrap" Width="120"/>
-            <DatePicker x:Name="datumUnos" Canvas.Left="132" Canvas.Top="139"  Width="120"/>
-            <TextBox x:Name="drzavaUnos" Canvas.Left="132" Canvas.Top="173" Text="" TextWrapping="Wrap" Width="120"/>
-            <TextBox x:Name="gradUnos" Canvas.Left="132" Canvas.Top="206" Width="120" Height="22" />
-            <TextBox x:Name="ulicaUnos" Canvas.Left="132" Canvas.Top="237" Text="" TextWrapping="Wrap" Width="120"/>
-            <TextBox x:Name="brojUnos" Canvas.Left="132" Canvas.Top="266" Width="120" Height="22" />
-            <TextBox x:Name="telUnos" Canvas.Left="132" Canvas.Top="297" Text="" TextWrapping="Wrap" Width="120"/>
-            <TextBox x:Name="mailUnos" Canvas.Left="132" Canvas.Top="329" Width="120" Height="22" />
-            <TextBox x:Name="korisnikUnos" Canvas.Left="132" Canvas.Top="360" Text="" TextWrapping="Wrap" Width="120"/>
-            <PasswordBox x:Name="lozinkaUnos" Canvas.Left="132" Canvas.Top="391" Width="120" Height="22" />
-            <Button x:Name="potvrdiDugme" Content="Potvrdi" Canvas.Left="192" Canvas.Top="420" Width="60" Click="potvrdiDugme_Click" Background="White" />
-            <Label Content="Drzava: " Canvas.Left="23" Canvas.Top="169" Width="58"/>
-            <Label Content="Grad: " Canvas.Left="23" Canvas.Top="202" Width="58" Height="26"/>
-            <Label Content="Ulica: " Canvas.Left="23" Canvas.Top="233" Width="94"/>
-            <Label Content="Broj: " Canvas.Left="23" Canvas.Top="263" Width="70"/>
+        Height="650" Width="1000" Background="LightGray" Margin="0,0,0,30">
+    <Grid Height="650" Width="1000" HorizontalAlignment="Center" VerticalAlignment="Center">
+        <Canvas Height="640" Width="325" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="70,10,0,0">
+            <Label Content="Ime: " Canvas.Left="23" Canvas.Top="40" Width="44" HorizontalAlignment="Right"/>
+            <Label Content="Prezime: " Canvas.Left="23" Canvas.Top="80" Width="58"/>
+            <Label Content="JMBG: " Canvas.Left="23" Canvas.Top="120" Width="44" HorizontalAlignment="Right"/>
+            <Label Content="Datum rodjenja: " Canvas.Left="23" Canvas.Top="160" Width="94"/>
+            <Label Content="Telefon: " Canvas.Left="23" Canvas.Top="360" Width="58"/>
+            <Label Content="E-mail: " Canvas.Left="23" Canvas.Top="400" Width="70"/>
+            <Label Content="Korisnicko ime: " Canvas.Left="23" Canvas.Top="440" Width="94"/>
+            <Label Content="Lozinka: " Canvas.Left="23" Canvas.Top="480" Width="70"/>
+            <TextBox x:Name="imeUnos" Canvas.Left="132" Canvas.Top="40" Text="" TextWrapping="Wrap" Width="140" Height="25" FontSize="14"/>
+            <TextBox x:Name="prezimeUnos" Canvas.Left="132" Canvas.Top="80" Width="140" Height="25" FontSize="14" />
+            <TextBox x:Name="JMBGUnos" Canvas.Left="132" Canvas.Top="120" Text="" TextWrapping="Wrap" Width="140" Height="25" FontSize="14"/>
+            <DatePicker x:Name="datumUnos" Canvas.Left="132" Canvas.Top="160"  Width="140" Height="25" FontSize="14"/>
+            <TextBox x:Name="drzavaUnos" Canvas.Left="132" Canvas.Top="200" Text="" TextWrapping="Wrap" Width="140" Height="25" FontSize="14"/>
+            <TextBox x:Name="gradUnos" Canvas.Left="132" Canvas.Top="240" Width="140" Height="25" FontSize="14" />
+            <TextBox x:Name="ulicaUnos" Canvas.Left="132" Canvas.Top="280" Width="140" Height="25" FontSize="14"/>
+            <TextBox x:Name="brojUnos" Canvas.Left="132" Canvas.Top="320" Width="140" Height="25" FontSize="14" />
+            <TextBox x:Name="telUnos" Canvas.Left="132" Canvas.Top="360" Text="" TextWrapping="Wrap" Width="140" Height="25" FontSize="14"/>
+            <TextBox x:Name="mailUnos" Canvas.Left="132" Canvas.Top="400" Width="140" Height="25" FontSize="14" />
+            <TextBox x:Name="korisnikUnos" Canvas.Left="132" Canvas.Top="440" Text="" TextWrapping="Wrap" Width="140" Height="25" FontSize="14"/>
+            <PasswordBox x:Name="lozinkaUnos" Canvas.Left="132" Canvas.Top="480" Width="140" Height="25" FontSize="14" />
+            <Button x:Name="potvrdiDugme" Content="Potvrdi" Canvas.Left="200" Canvas.Top="545" Width="120" Height="30" Click="potvrdiDugme_Click" Background="White" />
+            <Label Content="Drzava: " Canvas.Left="23" Canvas.Top="200" Width="58"/>
+            <Label Content="Grad: " Canvas.Left="23" Canvas.Top="240" Width="58" Height="26"/>
+            <Label Content="Ulica: " Canvas.Left="23" Canvas.Top="280" Width="94"/>
+            <Label Content="Broj: " Canvas.Left="23" Canvas.Top="320" Width="70"/>
 
 
         </Canvas>
-        <Button Content="Nazad" HorizontalAlignment="Left" Margin="45,14,0,0" VerticalAlignment="Top" Click="NazadBtn_Click"/>
+        <Button Content="Nazad" HorizontalAlignment="Left" Margin="50,32,0,0" VerticalAlignment="Top" Click="NazadBtn_Click" Width="120" Height="25"/>
 
     </Grid>
 </UserControl>

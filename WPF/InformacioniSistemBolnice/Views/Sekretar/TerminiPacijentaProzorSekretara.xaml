@@ -5,14 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:InformacioniSistemBolnice"
         mc:Ignorable="d"
-       Height="480" Width="665" Background="LightGray" Margin="0,0,0,30">
+       Height="650" Width="1000" Background="LightGray" Margin="0,0,0,30">
     <Grid>
-        <Canvas Height="600" Width="665">
-            <DataGrid x:Name="listaZakazanihTermina" Height="400" Width="655" Canvas.Top="45" CanUserAddRows="False" Background="White" Margin="5,5,5,5"/>
-            <Button x:Name="zakaziDugme" Content ="Zakazi" Canvas.Left="1" Canvas.Top="10" Width="60" Click="zakaziDugme_Click" Background="White" Margin="10,0,0,0"/>
-            <Button Content="Pomeri" Canvas.Left="100" Canvas.Top="10" Width="60" Click="pomjeriTermin_Click" Background="White"/>
-            <Button Content="Uvid" Canvas.Left="200" Canvas.Top="10" Width="60" Click="uvidUTerminPacijenta_Click" Background="White"/>
-            <Button Content="Otkazi" HorizontalAlignment="Left" Canvas.Left="300" Canvas.Top="10" Width="60" Click="otkaziTermin_Click" Background="White"/>
+        <Canvas Height="650" Width="1000">
+            <DataGrid x:Name="listaZakazanihTermina" Height="550" Width="900" Canvas.Top="57" CanUserAddRows="False" Background="White" Canvas.Left="48" CanUserResizeColumns="False"/>
+            <Button x:Name="zakaziDugme" Content ="Zakazi" Canvas.Left="100" Canvas.Top="20" Width="80" Click="zakaziDugme_Click" Background="White" FontSize="14"/>
+            <Button Content="Pomeri" Canvas.Left="200" Canvas.Top="20" Width="80" Click="pomjeriTermin_Click" Background="White" FontSize="14"/>
+            <Button Content="Uvid" Canvas.Left="300" Canvas.Top="20" Width="80" Click="uvidUTerminPacijenta_Click" Background="White" FontSize="14"/>
+            <Button Content="Otkazi" HorizontalAlignment="Left" Canvas.Left="400" Canvas.Top="20" Width="80" Click="otkaziTermin_Click" Background="White" FontSize="14"/>
         </Canvas>
        
     </Grid>
