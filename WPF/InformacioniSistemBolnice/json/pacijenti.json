@@ -3,7 +3,13 @@
     "zdravstveniKarton": {
       "alergeni": [
         {
-          "nazivAlergena": "pencilin"
+          "nazivAlergena": "jagode"
+        },
+        {
+          "nazivAlergena": "polen"
+        },
+        {
+          "nazivAlergena": "laktoza"
         }
       ],
       "Recepti": [],
@@ -17,7 +23,7 @@
       "KategorijaZdravstveneZastite": 5,
       "PodaciOZaposlenjuIZanimanjuPacijenta": {
         "RadnoMjesto": null,
-        "RegistarskiBroj": "nema",
+        "RegistarskiBroj": null,
         "SifraDelatnosti": "nema",
         "PosaoKojiObavlja": "nema",
         "OSIZZdrZastite": "nema",
@@ -27,10 +33,13 @@
       "anamneza": null,
       "Alergeni": [
         {
-          "nazivAlergena": "pencilin"
+          "nazivAlergena": "jagode"
         },
         {
-          "nazivAlergena": "jagode"
+          "nazivAlergena": "polen"
+        },
+        {
+          "nazivAlergena": "laktoza"
         }
       ]
     },
@@ -81,12 +90,12 @@
     "zdravstveniKarton": {
       "alergeni": [
         {
-          "nazivAlergena": "pencilin"
+          "nazivAlergena": "laktoza"
         }
       ],
       "Recepti": [],
       "BrojKartona": "K132333",
-      "BrojKnjizice": "1231415151",
+      "BrojKnjizice": "123141515111",
       "Jmbg": "1905981123124",
       "ImeJednogRoditelja": "Zoran",
       "LiceZaZdravstvenuZastitu": "Mitar Miric",
@@ -95,7 +104,7 @@
       "KategorijaZdravstveneZastite": 5,
       "PodaciOZaposlenjuIZanimanjuPacijenta": {
         "RadnoMjesto": null,
-        "RegistarskiBroj": "nema",
+        "RegistarskiBroj": "",
         "SifraDelatnosti": "nema",
         "PosaoKojiObavlja": "nema",
         "OSIZZdrZastite": "nema",
@@ -105,10 +114,7 @@
       "anamneza": null,
       "Alergeni": [
         {
-          "nazivAlergena": "pencilin"
-        },
-        {
-          "nazivAlergena": "jagode"
+          "nazivAlergena": "laktoza"
         }
       ]
     },
