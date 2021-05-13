@@ -110,28 +110,28 @@ namespace InformacioniSistemBolnice
                 Pacijent p = (Pacijent)ListaPacijenata.SelectedItem;
                 if (p.zdravstveniKarton != null)
                 {
-                    PregledZdravstvenogKartona pregledZdravstvenogKartona = new PregledZdravstvenogKartona();
-                    pregledZdravstvenogKartona.brojKartona.Text = p.zdravstveniKarton.BrojKartona;
-                    pregledZdravstvenogKartona.brojKnjizice.Text = p.zdravstveniKarton.BrojKnjizice;
-                    pregledZdravstvenogKartona.ime.Text = p.ime;
-                    pregledZdravstvenogKartona.prezime.Text = p.prezime;
-                    pregledZdravstvenogKartona.imeRoditelja.Text = p.zdravstveniKarton.ImeJednogRoditelja;
+                    PregledZdravstvenogKartona pregledZdravstvenogKartona = new PregledZdravstvenogKartona(this);
+                    pregledZdravstvenogKartona.brojKartona.Content = p.zdravstveniKarton.BrojKartona;
+                    pregledZdravstvenogKartona.brojKnjizice.Content= p.zdravstveniKarton.BrojKnjizice;
+                    pregledZdravstvenogKartona.imeLabela.Content = p.ime;
+                    pregledZdravstvenogKartona.prezime.Content = p.prezime;
+                    pregledZdravstvenogKartona.imeRoditelja.Content = p.zdravstveniKarton.ImeJednogRoditelja;
                     pregledZdravstvenogKartona.JMBG.Content = p.zdravstveniKarton.Jmbg;
                     pregledZdravstvenogKartona.datumRodjenja.Content = p.datumRodjenja.ToString();
-                    pregledZdravstvenogKartona.telefon.Text = p.telefon;
-                    pregledZdravstvenogKartona.adresa.Text = p.adresa.Drzava + ", " + p.adresa.Grad;
-                    pregledZdravstvenogKartona.ulicaIBroj.Text = p.adresa.Ulica + ", " + p.adresa.Broj;
-                    pregledZdravstvenogKartona.liceZdrZastita.Text = p.zdravstveniKarton.LiceZaZdravstvenuZastitu;
-                    pregledZdravstvenogKartona.pol.Text = p.zdravstveniKarton.PolPacijenta.ToString();
-                    pregledZdravstvenogKartona.bracnoStanje.Text = p.zdravstveniKarton.BracnoStanje.ToString();
-                    pregledZdravstvenogKartona.kategorijaZdravZastite.Text = p.zdravstveniKarton.KategorijaZdravstveneZastite.ToString();
-                    pregledZdravstvenogKartona.radnoMjestoUnos.Text = p.zdravstveniKarton.PodaciOZaposlenjuIZanimanjuPacijenta.MestoRada;
-                    pregledZdravstvenogKartona.registarskiBrojUnos.Text = p.zdravstveniKarton.PodaciOZaposlenjuIZanimanjuPacijenta.RegBroj;
-                    pregledZdravstvenogKartona.sifraDjelatnostiUnos.Text = p.zdravstveniKarton.PodaciOZaposlenjuIZanimanjuPacijenta.SifraDelatnosti;
+                    pregledZdravstvenogKartona.telefon.Content = p.telefon;
+                    pregledZdravstvenogKartona.adresa.Content = p.adresa.Drzava + ", " + p.adresa.Grad;
+                    pregledZdravstvenogKartona.ulicaIBroj.Content = p.adresa.Ulica + ", " + p.adresa.Broj;
+                    pregledZdravstvenogKartona.liceZdrZastita.Content = p.zdravstveniKarton.LiceZaZdravstvenuZastitu;
+                    pregledZdravstvenogKartona.pol.Content = p.zdravstveniKarton.PolPacijenta.ToString();
+                    pregledZdravstvenogKartona.bracnoStanje.Content = p.zdravstveniKarton.BracnoStanje.ToString();
+                    pregledZdravstvenogKartona.kategorijaZdravZastite.Content = p.zdravstveniKarton.KategorijaZdravstveneZastite.ToString();
+                    pregledZdravstvenogKartona.radnoMjestoUnos.Content = p.zdravstveniKarton.PodaciOZaposlenjuIZanimanjuPacijenta.MestoRada;
+                    pregledZdravstvenogKartona.registarskiBrojUnos.Content = p.zdravstveniKarton.PodaciOZaposlenjuIZanimanjuPacijenta.RegBroj;
+                    pregledZdravstvenogKartona.sifraDjelatnostiUnos.Content = p.zdravstveniKarton.PodaciOZaposlenjuIZanimanjuPacijenta.SifraDelatnosti;
                     pregledZdravstvenogKartona.posaoUnos.Text = p.zdravstveniKarton.PodaciOZaposlenjuIZanimanjuPacijenta.PosaoKojiObavlja;
-                    pregledZdravstvenogKartona.OSIZ.Text = p.zdravstveniKarton.PodaciOZaposlenjuIZanimanjuPacijenta.OSIZZdrZastite;
+                    pregledZdravstvenogKartona.OSIZ.Content = p.zdravstveniKarton.PodaciOZaposlenjuIZanimanjuPacijenta.OSIZZdrZastite;
                     pregledZdravstvenogKartona.radUPosebnimUslovimaUnos.Text = p.zdravstveniKarton.PodaciOZaposlenjuIZanimanjuPacijenta.RadPodPosebnimUslovima;
-                    pregledZdravstvenogKartona.promjene.Text = p.zdravstveniKarton.PodaciOZaposlenjuIZanimanjuPacijenta.Promene;
+                    pregledZdravstvenogKartona.promjene.Content = p.zdravstveniKarton.PodaciOZaposlenjuIZanimanjuPacijenta.Promene;
 
                     pregledZdravstvenogKartona.ListaAlergena.ItemsSource = p.zdravstveniKarton.Alergeni;
 
