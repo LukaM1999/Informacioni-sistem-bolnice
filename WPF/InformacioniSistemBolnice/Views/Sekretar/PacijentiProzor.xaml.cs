@@ -117,7 +117,7 @@ namespace InformacioniSistemBolnice
                     pregledZdravstvenogKartona.prezime.Content = p.prezime;
                     pregledZdravstvenogKartona.imeRoditelja.Content = p.zdravstveniKarton.ImeJednogRoditelja;
                     pregledZdravstvenogKartona.JMBG.Content = p.zdravstveniKarton.Jmbg;
-                    pregledZdravstvenogKartona.datumRodjenja.Content = p.datumRodjenja.ToString();
+                    pregledZdravstvenogKartona.datumRodjenja.Content = p.datumRodjenja.ToString("dd/MM/yyyy");
                     pregledZdravstvenogKartona.telefon.Content = p.telefon;
                     pregledZdravstvenogKartona.adresa.Content = p.adresa.Drzava + ", " + p.adresa.Grad;
                     pregledZdravstvenogKartona.ulicaIBroj.Content = p.adresa.Ulica + ", " + p.adresa.Broj;
@@ -128,9 +128,9 @@ namespace InformacioniSistemBolnice
                     pregledZdravstvenogKartona.radnoMjestoUnos.Content = p.zdravstveniKarton.PodaciOZaposlenjuIZanimanjuPacijenta.MestoRada;
                     pregledZdravstvenogKartona.registarskiBrojUnos.Content = p.zdravstveniKarton.PodaciOZaposlenjuIZanimanjuPacijenta.RegBroj;
                     pregledZdravstvenogKartona.sifraDjelatnostiUnos.Content = p.zdravstveniKarton.PodaciOZaposlenjuIZanimanjuPacijenta.SifraDelatnosti;
-                    pregledZdravstvenogKartona.posaoUnos.Text = p.zdravstveniKarton.PodaciOZaposlenjuIZanimanjuPacijenta.PosaoKojiObavlja;
+                    pregledZdravstvenogKartona.posaoUnos.Content = p.zdravstveniKarton.PodaciOZaposlenjuIZanimanjuPacijenta.PosaoKojiObavlja;
                     pregledZdravstvenogKartona.OSIZ.Content = p.zdravstveniKarton.PodaciOZaposlenjuIZanimanjuPacijenta.OSIZZdrZastite;
-                    pregledZdravstvenogKartona.radUPosebnimUslovimaUnos.Text = p.zdravstveniKarton.PodaciOZaposlenjuIZanimanjuPacijenta.RadPodPosebnimUslovima;
+                    pregledZdravstvenogKartona.radUPosebnimUslovimaUnos.Content = p.zdravstveniKarton.PodaciOZaposlenjuIZanimanjuPacijenta.RadPodPosebnimUslovima;
                     pregledZdravstvenogKartona.promjene.Content = p.zdravstveniKarton.PodaciOZaposlenjuIZanimanjuPacijenta.Promene;
 
                     pregledZdravstvenogKartona.ListaAlergena.ItemsSource = p.zdravstveniKarton.Alergeni;
@@ -151,23 +151,23 @@ namespace InformacioniSistemBolnice
 
         private void izmjeniZdravstveniKarton_Click(object sender, RoutedEventArgs e)
         {
-            if (ListaPacijenata.SelectedValue != null)
+            if (this.ListaPacijenata.SelectedValue != null)
             {
                 Pacijent p = (Pacijent)ListaPacijenata.SelectedItem;
                 if (p.zdravstveniKarton != null)
                 {
-                    IzmjenaZdravstvenogKartonaForma izmjenaZdravstvenogKartonaForma = new IzmjenaZdravstvenogKartonaForma(ListaPacijenata);
-                    izmjenaZdravstvenogKartonaForma.brojKartonaUnos.Text = p.zdravstveniKarton.BrojKartona.ToString();
-                    izmjenaZdravstvenogKartonaForma.brojKnjiziceUnos.Text = p.zdravstveniKarton.BrojKnjizice;
+                    IzmjenaZdravstvenogKartonaForma izmjenaZdravstvenogKartonaForma = new IzmjenaZdravstvenogKartonaForma(this, pocetna);
+                    izmjenaZdravstvenogKartonaForma.brojKartona.Text = p.zdravstveniKarton.BrojKartona.ToString();
+                    izmjenaZdravstvenogKartonaForma.brojKnjizice.Text = p.zdravstveniKarton.BrojKnjizice;
                     izmjenaZdravstvenogKartonaForma.imeLabela.Content = p.ime;
                     izmjenaZdravstvenogKartonaForma.prezimeLabela.Content = p.prezime;
-                    izmjenaZdravstvenogKartonaForma.imeRoditeljaUnos.Text = p.zdravstveniKarton.ImeJednogRoditelja;
+                    izmjenaZdravstvenogKartonaForma.imeRoditelja.Text = p.zdravstveniKarton.ImeJednogRoditelja;
                     izmjenaZdravstvenogKartonaForma.JMBGLabela.Content = p.jmbg;
-                    izmjenaZdravstvenogKartonaForma.datumRodjenjaLabela.Content = p.datumRodjenja.ToString();
+                    izmjenaZdravstvenogKartonaForma.datumRodjenjaLabela.Content = p.datumRodjenja.ToString("dd/MM/yyyy");
                     izmjenaZdravstvenogKartonaForma.telefon.Content = p.telefon;
-                    izmjenaZdravstvenogKartonaForma.adresaLabela.Content = p.adresa.Drzava + ", " + p.adresa.Grad;
+                    izmjenaZdravstvenogKartonaForma.adresa.Content = p.adresa.Drzava + ", " + p.adresa.Grad;
                     izmjenaZdravstvenogKartonaForma.ulicaIBrojLabela.Content = p.adresa.Ulica + ", " + p.adresa.Broj;
-                    izmjenaZdravstvenogKartonaForma.liceZdrZastitaUnos.Text = p.zdravstveniKarton.LiceZaZdravstvenuZastitu;
+                    izmjenaZdravstvenogKartonaForma.liceZdrZastita.Text = p.zdravstveniKarton.LiceZaZdravstvenuZastitu;
                     izmjenaZdravstvenogKartonaForma.polUnos.Text = p.zdravstveniKarton.PolPacijenta.ToString();
                     izmjenaZdravstvenogKartonaForma.bracnoStanjeUnos.Text = p.zdravstveniKarton.BracnoStanje.ToString();
                     izmjenaZdravstvenogKartonaForma.kategorijaZdrZastiteUnos.Text = p.zdravstveniKarton.KategorijaZdravstveneZastite.ToString();
@@ -178,12 +178,8 @@ namespace InformacioniSistemBolnice
                     izmjenaZdravstvenogKartonaForma.OSIZ.Text = p.zdravstveniKarton.PodaciOZaposlenjuIZanimanjuPacijenta.OSIZZdrZastite;
                     izmjenaZdravstvenogKartonaForma.radUPosebnimUslovimaUnos.Text = p.zdravstveniKarton.PodaciOZaposlenjuIZanimanjuPacijenta.RadPodPosebnimUslovima;
                     izmjenaZdravstvenogKartonaForma.promjene.Text = p.zdravstveniKarton.PodaciOZaposlenjuIZanimanjuPacijenta.Promene;
-                   
                     izmjenaZdravstvenogKartonaForma.ListaAlergena.ItemsSource = p.zdravstveniKarton.Alergeni;
-                    
-                    
-
-                    izmjenaZdravstvenogKartonaForma.Show();
+                    pocetna.contentControl.Content = izmjenaZdravstvenogKartonaForma.Content;
                 }
                 else
                 {

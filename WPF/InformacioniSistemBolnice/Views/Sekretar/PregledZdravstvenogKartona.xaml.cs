@@ -32,7 +32,7 @@ namespace InformacioniSistemBolnice
 
         private void NazadBtn_Click(object sender, RoutedEventArgs e)
         {
-            pocetna.contentControl.Content = pacijentiProzor;
+            pocetna.contentControl.Content = pacijentiProzor.Content;
         }
     }
 }

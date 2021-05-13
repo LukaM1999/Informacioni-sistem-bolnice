@@ -28,7 +28,7 @@
             <Label Content="Pol: " Canvas.Left="29" Canvas.Top="510" Width="130"/>
             <Label Content="Bracno stanje: " Canvas.Left="29" Canvas.Top="550" Width="130"/>
             <Label Content="Kategorija zdravstvene zastite: " Canvas.Left="350" Canvas.Top="150" Width="181"/>
-            <Label Content="Podaci o zaposlenju i zanimanju " Canvas.Left="430" Canvas.Top="245"  Width="221"  FontWeight="Bold" FontSize="14"/>
+            <Label Content="Podaci o zaposlenju i zanimanju " Canvas.Left="430" Canvas.Top="255"  Width="221"  FontWeight="Bold" FontSize="14"/>
             <Label Content="Mesto rada: " Canvas.Left="360" Canvas.Top="310" Width="91"/>
             <Label Content="Registarski broj: " Canvas.Left="360" Canvas.Top="350" Width="116"/>
             <Label Content="Sifra delatnosti: " Canvas.Left="360" Canvas.Top="390" Width="116"/>
@@ -36,32 +36,31 @@
             <Label Content="OSIZ zdravstvene zastite: " Canvas.Left="360" Canvas.Top="510" Width="151" Height="29"/>
             <Label Content="Rad pod posebnim uslovima: " Canvas.Left="360" Canvas.Top="470" Width="182"/>
             <Label Content="Promene: " Canvas.Left="360" Canvas.Top="550" Width="116"/>
-            <Label x:Name="brojKartona" Canvas.Left="179" Canvas.Top="110" Height="28" Width="120" Background="White"/>
-            <Label x:Name="brojKnjizice" Canvas.Left="179" Canvas.Top="150" Height="28" Width="120" Background="White"/>
-            <Label x:Name="JMBG" Canvas.Left="179" Canvas.Top="190" Height="28" Width="120" Background="White"/>
-            <Label x:Name="imeRoditelja" Canvas.Left="180" Canvas.Top="270" Height="28" Width="120" Background="White"/>
+            <Label x:Name="brojKartona" Canvas.Left="179" Canvas.Top="110" Height="28" Width="120"/>
+            <Label x:Name="brojKnjizice" Canvas.Left="179" Canvas.Top="150" Height="28" Width="120"/>
+            <Label x:Name="JMBG" Canvas.Left="179" Canvas.Top="190" Height="28" Width="120"/>
+            <Label x:Name="imeRoditelja" Canvas.Left="180" Canvas.Top="270" Height="28" Width="120"/>
             <Label x:Name="adresaLabela" Canvas.Left="183" Canvas.Top="304"   Width="120" Height="20"/>
-            <Label x:Name="ulicaIBrojLabela" Canvas.Left="183" Canvas.Top="336"  Width="120" Height="19"/>
-            <Label x:Name="pol" Canvas.Left="180" Canvas.Top="510" Height="28" Width="120" Background="White"/>
-            <Label x:Name="bracnoStanje" Canvas.Left="180" Canvas.Top="550" Width="120" Background="White" Height="28" />
-            <Label x:Name="liceZdrZastita" Canvas.Left="582" Canvas.Top="110"  Width="120" Background="White" Height="28"/>
+            <Label x:Name="pol" Canvas.Left="180" Canvas.Top="510" Height="28" Width="120"/>
+            <Label x:Name="bracnoStanje" Canvas.Left="180" Canvas.Top="550" Width="120" Height="28"/>
+            <Label x:Name="liceZdrZastita" Canvas.Left="582" Canvas.Top="110"  Width="120" Height="28"/>
             <Label Content="Podaci o zdravstvenoj zastiti " Canvas.Left="435" Canvas.Top="50" Width="211" FontSize="14" FontWeight="Bold"/>
             <Label Content="Licni podaci " Canvas.Left="178" Canvas.Top="50" Width="98" FontSize="14" FontWeight="Bold"/>
-            <Label x:Name="prezime" Canvas.Left="180" Canvas.Top="230" Height="28" Width="120" Background="White"/>
-            <Label x:Name="telefon" Canvas.Left="180" Canvas.Top="470" Height="28" Width="120" Background="White"/>
-            <Label x:Name="imeLabela" Canvas.Left="180" Canvas.Top="310" Height="28" Width="120" Background="White"/>
-            <Label x:Name="adresa" Canvas.Left="180" Canvas.Top="390" Height="28" Width="120" Background="White"/>
-            <Label x:Name="datumRodjenja" Canvas.Left="180" Canvas.Top="350" Width="68" Height="32" Background="White"/>
-            <Label x:Name="ulicaIBroj" Canvas.Left="180" Canvas.Top="430" Height="28" Width="120" Background="White"/>
-            <Label x:Name="kategorijaZdravZastite" Canvas.Left="582" Canvas.Top="148"  Height="28" Width="120" Background="White"/>
-            <Label x:Name="radnoMjestoUnos" Canvas.Left="580" Canvas.Top="310" Height="28" Width="120" Background="White"/>
-            <Label x:Name="registarskiBrojUnos" Canvas.Left="580" Canvas.Top="350" Height="28" Width="120" Background="White"/>
-            <Label x:Name="sifraDjelatnostiUnos" Canvas.Left="580" Canvas.Top="390" Height="28" Width="120" Background="White"/>
-            <TextBox x:Name="posaoUnos" Canvas.Left="580" Canvas.Top="430" Height="28" Width="120" Background="White"/>
-            <Label x:Name="OSIZ" Canvas.Left="580" Canvas.Top="510" Height="28" Width="120" Background="White"/>
-            <TextBox x:Name="radUPosebnimUslovimaUnos" Canvas.Left="580" Canvas.Top="470" Height="28" Width="120" Background="White"/>
-            <Label x:Name="promjene" Canvas.Left="580" Canvas.Top="550" Height="28" Width="120" Background="White"/>
-            <Button Content="Nazad" Canvas.Left="30" Canvas.Top="22" Width="100" Click="NazadBtn_Click" Background="White"/>
+            <Label x:Name="prezime" Canvas.Left="180" Canvas.Top="230" Height="28" Width="120"/>
+            <Label x:Name="telefon" Canvas.Left="180" Canvas.Top="470" Height="28" Width="120"/>
+            <Label x:Name="imeLabela" Canvas.Left="180" Canvas.Top="310" Height="28" Width="120"/>
+            <Label x:Name="adresa" Canvas.Left="180" Canvas.Top="390" Height="28" Width="120"/>
+            <Label x:Name="datumRodjenja" Canvas.Left="180" Canvas.Top="350" Width="120" Height="32"/>
+            <Label x:Name="ulicaIBroj" Canvas.Left="180" Canvas.Top="430" Height="28" Width="120"/>
+            <Label x:Name="kategorijaZdravZastite" Canvas.Left="582" Canvas.Top="148"  Height="28" Width="120"/>
+            <Label x:Name="radnoMjestoUnos" Canvas.Left="580" Canvas.Top="310" Height="28" Width="120"/>
+            <Label x:Name="registarskiBrojUnos" Canvas.Left="580" Canvas.Top="350" Height="28" Width="120"/>
+            <Label x:Name="sifraDjelatnostiUnos" Canvas.Left="580" Canvas.Top="390" Height="28" Width="120"/>
+            <Label x:Name="posaoUnos" Canvas.Left="580" Canvas.Top="430" Height="28" Width="120"/>
+            <Label x:Name="OSIZ" Canvas.Left="580" Canvas.Top="510" Height="28" Width="120"/>
+            <Label x:Name="radUPosebnimUslovimaUnos" Canvas.Left="580" Canvas.Top="470" Height="28" Width="120"/>
+            <Label x:Name="promjene" Canvas.Left="580" Canvas.Top="550" Height="28" Width="120"/>
+            <Button Content="Nazad" Canvas.Left="30" Canvas.Top="22" Width="100" Click="NazadBtn_Click"/>
         </Canvas>
         <Label Content="Zdravstveno stanje pacijenta" Grid.Column="2" Margin="10,43,0,0" Width="211" FontSize="14" FontWeight="Bold"/>
         <Label Content="Alergeni" Grid.Column="2" HorizontalAlignment="Left" Margin="28,105,0,0" VerticalAlignment="Top" />

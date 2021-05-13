@@ -37,7 +37,7 @@ namespace InformacioniSistemBolnice
         {
             SekretarKontroler.Instance.IzmenaNaloga(this, listaPacijenata);
             SekretarKontroler.Instance.DodjelaZdravstvenogKartonaPacijentu(this);
-            pocetna.contentControl.Content = pacijentiProzor.Content;
+            pocetna.contentControl.Content = new PacijentiProzor(pocetna);
 
         }
 
@@ -70,5 +70,12 @@ namespace InformacioniSistemBolnice
                 }
             }
         }
+
+        private void NazadBtn_Click(object sender, RoutedEventArgs e)
+        {
+            this.Visibility = Visibility.Hidden;
+            this.pocetna.contentControl.Content = this.pacijentiProzor.Content;
+        }
+
     }
 }

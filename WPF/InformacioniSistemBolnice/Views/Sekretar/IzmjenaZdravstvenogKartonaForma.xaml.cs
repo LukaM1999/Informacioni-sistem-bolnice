@@ -19,27 +19,35 @@ using Servis;
 namespace InformacioniSistemBolnice
 {
     
-    public partial class IzmjenaZdravstvenogKartonaForma : Window
+    public partial class IzmjenaZdravstvenogKartonaForma : UserControl 
     {
-        public ListView ListaPacijenata;
+        public ListView listaPacijenata;
+        public PacijentiProzor pacijentiProzor;
+        public PocetnaStranicaSekretara pocetna;
        
 
-        public IzmjenaZdravstvenogKartonaForma(ListView lp)
+        public IzmjenaZdravstvenogKartonaForma(PacijentiProzor pacijentiProzor, PocetnaStranicaSekretara pocetna)
         {
             InitializeComponent();
-            ListaPacijenata = lp;
+            listaPacijenata = pacijentiProzor.ListaPacijenata;
+            this.pacijentiProzor = pacijentiProzor;
+            this.pocetna = pocetna;
             Alergeni.Instance.Deserijalizacija();
-            this.ListaAlergena.ItemsSource = ((Pacijent)ListaPacijenata.SelectedItem).zdravstveniKarton.Alergeni;
+            this.ListaAlergena.ItemsSource = ((Pacijent)listaPacijenata.SelectedItem).zdravstveniKarton.Alergeni;
         }
 
        
         private void izmjeniNalogPacijenta_Click(object sender, RoutedEventArgs e)
         {   
-            SekretarKontroler.Instance.IzmenaZdravstvenogKartona(this, ListaPacijenata);
-            this.Close();
+            SekretarKontroler.Instance.IzmenaZdravstvenogKartona(this, listaPacijenata);
+            pocetna.contentControl.Content = new PacijentiProzor(pocetna);
         }
 
-       
+        private void NazadBtn_Click(object sender, RoutedEventArgs e)
+        {
+            this.Visibility = Visibility.Hidden;
+            this.pocetna.contentControl.Content = this.pacijentiProzor.Content;
+        }
 
         private void dodajAlergen_Click(object sender, RoutedEventArgs e)
         {
