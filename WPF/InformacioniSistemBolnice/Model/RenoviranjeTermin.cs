@@ -9,23 +9,9 @@ namespace Model
 {
     public class RenoviranjeTermin
     {
-        public DateTime PocetakRenoviranja
-        {
-            get;
-            set;
-        }
-
-        public DateTime KrajRenoviranja
-        {
-            get;
-            set;
-        }
-
-        public string idProstorije
-        {
-            get;
-            set;
-        }
+        public DateTime PocetakRenoviranja { get; set; }
+        public DateTime KrajRenoviranja { get; set; }
+        public string idProstorije { get; set; }
 
         public RenoviranjeTermin(DateTime pocetakRenoviranja, DateTime krajRenoviranja, string prostorija)
         {

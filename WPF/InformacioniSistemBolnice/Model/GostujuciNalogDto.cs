@@ -9,23 +9,11 @@ namespace Model
     public class GostujuciNalogDto
     {
         public string ime { get; set; }
-
-
         public string prezime { get; set; }
-
-
         public string jmbg { get; set; }
-
-
         public DateTime datumRodjenja { get; set; }
-
-
         public string telefon { get; set; }
-
-
         public string email { get; set; }
-
-
         public GostujuciNalogDto(string ime, string prezime, string jmbg, DateTime datumRodjenja, string telefon, string email)
         {
             this.ime = ime;

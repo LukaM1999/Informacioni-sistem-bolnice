@@ -9,18 +9,11 @@ namespace Model
     [AddINotifyPropertyChangedInterface]
     public class Pacijent : Osoba
     {
+        public bool maliciozan { get; set; }
+        public ZdravstveniKarton zdravstveniKarton;
+        public ObservableCollection<Termin> zakazaniTermini { get; set; }
 
-        public bool maliciozan
-        {
-            get;
-            set;
-        }
-       
-        public Pacijent()
-        {
-
-        }
-
+        public Pacijent() {}
         public Pacijent(Osoba o) 
         {
             this.ime = o.ime;
@@ -43,10 +36,6 @@ namespace Model
         {
             zakazaniTermini.Add(terminZaDodavanje);
         }
-
-        public ZdravstveniKarton zdravstveniKarton;
-        public ObservableCollection<Termin> zakazaniTermini { get; set; }
-        
 
         public override string ToString()
         {

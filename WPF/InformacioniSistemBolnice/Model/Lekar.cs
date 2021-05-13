@@ -6,10 +6,12 @@ namespace Model
     [AddINotifyPropertyChangedInterface]
     public class Lekar : Osoba
     {
-        public Lekar()
-        {
-        }
-        public Lekar(Osoba o, string spec)
+        public string specijalizacija { get; set; }
+        public ObservableCollection<Termin> zauzetiTermini = new ObservableCollection<Termin>();
+
+        public Lekar() {}
+
+        public Lekar(Osoba o, string specijalizacija)
         {
             this.ime = o.ime;
             this.prezime = o.prezime;
@@ -17,18 +19,9 @@ namespace Model
             this.telefon = o.telefon;
             this.email = o.email;
             this.korisnik = o.korisnik;
-            this.specijalizacija = spec;
+            this.specijalizacija = specijalizacija;
             zauzetiTermini = new ObservableCollection<Termin>();
         }
-
-        public string specijalizacija
-        {
-            get;
-            set;
-        }
-
-        public ObservableCollection<Termin> zauzetiTermini = new ObservableCollection<Termin>();
-
         public override string ToString()
         {
             return ime + " " + prezime;

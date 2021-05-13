@@ -9,12 +9,12 @@ namespace Model
         public string Grad { get; set; }
         public string Drzava { get; set; }
         
-        public Adresa(string drz, string g, string ul, string br)
+        public Adresa(string drzava, string grad, string ulica, string broj)
         {
-            Drzava = drz;
-            Grad = g;
-            Ulica = ul;
-            Broj = br;
+            Drzava = drzava;
+            Grad = grad;
+            Ulica = ulica;
+            Broj = broj;
         }
     }
 }

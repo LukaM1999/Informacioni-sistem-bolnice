@@ -4,39 +4,14 @@ namespace Model
 {
     public class Korisnik
     {
-
-        public string korisnickoIme
+        public string korisnickoIme { get; set; }
+        public string lozinka { get; set; }
+        public UlogaKorisnika uloga { get; set; }
+        public Korisnik(string korisnickoIme, string lozinka, UlogaKorisnika uloga)
         {
-            get; 
-            set;
-           
-
+            this.korisnickoIme = korisnickoIme;
+            this.lozinka = lozinka;
+            this.uloga = uloga;
         }
-
-        public string lozinka
-        {
-            get;
-            set;
-
-        }
-
-        public UlogaKorisnika uloga
-        {
-            get;
-            set;
-        }
-
-        public Korisnik()
-        {
-
-        }
-        public Korisnik(string kI, string l, UlogaKorisnika u)
-        {
-            korisnickoIme = kI;
-            lozinka = l;
-            uloga = u;
-        }
-
-
     }
 }

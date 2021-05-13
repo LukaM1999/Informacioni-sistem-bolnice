@@ -8,23 +8,9 @@ namespace Model
 {
     public class TerminiLekaraZaPomeranjeDto
     {
-        public Termin terminZaPomeranje
-        {
-            get;
-            set;
-        }
-
-        public Termin noviTermin
-        {
-            get;
-            set;
-        }
-
-        public string jmbgPacijenta
-        {
-            get;
-            set;
-        }
+        public Termin terminZaPomeranje { get; set; }
+        public Termin noviTermin { get; set; }
+        public string jmbgPacijenta { get; set; }
 
         public TerminiLekaraZaPomeranjeDto(Termin terminZaPomeranje, Termin noviTermin, string jmbgPacijenta)
         {

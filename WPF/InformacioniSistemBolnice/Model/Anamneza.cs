@@ -5,10 +5,6 @@ namespace Model
     [AddINotifyPropertyChangedInterface]
     public class Anamneza
     {
-        public Anamneza()
-        {
-
-        }
         public string id { get; set; }
         public string sadasnjaBolest { get; set; }
         public string ranijeBolesti { get; set; }

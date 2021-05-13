@@ -6,28 +6,17 @@ namespace Model
     {
         public string Komentar { get; set; }
         public string Potpis { get; set; }
-
-        public Zahtev()
-        {
-
-        }
-
-
         public Zahtev(string komentar, string potpis)
         {
             Komentar = komentar;
             Potpis = potpis;
         }
 
-
         public override string ToString()
         {
             return Potpis.ToString();
-          
+
         }
-
-
-
 
     }
 }

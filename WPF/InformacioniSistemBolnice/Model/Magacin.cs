@@ -6,7 +6,6 @@ namespace Model
     public class Magacin
     {
         public ObservableCollection<Oprema> oprema;
-
         public ObservableCollection<Oprema> Oprema
         {
             get

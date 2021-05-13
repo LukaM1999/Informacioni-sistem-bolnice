@@ -1,7 +1,32 @@
 [
   {
     "zdravstveniKarton": {
+      "alergeni": [
+        {
+          "nazivAlergena": "pencilin"
+        },
+        {
+          "nazivAlergena": "jagode"
+        }
+      ],
       "Recepti": [],
+      "BrojKartona": "K121",
+      "BrojKnjizice": "1515155151",
+      "Jmbg": "1203998123123",
+      "ImeJednogRoditelja": "Milos",
+      "LiceZaZdravstvenuZastitu": "Mitar Miric",
+      "PolPacijenta": 0,
+      "BracnoStanje": 0,
+      "KategorijaZdravstveneZastite": 5,
+      "PodaciOZaposlenjuIZanimanjuPacijenta": {
+        "RadnoMjesto": null,
+        "RegistarskiBroj": "nema",
+        "SifraDelatnosti": "nema",
+        "PosaoKojiObavlja": "nema",
+        "OSIZZdrZastite": "nema",
+        "RadPodPosebnimUslovima": "nema",
+        "Promjene": null
+      },
       "anamneza": null,
       "Alergeni": [
         {
@@ -10,27 +35,33 @@
         {
           "nazivAlergena": "jagode"
         }
-      ],
-      "Jmbg": "1203998123123",
-      "LiceZaZdravstvenuZastitu": "Mitar Miric",
-      "PolPacijenta": 0,
-      "ImeJednogRoditelja": "Milos",
-      "BrojKnjizice": "1515155151",
-      "BrojKartona": "K121",
-      "KategorijaZdravstveneZastite": 5,
-      "BracnoStanje": 0,
-      "PodaciOZaposlenjuIZanimanjuPacijenta": {
-        "MestoRada": "nema",
-        "RegBroj": "nema",
-        "SifraDelatnosti": "nema",
-        "PosaoKojiObavlja": "nema",
-        "OSIZZdrZastite": "nema",
-        "RadPodPosebnimUslovima": "nema",
-        "Promene": "nema"
-      }
+      ]
     },
     "maliciozan": false,
-    "zakazaniTermini": [],
+    "zakazaniTermini": [
+      {
+        "vreme": "2021-05-19T10:30:00",
+        "trajanje": 30.0,
+        "tipTermina": 1,
+        "status": 0,
+        "AnketaOLekaru": null,
+        "pacijentJMBG": "1203998123123",
+        "lekarJMBG": "985467356",
+        "idProstorije": "ID: OS1",
+        "Hitan": false
+      },
+      {
+        "vreme": "2021-05-14T00:00:00+02:00",
+        "trajanje": 30.0,
+        "tipTermina": 1,
+        "status": 0,
+        "AnketaOLekaru": null,
+        "pacijentJMBG": "1203998123123",
+        "lekarJMBG": "231568933",
+        "idProstorije": "P1",
+        "Hitan": true
+      }
+    ],
     "ime": "Milan",
     "prezime": "Maric",
     "jmbg": "1203998123123",
@@ -51,7 +82,32 @@
   },
   {
     "zdravstveniKarton": {
+      "alergeni": [
+        {
+          "nazivAlergena": "pencilin"
+        },
+        {
+          "nazivAlergena": "jagode"
+        }
+      ],
       "Recepti": [],
+      "BrojKartona": "K132333",
+      "BrojKnjizice": "1231415151",
+      "Jmbg": "1905981123124",
+      "ImeJednogRoditelja": "Zoran",
+      "LiceZaZdravstvenuZastitu": "Mitar Miric",
+      "PolPacijenta": 1,
+      "BracnoStanje": 0,
+      "KategorijaZdravstveneZastite": 5,
+      "PodaciOZaposlenjuIZanimanjuPacijenta": {
+        "RadnoMjesto": null,
+        "RegistarskiBroj": "nema",
+        "SifraDelatnosti": "nema",
+        "PosaoKojiObavlja": "nema",
+        "OSIZZdrZastite": "nema",
+        "RadPodPosebnimUslovima": "nema",
+        "Promjene": null
+      },
       "anamneza": null,
       "Alergeni": [
         {
@@ -60,24 +116,7 @@
         {
           "nazivAlergena": "jagode"
         }
-      ],
-      "Jmbg": "1905981123124",
-      "LiceZaZdravstvenuZastitu": "Mitar Miric",
-      "PolPacijenta": 1,
-      "ImeJednogRoditelja": "Zoran",
-      "BrojKnjizice": "1231415151",
-      "BrojKartona": "K132333",
-      "KategorijaZdravstveneZastite": 5,
-      "BracnoStanje": 0,
-      "PodaciOZaposlenjuIZanimanjuPacijenta": {
-        "MestoRada": "nema",
-        "RegBroj": "nema",
-        "SifraDelatnosti": "nema",
-        "PosaoKojiObavlja": "nema",
-        "OSIZZdrZastite": "nema",
-        "RadPodPosebnimUslovima": "nema",
-        "Promene": "nema"
-      }
+      ]
     },
     "maliciozan": false,
     "zakazaniTermini": [],

@@ -6,29 +6,17 @@ namespace Model
     [AddINotifyPropertyChangedInterface]
     public class Termin
     {
-        public DateTime vreme
-        {
-            get;
-            set;
-        }
-        public double trajanje
-        {
-            get;
-            set;
-        }
-        public TipTermina tipTermina
-        {
-            get;
-            set;
-        }
-        public StatusTermina status
-        {
-            get;
-            set;
-        }
-
+        public DateTime vreme { get; set; }
+        public double trajanje { get; set; }
+        public TipTermina tipTermina { get; set; }
+        public StatusTermina status { get; set; }
         public AnketaOLekaru AnketaOLekaru { get; set; }
+        public string pacijentJMBG { get; set; }
+        public string lekarJMBG { get; set; }
+        public string idProstorije { get; set; }
+        public bool Hitan { get; set; }
 
+        public Termin() { }
         public Termin(DateTime dt, double tr, TipTermina tip, StatusTermina s, string jmbgPacijenta, string jmbgLekara, string sifraProstorije)
         {
             vreme = dt;
@@ -40,46 +28,25 @@ namespace Model
             idProstorije = sifraProstorije;
         }
 
-        public Termin(DateTime dt, double tr, TipTermina tip, StatusTermina s, string jmbgPacijenta, string jmbgLekara, string sifraProstorije, bool hitan)
+        public Termin(DateTime datum, double trajanje, TipTermina tip, StatusTermina status, string jmbgPacijenta, string jmbgLekara, string sifraProstorije, bool hitan)
         {
-            vreme = dt;
-            trajanje = tr;
+            vreme = datum;
+            this.trajanje = trajanje;
             tipTermina = tip;
-            status = s;
+            this.status = status;
             pacijentJMBG = jmbgPacijenta;
             lekarJMBG = jmbgLekara;
             idProstorije = sifraProstorije;
             Hitan = hitan;
         }
 
-        public Termin(DateTime dt, double tr, TipTermina tip, StatusTermina s)
+        public Termin(DateTime datum, double trajanje, TipTermina tip, StatusTermina status)
         {
-            vreme = dt;
-            trajanje = tr;
+            vreme = datum;
+            this.trajanje = trajanje;
             tipTermina = tip;
-            status = s;
+            this.status = status;
         }
-
-        public Termin()
-        {
-        }
-        public string pacijentJMBG
-        {
-            get;
-            set;
-        }
-        public string lekarJMBG
-        {
-            get;
-            set;
-        }
-        public string idProstorije
-        {
-            get;
-            set;
-        }
-
-        public bool Hitan { get; set; }
 
         public override string ToString()
         {

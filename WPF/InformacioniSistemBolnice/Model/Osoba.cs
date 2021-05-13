@@ -4,72 +4,27 @@ namespace Model
 {
     public class Osoba
     {
-
-        public string ime
+        public string ime { get; set; }
+        public string prezime { get; set; }
+        public string jmbg { get; set; }
+        public DateTime datumRodjenja { get; set; }
+        public string telefon { get; set; }
+        public string email { get; set; }
+        public Adresa adresa { get; set; }
+        public Korisnik korisnik { get; set; }
+        public Osoba() {}
+        
+        public Osoba(string ime, string prezime, string jmbg, DateTime datumRodjenja, string telefon, string email, Korisnik korisnik, Adresa adresa)
         {
-            get;
-            set;
-        }
-
-    public string prezime
-        {
-            get;
-            set;
-        }
-
-        public string jmbg
-        {
-            get;
-            set;
-        }
-
-        public DateTime datumRodjenja
-        {
-            get;
-            set;
-        }
-
-        public string telefon
-        {
-            get;
-            set;
-        }
-
-        public string email
-        {
-            get;
-            set;
-        }
-
-        public Adresa adresa{
-            get;
-            set;
-        }
-       
-
-        public Osoba()
-        {
-
-        }
-
-        public Osoba(string i, string prz, string matBr, DateTime dR, string tel, string mail, Korisnik k, Adresa a)
-        {
-            ime = i;
-            prezime = prz;
-            jmbg = matBr;
-            datumRodjenja = dR;
-            telefon = tel;
-            email = mail;
-            korisnik = k;
-            adresa = a;
+            this.ime = ime;
+            this.prezime = prezime;
+            this.jmbg = jmbg;
+            this.datumRodjenja = datumRodjenja;
+            this.telefon = telefon;
+            this.email = email;
+            this.korisnik = korisnik;
+            this.adresa = adresa;
             
         }
-
-        public Korisnik korisnik
-        {
-            get;
-            set;
-        }
-
     }
 }

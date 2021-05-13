@@ -66,15 +66,15 @@ namespace InformacioniSistemBolnice
             this.bracnoStanjeLabela.Content = pacijent.zdravstveniKarton.BracnoStanje;
             this.zdravstvenaZastitaLabela.Content = pacijent.zdravstveniKarton.LiceZaZdravstvenuZastitu;
             this.kategorijaZastiteLabela.Content = pacijent.zdravstveniKarton.KategorijaZdravstveneZastite;
-            this.mestoRadaLabela.Content = pacijent.zdravstveniKarton.PodaciOZaposlenjuIZanimanjuPacijenta.MestoRada;
-            this.registarskiBrLabela.Content = pacijent.zdravstveniKarton.PodaciOZaposlenjuIZanimanjuPacijenta.RegBroj;
+            this.mestoRadaLabela.Content = pacijent.zdravstveniKarton.PodaciOZaposlenjuIZanimanjuPacijenta.RadnoMjesto;
+            this.registarskiBrLabela.Content = pacijent.zdravstveniKarton.PodaciOZaposlenjuIZanimanjuPacijenta.RegistarskiBroj;
             this.sifraDelatnostiLabela.Content =
                 pacijent.zdravstveniKarton.PodaciOZaposlenjuIZanimanjuPacijenta.SifraDelatnosti;
             this.posaoLabela.Content = pacijent.zdravstveniKarton.PodaciOZaposlenjuIZanimanjuPacijenta.PosaoKojiObavlja;
             this.OSIZLabela.Content = pacijent.zdravstveniKarton.PodaciOZaposlenjuIZanimanjuPacijenta.OSIZZdrZastite;
             this.posebniUsloviLabela.Content =
                 pacijent.zdravstveniKarton.PodaciOZaposlenjuIZanimanjuPacijenta.RadPodPosebnimUslovima;
-            this.promeneLabela.Content = pacijent.zdravstveniKarton.PodaciOZaposlenjuIZanimanjuPacijenta.Promene;
+            this.promeneLabela.Content = pacijent.zdravstveniKarton.PodaciOZaposlenjuIZanimanjuPacijenta.Promjene;
             this.ListaAlergena.ItemsSource = pacijent.zdravstveniKarton.Alergeni;
         }
 

@@ -4,32 +4,12 @@ namespace Model
 {
     public class StatickaOprema : Oprema
     {
-
-
-
-        public TipStatickeOpreme tip
+        public TipStatickeOpreme tip { get; set; }
+        public int kolicina { get; set; }
+        public StatickaOprema(int kolicnia, TipStatickeOpreme tip)
         {
-            get;
-            set;
+            this.kolicina = kolicina;
+            this.tip = tip;
         }
-        public int kolicina
-        {
-            get;
-            set;
-        }
-
-        public StatickaOprema() 
-        {
-            
-        }
-
-        public StatickaOprema(int kol, TipStatickeOpreme tip2)
-        {
-            kolicina = kol;
-            tip = tip2;
-        }
-        
-        
-
     }
 }

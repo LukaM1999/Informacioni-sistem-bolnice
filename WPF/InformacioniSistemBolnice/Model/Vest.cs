@@ -2,13 +2,10 @@ using System;
 
 namespace Model
 {
-   public class Vest
-   {
-        private string sadrzaj;
-
-
-      private string id;
-      
+    public class Vest
+    {
+        public string Sadrzaj { get; set; }
+        public string Id { get; set; }
 
         public Vest(string sadrzajVesti, string naslov)
         {
@@ -16,13 +13,9 @@ namespace Model
             this.Id = naslov;
         }
 
-        public string Sadrzaj { get => sadrzaj; set => sadrzaj = value; }
-        public string Id { get => id; set => id = value; }
-
         public override string ToString()
         {
             return this.Id;
         }
-
     }
 }

@@ -125,13 +125,13 @@ namespace InformacioniSistemBolnice
                     pregledZdravstvenogKartona.pol.Content = p.zdravstveniKarton.PolPacijenta.ToString();
                     pregledZdravstvenogKartona.bracnoStanje.Content = p.zdravstveniKarton.BracnoStanje.ToString();
                     pregledZdravstvenogKartona.kategorijaZdravZastite.Content = p.zdravstveniKarton.KategorijaZdravstveneZastite.ToString();
-                    pregledZdravstvenogKartona.radnoMjestoUnos.Content = p.zdravstveniKarton.PodaciOZaposlenjuIZanimanjuPacijenta.MestoRada;
-                    pregledZdravstvenogKartona.registarskiBrojUnos.Content = p.zdravstveniKarton.PodaciOZaposlenjuIZanimanjuPacijenta.RegBroj;
+                    pregledZdravstvenogKartona.radnoMjestoUnos.Content = p.zdravstveniKarton.PodaciOZaposlenjuIZanimanjuPacijenta.RadnoMjesto;
+                    pregledZdravstvenogKartona.registarskiBrojUnos.Content = p.zdravstveniKarton.PodaciOZaposlenjuIZanimanjuPacijenta.RegistarskiBroj;
                     pregledZdravstvenogKartona.sifraDjelatnostiUnos.Content = p.zdravstveniKarton.PodaciOZaposlenjuIZanimanjuPacijenta.SifraDelatnosti;
                     pregledZdravstvenogKartona.posaoUnos.Content = p.zdravstveniKarton.PodaciOZaposlenjuIZanimanjuPacijenta.PosaoKojiObavlja;
                     pregledZdravstvenogKartona.OSIZ.Content = p.zdravstveniKarton.PodaciOZaposlenjuIZanimanjuPacijenta.OSIZZdrZastite;
                     pregledZdravstvenogKartona.radUPosebnimUslovimaUnos.Content = p.zdravstveniKarton.PodaciOZaposlenjuIZanimanjuPacijenta.RadPodPosebnimUslovima;
-                    pregledZdravstvenogKartona.promjene.Content = p.zdravstveniKarton.PodaciOZaposlenjuIZanimanjuPacijenta.Promene;
+                    pregledZdravstvenogKartona.promjene.Content = p.zdravstveniKarton.PodaciOZaposlenjuIZanimanjuPacijenta.Promjene;
 
                     pregledZdravstvenogKartona.ListaAlergena.ItemsSource = p.zdravstveniKarton.Alergeni;
 
@@ -171,13 +171,13 @@ namespace InformacioniSistemBolnice
                     izmjenaZdravstvenogKartonaForma.polUnos.Text = p.zdravstveniKarton.PolPacijenta.ToString();
                     izmjenaZdravstvenogKartonaForma.bracnoStanjeUnos.Text = p.zdravstveniKarton.BracnoStanje.ToString();
                     izmjenaZdravstvenogKartonaForma.kategorijaZdrZastiteUnos.Text = p.zdravstveniKarton.KategorijaZdravstveneZastite.ToString();
-                    izmjenaZdravstvenogKartonaForma.radnoMjestoUnos.Text = p.zdravstveniKarton.PodaciOZaposlenjuIZanimanjuPacijenta.MestoRada;
-                    izmjenaZdravstvenogKartonaForma.registarskiBrojUnos.Text = p.zdravstveniKarton.PodaciOZaposlenjuIZanimanjuPacijenta.RegBroj;
+                    izmjenaZdravstvenogKartonaForma.radnoMjestoUnos.Text = p.zdravstveniKarton.PodaciOZaposlenjuIZanimanjuPacijenta.RadnoMjesto;
+                    izmjenaZdravstvenogKartonaForma.registarskiBrojUnos.Text = p.zdravstveniKarton.PodaciOZaposlenjuIZanimanjuPacijenta.RegistarskiBroj;
                     izmjenaZdravstvenogKartonaForma.sifraDjelatnostiUnos.Text = p.zdravstveniKarton.PodaciOZaposlenjuIZanimanjuPacijenta.SifraDelatnosti;
                     izmjenaZdravstvenogKartonaForma.posaoUnos.Text = p.zdravstveniKarton.PodaciOZaposlenjuIZanimanjuPacijenta.PosaoKojiObavlja;
                     izmjenaZdravstvenogKartonaForma.OSIZ.Text = p.zdravstveniKarton.PodaciOZaposlenjuIZanimanjuPacijenta.OSIZZdrZastite;
                     izmjenaZdravstvenogKartonaForma.radUPosebnimUslovimaUnos.Text = p.zdravstveniKarton.PodaciOZaposlenjuIZanimanjuPacijenta.RadPodPosebnimUslovima;
-                    izmjenaZdravstvenogKartonaForma.promjene.Text = p.zdravstveniKarton.PodaciOZaposlenjuIZanimanjuPacijenta.Promene;
+                    izmjenaZdravstvenogKartonaForma.promjene.Text = p.zdravstveniKarton.PodaciOZaposlenjuIZanimanjuPacijenta.Promjene;
                     izmjenaZdravstvenogKartonaForma.ListaAlergena.ItemsSource = p.zdravstveniKarton.Alergeni;
                     pocetna.contentControl.Content = izmjenaZdravstvenogKartonaForma.Content;
                 }

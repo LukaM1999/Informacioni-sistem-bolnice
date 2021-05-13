@@ -138,10 +138,10 @@ namespace Servis
                 p.zdravstveniKarton.PolPacijenta = (Model.Pol)Enum.Parse(typeof(Model.Pol), izmjenaZdravstvenogKartonaForma.polUnos.Text);
                 p.zdravstveniKarton.KategorijaZdravstveneZastite = (Model.KategorijaZdravstveneZastite)Enum.Parse(typeof(Model.KategorijaZdravstveneZastite), izmjenaZdravstvenogKartonaForma.kategorijaZdrZastiteUnos.Text);
                 p.zdravstveniKarton.PodaciOZaposlenjuIZanimanjuPacijenta.PosaoKojiObavlja = izmjenaZdravstvenogKartonaForma.posaoUnos.Text;
-                p.zdravstveniKarton.PodaciOZaposlenjuIZanimanjuPacijenta.MestoRada = izmjenaZdravstvenogKartonaForma.radnoMjestoUnos.Text;
-                p.zdravstveniKarton.PodaciOZaposlenjuIZanimanjuPacijenta.RegBroj = izmjenaZdravstvenogKartonaForma.registarskiBrojUnos.Text;
+                p.zdravstveniKarton.PodaciOZaposlenjuIZanimanjuPacijenta.RadnoMjesto = izmjenaZdravstvenogKartonaForma.radnoMjestoUnos.Text;
+                p.zdravstveniKarton.PodaciOZaposlenjuIZanimanjuPacijenta.RegistarskiBroj = izmjenaZdravstvenogKartonaForma.registarskiBrojUnos.Text;
                 p.zdravstveniKarton.PodaciOZaposlenjuIZanimanjuPacijenta.RadPodPosebnimUslovima = izmjenaZdravstvenogKartonaForma.radUPosebnimUslovimaUnos.Text;
-                p.zdravstveniKarton.PodaciOZaposlenjuIZanimanjuPacijenta.Promene = izmjenaZdravstvenogKartonaForma.promjene.Text;
+                p.zdravstveniKarton.PodaciOZaposlenjuIZanimanjuPacijenta.Promjene = izmjenaZdravstvenogKartonaForma.promjene.Text;
                 p.zdravstveniKarton.PodaciOZaposlenjuIZanimanjuPacijenta.OSIZZdrZastite = izmjenaZdravstvenogKartonaForma.OSIZ.Text;
 
                 Kartoni zdravstveniKartoni = Kartoni.Instance;

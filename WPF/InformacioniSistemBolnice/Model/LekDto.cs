@@ -8,21 +8,9 @@ namespace Model
 {
     public class LekDto
     {
-        public string naziv
-        {
-            get;
-            set;
-        }
-        public string proizvodjac
-        {
-            get;
-            set;
-        }
-        public string sastojci
-        {
-            get;
-            set;
-        }
+        public string naziv { get; set; }
+        public string proizvodjac { get; set; }
+        public string sastojci { get; set; }
 
         public LekDto(String naziv, String proizvodjac, String sastojci)
         {

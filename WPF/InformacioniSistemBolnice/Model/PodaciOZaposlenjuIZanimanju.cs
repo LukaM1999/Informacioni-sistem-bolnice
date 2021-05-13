@@ -4,38 +4,25 @@ namespace Model
 {
     public class PodaciOZaposlenjuIZanimanju
     {
-      
-        private string radnoMjesto;
-        private string registarskiBroj;
-        private string sifraDelatnosti;
-        private string posaoKojiObavlja;
-        private string oSIZZdrZastite;
-        private string radPodPosebnimUslovima;
-        private string promjene;
+        public string RadnoMjesto { get; set; }
+        public string RegistarskiBroj { get; set; }
+        public string SifraDelatnosti { get; set; }
+        public string PosaoKojiObavlja { get; set; }
+        public string OSIZZdrZastite { get; set; }
+        public string RadPodPosebnimUslovima { get; set; }
+        public string Promjene { get; set; }
 
-        public PodaciOZaposlenjuIZanimanju()
+        public PodaciOZaposlenjuIZanimanju(string mjestoRada, string regBroj, string sifra, string posao, string OSIZ, string posebniUslovi, string izmjene)
         {
-           
-        }
-
-        public PodaciOZaposlenjuIZanimanju(string mjestoRada, string regBroj, string sifra, string posao, string oSIZ, string posebniUslovi, string izmjene)
-        {
-            radnoMjesto = mjestoRada;
-            registarskiBroj = regBroj;
-            sifraDelatnosti = sifra;
-            posaoKojiObavlja = posao;
-            oSIZZdrZastite = oSIZ;
-            radPodPosebnimUslovima = posebniUslovi;
-            promjene = izmjene;
+            RadnoMjesto = mjestoRada;
+            RegistarskiBroj = regBroj;
+            SifraDelatnosti = sifra;
+            PosaoKojiObavlja = posao;
+            OSIZZdrZastite = OSIZ;
+            RadPodPosebnimUslovima = posebniUslovi;
+            Promjene = izmjene;
 
         }
 
-        public string MestoRada { get => radnoMjesto; set => radnoMjesto = value; }
-        public string RegBroj { get => registarskiBroj; set => registarskiBroj = value; }
-        public string SifraDelatnosti { get => sifraDelatnosti; set => sifraDelatnosti = value; }
-        public string PosaoKojiObavlja { get => posaoKojiObavlja; set => posaoKojiObavlja = value; }
-        public string OSIZZdrZastite { get => oSIZZdrZastite; set => oSIZZdrZastite = value; }
-        public string RadPodPosebnimUslovima { get => radPodPosebnimUslovima; set => radPodPosebnimUslovima = value; }
-        public string Promene { get => promjene; set => promjene = value; }
     }
 }

@@ -10,7 +10,6 @@ namespace Model
         public DateTime krajTerapije { get; set; }
         public double mera { get; set; }
         public double redovnost { get; set; }
-
         public Lek Lek { get; set; }
 
         public Terapija(DateTime pocetak, DateTime kraj, double m, double r, Lek lek)
@@ -26,6 +25,5 @@ namespace Model
         {
             return (int)redovnost;
         }
-
     }
 }

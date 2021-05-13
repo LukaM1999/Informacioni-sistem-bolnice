@@ -1,28 +1,33 @@
 [
   {
+    "alergeni": [
+      {
+        "nazivAlergena": "jagode"
+      }
+    ],
     "Recepti": [],
+    "BrojKartona": "lala",
+    "BrojKnjizice": "llal",
+    "Jmbg": "gagaaaa",
+    "ImeJednogRoditelja": "alal",
+    "LiceZaZdravstvenuZastitu": "lala",
+    "PolPacijenta": 0,
+    "BracnoStanje": 1,
+    "KategorijaZdravstveneZastite": 2,
+    "PodaciOZaposlenjuIZanimanjuPacijenta": {
+      "RadnoMjesto": "alla",
+      "RegistarskiBroj": "all",
+      "SifraDelatnosti": "al",
+      "PosaoKojiObavlja": "lal",
+      "OSIZZdrZastite": "lal",
+      "RadPodPosebnimUslovima": "alla",
+      "Promjene": "lala"
+    },
     "anamneza": null,
     "Alergeni": [
       {
         "nazivAlergena": "jagode"
       }
-    ],
-    "Jmbg": "1905981123124",
-    "LiceZaZdravstvenuZastitu": "Mitar Miric",
-    "PolPacijenta": 1,
-    "ImeJednogRoditelja": "Zoran",
-    "BrojKnjizice": "1315151515",
-    "BrojKartona": "K1323",
-    "KategorijaZdravstveneZastite": 5,
-    "BracnoStanje": 0,
-    "PodaciOZaposlenjuIZanimanjuPacijenta": {
-      "MestoRada": "nema",
-      "RegBroj": "nema",
-      "SifraDelatnosti": "nema",
-      "PosaoKojiObavlja": "nema",
-      "OSIZZdrZastite": "nema",
-      "RadPodPosebnimUslovima": "nema",
-      "Promene": "nema"
-    }
+    ]
   }
 ]

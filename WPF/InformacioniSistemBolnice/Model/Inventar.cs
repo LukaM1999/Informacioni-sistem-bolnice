@@ -7,17 +7,10 @@ namespace Model
    public class Inventar
    {
 
-        public ObservableCollection<DinamickaOprema> dinamickaOprema
-        {
-            get;
-            set;
-        }
+        public ObservableCollection<DinamickaOprema> dinamickaOprema { get; set; }
 
-        public ObservableCollection<StatickaOprema> statickaOprema
-        {
-            get;
-            set;
-        }
+        public ObservableCollection<StatickaOprema> statickaOprema { get; set; }
+
         public Inventar()
         {
             dinamickaOprema = new ObservableCollection<DinamickaOprema>();

@@ -4,32 +4,16 @@ namespace Model
 {
     public class Alergen
     {
-        public string nazivAlergena
-        {
-            get;
-            set;
-        }
-
-        public Alergen()
-        {
-
-        }
-
-
+        public string nazivAlergena { get; set; }
+       
         public Alergen(string naziv)
         {
             nazivAlergena = naziv;
         }
 
-
         public override string ToString()
         {
             return nazivAlergena.ToString();
-          
         }
-
-
-
-
     }
 }
