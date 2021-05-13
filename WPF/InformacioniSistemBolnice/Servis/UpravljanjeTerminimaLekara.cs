@@ -28,7 +28,7 @@ namespace Servis
                     if (lekar.jmbg == jmbgLekar)
                     {
 
-                        foreach (Pacijent pacijent in Pacijenti.Instance.listaPacijenata)
+                        foreach (Pacijent pacijent in Pacijenti.Instance.ListaPacijenata)
                         {
                             if (pacijent.jmbg.Equals((string)zakazivanje.pacijenti.SelectedItem))
                             {
@@ -113,7 +113,7 @@ namespace Servis
             if (listaZakazanihTerminaLekara.SelectedIndex >= 0)
             {
                 Termin t = (Termin)listaZakazanihTerminaLekara.SelectedItem;
-                foreach (Pacijent pacijent in Pacijenti.Instance.listaPacijenata.ToList())
+                foreach (Pacijent pacijent in Pacijenti.Instance.ListaPacijenata.ToList())
                 {
                     if (pacijent.jmbg == t.pacijentJMBG)
                     {
@@ -167,7 +167,7 @@ namespace Servis
                 {
                     if (lekar.jmbg == pomeranje.zakazanTermin.lekarJMBG)
                     {
-                        foreach (Pacijent pacijent in Pacijenti.Instance.listaPacijenata)
+                        foreach (Pacijent pacijent in Pacijenti.Instance.ListaPacijenata)
                         {
                             if (pacijent.jmbg == pomeranje.zakazanTermin.pacijentJMBG)
                             {

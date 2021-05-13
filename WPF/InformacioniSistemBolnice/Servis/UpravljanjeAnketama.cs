@@ -27,7 +27,6 @@ namespace Servis
                 if (termin.vreme != zavrsenTermin.vreme || termin.pacijentJMBG != zavrsenTermin.pacijentJMBG) continue;
                 termin.AnketaOLekaru = zavrsenTermin.AnketaOLekaru;
                 Termini.Instance.Serijalizacija();
-                Termini.Instance.Deserijalizacija();
             }
         }
 
@@ -103,7 +102,6 @@ namespace Servis
         {
             AnketeOBolnici.Instance.AnketeZaBolnicu.Add(anketa);
             AnketeOBolnici.Instance.Serijalizacija();
-            AnketeOBolnici.Instance.Deserijalizacija();
         }
     }
 }

@@ -15,11 +15,12 @@ namespace Servis
             Lazy = new(() => new UpravljanjeObavestenjimaTerapija());
         public static UpravljanjeObavestenjimaTerapija Instance { get { return Lazy.Value; } }
 
-        public Pacijent ulogovanPacijent;
-        public Terapija trenutnaTerapija;
+        private Pacijent ulogovanPacijent;
+        private Terapija trenutnaTerapija;
 
         public void UkljuciObavestenja(Pacijent pacijent)
         {
+            if (pacijent.zdravstveniKarton == null) return;
             ulogovanPacijent = pacijent;
             ZakaziObavestenja();
             while (true) PrikaziObavestenja();
@@ -70,21 +71,16 @@ namespace Servis
 
         private static void ZakaziDaljaObavestenja(Terapija terapija)
         {
-            int redovnost = DobaviRedovnostTerapije(terapija);
+            int redovnost = terapija.DobaviRedovnostTerapije();
             JobManager.AddJob(
                 () => Debug.WriteLine("Vreme je da uzmete: " + terapija.Lek.Naziv + ", " + terapija.mera + " mg."),
                 (s) => s.WithName("uzimanje: " + terapija.Lek.Naziv).ToRunEvery(redovnost).Seconds()
                     .DelayFor(redovnost - DateTime.Now.Second % redovnost).Seconds());
         }
 
-        private static int DobaviRedovnostTerapije(Terapija terapija)
-        {
-            return (int)terapija.redovnost;
-        }
-
         private static void ZakaziPrvoObavestenje(Terapija terapija)
         {
-            int redovnost = DobaviRedovnostTerapije(terapija);
+            int redovnost = terapija.DobaviRedovnostTerapije();
             JobManager.AddJob(
                 () => Debug.WriteLine("Vreme je da uzmete: " + terapija.Lek.Naziv + ", " + terapija.mera + " mg."),
                 (s) => s.WithName("prvo uzimanje: " + terapija.Lek.Naziv)

@@ -72,7 +72,7 @@ namespace Servis
         }
         private static void SacuvajHitanTerminUListuZakazanihTerminaPacijenta(Termin hitan)
         {
-            foreach (Pacijent pacijent in Pacijenti.Instance.listaPacijenata)
+            foreach (Pacijent pacijent in Pacijenti.Instance.ListaPacijenata)
             {
                 if (pacijent.jmbg == hitan.pacijentJMBG)
                 {
@@ -204,7 +204,7 @@ namespace Servis
 
         private void PomeriTerminPacijentu(DateTime staroVreme, Termin noviTermin)
         {
-            foreach (Pacijent pacijent in Pacijenti.Instance.listaPacijenata.ToList())
+            foreach (Pacijent pacijent in Pacijenti.Instance.ListaPacijenata.ToList())
             {
                 if (pacijent.jmbg == noviTermin.pacijentJMBG)
                 {
@@ -249,7 +249,7 @@ namespace Servis
 
         private static void DodajGostujucegPacijenta(Pacijent gostujuciPacijent)
         {
-            Pacijenti.Instance.listaPacijenata.Add(gostujuciPacijent);
+            Pacijenti.Instance.ListaPacijenata.Add(gostujuciPacijent);
             Pacijenti.Instance.Serijalizacija();
             Pacijenti.Instance.Deserijalizacija();
         }

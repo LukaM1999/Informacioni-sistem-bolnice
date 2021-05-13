@@ -12,6 +12,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Kontroler;
 using Model;
 using Repozitorijum;
 using Servis;
@@ -242,13 +243,8 @@ namespace InformacioniSistemBolnice
 
         private void zakaziDugme_Click(object sender, RoutedEventArgs e)
         {
-            UpravljanjeTerminimaPacijenata.Instance.Zakazivanje(this, this.slobodniTermini[0].pacijentJMBG);
+            PacijentKontroler.Instance.Zakazivanje(this, this.slobodniTermini[0].pacijentJMBG);
             this.Close();
-        }
-
-        private void ponudjeniTerminii_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
         }
     }
 }

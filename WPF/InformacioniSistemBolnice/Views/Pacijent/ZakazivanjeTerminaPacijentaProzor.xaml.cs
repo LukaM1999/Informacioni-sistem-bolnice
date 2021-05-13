@@ -20,8 +20,6 @@ namespace InformacioniSistemBolnice
 {
     public partial class ZakazivanjeTerminaPacijentaProzor : Window
     {
-
-        public List<string> listaDatuma = new List<string>();
         public string pacijentJMBG;
         public TerminiPacijentaProzor terminiPacijentaProzor;
 
@@ -29,33 +27,13 @@ namespace InformacioniSistemBolnice
         {
             InitializeComponent();
             terminiPacijentaProzor = termini;
-            /*
-            DateTime datum = DateTime.Parse("7:00");
-
-            for (int j = 0; j < 27; j++)
-            {
-                listaDatuma.Add(datum.ToString("HH:mm"));
-                datum = datum.AddMinutes(30);
-            }
-
-            listaSati.ItemsSource = listaDatuma;
-            */
-            Lekari.Instance.Deserijalizacija();
             lekari.ItemsSource = Lekari.Instance.listaLekara;
             pacijentJMBG = jmbgPacijenta;
-            
         }
 
         private void potvrdaZakazivanjaDugme_Click(object sender, RoutedEventArgs e)
         {
-            IzborTermina izborTermina = new IzborTermina(this, pacijentJMBG);
-            izborTermina.Visibility = Visibility.Visible;
-
-        }
-
-        private void RadioButton_Checked(object sender, RoutedEventArgs e)
-        {
-
+            new IzborTermina(this, pacijentJMBG).Show();
         }
     }
 }

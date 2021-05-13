@@ -18,12 +18,12 @@ namespace InformacioniSistemBolnice
 {
     public partial class AnketaOBolniciForma : Window
     {
-        private string PacijentovJmbg;
+        private readonly string pacijentovJmbg;
 
         public AnketaOBolniciForma(string jmbgPacijenta)
         {
             InitializeComponent();
-            PacijentovJmbg = jmbgPacijenta;
+            pacijentovJmbg = jmbgPacijenta;
         }
 
         private void Potvrda(object sender, RoutedEventArgs e)
@@ -31,7 +31,7 @@ namespace InformacioniSistemBolnice
             AnketaOBolnici anketa = new(UBroj(IzabranoRadioDugme(Ljubaznost)),
                 UBroj(IzabranoRadioDugme(Profesionalizam)), UBroj(IzabranoRadioDugme(Strpljenje)),
                 UBroj(IzabranoRadioDugme(Komunikativnost)), UBroj(IzabranoRadioDugme(Azurnost)),
-                UBroj(IzabranoRadioDugme(Korisnost)), Komentari.Text, PacijentovJmbg, DateTime.Now);
+                UBroj(IzabranoRadioDugme(Korisnost)), Komentari.Text, pacijentovJmbg, DateTime.Now);
             PacijentKontroler.Instance.PopuniAnketuOBolnici(anketa);
             Close();
         }

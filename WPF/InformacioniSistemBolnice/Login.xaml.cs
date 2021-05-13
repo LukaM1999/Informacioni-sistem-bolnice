@@ -34,55 +34,43 @@ namespace InformacioniSistemBolnice
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            bool nasaoKorisnika = false;
-            foreach (Korisnik k in Korisnici.Instance.listaKorisnika)
+            foreach (Korisnik korisnik in Korisnici.Instance.listaKorisnika)
             {
-                if (username.Text == k.korisnickoIme && password.Password.ToString() == k.lozinka)
-                {
-                    nasaoKorisnika = true;
-                    switch (k.uloga)
-                    {
-                        case Model.UlogaKorisnika.upravnik:
-                            ProstorijeProzor prostorijeP = new ProstorijeProzor();
-                            prostorijeP.Show();
-                            this.Hide();
-                            break;
-
-                        case Model.UlogaKorisnika.lekar:
-                            GlavniProzorLekara glavniProzorLekara = new GlavniProzorLekara(k.korisnickoIme, k.lozinka);
-                            glavniProzorLekara.Show();
-                            this.Close();
-                            break;
-
-                        case Model.UlogaKorisnika.pacijent:
-                            TerminiPacijentaProzor tpp = new TerminiPacijentaProzor(k.korisnickoIme, k.lozinka);
-                            tpp.Show();
-                            this.Close();
-                            break;
-
-                        case Model.UlogaKorisnika.sekretar:
-                            PocetnaStranicaSekretara pocetnaStranica = new();
-                            pocetnaStranica.Show();
-                            this.Close();
-                            break;
-
-                        default: break;
-                    }
-
-                    if (nasaoKorisnika)
-                    {
-                        break;
-                    }
-                }
-
+                if (username.Text != korisnik.korisnickoIme || password.Password.ToString() != korisnik.lozinka) continue;
+                PretraziUlogu(korisnik);
+                return;
             }
-
-            if (!nasaoKorisnika)
-            {
-                MessageBox.Show("Invalid input");
-            }
-
+            MessageBox.Show("Invalid input");
         }
 
+        private void PretraziUlogu(Korisnik korisnik)
+        {
+            switch (korisnik.uloga)
+            {
+                case Model.UlogaKorisnika.upravnik:
+                    ProstorijeProzor prostorijeP = new ProstorijeProzor();
+                    prostorijeP.Show();
+                    this.Hide();
+                    return;
+
+                case Model.UlogaKorisnika.lekar:
+                    GlavniProzorLekara glavniProzorLekara = new GlavniProzorLekara(korisnik.korisnickoIme, korisnik.lozinka);
+                    glavniProzorLekara.Show();
+                    this.Close();
+                    return;
+
+                case Model.UlogaKorisnika.pacijent:
+                    TerminiPacijentaProzor tpp = new TerminiPacijentaProzor(korisnik.korisnickoIme, korisnik.lozinka);
+                    tpp.Show();
+                    this.Close();
+                    return;
+
+                case Model.UlogaKorisnika.sekretar:
+                    PocetnaStranicaSekretara pocetnaStranica = new();
+                    pocetnaStranica.Show();
+                    this.Close();
+                    return;
+            }
+        }
     }
 }

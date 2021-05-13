@@ -22,5 +22,10 @@ namespace Model
             Lek = lek;
         }
 
+        public int DobaviRedovnostTerapije()
+        {
+            return (int)redovnost;
+        }
+
     }
 }

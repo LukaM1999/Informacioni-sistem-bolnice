@@ -26,7 +26,7 @@ namespace InformacioniSistemBolnice
         {
             InitializeComponent();
             Pacijenti.Instance.Deserijalizacija();
-            ListaPacijenata.ItemsSource = Pacijenti.Instance.listaPacijenata;
+            ListaPacijenata.ItemsSource = Pacijenti.Instance.ListaPacijenata;
         }
 
         private void vidiRasporedPacijenta_Click(object sender, RoutedEventArgs e)

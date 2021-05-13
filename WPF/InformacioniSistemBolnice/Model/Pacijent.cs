@@ -34,6 +34,16 @@ namespace Model
             this.maliciozan = false;
         }
 
+        public bool ObrisiTermin(Termin terminZaBrisanje)
+        {
+            return zakazaniTermini.Remove(terminZaBrisanje);
+        }
+
+        public void DodajTermin(Termin terminZaDodavanje)
+        {
+            zakazaniTermini.Add(terminZaDodavanje);
+        }
+
         public ZdravstveniKarton zdravstveniKarton;
         public ObservableCollection<Termin> zakazaniTermini { get; set; }
         

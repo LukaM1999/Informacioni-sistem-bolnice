@@ -97,10 +97,10 @@
     <Compile Update="Views\Sekretar\PomeranjeTermina.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Views\Sekretar\PomeranjeTerminaPacijentaProzor.xaml.cs">
+    <Compile Update="Views\Pacijent\PomeranjeTerminaPacijentaProzor.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Views\Pacijent\PomeranjeZakazanogTermina.xaml.cs">
+    <Compile Update="Views\Sekretar\PomeranjeZakazanogTermina.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Views\Sekretar\PomjeranjeTerminaProzorSekretara.xaml.cs">
@@ -303,10 +303,10 @@
     <Page Update="Views\Lekar\PomeranjeTerminaLekaraProzor.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Views\Sekretar\PomeranjeTerminaPacijentaProzor.xaml">
+    <Page Update="Views\Pacijent\PomeranjeTerminaPacijentaProzor.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Views\Pacijent\PomeranjeZakazanogTermina.xaml">
+    <Page Update="Views\Sekretar\PomeranjeZakazanogTermina.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\Sekretar\PomjeranjeTerminaProzorSekretara.xaml">

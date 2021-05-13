@@ -31,7 +31,7 @@ namespace InformacioniSistemBolnice
             Lekari.Instance.Deserijalizacija();
             lekari.ItemsSource = Lekari.Instance.listaLekara;
             Pacijenti.Instance.Deserijalizacija();
-            pacijenti.ItemsSource = Pacijenti.Instance.listaPacijenata;
+            pacijenti.ItemsSource = Pacijenti.Instance.ListaPacijenata;
             Prostorije.Instance.Deserijalizacija();
             prostorije.ItemsSource = Prostorije.Instance.listaProstorija;
 

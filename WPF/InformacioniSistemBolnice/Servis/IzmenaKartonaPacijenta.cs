@@ -19,7 +19,7 @@ namespace Servis
         public void IzdavanjeRecepta(ReceptDto dto)
         {
             receptDto = dto;
-            foreach (Pacijent pacijent in Pacijenti.Instance.listaPacijenata)
+            foreach (Pacijent pacijent in Pacijenti.Instance.ListaPacijenata)
             {
                 if (PretragaPacijenta(pacijent, KreiranjeRecepta())) break;
             }
@@ -46,7 +46,7 @@ namespace Servis
         public void DodavanjeAnamneze(AnamnezaForma anamneza)
         {
             Anamneza a = new Anamneza(anamneza.prvi.Text, anamneza.drugi.Text, anamneza.treci.Text, anamneza.peti.Text);
-            foreach (Pacijent pacijent in Pacijenti.Instance.listaPacijenata)
+            foreach (Pacijent pacijent in Pacijenti.Instance.ListaPacijenata)
             {
                 if (pacijent.jmbg.Equals(anamneza.p.jmbg))
                 {

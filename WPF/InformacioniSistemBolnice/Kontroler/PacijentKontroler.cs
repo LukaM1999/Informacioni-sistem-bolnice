@@ -8,26 +8,22 @@ namespace Kontroler
 {
     public class PacijentKontroler
     {
-        private static readonly Lazy<PacijentKontroler>
-           lazy =
-           new Lazy<PacijentKontroler>
-               (() => new PacijentKontroler());
-
-        public static PacijentKontroler Instance { get { return lazy.Value; } }
+        private static readonly Lazy<PacijentKontroler> Lazy = new(() => new PacijentKontroler());
+        public static PacijentKontroler Instance => Lazy.Value;
 
         public void Zakazivanje(IzborTermina izborTermina, string jmbgPacijenta)
         {
             UpravljanjeTerminimaPacijenata.Instance.Zakazivanje(izborTermina, jmbgPacijenta);
         }
 
-        public void Otkazivanje(DataGrid listaZakazanihTermina)
+        public void Otkazivanje(Termin terminZaOtkazivanje)
         {
-            UpravljanjeTerminimaPacijenata.Instance.Otkazivanje(listaZakazanihTermina);
+            UpravljanjeTerminimaPacijenata.Instance.Otkazivanje(terminZaOtkazivanje);
         }
 
-        public void Pomeranje(PomeranjeTerminaPacijentaProzor pomeranje)
+        public void Pomeranje(Termin terminZaPomeranje, Termin noviTermin)
         {
-            UpravljanjeTerminimaPacijenata.Instance.Pomeranje(pomeranje);
+            UpravljanjeTerminimaPacijenata.Instance.Pomeranje(terminZaPomeranje, noviTermin);
         }
 
         public void Uvid(DataGrid listaZakazanihTermina)

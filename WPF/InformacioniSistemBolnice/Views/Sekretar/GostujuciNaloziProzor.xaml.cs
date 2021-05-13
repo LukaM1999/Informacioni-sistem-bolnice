@@ -32,7 +32,7 @@ namespace InformacioniSistemBolnice
             Pacijenti.Instance.Deserijalizacija();
             pocetna = pocetnaStranicaSekretara;
             
-            foreach (Pacijent gostujuciPacijent in Pacijenti.Instance.listaPacijenata)
+            foreach (Pacijent gostujuciPacijent in Pacijenti.Instance.ListaPacijenata)
             {
                 if (gostujuciPacijent.korisnik.korisnickoIme == null)
                 {

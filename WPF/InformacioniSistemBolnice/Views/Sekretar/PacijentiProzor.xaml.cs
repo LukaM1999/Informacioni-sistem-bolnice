@@ -28,7 +28,7 @@ namespace InformacioniSistemBolnice
             InitializeComponent();
             Pacijenti.Instance.Deserijalizacija();
             
-            foreach (Pacijent pacijent in Pacijenti.Instance.listaPacijenata)
+            foreach (Pacijent pacijent in Pacijenti.Instance.ListaPacijenata)
             {   
                 if(pacijent.korisnik.korisnickoIme != null)
                 {

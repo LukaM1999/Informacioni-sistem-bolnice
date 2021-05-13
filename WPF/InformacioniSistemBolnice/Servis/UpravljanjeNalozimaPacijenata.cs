@@ -25,7 +25,7 @@ namespace Servis
             Adresa adresa = new Adresa(registracija.drzava, registracija.grad, registracija.ulica, registracija.broj);
             Pacijent p = new Pacijent(new Osoba(registracija.ime, registracija.prezime, registracija.jmbg, datum, registracija.telefon, registracija.email, korisnik, adresa));
             p.zakazaniTermini = zakazaniTermini;
-            Pacijenti.Instance.listaPacijenata.Add(p);
+            Pacijenti.Instance.ListaPacijenata.Add(p);
             Korisnici.Instance.listaKorisnika.Add(korisnik);
             Adrese.Instance.listaAdresa.Add(adresa);
             Adrese.Instance.Serijalizacija();
@@ -42,11 +42,11 @@ namespace Servis
                 Pacijenti pacijenti = Pacijenti.Instance;
                 Korisnici korisnici = Korisnici.Instance;
                 Kartoni kartoni = Kartoni.Instance;
-                foreach (Pacijent p in pacijenti.listaPacijenata)
+                foreach (Pacijent p in pacijenti.ListaPacijenata)
                 {
                     if (p.jmbg.Equals(pacijent.jmbg))
                     {
-                        pacijenti.listaPacijenata.Remove(p);
+                        pacijenti.ListaPacijenata.Remove(p);
                         korisnici.listaKorisnika.Remove(p.korisnik);
                         kartoni.listaKartona.Remove(p.zdravstveniKarton);
 
@@ -57,7 +57,7 @@ namespace Servis
                         Pacijenti.Instance.Deserijalizacija();
                         Korisnici.Instance.Deserijalizacija();
                         Kartoni.Instance.Deserijalizacija();
-                        //ListaPacijenata.ItemsSource = Pacijenti.Instance.listaPacijenata;
+                        //ListaPacijenata.ItemsSource = Pacijenti.Instance.ListaPacijenata;
 
 
                         break;
@@ -73,11 +73,11 @@ namespace Servis
                 Pacijent pacijent = (Pacijent)gostujuciNalozi.SelectedValue;
                 Pacijenti pacijenti = Pacijenti.Instance;
                 Korisnici korisnici = Korisnici.Instance;
-                foreach (Pacijent p in pacijenti.listaPacijenata)
+                foreach (Pacijent p in pacijenti.ListaPacijenata)
                 {
                     if (p.jmbg.Equals(pacijent.jmbg))
                     {
-                        pacijenti.listaPacijenata.Remove(p);
+                        pacijenti.ListaPacijenata.Remove(p);
                         Pacijenti.Instance.Serijalizacija();
                         Pacijenti.Instance.Deserijalizacija();
                         break;
@@ -90,7 +90,7 @@ namespace Servis
         private static void azurirajPrikazListeGostujucihNaloga(ListView gostujuciNalozi)
         {
             ObservableCollection<Pacijent> gostujuciPacijenti = new ObservableCollection<Pacijent>();
-            foreach (Pacijent gostujuciPacijent in Pacijenti.Instance.listaPacijenata)
+            foreach (Pacijent gostujuciPacijent in Pacijenti.Instance.ListaPacijenata)
             {
                 if (gostujuciPacijent.korisnik.korisnickoIme == null)
                 {
@@ -123,7 +123,7 @@ namespace Servis
                 Korisnici.Instance.Serijalizacija();
                 Pacijenti.Instance.Serijalizacija();
                 Pacijenti.Instance.Deserijalizacija();
-                //ListaPacijenata.ItemsSource = Pacijenti.Instance.listaPacijenata;
+                //ListaPacijenata.ItemsSource = Pacijenti.Instance.ListaPacijenata;
 
 
             }
@@ -233,7 +233,7 @@ namespace Servis
             //string jmbg = NadjiPacijenta(pregledNalogaPacijenta);
             foreach (ZdravstveniKarton zdravstveniKarton in zdravstveniKartoni.listaKartona)
             {
-                foreach (Pacijent pacijent in pacijenti.listaPacijenata)
+                foreach (Pacijent pacijent in pacijenti.ListaPacijenata)
                 {
                     if (pacijent.jmbg.Equals(zdravstveniKarton.Jmbg))
                     {
@@ -273,7 +273,7 @@ namespace Servis
             Pacijenti pacijenti = Pacijenti.Instance;
             string jmbg = pregledNalogaPacijenta.JMBGUnos.Content.ToString();
 
-            foreach (Pacijent pacijent in pacijenti.listaPacijenata)
+            foreach (Pacijent pacijent in pacijenti.ListaPacijenata)
             {
                 if (jmbg.Equals(pacijent.jmbg))
                 {
@@ -290,7 +290,7 @@ namespace Servis
         {
             Alergen a = (Alergen)dodajAlergenPacijentu.ListaAlergena.SelectedItem;
             
-            foreach(Pacijent p in Pacijenti.Instance.listaPacijenata)
+            foreach(Pacijent p in Pacijenti.Instance.ListaPacijenata)
             {
                 if(p.jmbg.Equals(izmjenaZdravstvenogKartonaForma.JMBGLabela.Content))
                 {
@@ -326,7 +326,7 @@ namespace Servis
                 Alergen a = (Alergen)izmjenaZdravstvenogKartonaForma.ListaAlergena.SelectedItem;
 
 
-                foreach (Pacijent p in Pacijenti.Instance.listaPacijenata)
+                foreach (Pacijent p in Pacijenti.Instance.ListaPacijenata)
                 {
                     if (p.jmbg.Equals(izmjenaZdravstvenogKartonaForma.JMBGLabela.Content))
                     {
@@ -353,7 +353,7 @@ namespace Servis
 
         public void ZakazivanjeTermina(IzborTerminaPacijenta izborTermina, ZakazivanjeTerminaSekretara zakazivanjeTerminaSekretara)
         {
-            foreach (Pacijent pacijent in Pacijenti.Instance.listaPacijenata)
+            foreach (Pacijent pacijent in Pacijenti.Instance.ListaPacijenata)
             {
                 Pacijent p = (Pacijent)zakazivanjeTerminaSekretara.pacijenti.SelectedItem;
                 if (pacijent.jmbg == p.jmbg)
@@ -414,7 +414,7 @@ namespace Servis
                     }
                 }
 
-                foreach (Pacijent pacijent in Pacijenti.Instance.listaPacijenata.ToList())
+                foreach (Pacijent pacijent in Pacijenti.Instance.ListaPacijenata.ToList())
                 {
                     if (pacijent.jmbg == noviTermin.pacijentJMBG)
                     {
@@ -461,7 +461,7 @@ namespace Servis
             {
                 Termin t = (Termin)listaZakazanihTermina.SelectedItem;
 
-                foreach (Pacijent pacijent in Pacijenti.Instance.listaPacijenata.ToList())
+                foreach (Pacijent pacijent in Pacijenti.Instance.ListaPacijenata.ToList())
                 {
                     if (pacijent.jmbg == t.pacijentJMBG)
                     {
@@ -530,7 +530,7 @@ namespace Servis
                     }
                 }
 
-                foreach (Pacijent pacijent in Pacijenti.Instance.listaPacijenata.ToList())
+                foreach (Pacijent pacijent in Pacijenti.Instance.ListaPacijenata.ToList())
                 {
                     if (pacijent.jmbg == noviTermin.pacijentJMBG)
                     {

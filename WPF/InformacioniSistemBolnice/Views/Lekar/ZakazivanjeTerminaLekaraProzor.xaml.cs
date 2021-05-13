@@ -49,7 +49,7 @@ namespace InformacioniSistemBolnice
             }
             sala.ItemsSource = prostorijeID;
 
-            foreach (Pacijent p in Pacijenti.Instance.listaPacijenata)
+            foreach (Pacijent p in Pacijenti.Instance.ListaPacijenata)
             {
                 jmbgPacijent.Add(p.jmbg);
             }

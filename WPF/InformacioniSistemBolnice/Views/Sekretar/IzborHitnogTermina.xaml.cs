@@ -64,7 +64,7 @@ namespace InformacioniSistemBolnice
                         //int broj = slobodniTermini.Count();
                         //System.Diagnostics.Debug.WriteLine("UKUPNO: " + broj + " za ljekara " + lekar.ime);
                         //Pacijenti.Instance.Deserijalizacija();
-                        //ponudjeniiTermini.ItemsSource = Pacijenti.Instance.listaPacijenata;
+                        //ponudjeniiTermini.ItemsSource = Pacijenti.Instance.ListaPacijenata;
                     }
                     foreach (Termin predlozenTermin in slobodniTermini.ToList())
                     {
@@ -104,7 +104,7 @@ namespace InformacioniSistemBolnice
                 Termini.Instance.listaTermina.Add(najblizi);
                 Termini.Instance.Serijalizacija();
                 Termini.Instance.Deserijalizacija();
-            foreach (Pacijent pacijent in Pacijenti.Instance.listaPacijenata)
+            foreach (Pacijent pacijent in Pacijenti.Instance.ListaPacijenata)
             {
                 if (pacijent.jmbg == najblizi.pacijentJMBG)
                 {

@@ -32,7 +32,7 @@ namespace InformacioniSistemBolnice.Servis
 
         private void PronadjiUlogovanogPacijenta(Pacijent ulogovan)
         {
-            foreach (Pacijent ulogovanPacijent in Pacijenti.Instance.listaPacijenata)
+            foreach (Pacijent ulogovanPacijent in Pacijenti.Instance.ListaPacijenata)
             {
                 if (ulogovanPacijent.jmbg != ulogovan.jmbg) continue;
                 UlogovanPacijent = ulogovanPacijent;
@@ -109,7 +109,7 @@ namespace InformacioniSistemBolnice.Servis
 
         private void OznaciUlogovanog()
         {
-            foreach (Pacijent maliciozanPacijent in Pacijenti.Instance.listaPacijenata)
+            foreach (Pacijent maliciozanPacijent in Pacijenti.Instance.ListaPacijenata)
             {
                 if (maliciozanPacijent.jmbg != UlogovanPacijent.jmbg) continue;
                 maliciozanPacijent.maliciozan = true;

@@ -20,21 +20,21 @@ namespace InformacioniSistemBolnice
 {
     public partial class AnketaOLekaruForma : Window
     {
-        private Termin IzabranTermin;
+        private readonly Termin izabranTermin;
 
         public AnketaOLekaruForma(Termin izabranTermin)
         {
             InitializeComponent();
-            IzabranTermin = izabranTermin;
+            this.izabranTermin = izabranTermin;
         }
 
         private void Potvrda(object sender, RoutedEventArgs e)
         {
-            IzabranTermin.AnketaOLekaru = new AnketaOLekaru(UBroj(IzabranoRadioDugme(Ljubaznost)),
+            izabranTermin.AnketaOLekaru = new AnketaOLekaru(UBroj(IzabranoRadioDugme(Ljubaznost)),
                 UBroj(IzabranoRadioDugme(Profesionalizam)), UBroj(IzabranoRadioDugme(Strpljenje)),
                 UBroj(IzabranoRadioDugme(Komunikativnost)), UBroj(IzabranoRadioDugme(Azurnost)),
                 UBroj(IzabranoRadioDugme(Korisnost)), Komentari.Text);
-            PacijentKontroler.Instance.PopuniAnketuOLekaru(IzabranTermin);
+            PacijentKontroler.Instance.PopuniAnketuOLekaru(izabranTermin);
             Close();
         }
 
