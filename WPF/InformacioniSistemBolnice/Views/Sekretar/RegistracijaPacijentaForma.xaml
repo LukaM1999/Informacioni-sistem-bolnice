@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:InformacioniSistemBolnice"
         mc:Ignorable="d"
         Height="650" Width="1000" Background="LightGray" Margin="0,0,0,30">
-    <Grid Height="650" Width="1000" HorizontalAlignment="Center" VerticalAlignment="Center">
+    <Grid Height="650" Width="500" HorizontalAlignment="Center" VerticalAlignment="Center">
         <Canvas Height="640" Width="325" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="70,10,0,0">
             <Label Content="Ime: " Canvas.Left="23" Canvas.Top="40" Width="44" HorizontalAlignment="Right"/>
             <Label Content="Prezime: " Canvas.Left="23" Canvas.Top="80" Width="58"/>
@@ -33,10 +33,12 @@
             <Label Content="Grad: " Canvas.Left="23" Canvas.Top="240" Width="58" Height="26"/>
             <Label Content="Ulica: " Canvas.Left="23" Canvas.Top="280" Width="94"/>
             <Label Content="Broj: " Canvas.Left="23" Canvas.Top="320" Width="70"/>
-
-
+            <Button Style="{StaticResource ResourceKey=MainButtons}" x:Name="Nazad"  Click="NazadBtn_Click" HorizontalAlignment="Left" VerticalAlignment="Top" Background="LightGray"  Width="50" Height="60" Margin="-150,10,0,0" >
+                <StackPanel Orientation="Vertical">
+                    <Image Source="../../images/back.png" Width="30" Height="30" RenderOptions.BitmapScalingMode="Fant"/>
+                    <TextBlock Text="Nazad" VerticalAlignment="Center" FontSize="14"/>
+                </StackPanel>
+            </Button>
         </Canvas>
-        <Button Content="Nazad" HorizontalAlignment="Left" Margin="50,32,0,0" VerticalAlignment="Top" Click="NazadBtn_Click" Width="120" Height="25"/>
-
     </Grid>
 </UserControl>

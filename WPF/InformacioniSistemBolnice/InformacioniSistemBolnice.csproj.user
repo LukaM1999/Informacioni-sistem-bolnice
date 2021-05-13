@@ -88,9 +88,6 @@
     <Compile Update="Views\Sekretar\PacijentiProzor.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Views\Sekretar\PacijentiProzor1.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Update="Views\Sekretar\PocetnaStranicaSekretara.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -289,9 +286,6 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\Sekretar\PacijentiProzor.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="Views\Sekretar\PacijentiProzor1.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\Sekretar\PocetnaStranicaSekretara.xaml">
