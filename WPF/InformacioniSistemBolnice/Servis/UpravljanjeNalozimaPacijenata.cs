@@ -27,8 +27,6 @@ namespace Servis
             p.zakazaniTermini = zakazaniTermini;
             Pacijenti.Instance.ListaPacijenata.Add(p);
             Korisnici.Instance.listaKorisnika.Add(korisnik);
-            Adrese.Instance.listaAdresa.Add(adresa);
-            Adrese.Instance.Serijalizacija();
             Korisnici.Instance.Serijalizacija();
             Pacijenti.Instance.Serijalizacija();
 
@@ -119,13 +117,9 @@ namespace Servis
                 p.korisnik.lozinka = izmena.lozinkaUnos.Password;
                 Korisnik korisnik = p.korisnik;
                 Adresa adresa = p.adresa;
-                Adrese.Instance.Serijalizacija();
                 Korisnici.Instance.Serijalizacija();
                 Pacijenti.Instance.Serijalizacija();
                 Pacijenti.Instance.Deserijalizacija();
-                //ListaPacijenata.ItemsSource = Pacijenti.Instance.ListaPacijenata;
-
-
             }
         }
 
@@ -187,8 +181,6 @@ namespace Servis
             //}
 
             zdravstveniKarton.Alergeni = alergeni;
-            BazaPodatakaOZaposlenjuiZanimanjuPacijenata.Instance.bazaPodatakaOZaposlenjuIZanimanjuPacijenata.Add(podaciOZaposlenjuIZanimanju);
-            BazaPodatakaOZaposlenjuiZanimanjuPacijenata.Instance.Serijalizacija();
             Kartoni.Instance.listaKartona.Add(zdravstveniKarton);
             Kartoni.Instance.Serijalizacija();
         }
@@ -224,7 +216,7 @@ namespace Servis
         {
             Alergen a = (Alergen)dodajAlergenPacijentu.ListaAlergena.SelectedItem;
 
-            foreach (Pacijent p in Pacijenti.Instance.listaPacijenata)
+            foreach (Pacijent p in Pacijenti.Instance.ListaPacijenata)
             {
                 if (p.jmbg.Equals(izmjenaZdravstvenogKartonaForma.JMBGLabela.Content))
                 {
@@ -257,7 +249,7 @@ namespace Servis
             {
                 Alergen a = (Alergen)izmjenaZdravstvenogKartonaForma.ListaAlergena.SelectedItem;
                 System.Diagnostics.Debug.WriteLine(a);
-                foreach (Pacijent p in Pacijenti.Instance.listaPacijenata)
+                foreach (Pacijent p in Pacijenti.Instance.ListaPacijenata)
                 {
                     if (p.jmbg.Equals(izmjenaZdravstvenogKartonaForma.JMBGLabela.Content))
                     {
