@@ -70,11 +70,11 @@
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
-
+  
   <ItemGroup>
     <Folder Include="ViewModels\" />
   </ItemGroup>
-
+  
   <ItemGroup>
     <Resource Include="images\back.png" />
     <Resource Include="images\bell.png" />

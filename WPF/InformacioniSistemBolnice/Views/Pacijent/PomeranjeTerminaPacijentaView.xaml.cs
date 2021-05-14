@@ -19,12 +19,12 @@ using System.Collections.ObjectModel;
 
 namespace InformacioniSistemBolnice
 {
-    public partial class PomeranjeTerminaPacijentaProzor : Window
+    public partial class PomeranjeTerminaPacijentaView : Window
     {
         private Termin terminZaPomeranje;
-        public TerminiPacijentaProzor terminiPacijenta;
+        public TerminiPacijentaView terminiPacijenta;
 
-        public PomeranjeTerminaPacijentaProzor(Termin izabranTermin)
+        public PomeranjeTerminaPacijentaView(Termin izabranTermin)
         {
             InitializeComponent();
             terminZaPomeranje = izabranTermin;

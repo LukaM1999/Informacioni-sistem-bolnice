@@ -13,11 +13,11 @@ using System.Diagnostics;
 
 namespace InformacioniSistemBolnice
 {
-    public partial class TerminiPacijentaProzor : Window
+    public partial class TerminiPacijentaView : Window
     {
         private Pacijent ulogovanPacijent;
 
-        public TerminiPacijentaProzor(string korisnickoIme, string lozinka)
+        public TerminiPacijentaView(string korisnickoIme, string lozinka)
         {
             InitializeComponent();
             InicijalizujProzor(korisnickoIme, lozinka);
@@ -48,12 +48,12 @@ namespace InformacioniSistemBolnice
             Termin terminZaPomeranje = (Termin)listaZakazanihTermina.SelectedItem;
             if (listaZakazanihTermina.SelectedIndex >= 0 && terminZaPomeranje.vreme > DateTime.Now.AddHours(24)
             && terminZaPomeranje.status != StatusTermina.pomeren)
-                new PomeranjeTerminaPacijentaProzor(terminZaPomeranje).Show();
+                new PomeranjeTerminaPacijentaView(terminZaPomeranje).Show();
         }
 
         private void zakaziDugme_Click(object sender, RoutedEventArgs e)
         {
-            new ZakazivanjeTerminaPacijentaProzor(ulogovanPacijent.jmbg, this).Show();
+            new ZakazivanjeTerminaPacijentaView(ulogovanPacijent.jmbg).Show();
         }
 
         private void otkaziDugme_Click(object sender, RoutedEventArgs e)
@@ -68,13 +68,13 @@ namespace InformacioniSistemBolnice
 
         private void prikaziVesti_Click(object sender, RoutedEventArgs e)
         {
-            new ProzorSaVestima().Show();
+            new VestiView().Show();
         }
 
         private void OtvoriAnketu(object sender, RoutedEventArgs e)
         {
             Termin izabranTermin = (Termin)listaZakazanihTermina.SelectedValue;
-            if (JeIzabranZavrsenTermin(izabranTermin)) new AnketaOLekaruForma(izabranTermin).Show();
+            if (JeIzabranZavrsenTermin(izabranTermin)) new AnketaOLekaruFormaView(izabranTermin).Show();
         }
 
         private static bool JeIzabranZavrsenTermin(Termin izabranTermin)

@@ -11,9 +11,9 @@ namespace Kontroler
         private static readonly Lazy<PacijentKontroler> Lazy = new(() => new PacijentKontroler());
         public static PacijentKontroler Instance => Lazy.Value;
 
-        public void Zakazivanje(IzborTermina izborTermina, string jmbgPacijenta)
+        public void Zakazivanje(Termin terminZaZakazivanje)
         {
-            UpravljanjeTerminimaPacijenata.Instance.Zakazivanje(izborTermina, jmbgPacijenta);
+            UpravljanjeTerminimaPacijenata.Instance.Zakazivanje(terminZaZakazivanje);
         }
 
         public void Otkazivanje(Termin terminZaOtkazivanje)
@@ -40,6 +40,5 @@ namespace Kontroler
         {
             UpravljanjeAnketama.Instance.PopuniAnketuOBolnici(anketa);
         }
-
     }
 }
