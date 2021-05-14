@@ -70,10 +70,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="ViewModels\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Resource Include="images\bell.png" />
     <Resource Include="images\gear.png" />
     <Resource Include="images\hospital.png" />

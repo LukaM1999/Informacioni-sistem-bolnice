@@ -40,6 +40,12 @@ namespace Repozitorijum
             }
         }
 
+        public Termin NadjiPoVremenu(DateTime vreme)
+        {
+            foreach (Termin termin in listaTermina) if (termin.vreme == vreme) return termin;
+            return null;
+        }
+
         public Termini()
         {
             listaTermina = new ObservableCollection<Termin>();

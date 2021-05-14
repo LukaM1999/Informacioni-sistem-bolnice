@@ -15,57 +15,29 @@ namespace Servis
            Lazy = new(() => new UpravljanjeTerminimaPacijenata());
         public static UpravljanjeTerminimaPacijenata Instance => Lazy.Value;
 
-        public void Zakazivanje(IzborTermina izborTermina, string jmbgPacijenta)
+        public void Zakazivanje(Termin terminZaZakazivanje)
         {
-            foreach (Pacijent pacijent in Pacijenti.Instance.ListaPacijenata)
-            {
-                if (pacijent.jmbg != jmbgPacijenta) continue;
-                foreach (Termin vecZakazan in pacijent.zakazaniTermini)
-                {
-                    if (vecZakazan == (Termin)izborTermina.ponudjeniTermini.SelectedItem)
-                    {
-                        return;
-                    }
-                }
-                foreach (Lekar lekar in Lekari.Instance.listaLekara)
-                {
-                    if (lekar.jmbg != ((Termin) izborTermina.ponudjeniTermini.SelectedItem).lekarJMBG) continue;
-                    foreach (Prostorija prostorija in Prostorije.Instance.listaProstorija)
-                    {
-                        if (prostorija.id != ((Termin) izborTermina.ponudjeniTermini.SelectedItem).idProstorije)
-                            continue;
-                        ((Termin)izborTermina.ponudjeniTermini.SelectedItem).status = StatusTermina.zakazan;
-                        pacijent.zakazaniTermini.Add((Termin)izborTermina.ponudjeniTermini.SelectedItem);
-                        lekar.zauzetiTermini.Add((Termin)izborTermina.ponudjeniTermini.SelectedItem);
-                        prostorija.termin.Add((Termin)izborTermina.ponudjeniTermini.SelectedItem);
-                        Termini.Instance.listaTermina.Add((Termin)izborTermina.ponudjeniTermini.SelectedItem);
-                        Lekari.Instance.Serijalizacija();
-                        Pacijenti.Instance.Serijalizacija();
-                        Termini.Instance.Serijalizacija();
-                        Prostorije.Instance.Serijalizacija();
-                        izborTermina.zakazivanjeTerminaPacijenta.terminiPacijentaProzor.listaZakazanihTermina.ItemsSource
-                            = pacijent.zakazaniTermini;
-                        izborTermina.zakazivanjeTerminaPacijenta.Close();
-                        izborTermina.Close();
-                        return;
-                    }
-                }
-            }
+            Pacijent ulogovanPacijent = Pacijenti.Instance.NadjiPoJmbg(terminZaZakazivanje.pacijentJMBG);
+            foreach (Termin vecZakazan in ulogovanPacijent.zakazaniTermini)
+                if (vecZakazan.vreme == terminZaZakazivanje.vreme) return;
+            Lekar izabranLekar = Lekari.Instance.NadjiPoJmbg(terminZaZakazivanje.lekarJMBG);
+            Prostorija nadjenaProstorija = Prostorije.Instance.NadjiPoId(terminZaZakazivanje.idProstorije);
+            terminZaZakazivanje.status = StatusTermina.zakazan;
+            ulogovanPacijent.DodajTermin(terminZaZakazivanje);
+            izabranLekar.zauzetiTermini.Add(terminZaZakazivanje);
+            nadjenaProstorija.termin.Add(terminZaZakazivanje);
+            Termini.Instance.listaTermina.Add(terminZaZakazivanje);
+            Lekari.Instance.Serijalizacija();
+            Pacijenti.Instance.Serijalizacija();
+            Termini.Instance.Serijalizacija();
+            Prostorije.Instance.Serijalizacija();
         }
 
         public void Otkazivanje(Termin terminZaOtkazivanje)
         {
-            foreach (Pacijent pacijent in Pacijenti.Instance.ListaPacijenata.ToList())
-            {
-                if (pacijent.jmbg != terminZaOtkazivanje.pacijentJMBG) continue;
-                foreach (Termin termin in pacijent.zakazaniTermini)
-                {
-                    if (termin.vreme != terminZaOtkazivanje.vreme) continue;
-                    pacijent.zakazaniTermini.Remove(termin);
-                    Pacijenti.Instance.Serijalizacija();
-                    break;
-                }
-            }
+            Pacijent ulogovanPacijent = Pacijenti.Instance.NadjiPoJmbg(terminZaOtkazivanje.pacijentJMBG);
+            ulogovanPacijent.ObrisiTermin(Termini.Instance.NadjiPoVremenu(terminZaOtkazivanje.vreme));
+            Pacijenti.Instance.Serijalizacija();
 
             foreach (Lekar lekar in Lekari.Instance.listaLekara.ToList())
             {

@@ -224,7 +224,7 @@ namespace Servis
         {
             Alergen a = (Alergen)dodajAlergenPacijentu.ListaAlergena.SelectedItem;
 
-            foreach (Pacijent p in Pacijenti.Instance.listaPacijenata)
+            foreach (Pacijent p in Pacijenti.Instance.ListaPacijenata)
             {
                 if (p.jmbg.Equals(izmjenaZdravstvenogKartonaForma.JMBGLabela.Content))
                 {
@@ -257,7 +257,7 @@ namespace Servis
             {
                 Alergen a = (Alergen)izmjenaZdravstvenogKartonaForma.ListaAlergena.SelectedItem;
                 System.Diagnostics.Debug.WriteLine(a);
-                foreach (Pacijent p in Pacijenti.Instance.listaPacijenata)
+                foreach (Pacijent p in Pacijenti.Instance.ListaPacijenata)
                 {
                     if (p.jmbg.Equals(izmjenaZdravstvenogKartonaForma.JMBGLabela.Content))
                     {

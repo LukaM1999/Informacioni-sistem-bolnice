@@ -18,12 +18,12 @@ using Kontroler;
 namespace InformacioniSistemBolnice
 {
     /// <summary>
-    /// Interaction logic for ProzorSaVestima.xaml
+    /// Interaction logic for VestiView.xaml
     /// </summary>
-    public partial class ProzorSaVestima : Window
+    public partial class VestiView : Window
     {
         public Korisnik korisnik;
-        public ProzorSaVestima()
+        public VestiView()
         {
             InitializeComponent();
             Korisnici.Instance.Deserijalizacija();

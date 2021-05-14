@@ -35,7 +35,7 @@ namespace Servis
             ulogovanPacijent = pacijent;
             if (!PacijentPosetioBolnicu(DobaviSortiraneTermine())) return;
             if (PrebrojTermineDoAnkete() < TerminaDoAnkete && !JeVremeZaAnketu()) return;
-            AnketaOBolniciForma anketaOBolnici = new(ulogovanPacijent.jmbg);
+            AnketaOBolniciFormaView anketaOBolnici = new(ulogovanPacijent.jmbg);
             await Task.Delay(7000);
             anketaOBolnici.Show();
         }

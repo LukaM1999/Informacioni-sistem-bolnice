@@ -60,7 +60,7 @@ namespace InformacioniSistemBolnice
                     return;
 
                 case Model.UlogaKorisnika.pacijent:
-                    TerminiPacijentaProzor tpp = new TerminiPacijentaProzor(korisnik.korisnickoIme, korisnik.lozinka);
+                    TerminiPacijentaView tpp = new TerminiPacijentaView(korisnik.korisnickoIme, korisnik.lozinka);
                     tpp.Show();
                     this.Close();
                     return;

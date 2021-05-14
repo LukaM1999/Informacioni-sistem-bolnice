@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,27 +13,26 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Kontroler;
 using Model;
-using Repozitorijum;
 
 namespace InformacioniSistemBolnice
 {
-    public partial class AnketaOLekaruForma : Window
+    public partial class AnketaOBolniciFormaView : Window
     {
-        private readonly Termin izabranTermin;
+        private readonly string pacijentovJmbg;
 
-        public AnketaOLekaruForma(Termin izabranTermin)
+        public AnketaOBolniciFormaView(string jmbgPacijenta)
         {
             InitializeComponent();
-            this.izabranTermin = izabranTermin;
+            pacijentovJmbg = jmbgPacijenta;
         }
 
         private void Potvrda(object sender, RoutedEventArgs e)
         {
-            izabranTermin.AnketaOLekaru = new AnketaOLekaru(UBroj(IzabranoRadioDugme(Ljubaznost)),
+            AnketaOBolnici anketa = new(UBroj(IzabranoRadioDugme(Ljubaznost)),
                 UBroj(IzabranoRadioDugme(Profesionalizam)), UBroj(IzabranoRadioDugme(Strpljenje)),
                 UBroj(IzabranoRadioDugme(Komunikativnost)), UBroj(IzabranoRadioDugme(Azurnost)),
-                UBroj(IzabranoRadioDugme(Korisnost)), Komentari.Text);
-            PacijentKontroler.Instance.PopuniAnketuOLekaru(izabranTermin);
+                UBroj(IzabranoRadioDugme(Korisnost)), Komentari.Text, pacijentovJmbg, DateTime.Now);
+            PacijentKontroler.Instance.PopuniAnketuOBolnici(anketa);
             Close();
         }
 

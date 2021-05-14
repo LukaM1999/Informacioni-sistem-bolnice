@@ -33,7 +33,7 @@ namespace InformacioniSistemBolnice
             IzmjenaZdravstvenogKartonaForma = izmjenaZdravstvenogKartonaForma;
             Alergeni.Instance.Deserijalizacija();
             listaAlergena = Alergeni.Instance.listaAlergena;
-            foreach (Pacijent p in Pacijenti.Instance.listaPacijenata)
+            foreach (Pacijent p in Pacijenti.Instance.ListaPacijenata)
             {
                 if(p.zdravstveniKarton.Jmbg.Equals(izmjenaZdravstvenogKartonaForma.JMBGLabela.Content))
                 {
