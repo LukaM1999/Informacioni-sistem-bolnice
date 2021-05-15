@@ -16,6 +16,8 @@ using Servis;
 using Repozitorijum;
 using Kontroler;
 using System.Collections.ObjectModel;
+using StatickaOprema = Model.StatickaOprema;
+using DinamickaOprema = Model.DinamickaOprema;
 
 namespace InformacioniSistemBolnice
 {
@@ -99,7 +101,7 @@ namespace InformacioniSistemBolnice
                 TipStatickeOpreme tipStatickeOpreme = (TipStatickeOpreme)cbStaticka.SelectedItem;
                 foreach (Prostorija prostorija in Prostorije.Instance.listaProstorija.ToList())
                 {
-                    foreach(Model.StatickaOprema statickaOprema in prostorija.inventar.statickaOprema.ToList())
+                    foreach(StatickaOprema statickaOprema in prostorija.inventar.statickaOprema.ToList())
                     {
                         if (statickaOprema.tip.Equals(tipStatickeOpreme) && statickaOprema.kolicina >= kolicina)
                         {
@@ -113,7 +115,7 @@ namespace InformacioniSistemBolnice
                 TipDinamickeOpreme tipDinamickeOpreme = (TipDinamickeOpreme)cbDinamicka.SelectedItem;
                 foreach (Prostorija prostorija in Prostorije.Instance.listaProstorija.ToList())
                 {
-                    foreach (Model.DinamickaOprema dinamickaOprema in prostorija.inventar.dinamickaOprema.ToList())
+                    foreach (DinamickaOprema dinamickaOprema in prostorija.inventar.dinamickaOprema.ToList())
                     {
                         if (dinamickaOprema.tip.Equals(tipDinamickeOpreme) && dinamickaOprema.kolicina >= kolicina)
                         {

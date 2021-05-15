@@ -4,7 +4,7 @@ using System.Threading;
 using Model;
 using Repozitorijum;
 
-namespace InformacioniSistemBolnice.Servis
+namespace Servis
 {
     class UpravljanjeAntiTrollMehanizmom
     {

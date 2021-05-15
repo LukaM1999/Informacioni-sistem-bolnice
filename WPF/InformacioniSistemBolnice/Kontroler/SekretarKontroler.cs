@@ -3,7 +3,6 @@ using System.Windows.Controls;
 using InformacioniSistemBolnice;
 using Servis;
 using Model;
-using InformacioniSistemBolnice.Servis;
 
 namespace Kontroler
 {

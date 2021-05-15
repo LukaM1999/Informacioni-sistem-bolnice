@@ -81,7 +81,7 @@ namespace InformacioniSistemBolnice
             {
                 UputDto uputDto = new UputDto((DateTime)pocetak.SelectedDate, (DateTime)kraj.SelectedDate, 
                     (Lekar)lekari.SelectedItem, pacijent, (Prostorija)prostorija.SelectionBoxItem, 
-                    (Model.TipTermina)Enum.Parse(typeof(Model.TipTermina), tip.SelectedItem.ToString()), (bool)hitno.IsChecked);
+                    (TipTermina)Enum.Parse(typeof(TipTermina), tip.SelectedItem.ToString()), (bool)hitno.IsChecked);
                 IzborTerminaLekara izborTerminaLekara = new(uputDto);
                 izborTerminaLekara.Show();
             }

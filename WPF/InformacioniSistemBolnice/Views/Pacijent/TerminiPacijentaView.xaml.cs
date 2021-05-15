@@ -8,7 +8,7 @@ using System.Collections.ObjectModel;
 using Servis;
 using Kontroler;
 using System.Threading;
-using InformacioniSistemBolnice.Servis;
+using InformacioniSistemBolnice.Views.Pacijent;
 using System.Diagnostics;
 
 namespace InformacioniSistemBolnice
@@ -29,6 +29,7 @@ namespace InformacioniSistemBolnice
             new Thread(() => ProveraZavrsenostiTermina.Instance.ProveriZavrsenostTermina(ulogovanPacijent)).Start();
             new Thread(() => UpravljanjeAntiTrollMehanizmom.Instance.ProveriMalicioznostPacijenta(ulogovanPacijent)).Start();
             UpravljanjeAnketama.Instance.OtvoriAnketuOBolnici(ulogovanPacijent);
+            UpravljanjeObavestenjimaPacijenta.Instance.UkljuciPodsetnike(ulogovanPacijent.jmbg);
             new Thread(() => UpravljanjeObavestenjimaTerapija.Instance.UkljuciObavestenja(ulogovanPacijent)).Start();
         }
 
@@ -75,6 +76,11 @@ namespace InformacioniSistemBolnice
         {
             Termin izabranTermin = (Termin)listaZakazanihTermina.SelectedValue;
             if (JeIzabranZavrsenTermin(izabranTermin)) new AnketaOLekaruFormaView(izabranTermin).Show();
+        }
+
+        private void OtvoriPodsetnikFormu(object sender, RoutedEventArgs e)
+        {
+            new KreiranjePodsetnikaView(ulogovanPacijent).Show();
         }
 
         private static bool JeIzabranZavrsenTermin(Termin izabranTermin)

@@ -11,9 +11,11 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using Repozitorijum;
 using Kontroler;
 using Model;
+using Repozitorijum;
+using DinamickaOprema = Model.DinamickaOprema;
+using StatickaOprema = Model.StatickaOprema;
 
 
 namespace InformacioniSistemBolnice
@@ -85,7 +87,7 @@ namespace InformacioniSistemBolnice
         {
             if (listViewDinamOpreme.SelectedValue != null && listaProstorija.SelectedValue != null)
             {
-                Model.DinamickaOprema oprema = (Model.DinamickaOprema)listViewDinamOpreme.SelectedValue;
+                DinamickaOprema oprema = (DinamickaOprema)listViewDinamOpreme.SelectedValue;
                 int kolicina = Int32.Parse(tbKolDin.Text);
                 Prostorija prostorija = (Prostorija)listaProstorija.SelectedItem;
                 
@@ -103,7 +105,7 @@ namespace InformacioniSistemBolnice
         {
             if (listViewStatOpreme.SelectedValue != null && listaProstorijaS.SelectedValue != null && datumStat.SelectedDate != null)
             {
-                Model.StatickaOprema oprema = (Model.StatickaOprema)listViewStatOpreme.SelectedItem;
+                StatickaOprema oprema = (StatickaOprema)listViewStatOpreme.SelectedItem;
                 int kolicina = Int32.Parse(tbKolStat.Text);
                 Prostorija prostorija = (Prostorija)listaProstorijaS.SelectedItem;
                 

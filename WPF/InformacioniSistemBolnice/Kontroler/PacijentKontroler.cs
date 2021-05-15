@@ -40,5 +40,10 @@ namespace Kontroler
         {
             UpravljanjeAnketama.Instance.PopuniAnketuOBolnici(anketa);
         }
+
+        public void UkljuciNoviPodsetnik(Podsetnik novPodsetnik)
+        {
+            UpravljanjeObavestenjimaPacijenta.Instance.UkljuciNoviPodsetnik(novPodsetnik);
+        }
     }
 }

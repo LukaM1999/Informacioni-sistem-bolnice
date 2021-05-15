@@ -4,10 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
+using InformacioniSistemBolnice;
 using Model;
 using Repozitorijum;
 
-namespace InformacioniSistemBolnice.Servis
+namespace Servis
 {
     class UpravljanjeVestima
     {

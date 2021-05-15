@@ -47,25 +47,25 @@ namespace InformacioniSistemBolnice
         {
             switch (korisnik.uloga)
             {
-                case Model.UlogaKorisnika.upravnik:
+                case UlogaKorisnika.upravnik:
                     ProstorijeProzor prostorijeP = new ProstorijeProzor();
                     prostorijeP.Show();
                     this.Hide();
                     return;
 
-                case Model.UlogaKorisnika.lekar:
+                case UlogaKorisnika.lekar:
                     GlavniProzorLekara glavniProzorLekara = new GlavniProzorLekara(korisnik.korisnickoIme, korisnik.lozinka);
                     glavniProzorLekara.Show();
                     this.Close();
                     return;
 
-                case Model.UlogaKorisnika.pacijent:
+                case UlogaKorisnika.pacijent:
                     TerminiPacijentaView tpp = new TerminiPacijentaView(korisnik.korisnickoIme, korisnik.lozinka);
                     tpp.Show();
                     this.Close();
                     return;
 
-                case Model.UlogaKorisnika.sekretar:
+                case UlogaKorisnika.sekretar:
                     PocetnaStranicaSekretara pocetnaStranica = new();
                     pocetnaStranica.Show();
                     this.Close();

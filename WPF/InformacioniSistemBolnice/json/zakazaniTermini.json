@@ -80,7 +80,7 @@
     "vreme": "2021-05-14T00:00:00+02:00",
     "trajanje": 30.0,
     "tipTermina": 1,
-    "status": 0,
+    "status": 4,
     "AnketaOLekaru": null,
     "pacijentJMBG": "1203998123123",
     "lekarJMBG": "231568933",

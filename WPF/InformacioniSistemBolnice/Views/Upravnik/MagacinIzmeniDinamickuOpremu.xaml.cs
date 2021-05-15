@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Kontroler;
+using Model;
 
 namespace InformacioniSistemBolnice
 {
@@ -34,14 +35,14 @@ namespace InformacioniSistemBolnice
 
         public void postavljanjeVrednost()
         {
-            Model.DinamickaOprema oprema = (Model.DinamickaOprema)lista.SelectedValue;
+            DinamickaOprema oprema = (DinamickaOprema)lista.SelectedValue;
             tb1.Text = oprema.kolicina.ToString();
             cb1.Text = oprema.tip.ToString();
         }
 
         private void dugmePotvrdi_Click(object sender, RoutedEventArgs e)
         {
-            Model.DinamickaOprema oprema = (Model.DinamickaOprema)lista.SelectedValue;
+            DinamickaOprema oprema = (DinamickaOprema)lista.SelectedValue;
             UpravnikKontroler.Instance.IzmenaDinamickeOpreme(oprema, this);
             lista.ItemsSource = Repozitorijum.DinamickaOprema.Instance.listaOpreme;
             this.Close();
