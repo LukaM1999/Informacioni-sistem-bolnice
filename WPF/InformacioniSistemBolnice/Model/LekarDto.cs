@@ -22,6 +22,7 @@ namespace Model
         public string lozinka { get; set; }
         public string specijalizacija { get; set; }
 
+        public LekarDto() {}
         public LekarDto(string ime, string prezime, string jmbg, DateTime datumRodjenja, 
                         string drzava, string grad, string ulica, string broj,
                         string telefon,string email, string korisnickoIme, string lozinka, 

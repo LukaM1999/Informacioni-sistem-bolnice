@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="InformacioniSistemBolnice.IzmenaNalogaLekaraForma"
+﻿<UserControl x:Class="InformacioniSistemBolnice.PregledNalogaLekara"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -29,12 +29,11 @@
             <TextBox x:Name="mailUnos" Canvas.Left="132" Canvas.Top="400" Width="140" Height="25" FontSize="14" />
             <TextBox x:Name="korisnikUnos" Canvas.Left="132" Canvas.Top="440" Text="" TextWrapping="Wrap" Width="140" Height="25" FontSize="14"/>
             <PasswordBox x:Name="lozinkaUnos" Canvas.Left="132" Canvas.Top="480" Width="140" Height="25" FontSize="14" />
-            <ComboBox x:Name="specijalizacijeLekara" Canvas.Left="132" Canvas.Top="520" Width="140" Height="25" FontSize="14" />
+            <TextBox x:Name="specijalizacijeLekara" Canvas.Left="132" Canvas.Top="520" Width="140" Height="25" FontSize="14" />
             <Label Content="Drzava: " Canvas.Left="23" Canvas.Top="200" Width="58"/>
             <Label Content="Grad: " Canvas.Left="23" Canvas.Top="240" Width="58" Height="26"/>
             <Label Content="Ulica: " Canvas.Left="23" Canvas.Top="280" Width="94"/>
             <Label Content="Broj: " Canvas.Left="23" Canvas.Top="320" Width="70"/>
-            <Button x:Name="potvrdiDugme" Content="Potvrdi" Canvas.Left="200" Canvas.Top="580" Width="120" Height="30" Background="White" Click="PotvrdiDugme_Click" />
             <Button Style="{StaticResource ResourceKey=MainButtons}" x:Name="Nazad"  Click="NazadBtn_Click" HorizontalAlignment="Left" VerticalAlignment="Top" Background="LightGray"  Width="50" Height="60" Margin="-150,10,0,0" >
                 <StackPanel Orientation="Vertical">
                     <Image Source="../../images/back.png" Width="30" Height="30" RenderOptions.BitmapScalingMode="Fant"/>
@@ -42,6 +41,7 @@
                 </StackPanel>
             </Button>
         </Canvas>
-        
+
     </Grid>
 </UserControl>
+

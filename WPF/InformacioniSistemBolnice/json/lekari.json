@@ -33,7 +33,12 @@
     "datumRodjenja": "1992-06-08T00:00:00",
     "telefon": "064345590",
     "email": "pdarko@gmail.com",
-    "adresa": null,
+    "adresa": {
+      "Broj": "2",
+      "Ulica": "Danila Kisa",
+      "Grad": "Novi Sad",
+      "Drzava": "Srbijaa"
+    },
     "korisnik": {
       "korisnickoIme": "lekar1",
       "lozinka": "lekar1",
@@ -55,7 +60,7 @@
       }
     ],
     "specijalizacija": {
-      "Naziv": "Lekar opste prakse"
+      "Naziv": "Neurolog"
     },
     "ime": "Marko",
     "prezime": "Lazic",
@@ -63,7 +68,12 @@
     "datumRodjenja": "1987-01-05T00:00:00",
     "telefon": "063454664",
     "email": "lmarko@gmail.com",
-    "adresa": null,
+    "adresa": {
+      "Broj": "2",
+      "Ulica": "Danila Kisa",
+      "Grad": "Novi Sad",
+      "Drzava": "Srbijaa"
+    },
     "korisnik": {
       "korisnickoIme": "lekar2",
       "lozinka": "lekar2",
@@ -85,7 +95,7 @@
       "Broj": "2",
       "Ulica": "Danila Kisa",
       "Grad": "Novi Sad",
-      "Drzava": "Srbijaa"
+      "Drzava": "Srbija"
     },
     "korisnik": {
       "korisnickoIme": "drNikolaaa",

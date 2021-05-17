@@ -37,6 +37,13 @@ namespace InformacioniSistemBolnice
             LekarDto lekarDto = new LekarDto(imeUnos.Text, prezimeUnos.Text, JMBGUnos.Text, DateTime.Parse(datumUnos.Text),
                                             drzavaUnos.Text, gradUnos.Text, ulicaUnos.Text, brojUnos.Text,
                                            telUnos.Text, mailUnos.Text, korisnikUnos.Text, lozinkaUnos.Password);
+            IzmenaSpecijalizacijeLekara(lekar);
+            SekretarKontroler.Instance.IzmenaNalogaLekara(lekarDto, lekar);
+            this.pocetna.contentControl.Content = new UCLekari(pocetna);
+        }
+
+        private void IzmenaSpecijalizacijeLekara(Lekar lekar)
+        {
             if (specijalizacijeLekara.SelectedItem != null)
             {
                 LekarDto lekarDto1 = new LekarDto(imeUnos.Text, prezimeUnos.Text, JMBGUnos.Text, DateTime.Parse(datumUnos.Text),
@@ -44,8 +51,6 @@ namespace InformacioniSistemBolnice
                                            telUnos.Text, mailUnos.Text, korisnikUnos.Text, lozinkaUnos.Password, specijalizacijeLekara.SelectedItem.ToString());
                 SekretarKontroler.Instance.IzmenaNalogaLekara(lekarDto1, lekar);
             }
-                SekretarKontroler.Instance.IzmenaNalogaLekara(lekarDto, lekar);
-                this.pocetna.contentControl.Content = new UCLekari(pocetna);
         }
 
         private void NazadBtn_Click(object sender, RoutedEventArgs e)

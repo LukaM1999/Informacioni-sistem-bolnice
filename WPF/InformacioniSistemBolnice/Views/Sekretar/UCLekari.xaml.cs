@@ -38,7 +38,39 @@ namespace InformacioniSistemBolnice
 
         private void PregledNalogaLekara_Click(object sender, RoutedEventArgs e)
         {
+            if (ListaLekara.SelectedValue != null)
+            {
+                LekarDto lekar = SekretarKontroler.Instance.PregledNalogaLekara((Lekar)ListaLekara.SelectedItem);
+                PregledNalogaLekara pregledNalogaLekara = new PregledNalogaLekara(pocetna, this);
+                PregledLicnihPodataka(lekar, pregledNalogaLekara);
+                PregledAdrese(lekar, pregledNalogaLekara);
+                PregledKorisnickihPodataka(lekar, pregledNalogaLekara);
+                pocetna.contentControl.Content = pregledNalogaLekara.Content;
+            }
+        }
 
+        private static void PregledKorisnickihPodataka(LekarDto lekar, PregledNalogaLekara pregledNalogaLekara)
+        {
+            pregledNalogaLekara.korisnikUnos.Text = lekar.korisnickoIme;
+            pregledNalogaLekara.specijalizacijeLekara.Text = lekar.specijalizacija;
+        }
+
+        private static void PregledAdrese(LekarDto lekar, PregledNalogaLekara pregledNalogaLekara)
+        {
+            pregledNalogaLekara.drzavaUnos.Text = lekar.drzava;
+            pregledNalogaLekara.gradUnos.Text = lekar.grad;
+            pregledNalogaLekara.ulicaUnos.Text = lekar.ulica;
+            pregledNalogaLekara.brojUnos.Text = lekar.broj;
+        }
+
+        private static void PregledLicnihPodataka(LekarDto lekar, PregledNalogaLekara pregledNalogaLekara)
+        {
+            pregledNalogaLekara.imeUnos.Text = lekar.ime;
+            pregledNalogaLekara.prezimeUnos.Text = lekar.prezime;
+            pregledNalogaLekara.JMBGUnos.Text = lekar.jmbg;
+            pregledNalogaLekara.datumUnos.Text = lekar.datumRodjenja.ToString("MM/dd/yyyy");
+            pregledNalogaLekara.telUnos.Text = lekar.telefon;
+            pregledNalogaLekara.mailUnos.Text = lekar.email;
         }
 
         private void ObrisiLekara_Click(object sender, RoutedEventArgs e)
