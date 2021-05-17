@@ -36,7 +36,7 @@ namespace InformacioniSistemBolnice
         {
             foreach (Lekar lekar in Lekari.Instance.listaLekara)
             {
-                if (lekar.specijalizacija == zakazivanjeHitnogTermina.specijalizacijeLekara.SelectedItem.ToString())
+                if (lekar.specijalizacija.Naziv == zakazivanjeHitnogTermina.specijalizacijeLekara.SelectedItem.ToString())
                 {
                     foreach (Termin zauzetiTermin in lekar.zauzetiTermini)
                     {

@@ -103,7 +103,7 @@ namespace Servis
             Lekari.Instance.Deserijalizacija();
             foreach (Lekar lekar in Lekari.Instance.listaLekara)
             {
-                if (lekar.specijalizacija == zakazivanjeHitnogTerminaDto.specijalizacija)
+                if (lekar.specijalizacija.Naziv == zakazivanjeHitnogTerminaDto.specijalizacija)
                 {
                     IzgenerisiSlobodneTermine(lekar);
                     ProveriStatusTermina(lekar);

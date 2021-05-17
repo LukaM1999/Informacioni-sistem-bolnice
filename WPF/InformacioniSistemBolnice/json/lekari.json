@@ -24,7 +24,9 @@
         "Hitan": true
       }
     ],
-    "specijalizacija": "Lekar opste prakse",
+    "specijalizacija": {
+      "Naziv": "Lekar opste prakse"
+    },
     "ime": "Darko",
     "prezime": "Pericic",
     "jmbg": "231568933",
@@ -52,7 +54,9 @@
         "Hitan": false
       }
     ],
-    "specijalizacija": "Lekar opste prakse",
+    "specijalizacija": {
+      "Naziv": "Lekar opste prakse"
+    },
     "ime": "Marko",
     "prezime": "Lazic",
     "jmbg": "985467356",
@@ -68,21 +72,23 @@
   },
   {
     "zauzetiTermini": [],
-    "specijalizacija": "Psihijatar",
+    "specijalizacija": {
+      "Naziv": "Psihijatar"
+    },
     "ime": "Nikola",
     "prezime": "Markovic",
     "jmbg": "1203980171188",
     "datumRodjenja": "1980-03-12T00:00:00",
-    "telefon": "0645251234",
+    "telefon": "0645251234444",
     "email": "nmarkovic@gmail.com",
     "adresa": {
       "Broj": "2",
       "Ulica": "Danila Kisa",
       "Grad": "Novi Sad",
-      "Drzava": "Srbija"
+      "Drzava": "Srbijaa"
     },
     "korisnik": {
-      "korisnickoIme": "drNikola",
+      "korisnickoIme": "drNikolaaa",
       "lozinka": "drNikola",
       "uloga": 1
     }

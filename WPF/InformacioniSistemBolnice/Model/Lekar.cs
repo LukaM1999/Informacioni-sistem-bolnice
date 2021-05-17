@@ -6,12 +6,12 @@ namespace Model
     [AddINotifyPropertyChangedInterface]
     public class Lekar : Osoba
     {
-        public string specijalizacija { get; set; }
+        public Specijalizacija specijalizacija { get; set; }
         public ObservableCollection<Termin> zauzetiTermini = new ObservableCollection<Termin>();
 
         public Lekar() {}
 
-        public Lekar(Osoba o, string specijalizacija)
+        public Lekar(Osoba o, Specijalizacija specijalizacija)
         {
             this.ime = o.ime;
             this.prezime = o.prezime;

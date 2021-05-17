@@ -55,6 +55,9 @@
     <Compile Update="Views\Pacijent\IzborTerminaPacijentaView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Views\Sekretar\IzmenaNalogaLekaraForma.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Views\Sekretar\IzmenaNalogaPacijentaForma.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -259,6 +262,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\Pacijent\IzborTerminaPacijentaView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Sekretar\IzmenaNalogaLekaraForma.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\Sekretar\IzmenaNalogaPacijentaForma.xaml">

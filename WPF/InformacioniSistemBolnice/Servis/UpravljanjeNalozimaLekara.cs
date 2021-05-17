@@ -38,13 +38,12 @@ namespace Servis
             Lekar lekar = new Lekar(new Osoba(lekarDto.ime, lekarDto.prezime, lekarDto.jmbg,
                                     DateTime.Parse(lekarDto.datumRodjenja.ToString()), lekarDto.telefon, lekarDto.email, korisnik,
                                     new Adresa(lekarDto.drzava, lekarDto.grad, lekarDto.ulica, lekarDto.broj)),
-                                    lekarDto.specijalizacija);
+                                    new Specijalizacija(lekarDto.specijalizacija));
             ObservableCollection<Termin> zauzetiTermini = new ObservableCollection<Termin>();
             lekar.zauzetiTermini = zauzetiTermini;
             Lekari.Instance.listaLekara.Add(lekar);
 
         }
-
         private static void SacuvajURepozitorijum()
         {
             Korisnici.Instance.Serijalizacija();
@@ -52,7 +51,6 @@ namespace Servis
             Lekari.Instance.Deserijalizacija();
             Korisnici.Instance.Deserijalizacija();
         }
-
         public void UklanjanjeNaloga(Lekar lekar)
         {
             foreach (Lekar l in Lekari.Instance.listaLekara)
@@ -65,13 +63,48 @@ namespace Servis
                 }
             }
         }
-
         private static void ObrisiLekara(Lekar l)
         {
             Lekari.Instance.listaLekara.Remove(l);
             Korisnici.Instance.listaKorisnika.Remove(l.korisnik);
         }
 
+        public void IzmenaNaloga(LekarDto lekarDto, Lekar lekar)
+        {
+            IzmeniLicnePodatke(lekarDto, lekar);
+            IzmeniAdresu(lekarDto, lekar);
+            IzmeniKorisnickePodatke(lekarDto, lekar);
+            SacuvajURepozitorijum();
+        }
 
+        private static void IzmeniLicnePodatke(LekarDto lekarDto, Lekar lekar)
+        {
+            lekar.ime = lekarDto.ime;
+            lekar.prezime = lekarDto.prezime;
+            lekar.jmbg = lekarDto.jmbg;
+            lekar.datumRodjenja = lekarDto.datumRodjenja;
+            lekar.telefon = lekarDto.telefon;
+            lekar.email = lekarDto.email;
+            if (lekarDto.specijalizacija != null)
+            {
+                lekar.specijalizacija.Naziv = lekarDto.specijalizacija;
+            }
+
+        }
+
+        private static void IzmeniKorisnickePodatke(LekarDto lekarDto, Lekar lekar)
+        {
+            lekar.korisnik.korisnickoIme = lekarDto.korisnickoIme;
+            lekar.korisnik.lozinka = lekarDto.lozinka;
+            Korisnik korisnik = lekar.korisnik;
+        }
+
+        private static void IzmeniAdresu(LekarDto lekarDto, Lekar lekar)
+        {
+            lekar.adresa.Drzava = lekarDto.drzava;
+            lekar.adresa.Grad = lekarDto.grad;
+            lekar.adresa.Ulica = lekarDto.ulica;
+            lekar.adresa.Broj = lekarDto.broj;
+        }
     }
 }

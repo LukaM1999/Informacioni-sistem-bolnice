@@ -25,6 +25,11 @@ namespace Kontroler
             UpravljanjeNalozimaLekara.Instance.UklanjanjeNaloga(lekar);
         }
 
+        public void IzmenaNalogaLekara(LekarDto lekarDto, Lekar lekar)
+        {
+            UpravljanjeNalozimaLekara.Instance.IzmenaNaloga(lekarDto, lekar);
+        }
+
         public void KreiranjeNaloga(RegistracijaPacijentaDto registracija)
         {
             UpravljanjeNalozimaPacijenata.Instance.KreiranjeNaloga(registracija);

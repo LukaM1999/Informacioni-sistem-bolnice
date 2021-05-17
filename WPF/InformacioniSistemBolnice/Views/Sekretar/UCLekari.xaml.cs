@@ -59,6 +59,25 @@ namespace InformacioniSistemBolnice
 
         private void izmeniLekara_Click(object sender, RoutedEventArgs e)
         {
+            if (ListaLekara.SelectedValue != null)
+            {
+                Lekar lekar = (Lekar)(ListaLekara.SelectedItem);
+                IzmenaNalogaLekaraForma izmena = new IzmenaNalogaLekaraForma(pocetna, this);
+                izmena.imeUnos.Text = lekar.ime;
+                izmena.prezimeUnos.Text = lekar.prezime;
+                izmena.JMBGUnos.Text = lekar.jmbg;
+                izmena.drzavaUnos.Text = lekar.adresa.Drzava;
+                izmena.gradUnos.Text = lekar.adresa.Grad;
+                izmena.ulicaUnos.Text = lekar.adresa.Ulica;
+                izmena.brojUnos.Text = lekar.adresa.Broj;
+                izmena.datumUnos.Text = lekar.datumRodjenja.ToString("MM/dd/yyyy");
+                izmena.telUnos.Text = lekar.telefon;
+                izmena.mailUnos.Text = lekar.email;
+                izmena.korisnikUnos.Text = lekar.korisnik.korisnickoIme;
+                izmena.lozinkaUnos.Password = lekar.korisnik.lozinka;
+                izmena.specijalizacijeLekara.SelectedItem = lekar.specijalizacija;
+                pocetna.contentControl.Content = izmena.Content;
+            }
 
         }
     }
