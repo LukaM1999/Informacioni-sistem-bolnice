@@ -31,7 +31,7 @@ namespace InformacioniSistemBolnice
 
         private void RegistrujLekara_Click(object sender, RoutedEventArgs e)
         {
-
+            pocetna.contentControl.Content = new RegistracijaLekaraForma(pocetna);
         }
 
         private void PregledNalogaLekara_Click(object sender, RoutedEventArgs e)

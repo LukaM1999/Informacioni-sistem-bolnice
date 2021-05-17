@@ -46,5 +46,10 @@ namespace InformacioniSistemBolnice
             this.Visibility = Visibility.Hidden;
             this.pocetna.contentControl.Content = this.pacijentiProzor.Content;
         }
+
+        private void PotvrdiBtn_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

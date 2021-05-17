@@ -115,5 +115,26 @@
       "lozinka": "lekar3",
       "uloga": 1
     }
+  },
+  {
+    "zauzetiTermini": [],
+    "specijalizacija": "Psihijatar",
+    "ime": "Nikola",
+    "prezime": "Markovic",
+    "jmbg": "1203980171188",
+    "datumRodjenja": "1980-03-12T00:00:00",
+    "telefon": "0645251234",
+    "email": "nmarkovic@gmail.com",
+    "adresa": {
+      "Broj": "2",
+      "Ulica": "Danila Kisa",
+      "Grad": "Novi Sad",
+      "Drzava": "Srbija"
+    },
+    "korisnik": {
+      "korisnickoIme": "drNikola",
+      "lozinka": "drNikola",
+      "uloga": 1
+    }
   }
 ]
