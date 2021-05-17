@@ -13,6 +13,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Repozitorijum;
+using Model;
+using Kontroler;
 
 namespace InformacioniSistemBolnice
 {
@@ -41,7 +43,18 @@ namespace InformacioniSistemBolnice
 
         private void ObrisiLekara_Click(object sender, RoutedEventArgs e)
         {
+            if (ListaLekara.SelectedValue != null)
+            {
+                Lekar lekar = (Lekar)ListaLekara.SelectedValue;
+                SekretarKontroler.Instance.UklanjanjeNalogaLekara(lekar);
+                AzurirajListuLekara();
+            }
+        }
 
+        private void AzurirajListuLekara()
+        {
+            Lekari.Instance.Deserijalizacija();
+            ListaLekara.ItemsSource = Lekari.Instance.listaLekara;
         }
 
         private void izmeniLekara_Click(object sender, RoutedEventArgs e)

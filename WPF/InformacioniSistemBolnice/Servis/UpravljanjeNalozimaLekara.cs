@@ -25,10 +25,10 @@ namespace Servis
             KreiranjeLekara(lekarDto, korisnik);
             SacuvajURepozitorijum();
         }
-        
+
         private static Korisnik KreiranjeKorisnika(LekarDto lekarDto)
         {
-            Korisnik korisnik = new(lekarDto.korisnickoIme, lekarDto.lozinka, 
+            Korisnik korisnik = new(lekarDto.korisnickoIme, lekarDto.lozinka,
                                     (Model.UlogaKorisnika)Enum.Parse(typeof(Model.UlogaKorisnika), "lekar"));
             Korisnici.Instance.listaKorisnika.Add(korisnik);
             return korisnik;
@@ -49,6 +49,29 @@ namespace Servis
         {
             Korisnici.Instance.Serijalizacija();
             Lekari.Instance.Serijalizacija();
+            Lekari.Instance.Deserijalizacija();
+            Korisnici.Instance.Deserijalizacija();
         }
+
+        public void UklanjanjeNaloga(Lekar lekar)
+        {
+            foreach (Lekar l in Lekari.Instance.listaLekara)
+            {
+                if (l.jmbg.Equals(lekar.jmbg))
+                {
+                    ObrisiLekara(l);
+                    SacuvajURepozitorijum();
+                    break;
+                }
+            }
+        }
+
+        private static void ObrisiLekara(Lekar l)
+        {
+            Lekari.Instance.listaLekara.Remove(l);
+            Korisnici.Instance.listaKorisnika.Remove(l.korisnik);
+        }
+
+
     }
 }

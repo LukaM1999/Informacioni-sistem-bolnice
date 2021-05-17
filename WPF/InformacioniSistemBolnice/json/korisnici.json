@@ -153,5 +153,10 @@
     "korisnickoIme": "drNikola",
     "lozinka": "drNikola",
     "uloga": 1
+  },
+  {
+    "korisnickoIme": "lall",
+    "lozinka": "lal",
+    "uloga": 1
   }
 ]
