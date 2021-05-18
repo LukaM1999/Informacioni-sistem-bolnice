@@ -31,14 +31,14 @@ namespace Kontroler
             UpravljanjeTerminima.Instance.Uvid(listaZakazanihTermina);
         }
 
-        public void PopuniAnketuOLekaru(Termin zavrsenTermin)
+        public void PopuniAnketuOLekaru(Termin zavrsenTermin, AnketaOLekaru novaAnketa)
         {
-            UpravljanjeAnketama.Instance.PopuniAnketuOLekaru(zavrsenTermin);
+            UpravljanjeAnketama.Instance.PopuniAnketuOLekaru(zavrsenTermin, novaAnketa);
         }
 
-        public void PopuniAnketuOBolnici(AnketaOBolnici anketa)
+        public void PosaljiAnketuOBolnici(AnketaOBolnici anketa)
         {
-            UpravljanjeAnketama.Instance.PopuniAnketuOBolnici(anketa);
+            UpravljanjeAnketama.Instance.PosaljiAnketuOBolnici(anketa);
         }
 
         public void UkljuciNoviPodsetnik(Podsetnik novPodsetnik)

@@ -13,27 +13,23 @@ namespace Servis
     {
         private static readonly Lazy<UpravljanjeAnketama>
             Lazy = new(() => new UpravljanjeAnketama());
-        public static UpravljanjeAnketama Instance { get { return Lazy.Value; } }
+        public static UpravljanjeAnketama Instance => Lazy.Value;
 
         private const int TerminaDoAnkete = 3;
         private const int MesecaDoAnkete = 4;
 
-        public Pacijent ulogovanPacijent;
+        private Pacijent ulogovanPacijent;
 
-        public void PopuniAnketuOLekaru(Termin zavrsenTermin)
+        public void PopuniAnketuOLekaru(Termin zavrsenTermin, AnketaOLekaru novaAnketa)
         {
-            foreach (Termin termin in Termini.Instance.listaTermina)
-            {
-                if (termin.vreme != zavrsenTermin.vreme || termin.pacijentJMBG != zavrsenTermin.pacijentJMBG) continue;
-                termin.AnketaOLekaru = zavrsenTermin.AnketaOLekaru;
-                Termini.Instance.Serijalizacija();
-            }
+            zavrsenTermin.PopuniAnketuOLekaru(novaAnketa);
+            Termini.Instance.Serijalizacija();
         }
 
         public async void OtvoriAnketuOBolnici(Pacijent pacijent)
         {
             ulogovanPacijent = pacijent;
-            if (!PacijentPosetioBolnicu(DobaviSortiraneTermine())) return;
+            if (!ulogovanPacijent.PacijentPosetioBolnicu(ulogovanPacijent.DobaviSortiraneTermine())) return;
             if (PrebrojTermineDoAnkete() < TerminaDoAnkete && !JeVremeZaAnketu()) return;
             AnketaOBolniciFormaView anketaOBolnici = new(ulogovanPacijent.jmbg);
             await Task.Delay(7000);
@@ -43,22 +39,24 @@ namespace Servis
         private int PrebrojTermineDoAnkete()
         {
             int zavrsenihTermina = 0;
-            foreach (Termin termin in DobaviSortiraneTermine())
+            foreach (Termin termin in ulogovanPacijent.DobaviSortiraneTermine())
             {
                 if (JeNovozavrsen(termin)) zavrsenihTermina++;
-                if (JePrvaAnketa(termin)) zavrsenihTermina++;
+                else if (JePrvaAnketa(termin)) zavrsenihTermina++;
             }
             return zavrsenihTermina;
         }
 
         private bool JePrvaAnketa(Termin termin)
         {
-            return DobaviPacijentoveAnkete().Count == 0 && termin.status == StatusTermina.zavrsen;
+            return AnketeOBolnici.Instance.DobaviPacijentoveAnkete(ulogovanPacijent).Count == 0 &&
+                   termin.status == StatusTermina.zavrsen;
         }
 
         private bool JeNovozavrsen(Termin termin)
         {
-            List<AnketaOBolnici> sortiraneAnkete = DobaviSortiraneAnkete(DobaviPacijentoveAnkete());
+            List<AnketaOBolnici> sortiraneAnkete = AnketeOBolnici.Instance.DobaviPacijentoveAnkete(ulogovanPacijent);
+            sortiraneAnkete = AnketeOBolnici.Instance.DobaviVremenskiOpadajuciSortiraneAnkete(sortiraneAnkete);
             if (sortiraneAnkete.Count <= 1)
                 return termin.status == StatusTermina.zavrsen && sortiraneAnkete.Count != 0 &&
                        termin.vreme < sortiraneAnkete[0].VremePopunjavanja;
@@ -68,40 +66,15 @@ namespace Servis
 
         private bool JeVremeZaAnketu()
         {
-            List<AnketaOBolnici> sortiraneAnkete = DobaviSortiraneAnkete(DobaviPacijentoveAnkete());
+            List<AnketaOBolnici> sortiraneAnkete = AnketeOBolnici.Instance.DobaviPacijentoveAnkete(ulogovanPacijent);
+            sortiraneAnkete = AnketeOBolnici.Instance.DobaviVremenskiOpadajuciSortiraneAnkete(sortiraneAnkete);
+            if (sortiraneAnkete.Count == 0) return false;
             return sortiraneAnkete[0].VremePopunjavanja.AddMonths(MesecaDoAnkete) < DateTime.Now;
         }
 
-        private List<AnketaOBolnici> DobaviPacijentoveAnkete()
+        public void PosaljiAnketuOBolnici(AnketaOBolnici anketa)
         {
-            List<AnketaOBolnici> pacijentoveAnkete = new();
-            foreach (AnketaOBolnici anketa in AnketeOBolnici.Instance.AnketeZaBolnicu.ToList())
-            {
-                if (anketa.PacijentovJmbg == ulogovanPacijent.jmbg) pacijentoveAnkete.Add(anketa);
-            }
-            return pacijentoveAnkete;
-        }
-
-        private static List<AnketaOBolnici> DobaviSortiraneAnkete(List<AnketaOBolnici> pacijentoveAnkete)
-        {
-            return pacijentoveAnkete.OrderByDescending(anketa => anketa.VremePopunjavanja).ToList();
-        }
-
-        private List<Termin> DobaviSortiraneTermine()
-        {
-            List<Termin> sortiraniTermini = ulogovanPacijent.zakazaniTermini.OrderBy(termin => termin.vreme).ToList();
-            return sortiraniTermini;
-        }
-
-        private static bool PacijentPosetioBolnicu(List<Termin> sortiraniTermini)
-        {
-            return sortiraniTermini.Count != 0 && sortiraniTermini[0].status == StatusTermina.zavrsen;
-        }
-
-        public void PopuniAnketuOBolnici(AnketaOBolnici anketa)
-        {
-            AnketeOBolnici.Instance.AnketeZaBolnicu.Add(anketa);
-            AnketeOBolnici.Instance.Serijalizacija();
+            AnketeOBolnici.Instance.DodajAnketu(anketa);
         }
     }
 }

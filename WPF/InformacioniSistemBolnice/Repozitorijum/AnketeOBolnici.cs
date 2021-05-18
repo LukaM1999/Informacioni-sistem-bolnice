@@ -16,7 +16,7 @@ namespace Repozitorijum
 
         private static readonly Lazy<AnketeOBolnici>
             Lazy = new(() => new AnketeOBolnici());
-        public static AnketeOBolnici Instance { get { return Lazy.Value; } }
+        public static AnketeOBolnici Instance => Lazy.Value;
 
         public ObservableCollection<AnketaOBolnici> AnketeZaBolnicu { get; set; }
 
@@ -46,6 +46,25 @@ namespace Repozitorijum
         {
             Serijalizacija();
             Deserijalizacija();
+        }
+
+        public List<AnketaOBolnici> DobaviPacijentoveAnkete(Pacijent izabraniPacijent)
+        {
+            List<AnketaOBolnici> pacijentoveAnkete = new();
+            foreach (AnketaOBolnici anketa in AnketeZaBolnicu.ToList())
+                if (anketa.PacijentovJmbg == izabraniPacijent.jmbg) pacijentoveAnkete.Add(anketa);
+            return pacijentoveAnkete;
+        }
+
+        public List<AnketaOBolnici> DobaviVremenskiOpadajuciSortiraneAnkete(List<AnketaOBolnici> pacijentoveAnkete)
+        {
+            return pacijentoveAnkete.OrderByDescending(anketa => anketa.VremePopunjavanja).ToList();
+        }
+
+        public void DodajAnketu(AnketaOBolnici popunjenaAnketa)
+        {
+            AnketeZaBolnicu.Add(popunjenaAnketa);
+            Serijalizacija();
         }
     }
 }

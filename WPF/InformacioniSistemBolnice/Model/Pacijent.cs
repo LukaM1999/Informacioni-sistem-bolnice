@@ -1,7 +1,9 @@
 using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Collections.ObjectModel;
+using System.Linq;
 using PropertyChanged;
 
 namespace Model
@@ -48,6 +50,16 @@ namespace Model
             foreach (Termin pronadjen in zakazaniTermini)
                 if (pronadjen.vreme == vremeTermina) return pronadjen;
             return null;
+        }
+
+        public List<Termin> DobaviSortiraneTermine()
+        {
+            return zakazaniTermini.OrderBy(termin => termin.vreme).ToList();
+        }
+
+        public bool PacijentPosetioBolnicu(List<Termin> sortiraniTermini)
+        {
+            return sortiraniTermini.Count != 0 && sortiraniTermini[0].status == StatusTermina.zavrsen;
         }
     }
 }
