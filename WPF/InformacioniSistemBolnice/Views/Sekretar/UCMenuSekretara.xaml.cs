@@ -15,9 +15,6 @@ using System.Windows.Shapes;
 
 namespace InformacioniSistemBolnice
 {
-    /// <summary>
-    /// Interaction logic for UCMenuSekretara.xaml
-    /// </summary>
     public partial class UCMenuSekretara : UserControl
     {
         public PocetnaStranicaSekretara pocetna;
@@ -71,6 +68,12 @@ namespace InformacioniSistemBolnice
         {
             this.Visibility = Visibility.Hidden;
             this.pocetna.contentControl.Content = new VestiProzor(this);
+        }
+
+        private void UpravljanjeNalozimaLekara_Click(object sender, RoutedEventArgs e)
+        {
+            this.Visibility = Visibility.Hidden;
+            this.pocetna.contentControl.Content = new UCLekari(pocetna);
         }
     }
 }

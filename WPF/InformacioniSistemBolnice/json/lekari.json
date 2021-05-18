@@ -24,14 +24,21 @@
         "Hitan": true
       }
     ],
-    "specijalizacija": "Lekar opste prakse",
+    "specijalizacija": {
+      "Naziv": "Lekar opste prakse"
+    },
     "ime": "Darko",
     "prezime": "Pericic",
     "jmbg": "231568933",
     "datumRodjenja": "1992-06-08T00:00:00",
     "telefon": "064345590",
     "email": "pdarko@gmail.com",
-    "adresa": null,
+    "adresa": {
+      "Broj": "2",
+      "Ulica": "Danila Kisa",
+      "Grad": "Novi Sad",
+      "Drzava": "Srbijaa"
+    },
     "korisnik": {
       "korisnickoIme": "lekar1",
       "lozinka": "lekar1",
@@ -52,14 +59,21 @@
         "Hitan": false
       }
     ],
-    "specijalizacija": "Lekar opste prakse",
+    "specijalizacija": {
+      "Naziv": "Neurolog"
+    },
     "ime": "Marko",
     "prezime": "Lazic",
     "jmbg": "985467356",
     "datumRodjenja": "1987-01-05T00:00:00",
     "telefon": "063454664",
     "email": "lmarko@gmail.com",
-    "adresa": null,
+    "adresa": {
+      "Broj": "2",
+      "Ulica": "Danila Kisa",
+      "Grad": "Novi Sad",
+      "Drzava": "Srbijaa"
+    },
     "korisnik": {
       "korisnickoIme": "lekar2",
       "lozinka": "lekar2",
@@ -67,52 +81,25 @@
     }
   },
   {
-    "zauzetiTermini": [
-      {
-        "vreme": "2021-05-07T08:00:00",
-        "trajanje": 30.0,
-        "tipTermina": 1,
-        "status": 0,
-        "AnketaOLekaru": null,
-        "pacijentJMBG": "1203998134132",
-        "lekarJMBG": "555556667",
-        "idProstorije": "P1",
-        "Hitan": true
-      },
-      {
-        "vreme": "2021-05-07T08:30:00",
-        "trajanje": 30.0,
-        "tipTermina": 1,
-        "status": 0,
-        "AnketaOLekaru": null,
-        "pacijentJMBG": "1203998134132",
-        "lekarJMBG": "555556667",
-        "idProstorije": "P1",
-        "Hitan": true
-      },
-      {
-        "vreme": "2021-05-07T09:00:00",
-        "trajanje": 30.0,
-        "tipTermina": 1,
-        "status": 0,
-        "AnketaOLekaru": null,
-        "pacijentJMBG": "1203998134132",
-        "lekarJMBG": "555556667",
-        "idProstorije": "P1",
-        "Hitan": false
-      }
-    ],
-    "specijalizacija": "Neurolog",
-    "ime": "Milan",
-    "prezime": "Radic",
-    "jmbg": "555556667",
-    "datumRodjenja": "1987-01-05T00:00:00",
-    "telefon": "063454664",
-    "email": "milanr@gmail.com",
-    "adresa": null,
+    "zauzetiTermini": [],
+    "specijalizacija": {
+      "Naziv": "Psihijatar"
+    },
+    "ime": "Nikola",
+    "prezime": "Markovic",
+    "jmbg": "1203980171188",
+    "datumRodjenja": "1980-03-12T00:00:00",
+    "telefon": "0645251234444",
+    "email": "nmarkovic@gmail.com",
+    "adresa": {
+      "Broj": "2",
+      "Ulica": "Danila Kisa",
+      "Grad": "Novi Sad",
+      "Drzava": "Srbija"
+    },
     "korisnik": {
-      "korisnickoIme": "lekar3",
-      "lozinka": "lekar3",
+      "korisnickoIme": "drNikolaaa",
+      "lozinka": "drNikola",
       "uloga": 1
     }
   }

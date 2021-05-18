@@ -58,6 +58,9 @@
     <Compile Update="Views\Pacijent\IzborTerminaPacijentaView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Views\Sekretar\IzmenaNalogaLekaraForma.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Views\Sekretar\IzmenaNalogaPacijentaForma.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -74,6 +77,15 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Login.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\Sekretar\PregledNalogaLekara.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\Sekretar\RegistracijaLekaraForma.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\Sekretar\UCLekari.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Views\Upravnik\MagacinDodajDinamickuOpremu.xaml.cs">
@@ -261,6 +273,9 @@
     <Page Update="Views\Pacijent\IzborTerminaPacijentaView.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="Views\Sekretar\IzmenaNalogaLekaraForma.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Views\Sekretar\IzmenaNalogaPacijentaForma.xaml">
       <SubType>Designer</SubType>
     </Page>
@@ -280,6 +295,15 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Login.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Sekretar\PregledNalogaLekara.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Sekretar\RegistracijaLekaraForma.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Sekretar\UCLekari.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\Upravnik\MagacinDodajDinamickuOpremu.xaml">

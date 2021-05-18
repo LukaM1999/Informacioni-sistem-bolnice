@@ -15,6 +15,25 @@ namespace Kontroler
 
         public static SekretarKontroler Instance { get { return lazy.Value; } }
 
+        public void KreiranjeNalogaLekara(LekarDto lekarDto)
+        {
+            UpravljanjeNalozimaLekara.Instance.KreiranjeNaloga(lekarDto);
+        }
+
+        public void UklanjanjeNalogaLekara(Lekar lekar)
+        {
+            UpravljanjeNalozimaLekara.Instance.UklanjanjeNaloga(lekar);
+        }
+
+        public void IzmenaNalogaLekara(LekarDto lekarDto, Lekar lekar)
+        {
+            UpravljanjeNalozimaLekara.Instance.IzmenaNaloga(lekarDto, lekar);
+        }
+        public LekarDto PregledNalogaLekara(Lekar lekar)
+        {
+            return UpravljanjeNalozimaLekara.Instance.PregledNaloga(lekar);
+        }
+
         public void KreiranjeNaloga(RegistracijaPacijentaDto registracija)
         {
             UpravljanjeNalozimaPacijenata.Instance.KreiranjeNaloga(registracija);
@@ -147,6 +166,5 @@ namespace Kontroler
         public UpravljanjeAlergenima upravljanjeAlergenima;
         public UpravljanjeTerminimaPacijenata upravljanjeTerminimaPacijenata;
         
-
     }
 }
