@@ -27,7 +27,7 @@
       ]
     },
     "Renoviranje": null,
-    "termin": [
+    "TerminiProstorije": [
       {
         "vreme": "2021-05-07T08:00:00",
         "trajanje": 30.0,
@@ -80,7 +80,7 @@
       ]
     },
     "Renoviranje": null,
-    "termin": []
+    "TerminiProstorije": []
   },
   {
     "sprat": 4,
@@ -114,7 +114,7 @@
       ]
     },
     "Renoviranje": null,
-    "termin": []
+    "TerminiProstorije": []
   },
   {
     "sprat": 2,
@@ -140,7 +140,7 @@
       ]
     },
     "Renoviranje": null,
-    "termin": []
+    "TerminiProstorije": []
   },
   {
     "sprat": 2,
@@ -166,7 +166,7 @@
       ]
     },
     "Renoviranje": null,
-    "termin": []
+    "TerminiProstorije": []
   },
   {
     "sprat": 2,
@@ -183,6 +183,6 @@
       "statickaOprema": []
     },
     "Renoviranje": null,
-    "termin": []
+    "TerminiProstorije": []
   }
 ]

@@ -164,7 +164,7 @@ namespace Kontroler
 
         public UpravljanjeNalozimaPacijenata upravljanjeNalozimaPacijenata;
         public UpravljanjeAlergenima upravljanjeAlergenima;
-        public UpravljanjeTerminimaPacijenata upravljanjeTerminimaPacijenata;
+        public UpravljanjeTerminima upravljanjeTerminima;
         
     }
 }

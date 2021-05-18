@@ -71,7 +71,7 @@ namespace InformacioniSistemBolnice
 
         private void potvrdaPomeranjaDugme_Click(object sender, RoutedEventArgs e)
         {
-            LekarKontroler.Instance.Pomeranje(this);
+            //LekarKontroler.Instance.Pomeranje(zakazanTermin);
         }
     }
 }

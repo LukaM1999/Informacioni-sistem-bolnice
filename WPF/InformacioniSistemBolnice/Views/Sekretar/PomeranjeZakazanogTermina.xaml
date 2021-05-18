@@ -17,7 +17,7 @@
             <Label x:Name="lekarLabela" Content="Lekar:" Canvas.Left="77" Canvas.Top="126"/>
             <RadioButton x:Name="lekarRadio" Content="Lekar" IsChecked="True" Canvas.Left="73" Canvas.Top="311" />
             <RadioButton x:Name="vremeRadio" Content="Vreme" Canvas.Left="206" Canvas.Top="310" />
-            <Button x:Name="potvrdaZakazivanjaDugme" Content="Izaberi termin za pomeranje" Canvas.Left="206" Canvas.Top="377" Width="160" Click="izaberiTerminZaPomeranje_Click" />
+            <Button x:Name="potvrdaZakazivanjaDugme" Content="Izaberi TerminiProstorije za pomeranje" Canvas.Left="206" Canvas.Top="377" Width="160" Click="izaberiTerminZaPomeranje_Click" />
             <Label x:Name="lekarLabela_Copy" Content="Tip termina:" Canvas.Left="49" Canvas.Top="222"/>
             <Label x:Name="tipTermina" Width="102" Height="23" Canvas.Left="158" Canvas.Top="227" ScrollViewer.VerticalScrollBarVisibility="Visible"/>
 

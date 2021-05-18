@@ -49,7 +49,7 @@ namespace InformacioniSistemBolnice
 
         public void proveraZauzetostiProstorije()
         {
-            foreach(Termin t in prostorija.termin.ToList())
+            foreach(Termin t in prostorija.TerminiProstorije.ToList())
             {
                 if(daLiPostojiTerminUIzabranomOpseguVremena(t))
                 {

@@ -40,7 +40,7 @@ namespace InformacioniSistemBolnice
                     {
                         bool vecZakazan = false;
                         if (prostorija.tip != TipProstorije.prostorijaZaPreglede) continue;
-                        foreach (Termin termin in prostorija.termin)
+                        foreach (Termin termin in prostorija.TerminiProstorije)
                         {
                             if (slobodanTermin != termin.vreme) continue;
                             vecZakazan = true;
@@ -93,7 +93,7 @@ namespace InformacioniSistemBolnice
                             {
                                 bool vecZakazan = false;
                                 if (prostorija.tip != TipProstorije.prostorijaZaPreglede) continue;
-                                foreach (Termin termin in prostorija.termin)
+                                foreach (Termin termin in prostorija.TerminiProstorije)
                                 {
                                     if (slobodanTermin != termin.vreme) continue;
                                     vecZakazan = true;
@@ -131,7 +131,7 @@ namespace InformacioniSistemBolnice
                             {
                                 bool vecZakazan = false;
                                 if (prostorija.tip != TipProstorije.prostorijaZaPreglede) continue;
-                                foreach (Termin termin in prostorija.termin)
+                                foreach (Termin termin in prostorija.TerminiProstorije)
                                 {
                                     if (slobodanTermin != termin.vreme) continue;
                                     vecZakazan = true;
@@ -188,7 +188,7 @@ namespace InformacioniSistemBolnice
                                     {
                                         bool vecZakazan = false;
                                         if (prostorija.tip != TipProstorije.prostorijaZaPreglede) continue;
-                                        foreach (Termin termin in prostorija.termin)
+                                        foreach (Termin termin in prostorija.TerminiProstorije)
                                         {
                                             if (slobodanTermin != termin.vreme) continue;
                                             vecZakazan = true;

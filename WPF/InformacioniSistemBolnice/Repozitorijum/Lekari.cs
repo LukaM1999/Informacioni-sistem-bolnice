@@ -37,19 +37,14 @@ namespace Repozitorijum
         public Lekar NadjiPoJmbg(string jmbg)
         {
             foreach (Lekar pronadjen in listaLekara)
-            {
                 if (pronadjen.jmbg == jmbg) return pronadjen;
-            }
             return null;
         }
 
         public bool BrisiPoJmbg(string jmbg)
         {
             foreach (Lekar pronadjen in listaLekara)
-            {
-                if (pronadjen.jmbg != jmbg) continue;
-                return listaLekara.Remove(pronadjen);
-            }
+                if (pronadjen.jmbg == jmbg) return listaLekara.Remove(pronadjen);
             return false;
         }
 

@@ -55,7 +55,7 @@ namespace InformacioniSistemBolnice
             for (int i = 0; i < 2; i++)
             {
                 for (int j = 0; j < 27; j++)
-                { 
+                {
                     slobodanTermin = PopunjavaNovuListuSlobodnihTermina(slobodanTermin);
                 }
 
@@ -114,12 +114,10 @@ namespace InformacioniSistemBolnice
         }
 
         private void zakaziDugme_Click(object sender, RoutedEventArgs e)
-            {
-                if (ponudjeniTermini.SelectedIndex > -1)
-                {
-                    LekarKontroler.Instance.IzdavanjeUputa((Termin)ponudjeniTermini.SelectedItem);
-                }
-                this.Close();
-            }
+        {
+            if (ponudjeniTermini.SelectedIndex == -1) return;
+            LekarKontroler.Instance.Zakazivanje((Termin)ponudjeniTermini.SelectedItem);
+            Close();
+        }
     }
 }

@@ -28,5 +28,23 @@ namespace Model
         {
             return ime + " " + prezime;
         }
+        public bool ObrisiTermin(Termin terminZaBrisanje)
+        {
+            return zauzetiTermini.Remove(terminZaBrisanje);
+        }
+
+        public bool DodajTermin(Termin terminZaDodavanje)
+        {
+            if (NadjiTerminPoDatumu(terminZaDodavanje.vreme) != null) return false;
+            zauzetiTermini.Add(terminZaDodavanje);
+            return true;
+        }
+
+        public Termin NadjiTerminPoDatumu(DateTime vremeTermina)
+        {
+            foreach (Termin pronadjen in zauzetiTermini)
+                if (pronadjen.vreme == vremeTermina) return pronadjen;
+            return null;
+        }
     }
 }

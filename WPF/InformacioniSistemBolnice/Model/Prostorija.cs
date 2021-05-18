@@ -11,7 +11,7 @@ namespace Model
         public TipProstorije tip { get; set; }
         public Inventar inventar { get; set; }
         public RenoviranjeTermin Renoviranje { get; set; }
-        public ObservableCollection<Termin> termin { get; set; }
+        public ObservableCollection<Termin> TerminiProstorije { get; set; }
         public Prostorija()
         {
             jeZauzeta = false;
@@ -31,5 +31,23 @@ namespace Model
             return "ID: " + this.id;
         }
 
+        public bool ObrisiTermin(Termin terminZaBrisanje)
+        {
+            return TerminiProstorije.Remove(terminZaBrisanje);
+        }
+
+        public bool DodajTermin(Termin terminZaDodavanje)
+        {
+            if (NadjiTerminPoDatumu(terminZaDodavanje.vreme) != null) return false;
+            TerminiProstorije.Add(terminZaDodavanje);
+            return true;
+        }
+
+        public Termin NadjiTerminPoDatumu(DateTime vremeTermina)
+        {
+            foreach (Termin pronadjen in TerminiProstorije)
+                if (pronadjen.vreme == vremeTermina) return pronadjen;
+            return null;
+        }
     }
 }

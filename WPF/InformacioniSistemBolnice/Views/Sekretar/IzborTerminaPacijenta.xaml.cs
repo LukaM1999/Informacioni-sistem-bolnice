@@ -158,7 +158,7 @@ namespace InformacioniSistemBolnice
 
         private void zakaziDugme_Click(object sender, RoutedEventArgs e)
         {
-            //UpravljanjeTerminimaPacijenata.Instance.Zakazivanje(this, this.slobodniTermini[0].pacijentJMBG);
+            //UpravljanjeTerminima.Instance.Zakazivanje(this, this.slobodniTermini[0].pacijentJMBG);
            
             UpravljanjeNalozimaPacijenata.Instance.ZakazivanjeTermina(this, zakazivanjeTerminaPacijenta);
             

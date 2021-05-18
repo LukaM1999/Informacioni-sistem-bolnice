@@ -55,7 +55,6 @@ namespace InformacioniSistemBolnice
             {
                 PretragaLekara(lekar);
             }
-
             lekari.ItemsSource = imajuSpecijalizaciju;
         }
 
@@ -63,14 +62,19 @@ namespace InformacioniSistemBolnice
         {
             if (!specijalizacije.SelectionBoxItem.Equals(null))
             {
+                System.Diagnostics.Debug.WriteLine("OVO ZNACI DA NE RADI COMOBO BOX");
+
                 PopunjavanjeListeLekara(lekar);
             }
         }
 
         private void PopunjavanjeListeLekara(Lekar lekar)
         {
-            if (specijalizacije.SelectionBoxItem.ToString().Equals(lekar.specijalizacija))
+            System.Diagnostics.Debug.WriteLine(lekar.specijalizacija);
+
+            if (specijalizacije.SelectedItem.ToString() == lekar.specijalizacija.Naziv)
             {
+                System.Diagnostics.Debug.WriteLine("DODAJEM");
                 imajuSpecijalizaciju.Add(lekar);
             }
         }

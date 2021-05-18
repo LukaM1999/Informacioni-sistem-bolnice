@@ -13,22 +13,22 @@ namespace Kontroler
 
         public void Zakazivanje(Termin terminZaZakazivanje)
         {
-            UpravljanjeTerminimaPacijenata.Instance.Zakazivanje(terminZaZakazivanje);
+            UpravljanjeTerminima.Instance.Zakazivanje(terminZaZakazivanje);
         }
 
         public void Otkazivanje(Termin terminZaOtkazivanje)
         {
-            UpravljanjeTerminimaPacijenata.Instance.Otkazivanje(terminZaOtkazivanje);
+            UpravljanjeTerminima.Instance.Otkazivanje(terminZaOtkazivanje);
         }
 
         public void Pomeranje(Termin terminZaPomeranje, Termin noviTermin)
         {
-            UpravljanjeTerminimaPacijenata.Instance.Pomeranje(terminZaPomeranje, noviTermin);
+            UpravljanjeTerminima.Instance.Pomeranje(terminZaPomeranje, noviTermin);
         }
 
         public void Uvid(DataGrid listaZakazanihTermina)
         {
-            UpravljanjeTerminimaPacijenata.Instance.Uvid(listaZakazanihTermina);
+            UpravljanjeTerminima.Instance.Uvid(listaZakazanihTermina);
         }
 
         public void PopuniAnketuOLekaru(Termin zavrsenTermin)

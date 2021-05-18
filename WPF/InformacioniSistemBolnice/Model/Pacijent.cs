@@ -32,14 +32,22 @@ namespace Model
             return zakazaniTermini.Remove(terminZaBrisanje);
         }
 
-        public void DodajTermin(Termin terminZaDodavanje)
+        public bool DodajTermin(Termin terminZaDodavanje)
         {
+            if (NadjiTerminPoDatumu(terminZaDodavanje.vreme) != null) return false;
             zakazaniTermini.Add(terminZaDodavanje);
+            return true;
         }
-
         public override string ToString()
         {
             return ime + " " + prezime;
+        }
+
+        private Termin NadjiTerminPoDatumu(DateTime vremeTermina)
+        {
+            foreach (Termin pronadjen in zakazaniTermini)
+                if (pronadjen.vreme == vremeTermina) return pronadjen;
+            return null;
         }
     }
 }
