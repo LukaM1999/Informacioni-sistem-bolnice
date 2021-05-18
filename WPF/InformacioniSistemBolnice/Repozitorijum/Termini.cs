@@ -10,18 +10,10 @@ namespace Repozitorijum
     {
         private string putanja = "../../../json/zakazaniTermini.json";
 
-        private static readonly Lazy<Termini>
-            lazy =
-            new Lazy<Termini>
-                (() => new Termini());
+        private static readonly Lazy<Termini> Lazy = new(() => new Termini());
+        public static Termini Instance => Lazy.Value;
 
-        public static Termini Instance { get { return lazy.Value; } }
-
-        public ObservableCollection<Termin> listaTermina
-        {
-            get;
-            set;
-        }
+        public ObservableCollection<Termin> listaTermina { get; set; }
 
         public void Deserijalizacija()
         {
@@ -71,16 +63,10 @@ namespace Repozitorijum
             return true;
         }
 
-        /*public bool ObrisiTermin(DateTime vreme, string jmbgPacijenta, string jmbgLekara)
-        {
-            foreach (Termin pronadjen in listaTermina)
-                if (JePronadjen(vreme, jmbgPacijenta, jmbgLekara, pronadjen)) return listaTermina.Remove(pronadjen);
-            return false;
-        }*/
-
         public bool ObrisiTermin(Termin terminZaBrisanje)
         {
-            return listaTermina.Remove(terminZaBrisanje);
+            return listaTermina.Remove(NadjiTermin(terminZaBrisanje.vreme, 
+                terminZaBrisanje.pacijentJMBG, terminZaBrisanje.lekarJMBG));
         }
 
     }

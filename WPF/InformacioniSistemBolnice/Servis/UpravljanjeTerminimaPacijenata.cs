@@ -10,11 +10,8 @@ namespace Servis
     public class UpravljanjeTerminimaPacijenata
     {
         private static readonly Lazy<UpravljanjeTerminimaPacijenata>
-           lazy =
-           new Lazy<UpravljanjeTerminimaPacijenata>
-               (() => new UpravljanjeTerminimaPacijenata());
-
-        public static UpravljanjeTerminimaPacijenata Instance { get { return lazy.Value; } }
+           Lazy = new(() => new UpravljanjeTerminimaPacijenata());
+        public static UpravljanjeTerminimaPacijenata Instance => Lazy.Value;
 
         public void ZakaziTerminKodPacijenta(Termin terminZaZakazivanje)
         {

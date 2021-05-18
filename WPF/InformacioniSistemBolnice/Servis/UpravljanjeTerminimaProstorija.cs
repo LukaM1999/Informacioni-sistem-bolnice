@@ -10,11 +10,8 @@ namespace Servis
     public class UpravljanjeTerminimaProstorija
     {
         private static readonly Lazy<UpravljanjeTerminimaProstorija>
-           lazy =
-           new Lazy<UpravljanjeTerminimaProstorija>
-               (() => new UpravljanjeTerminimaProstorija());
-
-        public static UpravljanjeTerminimaProstorija Instance { get { return lazy.Value; } }
+           Lazy = new(() => new UpravljanjeTerminimaProstorija());
+        public static UpravljanjeTerminimaProstorija Instance => Lazy.Value;
 
         public void ZakaziTerminUnutarProstorije(Termin terminZaZakazivanje)
         {

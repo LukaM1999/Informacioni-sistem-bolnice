@@ -29,7 +29,7 @@ namespace Model
 
         public bool ObrisiTermin(Termin terminZaBrisanje)
         {
-            return zakazaniTermini.Remove(terminZaBrisanje);
+            return zakazaniTermini.Remove(NadjiTerminPoDatumu(terminZaBrisanje.vreme));
         }
 
         public bool DodajTermin(Termin terminZaDodavanje)
