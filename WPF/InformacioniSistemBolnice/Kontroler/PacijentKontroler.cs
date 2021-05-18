@@ -45,5 +45,10 @@ namespace Kontroler
         {
             UpravljanjeObavestenjimaPacijenta.Instance.UkljuciNoviPodsetnik(novPodsetnik);
         }
+
+        public void DodajBeleske(Pacijent ulogovanPacijent, string beleske)
+        {
+            IzmenaKartonaPacijenta.Instance.DodajBeleske(ulogovanPacijent, beleske);
+        }
     }
 }

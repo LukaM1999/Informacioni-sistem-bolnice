@@ -17,5 +17,7 @@
         <Button x:Name="Podsetnik" Canvas.Left="20" Canvas.Top="165" Width="60" Click="OtvoriPodsetnikFormu">
             <TextBlock Text="Kreiraj podsetnik" TextWrapping="Wrap"/>
         </Button>
+        <Button x:Name="Anamneza" Content="Anamneza" Canvas.Left="20" Canvas.Top="227" Width="60" Click="OtvoriAnamnezu"/>
+
     </Canvas>
 </Window>

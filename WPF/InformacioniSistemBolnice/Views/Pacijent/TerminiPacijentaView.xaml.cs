@@ -87,5 +87,11 @@ namespace InformacioniSistemBolnice
         {
             return izabranTermin is { status: StatusTermina.zavrsen, AnketaOLekaru: null };
         }
+
+        private void OtvoriAnamnezu(object sender, RoutedEventArgs e)
+        {
+            if (ulogovanPacijent.zdravstveniKarton is {anamneza: { }})
+                new AnamnezaView(ulogovanPacijent).Show();
+        }
     }
 }

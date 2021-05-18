@@ -111,7 +111,14 @@
         "RadPodPosebnimUslovima": "nema",
         "Promjene": null
       },
-      "anamneza": null,
+      "anamneza": {
+        "id": null,
+        "sadasnjaBolest": "asdcsdcsd",
+        "ranijeBolesti": "fgbfgbf",
+        "porodicneAnamneze": "fgvbfg",
+        "zakljucak": "Sve u redu.",
+        "BeleskePacijenta": "Neke beleskeeee."
+      },
       "Alergeni": [
         {
           "nazivAlergena": "laktoza"

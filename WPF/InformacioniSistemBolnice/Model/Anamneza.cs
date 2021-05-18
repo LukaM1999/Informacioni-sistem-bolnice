@@ -10,6 +10,7 @@ namespace Model
         public string ranijeBolesti { get; set; }
         public string porodicneAnamneze { get; set; }
         public string zakljucak { get; set; }
+        public string BeleskePacijenta { get; set; }
 
         public Anamneza(string sadasnja, string ranije, string porodicne, string z)
         {
@@ -18,6 +19,5 @@ namespace Model
             porodicneAnamneze = porodicne;
             zakljucak = z;
         }
-
     }
 }
