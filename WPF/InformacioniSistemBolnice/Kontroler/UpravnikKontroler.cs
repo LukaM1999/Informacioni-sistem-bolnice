@@ -8,17 +8,11 @@ namespace Kontroler
 {
     public class UpravnikKontroler
     {
-        private static readonly Lazy<UpravnikKontroler>
-           lazy =
-           new Lazy<UpravnikKontroler>
-               (() => new UpravnikKontroler());
+        private static readonly Lazy<UpravnikKontroler> lazy = new(() => new UpravnikKontroler());
 
         public static UpravnikKontroler Instance { get { return lazy.Value; } }
 
-        public void KreiranjeProstorije(ProstorijaForma p)
-        {
-            UpravljanjeProstorijama.Instance.KreiranjeProstorije(p);
-        }
+        public void KreiranjeProstorije(ProstorijaDto dto) => UpravljanjeProstorijama.Instance.KreiranjeProstorije(dto);
 
         public void UklanjanjeProstorije(DataGrid listaProstorija)
         {

@@ -19,7 +19,7 @@ namespace Servis
 
         public void ZakazivanjeRenoviranja(ProstorijaRenoviranjeDto dto)
         {
-            RenoviranjeTermin novTermin = new RenoviranjeTermin(dto.PocetakRenoviranja, dto.KrajRenoviranja, dto.Prostorija.id);
+            RenoviranjeTermin novTermin = new RenoviranjeTermin(dto.PocetakRenoviranja, dto.KrajRenoviranja, dto.Prostorija.Id);
             Prostorije.Instance.uzmiIzabranuProstoriju(dto.Prostorija).Renoviranje = novTermin;
             Prostorije.Instance.Serijalizacija();
             Prostorije.Instance.Deserijalizacija();
@@ -54,10 +54,10 @@ namespace Servis
 
         public void ZauzmiProstoriju(RenoviranjeTermin termin)
         {
-            foreach (Prostorija prostorija in Prostorije.Instance.listaProstorija.ToList())
+            foreach (Prostorija prostorija in Prostorije.Instance.ListaProstorija.ToList())
             {
-                if (!prostorija.id.Equals(termin.idProstorije)) continue;
-                Prostorije.Instance.uzmiIzabranuProstoriju(prostorija).jeZauzeta = true;
+                if (!prostorija.Id.Equals(termin.idProstorije)) continue;
+                Prostorije.Instance.uzmiIzabranuProstoriju(prostorija).JeZauzeta = true;
                 Prostorije.Instance.Serijalizacija();
                 Prostorije.Instance.Deserijalizacija();
                 break;
@@ -66,10 +66,10 @@ namespace Servis
 
         public void OslobodiProstoriju(RenoviranjeTermin termin)
         {
-            foreach (Prostorija prostorija in Prostorije.Instance.listaProstorija.ToList())
+            foreach (Prostorija prostorija in Prostorije.Instance.ListaProstorija.ToList())
             {
-                if (!prostorija.id.Equals(termin.idProstorije)) continue;
-                Prostorije.Instance.uzmiIzabranuProstoriju(prostorija).jeZauzeta = false;
+                if (!prostorija.Id.Equals(termin.idProstorije)) continue;
+                Prostorije.Instance.uzmiIzabranuProstoriju(prostorija).JeZauzeta = false;
                 Prostorije.Instance.uzmiIzabranuProstoriju(prostorija).Renoviranje = null;
                 RenoviranjeTermini.Instance.listaTermina.Remove(termin);
                 Prostorije.Instance.Serijalizacija();

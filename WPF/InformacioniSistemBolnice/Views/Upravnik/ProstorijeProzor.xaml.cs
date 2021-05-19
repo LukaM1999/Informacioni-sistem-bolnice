@@ -32,7 +32,7 @@ namespace InformacioniSistemBolnice
         {
             InitializeComponent();
             Prostorije.Instance.Deserijalizacija();
-            listaProstorija = Prostorije.Instance.listaProstorija;
+            listaProstorija = Prostorije.Instance.ListaProstorija;
 
             ListaProstorija.ItemsSource = listaProstorija;
             cbStaticka.ItemsSource = Enum.GetValues(typeof(TipStatickeOpreme));
@@ -99,9 +99,9 @@ namespace InformacioniSistemBolnice
             if ((bool)rbStaticka.IsChecked)
             {
                 TipStatickeOpreme tipStatickeOpreme = (TipStatickeOpreme)cbStaticka.SelectedItem;
-                foreach (Prostorija prostorija in Prostorije.Instance.listaProstorija.ToList())
+                foreach (Prostorija prostorija in Prostorije.Instance.ListaProstorija.ToList())
                 {
-                    foreach(StatickaOprema statickaOprema in prostorija.inventar.statickaOprema.ToList())
+                    foreach(StatickaOprema statickaOprema in prostorija.Inventar.statickaOprema.ToList())
                     {
                         if (statickaOprema.tip.Equals(tipStatickeOpreme) && statickaOprema.kolicina >= kolicina)
                         {
@@ -113,9 +113,9 @@ namespace InformacioniSistemBolnice
             else
             {
                 TipDinamickeOpreme tipDinamickeOpreme = (TipDinamickeOpreme)cbDinamicka.SelectedItem;
-                foreach (Prostorija prostorija in Prostorije.Instance.listaProstorija.ToList())
+                foreach (Prostorija prostorija in Prostorije.Instance.ListaProstorija.ToList())
                 {
-                    foreach (DinamickaOprema dinamickaOprema in prostorija.inventar.dinamickaOprema.ToList())
+                    foreach (DinamickaOprema dinamickaOprema in prostorija.Inventar.dinamickaOprema.ToList())
                     {
                         if (dinamickaOprema.tip.Equals(tipDinamickeOpreme) && dinamickaOprema.kolicina >= kolicina)
                         {
@@ -130,7 +130,7 @@ namespace InformacioniSistemBolnice
 
         private void btnOsvezi_Click(object sender, RoutedEventArgs e)
         {
-            listaProstorija = Prostorije.Instance.listaProstorija;
+            listaProstorija = Prostorije.Instance.ListaProstorija;
             ListaProstorija.ItemsSource = listaProstorija;
         }
 

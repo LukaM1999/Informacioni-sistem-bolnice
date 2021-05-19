@@ -43,9 +43,9 @@ namespace InformacioniSistemBolnice
             Pacijenti.Instance.Deserijalizacija();
             listaSati.ItemsSource = listaDatuma;
             
-            foreach(Prostorija p in Prostorije.Instance.listaProstorija)
+            foreach(Prostorija p in Prostorije.Instance.ListaProstorija)
             {
-                prostorijeID.Add(p.id);
+                prostorijeID.Add(p.Id);
             }
             sala.ItemsSource = prostorijeID;
 

@@ -7,20 +7,13 @@ namespace Servis
 {
    public class UpravljanjeProstorijama
    {
-      private static readonly Lazy<UpravljanjeProstorijama>
-        lazy =
-        new Lazy<UpravljanjeProstorijama>
-            (() => new UpravljanjeProstorijama());
+      private static readonly Lazy<UpravljanjeProstorijama> lazy = new Lazy<UpravljanjeProstorijama> (() => new UpravljanjeProstorijama());
 
       public static UpravljanjeProstorijama Instance { get { return lazy.Value; } }
       
-      public void KreiranjeProstorije(ProstorijaForma p)
+      public void KreiranjeProstorije(ProstorijaDto dto)
       {
-            Inventar i = new Inventar();
-            Model.DinamickaOprema oprema = new Model.DinamickaOprema();
-            i.dinamickaOprema.Add(oprema);
-            Prostorija prostorija = new Prostorija(Int32.Parse(p.spratUnos.Text), (TipProstorije)Enum.Parse(typeof(TipProstorije), p.tipUnos.Text), p.idUnos.Text, false, i);
-            Prostorije.Instance.listaProstorija.Add(prostorija);
+            Prostorije.Instance.ListaProstorija.Add(new Prostorija(dto.Sprat, dto.Tip, dto.Id, dto.JeZauzeta, dto.Inventar));
             Prostorije.Instance.Serijalizacija();
             Prostorije.Instance.Deserijalizacija();
         }
@@ -34,7 +27,7 @@ namespace Servis
 
                 foreach(Termin t in Termini.Instance.listaTermina)
                 {
-                    if (t.idProstorije == pr.id)
+                    if (t.idProstorije == pr.Id)
                     {
                         t.idProstorije = null;
                         Termini.Instance.Serijalizacija();
@@ -43,32 +36,32 @@ namespace Servis
                 }
 
 
-                foreach (Prostorija p in prostorije.listaProstorija)
+                foreach (Prostorija p in prostorije.ListaProstorija)
                 {
-                    if (p.id.Equals(pr.id))
+                    if (p.Id.Equals(pr.Id))
                     {
-                        prostorije.listaProstorija.Remove(p);
+                        prostorije.ListaProstorija.Remove(p);
                         Prostorije.Instance.Serijalizacija();
                         break;
                     }
                 }
-                ListaProstorija.ItemsSource = Prostorije.Instance.listaProstorija;
+                ListaProstorija.ItemsSource = Prostorije.Instance.ListaProstorija;
             }
         }
       
       public void IzmenaProstorije(ProstorijaFormaIzmeni izmena, Prostorija p)
       {
-            string stariId = p.id;
-            p.sprat = Int32.Parse(izmena.tb1.Text);
-            p.tip = (TipProstorije)Enum.Parse(typeof(TipProstorije), izmena.tipIzmena.Text, true);
-            p.id = izmena.tb2.Text;
+            string stariId = p.Id;
+            p.Sprat = Int32.Parse(izmena.tb1.Text);
+            p.Tip = (TipProstorije)Enum.Parse(typeof(TipProstorije), izmena.tipIzmena.Text, true);
+            p.Id = izmena.tb2.Text;
             if (izmena.rb1.IsChecked == true)
             {
-                p.jeZauzeta = true;
+                p.JeZauzeta = true;
             }
             else
             {
-                p.jeZauzeta = false;
+                p.JeZauzeta = false;
             }
 
             foreach (Termin t in Termini.Instance.listaTermina)
@@ -77,7 +70,7 @@ namespace Servis
                 {
                     if (t.idProstorije == stariId)
                     {
-                        t.idProstorije = p.id;
+                        t.idProstorije = p.Id;
                         Termini.Instance.Serijalizacija();
                         Termini.Instance.Deserijalizacija();
                     }

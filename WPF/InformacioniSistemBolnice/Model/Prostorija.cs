@@ -5,30 +5,30 @@ namespace Model
 {
     public class Prostorija
     {
-        public int sprat { get; set; }
-        public string id { get; set; }
-        public bool jeZauzeta { get; set; }
-        public TipProstorije tip { get; set; }
-        public Inventar inventar { get; set; }
+        public int Sprat { get; set; }
+        public string Id { get; set; }
+        public bool JeZauzeta { get; set; }
+        public TipProstorije Tip { get; set; }
+        public Inventar Inventar { get; set; }
         public RenoviranjeTermin Renoviranje { get; set; }
         public ObservableCollection<Termin> TerminiProstorije { get; set; }
         public Prostorija()
         {
-            jeZauzeta = false;
+            JeZauzeta = false;
         }
 
-        public Prostorija(int sprat, TipProstorije tip, string sifra, bool zauzeta, Inventar inventar)
+        public Prostorija(int Sprat, TipProstorije tip, string sifra, bool zauzeta, Inventar inventar)
         {
-            this.sprat = sprat;
-            this.tip = tip;
-            this.id = sifra;
-            jeZauzeta = zauzeta;
-            this.inventar = inventar;
+            this.Sprat = Sprat;
+            this.Tip = tip;
+            this.Id = sifra;
+            JeZauzeta = zauzeta;
+            this.Inventar = inventar;
         }
 
         public override string ToString()
         {
-            return "ID: " + this.id;
+            return "ID: " + this.Id;
         }
 
         public bool ObrisiTermin(Termin terminZaBrisanje)

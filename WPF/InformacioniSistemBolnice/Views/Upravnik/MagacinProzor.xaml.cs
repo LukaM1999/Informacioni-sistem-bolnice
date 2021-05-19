@@ -37,8 +37,8 @@ namespace InformacioniSistemBolnice
             Prostorije.Instance.Deserijalizacija();
             listViewStatOpreme.ItemsSource = Repozitorijum.StatickaOprema.Instance.listaOpreme;
             listViewDinamOpreme.ItemsSource = Repozitorijum.DinamickaOprema.Instance.listaOpreme;
-            listaProstorija.ItemsSource = Prostorije.Instance.listaProstorija;
-            listaProstorijaS.ItemsSource = Prostorije.Instance.listaProstorija;
+            listaProstorija.ItemsSource = Prostorije.Instance.ListaProstorija;
+            listaProstorijaS.ItemsSource = Prostorije.Instance.ListaProstorija;
         }
 
         private void dugmeKreirajOpemu_Click(object sender, RoutedEventArgs e)
@@ -93,8 +93,8 @@ namespace InformacioniSistemBolnice
                 
                 UpravnikKontroler.Instance.RasporedjivanjeDinamickeOpreme(null, prostorija, oprema, kolicina);
                 listViewDinamOpreme.ItemsSource = Repozitorijum.DinamickaOprema.Instance.listaOpreme;
-                prostorijaProzor.ListaProstorija.ItemsSource = Prostorije.Instance.listaProstorija;
-                prostorijaProzor.ListaProstorija.ItemsSource = Prostorije.Instance.listaProstorija;
+                prostorijaProzor.ListaProstorija.ItemsSource = Prostorije.Instance.ListaProstorija;
+                prostorijaProzor.ListaProstorija.ItemsSource = Prostorije.Instance.ListaProstorija;
                 
             }
 
@@ -111,7 +111,7 @@ namespace InformacioniSistemBolnice
                 
                 UpravnikKontroler.Instance.RasporedjivanjeStatickeOpreme(null, prostorija, oprema, kolicina, (DateTime)datumStat.SelectedDate);
                 listViewStatOpreme.ItemsSource = Repozitorijum.StatickaOprema.Instance.listaOpreme;
-                prostorijaProzor.ListaProstorija.ItemsSource = Prostorije.Instance.listaProstorija;
+                prostorijaProzor.ListaProstorija.ItemsSource = Prostorije.Instance.ListaProstorija;
             }
         }
     }

@@ -13,7 +13,7 @@
             <Label Content="Sprat: " Canvas.Left="23" Canvas.Top="42" Width="44" HorizontalAlignment="Right"/>
             <Label Content="Tip: " Canvas.Left="23" Canvas.Top="73" Width="44" HorizontalAlignment="Right"/>
             <Label Content="ID: " Canvas.Left="23" Canvas.Top="104" Width="44" HorizontalAlignment="Right"/>
-            <TextBox x:Name="spratUnos" Canvas.Left="72" Canvas.Top="46" Text="" TextWrapping="Wrap" Width="120"/>
+            <TextBox x:Name="SpratUnos" Canvas.Left="72" Canvas.Top="46" Text="" TextWrapping="Wrap" Width="120"/>
             <TextBox x:Name="idUnos" Canvas.Left="72" Canvas.Top="108" Text="" TextWrapping="Wrap" Width="120"/>
             <ComboBox x:Name="tipUnos" Canvas.Left="72" Canvas.Top="75" Width="120" Height="22" 
                     ItemsSource="{Binding Source={local:EnumBindingSource {x:Type model:TipProstorije}}}"/>

@@ -57,11 +57,11 @@ namespace Servis
                     {
                         if(t.izProstorije == null)
                         {
-                            foreach (Model.StatickaOprema s in t.uProstoriju.inventar.statickaOprema.ToList())
+                            foreach (Model.StatickaOprema s in t.uProstoriju.Inventar.statickaOprema.ToList())
                             {
                                 if (s.tip.Equals(t.oprema.tip))
                                 {
-                                    Prostorije.Instance.uzmiIzabranuProstoriju(t.uProstoriju).inventar.getSelectedS(s).kolicina += t.kolicina;
+                                    Prostorije.Instance.uzmiIzabranuProstoriju(t.uProstoriju).Inventar.getSelectedS(s).kolicina += t.kolicina;
                                     temp = 1;
                                     break;
                                 }
@@ -69,7 +69,7 @@ namespace Servis
                             if (temp != 1)
                             {
                                 Model.StatickaOprema stat = new Model.StatickaOprema(t.kolicina, t.oprema.tip);
-                                Prostorije.Instance.uzmiIzabranuProstoriju(t.uProstoriju).inventar.statickaOprema.Add(stat);
+                                Prostorije.Instance.uzmiIzabranuProstoriju(t.uProstoriju).Inventar.statickaOprema.Add(stat);
                                 temp = 0;
                             }
                             
@@ -92,11 +92,11 @@ namespace Servis
                         }
                         if (t.uProstoriju == null)
                         {
-                            foreach (Model.StatickaOprema s in t.izProstorije.inventar.statickaOprema.ToList())
+                            foreach (Model.StatickaOprema s in t.izProstorije.Inventar.statickaOprema.ToList())
                             {
                                 if (s.tip.Equals(t.oprema.tip))
                                 {
-                                    Prostorije.Instance.uzmiIzabranuProstoriju(t.izProstorije).inventar.getSelectedS(s).kolicina -= t.kolicina;
+                                    Prostorije.Instance.uzmiIzabranuProstoriju(t.izProstorije).Inventar.getSelectedS(s).kolicina -= t.kolicina;
                                     break;
                                 }
                             }
@@ -119,11 +119,11 @@ namespace Servis
                         }
                         if (t.uProstoriju != null && t.izProstorije != null)
                         {
-                            foreach (Model.StatickaOprema s in t.uProstoriju.inventar.statickaOprema.ToList())
+                            foreach (Model.StatickaOprema s in t.uProstoriju.Inventar.statickaOprema.ToList())
                             {
                                 if (s.tip.Equals(t.oprema.tip))
                                 {
-                                    Prostorije.Instance.uzmiIzabranuProstoriju(t.uProstoriju).inventar.getSelectedS(s).kolicina += t.kolicina;
+                                    Prostorije.Instance.uzmiIzabranuProstoriju(t.uProstoriju).Inventar.getSelectedS(s).kolicina += t.kolicina;
                                     temp = 1;
                                     break;
                                 }
@@ -131,15 +131,15 @@ namespace Servis
                             if (temp != 1)
                             {
                                 Model.StatickaOprema stat = new Model.StatickaOprema(t.kolicina, t.oprema.tip);
-                                Prostorije.Instance.uzmiIzabranuProstoriju(t.uProstoriju).inventar.statickaOprema.Add(stat);
+                                Prostorije.Instance.uzmiIzabranuProstoriju(t.uProstoriju).Inventar.statickaOprema.Add(stat);
                                 temp = 0;
                             }
 
-                            foreach (Model.StatickaOprema s in t.izProstorije.inventar.statickaOprema.ToList())
+                            foreach (Model.StatickaOprema s in t.izProstorije.Inventar.statickaOprema.ToList())
                             {
                                 if (s.tip.Equals(t.oprema.tip))
                                 {
-                                    Prostorije.Instance.uzmiIzabranuProstoriju(t.izProstorije).inventar.getSelectedS(s).kolicina -= t.kolicina;
+                                    Prostorije.Instance.uzmiIzabranuProstoriju(t.izProstorije).Inventar.getSelectedS(s).kolicina -= t.kolicina;
                                     break;
                                 }
                             }

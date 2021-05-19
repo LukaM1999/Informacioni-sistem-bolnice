@@ -33,10 +33,10 @@ namespace InformacioniSistemBolnice
 
         public void SetTextBoxValue(Prostorija p)
         {
-            tb1.Text = p.sprat.ToString();
-            tipIzmena.Text = p.tip.ToString();
-            tb2.Text = p.id.ToString();
-            if (p.jeZauzeta)
+            tb1.Text = p.Sprat.ToString();
+            tipIzmena.Text = p.Tip.ToString();
+            tb2.Text = p.Id.ToString();
+            if (p.JeZauzeta)
             {
                 rb1.IsChecked = true;
             }
@@ -51,7 +51,7 @@ namespace InformacioniSistemBolnice
         {
             Prostorija p = (Prostorija)l.SelectedValue;
             UpravnikKontroler.Instance.IzmenaProstorije(this, p);
-            l.ItemsSource = Prostorije.Instance.listaProstorija;
+            l.ItemsSource = Prostorije.Instance.ListaProstorija;
             this.Close();
 
         }

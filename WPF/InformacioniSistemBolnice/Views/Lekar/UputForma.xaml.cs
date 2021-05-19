@@ -41,16 +41,16 @@ namespace InformacioniSistemBolnice
             
             if (tip.SelectedItem != null)
             {
-                foreach (Prostorija ponudjenaProstorija in Prostorije.Instance.listaProstorija)
+                foreach (Prostorija ponudjenaProstorija in Prostorije.Instance.ListaProstorija)
                 {
                     if (tip.SelectionBoxItemStringFormat.Equals("pregled"))
                     {
-                        if (ponudjenaProstorija.tip == TipProstorije.prostorijaZaPreglede)
+                        if (ponudjenaProstorija.Tip == TipProstorije.prostorijaZaPreglede)
                             filtriraneProstorije.Add(ponudjenaProstorija);
                     }
                     else
                     {
-                        if (ponudjenaProstorija.tip == TipProstorije.operacionaSala)
+                        if (ponudjenaProstorija.Tip == TipProstorije.operacionaSala)
                             filtriraneProstorije.Add(ponudjenaProstorija);
                     }
                 }

@@ -18,7 +18,7 @@ namespace Repozitorijum
             
             public static Prostorije Instance { get { return lazy.Value; } }
 
-        public ObservableCollection<Prostorija> listaProstorija
+        public ObservableCollection<Prostorija> ListaProstorija
         {
             get;
             set;
@@ -26,17 +26,17 @@ namespace Repozitorijum
 
         public void Deserijalizacija()
         {
-            lock (listaProstorija)
+            lock (ListaProstorija)
             {
-                listaProstorija = JsonConvert.DeserializeObject<ObservableCollection<Prostorija>>(File.ReadAllText(putanja));
+                ListaProstorija = JsonConvert.DeserializeObject<ObservableCollection<Prostorija>>(File.ReadAllText(putanja));
             }
         }
 
         public void Serijalizacija()
         {
-            lock (listaProstorija)
+            lock (ListaProstorija)
             {
-                string json = JsonConvert.SerializeObject(listaProstorija, Formatting.Indented);
+                string json = JsonConvert.SerializeObject(ListaProstorija, Formatting.Indented);
                 File.WriteAllText(putanja, json);
             }
         }
@@ -44,32 +44,32 @@ namespace Repozitorijum
         public Prostorija uzmiIzabranuProstoriju(Prostorija izabranaProstorija)
         {
             Prostorija prostorija = null;
-            foreach (Prostorija p in listaProstorija)
+            foreach (Prostorija p in ListaProstorija)
             {
-                if (p.id.Equals(izabranaProstorija.id))
+                if (p.Id.Equals(izabranaProstorija.Id))
                 {
                     prostorija = p;
                 }
             }
-            return listaProstorija.ElementAt(listaProstorija.IndexOf(prostorija));
+            return ListaProstorija.ElementAt(ListaProstorija.IndexOf(prostorija));
         }
 
         public Prostorija NadjiPoId(string idProstorije)
         {
-            foreach (Prostorija prostorija in listaProstorija) if (prostorija.id == idProstorije) return prostorija;
+            foreach (Prostorija prostorija in ListaProstorija) if (prostorija.Id == idProstorije) return prostorija;
             return null;
         }
 
         public bool BrisiPoId(string idProstorije)
         {
-            foreach (Prostorija pronadjena in listaProstorija)
-                if (pronadjena.id == idProstorije) return listaProstorija.Remove(pronadjena);
+            foreach (Prostorija pronadjena in ListaProstorija)
+                if (pronadjena.Id == idProstorije) return ListaProstorija.Remove(pronadjena);
             return false;
         }
 
         private Prostorije()
         {
-            listaProstorija = new ObservableCollection<Prostorija>();
+            ListaProstorija = new ObservableCollection<Prostorija>();
         }
         public void SacuvajPromene()
         {

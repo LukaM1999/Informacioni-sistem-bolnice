@@ -1,10 +1,10 @@
 [
   {
-    "sprat": 2,
-    "id": "P1",
-    "jeZauzeta": false,
-    "tip": 1,
-    "inventar": {
+    "Sprat": 2,
+    "Id": "P1",
+    "JeZauzeta": false,
+    "Tip": 1,
+    "Inventar": {
       "dinamickaOprema": [
         {
           "tip": 3,
@@ -53,11 +53,11 @@
     ]
   },
   {
-    "sprat": 3,
-    "id": "OS1",
-    "jeZauzeta": false,
-    "tip": 0,
-    "inventar": {
+    "Sprat": 3,
+    "Id": "OS1",
+    "JeZauzeta": false,
+    "Tip": 0,
+    "Inventar": {
       "dinamickaOprema": [
         {
           "tip": 2,
@@ -95,11 +95,11 @@
     ]
   },
   {
-    "sprat": 4,
-    "id": "K3",
-    "jeZauzeta": false,
-    "tip": 2,
-    "inventar": {
+    "Sprat": 4,
+    "Id": "K3",
+    "JeZauzeta": false,
+    "Tip": 2,
+    "Inventar": {
       "dinamickaOprema": [
         {
           "tip": 1,
@@ -129,11 +129,11 @@
     "TerminiProstorije": []
   },
   {
-    "sprat": 2,
-    "id": "D3",
-    "jeZauzeta": false,
-    "tip": 1,
-    "inventar": {
+    "Sprat": 2,
+    "Id": "D3",
+    "JeZauzeta": false,
+    "Tip": 1,
+    "Inventar": {
       "dinamickaOprema": [
         {
           "tip": 0,
@@ -155,11 +155,11 @@
     "TerminiProstorije": []
   },
   {
-    "sprat": 2,
-    "id": "312",
-    "jeZauzeta": false,
-    "tip": 2,
-    "inventar": {
+    "Sprat": 2,
+    "Id": "312",
+    "JeZauzeta": false,
+    "Tip": 2,
+    "Inventar": {
       "dinamickaOprema": [
         {
           "tip": 0,
@@ -181,11 +181,11 @@
     "TerminiProstorije": []
   },
   {
-    "sprat": 2,
-    "id": "K32",
-    "jeZauzeta": false,
-    "tip": 2,
-    "inventar": {
+    "Sprat": 2,
+    "Id": "K32",
+    "JeZauzeta": false,
+    "Tip": 2,
+    "Inventar": {
       "dinamickaOprema": [
         {
           "tip": 0,

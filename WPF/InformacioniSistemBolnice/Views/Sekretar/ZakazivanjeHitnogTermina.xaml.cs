@@ -39,7 +39,7 @@ namespace InformacioniSistemBolnice
             pacijenti.ItemsSource = Pacijenti.Instance.ListaPacijenata;
 
             Prostorije.Instance.Deserijalizacija();
-            prostorije.ItemsSource = Prostorije.Instance.listaProstorija;
+            prostorije.ItemsSource = Prostorije.Instance.ListaProstorija;
 
         }
 
@@ -49,7 +49,7 @@ namespace InformacioniSistemBolnice
             Prostorija prostorija = (Prostorija)this.prostorije.SelectedItem;
 
             HitnoZakazivanjeDto hitnoZakazivanjeDto = new HitnoZakazivanjeDto(this.specijalizacijeLekara.SelectedItem.ToString(),
-                pacijent.jmbg, prostorija.id);
+                pacijent.jmbg, prostorija.Id);
             SekretarKontroler.Instance.ZakazivanjeHitnogTermina(hitnoZakazivanjeDto);
             
             Termini.Instance.Deserijalizacija();
