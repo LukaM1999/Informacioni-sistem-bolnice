@@ -1,7 +1,9 @@
 using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Collections.ObjectModel;
+using System.Linq;
 using PropertyChanged;
 
 namespace Model
@@ -29,17 +31,35 @@ namespace Model
 
         public bool ObrisiTermin(Termin terminZaBrisanje)
         {
-            return zakazaniTermini.Remove(terminZaBrisanje);
+            return zakazaniTermini.Remove(NadjiTerminPoDatumu(terminZaBrisanje.vreme));
         }
 
-        public void DodajTermin(Termin terminZaDodavanje)
+        public bool DodajTermin(Termin terminZaDodavanje)
         {
+            if (NadjiTerminPoDatumu(terminZaDodavanje.vreme) != null) return false;
             zakazaniTermini.Add(terminZaDodavanje);
+            return true;
         }
-
         public override string ToString()
         {
             return ime + " " + prezime;
+        }
+
+        private Termin NadjiTerminPoDatumu(DateTime vremeTermina)
+        {
+            foreach (Termin pronadjen in zakazaniTermini)
+                if (pronadjen.vreme == vremeTermina) return pronadjen;
+            return null;
+        }
+
+        public List<Termin> DobaviSortiraneTermine()
+        {
+            return zakazaniTermini.OrderBy(termin => termin.vreme).ToList();
+        }
+
+        public bool PacijentPosetioBolnicu(List<Termin> sortiraniTermini)
+        {
+            return sortiraniTermini.Count != 0 && sortiraniTermini[0].status == StatusTermina.zavrsen;
         }
     }
 }

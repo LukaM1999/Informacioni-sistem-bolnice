@@ -18,14 +18,14 @@
         <Label Content="Pocetak:" HorizontalAlignment="Left" Margin="43,164,0,0" VerticalAlignment="Top" Height="34"/>
         <DatePicker x:Name="kraj" HorizontalAlignment="Left" Margin="108,222,0,0" VerticalAlignment="Top" Height="24" Width="117"/>
         <Label Content="Kraj:" HorizontalAlignment="Left" Margin="43,217,0,0" VerticalAlignment="Top" Height="34" Width="55"/>
-        <ComboBox x:Name="prostorija" HorizontalAlignment="Left" Margin="134,269,0,0" VerticalAlignment="Top" Width="94"/>
-        <Label Content="Prostorija:" HorizontalAlignment="Left" Margin="43,267,0,0" VerticalAlignment="Top" Height="34" Width="71"/>
-        <ComboBox x:Name="tip" HorizontalAlignment="Left" Margin="134,312,0,0" VerticalAlignment="Top" Width="94">
+        <Label Content="Prostorija:" HorizontalAlignment="Left" Margin="43,316,0,0" VerticalAlignment="Top" Height="34" Width="71"/>
+        <ComboBox x:Name="tip" HorizontalAlignment="Left" Margin="134,271,0,0" VerticalAlignment="Top" Width="94">
             <system:String>pregled</system:String>
             <system:String>operacija</system:String>
         </ComboBox>
-        <Label Content="Tip:" HorizontalAlignment="Left" Margin="43,306,0,0" VerticalAlignment="Top" Height="34" Width="55"/>
-        <CheckBox x:Name="hitno" Content="Hitno" HorizontalAlignment="Left" Margin="168,353,0,0" VerticalAlignment="Top" Height="24" Width="60"/>
+        <ComboBox x:Name="prostorija" HorizontalAlignment="Left" Margin="134,316,0,0" VerticalAlignment="Top" Width="94"/>
+        <Label Content="Tip:" HorizontalAlignment="Left" Margin="43,271,0,0" VerticalAlignment="Top" Height="34" Width="55"/>
+        <CheckBox x:Name="hitno" Content="Hitno" HorizontalAlignment="Left" Margin="168,360,0,0" VerticalAlignment="Top" Height="24" Width="60"/>
 
     </Grid>
 </Window>

@@ -148,5 +148,20 @@
     "korisnickoIme": "gagag",
     "lozinka": "gagag",
     "uloga": 2
+  },
+  {
+    "korisnickoIme": "drNikola",
+    "lozinka": "drNikola",
+    "uloga": 1
+  },
+  {
+    "korisnickoIme": "lall",
+    "lozinka": "lal",
+    "uloga": 1
+  },
+  {
+    "korisnickoIme": "llalal",
+    "lozinka": "llal",
+    "uloga": 1
   }
 ]

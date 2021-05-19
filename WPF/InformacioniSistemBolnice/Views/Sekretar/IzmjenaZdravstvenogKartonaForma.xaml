@@ -50,7 +50,12 @@
             <TextBox x:Name="OSIZ" Canvas.Left="580" Canvas.Top="510" Height="28" Width="120" Background="White"/>
             <TextBox x:Name="radUPosebnimUslovimaUnos" Canvas.Left="580" Canvas.Top="470" Height="28" Width="120" Background="White"/>
             <TextBox x:Name="promjene" Canvas.Left="580" Canvas.Top="550" Height="28" Width="120" Background="White"/>
-            <Button Content="Nazad" Canvas.Left="30" Canvas.Top="22" Width="100" Click="NazadBtn_Click" Background="White"/>
+            <Button Style="{StaticResource ResourceKey=MainButtons}" x:Name="Nazad"  Click="NazadBtn_Click" HorizontalAlignment="Left" VerticalAlignment="Top" Background="LightGray"  Width="50" Height="60" Margin="30,15,0,0" >
+                <StackPanel Orientation="Vertical">
+                    <Image Source="../../images/back.png" Width="30" Height="30" RenderOptions.BitmapScalingMode="Fant"/>
+                    <TextBlock Text="Nazad" VerticalAlignment="Center" FontSize="14"/>
+                </StackPanel>
+            </Button>
             <Button Content="Dodaj"   Click="dodajAlergen_Click" Canvas.Left="750" Canvas.Top="485" Width="60"/>
             <Button Content="Obrisi"  Click="obrisiAlergen_Click" Canvas.Left="830" Canvas.Top="485" Width="60"/>
             <ComboBox x:Name="polUnos" Canvas.Left="178" Canvas.Top="506" Width="120"  ItemsSource="{Binding Source={local:EnumBindingSource {x:Type model:Pol}}}"/>

@@ -18,17 +18,28 @@ namespace InformacioniSistemBolnice
     /// <summary>
     /// Interaction logic for KreirajVijestProzor.xaml
     /// </summary>
-    public partial class KreirajVijestProzor : Window
+    public partial class KreirajVijestProzor : UserControl 
     {
-        public KreirajVijestProzor()
+        public PocetnaStranicaSekretara pocetna;
+        public VestiProzor vesti;
+        public UCMenuSekretara menu;
+        public KreirajVijestProzor(PocetnaStranicaSekretara pocetnaStranicaSekretara, UCMenuSekretara menuSekretara, VestiProzor vestiProzor)
         {
             InitializeComponent();
+            pocetna = pocetnaStranicaSekretara;
+            vesti = vestiProzor;
+            menu = menuSekretara;
         }
 
         private void kreirajVijest_Click(object sender, RoutedEventArgs e)
         {
             SekretarKontroler.Instance.KreiranjeVesti(this);
-            this.Close();
+            pocetna.contentControl.Content = new VestiProzor(menu);
+        }
+
+        private void NazadBtn_Click(object sender, RoutedEventArgs e)
+        {
+            pocetna.contentControl.Content = vesti.Content;
         }
     }
 }

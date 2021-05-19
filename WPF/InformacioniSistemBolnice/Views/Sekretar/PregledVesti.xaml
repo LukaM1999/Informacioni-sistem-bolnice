@@ -5,16 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:InformacioniSistemBolnice"
         mc:Ignorable="d"
-        Title="PregledVesti" Height="500" Width="900">
+        Title="PregledVesti" Height="650" MaxHeight="650" MinHeight="650" Width="1000" MaxWidth="1000" MinWidth="1000">
     <Grid Background="Aqua">
-        <Label x:Name ="labelaNaslovVesti" Background="White" HorizontalAlignment="Left" Margin="58,26,0,0" VerticalAlignment="Top" Height="59" Width="800" FontSize="22"/>
-        <ScrollViewer   
-              Background="Aqua"
-              Width="Auto" 
-              VerticalScrollBarVisibility="Auto" Margin="0,90,0,0">
-
-
-            <Label x:Name ="labelaSadrzajVesti"  FontSize="16" Background="White" Margin="45,30,10,10" Padding="10, 10, 10, 10" RenderTransformOrigin="-0.395,-0.384" Height="369" Width="800"/>
-        </ScrollViewer>
+        <Label x:Name ="labelaNaslovVesti" Background="White" HorizontalAlignment="Left" Margin="65,91,0,0" VerticalAlignment="Top" Height="60" Width="901" FontSize="22"/>
+        <TextBox x:Name="sadrzajVesti" FontSize="16" AcceptsReturn="True" VerticalScrollBarVisibility="Visible" Background="White"  HorizontalAlignment="Left" Margin="66,182,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Height="420" Width="900"/>
     </Grid>
 </Window>

@@ -52,5 +52,10 @@ namespace Model
         {
             return vreme.ToString("MM/dd/yyyy HH:mm") + " " + lekarJMBG;
         }
+
+        public void PopuniAnketuOLekaru(AnketaOLekaru popunjenaAnketa)
+        {
+            AnketaOLekaru = popunjenaAnketa;
+        }
     }
 }

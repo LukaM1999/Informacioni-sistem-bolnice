@@ -15,6 +15,8 @@ using Model;
 using Repozitorijum;
 using Kontroler;
 using System.Collections.ObjectModel;
+using DinamickaOprema = Model.DinamickaOprema;
+using StatickaOprema = Model.StatickaOprema;
 
 namespace InformacioniSistemBolnice
 {
@@ -54,7 +56,7 @@ namespace InformacioniSistemBolnice
         {
             if ((bool)rbMagacin.IsChecked)
             {
-                Model.DinamickaOprema oprema = (Model.DinamickaOprema)listaDinamicke.SelectedItem;
+                DinamickaOprema oprema = (DinamickaOprema)listaDinamicke.SelectedItem;
                 int kolicina = Int32.Parse(tbKolicinaDinamicka.Text);
                 Prostorija prostorija = (Prostorija)prostorProzor.ListaProstorija.SelectedItem;
 
@@ -66,7 +68,7 @@ namespace InformacioniSistemBolnice
             else
             {
                 if(cbDinamicka.SelectedItem != (Prostorija)prostorProzor.ListaProstorija.SelectedItem){
-                    Model.DinamickaOprema oprema = (Model.DinamickaOprema)listaDinamicke.SelectedItem;
+                    DinamickaOprema oprema = (DinamickaOprema)listaDinamicke.SelectedItem;
                     int kolicina = Int32.Parse(tbKolicinaDinamicka.Text);
                     Prostorija izProstorije = (Prostorija)prostorProzor.ListaProstorija.SelectedItem;
                     Prostorija uProstorije = (Prostorija)cbDinamicka.SelectedItem;
@@ -84,7 +86,7 @@ namespace InformacioniSistemBolnice
         {
             if ((bool)rbMagacin.IsChecked && listaStaticke.SelectedValue != null && datum.SelectedDate != null)
             {
-                Model.StatickaOprema oprema = (Model.StatickaOprema)listaStaticke.SelectedItem;
+                StatickaOprema oprema = (StatickaOprema)listaStaticke.SelectedItem;
                 int kolicina = Int32.Parse(tbKolicinaStaticka.Text);
                 Prostorija izProstorije = (Prostorija)prostorProzor.ListaProstorija.SelectedItem;
 
@@ -95,7 +97,7 @@ namespace InformacioniSistemBolnice
                 if (cbStaticka.SelectedItem != (Prostorija)prostorProzor.ListaProstorija.SelectedItem && listaStaticke.SelectedValue != null 
                     && cbStaticka.SelectedItem != null && datum.SelectedDate != null)
                 {
-                    Model.StatickaOprema oprema = (Model.StatickaOprema)listaStaticke.SelectedItem;
+                    StatickaOprema oprema = (StatickaOprema)listaStaticke.SelectedItem;
                     int kolicina = Int32.Parse(tbKolicinaStaticka.Text);
                     Prostorija izProstorije = (Prostorija)prostorProzor.ListaProstorija.SelectedItem;
                     Prostorija uProstoriju = (Prostorija)cbStaticka.SelectedItem;

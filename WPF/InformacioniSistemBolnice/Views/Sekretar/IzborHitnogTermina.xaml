@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:InformacioniSistemBolnice"
         mc:Ignorable="d"
-        Title="IzborHitnogTerminaaaaaaaaaaaaaaaaaaaaa" Height="450" Width="400">
+        Title="IzborHitnogTermina" Height="450" Width="400">
     <Grid>
         <Canvas>
             <DataGrid x:Name="ponudjeniiTermini" Height="377" Width="400"/>

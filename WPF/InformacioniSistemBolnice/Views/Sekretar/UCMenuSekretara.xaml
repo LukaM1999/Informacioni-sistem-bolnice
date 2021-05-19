@@ -14,18 +14,18 @@
                     <StackPanel/>
                 </ItemsPanelTemplate>
             </Menu.ItemsPanel>
-            <MenuItem Header="Upravljanje urgentnim sistemom" BorderBrush="Black" FontFamily="Arial" FontSize="23" HorizontalAlignment="Center" Width="500">
-                <MenuItem  Header="Gostujuci nalozi" FontSize="21" HorizontalAlignment="Left" FlowDirection="RightToLeft" IsSubmenuOpen="True" Background="LightGray" Width ="300" BorderBrush="Gray" Click="GostujuciNalozi_Click" />
-                <MenuItem  Header="Zakazi hitan pregled" FontSize="21" HorizontalAlignment="Left" FlowDirection="RightToLeft"  IsSubmenuOpen="True" Background="LightGray"  Width ="300" BorderBrush="Gray" Click="ZakaziHitanPregled_Click"/>
+            <MenuItem Header="Upravljanje urgentnim sistemom" BorderBrush="Black" FontFamily="Arial" FontSize="25" HorizontalAlignment="Center" Width="500">
+                <MenuItem  Header="Gostujuci nalozi" FontSize="23" HorizontalAlignment="Left" FlowDirection="RightToLeft" IsSubmenuOpen="True" Background="LightGray" Width ="300" BorderBrush="Gray" Click="GostujuciNalozi_Click" />
+                <MenuItem  Header="Zakazi hitan pregled" FontSize="23" HorizontalAlignment="Left" FlowDirection="RightToLeft"  IsSubmenuOpen="True" Background="LightGray"  Width ="300" BorderBrush="Gray" Click="ZakaziHitanPregled_Click"/>
             </MenuItem>
-            <MenuItem Header="Upravljanje nalozima pacijenata" BorderBrush="Black" FontFamily="Arial" FontSize="23"  HorizontalAlignment="Center" Width="500">
-                <MenuItem Header="Nalozi pacijenata" FontSize="21" HorizontalAlignment="Left" FlowDirection="RightToLeft" IsSubmenuOpen="True" Background="LightGray" Width ="330" BorderBrush="Gray" Click="UpravljanjeNalozimaPacijenata_Click"/>
-                <MenuItem Header="Registruj novog pacijenta" FontSize="21" HorizontalAlignment="Left" FlowDirection="RightToLeft" IsSubmenuOpen="True" Background="LightGray" Width ="330" BorderBrush="Gray" Click="RegistrujPacijenta_Click"/>
+            <MenuItem Header="Upravljanje nalozima pacijenata" BorderBrush="Black" FontFamily="Arial" FontSize="25"  HorizontalAlignment="Center" Width="500">
+                <MenuItem Header="Nalozi pacijenata" FontSize="23" HorizontalAlignment="Left" FlowDirection="RightToLeft" IsSubmenuOpen="True" Background="LightGray" Width ="350" BorderBrush="Gray" Click="UpravljanjeNalozimaPacijenata_Click"/>
+                <MenuItem Header="Registruj novog pacijenta" FontSize="23" HorizontalAlignment="Left" FlowDirection="RightToLeft" IsSubmenuOpen="True" Background="LightGray" Width ="350" BorderBrush="Gray" Click="RegistrujPacijenta_Click"/>
             </MenuItem>
-            <MenuItem Header="Zakazivanje pregleda" BorderBrush="Black" FontFamily="Arial" FontSize="23" HorizontalAlignment="Center" Click="TerminiPacijenata_Click" Width="500"/>
-            <MenuItem Header="Upravljanje alergenima"  BorderBrush="Black" FontFamily="Arial" FontSize="23"  HorizontalAlignment="Center" Click="UpravljanjeAlergenima_Click" Width="500"/>
-            <MenuItem Header="Upravljanje vestima" BorderBrush="Black" FontFamily="Arial" FontSize="23"  HorizontalAlignment="Center" Width="500"/>
-            <MenuItem Header="Upravljanje nalozima lekara" BorderBrush="Black" FontFamily="Arial" FontSize="23" HorizontalAlignment="Center" Width="500"/>
+            <MenuItem Header="Zakazivanje pregleda" BorderBrush="Black" FontFamily="Arial" FontSize="25" HorizontalAlignment="Center" Click="TerminiPacijenata_Click" Width="500"/>
+            <MenuItem Header="Upravljanje alergenima"  BorderBrush="Black" FontFamily="Arial" FontSize="25"  HorizontalAlignment="Center" Click="UpravljanjeAlergenima_Click" Width="500"/>
+            <MenuItem Header="Upravljanje vestima" BorderBrush="Black" FontFamily="Arial" FontSize="25"  HorizontalAlignment="Center" Width="500" Click="UpravljanjeVestima_Click"/>
+            <MenuItem Header="Upravljanje nalozima lekara" BorderBrush="Black" FontFamily="Arial" FontSize="25" HorizontalAlignment="Center" Width="500" Click="UpravljanjeNalozimaLekara_Click"/>
         </Menu>
     </Grid>
 </UserControl>

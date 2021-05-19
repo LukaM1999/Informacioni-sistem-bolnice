@@ -49,7 +49,7 @@ namespace InformacioniSistemBolnice
                     for (int j = 0; j < 27; j++)
                     {
 
-                        slobodniTermini.Add(new Termin(slobodanTermin, 30.0, (Model.TipTermina)Enum.Parse(typeof(Model.TipTermina), zakazivanje.tipTermina.SelectedItem.ToString()), StatusTermina.slobodan,
+                        slobodniTermini.Add(new Termin(slobodanTermin, 30.0, (TipTermina)Enum.Parse(typeof(TipTermina), zakazivanje.tipTermina.SelectedItem.ToString()), StatusTermina.slobodan,
                                                        p.jmbg, izabraniLekar.jmbg, zakazivanje.prostorije.SelectedItem.ToString()));
 
 
@@ -158,7 +158,7 @@ namespace InformacioniSistemBolnice
 
         private void zakaziDugme_Click(object sender, RoutedEventArgs e)
         {
-            //UpravljanjeTerminimaPacijenata.Instance.Zakazivanje(this, this.slobodniTermini[0].pacijentJMBG);
+            //UpravljanjeTerminima.Instance.Zakazivanje(this, this.slobodniTermini[0].pacijentJMBG);
            
             UpravljanjeNalozimaPacijenata.Instance.ZakazivanjeTermina(this, zakazivanjeTerminaPacijenta);
             

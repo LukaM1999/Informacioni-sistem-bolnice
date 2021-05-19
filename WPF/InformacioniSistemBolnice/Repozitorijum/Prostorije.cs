@@ -54,6 +54,19 @@ namespace Repozitorijum
             return listaProstorija.ElementAt(listaProstorija.IndexOf(prostorija));
         }
 
+        public Prostorija NadjiPoId(string idProstorije)
+        {
+            foreach (Prostorija prostorija in listaProstorija) if (prostorija.id == idProstorije) return prostorija;
+            return null;
+        }
+
+        public bool BrisiPoId(string idProstorije)
+        {
+            foreach (Prostorija pronadjena in listaProstorija)
+                if (pronadjena.id == idProstorije) return listaProstorija.Remove(pronadjena);
+            return false;
+        }
+
         private Prostorije()
         {
             listaProstorija = new ObservableCollection<Prostorija>();

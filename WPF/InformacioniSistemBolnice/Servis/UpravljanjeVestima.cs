@@ -4,10 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
+using InformacioniSistemBolnice;
 using Model;
 using Repozitorijum;
 
-namespace InformacioniSistemBolnice.Servis
+namespace Servis
 {
     class UpravljanjeVestima
     {
@@ -33,7 +34,7 @@ namespace InformacioniSistemBolnice.Servis
             {
                PregledVesti pregledVesti = new PregledVesti(listaVesti);
                Vest vest = (Vest)listaVesti.SelectedItem;
-                pregledVesti.labelaSadrzajVesti.Content = vest.Sadrzaj;
+                pregledVesti.sadrzajVesti.Text = vest.Sadrzaj;
                 pregledVesti.labelaNaslovVesti.Content = vest.Id;
                 pregledVesti.Show();
 
@@ -63,18 +64,18 @@ namespace InformacioniSistemBolnice.Servis
         }
 
 
-        public void IzmenaVesti(ListView listaVesti, IzmenaVesti izmenaVesti)
+        public void IzmenaVesti(VestiProzor vestiProzor, IzmenaVesti izmenaVesti)
         {
 
-            if (listaVesti.SelectedValue != null)
+            if (vestiProzor.ListaVesti.SelectedValue != null)
             {
-                Vest vest = (Vest)listaVesti.SelectedValue;
+                Vest vest = (Vest)vestiProzor.ListaVesti.SelectedValue;
                 vest.Id = izmenaVesti.naslovVesti.Text;
                 vest.Sadrzaj = izmenaVesti.sadrzajVesti.Text;
 
                 Vesti.Instance.Serijalizacija();
                 Vesti.Instance.Deserijalizacija();
-                listaVesti.ItemsSource = Vesti.Instance.listaVesti;
+                vestiProzor.ListaVesti.ItemsSource = Vesti.Instance.listaVesti;
 
             }
 

@@ -1,11 +1,15 @@
-﻿<Window x:Class="InformacioniSistemBolnice.AnketaOBolniciForma"
+﻿<Window x:Class="InformacioniSistemBolnice.AnketaOBolniciFormaView"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:vm="clr-namespace:InformacioniSistemBolnice.ViewModels.Pacijent"
         xmlns:local="clr-namespace:InformacioniSistemBolnice"
         mc:Ignorable="d"
-        Title="AnketaOBolniciForma" Height="551" Width="528">
+        Title="AnketaOBolniciFormaView" Height="551" Width="528">
+    <Window.DataContext>
+        <vm:AnketaOBolniciFormaViewModel/>
+    </Window.DataContext>
     <Canvas>
         <Canvas x:Name="Ljubaznost">
             <RadioButton GroupName="Ljubaznost" x:Name="Ljubaznost5" Content="" Canvas.Left="140" Canvas.Top="77" />

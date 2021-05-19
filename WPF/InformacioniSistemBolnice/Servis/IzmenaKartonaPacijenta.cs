@@ -58,6 +58,14 @@ namespace Servis
             }
         }
 
+        public void DodajBeleske(Pacijent ulogovanPacijent, string beleske)
+        {
+            ZdravstveniKarton kartonPacijenta = ulogovanPacijent.zdravstveniKarton;
+            Anamneza anamnezaPacijenta = kartonPacijenta.anamneza;
+            anamnezaPacijenta.BeleskePacijenta = beleske;
+            Pacijenti.Instance.Serijalizacija();
+        }
+
         public Repozitorijum.Pacijenti pacijenti;
     }
 }

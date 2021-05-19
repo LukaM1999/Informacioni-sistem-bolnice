@@ -3,7 +3,6 @@ using System.Windows.Controls;
 using InformacioniSistemBolnice;
 using Servis;
 using Model;
-using InformacioniSistemBolnice.Servis;
 
 namespace Kontroler
 {
@@ -15,6 +14,25 @@ namespace Kontroler
                (() => new SekretarKontroler());
 
         public static SekretarKontroler Instance { get { return lazy.Value; } }
+
+        public void KreiranjeNalogaLekara(LekarDto lekarDto)
+        {
+            UpravljanjeNalozimaLekara.Instance.KreiranjeNaloga(lekarDto);
+        }
+
+        public void UklanjanjeNalogaLekara(Lekar lekar)
+        {
+            UpravljanjeNalozimaLekara.Instance.UklanjanjeNaloga(lekar);
+        }
+
+        public void IzmenaNalogaLekara(LekarDto lekarDto, Lekar lekar)
+        {
+            UpravljanjeNalozimaLekara.Instance.IzmenaNaloga(lekarDto, lekar);
+        }
+        public LekarDto PregledNalogaLekara(Lekar lekar)
+        {
+            return UpravljanjeNalozimaLekara.Instance.PregledNaloga(lekar);
+        }
 
         public void KreiranjeNaloga(RegistracijaPacijentaDto registracija)
         {
@@ -121,9 +139,9 @@ namespace Kontroler
             UpravljanjeVestima.Instance.UklanjanjeVesti(listaVesti);
         }
 
-        public void IzmenaVesti(ListView listaVesti, IzmenaVesti izmenaVesti)
+        public void IzmenaVesti(VestiProzor vestiProzor, IzmenaVesti izmenaVesti)
         {
-            UpravljanjeVestima.Instance.IzmenaVesti(listaVesti, izmenaVesti);
+            UpravljanjeVestima.Instance.IzmenaVesti(vestiProzor, izmenaVesti);
         }
 
         public void KreiranjeGostujucegPacijenta(GostujuciNalogDto gostujuciNalogDto)
@@ -146,8 +164,7 @@ namespace Kontroler
 
         public UpravljanjeNalozimaPacijenata upravljanjeNalozimaPacijenata;
         public UpravljanjeAlergenima upravljanjeAlergenima;
-        public UpravljanjeTerminimaPacijenata upravljanjeTerminimaPacijenata;
+        public UpravljanjeTerminima upravljanjeTerminima;
         
-
     }
 }

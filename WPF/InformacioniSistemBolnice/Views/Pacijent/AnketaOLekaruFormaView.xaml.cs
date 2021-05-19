@@ -18,11 +18,11 @@ using Repozitorijum;
 
 namespace InformacioniSistemBolnice
 {
-    public partial class AnketaOLekaruForma : Window
+    public partial class AnketaOLekaruFormaView : Window
     {
         private readonly Termin izabranTermin;
 
-        public AnketaOLekaruForma(Termin izabranTermin)
+        public AnketaOLekaruFormaView(Termin izabranTermin)
         {
             InitializeComponent();
             this.izabranTermin = izabranTermin;
@@ -30,11 +30,11 @@ namespace InformacioniSistemBolnice
 
         private void Potvrda(object sender, RoutedEventArgs e)
         {
-            izabranTermin.AnketaOLekaru = new AnketaOLekaru(UBroj(IzabranoRadioDugme(Ljubaznost)),
+            AnketaOLekaru novaAnketa = new(UBroj(IzabranoRadioDugme(Ljubaznost)),
                 UBroj(IzabranoRadioDugme(Profesionalizam)), UBroj(IzabranoRadioDugme(Strpljenje)),
                 UBroj(IzabranoRadioDugme(Komunikativnost)), UBroj(IzabranoRadioDugme(Azurnost)),
                 UBroj(IzabranoRadioDugme(Korisnost)), Komentari.Text);
-            PacijentKontroler.Instance.PopuniAnketuOLekaru(izabranTermin);
+            PacijentKontroler.Instance.PopuniAnketuOLekaru(izabranTermin, novaAnketa);
             Close();
         }
 

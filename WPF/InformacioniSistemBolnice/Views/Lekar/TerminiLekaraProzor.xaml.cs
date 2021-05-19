@@ -23,6 +23,7 @@ namespace InformacioniSistemBolnice
     {
         public string jmbgLekara;
         public GlavniProzorLekara glavniProzorLekara;
+        public Lekar lekar;
         public TerminiLekaraProzor(Lekar ulogovanLekar, GlavniProzorLekara glavni)
         {
             InitializeComponent();
@@ -39,6 +40,7 @@ namespace InformacioniSistemBolnice
                 }
             }
             listaZakazanihTerminaLekara.ItemsSource = ulogovanLekar.zauzetiTermini;
+            lekar = ulogovanLekar;
             jmbgLekara = ulogovanLekar.jmbg;
             System.Diagnostics.Debug.WriteLine(jmbgLekara);
             glavniProzorLekara = glavni;
@@ -47,7 +49,7 @@ namespace InformacioniSistemBolnice
         {
             if (listaZakazanihTerminaLekara.SelectedIndex >= 0)
             {
-                PomeranjeTerminaLekaraProzor pomeranje = new PomeranjeTerminaLekaraProzor(listaZakazanihTerminaLekara);
+                PomeranjeTerminaLekaraProzor pomeranje = new PomeranjeTerminaLekaraProzor((Termin)listaZakazanihTerminaLekara.SelectedItem);
                 pomeranje.Show();
             }
         }
@@ -61,7 +63,11 @@ namespace InformacioniSistemBolnice
 
         private void otkaziDugme_Click(object sender, RoutedEventArgs e)
         {
-            LekarKontroler.Instance.Otkazivanje(listaZakazanihTerminaLekara);
+            if (listaZakazanihTerminaLekara.SelectedIndex > -1)
+            {
+                LekarKontroler.Instance.Otkazivanje((Termin)listaZakazanihTerminaLekara.SelectedItem);
+                listaZakazanihTerminaLekara.ItemsSource = lekar.zauzetiTermini;
+            }
         }
 
         private void infoDugme_Click(object sender, RoutedEventArgs e)
@@ -73,8 +79,8 @@ namespace InformacioniSistemBolnice
         {
             if (listaZakazanihTerminaLekara.SelectedIndex >= 0)
             {
-                Termin t = (Termin)listaZakazanihTerminaLekara.SelectedItem;
-                IzmenaZdravstvenogKartonaLekar izmena = new IzmenaZdravstvenogKartonaLekar(t, glavniProzorLekara);
+                IzmenaZdravstvenogKartonaLekar izmena = new IzmenaZdravstvenogKartonaLekar(
+                    (Termin)listaZakazanihTerminaLekara.SelectedItem, glavniProzorLekara);
                 izmena.Show();
             }
         }

@@ -11,35 +11,44 @@ namespace Kontroler
         private static readonly Lazy<PacijentKontroler> Lazy = new(() => new PacijentKontroler());
         public static PacijentKontroler Instance => Lazy.Value;
 
-        public void Zakazivanje(IzborTermina izborTermina, string jmbgPacijenta)
+        public void Zakazivanje(Termin terminZaZakazivanje)
         {
-            UpravljanjeTerminimaPacijenata.Instance.Zakazivanje(izborTermina, jmbgPacijenta);
+            UpravljanjeTerminima.Instance.Zakazivanje(terminZaZakazivanje);
         }
 
         public void Otkazivanje(Termin terminZaOtkazivanje)
         {
-            UpravljanjeTerminimaPacijenata.Instance.Otkazivanje(terminZaOtkazivanje);
+            UpravljanjeTerminima.Instance.Otkazivanje(terminZaOtkazivanje);
         }
 
         public void Pomeranje(Termin terminZaPomeranje, Termin noviTermin)
         {
-            UpravljanjeTerminimaPacijenata.Instance.Pomeranje(terminZaPomeranje, noviTermin);
+            UpravljanjeTerminima.Instance.Pomeranje(terminZaPomeranje, noviTermin);
         }
 
         public void Uvid(DataGrid listaZakazanihTermina)
         {
-            UpravljanjeTerminimaPacijenata.Instance.Uvid(listaZakazanihTermina);
+            UpravljanjeTerminima.Instance.Uvid(listaZakazanihTermina);
         }
 
-        public void PopuniAnketuOLekaru(Termin zavrsenTermin)
+        public void PopuniAnketuOLekaru(Termin zavrsenTermin, AnketaOLekaru novaAnketa)
         {
-            UpravljanjeAnketama.Instance.PopuniAnketuOLekaru(zavrsenTermin);
+            UpravljanjeAnketama.Instance.PopuniAnketuOLekaru(zavrsenTermin, novaAnketa);
         }
 
-        public void PopuniAnketuOBolnici(AnketaOBolnici anketa)
+        public void PosaljiAnketuOBolnici(AnketaOBolnici anketa)
         {
-            UpravljanjeAnketama.Instance.PopuniAnketuOBolnici(anketa);
+            UpravljanjeAnketama.Instance.PosaljiAnketuOBolnici(anketa);
         }
 
+        public void UkljuciNoviPodsetnik(Podsetnik novPodsetnik)
+        {
+            UpravljanjeObavestenjimaPacijenta.Instance.UkljuciNoviPodsetnik(novPodsetnik);
+        }
+
+        public void DodajBeleske(Pacijent ulogovanPacijent, string beleske)
+        {
+            IzmenaKartonaPacijenta.Instance.DodajBeleske(ulogovanPacijent, beleske);
+        }
     }
 }

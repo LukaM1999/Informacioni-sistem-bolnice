@@ -1,0 +1,34 @@
+﻿<UserControl x:Class="InformacioniSistemBolnice.UCLekari"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:InformacioniSistemBolnice"
+             mc:Ignorable="d" 
+             d:DesignHeight="650" d:DesignWidth="1000">
+    <Grid Height="650" Width="1000" Background="LightGray">
+        <StackPanel Margin="0,60,0,0">
+            <ListView x:Name="ListaLekara" Height="550" Width="900" FontSize="16">
+                <ListView.ItemContainerStyle>
+                    <Style TargetType="ListViewItem">
+                        <Setter Property="Background" Value="White" />
+                        <Setter Property="BorderBrush" Value="LightGray" />
+                        <Setter Property="BorderThickness" Value="2" />
+                        <Style.Triggers>
+                            <Trigger Property="IsSelected" Value="True">
+                                <Setter Property="Foreground" Value="White" />
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </ListView.ItemContainerStyle>
+            </ListView>
+        </StackPanel>
+        <Canvas x:Name="RukovanjePacijentima" Width="1000" Height="650">
+            <Button x:Name="registrujPacijentaDugme" Content="Registruj" Canvas.Left="50" Canvas.Top="20" Width="100" Margin="10,0,0,0" Click="RegistrujLekara_Click" Background="White" FontSize="14"/>
+            <Button x:Name="pregledajPacijentaDugme" Content="Info" Canvas.Left="150" Canvas.Top="20" Margin="20,0,0,0" Width="100" Click="PregledNalogaLekara_Click" Background="White" FontSize="14"/>
+            <Button x:Name="obrisiPacijentaDugme" Content="Obrisi" Canvas.Left="250" Canvas.Top="20" Margin="30,0,0,0" Width="100" Click="ObrisiLekara_Click" Background="White" FontSize="14"/>
+            <Button x:Name="izmeniPacijentaDugme" Content="Izmeni" Canvas.Left="350" Canvas.Top="20" Margin="40,0,0,0" Width="100" Click="izmeniLekara_Click" Background="White" FontSize="14"/>
+        </Canvas>
+    </Grid>
+</UserControl>
+

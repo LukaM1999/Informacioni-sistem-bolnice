@@ -16,11 +16,11 @@ using Model;
 
 namespace InformacioniSistemBolnice
 {
-    public partial class AnketaOBolniciForma : Window
+    public partial class AnketaOBolniciFormaView : Window
     {
         private readonly string pacijentovJmbg;
 
-        public AnketaOBolniciForma(string jmbgPacijenta)
+        public AnketaOBolniciFormaView(string jmbgPacijenta)
         {
             InitializeComponent();
             pacijentovJmbg = jmbgPacijenta;
@@ -32,7 +32,7 @@ namespace InformacioniSistemBolnice
                 UBroj(IzabranoRadioDugme(Profesionalizam)), UBroj(IzabranoRadioDugme(Strpljenje)),
                 UBroj(IzabranoRadioDugme(Komunikativnost)), UBroj(IzabranoRadioDugme(Azurnost)),
                 UBroj(IzabranoRadioDugme(Korisnost)), Komentari.Text, pacijentovJmbg, DateTime.Now);
-            PacijentKontroler.Instance.PopuniAnketuOBolnici(anketa);
+            PacijentKontroler.Instance.PosaljiAnketuOBolnici(anketa);
             Close();
         }
 
