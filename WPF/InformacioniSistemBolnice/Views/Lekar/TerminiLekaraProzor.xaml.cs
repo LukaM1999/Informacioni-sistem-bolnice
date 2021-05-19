@@ -49,7 +49,7 @@ namespace InformacioniSistemBolnice
         {
             if (listaZakazanihTerminaLekara.SelectedIndex >= 0)
             {
-                PomeranjeTerminaLekaraProzor pomeranje = new PomeranjeTerminaLekaraProzor(listaZakazanihTerminaLekara);
+                PomeranjeTerminaLekaraProzor pomeranje = new PomeranjeTerminaLekaraProzor((Termin)listaZakazanihTerminaLekara.SelectedItem);
                 pomeranje.Show();
             }
         }

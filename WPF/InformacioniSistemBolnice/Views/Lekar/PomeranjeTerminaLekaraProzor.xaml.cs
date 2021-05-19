@@ -22,12 +22,14 @@ namespace InformacioniSistemBolnice
     {
         public Termin zakazanTermin;
         public List<string> listaDatuma = new List<string>();
-        public DataGrid zakazaniTermini;
         public List<string> prostorijeID = new List<string>();
-        public PomeranjeTerminaLekaraProzor(DataGrid zakazaniTermini)
+        public Termin terminZaPomeranje;
+        public Termin noviTermin;
+        public PomeranjeTerminaLekaraProzor(Termin zakazanTermin)
 
         {
             InitializeComponent();
+            terminZaPomeranje = zakazanTermin;
             DateTime datum = DateTime.Parse("7:00");
 
             for (int j = 0; j < 27; j++)
@@ -36,8 +38,6 @@ namespace InformacioniSistemBolnice
                 datum = datum.AddMinutes(30);
             }
             listaSati.ItemsSource = listaDatuma;
-            this.zakazaniTermini = zakazaniTermini;
-            zakazanTermin = (Termin)zakazaniTermini.SelectedItem;
 
             trajanjeTerminaUnos.Text = zakazanTermin.trajanje.ToString();
             tipTerminaUnos.Text = zakazanTermin.tipTermina.ToString();
@@ -66,12 +66,13 @@ namespace InformacioniSistemBolnice
                     listaSati.SelectedIndex = i;
                 }
             }
-      
+
+            noviTermin = zakazanTermin;
         }
 
         private void potvrdaPomeranjaDugme_Click(object sender, RoutedEventArgs e)
         {
-            //LekarKontroler.Instance.Pomeranje(zakazanTermin);
+            LekarKontroler.Instance.Pomeranje(terminZaPomeranje, noviTermin);
         }
     }
 }

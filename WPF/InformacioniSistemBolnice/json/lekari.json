@@ -1,6 +1,18 @@
 [
   {
-    "zauzetiTermini": [],
+    "zauzetiTermini": [
+      {
+        "vreme": "2021-05-20T08:00:00",
+        "trajanje": 30.0,
+        "tipTermina": 0,
+        "status": 0,
+        "AnketaOLekaru": null,
+        "pacijentJMBG": "1905981123124",
+        "lekarJMBG": "231568933",
+        "idProstorije": "OS1",
+        "Hitan": false
+      }
+    ],
     "specijalizacija": {
       "Naziv": "Lekar opste prakse"
     },

@@ -1,0 +1,17 @@
+﻿<UserControl x:Class="InformacioniSistemBolnice.Views.Lekar.UCRaspored"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:InformacioniSistemBolnice.Views.Lekar"
+             mc:Ignorable="d" 
+             d:DesignHeight="612" d:DesignWidth="834">
+    <Grid>
+        <DataGrid Name="ZakazaniTermini" Margin="0,85,150,0"/>
+        <Button Name="Pregled" Content="Pregled" HorizontalAlignment="Left" Margin="730,21,0,0" VerticalAlignment="Top" Height="39" Width="54" Click="Pregled_Click"/>
+        <Button Name="Pomeri" Content="Pomeri" HorizontalAlignment="Left" Margin="630,21,0,0" VerticalAlignment="Top" Height="39" Width="54" Click="Pomeri_Click"/>
+        <Button Name="Otkazi" Content="Otkazi" HorizontalAlignment="Left" Margin="530,21,0,0" VerticalAlignment="Top" Height="39" Width="54" Click="Otkazi_Click"/>
+        <Button Name="Zakazi"  Content="Zakazi" HorizontalAlignment="Left" Margin="430,21,0,0" VerticalAlignment="Top" Height="39" Width="54" Click="Zakazi_Click"/>
+
+    </Grid>
+</UserControl>

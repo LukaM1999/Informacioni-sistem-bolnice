@@ -7,6 +7,12 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="Views\Lekar\UCRaspored.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\Lekar\UCZakazivanje.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Views\Pacijent\AnamnezaView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -214,6 +220,12 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\Lekar\GlavniProzorLekara.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Lekar\UCRaspored.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Lekar\UCZakazivanje.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\Lekar\UputForma.xaml">

@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using InformacioniSistemBolnice.Views.Lekar;
 using Model;
 using Repozitorijum;
 
@@ -36,13 +37,14 @@ namespace InformacioniSistemBolnice
                     break;
                 }
             }
+            contentControl.Content = new UCRaspored(this);
         }
 
         private void RasporedBtn_Click(object sender, RoutedEventArgs e)
         {
             TerminiLekaraProzor terminiLekara = new TerminiLekaraProzor(ulogovanLekar, this);
             terminiLekara.Show();
-            //this.Show();
+            contentControl.Content = new UCRaspored(this);
         }
         private void PacijentiBtn_Click(object sender, RoutedEventArgs e)
         {

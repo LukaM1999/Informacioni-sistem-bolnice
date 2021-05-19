@@ -59,7 +59,6 @@ namespace Repozitorijum
         {
             if (listaTermina.Contains(terminZaDodavanje)) return false;
             listaTermina.Add(terminZaDodavanje);
-            System.Diagnostics.Debug.WriteLine("dodao sam termin");
             return true;
         }
 
