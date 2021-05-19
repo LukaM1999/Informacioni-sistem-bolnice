@@ -23,14 +23,13 @@ namespace Servis
         {
             Korisnik korisnik = KreiranjeKorisnika(lekarDto);
             KreiranjeLekara(lekarDto, korisnik);
-            SacuvajURepozitorijum();
         }
 
         private static Korisnik KreiranjeKorisnika(LekarDto lekarDto)
         {
             Korisnik korisnik = new(lekarDto.korisnickoIme, lekarDto.lozinka,
                                     (Model.UlogaKorisnika)Enum.Parse(typeof(Model.UlogaKorisnika), "lekar"));
-            Korisnici.Instance.listaKorisnika.Add(korisnik);
+            Korisnici.Instance.DodajKorisnika(korisnik);
             return korisnik;
         }
         private static void KreiranjeLekara(LekarDto lekarDto, Korisnik korisnik)
@@ -41,33 +40,20 @@ namespace Servis
                                     new Specijalizacija(lekarDto.specijalizacija));
             ObservableCollection<Termin> zauzetiTermini = new ObservableCollection<Termin>();
             lekar.zauzetiTermini = zauzetiTermini;
-            Lekari.Instance.listaLekara.Add(lekar);
-
+            Lekari.Instance.DodajLekara(lekar);
         }
         private static void SacuvajURepozitorijum()
         {
-            Korisnici.Instance.Serijalizacija();
-            Lekari.Instance.Serijalizacija();
-            Lekari.Instance.Deserijalizacija();
-            Korisnici.Instance.Deserijalizacija();
+            Korisnici.Instance.SacuvajPromene();
+            Lekari.Instance.SacuvajPromene();
         }
         public void UklanjanjeNaloga(Lekar lekar)
         {
-            foreach (Lekar l in Lekari.Instance.listaLekara)
-            {
-                if (l.jmbg.Equals(lekar.jmbg))
-                {
-                    ObrisiLekara(l);
-                    SacuvajURepozitorijum();
-                    break;
-                }
-            }
+            Lekari.Instance.ObrisiLekara(lekar);
+            Korisnici.Instance.ObrisiKorisnika(lekar.korisnik);
+            SacuvajURepozitorijum();
         }
-        private static void ObrisiLekara(Lekar l)
-        {
-            Lekari.Instance.listaLekara.Remove(l);
-            Korisnici.Instance.listaKorisnika.Remove(l.korisnik);
-        }
+        
 
         public void IzmenaNaloga(LekarDto lekarDto, Lekar lekar)
         {
