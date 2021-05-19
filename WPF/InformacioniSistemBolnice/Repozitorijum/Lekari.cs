@@ -34,24 +34,29 @@ namespace Repozitorijum
             File.WriteAllText(putanja, json);
         }
 
-        public Lekar NadjiPoJmbg(string jmbg)
+        public Lekar NadjiLekara(string jmbg)
         {
             foreach (Lekar pronadjen in listaLekara)
                 if (pronadjen.jmbg == jmbg) return pronadjen;
             return null;
         }
 
-        public bool BrisiPoJmbg(string jmbg)
-        {
-            foreach (Lekar pronadjen in listaLekara)
-                if (pronadjen.jmbg == jmbg) return listaLekara.Remove(pronadjen);
-            return false;
-        }
-
         public void SacuvajPromene()
         {
             Serijalizacija();
             Deserijalizacija();
+        }
+        public bool DodajLekara(Lekar lekarZaDodavanje)
+        {
+            if (listaLekara.Contains(lekarZaDodavanje)) return false;
+            listaLekara.Add(lekarZaDodavanje);
+            SacuvajPromene();
+            return true;
+        }
+
+        public bool ObrisiLekara(Lekar lekar)
+        {
+            return listaLekara.Remove(NadjiLekara(lekar.jmbg));
         }
 
     }
