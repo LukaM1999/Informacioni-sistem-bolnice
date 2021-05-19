@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:InformacioniSistemBolnice.Views.Pacijent"
+        xmlns:vm="clr-namespace:InformacioniSistemBolnice.ViewModels.Pacijent"
         mc:Ignorable="d"
         Title="AnamnezaView" Height="600" Width="815">
     <Grid>
@@ -11,13 +12,13 @@
         <Label Content="Istorija bolesti:" HorizontalAlignment="Left" Margin="134,104,0,0" VerticalAlignment="Top" Height="53" Width="152"/>
         <Label Content="Porodicne bolesti:" HorizontalAlignment="Left" Margin="134,164,0,0" VerticalAlignment="Top" Height="53" Width="152"/>
         <Label Content="Zakljucak:" HorizontalAlignment="Left" Margin="134,222,0,0" VerticalAlignment="Top" Height="53" Width="152"/>
-        <TextBox Name="SadasnjaBolest" IsEnabled="False" HorizontalAlignment="Left" Margin="256,33,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="53" Width="425" Background="{DynamicResource {x:Static SystemColors.InactiveSelectionHighlightBrushKey}}"/>
-        <TextBox Name="IstorijaBolesti" IsEnabled="False" HorizontalAlignment="Left" Margin="256,91,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="53" Width="425" Background="{DynamicResource {x:Static SystemColors.InactiveSelectionHighlightBrushKey}}"/>
-        <TextBox Name="PorodicneBolesti" IsEnabled="False" HorizontalAlignment="Left" Margin="256,151,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="53" Width="425" Background="{DynamicResource {x:Static SystemColors.InactiveSelectionHighlightBrushKey}}"/>
-        <TextBox Name="Zakljucak" IsEnabled="False" HorizontalAlignment="Left" Margin="256,223,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="110" Width="425" Background="{DynamicResource {x:Static SystemColors.InactiveSelectionHighlightBrushKey}}"/>
+        <TextBox Name="SadasnjaBolest" Text="{Binding PacijentovaAnamneza.sadasnjaBolest}" IsEnabled="False" HorizontalAlignment="Left" Margin="256,33,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="53" Width="425" Background="{DynamicResource {x:Static SystemColors.InactiveSelectionHighlightBrushKey}}"/>
+        <TextBox Name="IstorijaBolesti" Text="{Binding PacijentovaAnamneza.ranijeBolesti}"  IsEnabled="False" HorizontalAlignment="Left" Margin="256,91,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="53" Width="425" Background="{DynamicResource {x:Static SystemColors.InactiveSelectionHighlightBrushKey}}"/>
+        <TextBox Name="PorodicneBolesti" Text="{Binding PacijentovaAnamneza.porodicneAnamneze}" IsEnabled="False" HorizontalAlignment="Left" Margin="256,151,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="53" Width="425" Background="{DynamicResource {x:Static SystemColors.InactiveSelectionHighlightBrushKey}}"/>
+        <TextBox Name="Zakljucak" Text="{Binding PacijentovaAnamneza.zakljucak}" IsEnabled="False" HorizontalAlignment="Left" Margin="256,223,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="110" Width="425" Background="{DynamicResource {x:Static SystemColors.InactiveSelectionHighlightBrushKey}}"/>
         <Label Content="Beleske:" HorizontalAlignment="Left" Margin="134,353,0,0" VerticalAlignment="Top" Height="53" Width="152"/>
-        <TextBox x:Name="Beleske" HorizontalAlignment="Left" Margin="256,353,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="110" Width="425" Background="{DynamicResource {x:Static SystemColors.InactiveSelectionHighlightBrushKey}}"/>
-        <Button Content="Potvrdi" HorizontalAlignment="Left" Margin="712,487,0,0" VerticalAlignment="Top" Height="39" Width="57" Click="SacuvajIzmene"/>
+        <TextBox x:Name="Beleske" Text="{Binding PacijentovaAnamneza.BeleskePacijenta}" HorizontalAlignment="Left" Margin="256,353,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="110" Width="425" Background="{DynamicResource {x:Static SystemColors.InactiveSelectionHighlightBrushKey}}"/>
+        <Button Content="Potvrdi" HorizontalAlignment="Left" Margin="712,487,0,0" VerticalAlignment="Top" Height="39" Width="57" Command="{Binding SacuvajIzmeneAnamneze}"/>
 
     </Grid>
 </Window>

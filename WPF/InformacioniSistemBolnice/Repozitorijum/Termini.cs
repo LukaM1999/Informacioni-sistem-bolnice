@@ -49,6 +49,7 @@ namespace Repozitorijum
                 if (JePronadjen(vreme, jmbgPacijenta, jmbgLekara, pronadjen)) return pronadjen;
             return null;
         }
+
         public bool JePronadjen(DateTime vreme, string jmbgPacijenta, string jmbgLekara, Termin pronadjen)
         {
             return pronadjen.vreme == vreme && pronadjen.lekarJMBG == jmbgLekara &&
