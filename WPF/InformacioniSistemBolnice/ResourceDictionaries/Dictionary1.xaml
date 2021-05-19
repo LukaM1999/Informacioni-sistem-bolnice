@@ -20,4 +20,9 @@
     <Style TargetType="TextBox">
         <Setter Property="FontFamily" Value="Roboto"/>
     </Style>
+    <Style TargetType="DataGrid" x:Key="Tables">
+        <Setter Property="CanUserAddRows" Value="False"/>
+        <Setter Property="BorderThickness" Value="3"/>
+        <Setter Property="BorderBrush" Value="Black"/>
+    </Style>
 </ResourceDictionary>
