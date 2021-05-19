@@ -49,6 +49,7 @@ namespace Repozitorijum
                 if (JePronadjen(vreme, jmbgPacijenta, jmbgLekara, pronadjen)) return pronadjen;
             return null;
         }
+
         public bool JePronadjen(DateTime vreme, string jmbgPacijenta, string jmbgLekara, Termin pronadjen)
         {
             return pronadjen.vreme == vreme && pronadjen.lekarJMBG == jmbgLekara &&
@@ -59,7 +60,6 @@ namespace Repozitorijum
         {
             if (listaTermina.Contains(terminZaDodavanje)) return false;
             listaTermina.Add(terminZaDodavanje);
-            System.Diagnostics.Debug.WriteLine("dodao sam termin");
             return true;
         }
 

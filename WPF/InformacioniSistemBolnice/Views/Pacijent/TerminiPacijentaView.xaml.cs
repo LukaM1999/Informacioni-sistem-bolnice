@@ -10,6 +10,7 @@ using Kontroler;
 using System.Threading;
 using InformacioniSistemBolnice.Views.Pacijent;
 using System.Diagnostics;
+using InformacioniSistemBolnice.ViewModels.Pacijent;
 
 namespace InformacioniSistemBolnice
 {
@@ -91,7 +92,7 @@ namespace InformacioniSistemBolnice
         private void OtvoriAnamnezu(object sender, RoutedEventArgs e)
         {
             if (ulogovanPacijent.zdravstveniKarton is {anamneza: { }})
-                new AnamnezaView(ulogovanPacijent).Show();
+                new AnamnezaView {DataContext = new AnamnezaViewModel(ulogovanPacijent)}.Show();
         }
     }
 }
