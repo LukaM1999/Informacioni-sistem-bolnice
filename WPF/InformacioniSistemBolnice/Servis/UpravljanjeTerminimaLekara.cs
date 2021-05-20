@@ -15,21 +15,21 @@ namespace Servis
 
         public void ZakaziTerminKodLekara(Termin terminZaZakazivanje)
         {
-            Lekar lekar = Lekari.Instance.NadjiPoJmbg(terminZaZakazivanje.lekarJMBG);
+            Lekar lekar = Lekari.Instance.NadjiLekara(terminZaZakazivanje.lekarJMBG);
             lekar.DodajTermin(terminZaZakazivanje);
             Lekari.Instance.Serijalizacija();
         }
 
         public void OtkaziTerminKodLekara(Termin terminZaOtkazivanje)
         {
-            Lekar lekar = Lekari.Instance.NadjiPoJmbg(terminZaOtkazivanje.lekarJMBG);
+            Lekar lekar = Lekari.Instance.NadjiLekara(terminZaOtkazivanje.lekarJMBG);
             lekar.ObrisiTermin(terminZaOtkazivanje);
             Lekari.Instance.Serijalizacija();
         }
 
         public void PomeriTerminKodLekara(Termin terminZaPomeranje, Termin noviTermin)
         {
-            Lekar lekar = Lekari.Instance.NadjiPoJmbg(noviTermin.lekarJMBG);
+            Lekar lekar = Lekari.Instance.NadjiLekara(noviTermin.lekarJMBG);
             lekar.ObrisiTermin(terminZaPomeranje);
             lekar.DodajTermin(noviTermin);
             Lekari.Instance.Serijalizacija();

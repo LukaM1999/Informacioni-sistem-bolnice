@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using InformacioniSistemBolnice.Views.Lekar;
 using Kontroler;
 using Model;
 using Repozitorijum;
@@ -100,6 +101,12 @@ namespace InformacioniSistemBolnice
         {
             UputForma uputForma = new(pacijent);
             uputForma.Show();
+        }
+
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+            UCBolnickoLecenjeForma forma = new(pacijent, glavniProzorLekara);
+            glavniProzorLekara.contentControl.Content = forma;
         }
     }
 }

@@ -196,5 +196,63 @@
     },
     "Renoviranje": null,
     "TerminiProstorije": []
+  },
+  {
+    "sprat": 5,
+    "id": "501",
+    "jeZauzeta": false,
+    "tip": 3,
+    "inventar": {
+      "dinamickaOprema": [
+      ],
+      "statickaOprema": [
+        {
+          "tip": 0,
+          "kolicina": 4
+        }
+      ]
+    },
+    "Renoviranje": null,
+    "TerminiProstorije": null
+  },
+  {
+    "sprat": 5,
+    "id": "502",
+    "jeZauzeta": false,
+    "tip": 3,
+    "inventar": {
+      "dinamickaOprema": [
+      ],
+      "statickaOprema": [
+        {
+          "tip": 0,
+          "kolicina": 3
+        }
+      ]
+    },
+    "Renoviranje": null,
+    "TerminiProstorije": null
+  },
+  {
+    "sprat": 5,
+    "id": "503",
+    "jeZauzeta": false,
+    "tip": 3,
+    "inventar": {
+      "dinamickaOprema": [
+        {
+          "tip": 0,
+          "kolicina": 0
+        }
+      ],
+      "statickaOprema": [
+        {
+          "tip": 0,
+          "kolicina": 1
+        }
+      ]
+    },
+    "Renoviranje": null,
+    "TerminiProstorije": null
   }
 ]

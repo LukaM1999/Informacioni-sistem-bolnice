@@ -67,7 +67,7 @@
         <Button Content="Anamneza" Grid.Column="2" HorizontalAlignment="Left" Margin="32,472,0,0" VerticalAlignment="Top" Height="38" Width="100" Click="Button_Click"/>
         <Button Content="Recept" Grid.Column="2" HorizontalAlignment="Left" Margin="32,524,0,0" VerticalAlignment="Top" Height="38" Width="100" Click="Button_Click_1"/>
         <Button Content="Uput" Grid.Column="2" HorizontalAlignment="Left" Margin="159,472,0,0" VerticalAlignment="Top" Height="38" Width="100" Click="Uput_Click"/>
-        <Button Content="Bolnicko lecenje" Grid.Column="2" HorizontalAlignment="Left" Margin="159,524,0,0" VerticalAlignment="Top" Height="38" Width="100"/>
+        <Button Content="Bolnicko lecenje" Grid.Column="2" HorizontalAlignment="Left" Margin="159,524,0,0" VerticalAlignment="Top" Height="38" Width="100" Click="Button_Click_3"/>
         <Button Content="Recepti" HorizontalAlignment="Left" Margin="50,524,0,0" VerticalAlignment="Top" Height="38" Width="100" Click="Button_Click_2"/>
 
 

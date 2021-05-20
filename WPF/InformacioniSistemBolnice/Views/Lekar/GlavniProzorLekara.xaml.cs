@@ -43,7 +43,7 @@ namespace InformacioniSistemBolnice
         private void RasporedBtn_Click(object sender, RoutedEventArgs e)
         {
             TerminiLekaraProzor terminiLekara = new TerminiLekaraProzor(ulogovanLekar, this);
-            terminiLekara.Show();
+            //terminiLekara.Show();
             contentControl.Content = new UCRaspored(this);
         }
         private void PacijentiBtn_Click(object sender, RoutedEventArgs e)
@@ -62,6 +62,11 @@ namespace InformacioniSistemBolnice
         private void Lekovi_Click(object sender, RoutedEventArgs e)
         {
             this.contentControl.Content = new UCLekovi(this);
+        }
+
+        private void BolnickaLecenja_Click(object sender, RoutedEventArgs e)
+        {
+            contentControl.Content = new UCBolnickaLecenja(this);
         }
     }
 }

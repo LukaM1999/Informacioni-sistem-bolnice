@@ -14,13 +14,13 @@
                 <TextBlock Text="Raspored" VerticalAlignment="Center" FontSize="14"/>
             </StackPanel>
         </Button>
-        <Button Style="{StaticResource ResourceKey=MainButtons}" x:Name="Pacijenti" Margin="40,270,0,0" Click="PacijentiBtn_Click" HorizontalAlignment="Left" VerticalAlignment="Top">
+        <Button Style="{StaticResource ResourceKey=MainButtons}" x:Name="Pacijenti" Margin="40,250,0,0" Click="PacijentiBtn_Click" HorizontalAlignment="Left" VerticalAlignment="Top">
             <StackPanel Orientation="Vertical">
                 <Image Source="../../images/users.png" Width="50" Height="50" RenderOptions.BitmapScalingMode="Fant"/>
                 <TextBlock Text="Pacijenti" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="14"/>
             </StackPanel>
         </Button>
-        <Button Style="{StaticResource ResourceKey=MainButtons}" x:Name="Lekovi" Margin="40,400,0,0" Click="Lekovi_Click" HorizontalAlignment="Left" VerticalAlignment="Top">
+        <Button Style="{StaticResource ResourceKey=MainButtons}" x:Name="Lekovi" Margin="40,360,0,0" Click="Lekovi_Click" HorizontalAlignment="Left" VerticalAlignment="Top">
             <StackPanel Orientation="Vertical">
                 <Image Source="../../images/medicine.png" Width="50" Height="50" RenderOptions.BitmapScalingMode="Fant"/>
                 <TextBlock Text="Lekovi" VerticalAlignment="Center" FontSize="14" HorizontalAlignment="Center"/>
@@ -51,5 +51,11 @@
             </StackPanel>
         </Button>
         <Image Source="../../images/hospital.png" RenderOptions.BitmapScalingMode="Fant" HorizontalAlignment="Left" Height="100" Margin="10,10,0,0" VerticalAlignment="Top" Width="100"/>
+        <Button Style="{StaticResource ResourceKey=MainButtons}" x:Name="BolnickaLecenja" Margin="40,470,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Height="80" Click="BolnickaLecenja_Click">
+            <StackPanel Orientation="Vertical" Width="100" Height="80">
+                <Image Source="/images/medicine.png" Width="50" Height="50" RenderOptions.BitmapScalingMode="Fant"/>
+                <TextBlock Text="Bolnicka lecenja" VerticalAlignment="Center" FontSize="14" HorizontalAlignment="Center"/>
+            </StackPanel>
+        </Button>
     </Grid>
 </Window>

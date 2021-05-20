@@ -23,6 +23,7 @@ namespace InformacioniSistemBolnice
 {
     public partial class ProstorijeProzor : Window
     {
+        public int kolicina;
         private ObservableCollection<Prostorija> listaProstorija
         {
             get;
@@ -94,9 +95,11 @@ namespace InformacioniSistemBolnice
         private void btnFilter_Click(object sender, RoutedEventArgs e)
         {
             ObservableCollection<Prostorija> novaListaProstorija = new ObservableCollection<Prostorija>();
-            int kolicina = int.Parse(tbKolicina.Text);
-            
-            
+            if (!string.IsNullOrWhiteSpace(tbKolicina.Text) && tbKolicina.Text.All(char.IsDigit))
+            {
+                kolicina = int.Parse(tbKolicina.Text);
+            }
+
 
             if ((bool)rbStaticka.IsChecked)
             {

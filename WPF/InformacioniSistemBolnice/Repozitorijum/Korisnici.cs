@@ -43,5 +43,24 @@ namespace Repozitorijum
             Serijalizacija();
             Deserijalizacija();
         }
+        public Korisnik NadjiKorisnika(string korisnickoIme)
+        {
+            foreach (Korisnik pronadjen in listaKorisnika)
+                if (pronadjen.korisnickoIme == korisnickoIme) return pronadjen;
+            return null;
+        }
+
+        public bool DodajKorisnika(Korisnik korisnikZaDodavanje)
+        {
+            if (listaKorisnika.Contains(korisnikZaDodavanje)) return false;
+            listaKorisnika.Add(korisnikZaDodavanje);
+            SacuvajPromene();
+            return true;
+        }
+
+        public bool ObrisiKorisnika(Korisnik korisnik)
+        {
+            return listaKorisnika.Remove(NadjiKorisnika(korisnik.korisnickoIme));
+        }
     }
 }
