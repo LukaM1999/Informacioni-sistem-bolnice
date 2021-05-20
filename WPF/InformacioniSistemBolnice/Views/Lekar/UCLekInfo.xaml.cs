@@ -48,7 +48,7 @@ namespace InformacioniSistemBolnice
         {
             lek.Sastojci = sastojci.Text;
             lek.Zamena = zamena.Text;
-            if (komentar.Text != "")
+            if (!string.IsNullOrWhiteSpace(komentar.Text))
             {
                 Zahtev zahtev = new Zahtev(komentar.Text,
                 (glavniProzorLekara.ulogovanLekar.ime + " " + glavniProzorLekara.ulogovanLekar.prezime).ToString());

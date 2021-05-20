@@ -7,6 +7,9 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="Views\Lekar\UCBolnickoLecenjeForma.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Views\Lekar\UCRaspored.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -187,7 +190,7 @@
     <Compile Update="Views\Sekretar\UCMenuSekretara.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Views\Lekar\UCPacijenti.xaml.cs">
+    <Compile Update="Views\Lekar\UCBolnickaLecenja.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Views\Sekretar\TerminiPacijentaProzorSekretara.xaml.cs">
@@ -220,6 +223,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\Lekar\GlavniProzorLekara.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Lekar\UCBolnickoLecenjeForma.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\Lekar\UCRaspored.xaml">
@@ -417,7 +423,7 @@
     <Page Update="Views\Sekretar\UCMenuSekretara.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Views\Lekar\UCPacijenti.xaml">
+    <Page Update="Views\Lekar\UCBolnickaLecenja.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\Sekretar\TerminiPacijentaProzorSekretara.xaml">
