@@ -18,20 +18,20 @@ namespace Servis
         {
             Model.DinamickaOprema oprema = new Model.DinamickaOprema(Int32.Parse(p.tbKol.Text), (TipDinamickeOpreme)Enum.Parse(typeof(TipDinamickeOpreme), p.cb1.Text));
 
-            foreach (Model.DinamickaOprema so in Repozitorijum.DinamickaOprema.Instance.listaOpreme)
+            foreach (Model.DinamickaOprema so in Repozitorijum.DinamickaOpremaRepo.Instance.listaOpreme)
             {
                 if (so.tip.Equals(oprema.tip))
                 {
                     so.kolicina += oprema.kolicina;
-                    Repozitorijum.DinamickaOprema.Instance.Serijalizacija();
-                    Repozitorijum.DinamickaOprema.Instance.Deserijalizacija();
+                    Repozitorijum.DinamickaOpremaRepo.Instance.Serijalizacija();
+                    Repozitorijum.DinamickaOpremaRepo.Instance.Deserijalizacija();
                     return;
                 }
             }
 
-            Repozitorijum.DinamickaOprema.Instance.listaOpreme.Add(oprema);
-            Repozitorijum.DinamickaOprema.Instance.Serijalizacija();
-            Repozitorijum.DinamickaOprema.Instance.Deserijalizacija();
+            Repozitorijum.DinamickaOpremaRepo.Instance.listaOpreme.Add(oprema);
+            Repozitorijum.DinamickaOpremaRepo.Instance.Serijalizacija();
+            Repozitorijum.DinamickaOpremaRepo.Instance.Deserijalizacija();
         }
 
         public void UklanjanjeOpreme(MagacinProzor p)
@@ -39,8 +39,8 @@ namespace Servis
             if (p.listViewDinamOpreme.SelectedValue != null)
             {
                 Model.DinamickaOprema oprema = (Model.DinamickaOprema)p.listViewDinamOpreme.SelectedValue;
-                Repozitorijum.DinamickaOprema.Instance.listaOpreme.Remove(oprema);
-                Repozitorijum.DinamickaOprema.Instance.Serijalizacija();
+                Repozitorijum.DinamickaOpremaRepo.Instance.listaOpreme.Remove(oprema);
+                Repozitorijum.DinamickaOpremaRepo.Instance.Serijalizacija();
             }
         }
 
@@ -49,8 +49,8 @@ namespace Servis
             oprema.kolicina = Int32.Parse(p.tb1.Text);
             oprema.tip = (TipDinamickeOpreme)Enum.Parse(typeof(TipDinamickeOpreme), p.cb1.Text, true);
 
-            Repozitorijum.DinamickaOprema.Instance.Serijalizacija();
-            Repozitorijum.DinamickaOprema.Instance.Deserijalizacija();
+            Repozitorijum.DinamickaOpremaRepo.Instance.Serijalizacija();
+            Repozitorijum.DinamickaOpremaRepo.Instance.Deserijalizacija();
         }
 
         public void PregledOpreme()

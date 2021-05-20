@@ -9,20 +9,10 @@ namespace Kontroler
     public class UpravnikKontroler
     {
         private static readonly Lazy<UpravnikKontroler> lazy = new(() => new UpravnikKontroler());
-
         public static UpravnikKontroler Instance { get { return lazy.Value; } }
-
         public void KreiranjeProstorije(ProstorijaDto dto) => UpravljanjeProstorijama.Instance.KreiranjeProstorije(dto);
-
         public void UklanjanjeProstorije(ProstorijaDto dto) => UpravljanjeProstorijama.Instance.UklanjanjeProstorije(dto);
-
         public void IzmenaProstorije(ProstorijaDto dto) => UpravljanjeProstorijama.Instance.IzmenaProstorije(dto);
-
-        public void PregledProstorije(ProstorijeProzor pr)
-        {
-            UpravljanjeProstorijama.Instance.PregledProstorije(pr);
-        }
-
         public void KreiranjeStatickeOpreme(MagacinDodajProzor p)
         {
             UpravljanjeStatickomOpremom.Instance.KreiranjeOpreme(p);

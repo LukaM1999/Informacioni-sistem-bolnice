@@ -23,27 +23,21 @@ namespace Servis
             Prostorije.Instance.BrisiProstorijuIzSvihTermina(dto.Id);
             if (!Prostorije.Instance.BrisiPoId(dto.Id)) return;
             Prostorije.Instance.SacuvajPromene();            
-        }
+       }
       
       public void IzmenaProstorije(ProstorijaDto dto)
       {
             IzmeniIzabranuProstoriju(dto);
             Prostorije.Instance.SacuvajPromene();
-        }
+       }
       private void IzmeniIzabranuProstoriju(ProstorijaDto dto)
-        {
+       {
             Prostorija izabranaProstorija = Prostorije.Instance.NadjiPoId(dto.Id);
             izabranaProstorija.Sprat = dto.Sprat;
             izabranaProstorija.Tip = dto.Tip;
             izabranaProstorija.Id = dto.Id;
             izabranaProstorija.JeZauzeta = dto.JeZauzeta;
             izabranaProstorija.Inventar = dto.Inventar;
-        }
-      public void PregledProstorije(ProstorijeProzor pr)
-      {
-            ProstorijaInfoForma p = new ProstorijaInfoForma(pr);
-            p.Show();
-        }
-   
+       }
    }
 }

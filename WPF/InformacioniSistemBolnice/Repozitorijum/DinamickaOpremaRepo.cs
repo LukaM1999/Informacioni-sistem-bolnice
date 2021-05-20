@@ -7,18 +7,18 @@ using System.Linq;
 
 namespace Repozitorijum
 {
-    public class DinamickaOprema:Repozitorijum
+    public class DinamickaOpremaRepo:Repozitorijum
     {
         private string putanja = "../../../json/dinamickaOprema.json";
 
-        private static readonly Lazy<DinamickaOprema>
+        private static readonly Lazy<DinamickaOpremaRepo>
            lazy =
-           new Lazy<DinamickaOprema>
-               (() => new DinamickaOprema());
+           new Lazy<DinamickaOpremaRepo>
+               (() => new DinamickaOpremaRepo());
 
-        public static DinamickaOprema Instance { get { return lazy.Value; } }
+        public static DinamickaOpremaRepo Instance { get { return lazy.Value; } }
 
-        public ObservableCollection<Model.DinamickaOprema> listaOpreme
+        public ObservableCollection<DinamickaOprema> listaOpreme
         {
             get;
             set;
@@ -26,7 +26,7 @@ namespace Repozitorijum
 
         public void Deserijalizacija()
         {
-            listaOpreme = JsonConvert.DeserializeObject<ObservableCollection<Model.DinamickaOprema>>(File.ReadAllText(putanja));
+            listaOpreme = JsonConvert.DeserializeObject<ObservableCollection<DinamickaOprema>>(File.ReadAllText(putanja));
         }
 
         public void Serijalizacija()
@@ -35,10 +35,10 @@ namespace Repozitorijum
             File.WriteAllText(putanja, json);
         }
 
-        public Model.DinamickaOprema getSelected(Model.DinamickaOprema p)
+        public DinamickaOprema getSelected(DinamickaOprema p)
         {
             Model.DinamickaOprema prs = null;
-            foreach (Model.DinamickaOprema pr in listaOpreme)
+            foreach (DinamickaOprema pr in listaOpreme)
             {
                 if (pr.tip.Equals(p.tip))
                 {
@@ -48,9 +48,9 @@ namespace Repozitorijum
             return listaOpreme.ElementAt(listaOpreme.IndexOf(prs));
         }
 
-        public Model.DinamickaOprema NadjiPoTipu(TipDinamickeOpreme tip)
+        public DinamickaOprema NadjiPoTipu(TipDinamickeOpreme tip)
         {
-            foreach (Model.DinamickaOprema pronadjena in listaOpreme)
+            foreach (DinamickaOprema pronadjena in listaOpreme)
             {
                 if (!pronadjena.tip.Equals(tip)) continue;
                 return pronadjena;
@@ -60,7 +60,7 @@ namespace Repozitorijum
 
         public bool BrisiPoTipu(TipDinamickeOpreme tip)
         {
-            foreach (Model.DinamickaOprema pronadjena in listaOpreme)
+            foreach (DinamickaOprema pronadjena in listaOpreme)
             {
                 if (pronadjena.tip != tip) continue;
                 return listaOpreme.Remove(pronadjena);

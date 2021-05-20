@@ -22,21 +22,31 @@ namespace InformacioniSistemBolnice
 {
     public partial class ProstorijaInfoForma : Window
     {
-        private ProstorijeProzor prostorProzor;
+        private DataGrid ListaProstorija;
         public ProstorijaInfoForma()
         {
             InitializeComponent();
         }
 
-        public ProstorijaInfoForma(ProstorijeProzor p)
+        public ProstorijaInfoForma(DataGrid listaProstorija)
         {
-            Prostorija pr = (Prostorija)p.ListaProstorija.SelectedValue;
-            prostorProzor = p;
             InitializeComponent();
-            labId2.Content = pr.Id;
-            labSprat2.Content = pr.Sprat;
-            labTip2.Content = pr.Tip;
-            if (pr.JeZauzeta)
+            ListaProstorija = listaProstorija;
+            Prostorija izabranaProstorija = (Prostorija)ListaProstorija.SelectedValue;
+            PostaviTekstLabelama(izabranaProstorija);
+            
+            listaDinamicke.ItemsSource = izabranaProstorija.Inventar.dinamickaOprema;
+            listaStaticke.ItemsSource = izabranaProstorija.Inventar.statickaOprema;
+
+            cbDinamicka.ItemsSource = Repozitorijum.Prostorije.Instance.ListaProstorija;
+            cbStaticka.ItemsSource = Repozitorijum.Prostorije.Instance.ListaProstorija;
+        }
+        private void PostaviTekstLabelama(Prostorija izabranaProstorija)
+        {
+            labId2.Content = izabranaProstorija.Id;
+            labSprat2.Content = izabranaProstorija.Sprat;
+            labTip2.Content = izabranaProstorija.Tip;
+            if (izabranaProstorija.JeZauzeta)
             {
                 labZauzetost.Content = "Prostorija je zauzeta";
             }
@@ -44,38 +54,30 @@ namespace InformacioniSistemBolnice
             {
                 labZauzetost.Content = "Prostorija nije zauzeta";
             }
-            
-            listaDinamicke.ItemsSource = pr.Inventar.dinamickaOprema;
-            listaStaticke.ItemsSource = pr.Inventar.statickaOprema;
-
-            cbDinamicka.ItemsSource = Repozitorijum.Prostorije.Instance.ListaProstorija;
-            cbStaticka.ItemsSource = Repozitorijum.Prostorije.Instance.ListaProstorija;
         }
-
         private void dugmeRaspodeliDinamicku_Click(object sender, RoutedEventArgs e)
         {
             if ((bool)rbMagacin.IsChecked)
             {
                 DinamickaOprema oprema = (DinamickaOprema)listaDinamicke.SelectedItem;
                 int kolicina = Int32.Parse(tbKolicinaDinamicka.Text);
-                Prostorija prostorija = (Prostorija)prostorProzor.ListaProstorija.SelectedItem;
+                Prostorija prostorija = (Prostorija)ListaProstorija.SelectedItem;
 
                 UpravnikKontroler.Instance.RasporedjivanjeDinamickeOpreme(prostorija, null, oprema, kolicina);
-                //Repozitorijum.DinamickaOprema.Instance.listaOpreme.ElementAt(Repozitorijum.DinamickaOprema.Instance.listaOpreme.IndexOf(dinamickaOprema)).kolicina -= kolicina;
-                prostorProzor.ListaProstorija.ItemsSource = Repozitorijum.Prostorije.Instance.ListaProstorija;
+                ListaProstorija.ItemsSource = Repozitorijum.Prostorije.Instance.ListaProstorija;
                 listaDinamicke.ItemsSource = Repozitorijum.Prostorije.Instance.UzmiIzabranuProstoriju(prostorija).Inventar.dinamickaOprema;
             }
             else
             {
-                if(cbDinamicka.SelectedItem != (Prostorija)prostorProzor.ListaProstorija.SelectedItem){
+                if(cbDinamicka.SelectedItem != (Prostorija)ListaProstorija.SelectedItem){
                     DinamickaOprema oprema = (DinamickaOprema)listaDinamicke.SelectedItem;
                     int kolicina = Int32.Parse(tbKolicinaDinamicka.Text);
-                    Prostorija izProstorije = (Prostorija)prostorProzor.ListaProstorija.SelectedItem;
+                    Prostorija izProstorije = (Prostorija)ListaProstorija.SelectedItem;
                     Prostorija uProstorije = (Prostorija)cbDinamicka.SelectedItem;
 
                     UpravnikKontroler.Instance.RasporedjivanjeDinamickeOpreme(izProstorije, uProstorije, oprema, kolicina);
 
-                    prostorProzor.ListaProstorija.ItemsSource = Repozitorijum.Prostorije.Instance.ListaProstorija;
+                    ListaProstorija.ItemsSource = Repozitorijum.Prostorije.Instance.ListaProstorija;
                     listaDinamicke.ItemsSource = Repozitorijum.Prostorije.Instance.UzmiIzabranuProstoriju(izProstorije).Inventar.dinamickaOprema;
                 }
 
@@ -88,18 +90,18 @@ namespace InformacioniSistemBolnice
             {
                 StatickaOprema oprema = (StatickaOprema)listaStaticke.SelectedItem;
                 int kolicina = Int32.Parse(tbKolicinaStaticka.Text);
-                Prostorija izProstorije = (Prostorija)prostorProzor.ListaProstorija.SelectedItem;
+                Prostorija izProstorije = (Prostorija)ListaProstorija.SelectedItem;
 
                 UpravnikKontroler.Instance.RasporedjivanjeStatickeOpreme(izProstorije, null, oprema, kolicina, (DateTime)datum.SelectedDate);
             }
             else
             {
-                if (cbStaticka.SelectedItem != (Prostorija)prostorProzor.ListaProstorija.SelectedItem && listaStaticke.SelectedValue != null 
+                if (cbStaticka.SelectedItem != (Prostorija)ListaProstorija.SelectedItem && listaStaticke.SelectedValue != null 
                     && cbStaticka.SelectedItem != null && datum.SelectedDate != null)
                 {
                     StatickaOprema oprema = (StatickaOprema)listaStaticke.SelectedItem;
                     int kolicina = Int32.Parse(tbKolicinaStaticka.Text);
-                    Prostorija izProstorije = (Prostorija)prostorProzor.ListaProstorija.SelectedItem;
+                    Prostorija izProstorije = (Prostorija)ListaProstorija.SelectedItem;
                     Prostorija uProstoriju = (Prostorija)cbStaticka.SelectedItem;
 
                     UpravnikKontroler.Instance.RasporedjivanjeStatickeOpreme(izProstorije, uProstoriju, oprema, kolicina, (DateTime)datum.SelectedDate);

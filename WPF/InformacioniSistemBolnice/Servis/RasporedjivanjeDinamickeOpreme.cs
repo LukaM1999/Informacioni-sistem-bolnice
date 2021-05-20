@@ -18,9 +18,9 @@ namespace Servis
         {
             if (izProstorije == null)
             {
-                Repozitorijum.DinamickaOprema.Instance.listaOpreme.ElementAt(Repozitorijum.DinamickaOprema.Instance.listaOpreme.IndexOf(dinamickaOprema)).kolicina -= kolicina;
-                Repozitorijum.DinamickaOprema.Instance.Serijalizacija();
-                Repozitorijum.DinamickaOprema.Instance.Deserijalizacija();
+                Repozitorijum.DinamickaOpremaRepo.Instance.listaOpreme.ElementAt(Repozitorijum.DinamickaOpremaRepo.Instance.listaOpreme.IndexOf(dinamickaOprema)).kolicina -= kolicina;
+                Repozitorijum.DinamickaOpremaRepo.Instance.Serijalizacija();
+                Repozitorijum.DinamickaOpremaRepo.Instance.Deserijalizacija();
 
                 foreach (Model.DinamickaOprema p in Prostorije.Instance.UzmiIzabranuProstoriju(uProstoriju).Inventar.dinamickaOprema)
                 {
@@ -46,15 +46,15 @@ namespace Servis
                         Prostorije.Instance.UzmiIzabranuProstoriju(izProstorije).Inventar.getSelected(p).kolicina -= kolicina;
                         Prostorije.Instance.Serijalizacija();
                         Prostorije.Instance.Deserijalizacija();
-                        Repozitorijum.DinamickaOprema.Instance.Deserijalizacija();
+                        Repozitorijum.DinamickaOpremaRepo.Instance.Deserijalizacija();
 
-                        foreach (Model.DinamickaOprema n in Repozitorijum.DinamickaOprema.Instance.listaOpreme)
+                        foreach (Model.DinamickaOprema n in Repozitorijum.DinamickaOpremaRepo.Instance.listaOpreme)
                         {
                             if (p.tip.Equals(n.tip))
                             {
-                                Repozitorijum.DinamickaOprema.Instance.listaOpreme.ElementAt(Repozitorijum.DinamickaOprema.Instance.listaOpreme.IndexOf(n)).kolicina += kolicina;
-                                Repozitorijum.DinamickaOprema.Instance.Serijalizacija();
-                                Repozitorijum.DinamickaOprema.Instance.Deserijalizacija();
+                                Repozitorijum.DinamickaOpremaRepo.Instance.listaOpreme.ElementAt(Repozitorijum.DinamickaOpremaRepo.Instance.listaOpreme.IndexOf(n)).kolicina += kolicina;
+                                Repozitorijum.DinamickaOpremaRepo.Instance.Serijalizacija();
+                                Repozitorijum.DinamickaOpremaRepo.Instance.Deserijalizacija();
                                 return;
                             }
                         }
@@ -63,9 +63,9 @@ namespace Servis
                     }
                 }
 
-                Repozitorijum.DinamickaOprema.Instance.listaOpreme.Add(new Model.DinamickaOprema(kolicina, dinamickaOprema.tip));
-                Repozitorijum.DinamickaOprema.Instance.Serijalizacija();
-                Repozitorijum.DinamickaOprema.Instance.Deserijalizacija();
+                Repozitorijum.DinamickaOpremaRepo.Instance.listaOpreme.Add(new Model.DinamickaOprema(kolicina, dinamickaOprema.tip));
+                Repozitorijum.DinamickaOpremaRepo.Instance.Serijalizacija();
+                Repozitorijum.DinamickaOpremaRepo.Instance.Deserijalizacija();
                 return;
 
             }

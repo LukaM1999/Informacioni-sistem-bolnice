@@ -39,7 +39,7 @@ namespace InformacioniSistemBolnice.Views.Lekar
 
         private void PronalaziProstorijeZaHospitalizaciju()
         {
-            foreach (Prostorija prostorija in Prostorije.Instance.listaProstorija)
+            foreach (Prostorija prostorija in Prostorije.Instance.ListaProstorija)
             {
                 DodajProstoriju(prostorija);
             }
@@ -48,7 +48,7 @@ namespace InformacioniSistemBolnice.Views.Lekar
 
         private void DodajProstoriju(Prostorija prostorija)
         {
-            if (prostorija.tip == TipProstorije.prostorijaZaHospitalizaciju)
+            if (prostorija.Tip == TipProstorije.prostorijaZaHospitalizaciju)
             {
                 sobe.Add(prostorija);
             }
@@ -85,19 +85,19 @@ namespace InformacioniSistemBolnice.Views.Lekar
 
                 foreach (BolnickoLecenje lecenje in BolnickoLecenjeRepo.Instance.BolnickaLecenja)
                 {
-                    if (lecenje.NazivProstorije == prostorija.id)
+                    if (lecenje.NazivProstorije == prostorija.Id)
                     {
                         brojac++;
                     }
                 }
 
-                foreach (Model.StatickaOprema oprema in prostorija.inventar.statickaOprema)
+                foreach (Model.StatickaOprema oprema in prostorija.Inventar.statickaOprema)
                 {
                     if (oprema.tip == TipStatickeOpreme.krevet)
                     {
                         if (brojac < oprema.kolicina)
                         {
-                            BolnickoLecenje novoLecenje = new(pocetak, zavrsetak, prostorija.id, pacijent.jmbg);
+                            BolnickoLecenje novoLecenje = new(pocetak, zavrsetak, prostorija.Id, pacijent.jmbg);
                             BolnickoLecenjeRepo.Instance.DodajLecenje(novoLecenje);
                             BolnickoLecenjeRepo.Instance.Serijalizacija();
                             return;

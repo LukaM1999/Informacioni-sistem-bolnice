@@ -74,14 +74,15 @@ namespace InformacioniSistemBolnice
         {
             if (ListaProstorija.SelectedValue != null)
             {
-                UpravnikKontroler.Instance.PregledProstorije(this);
+                ProstorijaInfoForma prozor = new ProstorijaInfoForma();
+                prozor.Show();
             }
 
         }
 
         private void magacinDugme_Click(object sender, RoutedEventArgs e)
         {
-            Repozitorijum.DinamickaOprema.Instance.Deserijalizacija();
+            Repozitorijum.DinamickaOpremaRepo.Instance.Deserijalizacija();
             MagacinProzor mp = new MagacinProzor(this);
             mp.Show();
         }
