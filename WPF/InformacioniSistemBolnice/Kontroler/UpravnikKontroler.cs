@@ -43,9 +43,9 @@ namespace Kontroler
             UpravljanjeDinamickomOpremom.Instance.IzmenaOpreme(oprema, p);
         }
 
-        public void RasporedjivanjeDinamickeOpreme(Prostorija izProstorije, Prostorija uProstoriju, DinamickaOprema dinamickaOprema, int kolicina)
-        {
-            Servis.RasporedjivanjeDinamickeOpreme.Instance.Premestanje(izProstorije, uProstoriju, dinamickaOprema, kolicina);
+        public void RasporedjivanjeDinamickeOpreme(RaspodelaDinamickeOpremeDto dto) 
+        { 
+            Servis.RasporedjivanjeDinamickeOpreme.Instance.Premestanje(dto);
         }
 
         public void RasporedjivanjeStatickeOpreme(Prostorija izProstorije, Prostorija uProstoriju, StatickaOprema statickaOprema, int kolicina, DateTime datum)

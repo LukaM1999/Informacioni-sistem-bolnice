@@ -25,7 +25,7 @@ namespace InformacioniSistemBolnice
             InitializeComponent();
             Korisnici.Instance.Deserijalizacija();
             StatickaOpremaTermini.Instance.Deserijalizacija();
-            Repozitorijum.StatickaOprema.Instance.Deserijalizacija();
+            Repozitorijum.StatickaOpremaRepo.Instance.Deserijalizacija();
             Prostorije.Instance.Deserijalizacija();
             RenoviranjeTermini.Instance.Deserijalizacija();
             new Thread(RasporedjivanjeStatickeOpreme.Instance.ProveraPremestajaOpreme).Start();

@@ -36,15 +36,15 @@ namespace InformacioniSistemBolnice
         public void postavljanjeVrednost()
         {
             DinamickaOprema oprema = (DinamickaOprema)lista.SelectedValue;
-            tb1.Text = oprema.kolicina.ToString();
-            cb1.Text = oprema.tip.ToString();
+            tb1.Text = oprema.Kolicina.ToString();
+            cb1.Text = oprema.Tip.ToString();
         }
 
         private void dugmePotvrdi_Click(object sender, RoutedEventArgs e)
         {
             DinamickaOprema oprema = (DinamickaOprema)lista.SelectedValue;
             UpravnikKontroler.Instance.IzmenaDinamickeOpreme(oprema, this);
-            lista.ItemsSource = Repozitorijum.DinamickaOpremaRepo.Instance.listaOpreme;
+            lista.ItemsSource = Repozitorijum.DinamickaOpremaRepo.Instance.ListaOpreme;
             this.Close();
         }
     }

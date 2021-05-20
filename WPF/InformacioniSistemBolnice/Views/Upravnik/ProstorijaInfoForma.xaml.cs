@@ -23,6 +23,7 @@ namespace InformacioniSistemBolnice
     public partial class ProstorijaInfoForma : Window
     {
         private DataGrid ListaProstorija;
+        private Prostorija izProstorije { get; set; }
         public ProstorijaInfoForma()
         {
             InitializeComponent();
@@ -32,14 +33,15 @@ namespace InformacioniSistemBolnice
         {
             InitializeComponent();
             ListaProstorija = listaProstorija;
-            Prostorija izabranaProstorija = (Prostorija)ListaProstorija.SelectedValue;
+            izProstorije = (Prostorija)ListaProstorija.SelectedItem;
+            Prostorija izabranaProstorija = (Prostorija)ListaProstorija.SelectedItem;
             PostaviTekstLabelama(izabranaProstorija);
             
-            listaDinamicke.ItemsSource = izabranaProstorija.Inventar.dinamickaOprema;
-            listaStaticke.ItemsSource = izabranaProstorija.Inventar.statickaOprema;
+            listaDinamicke.ItemsSource = izabranaProstorija.Inventar.DinamickaOprema;
+            listaStaticke.ItemsSource = izabranaProstorija.Inventar.StatickaOprema;
 
-            cbDinamicka.ItemsSource = Repozitorijum.Prostorije.Instance.ListaProstorija;
-            cbStaticka.ItemsSource = Repozitorijum.Prostorije.Instance.ListaProstorija;
+            cbDinamicka.ItemsSource = Prostorije.Instance.ListaProstorija;
+            cbStaticka.ItemsSource = Prostorije.Instance.ListaProstorija;
         }
         private void PostaviTekstLabelama(Prostorija izabranaProstorija)
         {
@@ -57,31 +59,23 @@ namespace InformacioniSistemBolnice
         }
         private void dugmeRaspodeliDinamicku_Click(object sender, RoutedEventArgs e)
         {
+            Prostorija uProstoriju = (Prostorija)cbDinamicka.SelectedItem;
             if ((bool)rbMagacin.IsChecked)
             {
-                DinamickaOprema oprema = (DinamickaOprema)listaDinamicke.SelectedItem;
-                int kolicina = Int32.Parse(tbKolicinaDinamicka.Text);
-                Prostorija prostorija = (Prostorija)ListaProstorija.SelectedItem;
-
-                UpravnikKontroler.Instance.RasporedjivanjeDinamickeOpreme(prostorija, null, oprema, kolicina);
-                ListaProstorija.ItemsSource = Repozitorijum.Prostorije.Instance.ListaProstorija;
-                listaDinamicke.ItemsSource = Repozitorijum.Prostorije.Instance.UzmiIzabranuProstoriju(prostorija).Inventar.dinamickaOprema;
+                RaspodelaDinamickeOpremeDto dtoRapsodelaUMagacin = new(izProstorije.Id, null,
+                    (DinamickaOprema)listaDinamicke.SelectedItem, Int32.Parse(tbKolicinaDinamicka.Text));
+                UpravnikKontroler.Instance.RasporedjivanjeDinamickeOpreme(dtoRapsodelaUMagacin);
             }
             else
             {
                 if(cbDinamicka.SelectedItem != (Prostorija)ListaProstorija.SelectedItem){
-                    DinamickaOprema oprema = (DinamickaOprema)listaDinamicke.SelectedItem;
-                    int kolicina = Int32.Parse(tbKolicinaDinamicka.Text);
-                    Prostorija izProstorije = (Prostorija)ListaProstorija.SelectedItem;
-                    Prostorija uProstorije = (Prostorija)cbDinamicka.SelectedItem;
-
-                    UpravnikKontroler.Instance.RasporedjivanjeDinamickeOpreme(izProstorije, uProstorije, oprema, kolicina);
-
-                    ListaProstorija.ItemsSource = Repozitorijum.Prostorije.Instance.ListaProstorija;
-                    listaDinamicke.ItemsSource = Repozitorijum.Prostorije.Instance.UzmiIzabranuProstoriju(izProstorije).Inventar.dinamickaOprema;
+                    RaspodelaDinamickeOpremeDto dtoRaspodelaUDruguProstoriju = new(izProstorije.Id, uProstoriju.Id,
+                        (DinamickaOprema)listaDinamicke.SelectedItem, Int32.Parse(tbKolicinaDinamicka.Text));
+                    UpravnikKontroler.Instance.RasporedjivanjeDinamickeOpreme(dtoRaspodelaUDruguProstoriju);
                 }
-
             }
+            ListaProstorija.ItemsSource = Repozitorijum.Prostorije.Instance.ListaProstorija;
+            listaDinamicke.ItemsSource = Repozitorijum.Prostorije.Instance.NadjiPoId(izProstorije.Id).Inventar.DinamickaOprema;
         }
 
         private void dugmeRaspodeliStaticku_Click(object sender, RoutedEventArgs e)

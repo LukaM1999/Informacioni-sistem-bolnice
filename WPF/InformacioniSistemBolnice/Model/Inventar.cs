@@ -6,51 +6,45 @@ namespace Model
 {
    public class Inventar
    {
-
-        public ObservableCollection<DinamickaOprema> dinamickaOprema { get; set; }
-
-        public ObservableCollection<StatickaOprema> statickaOprema { get; set; }
-
+        public ObservableCollection<DinamickaOprema> DinamickaOprema { get; set; }
+        public ObservableCollection<StatickaOprema> StatickaOprema { get; set; }
         public Inventar()
         {
-            dinamickaOprema = new ObservableCollection<DinamickaOprema>();
-            statickaOprema = new ObservableCollection<StatickaOprema>();
+            DinamickaOprema = new ObservableCollection<DinamickaOprema>();
+            StatickaOprema = new ObservableCollection<StatickaOprema>();
         }
-
-        public DinamickaOprema getSelected(DinamickaOprema oprema)
+        public DinamickaOprema NadjiDinamickuOpremuPoTipu(TipDinamickeOpreme tipOpreme)
         {
-            return dinamickaOprema.ElementAt(dinamickaOprema.IndexOf(oprema));
+            foreach (DinamickaOprema oprema in DinamickaOprema) if (oprema.Tip == tipOpreme) return oprema;
+            return null;
         }
-
         public StatickaOprema getSelected(StatickaOprema oprema)
         {
-            return statickaOprema.ElementAt(statickaOprema.IndexOf(oprema));
+            return StatickaOprema.ElementAt(StatickaOprema.IndexOf(oprema));
         }
-
         public DinamickaOprema getSelectedD(DinamickaOprema p)
         {
             DinamickaOprema prs = null;
-            foreach (DinamickaOprema pr in dinamickaOprema)
+            foreach (DinamickaOprema pr in DinamickaOprema)
             {
-                if (pr.tip.Equals(p.tip))
+                if (pr.Tip.Equals(p.Tip))
                 {
                     prs = pr;
                 }
             }
-            return dinamickaOprema.ElementAt(dinamickaOprema.IndexOf(prs));
+            return DinamickaOprema.ElementAt(DinamickaOprema.IndexOf(prs));
         }
-
         public StatickaOprema getSelectedS(StatickaOprema p)
         {
             StatickaOprema prs = null;
-            foreach (StatickaOprema pr in statickaOprema)
+            foreach (StatickaOprema pr in StatickaOprema)
             {
                 if (pr.tip.Equals(p.tip))
                 {
                     prs = pr;
                 }
             }
-            return statickaOprema.ElementAt(statickaOprema.IndexOf(prs));
+            return StatickaOprema.ElementAt(StatickaOprema.IndexOf(prs));
         }
     }
 }

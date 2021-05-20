@@ -7,16 +7,16 @@ using System.Linq;
 
 namespace Repozitorijum
 {
-    public class StatickaOprema : Repozitorijum
+    public class StatickaOpremaRepo : Repozitorijum
     {
         private string putanja = "../../../json/statickaOprema.json";
 
-        private static readonly Lazy<StatickaOprema>
+        private static readonly Lazy<StatickaOpremaRepo>
            lazy =
-           new Lazy<StatickaOprema>
-               (() => new StatickaOprema());
+           new Lazy<StatickaOpremaRepo>
+               (() => new StatickaOpremaRepo());
 
-        public static StatickaOprema Instance { get { return lazy.Value; } }
+        public static StatickaOpremaRepo Instance { get { return lazy.Value; } }
 
         public ObservableCollection<Model.StatickaOprema> listaOpreme
         {
@@ -41,7 +41,7 @@ namespace Repozitorijum
             //}
         }
 
-        public StatickaOprema()
+        public StatickaOpremaRepo()
         {
             listaOpreme = new ObservableCollection<Model.StatickaOprema>();
         }

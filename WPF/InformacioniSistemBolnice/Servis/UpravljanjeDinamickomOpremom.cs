@@ -18,18 +18,18 @@ namespace Servis
         {
             Model.DinamickaOprema oprema = new Model.DinamickaOprema(Int32.Parse(p.tbKol.Text), (TipDinamickeOpreme)Enum.Parse(typeof(TipDinamickeOpreme), p.cb1.Text));
 
-            foreach (Model.DinamickaOprema so in Repozitorijum.DinamickaOpremaRepo.Instance.listaOpreme)
+            foreach (Model.DinamickaOprema so in Repozitorijum.DinamickaOpremaRepo.Instance.ListaOpreme)
             {
-                if (so.tip.Equals(oprema.tip))
+                if (so.Tip.Equals(oprema.Tip))
                 {
-                    so.kolicina += oprema.kolicina;
+                    so.Kolicina += oprema.Kolicina;
                     Repozitorijum.DinamickaOpremaRepo.Instance.Serijalizacija();
                     Repozitorijum.DinamickaOpremaRepo.Instance.Deserijalizacija();
                     return;
                 }
             }
 
-            Repozitorijum.DinamickaOpremaRepo.Instance.listaOpreme.Add(oprema);
+            Repozitorijum.DinamickaOpremaRepo.Instance.ListaOpreme.Add(oprema);
             Repozitorijum.DinamickaOpremaRepo.Instance.Serijalizacija();
             Repozitorijum.DinamickaOpremaRepo.Instance.Deserijalizacija();
         }
@@ -39,15 +39,15 @@ namespace Servis
             if (p.listViewDinamOpreme.SelectedValue != null)
             {
                 Model.DinamickaOprema oprema = (Model.DinamickaOprema)p.listViewDinamOpreme.SelectedValue;
-                Repozitorijum.DinamickaOpremaRepo.Instance.listaOpreme.Remove(oprema);
+                Repozitorijum.DinamickaOpremaRepo.Instance.ListaOpreme.Remove(oprema);
                 Repozitorijum.DinamickaOpremaRepo.Instance.Serijalizacija();
             }
         }
 
         public void IzmenaOpreme(Model.DinamickaOprema oprema, MagacinIzmeniDinamickuOpremu p)
         {
-            oprema.kolicina = Int32.Parse(p.tb1.Text);
-            oprema.tip = (TipDinamickeOpreme)Enum.Parse(typeof(TipDinamickeOpreme), p.cb1.Text, true);
+            oprema.Kolicina = Int32.Parse(p.tb1.Text);
+            oprema.Tip = (TipDinamickeOpreme)Enum.Parse(typeof(TipDinamickeOpreme), p.cb1.Text, true);
 
             Repozitorijum.DinamickaOpremaRepo.Instance.Serijalizacija();
             Repozitorijum.DinamickaOpremaRepo.Instance.Deserijalizacija();
@@ -58,7 +58,7 @@ namespace Servis
             throw new NotImplementedException();
         }
 
-        public Repozitorijum.StatickaOprema magacin;
+        public Repozitorijum.StatickaOpremaRepo magacin;
 
     }
 }

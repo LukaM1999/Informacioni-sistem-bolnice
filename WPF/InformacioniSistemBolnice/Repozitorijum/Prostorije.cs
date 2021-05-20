@@ -11,19 +11,9 @@ namespace Repozitorijum
     {
         private string putanja = "../../../json/prostorije.json";
 
-        private static readonly Lazy<Prostorije>
-            lazy =
-            new Lazy<Prostorije>
-                (() => new Prostorije());
-            
-            public static Prostorije Instance { get { return lazy.Value; } }
-
-        public ObservableCollection<Prostorija> ListaProstorija
-        {
-            get;
-            set;
-        }
-
+        private static readonly Lazy<Prostorije> lazy = new Lazy<Prostorije> (() => new Prostorije());
+        public static Prostorije Instance { get { return lazy.Value; } }
+        public ObservableCollection<Prostorija> ListaProstorija { get; set; }
         public void Deserijalizacija()
         {
             lock (ListaProstorija)
@@ -31,7 +21,6 @@ namespace Repozitorijum
                 ListaProstorija = JsonConvert.DeserializeObject<ObservableCollection<Prostorija>>(File.ReadAllText(putanja));
             }
         }
-
         public void Serijalizacija()
         {
             lock (ListaProstorija)
@@ -40,26 +29,11 @@ namespace Repozitorijum
                 File.WriteAllText(putanja, json);
             }
         }
-
-        public Prostorija UzmiIzabranuProstoriju(Prostorija izabranaProstorija)
-        {
-            Prostorija prostorija = null;
-            foreach (Prostorija p in ListaProstorija)
-            {
-                if (p.Id.Equals(izabranaProstorija.Id))
-                {
-                    prostorija = p;
-                }
-            }
-            return ListaProstorija.ElementAt(ListaProstorija.IndexOf(prostorija));
-        }
-
         public Prostorija NadjiPoId(string idProstorije)
         {
             foreach (Prostorija prostorija in ListaProstorija) if (prostorija.Id == idProstorije) return prostorija;
             return null;
         }
-
         public bool BrisiPoId(string idProstorije)
         {
             foreach (Prostorija pronadjena in ListaProstorija)

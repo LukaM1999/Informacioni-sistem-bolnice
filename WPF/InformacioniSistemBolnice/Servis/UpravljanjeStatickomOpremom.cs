@@ -20,20 +20,20 @@ namespace Servis
         {
             Model.StatickaOprema oprema = new Model.StatickaOprema(Int32.Parse(p.tbKol.Text), (TipStatickeOpreme)Enum.Parse(typeof(TipStatickeOpreme), p.cb1.Text));
             
-            foreach (Model.StatickaOprema so in Repozitorijum.StatickaOprema.Instance.listaOpreme)
+            foreach (Model.StatickaOprema so in Repozitorijum.StatickaOpremaRepo.Instance.listaOpreme)
             {
                 if (so.tip.Equals(oprema.tip))
                 {
                     so.kolicina += oprema.kolicina;
-                    Repozitorijum.StatickaOprema.Instance.Serijalizacija();
-                    Repozitorijum.StatickaOprema.Instance.Deserijalizacija();
+                    Repozitorijum.StatickaOpremaRepo.Instance.Serijalizacija();
+                    Repozitorijum.StatickaOpremaRepo.Instance.Deserijalizacija();
                     return;
                 }
             }
 
-            Repozitorijum.StatickaOprema.Instance.listaOpreme.Add(oprema);
-            Repozitorijum.StatickaOprema.Instance.Serijalizacija();
-            Repozitorijum.StatickaOprema.Instance.Deserijalizacija();
+            Repozitorijum.StatickaOpremaRepo.Instance.listaOpreme.Add(oprema);
+            Repozitorijum.StatickaOpremaRepo.Instance.Serijalizacija();
+            Repozitorijum.StatickaOpremaRepo.Instance.Deserijalizacija();
         }
 
         public void UklanjanjeOpreme(MagacinProzor p)
@@ -41,8 +41,8 @@ namespace Servis
             if (p.listViewStatOpreme.SelectedValue != null)
             {
                 Model.StatickaOprema oprema = (Model.StatickaOprema)p.listViewStatOpreme.SelectedValue;
-                Repozitorijum.StatickaOprema.Instance.listaOpreme.Remove(oprema);
-                Repozitorijum.StatickaOprema.Instance.Serijalizacija();
+                Repozitorijum.StatickaOpremaRepo.Instance.listaOpreme.Remove(oprema);
+                Repozitorijum.StatickaOpremaRepo.Instance.Serijalizacija();
             }
         }
 
@@ -51,8 +51,8 @@ namespace Servis
              oprema.kolicina = Int32.Parse(p.tb1.Text);
              oprema.tip = (TipStatickeOpreme)Enum.Parse(typeof(TipStatickeOpreme), p.cb1.Text, true);
 
-             Repozitorijum.StatickaOprema.Instance.Serijalizacija();
-             Repozitorijum.StatickaOprema.Instance.Deserijalizacija(); 
+             Repozitorijum.StatickaOpremaRepo.Instance.Serijalizacija();
+             Repozitorijum.StatickaOpremaRepo.Instance.Deserijalizacija(); 
         }
 
         public void PregledOpreme()
@@ -60,7 +60,7 @@ namespace Servis
             throw new NotImplementedException();
         }
 
-        public Repozitorijum.StatickaOprema magacin;
+        public Repozitorijum.StatickaOpremaRepo magacin;
 
     }
 }

@@ -57,11 +57,11 @@ namespace Servis
                     {
                         if(t.izProstorije == null)
                         {
-                            foreach (Model.StatickaOprema s in t.uProstoriju.Inventar.statickaOprema.ToList())
+                            foreach (Model.StatickaOprema s in t.uProstoriju.Inventar.StatickaOprema.ToList())
                             {
                                 if (s.tip.Equals(t.oprema.tip))
                                 {
-                                    Prostorije.Instance.UzmiIzabranuProstoriju(t.uProstoriju).Inventar.getSelectedS(s).kolicina += t.kolicina;
+                                    Prostorije.Instance.NadjiPoId(t.uProstoriju.Id).Inventar.getSelectedS(s).kolicina += t.kolicina;
                                     temp = 1;
                                     break;
                                 }
@@ -69,22 +69,22 @@ namespace Servis
                             if (temp != 1)
                             {
                                 Model.StatickaOprema stat = new Model.StatickaOprema(t.kolicina, t.oprema.tip);
-                                Prostorije.Instance.UzmiIzabranuProstoriju(t.uProstoriju).Inventar.statickaOprema.Add(stat);
+                                Prostorije.Instance.NadjiPoId(t.uProstoriju.Id).Inventar.StatickaOprema.Add(stat);
                                 temp = 0;
                             }
                             
                             Prostorije.Instance.Serijalizacija();
                             Prostorije.Instance.Deserijalizacija();
-                            foreach (Model.StatickaOprema s in Repozitorijum.StatickaOprema.Instance.listaOpreme.ToList())
+                            foreach (Model.StatickaOprema s in Repozitorijum.StatickaOpremaRepo.Instance.listaOpreme.ToList())
                             {
                                 if (s.tip.Equals(t.oprema.tip))
                                 {
-                                    Repozitorijum.StatickaOprema.Instance.getSelected(s).kolicina -= t.kolicina;
+                                    Repozitorijum.StatickaOpremaRepo.Instance.getSelected(s).kolicina -= t.kolicina;
                                     break;
                                 }
                             }
-                            Repozitorijum.StatickaOprema.Instance.Serijalizacija();
-                            Repozitorijum.StatickaOprema.Instance.Deserijalizacija();
+                            Repozitorijum.StatickaOpremaRepo.Instance.Serijalizacija();
+                            Repozitorijum.StatickaOpremaRepo.Instance.Deserijalizacija();
 
                             StatickaOpremaTermini.Instance.listaTermina.Remove(t);
                             StatickaOpremaTermini.Instance.Serijalizacija();
@@ -92,26 +92,26 @@ namespace Servis
                         }
                         if (t.uProstoriju == null)
                         {
-                            foreach (Model.StatickaOprema s in t.izProstorije.Inventar.statickaOprema.ToList())
+                            foreach (Model.StatickaOprema s in t.izProstorije.Inventar.StatickaOprema.ToList())
                             {
                                 if (s.tip.Equals(t.oprema.tip))
                                 {
-                                    Prostorije.Instance.UzmiIzabranuProstoriju(t.izProstorije).Inventar.getSelectedS(s).kolicina -= t.kolicina;
+                                    Prostorije.Instance.NadjiPoId(t.izProstorije.Id).Inventar.getSelectedS(s).kolicina -= t.kolicina;
                                     break;
                                 }
                             }
                             Prostorije.Instance.Serijalizacija();
                             Prostorije.Instance.Deserijalizacija();
-                            foreach (Model.StatickaOprema s in Repozitorijum.StatickaOprema.Instance.listaOpreme.ToList())
+                            foreach (Model.StatickaOprema s in Repozitorijum.StatickaOpremaRepo.Instance.listaOpreme.ToList())
                             {
                                 if (s.tip.Equals(t.oprema.tip))
                                 {
-                                    Repozitorijum.StatickaOprema.Instance.getSelected(s).kolicina += t.kolicina;
+                                    Repozitorijum.StatickaOpremaRepo.Instance.getSelected(s).kolicina += t.kolicina;
                                     break;
                                 }
                             }
-                            Repozitorijum.StatickaOprema.Instance.Serijalizacija();
-                            Repozitorijum.StatickaOprema.Instance.Deserijalizacija();
+                            Repozitorijum.StatickaOpremaRepo.Instance.Serijalizacija();
+                            Repozitorijum.StatickaOpremaRepo.Instance.Deserijalizacija();
 
                             StatickaOpremaTermini.Instance.listaTermina.Remove(t);
                             StatickaOpremaTermini.Instance.Serijalizacija();
@@ -119,11 +119,11 @@ namespace Servis
                         }
                         if (t.uProstoriju != null && t.izProstorije != null)
                         {
-                            foreach (Model.StatickaOprema s in t.uProstoriju.Inventar.statickaOprema.ToList())
+                            foreach (Model.StatickaOprema s in t.uProstoriju.Inventar.StatickaOprema.ToList())
                             {
                                 if (s.tip.Equals(t.oprema.tip))
                                 {
-                                    Prostorije.Instance.UzmiIzabranuProstoriju(t.uProstoriju).Inventar.getSelectedS(s).kolicina += t.kolicina;
+                                    Prostorije.Instance.NadjiPoId(t.uProstoriju.Id).Inventar.getSelectedS(s).kolicina += t.kolicina;
                                     temp = 1;
                                     break;
                                 }
@@ -131,15 +131,15 @@ namespace Servis
                             if (temp != 1)
                             {
                                 Model.StatickaOprema stat = new Model.StatickaOprema(t.kolicina, t.oprema.tip);
-                                Prostorije.Instance.UzmiIzabranuProstoriju(t.uProstoriju).Inventar.statickaOprema.Add(stat);
+                                Prostorije.Instance.NadjiPoId(t.uProstoriju.Id).Inventar.StatickaOprema.Add(stat);
                                 temp = 0;
                             }
 
-                            foreach (Model.StatickaOprema s in t.izProstorije.Inventar.statickaOprema.ToList())
+                            foreach (Model.StatickaOprema s in t.izProstorije.Inventar.StatickaOprema.ToList())
                             {
                                 if (s.tip.Equals(t.oprema.tip))
                                 {
-                                    Prostorije.Instance.UzmiIzabranuProstoriju(t.izProstorije).Inventar.getSelectedS(s).kolicina -= t.kolicina;
+                                    Prostorije.Instance.NadjiPoId(t.izProstorije.Id).Inventar.getSelectedS(s).kolicina -= t.kolicina;
                                     break;
                                 }
                             }
@@ -157,7 +157,7 @@ namespace Servis
             }
         }
 
-        public Repozitorijum.StatickaOprema magacin;
+        public Repozitorijum.StatickaOpremaRepo magacin;
         public Repozitorijum.Prostorije prostorije;
 
     }

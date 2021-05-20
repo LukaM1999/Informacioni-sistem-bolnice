@@ -20,7 +20,7 @@ namespace Servis
         public void ZakazivanjeRenoviranja(ProstorijaRenoviranjeDto dto)
         {
             RenoviranjeTermin novTermin = new RenoviranjeTermin(dto.PocetakRenoviranja, dto.KrajRenoviranja, dto.Prostorija.Id);
-            Prostorije.Instance.UzmiIzabranuProstoriju(dto.Prostorija).Renoviranje = novTermin;
+            Prostorije.Instance.NadjiPoId(dto.Prostorija.Id).Renoviranje = novTermin;
             Prostorije.Instance.Serijalizacija();
             Prostorije.Instance.Deserijalizacija();
             RenoviranjeTermini.Instance.listaTermina.Add(novTermin);
@@ -57,7 +57,7 @@ namespace Servis
             foreach (Prostorija prostorija in Prostorije.Instance.ListaProstorija.ToList())
             {
                 if (!prostorija.Id.Equals(termin.idProstorije)) continue;
-                Prostorije.Instance.UzmiIzabranuProstoriju(prostorija).JeZauzeta = true;
+                Prostorije.Instance.NadjiPoId(prostorija.Id).JeZauzeta = true;
                 Prostorije.Instance.Serijalizacija();
                 Prostorije.Instance.Deserijalizacija();
                 break;
@@ -69,8 +69,8 @@ namespace Servis
             foreach (Prostorija prostorija in Prostorije.Instance.ListaProstorija.ToList())
             {
                 if (!prostorija.Id.Equals(termin.idProstorije)) continue;
-                Prostorije.Instance.UzmiIzabranuProstoriju(prostorija).JeZauzeta = false;
-                Prostorije.Instance.UzmiIzabranuProstoriju(prostorija).Renoviranje = null;
+                Prostorije.Instance.NadjiPoId(prostorija.Id).JeZauzeta = false;
+                Prostorije.Instance.NadjiPoId(prostorija.Id).Renoviranje = null;
                 RenoviranjeTermini.Instance.listaTermina.Remove(termin);
                 Prostorije.Instance.Serijalizacija();
                 Prostorije.Instance.Deserijalizacija();

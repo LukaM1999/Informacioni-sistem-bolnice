@@ -24,15 +24,13 @@ namespace InformacioniSistemBolnice
     public partial class ProstorijeProzor : Window
     {
         public int kolicina;
-        private ObservableCollection<Prostorija> listaProstorija
-        {
-            get;
-            set;
-        }
+        private ObservableCollection<Prostorija> listaProstorija { get; set; }
         public ProstorijeProzor()
         {
             InitializeComponent();
             Prostorije.Instance.Deserijalizacija();
+            DinamickaOpremaRepo.Instance.Deserijalizacija();
+            StatickaOpremaRepo.Instance.Deserijalizacija();
             listaProstorija = Prostorije.Instance.ListaProstorija;
 
             ListaProstorija.ItemsSource = listaProstorija;
@@ -55,9 +53,10 @@ namespace InformacioniSistemBolnice
         {
             if (ListaProstorija.SelectedValue != null)
             {
-                Prostorija izabranaProstorija = (Prostorija)ListaProstorija.SelectedItem;
+                Prostorija izabranaProstorija = (Prostorija)ListaProstorija.SelectedValue;
                 UpravnikKontroler.Instance.UklanjanjeProstorije(new ProstorijaDto() { Id = izabranaProstorija.Id });
                 listaProstorija = Prostorije.Instance.ListaProstorija;
+                ListaProstorija.ItemsSource = listaProstorija;
             }
         }
 
@@ -74,7 +73,7 @@ namespace InformacioniSistemBolnice
         {
             if (ListaProstorija.SelectedValue != null)
             {
-                ProstorijaInfoForma prozor = new ProstorijaInfoForma();
+                ProstorijaInfoForma prozor = new(ListaProstorija);
                 prozor.Show();
             }
 
@@ -82,9 +81,9 @@ namespace InformacioniSistemBolnice
 
         private void magacinDugme_Click(object sender, RoutedEventArgs e)
         {
-            Repozitorijum.DinamickaOpremaRepo.Instance.Deserijalizacija();
-            MagacinProzor mp = new MagacinProzor(this);
-            mp.Show();
+            DinamickaOpremaRepo.Instance.Deserijalizacija();
+            MagacinProzor prozor = new MagacinProzor(ListaProstorija);
+            prozor.Show();
         }
 
         private void lekoviDugme_Click(object sender, RoutedEventArgs e)
@@ -107,7 +106,7 @@ namespace InformacioniSistemBolnice
                 TipStatickeOpreme tipStatickeOpreme = (TipStatickeOpreme)cbStaticka.SelectedItem;
                 foreach (Prostorija prostorija in Prostorije.Instance.ListaProstorija.ToList())
                 {
-                    foreach(StatickaOprema statickaOprema in prostorija.Inventar.statickaOprema.ToList())
+                    foreach(StatickaOprema statickaOprema in prostorija.Inventar.StatickaOprema.ToList())
                     {
                         if (statickaOprema.tip.Equals(tipStatickeOpreme) && statickaOprema.kolicina >= kolicina)
                         {
@@ -121,9 +120,9 @@ namespace InformacioniSistemBolnice
                 TipDinamickeOpreme tipDinamickeOpreme = (TipDinamickeOpreme)cbDinamicka.SelectedItem;
                 foreach (Prostorija prostorija in Prostorije.Instance.ListaProstorija.ToList())
                 {
-                    foreach (DinamickaOprema dinamickaOprema in prostorija.Inventar.dinamickaOprema.ToList())
+                    foreach (DinamickaOprema dinamickaOprema in prostorija.Inventar.DinamickaOprema.ToList())
                     {
-                        if (dinamickaOprema.tip.Equals(tipDinamickeOpreme) && dinamickaOprema.kolicina >= kolicina)
+                        if (dinamickaOprema.Tip.Equals(tipDinamickeOpreme) && dinamickaOprema.Kolicina >= kolicina)
                         {
                             novaListaProstorija.Add(prostorija);
                         }

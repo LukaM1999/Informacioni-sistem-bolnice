@@ -35,7 +35,7 @@ namespace InformacioniSistemBolnice
         private void dugmePotvrdi_Click(object sender, RoutedEventArgs e)
         {
             UpravnikKontroler.Instance.KreiranjeDinamickeOpreme(this);
-            lista.ItemsSource = Repozitorijum.DinamickaOpremaRepo.Instance.listaOpreme;
+            lista.ItemsSource = Repozitorijum.DinamickaOpremaRepo.Instance.ListaOpreme;
             this.Close();
         }
     }

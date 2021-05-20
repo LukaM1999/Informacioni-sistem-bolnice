@@ -44,7 +44,7 @@ namespace InformacioniSistemBolnice
         {
             StatickaOprema oprema = (StatickaOprema)lista.SelectedValue;
             UpravnikKontroler.Instance.IzmenaStatickeOpreme(oprema, this);
-            lista.ItemsSource = Repozitorijum.StatickaOprema.Instance.listaOpreme;
+            lista.ItemsSource = Repozitorijum.StatickaOpremaRepo.Instance.listaOpreme;
             this.Close();
         }
     }

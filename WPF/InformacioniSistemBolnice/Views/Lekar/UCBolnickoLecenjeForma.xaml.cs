@@ -91,7 +91,7 @@ namespace InformacioniSistemBolnice.Views.Lekar
                     }
                 }
 
-                foreach (Model.StatickaOprema oprema in prostorija.Inventar.statickaOprema)
+                foreach (Model.StatickaOprema oprema in prostorija.Inventar.StatickaOprema)
                 {
                     if (oprema.tip == TipStatickeOpreme.krevet)
                     {

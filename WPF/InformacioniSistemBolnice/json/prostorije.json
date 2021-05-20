@@ -5,17 +5,17 @@
     "JeZauzeta": false,
     "Tip": 1,
     "Inventar": {
-      "dinamickaOprema": [
+      "DinamickaOprema": [
         {
-          "tip": 3,
-          "kolicina": 65
+          "Tip": 3,
+          "Kolicina": 65
         },
         {
-          "tip": 1,
-          "kolicina": 100
+          "Tip": 1,
+          "Kolicina": 100
         }
       ],
-      "statickaOprema": [
+      "StatickaOprema": [
         {
           "tip": 1,
           "kolicina": 4
@@ -58,21 +58,21 @@
     "JeZauzeta": false,
     "Tip": 0,
     "Inventar": {
-      "dinamickaOprema": [
+      "DinamickaOprema": [
         {
-          "tip": 2,
-          "kolicina": 88
+          "Tip": 2,
+          "Kolicina": 88
         },
         {
-          "tip": 3,
-          "kolicina": 20
+          "Tip": 3,
+          "Kolicina": 20
         },
         {
-          "tip": 1,
-          "kolicina": 5
+          "Tip": 1,
+          "Kolicina": 5
         }
       ],
-      "statickaOprema": [
+      "StatickaOprema": [
         {
           "tip": 3,
           "kolicina": 6
@@ -100,21 +100,21 @@
     "JeZauzeta": false,
     "Tip": 2,
     "Inventar": {
-      "dinamickaOprema": [
+      "DinamickaOprema": [
         {
-          "tip": 1,
-          "kolicina": 18
+          "Tip": 1,
+          "Kolicina": 18
         },
         {
-          "tip": 5,
-          "kolicina": 35
+          "Tip": 5,
+          "Kolicina": 35
         },
         {
-          "tip": 2,
-          "kolicina": 10
+          "Tip": 2,
+          "Kolicina": 10
         }
       ],
-      "statickaOprema": [
+      "StatickaOprema": [
         {
           "tip": 3,
           "kolicina": 10
@@ -134,17 +134,17 @@
     "JeZauzeta": false,
     "Tip": 1,
     "Inventar": {
-      "dinamickaOprema": [
+      "DinamickaOprema": [
         {
-          "tip": 0,
-          "kolicina": 0
+          "Tip": 0,
+          "Kolicina": 0
         },
         {
-          "tip": 1,
-          "kolicina": 15
+          "Tip": 1,
+          "Kolicina": 15
         }
       ],
-      "statickaOprema": [
+      "StatickaOprema": [
         {
           "tip": 3,
           "kolicina": -3
@@ -160,17 +160,17 @@
     "JeZauzeta": false,
     "Tip": 2,
     "Inventar": {
-      "dinamickaOprema": [
+      "DinamickaOprema": [
         {
-          "tip": 0,
-          "kolicina": 0
+          "Tip": 0,
+          "Kolicina": 0
         },
         {
-          "tip": 1,
-          "kolicina": 50
+          "Tip": 1,
+          "Kolicina": 50
         }
       ],
-      "statickaOprema": [
+      "StatickaOprema": [
         {
           "tip": 3,
           "kolicina": 10
@@ -186,26 +186,25 @@
     "JeZauzeta": false,
     "Tip": 2,
     "Inventar": {
-      "dinamickaOprema": [
+      "DinamickaOprema": [
         {
-          "tip": 0,
-          "kolicina": 0
+          "Tip": 0,
+          "Kolicina": 0
         }
       ],
-      "statickaOprema": []
+      "StatickaOprema": []
     },
     "Renoviranje": null,
     "TerminiProstorije": []
   },
   {
-    "sprat": 5,
-    "id": "501",
-    "jeZauzeta": false,
-    "tip": 3,
-    "inventar": {
-      "dinamickaOprema": [
-      ],
-      "statickaOprema": [
+    "Sprat": 5,
+    "Id": "501",
+    "JeZauzeta": false,
+    "Tip": 3,
+    "Inventar": {
+      "DinamickaOprema": [],
+      "StatickaOprema": [
         {
           "tip": 0,
           "kolicina": 4
@@ -216,14 +215,13 @@
     "TerminiProstorije": null
   },
   {
-    "sprat": 5,
-    "id": "502",
-    "jeZauzeta": false,
-    "tip": 3,
-    "inventar": {
-      "dinamickaOprema": [
-      ],
-      "statickaOprema": [
+    "Sprat": 5,
+    "Id": "502",
+    "JeZauzeta": false,
+    "Tip": 3,
+    "Inventar": {
+      "DinamickaOprema": [],
+      "StatickaOprema": [
         {
           "tip": 0,
           "kolicina": 3
@@ -234,18 +232,18 @@
     "TerminiProstorije": null
   },
   {
-    "sprat": 5,
-    "id": "503",
-    "jeZauzeta": false,
-    "tip": 3,
-    "inventar": {
-      "dinamickaOprema": [
+    "Sprat": 5,
+    "Id": "503",
+    "JeZauzeta": false,
+    "Tip": 3,
+    "Inventar": {
+      "DinamickaOprema": [
         {
-          "tip": 0,
-          "kolicina": 0
+          "Tip": 0,
+          "Kolicina": 0
         }
       ],
-      "statickaOprema": [
+      "StatickaOprema": [
         {
           "tip": 0,
           "kolicina": 1
