@@ -25,38 +25,20 @@ namespace Servis
             Prostorije.Instance.SacuvajPromene();            
         }
       
-      public void IzmenaProstorije(ProstorijaFormaIzmeni izmena, Prostorija p)
+      public void IzmenaProstorije(ProstorijaDto dto)
       {
-            string stariId = p.Id;
-            p.Sprat = Int32.Parse(izmena.tb1.Text);
-            p.Tip = (TipProstorije)Enum.Parse(typeof(TipProstorije), izmena.tipIzmena.Text, true);
-            p.Id = izmena.tb2.Text;
-            if (izmena.rb1.IsChecked == true)
-            {
-                p.JeZauzeta = true;
-            }
-            else
-            {
-                p.JeZauzeta = false;
-            }
-
-            foreach (Termin t in Termini.Instance.listaTermina)
-            {
-                if (t.idProstorije != null)
-                {
-                    if (t.idProstorije == stariId)
-                    {
-                        t.idProstorije = p.Id;
-                        Termini.Instance.Serijalizacija();
-                        Termini.Instance.Deserijalizacija();
-                    }
-                }
-            }
-
-            Prostorije.Instance.Serijalizacija();
-            Prostorije.Instance.Deserijalizacija();
+            IzmeniIzabranuProstoriju(dto);
+            Prostorije.Instance.SacuvajPromene();
         }
-      
+      private void IzmeniIzabranuProstoriju(ProstorijaDto dto)
+        {
+            Prostorija izabranaProstorija = Prostorije.Instance.NadjiPoId(dto.Id);
+            izabranaProstorija.Sprat = dto.Sprat;
+            izabranaProstorija.Tip = dto.Tip;
+            izabranaProstorija.Id = dto.Id;
+            izabranaProstorija.JeZauzeta = dto.JeZauzeta;
+            izabranaProstorija.Inventar = dto.Inventar;
+        }
       public void PregledProstorije(ProstorijeProzor pr)
       {
             ProstorijaInfoForma p = new ProstorijaInfoForma(pr);

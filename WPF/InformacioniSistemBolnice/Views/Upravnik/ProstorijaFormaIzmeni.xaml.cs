@@ -20,23 +20,20 @@ namespace InformacioniSistemBolnice
 {
     public partial class ProstorijaFormaIzmeni : Window
     {
-        private DataGrid l;
+        private DataGrid ListaProstorija;
         public ProstorijaFormaIzmeni()
         {
             InitializeComponent();
         }
-        public ProstorijaFormaIzmeni(DataGrid p)
+        public ProstorijaFormaIzmeni(DataGrid listaProstorija)
         {
             InitializeComponent();
-            l = p;
-        }
-
-        public void SetTextBoxValue(Prostorija p)
-        {
-            tb1.Text = p.Sprat.ToString();
-            tipIzmena.Text = p.Tip.ToString();
-            tb2.Text = p.Id.ToString();
-            if (p.JeZauzeta)
+            ListaProstorija = listaProstorija;
+            Prostorija izabranaProstorija = (Prostorija)listaProstorija.SelectedValue;
+            tb1.Text = izabranaProstorija.Sprat.ToString();
+            tipIzmena.Text = izabranaProstorija.Tip.ToString();
+            tb2.Text = izabranaProstorija.Id.ToString();
+            if (izabranaProstorija.JeZauzeta)
             {
                 rb1.IsChecked = true;
             }
@@ -44,16 +41,19 @@ namespace InformacioniSistemBolnice
             {
                 rb2.IsChecked = true;
             }
-
+            tb2.IsReadOnly = true;
         }
-
         private void potvrdaIzmeneDugme_Click(object sender, RoutedEventArgs e)
         {
-            Prostorija p = (Prostorija)l.SelectedValue;
-            UpravnikKontroler.Instance.IzmenaProstorije(this, p);
-            l.ItemsSource = Prostorije.Instance.ListaProstorija;
+            Prostorija izabranaProstorija = (Prostorija)ListaProstorija.SelectedItem;
+            ProstorijaDto dto = new();
+            if ((bool)rb1.IsChecked) dto.JeZauzeta = true;
+            if((bool)rb2.IsChecked) dto.JeZauzeta = false;
+            dto = new(Int32.Parse(tb1.Text), (TipProstorije)Enum.Parse(typeof(TipProstorije), tipIzmena.Text),
+                    tb2.Text, dto.JeZauzeta, izabranaProstorija.Inventar);
+            UpravnikKontroler.Instance.IzmenaProstorije(dto);
+            ListaProstorija.ItemsSource = Prostorije.Instance.ListaProstorija;
             this.Close();
-
         }
     }
 }

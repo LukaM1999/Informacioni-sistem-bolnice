@@ -46,8 +46,8 @@ namespace InformacioniSistemBolnice
 
         private void Dodaj(object sender, RoutedEventArgs e)
         {
-            ProstorijaForma pf = new ProstorijaForma(ListaProstorija);
-            pf.Show();
+            ProstorijaForma prozor = new ProstorijaForma(ListaProstorija);
+            prozor.Show();
         }
 
         private void Obrisi(object sender, RoutedEventArgs e)
@@ -64,11 +64,8 @@ namespace InformacioniSistemBolnice
         {
             if (ListaProstorija.SelectedValue != null)
             {
-                ProstorijaFormaIzmeni pf = new ProstorijaFormaIzmeni(ListaProstorija);
-                Prostorija pr = (Prostorija)ListaProstorija.SelectedValue;
-                pf.SetTextBoxValue(pr);
-                pf.Show();
-                ListaProstorija.ItemsSource = listaProstorija;
+                ProstorijaFormaIzmeni prozor = new ProstorijaFormaIzmeni(ListaProstorija);
+                prozor.Show();
             }
         }
 

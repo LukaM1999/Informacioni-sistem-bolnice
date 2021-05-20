@@ -14,15 +14,9 @@ namespace Kontroler
 
         public void KreiranjeProstorije(ProstorijaDto dto) => UpravljanjeProstorijama.Instance.KreiranjeProstorije(dto);
 
-        public void UklanjanjeProstorije(ProstorijaDto dto)
-        {
-            UpravljanjeProstorijama.Instance.UklanjanjeProstorije(dto);
-        }
+        public void UklanjanjeProstorije(ProstorijaDto dto) => UpravljanjeProstorijama.Instance.UklanjanjeProstorije(dto);
 
-        public void IzmenaProstorije(ProstorijaFormaIzmeni izmena, Prostorija p)
-        {
-            UpravljanjeProstorijama.Instance.IzmenaProstorije(izmena, p);
-        }
+        public void IzmenaProstorije(ProstorijaDto dto) => UpravljanjeProstorijama.Instance.IzmenaProstorije(dto);
 
         public void PregledProstorije(ProstorijeProzor pr)
         {
