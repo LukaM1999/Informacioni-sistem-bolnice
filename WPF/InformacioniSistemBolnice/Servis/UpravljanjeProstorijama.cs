@@ -18,35 +18,11 @@ namespace Servis
             Prostorije.Instance.Deserijalizacija();
         }
       
-      public void UklanjanjeProstorije(DataGrid ListaProstorija)
+      public void UklanjanjeProstorije(ProstorijaDto dto)
       {
-            if (ListaProstorija.SelectedValue != null)
-            {
-                Prostorija pr = (Prostorija)ListaProstorija.SelectedValue;
-                Prostorije prostorije = Prostorije.Instance;
-
-                foreach(Termin t in Termini.Instance.listaTermina)
-                {
-                    if (t.idProstorije == pr.Id)
-                    {
-                        t.idProstorije = null;
-                        Termini.Instance.Serijalizacija();
-                        Termini.Instance.Deserijalizacija();
-                    }
-                }
-
-
-                foreach (Prostorija p in prostorije.ListaProstorija)
-                {
-                    if (p.Id.Equals(pr.Id))
-                    {
-                        prostorije.ListaProstorija.Remove(p);
-                        Prostorije.Instance.Serijalizacija();
-                        break;
-                    }
-                }
-                ListaProstorija.ItemsSource = Prostorije.Instance.ListaProstorija;
-            }
+            Prostorije.Instance.BrisiProstorijuIzSvihTermina(dto.Id);
+            if (!Prostorije.Instance.BrisiPoId(dto.Id)) return;
+            Prostorije.Instance.SacuvajPromene();            
         }
       
       public void IzmenaProstorije(ProstorijaFormaIzmeni izmena, Prostorija p)

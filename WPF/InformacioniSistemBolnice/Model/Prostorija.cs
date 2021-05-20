@@ -24,6 +24,7 @@ namespace Model
             this.Id = sifra;
             JeZauzeta = zauzeta;
             this.Inventar = inventar;
+            TerminiProstorije = new ObservableCollection<Termin>();
         }
 
         public override string ToString()

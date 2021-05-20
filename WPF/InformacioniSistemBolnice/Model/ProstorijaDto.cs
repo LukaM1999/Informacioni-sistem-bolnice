@@ -16,6 +16,7 @@ namespace Model
         public Inventar Inventar { get; set; }
         public RenoviranjeTermin Renoviranje { get; set; }
         public ObservableCollection<Termin> TerminiProstorije { get; set; }
+        public ProstorijaDto() { }
         public ProstorijaDto(int Sprat, TipProstorije tip, string sifra, bool zauzeta, Inventar inventar)
         {
             this.Sprat = Sprat;

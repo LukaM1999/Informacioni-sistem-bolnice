@@ -52,7 +52,12 @@ namespace InformacioniSistemBolnice
 
         private void Obrisi(object sender, RoutedEventArgs e)
         {
-            UpravnikKontroler.Instance.UklanjanjeProstorije(ListaProstorija);
+            if (ListaProstorija.SelectedValue != null)
+            {
+                Prostorija izabranaProstorija = (Prostorija)ListaProstorija.SelectedItem;
+                UpravnikKontroler.Instance.UklanjanjeProstorije(new ProstorijaDto() { Id = izabranaProstorija.Id });
+                listaProstorija = Prostorije.Instance.ListaProstorija;
+            }
         }
 
         private void izmeniProstorijuDugme_Click(object sender, RoutedEventArgs e)

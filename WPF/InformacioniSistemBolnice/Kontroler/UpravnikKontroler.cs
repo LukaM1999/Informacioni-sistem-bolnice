@@ -14,9 +14,9 @@ namespace Kontroler
 
         public void KreiranjeProstorije(ProstorijaDto dto) => UpravljanjeProstorijama.Instance.KreiranjeProstorije(dto);
 
-        public void UklanjanjeProstorije(DataGrid listaProstorija)
+        public void UklanjanjeProstorije(ProstorijaDto dto)
         {
-            UpravljanjeProstorijama.Instance.UklanjanjeProstorije(listaProstorija);
+            UpravljanjeProstorijama.Instance.UklanjanjeProstorije(dto);
         }
 
         public void IzmenaProstorije(ProstorijaFormaIzmeni izmena, Prostorija p)

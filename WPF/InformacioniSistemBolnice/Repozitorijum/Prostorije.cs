@@ -41,7 +41,7 @@ namespace Repozitorijum
             }
         }
 
-        public Prostorija uzmiIzabranuProstoriju(Prostorija izabranaProstorija)
+        public Prostorija UzmiIzabranuProstoriju(Prostorija izabranaProstorija)
         {
             Prostorija prostorija = null;
             foreach (Prostorija p in ListaProstorija)
@@ -63,10 +63,30 @@ namespace Repozitorijum
         public bool BrisiPoId(string idProstorije)
         {
             foreach (Prostorija pronadjena in ListaProstorija)
-                if (pronadjena.Id == idProstorije) return ListaProstorija.Remove(pronadjena);
+            {
+                if (pronadjena.Id == idProstorije)
+                {
+                    return ProstorijaNemaTermine(pronadjena);
+                }
+            }
             return false;
         }
-
+        private bool ProstorijaNemaTermine(Prostorija pronadjena)
+        {
+            if (pronadjena.TerminiProstorije.Count == 0) return ListaProstorija.Remove(pronadjena);
+            return false;
+        }
+        public void BrisiProstorijuIzSvihTermina(String idProstorije)
+        {
+            foreach (Termin t in Termini.Instance.listaTermina)
+            {
+                if (t.idProstorije == idProstorije)
+                {
+                    t.idProstorije = null;
+                    Termini.Instance.SacuvajPromene();
+                }
+            }
+        }
         private Prostorije()
         {
             ListaProstorija = new ObservableCollection<Prostorija>();
