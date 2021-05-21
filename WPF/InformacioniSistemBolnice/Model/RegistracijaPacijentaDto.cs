@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-    public class RegistracijaPacijentaDto
+    public class PacijentDto
     {
         public string ime { get; set; }
 
@@ -33,7 +33,7 @@ namespace Model
         public string lozinka { get; set; }
 
         
-        public RegistracijaPacijentaDto(string ime, string prezime, string jmbg, DateTime datumRodjenja, string telefon, string email, string korisnickoIme,
+        public PacijentDto(string ime, string prezime, string jmbg, DateTime datumRodjenja, string telefon, string email, string korisnickoIme,
             string lozinka, string drzava, string grad, string ulica, string broj)
         {
             this.ime = ime;

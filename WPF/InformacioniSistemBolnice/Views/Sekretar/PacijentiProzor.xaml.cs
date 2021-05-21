@@ -27,10 +27,10 @@ namespace InformacioniSistemBolnice
         {
             InitializeComponent();
             Pacijenti.Instance.Deserijalizacija();
-            
+
             foreach (Pacijent pacijent in Pacijenti.Instance.ListaPacijenata)
-            {   
-                if(pacijent.korisnik.korisnickoIme != null)
+            {
+                if (pacijent.korisnik.korisnickoIme != null)
                 {
                     pacijenti.Add(pacijent);
                 }
@@ -39,7 +39,7 @@ namespace InformacioniSistemBolnice
             pocetna = pocetnaStranicaSekretara;
         }
 
-       
+
 
         private void registrujPacijentaDugme_Click(object sender, RoutedEventArgs e)
         {
@@ -73,9 +73,13 @@ namespace InformacioniSistemBolnice
 
         private void ObrisiPacijenta(object sender, RoutedEventArgs e)
         {
-            SekretarKontroler.Instance.UklanjanjeNaloga(ListaPacijenata);
-            PacijentiProzor pacijentiProzor = new PacijentiProzor(pocetna);
-            this.pocetna.contentControl.Content = pacijentiProzor;
+            if (ListaPacijenata.SelectedValue != null)
+            {
+                SekretarKontroler.Instance.UklanjanjeNaloga((Pacijent)ListaPacijenata.SelectedItem);
+                PacijentiProzor pacijentiProzor = new PacijentiProzor(pocetna);
+                this.pocetna.contentControl.Content = pacijentiProzor;
+            }
+
         }
 
 
@@ -112,7 +116,7 @@ namespace InformacioniSistemBolnice
                 {
                     PregledZdravstvenogKartona pregledZdravstvenogKartona = new PregledZdravstvenogKartona(this);
                     pregledZdravstvenogKartona.brojKartona.Content = p.zdravstveniKarton.BrojKartona;
-                    pregledZdravstvenogKartona.brojKnjizice.Content= p.zdravstveniKarton.BrojKnjizice;
+                    pregledZdravstvenogKartona.brojKnjizice.Content = p.zdravstveniKarton.BrojKnjizice;
                     pregledZdravstvenogKartona.imeLabela.Content = p.ime;
                     pregledZdravstvenogKartona.prezime.Content = p.prezime;
                     pregledZdravstvenogKartona.imeRoditelja.Content = p.zdravstveniKarton.ImeJednogRoditelja;
@@ -193,6 +197,6 @@ namespace InformacioniSistemBolnice
 
         }
 
-       
+
     }
 }

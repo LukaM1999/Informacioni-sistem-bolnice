@@ -35,10 +35,16 @@ namespace InformacioniSistemBolnice
         }
         private void potvrdiDugme_Click(object sender, RoutedEventArgs e)
         {
-            SekretarKontroler.Instance.IzmenaNaloga(this, listaPacijenata);
-            SekretarKontroler.Instance.DodjelaZdravstvenogKartonaPacijentu(this);
-            pocetna.contentControl.Content = new PacijentiProzor(pocetna);
-
+            if (listaPacijenata.SelectedValue != null)
+            {
+               PacijentDto pacijentDto = new PacijentDto(this.imeUnos.Text, this.prezimeUnos.Text, this.JMBGUnos.Text,
+                                                        DateTime.Parse(this.datumUnos.Text), this.telUnos.Text, this.mailUnos.Text,
+                                                        this.korisnikUnos.Text, this.lozinkaUnos.Password,
+                                                         this.drzavaUnos.Text, this.gradUnos.Text, this.ulicaUnos.Text, this.brojUnos.Text);
+                SekretarKontroler.Instance.IzmenaNaloga(pacijentDto, (Pacijent)listaPacijenata.SelectedItem);
+                SekretarKontroler.Instance.DodjelaZdravstvenogKartonaPacijentu(this);
+                pocetna.contentControl.Content = new PacijentiProzor(pocetna);
+            }
         }
 
       

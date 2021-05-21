@@ -40,9 +40,14 @@ namespace InformacioniSistemBolnice
 
         private void potvrdaZakazivanjaDugme_Click(object sender, RoutedEventArgs e)
         {
-            Pacijent pacijent = (Pacijent)pacijenti.SelectedItem;
-            IzborTerminaPacijenta izborTermina = new IzborTerminaPacijenta(this, terminiPacijentaProzorSekretara);
+            ZakazivanjeTerminaSekretarDto zakazivanje = new((DateTime)minDatumTermina.SelectedDate,
+                 (DateTime)maxDatumTermina.SelectedDate, (Lekar)lekari.SelectedItem, ((Pacijent)pacijenti.SelectedItem),
+                 (TipTermina)Enum.Parse(typeof(TipTermina), this.tipTermina.SelectedItem.ToString()),
+                 (Prostorija)prostorije.SelectedItem, (bool)vremeRadio.IsChecked); 
+            if (zakazivanje.MinDatum >= zakazivanje.MaxDatum || zakazivanje.IzabranLekar == null) return;
+            IzborTerminaPacijenta izborTermina = new IzborTerminaPacijenta(zakazivanje);
             izborTermina.Visibility = Visibility.Visible;
+
 
         }
     }

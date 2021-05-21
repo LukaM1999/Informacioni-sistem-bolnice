@@ -76,5 +76,18 @@ namespace Repozitorijum
             Serijalizacija();
             Deserijalizacija();
         }
+
+        public bool DodajPacijenta(Pacijent pacijentZaDodavanje)
+        {
+            if (ListaPacijenata.Contains(pacijentZaDodavanje)) return false;
+            ListaPacijenata.Add(pacijentZaDodavanje);
+            SacuvajPromene();
+            return true;
+        }
+
+        public bool ObrisiPacijenta(Pacijent pacijentZaBrisanje)
+        {
+            return ListaPacijenata.Remove(NadjiPoJmbg(pacijentZaBrisanje.jmbg));
+        }
     }
 }

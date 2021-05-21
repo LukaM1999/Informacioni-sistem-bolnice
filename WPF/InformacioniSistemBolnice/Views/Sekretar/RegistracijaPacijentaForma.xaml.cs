@@ -31,7 +31,7 @@ namespace InformacioniSistemBolnice
 
         private void potvrdiDugme_Click(object sender, RoutedEventArgs e)
         {
-            RegistracijaPacijentaDto registracijaPacijentaDto = new RegistracijaPacijentaDto(this.imeUnos.Text, this.prezimeUnos.Text, this.JMBGUnos.Text,
+           PacijentDto registracijaPacijentaDto = new PacijentDto(this.imeUnos.Text, this.prezimeUnos.Text, this.JMBGUnos.Text,
                 DateTime.Parse(this.datumUnos.Text), this.telUnos.Text, this.mailUnos.Text, this.korisnikUnos.Text, this.lozinkaUnos.Password, 
                 this.drzavaUnos.Text, this.gradUnos.Text, this.ulicaUnos.Text, this.brojUnos.Text);
             SekretarKontroler.Instance.KreiranjeNaloga(registracijaPacijentaDto);

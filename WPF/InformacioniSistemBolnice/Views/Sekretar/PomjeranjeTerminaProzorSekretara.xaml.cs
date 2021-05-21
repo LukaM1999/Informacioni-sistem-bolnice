@@ -42,7 +42,7 @@ namespace InformacioniSistemBolnice
                         for (int j = 0; j < 27; j++)
                         {
                             slobodniTermini.Add(new Termin(slobodanTermin, 30.0, TipTermina.pregled, StatusTermina.slobodan,
-                                                ((Termin)termini.listaZakazanihTermina.SelectedItem).pacijentJMBG, izabraniLekar.jmbg, null));
+                                                ((Termin)termini.listaZakazanihTermina.SelectedItem).pacijentJMBG, izabraniLekar.jmbg, ((Termin)termini.listaZakazanihTermina.SelectedItem).idProstorije));
 
                             slobodanTermin = slobodanTermin.AddMinutes(30);
 
@@ -57,7 +57,7 @@ namespace InformacioniSistemBolnice
                         for (int j = 0; j < 27; j++)
                         {
                             slobodniTermini.Add(new Termin(slobodanTermin, 30.0, TipTermina.pregled, StatusTermina.slobodan,
-                                                ((Termin)termini.listaZakazanihTermina.SelectedItem).pacijentJMBG, izabraniLekar.jmbg, ((Termin)termini.listaZakazanihTermina.SelectedItem).idProstorije ));
+                                                ((Termin)termini.listaZakazanihTermina.SelectedItem).pacijentJMBG, izabraniLekar.jmbg, ((Termin)termini.listaZakazanihTermina.SelectedItem).idProstorije));
 
                             slobodanTermin = slobodanTermin.AddMinutes(30);
 
@@ -82,7 +82,9 @@ namespace InformacioniSistemBolnice
 
         private void potvrdaPomeranjaDugme_Click(object sender, RoutedEventArgs e)
         {
-            SekretarKontroler.Instance.PomjeranjeTerminaPacijenata(this);
+            SekretarKontroler.Instance.PomjeranjeTerminaPacijenata((Termin)terminiPacijenta.listaZakazanihTermina.SelectedItem,
+                                                                   (Termin)ponudjeniTermini.SelectedItem);
+            this.Close();
         }
     }
     
