@@ -34,41 +34,41 @@ namespace Kontroler
             return UpravljanjeNalozimaLekara.Instance.PregledNaloga(lekar);
         }
 
-        public void KreiranjeNaloga(RegistracijaPacijentaDto registracija)
+        public void KreiranjeNaloga(PacijentDto pacijentDto)
         {
-            UpravljanjeNalozimaPacijenata.Instance.KreiranjeNaloga(registracija);
+            UpravljanjeNalozimaPacijenata.Instance.KreiranjeNaloga(pacijentDto);
         }
 
         public void KreiranjeZdravstvenogKartona(ZdravstveniKartonForma zdravstveniKartonForma)
         {
-            UpravljanjeNalozimaPacijenata.Instance.KreiranjeZdravstvenogKarton(zdravstveniKartonForma);
+            ZdravstveniKartonServis.Instance.KreiranjeZdravstvenogKarton(zdravstveniKartonForma);
         }
 
         public void DodjelaZdravstvenogKartonaPacijentu(IzmenaNalogaPacijentaForma izmenaNalogaPacijentaForma)
         {
-            UpravljanjeNalozimaPacijenata.Instance.DodjelaZdravstvenogKartonaPacijentu(izmenaNalogaPacijentaForma);
+            ZdravstveniKartonServis.Instance.DodjelaZdravstvenogKartonaPacijentu(izmenaNalogaPacijentaForma);
         }
 
 
-        public void UklanjanjeNaloga(ListView listaPacijenata)
+        public void UklanjanjeNaloga(Pacijent pacijent)
         {
-            UpravljanjeNalozimaPacijenata.Instance.UklanjanjeNaloga(listaPacijenata);
+            UpravljanjeNalozimaPacijenata.Instance.UklanjanjeNaloga(pacijent);
         }
 
         public void UklanjanjeGostujucegNaloga(ListView listaPacijenata)
         {
-            UpravljanjeNalozimaPacijenata.Instance.UklanjanjeGostujucegNaloga(listaPacijenata);
+            UpravljanjeUrgentnimSistemom.Instance.UklanjanjeGostujucegNaloga(listaPacijenata);
         }
 
 
-        public void IzmenaNaloga(IzmenaNalogaPacijentaForma izmena, ListView listaPacijenata)
+        public void IzmenaNaloga(PacijentDto pacijentDto, Pacijent pacijent)
         {
-            UpravljanjeNalozimaPacijenata.Instance.IzmenaNaloga(izmena, listaPacijenata);
+            UpravljanjeNalozimaPacijenata.Instance.IzmenaNaloga(pacijentDto, pacijent);
         }
 
         public void IzmenaZdravstvenogKartona(IzmjenaZdravstvenogKartonaForma izmjenaZdravstvenogKartonaForma, ListView listaPacijenata)
         {
-            UpravljanjeNalozimaPacijenata.Instance.IzmjenaZdravstvenogKartona(izmjenaZdravstvenogKartonaForma, listaPacijenata);
+            ZdravstveniKartonServis.Instance.IzmjenaZdravstvenogKartona(izmjenaZdravstvenogKartonaForma, listaPacijenata);
         }
 
         public void PregledNaloga(ListView pacijenti)
@@ -101,27 +101,32 @@ namespace Kontroler
 
         public void DodavanjeAlergenaIzZdravstvenogKartona(DodajAlergenPacijentu dodajAlergenPacijentu, IzmjenaZdravstvenogKartonaForma izmjenaZdravstvenogKartonaFormadod)
         {
-            UpravljanjeNalozimaPacijenata.Instance.DodavanjeAlergenaPacijentu(dodajAlergenPacijentu, izmjenaZdravstvenogKartonaFormadod);
+            ZdravstveniKartonServis.Instance.DodavanjeAlergenaPacijentu(dodajAlergenPacijentu, izmjenaZdravstvenogKartonaFormadod);
         }
 
         public  void UklanjanjeAlergenaIzZdravstvenogKartona(IzmjenaZdravstvenogKartonaForma izmjenaZdravstvenogKartonaFormadod)
         {
-            UpravljanjeNalozimaPacijenata.Instance.BrisanjeAlergenaPacijentu(izmjenaZdravstvenogKartonaFormadod);
+            ZdravstveniKartonServis.Instance.BrisanjeAlergenaPacijentu(izmjenaZdravstvenogKartonaFormadod);
         }
 
-        public void PomjeranjeTerminaPacijenata(PomjeranjeTerminaProzorSekretara pomjeranjeTerminaProzorSekretara)
+        public void ZakazivanjeTermina(Termin termin)
         {
-            UpravljanjeNalozimaPacijenata.Instance.Pomeranje(pomjeranjeTerminaProzorSekretara);
+            UpravljanjeTerminima.Instance.Zakazivanje(termin);
         }
 
-        public void OtkazivanjeTerminaPacijenta(DataGrid listaZakazanihTermina)
+        public void PomjeranjeTerminaPacijenata(Termin terminZaPomeranje, Termin noviTermin)
         {
-            UpravljanjeNalozimaPacijenata.Instance.Otkazivanje(listaZakazanihTermina);
+            UpravljanjeTerminima.Instance.Pomeranje(terminZaPomeranje, noviTermin);
+        }
+
+        public void Otkazivanje(Termin termin)
+        {
+            UpravljanjeTerminima.Instance.Otkazivanje(termin);
         }
 
         public void PomeranjeVanrednogTerminaPacijenta(IzborTerminaZaNovoZakazivanje izborTerminaZaNovoZakazivanje, IzborTerminaZaPomeranje izborTerminaZaPomeranje)
         {
-            UpravljanjeNalozimaPacijenata.Instance.PomeranjeVanrednogTermina(izborTerminaZaNovoZakazivanje, izborTerminaZaPomeranje);
+            UpravljanjeUrgentnimSistemom.Instance.PomeranjeVanrednogTermina(izborTerminaZaNovoZakazivanje, izborTerminaZaPomeranje);
         }
 
         public void KreiranjeVesti(KreirajVijestProzor kreirajVijestProzor)

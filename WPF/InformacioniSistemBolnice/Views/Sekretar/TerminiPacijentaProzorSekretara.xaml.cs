@@ -50,7 +50,12 @@ namespace InformacioniSistemBolnice
 
         private void otkaziTermin_Click(object sender, RoutedEventArgs e)
         {
-            SekretarKontroler.Instance.OtkazivanjeTerminaPacijenta(listaZakazanihTermina);
+            if (listaZakazanihTermina.SelectedIndex >= 0)
+            {
+                System.Diagnostics.Debug.WriteLine((Termin)listaZakazanihTermina.SelectedValue);
+                SekretarKontroler.Instance.Otkazivanje((Termin)listaZakazanihTermina.SelectedValue);
+                listaZakazanihTermina.ItemsSource = Termini.Instance.listaTermina;
+            }
         }
 
         private void pomjeriTermin_Click(object sender, RoutedEventArgs e)
