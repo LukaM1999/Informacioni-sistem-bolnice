@@ -25,12 +25,12 @@ namespace InformacioniSistemBolnice
     public partial class DodajAlergenPacijentu : Window
     {
         
-        public IzmjenaZdravstvenogKartonaForma IzmjenaZdravstvenogKartonaForma;
+        public IzmjenaZdravstvenogKartonaForma izmjenaZdravstvenogKartonaForma;
         public ObservableCollection<Alergen> listaAlergena = new ObservableCollection<Alergen>();
         public DodajAlergenPacijentu(IzmjenaZdravstvenogKartonaForma izmjenaZdravstvenogKartonaForma)
         {
             InitializeComponent();
-            IzmjenaZdravstvenogKartonaForma = izmjenaZdravstvenogKartonaForma;
+            this.izmjenaZdravstvenogKartonaForma = izmjenaZdravstvenogKartonaForma;
             Alergeni.Instance.Deserijalizacija();
             listaAlergena = Alergeni.Instance.listaAlergena;
             foreach (Pacijent p in Pacijenti.Instance.ListaPacijenata)
@@ -55,8 +55,16 @@ namespace InformacioniSistemBolnice
 
         private void dodajAlergenPacijentu_Click(object sender, RoutedEventArgs e)
         {
-            SekretarKontroler.Instance.DodavanjeAlergenaIzZdravstvenogKartona(this, IzmjenaZdravstvenogKartonaForma);
+            SekretarKontroler.Instance.DodavanjeAlergenaIzZdravstvenogKartona((Alergen)ListaAlergena.SelectedItem,
+                izmjenaZdravstvenogKartonaForma.JMBGLabela.Content.ToString());
+            AzurirajPrikazAlergena();
             this.Close();
+        }
+
+        private void AzurirajPrikazAlergena()
+        {
+            izmjenaZdravstvenogKartonaForma.ListaAlergena.ItemsSource = Pacijenti.Instance.NadjiPoJmbg
+            (izmjenaZdravstvenogKartonaForma.JMBGLabela.Content.ToString()). zdravstveniKarton.Alergeni;
         }
     }
 }

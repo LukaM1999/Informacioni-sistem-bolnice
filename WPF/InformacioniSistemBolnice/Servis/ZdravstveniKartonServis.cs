@@ -44,8 +44,8 @@ namespace Servis
                 Pacijenti.Instance.DodjelaZdravstvenogKartonaPacijentu(zdravstveniKarton);
         }
 
-        public void IzmjenaZdravstvenogKartona(ZdravstveniKartonDto zdravstveniKartonDto, 
-                                                PodaciOZaposlenjuIZanimanjuDto podaciOZaposlenjuIZanimanjuDto,      
+        public void IzmjenaZdravstvenogKartona(ZdravstveniKartonDto zdravstveniKartonDto,
+                                                PodaciOZaposlenjuIZanimanjuDto podaciOZaposlenjuIZanimanjuDto,
                                                 ZdravstveniKarton zdravstveniKarton)
         {
             IzmeniOsnovnePodatke(zdravstveniKartonDto, zdravstveniKarton);
@@ -65,7 +65,7 @@ namespace Servis
             zdravstveniKarton.KategorijaZdravstveneZastite = zdravstveniKartonDto.KategorijaZdravstveneZastite;
         }
 
-        private static void IzmeniPodatkeOZanimanju(PodaciOZaposlenjuIZanimanjuDto podaciOZaposlenjuIZanimanjuDto, 
+        private static void IzmeniPodatkeOZanimanju(PodaciOZaposlenjuIZanimanjuDto podaciOZaposlenjuIZanimanjuDto,
                                                     ZdravstveniKarton zdravstveniKarton)
         {
             zdravstveniKarton.PodaciOZaposlenjuIZanimanju.RadnoMjesto = podaciOZaposlenjuIZanimanjuDto.RadnoMjesto;
@@ -77,60 +77,28 @@ namespace Servis
         }
 
 
-        public void DodavanjeAlergenaPacijentu(DodajAlergenPacijentu dodajAlergenPacijentu, IzmjenaZdravstvenogKartonaForma izmjenaZdravstvenogKartonaForma)
+        public void DodavanjeAlergenaPacijentu(Alergen alergen, string jmbg)
         {
-            Alergen a = (Alergen)dodajAlergenPacijentu.ListaAlergena.SelectedItem;
-
-            Pacijent p = Pacijenti.Instance.NadjiPoJmbg(izmjenaZdravstvenogKartonaForma.JMBGLabela.Content.ToString());
-                    foreach (Alergen alergen in Alergeni.Instance.listaAlergena)
-                    {
-
-                        if (a.nazivAlergena == alergen.nazivAlergena)
-                        {
-                           
-                            p.zdravstveniKarton.AddAlergen(alergen);
-                            Pacijenti.Instance.SacuvajPromene();
-                            izmjenaZdravstvenogKartonaForma.ListaAlergena.ItemsSource = p.zdravstveniKarton.Alergeni;
-                            break;
-                        }
-
-                    }
-
+            Pacijent pacijent = Pacijenti.Instance.NadjiPoJmbg(jmbg);
+            pacijent.zdravstveniKarton.AddAlergen(Alergeni.Instance.NadjiPoNazivu(alergen.nazivAlergena));
+            Pacijenti.Instance.SacuvajPromene();
         }
 
 
 
 
-        public void BrisanjeAlergenaPacijentu(IzmjenaZdravstvenogKartonaForma izmjenaZdravstvenogKartonaForma)
+        public void BrisanjeAlergenaPacijentu(Alergen alergen, string jmbg)
         {
-            if (izmjenaZdravstvenogKartonaForma.ListaAlergena.SelectedItem != null)
+            foreach (Alergen a in Pacijenti.Instance.NadjiPoJmbg(jmbg).zdravstveniKarton.Alergeni)
             {
-                Alergen a = (Alergen)izmjenaZdravstvenogKartonaForma.ListaAlergena.SelectedItem;
-                System.Diagnostics.Debug.WriteLine(a);
-                foreach (Pacijent p in Pacijenti.Instance.ListaPacijenata)
+                if (a.nazivAlergena == alergen.nazivAlergena)
                 {
-                    if (p.jmbg.Equals(izmjenaZdravstvenogKartonaForma.JMBGLabela.Content))
-                    {
-                        System.Diagnostics.Debug.WriteLine(p.jmbg);
-                        System.Diagnostics.Debug.WriteLine(izmjenaZdravstvenogKartonaForma.JMBGLabela.Content);
-                        foreach (Alergen alergen in p.zdravstveniKarton.Alergeni)
-                        {
-                            if (a.nazivAlergena == alergen.nazivAlergena)
-                            {
-                                System.Diagnostics.Debug.WriteLine(p.jmbg);
-                                p.zdravstveniKarton.Alergeni.Remove(alergen);
-                                Pacijenti.Instance.Serijalizacija();
-                                Pacijenti.Instance.Deserijalizacija();
+                    p.zdravstveniKarton.Alergeni.Remove(a);
+                    Pacijenti.Instance.SacuvajPromene();
 
-                                izmjenaZdravstvenogKartonaForma.ListaAlergena.ItemsSource = p.zdravstveniKarton.Alergeni;
-                                break;
-                            }
-                        }
-                    }
+                    break;
                 }
-
             }
-
         }
 
 
