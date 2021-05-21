@@ -21,26 +21,35 @@ namespace InformacioniSistemBolnice
     
     public partial class IzmjenaZdravstvenogKartonaForma : UserControl 
     {
-        public ListView listaPacijenata;
         public PacijentiProzor pacijentiProzor;
         public PocetnaStranicaSekretara pocetna;
        
-
         public IzmjenaZdravstvenogKartonaForma(PacijentiProzor pacijentiProzor, PocetnaStranicaSekretara pocetna)
         {
             InitializeComponent();
-            listaPacijenata = pacijentiProzor.ListaPacijenata;
             this.pacijentiProzor = pacijentiProzor;
             this.pocetna = pocetna;
             Alergeni.Instance.Deserijalizacija();
-            this.ListaAlergena.ItemsSource = ((Pacijent)listaPacijenata.SelectedItem).zdravstveniKarton.Alergeni;
+            this.ListaAlergena.ItemsSource = ((Pacijent)pacijentiProzor.ListaPacijenata.SelectedItem).zdravstveniKarton.Alergeni;
         }
 
        
         private void izmjeniNalogPacijenta_Click(object sender, RoutedEventArgs e)
-        {   
-            SekretarKontroler.Instance.IzmenaZdravstvenogKartona(this, listaPacijenata);
-            pocetna.contentControl.Content = new PacijentiProzor(pocetna);
+        {
+            if (pacijentiProzor.ListaPacijenata.SelectedValue != null)
+            {
+                PodaciOZaposlenjuIZanimanjuDto podaciOZaposlenjuIZanimanjuDto = new(radnoMjestoUnos.Text.ToString(),
+                registarskiBrojUnos.Text.ToString(), sifraDjelatnostiUnos.Text.ToString(), posaoUnos.Text.ToString(),
+                OSIZ.Text.ToString(), radUPosebnimUslovimaUnos.Text.ToString(), promjene.Text.ToString());
+                ZdravstveniKartonDto zdravstveniKartonDto = new(brojKartona.Text, brojKnjizice.Text, JMBGLabela.Content.ToString(),
+                    imeRoditelja.Text, liceZdrZastita.Text, (Model.Pol)Enum.Parse(typeof(Model.Pol), polUnos.Text),
+                    (Model.BracnoStanje)Enum.Parse(typeof(Model.BracnoStanje), bracnoStanjeUnos.Text),
+                    (Model.KategorijaZdravstveneZastite)Enum.Parse(typeof(Model.KategorijaZdravstveneZastite), kategorijaZdrZastiteUnos.Text),
+                    (Alergen)ListaAlergena.SelectedItem);
+                SekretarKontroler.Instance.IzmenaZdravstvenogKartona(zdravstveniKartonDto,
+                    ((Pacijent)pacijentiProzor.ListaPacijenata.SelectedValue).zdravstveniKarton, podaciOZaposlenjuIZanimanjuDto);
+                pocetna.contentControl.Content = new PacijentiProzor(pocetna);
+            }
         }
 
         private void NazadBtn_Click(object sender, RoutedEventArgs e)
