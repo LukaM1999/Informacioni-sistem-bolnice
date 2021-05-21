@@ -9,7 +9,7 @@
           "nazivAlergena": "polen"
         },
         {
-          "nazivAlergena": "laktoza"
+          "nazivAlergena": "pencilin"
         }
       ],
       "Recepti": [],
@@ -39,7 +39,7 @@
           "nazivAlergena": "polen"
         },
         {
-          "nazivAlergena": "laktoza"
+          "nazivAlergena": "pencilin"
         }
       ]
     },
@@ -79,13 +79,10 @@
     "zdravstveniKarton": {
       "alergeni": [
         {
-          "nazivAlergena": "laktoza"
+          "nazivAlergena": "jagode"
         },
         {
           "nazivAlergena": "polen"
-        },
-        {
-          "nazivAlergena": "jagode"
         }
       ],
       "Recepti": [],
@@ -116,13 +113,10 @@
       },
       "Alergeni": [
         {
-          "nazivAlergena": "laktoza"
+          "nazivAlergena": "jagode"
         },
         {
           "nazivAlergena": "polen"
-        },
-        {
-          "nazivAlergena": "jagode"
         }
       ]
     },

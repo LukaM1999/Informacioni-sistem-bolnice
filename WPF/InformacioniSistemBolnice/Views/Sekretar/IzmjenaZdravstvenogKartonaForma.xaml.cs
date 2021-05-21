@@ -66,7 +66,14 @@ namespace InformacioniSistemBolnice
 
         private void obrisiAlergen_Click(object sender, RoutedEventArgs e)
         {
-            SekretarKontroler.Instance.UklanjanjeAlergenaIzZdravstvenogKartona(this);   
+            if (ListaAlergena.SelectedItem != null)
+            {
+                SekretarKontroler.Instance.UklanjanjeAlergenaIzZdravstvenogKartona
+                    ((Alergen)ListaAlergena.SelectedItem, JMBGLabela.Content.ToString());
+
+                ListaAlergena.ItemsSource = Pacijenti.Instance
+                    .NadjiPoJmbg(JMBGLabela.Content.ToString()).zdravstveniKarton.Alergeni;
+            }
         }
     }
 }

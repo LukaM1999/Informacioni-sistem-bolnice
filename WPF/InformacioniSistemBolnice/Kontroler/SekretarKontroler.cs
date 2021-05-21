@@ -101,14 +101,14 @@ namespace Kontroler
         }
 
 
-        public void DodavanjeAlergenaIzZdravstvenogKartona(DodajAlergenPacijentu dodajAlergenPacijentu, IzmjenaZdravstvenogKartonaForma izmjenaZdravstvenogKartonaFormadod)
+        public void DodavanjeAlergenaIzZdravstvenogKartona(Alergen alergen, string jmbg)
         {
-            ZdravstveniKartonServis.Instance.DodavanjeAlergenaPacijentu(dodajAlergenPacijentu, izmjenaZdravstvenogKartonaFormadod);
+            ZdravstveniKartonServis.Instance.DodavanjeAlergenaPacijentu(alergen, jmbg);
         }
 
-        public  void UklanjanjeAlergenaIzZdravstvenogKartona(IzmjenaZdravstvenogKartonaForma izmjenaZdravstvenogKartonaFormadod)
+        public  void UklanjanjeAlergenaIzZdravstvenogKartona(Alergen alergen, string jmbg)
         {
-            ZdravstveniKartonServis.Instance.BrisanjeAlergenaPacijentu(izmjenaZdravstvenogKartonaFormadod);
+            ZdravstveniKartonServis.Instance.BrisanjeAlergenaPacijentu(alergen, jmbg);
         }
 
         public void ZakazivanjeTermina(Termin termin)
