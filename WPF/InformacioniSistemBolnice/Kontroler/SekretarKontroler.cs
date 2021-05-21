@@ -67,9 +67,10 @@ namespace Kontroler
             UpravljanjeNalozimaPacijenata.Instance.IzmenaNaloga(pacijentDto, pacijent);
         }
 
-        public void IzmenaZdravstvenogKartona(IzmjenaZdravstvenogKartonaForma izmjenaZdravstvenogKartonaForma, ListView listaPacijenata)
+        public void IzmenaZdravstvenogKartona(ZdravstveniKartonDto zdravstveniKartonDto, ZdravstveniKarton zdravstveniKarton,
+            PodaciOZaposlenjuIZanimanjuDto podaciOZaposlenjuIZanimanjuDto)
         {
-            ZdravstveniKartonServis.Instance.IzmjenaZdravstvenogKartona(izmjenaZdravstvenogKartonaForma, listaPacijenata);
+            ZdravstveniKartonServis.Instance.IzmjenaZdravstvenogKartona(zdravstveniKartonDto, podaciOZaposlenjuIZanimanjuDto, zdravstveniKarton);
         }
 
         public void PregledNaloga(ListView pacijenti)
