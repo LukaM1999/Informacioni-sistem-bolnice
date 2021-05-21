@@ -74,12 +74,8 @@ namespace InformacioniSistemBolnice
         private void ObrisiPacijenta(object sender, RoutedEventArgs e)
         {
             if (ListaPacijenata.SelectedValue != null)
-            {
                 SekretarKontroler.Instance.UklanjanjeNaloga((Pacijent)ListaPacijenata.SelectedItem);
-                PacijentiProzor pacijentiProzor = new PacijentiProzor(pocetna);
-                this.pocetna.contentControl.Content = pacijentiProzor;
-            }
-
+            this.pocetna.contentControl.Content = new PacijentiProzor(pocetna);
         }
 
 
@@ -129,13 +125,13 @@ namespace InformacioniSistemBolnice
                     pregledZdravstvenogKartona.pol.Content = p.zdravstveniKarton.PolPacijenta.ToString();
                     pregledZdravstvenogKartona.bracnoStanje.Content = p.zdravstveniKarton.BracnoStanje.ToString();
                     pregledZdravstvenogKartona.kategorijaZdravZastite.Content = p.zdravstveniKarton.KategorijaZdravstveneZastite.ToString();
-                    pregledZdravstvenogKartona.radnoMjestoUnos.Content = p.zdravstveniKarton.PodaciOZaposlenjuIZanimanjuPacijenta.RadnoMjesto;
-                    pregledZdravstvenogKartona.registarskiBrojUnos.Content = p.zdravstveniKarton.PodaciOZaposlenjuIZanimanjuPacijenta.RegistarskiBroj;
-                    pregledZdravstvenogKartona.sifraDjelatnostiUnos.Content = p.zdravstveniKarton.PodaciOZaposlenjuIZanimanjuPacijenta.SifraDelatnosti;
-                    pregledZdravstvenogKartona.posaoUnos.Content = p.zdravstveniKarton.PodaciOZaposlenjuIZanimanjuPacijenta.PosaoKojiObavlja;
-                    pregledZdravstvenogKartona.OSIZ.Content = p.zdravstveniKarton.PodaciOZaposlenjuIZanimanjuPacijenta.OSIZZdrZastite;
-                    pregledZdravstvenogKartona.radUPosebnimUslovimaUnos.Content = p.zdravstveniKarton.PodaciOZaposlenjuIZanimanjuPacijenta.RadPodPosebnimUslovima;
-                    pregledZdravstvenogKartona.promjene.Content = p.zdravstveniKarton.PodaciOZaposlenjuIZanimanjuPacijenta.Promjene;
+                    pregledZdravstvenogKartona.radnoMjestoUnos.Content = p.zdravstveniKarton.PodaciOZaposlenjuIZanimanju.RadnoMjesto;
+                    pregledZdravstvenogKartona.registarskiBrojUnos.Content = p.zdravstveniKarton.PodaciOZaposlenjuIZanimanju.RegistarskiBroj;
+                    pregledZdravstvenogKartona.sifraDjelatnostiUnos.Content = p.zdravstveniKarton.PodaciOZaposlenjuIZanimanju.SifraDelatnosti;
+                    pregledZdravstvenogKartona.posaoUnos.Content = p.zdravstveniKarton.PodaciOZaposlenjuIZanimanju.PosaoKojiObavlja;
+                    pregledZdravstvenogKartona.OSIZ.Content = p.zdravstveniKarton.PodaciOZaposlenjuIZanimanju.OSIZZdrZastite;
+                    pregledZdravstvenogKartona.radUPosebnimUslovimaUnos.Content = p.zdravstveniKarton.PodaciOZaposlenjuIZanimanju.RadPodPosebnimUslovima;
+                    pregledZdravstvenogKartona.promjene.Content = p.zdravstveniKarton.PodaciOZaposlenjuIZanimanju.Promjene;
                     pregledZdravstvenogKartona.ListaAlergena.ItemsSource = p.zdravstveniKarton.Alergeni.ToList();
                     this.pocetna.contentControl.Content = pregledZdravstvenogKartona.Content;
                 }
@@ -172,13 +168,13 @@ namespace InformacioniSistemBolnice
                     izmjenaZdravstvenogKartonaForma.polUnos.Text = p.zdravstveniKarton.PolPacijenta.ToString();
                     izmjenaZdravstvenogKartonaForma.bracnoStanjeUnos.Text = p.zdravstveniKarton.BracnoStanje.ToString();
                     izmjenaZdravstvenogKartonaForma.kategorijaZdrZastiteUnos.Text = p.zdravstveniKarton.KategorijaZdravstveneZastite.ToString();
-                    izmjenaZdravstvenogKartonaForma.radnoMjestoUnos.Text = p.zdravstveniKarton.PodaciOZaposlenjuIZanimanjuPacijenta.RadnoMjesto;
-                    izmjenaZdravstvenogKartonaForma.registarskiBrojUnos.Text = p.zdravstveniKarton.PodaciOZaposlenjuIZanimanjuPacijenta.RegistarskiBroj;
-                    izmjenaZdravstvenogKartonaForma.sifraDjelatnostiUnos.Text = p.zdravstveniKarton.PodaciOZaposlenjuIZanimanjuPacijenta.SifraDelatnosti;
-                    izmjenaZdravstvenogKartonaForma.posaoUnos.Text = p.zdravstveniKarton.PodaciOZaposlenjuIZanimanjuPacijenta.PosaoKojiObavlja;
-                    izmjenaZdravstvenogKartonaForma.OSIZ.Text = p.zdravstveniKarton.PodaciOZaposlenjuIZanimanjuPacijenta.OSIZZdrZastite;
-                    izmjenaZdravstvenogKartonaForma.radUPosebnimUslovimaUnos.Text = p.zdravstveniKarton.PodaciOZaposlenjuIZanimanjuPacijenta.RadPodPosebnimUslovima;
-                    izmjenaZdravstvenogKartonaForma.promjene.Text = p.zdravstveniKarton.PodaciOZaposlenjuIZanimanjuPacijenta.Promjene;
+                    izmjenaZdravstvenogKartonaForma.radnoMjestoUnos.Text = p.zdravstveniKarton.PodaciOZaposlenjuIZanimanju.RadnoMjesto;
+                    izmjenaZdravstvenogKartonaForma.registarskiBrojUnos.Text = p.zdravstveniKarton.PodaciOZaposlenjuIZanimanju.RegistarskiBroj;
+                    izmjenaZdravstvenogKartonaForma.sifraDjelatnostiUnos.Text = p.zdravstveniKarton.PodaciOZaposlenjuIZanimanju.SifraDelatnosti;
+                    izmjenaZdravstvenogKartonaForma.posaoUnos.Text = p.zdravstveniKarton.PodaciOZaposlenjuIZanimanju.PosaoKojiObavlja;
+                    izmjenaZdravstvenogKartonaForma.OSIZ.Text = p.zdravstveniKarton.PodaciOZaposlenjuIZanimanju.OSIZZdrZastite;
+                    izmjenaZdravstvenogKartonaForma.radUPosebnimUslovimaUnos.Text = p.zdravstveniKarton.PodaciOZaposlenjuIZanimanju.RadPodPosebnimUslovima;
+                    izmjenaZdravstvenogKartonaForma.promjene.Text = p.zdravstveniKarton.PodaciOZaposlenjuIZanimanju.Promjene;
                     izmjenaZdravstvenogKartonaForma.ListaAlergena.ItemsSource = p.zdravstveniKarton.Alergeni.ToList();
                     pocetna.contentControl.Content = izmjenaZdravstvenogKartonaForma.Content;
                 }
@@ -189,14 +185,6 @@ namespace InformacioniSistemBolnice
             }
 
         }
-
-        private void kButton_Click(object sender, RoutedEventArgs e)
-        {
-            //ZdravstveniKartonForma zdravstveniKartonForma = new ZdravstveniKartonForma(ListaPacijenata, pocetna, izmenaNalogaPacijentaForma);
-            //zdravstveniKartonForma.Show();
-
-        }
-
 
     }
 }

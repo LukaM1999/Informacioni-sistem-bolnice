@@ -42,7 +42,7 @@ namespace InformacioniSistemBolnice
                                                         this.korisnikUnos.Text, this.lozinkaUnos.Password,
                                                          this.drzavaUnos.Text, this.gradUnos.Text, this.ulicaUnos.Text, this.brojUnos.Text);
                 SekretarKontroler.Instance.IzmenaNaloga(pacijentDto, (Pacijent)listaPacijenata.SelectedItem);
-                SekretarKontroler.Instance.DodjelaZdravstvenogKartonaPacijentu(this);
+                SekretarKontroler.Instance.DodjelaZdravstvenogKartonaPacijentu();
                 pocetna.contentControl.Content = new PacijentiProzor(pocetna);
             }
         }
@@ -59,7 +59,7 @@ namespace InformacioniSistemBolnice
                     MessageBox.Show("Pacijent vec ima kreiran zdravstveni karton");
                 }
                 else {
-                    ZdravstveniKartonForma zdravstveniKartonForma = new ZdravstveniKartonForma(listaPacijenata, pocetna, this);
+                    ZdravstveniKartonForma zdravstveniKartonForma = new ZdravstveniKartonForma(pocetna, this);
                     zdravstveniKartonForma.imeLabela.Content = this.imeUnos.Text;
                     zdravstveniKartonForma.prezimeLabela.Content = this.prezimeUnos.Text;
                     zdravstveniKartonForma.datumRodjenjaLabela.Content = this.datumUnos.Text.ToString();

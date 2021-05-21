@@ -43,5 +43,13 @@ namespace Repozitorijum
             Serijalizacija();
             Deserijalizacija();
         }
+
+        public bool DodajKarton(ZdravstveniKarton kartonZaDodavanje)
+        {
+            if (listaKartona.Contains(kartonZaDodavanje)) return false;
+            listaKartona.Add(kartonZaDodavanje);
+            SacuvajPromene();
+            return true;
+        }
     }
 }

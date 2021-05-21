@@ -16,7 +16,7 @@ namespace Model
         public Pol PolPacijenta { get; set;}
         public BracnoStanje BracnoStanje { get; set;}
         public KategorijaZdravstveneZastite KategorijaZdravstveneZastite { get; set;}
-        public PodaciOZaposlenjuIZanimanju PodaciOZaposlenjuIZanimanjuPacijenta { get; set;}
+        public PodaciOZaposlenjuIZanimanju PodaciOZaposlenjuIZanimanju { get; set;}
         public ObservableCollection<Alergen> alergeni;
         public ObservableCollection<Recept> Recepti = new ObservableCollection<Recept>();
 
@@ -72,7 +72,7 @@ namespace Model
             PolPacijenta = pol;
             BracnoStanje = bracnoStanjee;
             KategorijaZdravstveneZastite = kategorijaZdravZastite;
-            PodaciOZaposlenjuIZanimanjuPacijenta = podaciOZaposlenjuiZanimanju;
+            PodaciOZaposlenjuIZanimanju = podaciOZaposlenjuiZanimanju;
         }
     }
 }

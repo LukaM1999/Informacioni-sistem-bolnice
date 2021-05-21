@@ -20,9 +20,7 @@ using Kontroler;
 
 namespace InformacioniSistemBolnice
 {
-    /// <summary>
-    /// Interaction logic for IzborTerminaPacijenta.xaml
-    /// </summary>
+   
     public partial class IzborTerminaPacijenta : Window
     {
 
