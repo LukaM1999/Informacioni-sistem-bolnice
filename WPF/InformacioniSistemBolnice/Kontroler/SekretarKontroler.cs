@@ -39,14 +39,15 @@ namespace Kontroler
             UpravljanjeNalozimaPacijenata.Instance.KreiranjeNaloga(pacijentDto);
         }
 
-        public void KreiranjeZdravstvenogKartona(ZdravstveniKartonForma zdravstveniKartonForma)
+        public void KreiranjeZdravstvenogKartona(ZdravstveniKartonDto zdravstveniKartonDto,
+                                                PodaciOZaposlenjuIZanimanjuDto podaciOZaposlenjuIZanimanjuDto)
         {
-            ZdravstveniKartonServis.Instance.KreiranjeZdravstvenogKarton(zdravstveniKartonForma);
+            ZdravstveniKartonServis.Instance.KreiranjeZdravstvenogKarton(zdravstveniKartonDto, podaciOZaposlenjuIZanimanjuDto);
         }
 
-        public void DodjelaZdravstvenogKartonaPacijentu(IzmenaNalogaPacijentaForma izmenaNalogaPacijentaForma)
+        public void DodjelaZdravstvenogKartonaPacijentu()
         {
-            ZdravstveniKartonServis.Instance.DodjelaZdravstvenogKartonaPacijentu(izmenaNalogaPacijentaForma);
+            ZdravstveniKartonServis.Instance.DodjelaZdravstvenogKartonaPacijentu();
         }
 
 

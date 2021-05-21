@@ -23,7 +23,7 @@ namespace Repozitorijum
 
         public void Deserijalizacija()
         {
-            lock (ListaPacijenata) 
+            lock (ListaPacijenata)
                 ListaPacijenata = JsonConvert.DeserializeObject<ObservableCollection<Pacijent>>(File.ReadAllText(Putanja));
         }
 
@@ -38,7 +38,7 @@ namespace Repozitorijum
 
         public Pacijent NadjiPoJmbg(string jmbg)
         {
-            foreach (Pacijent pronadjen in ListaPacijenata) 
+            foreach (Pacijent pronadjen in ListaPacijenata)
                 if (pronadjen.jmbg == jmbg) return pronadjen;
             return null;
         }
@@ -89,5 +89,13 @@ namespace Repozitorijum
         {
             return ListaPacijenata.Remove(NadjiPoJmbg(pacijentZaBrisanje.jmbg));
         }
+
+        public void DodjelaZdravstvenogKartonaPacijentu(ZdravstveniKarton zdravstveniKarton)
+        {
+            Pacijent pacijent = NadjiPoJmbg(zdravstveniKarton.Jmbg);
+            pacijent.zdravstveniKarton = zdravstveniKarton;
+            Pacijenti.Instance.Serijalizacija();
+        }
     }
+
 }

@@ -13,39 +13,37 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Kontroler;
 using Repozitorijum;
-using Servis;
+using Model;
 
 
 namespace InformacioniSistemBolnice
 {
-    /// <summary>
-    /// Interaction logic for ZdravstveniKartonForma.xaml
-    /// </summary>
     public partial class ZdravstveniKartonForma : UserControl
     {
-        public ListView listaPacijenata;
         public PocetnaStranicaSekretara pocetna;
         public IzmenaNalogaPacijentaForma izmenaNalogaPacijentaForma;
        
-        
-        public ZdravstveniKartonForma(ListView pacijenti, PocetnaStranicaSekretara pocetnaStranicaSekretara, IzmenaNalogaPacijentaForma izmenaNalogaPacijentaForma)
+        public ZdravstveniKartonForma(PocetnaStranicaSekretara pocetnaStranicaSekretara, 
+                                        IzmenaNalogaPacijentaForma izmenaNalogaForma)
         {
             InitializeComponent();
-            listaPacijenata = pacijenti;
             Alergeni.Instance.Deserijalizacija();
             ListaAlergena.ItemsSource = Alergeni.Instance.listaAlergena;
             pocetna = pocetnaStranicaSekretara;
-            this.izmenaNalogaPacijentaForma = izmenaNalogaPacijentaForma;
-          
-
+            izmenaNalogaPacijentaForma = izmenaNalogaForma;
         }
 
         private void kreirajZdravstveniKarton_Click(object sender, RoutedEventArgs e)
         {
-            Pacijenti.Instance.Deserijalizacija();
-
-            //UpravljanjeNalozimaPacijenata.Instance.KreirajZdravstveniKarton(this, ListaPacijenata);
-            SekretarKontroler.Instance.KreiranjeZdravstvenogKartona(this);
+            PodaciOZaposlenjuIZanimanjuDto podaciOZaposlenjuIZanimanjuDto = new (radnoMjestoUnos.Text.ToString(), 
+                registarskiBrojUnos.Text.ToString(), sifraDjelatnostiUnos.Text.ToString(), posaoUnos.Text.ToString(),
+                OSIZ.Text.ToString(), radUPosebnimUslovimaUnos.Text.ToString(), promjene.Text.ToString());
+            ZdravstveniKartonDto zdravstveniKartonDto = new(brojKartonaUnos.Text, brojKartonaUnos.Text, JMBGUnos.Text,
+                imeRoditeljaUnos.Text, liceZdrZastitaUnos.Text, (Model.Pol)Enum.Parse(typeof(Model.Pol), polUnos.Text),
+                (Model.BracnoStanje)Enum.Parse(typeof(Model.BracnoStanje), bracnoStanjeUnos.Text),
+                (Model.KategorijaZdravstveneZastite)Enum.Parse(typeof(Model.KategorijaZdravstveneZastite), kategorijaZdrZastiteUnos.Text),
+                (Alergen)ListaAlergena.SelectedItem);
+            SekretarKontroler.Instance.KreiranjeZdravstvenogKartona(zdravstveniKartonDto, podaciOZaposlenjuIZanimanjuDto);
             pocetna.contentControl.Content = izmenaNalogaPacijentaForma;
             
         }

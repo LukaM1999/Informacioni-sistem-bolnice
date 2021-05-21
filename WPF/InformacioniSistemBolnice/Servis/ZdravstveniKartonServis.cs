@@ -19,26 +19,29 @@ namespace Servis
               (() => new ZdravstveniKartonServis());
         public static ZdravstveniKartonServis Instance { get { return lazy.Value; } }
 
-        public void KreiranjeZdravstvenogKarton(ZdravstveniKartonForma zdravstveniKartonForma)
+        public void KreiranjeZdravstvenogKarton(ZdravstveniKartonDto zdravstveniKartonDto,
+                                                PodaciOZaposlenjuIZanimanjuDto podaciOZaposlenjuIZanimanjuDto)
         {
-            PodaciOZaposlenjuIZanimanju podaciOZaposlenjuIZanimanju = new PodaciOZaposlenjuIZanimanju(zdravstveniKartonForma.radnoMjestoUnos.Text, zdravstveniKartonForma.registarskiBrojUnos.Text,
-                zdravstveniKartonForma.sifraDjelatnostiUnos.Text, zdravstveniKartonForma.posaoUnos.Text, zdravstveniKartonForma.OSIZ.Text,
-                zdravstveniKartonForma.radnoMjestoUnos.Text, zdravstveniKartonForma.promjene.Text);
+            ZdravstveniKarton zdravstveniKarton = new(zdravstveniKartonDto.BrojKartona, zdravstveniKartonDto.BrojKnjizice,
+                                                      zdravstveniKartonDto.Jmbg, zdravstveniKartonDto.ImeJednogRoditelja,
+                                                      zdravstveniKartonDto.LiceZaZdravstvenuZastitu, zdravstveniKartonDto.PolPacijenta,
+                                                      zdravstveniKartonDto.BracnoStanje, zdravstveniKartonDto.KategorijaZdravstveneZastite,
+                                                      VratiPodatkeOZaposlenju(podaciOZaposlenjuIZanimanjuDto));
+            zdravstveniKarton.Alergeni.Add(zdravstveniKartonDto.Alergen);
+            Kartoni.Instance.DodajKarton(zdravstveniKarton);
+        }
 
-            ZdravstveniKarton zdravstveniKarton = new ZdravstveniKarton(zdravstveniKartonForma.brojKartonaUnos.Text, zdravstveniKartonForma.brojKnjiziceUnos.Text, zdravstveniKartonForma.JMBGUnos.Text,
-                zdravstveniKartonForma.imeRoditeljaUnos.Text, zdravstveniKartonForma.liceZdrZastitaUnos.Text,
-                 (Model.Pol)Enum.Parse(typeof(Model.Pol), zdravstveniKartonForma.polUnos.Text), (Model.BracnoStanje)Enum.Parse(typeof(Model.BracnoStanje), zdravstveniKartonForma.bracnoStanjeUnos.Text),
-                 (Model.KategorijaZdravstveneZastite)Enum.Parse(typeof(Model.KategorijaZdravstveneZastite), zdravstveniKartonForma.kategorijaZdrZastiteUnos.Text), podaciOZaposlenjuIZanimanju);
+        private static PodaciOZaposlenjuIZanimanju VratiPodatkeOZaposlenju(PodaciOZaposlenjuIZanimanjuDto podaciOZaposlenjuDto)
+        {
+            return new(podaciOZaposlenjuDto.RadnoMjesto, podaciOZaposlenjuDto.RegistarskiBroj, podaciOZaposlenjuDto.SifraDelatnosti,
+                        podaciOZaposlenjuDto.PosaoKojiObavlja, podaciOZaposlenjuDto.OSIZZdrZastite,
+                        podaciOZaposlenjuDto.RadPodPosebnimUslovima, podaciOZaposlenjuDto.Promjene);
+        }
 
-            ListView listaAlergena = zdravstveniKartonForma.ListaAlergena;
-            ObservableCollection<Alergen> alergeni = new ObservableCollection<Alergen>();
-            
-            Alergen alergen = (Alergen)listaAlergena.SelectedItem;
-            alergeni.Add(alergen);
-           
-            zdravstveniKarton.Alergeni = alergeni;
-            Kartoni.Instance.listaKartona.Add(zdravstveniKarton);
-            Kartoni.Instance.Serijalizacija();
+        public void DodjelaZdravstvenogKartonaPacijentu()
+        {
+            foreach (ZdravstveniKarton zdravstveniKarton in Kartoni.Instance.listaKartona)
+                Pacijenti.Instance.DodjelaZdravstvenogKartonaPacijentu(zdravstveniKarton);
         }
 
         public void IzmjenaZdravstvenogKartona(IzmjenaZdravstvenogKartonaForma izmjenaZdravstvenogKartonaForma, ListView ListaPacijenata)
@@ -54,12 +57,12 @@ namespace Servis
                 p.zdravstveniKarton.BracnoStanje = (Model.BracnoStanje)Enum.Parse(typeof(Model.BracnoStanje), izmjenaZdravstvenogKartonaForma.bracnoStanjeUnos.Text);
                 p.zdravstveniKarton.PolPacijenta = (Model.Pol)Enum.Parse(typeof(Model.Pol), izmjenaZdravstvenogKartonaForma.polUnos.Text);
                 p.zdravstveniKarton.KategorijaZdravstveneZastite = (Model.KategorijaZdravstveneZastite)Enum.Parse(typeof(Model.KategorijaZdravstveneZastite), izmjenaZdravstvenogKartonaForma.kategorijaZdrZastiteUnos.Text);
-                p.zdravstveniKarton.PodaciOZaposlenjuIZanimanjuPacijenta.PosaoKojiObavlja = izmjenaZdravstvenogKartonaForma.posaoUnos.Text;
-                p.zdravstveniKarton.PodaciOZaposlenjuIZanimanjuPacijenta.RadnoMjesto = izmjenaZdravstvenogKartonaForma.radnoMjestoUnos.Text;
-                p.zdravstveniKarton.PodaciOZaposlenjuIZanimanjuPacijenta.RegistarskiBroj = izmjenaZdravstvenogKartonaForma.registarskiBrojUnos.Text;
-                p.zdravstveniKarton.PodaciOZaposlenjuIZanimanjuPacijenta.RadPodPosebnimUslovima = izmjenaZdravstvenogKartonaForma.radUPosebnimUslovimaUnos.Text;
-                p.zdravstveniKarton.PodaciOZaposlenjuIZanimanjuPacijenta.Promjene = izmjenaZdravstvenogKartonaForma.promjene.Text;
-                p.zdravstveniKarton.PodaciOZaposlenjuIZanimanjuPacijenta.OSIZZdrZastite = izmjenaZdravstvenogKartonaForma.OSIZ.Text;
+                p.zdravstveniKarton.PodaciOZaposlenjuIZanimanju.PosaoKojiObavlja = izmjenaZdravstvenogKartonaForma.posaoUnos.Text;
+                p.zdravstveniKarton.PodaciOZaposlenjuIZanimanju.RadnoMjesto = izmjenaZdravstvenogKartonaForma.radnoMjestoUnos.Text;
+                p.zdravstveniKarton.PodaciOZaposlenjuIZanimanju.RegistarskiBroj = izmjenaZdravstvenogKartonaForma.registarskiBrojUnos.Text;
+                p.zdravstveniKarton.PodaciOZaposlenjuIZanimanju.RadPodPosebnimUslovima = izmjenaZdravstvenogKartonaForma.radUPosebnimUslovimaUnos.Text;
+                p.zdravstveniKarton.PodaciOZaposlenjuIZanimanju.Promjene = izmjenaZdravstvenogKartonaForma.promjene.Text;
+                p.zdravstveniKarton.PodaciOZaposlenjuIZanimanju.OSIZZdrZastite = izmjenaZdravstvenogKartonaForma.OSIZ.Text;
 
                 Kartoni zdravstveniKartoni = Kartoni.Instance;
                 foreach (ZdravstveniKarton zdravstveniKarton in zdravstveniKartoni.listaKartona)
@@ -76,29 +79,7 @@ namespace Servis
             }
         }
 
-        public void DodjelaZdravstvenogKartonaPacijentu(IzmenaNalogaPacijentaForma izmenaNalogaPacijentaForma)
-        {
-            Kartoni zdravstveniKartoni = Kartoni.Instance;
-            Pacijenti pacijenti = Pacijenti.Instance;
-            //string jmbg = NadjiPacijenta(pregledNalogaPacijenta);
-            foreach (ZdravstveniKarton zdravstveniKarton in zdravstveniKartoni.listaKartona)
-            {
-                foreach (Pacijent pacijent in pacijenti.ListaPacijenata)
-                {
-                    if (pacijent.jmbg.Equals(zdravstveniKarton.Jmbg))
-                    {
-                        pacijent.zdravstveniKarton = zdravstveniKarton;
-
-                        Pacijenti.Instance.Serijalizacija();
-                        // Pacijenti.Instance.Deserijalizacija();
-
-
-
-                    }
-                }
-
-            }
-        }
+        
 
         public void DodavanjeAlergenaPacijentu(DodajAlergenPacijentu dodajAlergenPacijentu, IzmjenaZdravstvenogKartonaForma izmjenaZdravstvenogKartonaForma)
         {
