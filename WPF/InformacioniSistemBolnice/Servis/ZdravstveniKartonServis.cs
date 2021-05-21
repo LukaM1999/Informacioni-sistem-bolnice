@@ -89,18 +89,16 @@ namespace Servis
 
         public void BrisanjeAlergenaPacijentu(Alergen alergen, string jmbg)
         {
-            foreach (Alergen a in Pacijenti.Instance.NadjiPoJmbg(jmbg).zdravstveniKarton.Alergeni)
-            {
-                if (a.nazivAlergena == alergen.nazivAlergena)
+                Pacijent p = Pacijenti.Instance.NadjiPoJmbg(jmbg);
+                foreach (Alergen a in p.zdravstveniKarton.Alergeni)
                 {
-                    p.zdravstveniKarton.Alergeni.Remove(a);
-                    Pacijenti.Instance.SacuvajPromene();
-
-                    break;
+                    if (a.nazivAlergena == alergen.nazivAlergena)
+                    {
+                        p.zdravstveniKarton.Alergeni.Remove(a);
+                        Pacijenti.Instance.SacuvajPromene();
+                        break;
+                    }
                 }
-            }
         }
-
-
     }
 }
