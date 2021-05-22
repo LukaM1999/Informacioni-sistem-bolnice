@@ -11,25 +11,23 @@ namespace Servis
     public class UpravljanjeNalozimaPacijenata
     {
         private static readonly Lazy<UpravljanjeNalozimaPacijenata>
-          lazy =
-          new Lazy<UpravljanjeNalozimaPacijenata>
-              (() => new UpravljanjeNalozimaPacijenata());
+          Lazy =new(() => new UpravljanjeNalozimaPacijenata());
+        public static UpravljanjeNalozimaPacijenata Instance => Lazy.Value;
 
-        public static UpravljanjeNalozimaPacijenata Instance { get { return lazy.Value; } }
+        private PacijentDto pacijentoviPodaci;
+        private Pacijent pacijentZaIzmenu;
 
         public void KreiranjeNaloga(PacijentDto pacijentDto)
         {
             Pacijent pacijent = new Pacijent(new Osoba(pacijentDto.ime, pacijentDto.prezime, pacijentDto.jmbg,
-                                            DateTime.Parse(pacijentDto.datumRodjenja.ToString()), pacijentDto.telefon, pacijentDto.email,
-                                            KreirajKOrisnika(pacijentDto),
+                                            DateTime.Parse(pacijentDto.datumRodjenja.ToString("g")), pacijentDto.telefon, pacijentDto.email,
+                                            KreirajKorisnika(pacijentDto),
                                             new Adresa(pacijentDto.drzava, pacijentDto.grad, pacijentDto.ulica, pacijentDto.broj)));
-            ObservableCollection<Termin> zakazaniTermini = new ObservableCollection<Termin>();
-            pacijent.zakazaniTermini = zakazaniTermini;
             Pacijenti.Instance.DodajPacijenta(pacijent);
         }
 
 
-        private static Korisnik KreirajKOrisnika(PacijentDto pacijentDto)
+        private Korisnik KreirajKorisnika(PacijentDto pacijentDto)
         {
             Korisnik korisnik = new Korisnik(pacijentDto.korisnickoIme, pacijentDto.lozinka,
                                             (Model.UlogaKorisnika)Enum.Parse(typeof(Model.UlogaKorisnika), "pacijent"));
@@ -46,42 +44,44 @@ namespace Servis
 
         private static void SacuvajURepozitorijum()
         {
-            Pacijenti.Instance.SacuvajPromene();
-            Korisnici.Instance.SacuvajPromene();
+            Pacijenti.Instance.Serijalizacija();
+            Korisnici.Instance.Serijalizacija();
         }
 
         public void IzmenaNaloga(PacijentDto pacijentDto, Pacijent pacijent)
         {
-            IzmeniLicnePodatke(pacijentDto, pacijent);
-            IzmeniAdresu(pacijentDto, pacijent);
-            IzmeniKorisnickePodatke(pacijentDto, pacijent);
+            pacijentoviPodaci = pacijentDto;
+            pacijentZaIzmenu = pacijent;
+            IzmeniLicnePodatke();
+            IzmeniAdresu();
+            IzmeniKorisnickePodatke();
             SacuvajURepozitorijum();
-
         }
 
-        private static void IzmeniKorisnickePodatke(PacijentDto pacijentDto, Pacijent pacijent)
+        private void IzmeniKorisnickePodatke()
         {
-            pacijent.korisnik.korisnickoIme = pacijentDto.korisnickoIme;
-            pacijent.korisnik.lozinka = pacijentDto.lozinka;
-            Korisnik korisnik = pacijent.korisnik;
+            Korisnik korisnikZaIzmenu = pacijentZaIzmenu.korisnik;
+            korisnikZaIzmenu.korisnickoIme = pacijentoviPodaci.korisnickoIme; 
+            korisnikZaIzmenu.lozinka = pacijentoviPodaci.lozinka;
         }
 
-        private static void IzmeniAdresu(PacijentDto pacijentDto, Pacijent pacijent)
+        private void IzmeniAdresu()
         {
-            pacijent.adresa.Drzava = pacijentDto.drzava;
-            pacijent.adresa.Grad = pacijentDto.grad;
-            pacijent.adresa.Ulica = pacijentDto.ulica;
-            pacijent.adresa.Broj = pacijentDto.broj;
+            Adresa adresaZaIzmenu = pacijentZaIzmenu.adresa;
+            adresaZaIzmenu.Drzava = pacijentoviPodaci.drzava;
+            adresaZaIzmenu.Grad = pacijentoviPodaci.grad;
+            adresaZaIzmenu.Ulica = pacijentoviPodaci.ulica;
+            adresaZaIzmenu.Broj = pacijentoviPodaci.broj;
         }
 
-        private static void IzmeniLicnePodatke(PacijentDto pacijentDto, Pacijent pacijent)
+        private void IzmeniLicnePodatke()
         {
-            pacijent.ime = pacijentDto.ime;
-            pacijent.prezime = pacijentDto.prezime;
-            pacijent.jmbg = pacijentDto.jmbg;
-            pacijent.datumRodjenja = pacijentDto.datumRodjenja;
-            pacijent.telefon = pacijentDto.telefon;
-            pacijent.email = pacijentDto.email;
+            pacijentZaIzmenu.ime = pacijentoviPodaci.ime;
+            pacijentZaIzmenu.prezime = pacijentoviPodaci.prezime;
+            pacijentZaIzmenu.jmbg = pacijentoviPodaci.jmbg;
+            pacijentZaIzmenu.datumRodjenja = pacijentoviPodaci.datumRodjenja;
+            pacijentZaIzmenu.telefon = pacijentoviPodaci.telefon;
+            pacijentZaIzmenu.email = pacijentoviPodaci.email;
         }
     }
 

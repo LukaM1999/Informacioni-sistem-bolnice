@@ -3,6 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:vm="clr-namespace:InformacioniSistemBolnice.ViewModels.Pacijent"
         mc:Ignorable="d"
         Title="KreiranjePodsetnikaView" Height="300" Width="280">
     <Grid>
@@ -25,7 +26,7 @@
         <TextBox Name="Sadrzaj"  Grid.Row="0" Grid.Column="1" AcceptsReturn="True" TextWrapping="Wrap" Width="150" Height="100" Margin="20" Grid.RowSpan="2"/>
         <TextBox Name="Vreme"  Grid.Row="2" Grid.Column="1" Margin="20" Width="50" HorizontalAlignment="Left"/>
         
-        <Button x:Name="Kreiraj" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" Content="Kreiraj" Width="50" Margin="20" Click="KreirajPodsetnik"/>
+        <Button x:Name="Kreiraj" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" Content="Kreiraj" Width="50" Margin="20" Command="{Binding KreirajPacijentovPodsetnik}"/>
         
         
     </Grid>

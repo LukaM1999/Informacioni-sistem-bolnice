@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
+using InformacioniSistemBolnice.Utilities;
+using InformacioniSistemBolnice.Views.Pacijent;
 using Kontroler;
 using Model;
 using PropertyChanged;
@@ -28,8 +30,8 @@ namespace InformacioniSistemBolnice.ViewModels.Pacijent
         private void SacuvajIzmene()
         {
             PacijentKontroler.Instance.DodajBeleske(ulogovanPacijent, PacijentovaAnamneza.BeleskePacijenta);
-            foreach (Window zaZatvaranje in Application.Current.Windows) 
-                if (zaZatvaranje.DataContext == this) zaZatvaranje.Close();
+            AnamnezaView anamnezaForma = (AnamnezaView)new PronadjiProzorUtility().PronadjiProzor(this);
+            anamnezaForma.Close();
         }
     }
 }

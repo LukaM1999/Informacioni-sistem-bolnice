@@ -60,7 +60,7 @@ namespace InformacioniSistemBolnice
 
         private void otkaziDugme_Click(object sender, RoutedEventArgs e)
         {
-            PacijentKontroler.Instance.Otkazivanje((Termin) listaZakazanihTermina.SelectedValue);
+            PacijentKontroler.Instance.Otkazivanje((Termin)listaZakazanihTermina.SelectedValue);
         }
 
         private void infoDugme_Click(object sender, RoutedEventArgs e)
@@ -81,7 +81,7 @@ namespace InformacioniSistemBolnice
 
         private void OtvoriPodsetnikFormu(object sender, RoutedEventArgs e)
         {
-            new KreiranjePodsetnikaView(ulogovanPacijent).Show();
+            new KreiranjePodsetnikaView { DataContext = new KreiranjePodsetnikaViewModel(ulogovanPacijent) }.Show();
         }
 
         private static bool JeIzabranZavrsenTermin(Termin izabranTermin)
@@ -91,8 +91,8 @@ namespace InformacioniSistemBolnice
 
         private void OtvoriAnamnezu(object sender, RoutedEventArgs e)
         {
-            if (ulogovanPacijent.zdravstveniKarton is {anamneza: { }})
-                new AnamnezaView {DataContext = new AnamnezaViewModel(ulogovanPacijent)}.Show();
+            if (ulogovanPacijent.zdravstveniKarton is { anamneza: { } })
+                new AnamnezaView { DataContext = new AnamnezaViewModel(ulogovanPacijent) }.Show();
         }
     }
 }

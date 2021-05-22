@@ -20,18 +20,9 @@ namespace InformacioniSistemBolnice.Views.Pacijent
 {
     public partial class KreiranjePodsetnikaView : Window
     {
-        private readonly Model.Pacijent ulogovanPacijent;
-
-        public KreiranjePodsetnikaView(Model.Pacijent ulogovan)
+        public KreiranjePodsetnikaView()
         {
             InitializeComponent();
-            ulogovanPacijent = ulogovan;
-        }
-
-        private void KreirajPodsetnik(object sender, RoutedEventArgs e)
-        {
-            PacijentKontroler.Instance.UkljuciNoviPodsetnik(new Podsetnik(Sadrzaj.Text, Vreme.Text, ulogovanPacijent.jmbg));
-            Close();
         }
     }
 }

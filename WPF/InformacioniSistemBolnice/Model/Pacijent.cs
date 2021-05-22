@@ -13,7 +13,7 @@ namespace Model
     {
         public bool maliciozan { get; set; }
         public ZdravstveniKarton zdravstveniKarton;
-        public ObservableCollection<Termin> zakazaniTermini { get; set; }
+        public ObservableCollection<Termin> zakazaniTermini = new();
 
         public Pacijent() {}
         public Pacijent(Osoba o) 

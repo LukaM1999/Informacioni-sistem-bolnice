@@ -40,7 +40,7 @@ namespace InformacioniSistemBolnice
                 {
 
                     slobodniTermini.Add(new Termin(slobodanTermin, 30.0, izabraniTip, StatusTermina.slobodan,
-                                                   izabraniPacijent.jmbg, izabranLekar.jmbg, izabranaProstorija.id));
+                                                   izabraniPacijent.jmbg, izabranLekar.jmbg, izabranaProstorija.Id));
                    
                     slobodanTermin = slobodanTermin.AddMinutes(30);
 
@@ -69,7 +69,7 @@ namespace InformacioniSistemBolnice
                         for (int j = 0; j < 27; j++)
                         {
                             slobodniTermini.Add(new Termin(slobodanTermin, 30.0, izabraniTip, StatusTermina.slobodan,
-                                                               izabraniPacijent.jmbg, izabranLekar.jmbg, izabranaProstorija.id));
+                                                               izabraniPacijent.jmbg, izabranLekar.jmbg, izabranaProstorija.Id));
 
                            
 
@@ -87,7 +87,7 @@ namespace InformacioniSistemBolnice
                         {
 
                             slobodniTermini.Add(new Termin(slobodanTermin, 30.0, izabraniTip, StatusTermina.slobodan,
-                                                           izabraniPacijent.jmbg, izabranLekar.jmbg, izabranaProstorija.id));
+                                                           izabraniPacijent.jmbg, izabranLekar.jmbg, izabranaProstorija.Id));
 
                             
 
@@ -120,7 +120,7 @@ namespace InformacioniSistemBolnice
                                 for (int j = 0; j < 27; j++)
                                 {
                                     slobodniTermini.Add(new Termin(slobodanTermin, 30.0, izabraniTip, StatusTermina.slobodan,
-                                                                  izabraniPacijent.jmbg, drugiLekar.jmbg, izabranaProstorija.id));
+                                                                  izabraniPacijent.jmbg, drugiLekar.jmbg, izabranaProstorija.Id));
 
                                 
                                     if (slobodniTermini.Last().idProstorije == null)
