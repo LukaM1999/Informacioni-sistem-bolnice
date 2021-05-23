@@ -1,12 +1,11 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
 using Kontroler;
+using Model;
+using Repozitorijum;
 
 namespace InformacioniSistemBolnice
 {
-    /// <summary>
-    /// Interaction logic for IzmenaAlergenaForma.xaml
-    /// </summary>
     public partial class IzmenaAlergenaForma : UserControl
     {
         public ListView listaAlergena;
@@ -24,8 +23,17 @@ namespace InformacioniSistemBolnice
 
         private void potvrdiIzmeneDugme_Click(object sender, RoutedEventArgs e)
         {
-            SekretarKontroler.Instance.IzmjenaAlergena(listaAlergena, this);
-            pocetna.contentControl.Content = alergeni.Content;
+            if (listaAlergena.SelectedValue != null)
+            {
+                SekretarKontroler.Instance.IzmjenaAlergena(new AlergenDto(nazivAlergenaUnos.Text), (Alergen)listaAlergena.SelectedItem);
+                AzurirajIzgled();
+            }
+        }
+
+        private void AzurirajIzgled()
+        {
+            pocetna.Content = new AlergeniProzor(pocetna);
+            alergeni.ListaAlergena.ItemsSource = Alergeni.Instance.listaAlergena;
         }
 
         private void NazadBtn_Click(object sender, RoutedEventArgs e)

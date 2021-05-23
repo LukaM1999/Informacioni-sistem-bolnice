@@ -28,34 +28,17 @@ namespace Servis
             Alergeni.Instance.SacuvajPromene();
         }
 
-        public void IzmenaAlergena(ListView ListaAlergena, IzmenaAlergenaForma izmenaAlergenaForma)
+        public void IzmenaAlergena(AlergenDto noviAlergen, Alergen stariAlergen)
         {
-
-            if (ListaAlergena.SelectedValue != null)
-            {
-                Alergen alergen = (Alergen)ListaAlergena.SelectedValue;
-                alergen.Naziv = izmenaAlergenaForma.nazivAlergenaUnos.Text;
-                Alergeni.Instance.Serijalizacija();
-                Alergeni.Instance.Deserijalizacija();
-                ListaAlergena.ItemsSource = Alergeni.Instance.listaAlergena;
-
-            }
-
+            stariAlergen.Naziv = noviAlergen.Naziv;
+            Alergeni.Instance.SacuvajPromene();
         }
 
-        public void PregledAlergena(AlergeniProzor alergeni)
+        public AlergenDto PregledAlergena(Alergen alergen)
         {
-            if (alergeni.ListaAlergena.SelectedIndex >= 0)
-            {
-                PregledAlergena pregledAlergena = new PregledAlergena(alergeni);
-                Alergen alergen = (Alergen)alergeni.ListaAlergena.SelectedItem;
-                pregledAlergena.labelaAlergen.Content = alergen.Naziv;
-                pregledAlergena.pocetna.contentControl.Content = pregledAlergena.Content;
-
-            }
+            AlergenDto alergenDto = new(alergen.Naziv);
+            return alergenDto;
         }
-
-        public Repozitorijum.Alergeni alergeni;
 
     }
 }
