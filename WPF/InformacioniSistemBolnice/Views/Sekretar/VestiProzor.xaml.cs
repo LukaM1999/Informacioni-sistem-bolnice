@@ -30,28 +30,37 @@ namespace InformacioniSistemBolnice
 
         private void kreirajVest_Clik(object sender, RoutedEventArgs e)
         {
-            menu.pocetna.contentControl.Content = new KreirajVijestProzor(menu.pocetna, menu, this);
+            menu.pocetna.contentControl.Content = new KreirajVestProzor(menu.pocetna, menu, this);
         }
 
        
         private void pregledVesti_Click(object sender, RoutedEventArgs e)
         {
-            SekretarKontroler.Instance.PregledVesti(ListaVesti);
+            PregledVesti pregledVesti = new PregledVesti(ListaVesti);
+            VestDto vestDto = SekretarKontroler.Instance.PregledVesti((Vest)ListaVesti.SelectedItem);
+            pregledVesti.sadrzaj.Text = vestDto.Sadrzaj;
+            pregledVesti.naslov.Content = vestDto.Id;
+            pregledVesti.vremeObjave.Content = vestDto.VremeObjave;
+            pregledVesti.Show();
         }
 
         private void obrisiVesti_Clik(object sender, RoutedEventArgs e)
         {
-            SekretarKontroler.Instance.UklanjanjeVesti(this.ListaVesti);
+            if (ListaVesti.SelectedValue != null)
+            {
+                SekretarKontroler.Instance.UklanjanjeVesti((Vest)ListaVesti.SelectedValue);
+                ListaVesti.ItemsSource = Vesti.Instance.listaVesti;
+            }
         }
 
         private void izmeniVest_Click(object sender, RoutedEventArgs e)
         {
             if (this.ListaVesti.SelectedValue != null)
             {
-               Vest vest = (Vest)ListaVesti.SelectedItem;
                 IzmenaVesti izmenaAVesti = new IzmenaVesti(this, this.menu.pocetna);
-                izmenaAVesti.naslovVesti.Text = vest.Id;
-                izmenaAVesti.sadrzajVesti.Text = vest.Sadrzaj;
+                izmenaAVesti.naslovVesti.Text = ((Vest)ListaVesti.SelectedItem).Id;
+                izmenaAVesti.sadrzajVesti.Text = ((Vest)ListaVesti.SelectedItem).Sadrzaj;
+                ListaVesti.ItemsSource = Vesti.Instance.listaVesti;
                 this.menu.pocetna.contentControl.Content = izmenaAVesti.Content;
             }
         }

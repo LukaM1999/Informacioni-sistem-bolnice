@@ -12,18 +12,16 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Kontroler;
+using Model;
 
 namespace InformacioniSistemBolnice
 {
-    /// <summary>
-    /// Interaction logic for KreirajVijestProzor.xaml
-    /// </summary>
-    public partial class KreirajVijestProzor : UserControl 
+    public partial class KreirajVestProzor : UserControl 
     {
         public PocetnaStranicaSekretara pocetna;
         public VestiProzor vesti;
         public UCMenuSekretara menu;
-        public KreirajVijestProzor(PocetnaStranicaSekretara pocetnaStranicaSekretara, UCMenuSekretara menuSekretara, VestiProzor vestiProzor)
+        public KreirajVestProzor(PocetnaStranicaSekretara pocetnaStranicaSekretara, UCMenuSekretara menuSekretara, VestiProzor vestiProzor)
         {
             InitializeComponent();
             pocetna = pocetnaStranicaSekretara;
@@ -33,7 +31,9 @@ namespace InformacioniSistemBolnice
 
         private void kreirajVijest_Click(object sender, RoutedEventArgs e)
         {
-            SekretarKontroler.Instance.KreiranjeVesti(this);
+            VestDto vestDto = new VestDto(naslovVesti.Text, sadrzajVesti.Text);
+            vestDto.VremeObjave = (DateTime.Now);
+            SekretarKontroler.Instance.KreiranjeVesti(vestDto);
             pocetna.contentControl.Content = new VestiProzor(menu);
         }
 

@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Kontroler;
+using Model;
+using Repozitorijum;
 
 namespace InformacioniSistemBolnice
 {
@@ -29,7 +31,9 @@ namespace InformacioniSistemBolnice
 
         private void izmeniVest_Click(object sender, RoutedEventArgs e)
         {
-            SekretarKontroler.Instance.IzmenaVesti(vesti, this);
+            VestDto vestDto = new VestDto(naslovVesti.Text, sadrzajVesti.Text);
+            SekretarKontroler.Instance.IzmenaVesti(vestDto, (Vest)vesti.ListaVesti.SelectedItem);
+            vesti.ListaVesti.ItemsSource = Vesti.Instance.listaVesti;
             pocetna.contentControl.Content = vesti.Content;
             
         }

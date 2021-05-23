@@ -47,7 +47,7 @@ namespace InformacioniSistemBolnice
 
         private void vidiVest_Click(object sender, RoutedEventArgs e)
         {
-            SekretarKontroler.Instance.PregledVesti(ListaVesti);
+            SekretarKontroler.Instance.PregledVesti((Vest)ListaVesti.SelectedItem);
         }
 
         private void ListaVesti_SizeChanged(object sender, SizeChangedEventArgs e)

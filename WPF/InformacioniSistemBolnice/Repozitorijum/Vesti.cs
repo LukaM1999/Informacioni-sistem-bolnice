@@ -38,5 +38,24 @@ namespace Repozitorijum
             Serijalizacija();
             Deserijalizacija();
         }
+        public bool DodajVest(Vest vestZaDodavanje)
+        {
+            if (listaVesti.Contains(vestZaDodavanje)) return false;
+            listaVesti.Add(vestZaDodavanje);
+            SacuvajPromene();
+            return true;
+        }
+
+        public bool ObrisiVest(Vest vestZaBrisanje)
+        {
+            return listaVesti.Remove(NadjiPoId(vestZaBrisanje.Id));
+        }
+
+        public Vest NadjiPoId(string Id)
+        {
+            foreach (Vest pronadjena in listaVesti)
+                if (pronadjena.Id == Id) return pronadjena;
+            return null;
+        }
     }
 }
