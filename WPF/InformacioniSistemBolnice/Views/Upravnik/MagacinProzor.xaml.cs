@@ -35,7 +35,7 @@ namespace InformacioniSistemBolnice
             StatickaOpremaRepo.Instance.Deserijalizacija();
             DinamickaOpremaRepo.Instance.Deserijalizacija();
             Prostorije.Instance.Deserijalizacija();
-            listViewStatOpreme.ItemsSource = StatickaOpremaRepo.Instance.listaOpreme;
+            listViewStatOpreme.ItemsSource = StatickaOpremaRepo.Instance.ListaOpreme;
             listViewDinamOpreme.ItemsSource = DinamickaOpremaRepo.Instance.ListaOpreme;
             this.listaProstorija.ItemsSource = Prostorije.Instance.ListaProstorija;
             listaProstorijaS.ItemsSource = Prostorije.Instance.ListaProstorija;
@@ -109,7 +109,7 @@ namespace InformacioniSistemBolnice
                 Prostorija prostorija = (Prostorija)listaProstorijaS.SelectedItem;
                 
                 UpravnikKontroler.Instance.RasporedjivanjeStatickeOpreme(null, prostorija, oprema, kolicina, (DateTime)datumStat.SelectedDate);
-                listViewStatOpreme.ItemsSource = Repozitorijum.StatickaOpremaRepo.Instance.listaOpreme;
+                listViewStatOpreme.ItemsSource = Repozitorijum.StatickaOpremaRepo.Instance.ListaOpreme;
                 ListaProstorija.ItemsSource = Prostorije.Instance.ListaProstorija;
             }
         }

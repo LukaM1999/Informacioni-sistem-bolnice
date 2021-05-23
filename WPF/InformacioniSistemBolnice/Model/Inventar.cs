@@ -39,7 +39,7 @@ namespace Model
             StatickaOprema prs = null;
             foreach (StatickaOprema pr in StatickaOprema)
             {
-                if (pr.tip.Equals(p.tip))
+                if (pr.Tip.Equals(p.Tip))
                 {
                     prs = pr;
                 }

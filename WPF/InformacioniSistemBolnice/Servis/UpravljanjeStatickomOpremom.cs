@@ -20,18 +20,18 @@ namespace Servis
         {
             Model.StatickaOprema oprema = new Model.StatickaOprema(Int32.Parse(p.tbKol.Text), (TipStatickeOpreme)Enum.Parse(typeof(TipStatickeOpreme), p.cb1.Text));
             
-            foreach (Model.StatickaOprema so in Repozitorijum.StatickaOpremaRepo.Instance.listaOpreme)
+            foreach (Model.StatickaOprema so in Repozitorijum.StatickaOpremaRepo.Instance.ListaOpreme)
             {
-                if (so.tip.Equals(oprema.tip))
+                if (so.Tip.Equals(oprema.Tip))
                 {
-                    so.kolicina += oprema.kolicina;
+                    so.Kolicina += oprema.Kolicina;
                     Repozitorijum.StatickaOpremaRepo.Instance.Serijalizacija();
                     Repozitorijum.StatickaOpremaRepo.Instance.Deserijalizacija();
                     return;
                 }
             }
 
-            Repozitorijum.StatickaOpremaRepo.Instance.listaOpreme.Add(oprema);
+            Repozitorijum.StatickaOpremaRepo.Instance.ListaOpreme.Add(oprema);
             Repozitorijum.StatickaOpremaRepo.Instance.Serijalizacija();
             Repozitorijum.StatickaOpremaRepo.Instance.Deserijalizacija();
         }
@@ -41,15 +41,15 @@ namespace Servis
             if (p.listViewStatOpreme.SelectedValue != null)
             {
                 Model.StatickaOprema oprema = (Model.StatickaOprema)p.listViewStatOpreme.SelectedValue;
-                Repozitorijum.StatickaOpremaRepo.Instance.listaOpreme.Remove(oprema);
+                Repozitorijum.StatickaOpremaRepo.Instance.ListaOpreme.Remove(oprema);
                 Repozitorijum.StatickaOpremaRepo.Instance.Serijalizacija();
             }
         }
 
         public void IzmenaOpreme(Model.StatickaOprema oprema, MagacinIzmeniProzor p)
         {
-             oprema.kolicina = Int32.Parse(p.tb1.Text);
-             oprema.tip = (TipStatickeOpreme)Enum.Parse(typeof(TipStatickeOpreme), p.cb1.Text, true);
+             oprema.Kolicina = Int32.Parse(p.tb1.Text);
+             oprema.Tip = (TipStatickeOpreme)Enum.Parse(typeof(TipStatickeOpreme), p.cb1.Text, true);
 
              Repozitorijum.StatickaOpremaRepo.Instance.Serijalizacija();
              Repozitorijum.StatickaOpremaRepo.Instance.Deserijalizacija(); 

@@ -108,7 +108,7 @@ namespace InformacioniSistemBolnice
                 {
                     foreach(StatickaOprema statickaOprema in prostorija.Inventar.StatickaOprema.ToList())
                     {
-                        if (statickaOprema.tip.Equals(tipStatickeOpreme) && statickaOprema.kolicina >= kolicina)
+                        if (statickaOprema.Tip.Equals(tipStatickeOpreme) && statickaOprema.Kolicina >= kolicina)
                         {
                             novaListaProstorija.Add(prostorija);
                         }

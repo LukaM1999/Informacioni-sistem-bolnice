@@ -93,9 +93,9 @@ namespace InformacioniSistemBolnice.Views.Lekar
 
                 foreach (Model.StatickaOprema oprema in prostorija.Inventar.StatickaOprema)
                 {
-                    if (oprema.tip == TipStatickeOpreme.krevet)
+                    if (oprema.Tip == TipStatickeOpreme.krevet)
                     {
-                        if (brojac < oprema.kolicina)
+                        if (brojac < oprema.Kolicina)
                         {
                             BolnickoLecenje novoLecenje = new(pocetak, zavrsetak, prostorija.Id, pacijent.jmbg);
                             BolnickoLecenjeRepo.Instance.DodajLecenje(novoLecenje);

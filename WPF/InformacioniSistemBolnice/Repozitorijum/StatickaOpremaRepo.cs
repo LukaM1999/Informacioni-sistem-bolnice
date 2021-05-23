@@ -10,53 +10,54 @@ namespace Repozitorijum
     public class StatickaOpremaRepo : Repozitorijum
     {
         private string putanja = "../../../json/statickaOprema.json";
-
-        private static readonly Lazy<StatickaOpremaRepo>
-           lazy =
-           new Lazy<StatickaOpremaRepo>
-               (() => new StatickaOpremaRepo());
-
+        private static readonly Lazy<StatickaOpremaRepo> lazy = new Lazy<StatickaOpremaRepo> (() => new StatickaOpremaRepo());
         public static StatickaOpremaRepo Instance { get { return lazy.Value; } }
-
-        public ObservableCollection<Model.StatickaOprema> listaOpreme
-        {
-            get;
-            set;
-        }
-
+        public ObservableCollection<Model.StatickaOprema> ListaOpreme { get; set; }
         public void Deserijalizacija()
         {
-            //lock (listaOpreme)
-            //{
-                listaOpreme = JsonConvert.DeserializeObject<ObservableCollection<Model.StatickaOprema>>(File.ReadAllText(putanja));
-            //}
+            ListaOpreme = JsonConvert.DeserializeObject<ObservableCollection<Model.StatickaOprema>>(File.ReadAllText(putanja));
         }
 
         public void Serijalizacija()
         {
-            //lock (listaOpreme)
-            //{
-                string json = JsonConvert.SerializeObject(listaOpreme, Formatting.Indented);
+                string json = JsonConvert.SerializeObject(ListaOpreme, Formatting.Indented);
                 File.WriteAllText(putanja, json);
-            //}
         }
 
         public StatickaOpremaRepo()
         {
-            listaOpreme = new ObservableCollection<Model.StatickaOprema>();
+            ListaOpreme = new ObservableCollection<Model.StatickaOprema>();
         }
 
         public Model.StatickaOprema getSelected(Model.StatickaOprema p)
         {
             Model.StatickaOprema prs = null;
-            foreach (Model.StatickaOprema pr in listaOpreme)
+            foreach (Model.StatickaOprema pr in ListaOpreme)
             {
-                if (pr.tip.Equals(p.tip))
+                if (pr.Tip.Equals(p.Tip))
                 {
                     prs = pr;
                 }
             }
-            return listaOpreme.ElementAt(listaOpreme.IndexOf(prs));
+            return ListaOpreme.ElementAt(ListaOpreme.IndexOf(prs));
+        }
+        public StatickaOprema NadjiPoTipu(TipStatickeOpreme tip)
+        {
+            foreach (StatickaOprema pronadjena in ListaOpreme)
+            {
+                if (!pronadjena.Tip.Equals(tip)) continue;
+                return pronadjena;
+            }
+            return null;
+        }
+        public bool BrisiPoTipu(TipStatickeOpreme tip)
+        {
+            foreach (StatickaOprema pronadjena in ListaOpreme)
+            {
+                if (pronadjena.Tip != tip) continue;
+                return ListaOpreme.Remove(pronadjena);
+            }
+            return false;
         }
         public void SacuvajPromene()
         {
