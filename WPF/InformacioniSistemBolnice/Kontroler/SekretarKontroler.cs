@@ -76,9 +76,9 @@ namespace Kontroler
             //UpravljanjeNalozimaPacijenata.Instance.PregledNaloga(pacijenti);
         }
 
-        public void DefinisanjeAlergena(DefinisanjeAlergenaForma definisanjeAlergenaForma)
+        public void DefinisanjeAlergena(AlergenDto alergen)
         {
-            UpravljanjeAlergenima.Instance.KreiranjeAlergena(definisanjeAlergenaForma);
+            UpravljanjeAlergenima.Instance.KreiranjeAlergena(alergen);
 
         }
 
@@ -87,9 +87,9 @@ namespace Kontroler
             UpravljanjeAlergenima.Instance.IzmenaAlergena(ListaAlergena, izmenaAlergenaForma);
         }
 
-        public void UklanjanjeAlergena(ListView ListaAlergena)
+        public void UklanjanjeAlergena(Alergen alergen)
         {
-            UpravljanjeAlergenima.Instance.UklanjanjeAlergena(ListaAlergena);
+            UpravljanjeAlergenima.Instance.UklanjanjeAlergena(alergen);
         }
 
         public void PregledAlergena(AlergeniProzor alergeniProzor)

@@ -17,41 +17,24 @@ namespace Servis
 
         public static UpravljanjeAlergenima Instance { get { return lazy.Value; } }
 
-        public void KreiranjeAlergena(DefinisanjeAlergenaForma definisanjeAlergenaForma)
+        public void KreiranjeAlergena(AlergenDto alergenDto)
         {
-            Alergen alergen = new Alergen(definisanjeAlergenaForma.nazivAlergenaUnos.Text);
-            Alergeni.Instance.listaAlergena.Add(alergen);
-            Alergeni.Instance.Serijalizacija();
-           
+            Alergeni.Instance.DodajAlergen(new Alergen(alergenDto.Naziv));
         }
 
-        public void UklanjanjeAlergena(ListView ListaAlergena)
+        public void UklanjanjeAlergena(Alergen alergen)
         {
-            if (ListaAlergena.SelectedValue != null)
-            {
-                Alergen alergen = (Alergen)ListaAlergena.SelectedValue;
-                
-                Alergeni alergeni = Alergeni.Instance;
-                foreach (Alergen a in alergeni.listaAlergena)
-                {
-                    if (a.nazivAlergena.Equals(alergen.nazivAlergena))
-                    {
-                        alergeni.listaAlergena.Remove(a);
-                        Alergeni.Instance.Serijalizacija();
-
-                        break;
-                    }
-                }
-            }
+            Alergeni.Instance.BrisiPoNazivu(alergen.Naziv);
+            Alergeni.Instance.SacuvajPromene();
         }
 
         public void IzmenaAlergena(ListView ListaAlergena, IzmenaAlergenaForma izmenaAlergenaForma)
         {
-            
+
             if (ListaAlergena.SelectedValue != null)
             {
                 Alergen alergen = (Alergen)ListaAlergena.SelectedValue;
-                alergen.nazivAlergena = izmenaAlergenaForma.nazivAlergenaUnos.Text;
+                alergen.Naziv = izmenaAlergenaForma.nazivAlergenaUnos.Text;
                 Alergeni.Instance.Serijalizacija();
                 Alergeni.Instance.Deserijalizacija();
                 ListaAlergena.ItemsSource = Alergeni.Instance.listaAlergena;
@@ -66,7 +49,7 @@ namespace Servis
             {
                 PregledAlergena pregledAlergena = new PregledAlergena(alergeni);
                 Alergen alergen = (Alergen)alergeni.ListaAlergena.SelectedItem;
-                pregledAlergena.labelaAlergen.Content = alergen.nazivAlergena;
+                pregledAlergena.labelaAlergen.Content = alergen.Naziv;
                 pregledAlergena.pocetna.contentControl.Content = pregledAlergena.Content;
 
             }

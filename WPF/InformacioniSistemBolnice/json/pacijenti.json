@@ -3,13 +3,13 @@
     "zdravstveniKarton": {
       "alergeni": [
         {
-          "nazivAlergena": "jagode"
+          "Naziv": "jagode"
         },
         {
-          "nazivAlergena": "polen"
+          "Naziv": "polen"
         },
         {
-          "nazivAlergena": "pencilin"
+          "Naziv": "pencilin"
         }
       ],
       "Recepti": [],
@@ -33,13 +33,13 @@
       "anamneza": null,
       "Alergeni": [
         {
-          "nazivAlergena": "jagode"
+          "Naziv": "jagode"
         },
         {
-          "nazivAlergena": "polen"
+          "Naziv": "polen"
         },
         {
-          "nazivAlergena": "pencilin"
+          "Naziv": "pencilin"
         }
       ]
     },
@@ -79,10 +79,10 @@
     "zdravstveniKarton": {
       "alergeni": [
         {
-          "nazivAlergena": "jagode"
+          "Naziv": "jagode"
         },
         {
-          "nazivAlergena": "polen"
+          "Naziv": "polen"
         }
       ],
       "Recepti": [],
@@ -113,10 +113,10 @@
       },
       "Alergeni": [
         {
-          "nazivAlergena": "jagode"
+          "Naziv": "jagode"
         },
         {
-          "nazivAlergena": "polen"
+          "Naziv": "polen"
         }
       ]
     },
