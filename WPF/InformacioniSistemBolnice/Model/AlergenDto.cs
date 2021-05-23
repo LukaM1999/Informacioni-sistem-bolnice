@@ -1,12 +1,16 @@
-using System;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace Model
 {
-    public class Alergen
+    public class AlergenDto
     {
         public string Naziv { get; set; }
-       
-        public Alergen(string naziv)
+
+        public AlergenDto(string naziv)
         {
             Naziv = naziv;
         }

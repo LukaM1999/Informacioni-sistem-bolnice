@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Kontroler;
+using Model;
 
 namespace InformacioniSistemBolnice
 {
@@ -28,7 +29,8 @@ namespace InformacioniSistemBolnice
 
         private void definisiAlergenDugme_Click(object sender, RoutedEventArgs e)
         {
-            SekretarKontroler.Instance.DefinisanjeAlergena(this);
+            AlergenDto alergenDto = new(nazivAlergenaUnos.Text);
+            SekretarKontroler.Instance.DefinisanjeAlergena(alergenDto);
             this.pocetna.contentControl.Content = new AlergeniProzor(this.pocetna);
         }
 

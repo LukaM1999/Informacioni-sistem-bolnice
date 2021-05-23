@@ -1,17 +1,17 @@
 [
   {
-    "nazivAlergena": "gluten"
+    "Naziv": "gluten"
   },
   {
-    "nazivAlergena": "pencilin"
+    "Naziv": "pencilin"
   },
   {
-    "nazivAlergena": "polen"
+    "Naziv": "polen"
   },
   {
-    "nazivAlergena": "laktoza"
+    "Naziv": "laktoza"
   },
   {
-    "nazivAlergena": "jagode"
+    "Naziv": "jagode"
   }
 ]

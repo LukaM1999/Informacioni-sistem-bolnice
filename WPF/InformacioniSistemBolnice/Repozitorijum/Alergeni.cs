@@ -44,17 +44,25 @@ namespace Repozitorijum
         {
             foreach (Alergen pronadjen in listaAlergena)
             {
-                if (pronadjen.nazivAlergena != naziv) continue;
+                if (pronadjen.Naziv != naziv) continue;
                 return pronadjen;
             }
             return null;
+        }
+
+        public bool DodajAlergen(Alergen alergenZaDodavanje)
+        {
+            if (listaAlergena.Contains(alergenZaDodavanje)) return false;
+            listaAlergena.Add(alergenZaDodavanje);
+            SacuvajPromene();
+            return true;
         }
 
         public bool BrisiPoNazivu(string naziv)
         {
             foreach (Alergen pronadjen in listaAlergena)
             {
-                if (pronadjen.nazivAlergena != naziv) continue;
+                if (pronadjen.Naziv != naziv) continue;
                 return listaAlergena.Remove(pronadjen);
             }
             return false;

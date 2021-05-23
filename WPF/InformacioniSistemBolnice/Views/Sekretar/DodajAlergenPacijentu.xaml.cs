@@ -41,7 +41,7 @@ namespace InformacioniSistemBolnice
                     {
                         foreach(Alergen alergen in listaAlergena.ToList())
                         {
-                            if(alergen.nazivAlergena == a.nazivAlergena)
+                            if(alergen.Naziv == a.Naziv)
                             {
                                 listaAlergena.Remove(alergen);
                             }

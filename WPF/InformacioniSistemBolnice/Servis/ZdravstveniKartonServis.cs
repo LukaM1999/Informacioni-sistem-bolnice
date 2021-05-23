@@ -80,7 +80,7 @@ namespace Servis
         public void DodavanjeAlergenaPacijentu(Alergen alergen, string jmbg)
         {
             Pacijent pacijent = Pacijenti.Instance.NadjiPoJmbg(jmbg);
-            pacijent.zdravstveniKarton.AddAlergen(Alergeni.Instance.NadjiPoNazivu(alergen.nazivAlergena));
+            pacijent.zdravstveniKarton.AddAlergen(Alergeni.Instance.NadjiPoNazivu(alergen.Naziv));
             Pacijenti.Instance.SacuvajPromene();
         }
 
@@ -92,7 +92,7 @@ namespace Servis
             Pacijent pacijent = Pacijenti.Instance.NadjiPoJmbg(jmbg);
             foreach (Alergen a in pacijent.zdravstveniKarton.Alergeni)
             {
-                if (a.nazivAlergena == alergen.nazivAlergena)
+                if (a.Naziv == alergen.Naziv)
                 {
                     pacijent.zdravstveniKarton.Alergeni.Remove(a);
                     Pacijenti.Instance.SacuvajPromene();
