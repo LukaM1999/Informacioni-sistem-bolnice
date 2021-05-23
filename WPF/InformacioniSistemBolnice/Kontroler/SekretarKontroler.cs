@@ -82,9 +82,9 @@ namespace Kontroler
 
         }
 
-        public void IzmjenaAlergena(ListView ListaAlergena, IzmenaAlergenaForma izmenaAlergenaForma)
+        public void IzmjenaAlergena(AlergenDto noviAlergen, Alergen stariAlergen)
         {
-            UpravljanjeAlergenima.Instance.IzmenaAlergena(ListaAlergena, izmenaAlergenaForma);
+            UpravljanjeAlergenima.Instance.IzmenaAlergena(noviAlergen, stariAlergen);
         }
 
         public void UklanjanjeAlergena(Alergen alergen)
@@ -92,10 +92,11 @@ namespace Kontroler
             UpravljanjeAlergenima.Instance.UklanjanjeAlergena(alergen);
         }
 
-        public void PregledAlergena(AlergeniProzor alergeniProzor)
+        public AlergenDto PregledAlergena(Alergen alergen)
         {
-            UpravljanjeAlergenima.Instance.PregledAlergena(alergeniProzor);
+            return UpravljanjeAlergenima.Instance.PregledAlergena(alergen);
         }
+
 
         public void DodavanjeAlergenaIzZdravstvenogKartona(Alergen alergen, string jmbg)
         {

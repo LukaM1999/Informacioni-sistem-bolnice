@@ -17,34 +17,39 @@ namespace InformacioniSistemBolnice
             ListaAlergena.ItemsSource = Alergeni.Instance.listaAlergena;
         }
 
-        private void definisiAlergen_Click(object sender, RoutedEventArgs e)
+        private void DefinisiAlergen_Click(object sender, RoutedEventArgs e)
         {
             this.pocetna.contentControl.Content = new DefinisanjeAlergenaForma(this);
         }
 
-        private void obrisiAlergen_Click(object sender, RoutedEventArgs e)
+        private void ObrisiAlergen_Click(object sender, RoutedEventArgs e)
         {
             if (ListaAlergena.SelectedValue != null)
                 SekretarKontroler.Instance.UklanjanjeAlergena((Alergen)ListaAlergena.SelectedValue);
             this.pocetna.contentControl.Content = new AlergeniProzor(pocetna);
         }
 
-        private void izmjeniAlergen_Click(object sender, RoutedEventArgs e)
+        private void IzmjeniAlergen_Click(object sender, RoutedEventArgs e)
         {
             if (ListaAlergena.SelectedValue != null)
             {
-                Alergen alergen = (Alergen)ListaAlergena.SelectedItem;
                 IzmenaAlergenaForma izmenaAlergenaForma = new IzmenaAlergenaForma(this);
-                izmenaAlergenaForma.nazivAlergenaUnos.Text = alergen.Naziv;
+                izmenaAlergenaForma.nazivAlergenaUnos.Text = ((Alergen)ListaAlergena.SelectedItem).Naziv;
                 pocetna.contentControl.Content = izmenaAlergenaForma.Content;
             }
         }
 
-        private void pregledAlergena_Click(object sender, RoutedEventArgs e)
+        private void PregledAlergena_Click(object sender, RoutedEventArgs e)
         {
-            SekretarKontroler.Instance.PregledAlergena(this);
-
+            if (ListaAlergena.SelectedIndex >= 0)
+            {
+                PregledAlergena pregledAlergena = new PregledAlergena(this);
+                AlergenDto alergenDto = SekretarKontroler.Instance.PregledAlergena((Alergen)ListaAlergena.SelectedItem);
+                pregledAlergena.naziv.Content = alergenDto.Naziv;
+                pocetna.contentControl.Content = pregledAlergena.Content;
+            }
         }
+
 
     }
 }
