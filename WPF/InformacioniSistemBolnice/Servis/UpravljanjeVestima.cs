@@ -19,68 +19,30 @@ namespace Servis
 
         public static UpravljanjeVestima Instance { get { return lazy.Value; } }
 
-        public void KreiranjeVesti(KreirajVijestProzor kreirajVijestProzor)
+        public void KreiranjeVesti(VestDto vestDto)
         {
-            Vest vest = new Vest(kreirajVijestProzor.sadrzajVesti.Text, kreirajVijestProzor.idVesti.Text);
-            Vesti.Instance.listaVesti.Add(vest);
-            Vesti.Instance.Serijalizacija();
-            Vesti.Instance.Deserijalizacija();
-
+            Vest vest = new Vest(vestDto.Sadrzaj, vestDto.Id, vestDto.VremeObjave);
+            Vesti.Instance.DodajVest(vest);
         }
 
-        public void PregledVesti(ListView listaVesti)
+        public VestDto PregledVesti(Vest vest)
         {
-            if (listaVesti.SelectedIndex >= 0)
-            {
-               PregledVesti pregledVesti = new PregledVesti(listaVesti);
-               Vest vest = (Vest)listaVesti.SelectedItem;
-                pregledVesti.sadrzajVesti.Text = vest.Sadrzaj;
-                pregledVesti.labelaNaslovVesti.Content = vest.Id;
-                pregledVesti.Show();
-
-            }
+            VestDto vestZaPrikazivanje = new(vest.Id, vest.Sadrzaj);
+            vestZaPrikazivanje.VremeObjave = vest.VremeObjave;
+            return vestZaPrikazivanje;
         }
 
-        public void UklanjanjeVesti(ListView listaVesti)
+        public void UklanjanjeVesti(Vest vest)
         {
-            if (listaVesti.SelectedValue != null)
-            {
-                Vest vest = (Vest)listaVesti.SelectedValue;
-
-                Vesti vesti = Vesti.Instance;
-                foreach (Vest v in vesti.listaVesti)
-                {
-                    if (v.Id.Equals(vest.Id))
-                    {
-                        vesti.listaVesti.Remove(v);
-                        Vesti.Instance.Serijalizacija();
-                        Vesti.Instance.Deserijalizacija();
-                        listaVesti.ItemsSource = Vesti.Instance.listaVesti;
-
-                        break;
-                    }
-                }
-            }
+            Vesti.Instance.ObrisiVest(vest);
+            Vesti.Instance.SacuvajPromene();
         }
 
-
-        public void IzmenaVesti(VestiProzor vestiProzor, IzmenaVesti izmenaVesti)
+        public void IzmenaVesti(VestDto novaVest, Vest staraVest)
         {
-
-            if (vestiProzor.ListaVesti.SelectedValue != null)
-            {
-                Vest vest = (Vest)vestiProzor.ListaVesti.SelectedValue;
-                vest.Id = izmenaVesti.naslovVesti.Text;
-                vest.Sadrzaj = izmenaVesti.sadrzajVesti.Text;
-
-                Vesti.Instance.Serijalizacija();
-                Vesti.Instance.Deserijalizacija();
-                vestiProzor.ListaVesti.ItemsSource = Vesti.Instance.listaVesti;
-
-            }
-
+            staraVest.Id = novaVest.Id;
+            staraVest.Sadrzaj = novaVest.Sadrzaj;
+            Vesti.Instance.SacuvajPromene();
         }
-
-
     }
 }

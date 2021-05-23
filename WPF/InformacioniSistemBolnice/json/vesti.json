@@ -1,10 +1,12 @@
 [
   {
     "Sadrzaj": "U prvoj radnoj nedelji maja, filijalu nase klinike u Novom Sadu posetice lekar nutricionista, Mihajlo Mandic. \r\nSvoje termine mozete zakazati od danas do 2. 5. putem aplikacije ili licno, na pultovima klinike, \r\nkod nasih sekretara.",
-    "Id": "Lekar gost ove nedelje - lekar nutricionista Mihajlo Mandic"
+    "Id": "Lekar gost ove nedelje - lekar nutricionista Mihajlo Mandic",
+    "VremeObjave": "2021-05-05T12:00:00"
   },
   {
     "Sadrzaj": "Dana 5. 6. 2021. godine bice odrzano svecano otvaranje nase nove filijale u Zrenanjinu.\r\nFilijala posjeduje 6 razlicitih odjela: kardiovaskularni, interni, radioloski, urgentni, otorinoralingoloski i odjel za bolnicko lecenje pacijenata.\r\nSvecanost povodom otvaranje bice odrzana u podne, a svecanosti ce uz zaposlene i gradjane prisustvovati i ministar zdravlja Vojvodine.",
-    "Id": "Otvaranje nove filijale"
+    "Id": "Otvaranje nove filijale",
+    "VremeObjave": "2021-12-05T20:00:00"
   }
 ]

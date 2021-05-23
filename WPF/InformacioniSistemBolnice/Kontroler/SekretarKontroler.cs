@@ -50,7 +50,6 @@ namespace Kontroler
             ZdravstveniKartonServis.Instance.DodjelaZdravstvenogKartonaPacijentu();
         }
 
-
         public void UklanjanjeNaloga(Pacijent pacijent)
         {
             UpravljanjeNalozimaPacijenata.Instance.UklanjanjeNaloga(pacijent);
@@ -60,7 +59,6 @@ namespace Kontroler
         {
             UpravljanjeUrgentnimSistemom.Instance.UklanjanjeGostujucegNaloga(listaPacijenata);
         }
-
 
         public void IzmenaNaloga(PacijentDto pacijentDto, Pacijent pacijent)
         {
@@ -77,7 +75,6 @@ namespace Kontroler
         {
             //UpravljanjeNalozimaPacijenata.Instance.PregledNaloga(pacijenti);
         }
-
 
         public void DefinisanjeAlergena(DefinisanjeAlergenaForma definisanjeAlergenaForma)
         {
@@ -100,13 +97,12 @@ namespace Kontroler
             UpravljanjeAlergenima.Instance.PregledAlergena(alergeniProzor);
         }
 
-
         public void DodavanjeAlergenaIzZdravstvenogKartona(Alergen alergen, string jmbg)
         {
             ZdravstveniKartonServis.Instance.DodavanjeAlergenaPacijentu(alergen, jmbg);
         }
 
-        public  void UklanjanjeAlergenaIzZdravstvenogKartona(Alergen alergen, string jmbg)
+        public void UklanjanjeAlergenaIzZdravstvenogKartona(Alergen alergen, string jmbg)
         {
             ZdravstveniKartonServis.Instance.BrisanjeAlergenaPacijentu(alergen, jmbg);
         }
@@ -131,38 +127,36 @@ namespace Kontroler
             UpravljanjeUrgentnimSistemom.Instance.PomeranjeVanrednogTermina(izborTerminaZaNovoZakazivanje, izborTerminaZaPomeranje);
         }
 
-        public void KreiranjeVesti(KreirajVijestProzor kreirajVijestProzor)
+        public void KreiranjeVesti(VestDto vestDto)
         {
-            UpravljanjeVestima.Instance.KreiranjeVesti(kreirajVijestProzor);
+            UpravljanjeVestima.Instance.KreiranjeVesti(vestDto);
         }
 
-        public void PregledVesti(ListView listaVesti)
+        public VestDto PregledVesti(Vest vest)
         {
-            UpravljanjeVestima.Instance.PregledVesti(listaVesti);
+            return UpravljanjeVestima.Instance.PregledVesti(vest);
         }
 
-        public void UklanjanjeVesti(ListView listaVesti)
+        public void UklanjanjeVesti(Vest vest)
         {
-            UpravljanjeVestima.Instance.UklanjanjeVesti(listaVesti);
+            UpravljanjeVestima.Instance.UklanjanjeVesti(vest);
         }
 
-        public void IzmenaVesti(VestiProzor vestiProzor, IzmenaVesti izmenaVesti)
+        public void IzmenaVesti(VestDto novaVest, Vest staraVest)
         {
-            UpravljanjeVestima.Instance.IzmenaVesti(vestiProzor, izmenaVesti);
+            UpravljanjeVestima.Instance.IzmenaVesti(novaVest, staraVest);
         }
 
         public void KreiranjeGostujucegPacijenta(GostujuciNalogDto gostujuciNalogDto)
         {
             UpravljanjeUrgentnimSistemom.Instance.KreiranjeGostujcegPacijenta(gostujuciNalogDto);
-            
+
         }
 
-        
         public void ZakazivanjeHitnogTermina(HitnoZakazivanjeDto hitnoZakazivanjeDto)
         {
             UpravljanjeUrgentnimSistemom.Instance.ZakazivanjeHitnogTermina(hitnoZakazivanjeDto);
         }
-
 
         public void PomeranjeTermina(TerminiLekaraZaPomeranjeDto terminiLekaraZaPomeranjeDto)
         {
@@ -172,6 +166,6 @@ namespace Kontroler
         public UpravljanjeNalozimaPacijenata upravljanjeNalozimaPacijenata;
         public UpravljanjeAlergenima upravljanjeAlergenima;
         public UpravljanjeTerminima upravljanjeTerminima;
-        
+
     }
 }
