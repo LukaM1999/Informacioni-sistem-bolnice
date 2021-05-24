@@ -10,14 +10,10 @@ using Repozitorijum;
 
 namespace Servis
 {
-    class UpravljanjeVestima
+    public class VestServis
     {
-        private static readonly Lazy<UpravljanjeVestima>
-          lazy =
-          new Lazy<UpravljanjeVestima>
-              (() => new UpravljanjeVestima());
-
-        public static UpravljanjeVestima Instance { get { return lazy.Value; } }
+        private static readonly Lazy<VestServis> Lazy = new(() => new VestServis());
+        public static VestServis Instance => Lazy.Value;
 
         public void KreiranjeVesti(VestDto vestDto)
         {

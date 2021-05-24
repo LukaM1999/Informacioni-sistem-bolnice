@@ -7,15 +7,15 @@ using System.Windows.Controls;
 
 namespace Servis
 {
-    public class UpravljanjeAlergenima
+    public class AlergenServis
     {
 
-        private static readonly Lazy<UpravljanjeAlergenima>
-           lazy =
-           new Lazy<UpravljanjeAlergenima>
-               (() => new UpravljanjeAlergenima());
+        private static readonly Lazy<AlergenServis>
+           Lazy =
+           new Lazy<AlergenServis>
+               (() => new AlergenServis());
 
-        public static UpravljanjeAlergenima Instance { get { return lazy.Value; } }
+        public static AlergenServis Instance { get { return Lazy.Value; } }
 
         public void KreiranjeAlergena(AlergenDto alergenDto)
         {

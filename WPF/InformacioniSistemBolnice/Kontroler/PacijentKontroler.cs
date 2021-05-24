@@ -13,42 +13,42 @@ namespace Kontroler
 
         public void Zakazivanje(Termin terminZaZakazivanje)
         {
-            UpravljanjeTerminima.Instance.Zakazivanje(terminZaZakazivanje);
+            TerminServis.Instance.Zakazivanje(terminZaZakazivanje);
         }
 
         public void Otkazivanje(Termin terminZaOtkazivanje)
         {
-            UpravljanjeTerminima.Instance.Otkazivanje(terminZaOtkazivanje);
+            TerminServis.Instance.Otkazivanje(terminZaOtkazivanje);
         }
 
         public void Pomeranje(Termin terminZaPomeranje, Termin noviTermin)
         {
-            UpravljanjeTerminima.Instance.Pomeranje(terminZaPomeranje, noviTermin);
+            TerminServis.Instance.Pomeranje(terminZaPomeranje, noviTermin);
         }
 
         public void Uvid(DataGrid listaZakazanihTermina)
         {
-            UpravljanjeTerminima.Instance.Uvid(listaZakazanihTermina);
+            TerminServis.Instance.Uvid(listaZakazanihTermina);
         }
 
         public void PopuniAnketuOLekaru(Termin zavrsenTermin, AnketaOLekaru novaAnketa)
         {
-            UpravljanjeAnketama.Instance.PopuniAnketuOLekaru(zavrsenTermin, novaAnketa);
+            AnketaServis.Instance.PopuniAnketuOLekaru(zavrsenTermin, novaAnketa);
         }
 
         public void PosaljiAnketuOBolnici(AnketaOBolnici anketa)
         {
-            UpravljanjeAnketama.Instance.PosaljiAnketuOBolnici(anketa);
+            AnketaServis.Instance.PosaljiAnketuOBolnici(anketa);
         }
 
         public void UkljuciNoviPodsetnik(Podsetnik novPodsetnik)
         {
-            UpravljanjeObavestenjimaPacijenta.Instance.UkljuciNoviPodsetnik(novPodsetnik);
+            ObavestenjePacijentaServis.Instance.UkljuciNoviPodsetnik(novPodsetnik);
         }
 
         public void DodajBeleske(Pacijent ulogovanPacijent, string beleske)
         {
-            IzmenaKartonaPacijenta.Instance.DodajBeleske(ulogovanPacijent, beleske);
+            AnamnezaServis.Instance.DodajBeleske(ulogovanPacijent, beleske);
         }
     }
 }

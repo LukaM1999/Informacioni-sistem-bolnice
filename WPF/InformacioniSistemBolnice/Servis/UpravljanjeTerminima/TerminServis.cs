@@ -9,27 +9,26 @@ using System.Linq;
 
 namespace Servis
 {
-    public class UpravljanjeTerminima
+    public class TerminServis
     {
-        private static readonly Lazy<UpravljanjeTerminima>
-           Lazy = new(() => new UpravljanjeTerminima());
-        public static UpravljanjeTerminima Instance => Lazy.Value;
+        private static readonly Lazy<TerminServis> Lazy = new(() => new TerminServis());
+        public static TerminServis Instance => Lazy.Value;
 
         public void Zakazivanje(Termin terminZaZakazivanje)
         {
             terminZaZakazivanje.Status = StatusTermina.zakazan;
-            UpravljanjeTerminimaPacijenata.Instance.ZakaziTerminKodPacijenta(terminZaZakazivanje);
-            UpravljanjeTerminimaLekara.Instance.ZakaziTerminKodLekara(terminZaZakazivanje);
-            UpravljanjeTerminimaProstorija.Instance.ZakaziTerminUnutarProstorije(terminZaZakazivanje);
+            TerminPacijentaServis.Instance.ZakaziTerminKodPacijenta(terminZaZakazivanje);
+            TerminLekaraServis.Instance.ZakaziTerminKodLekara(terminZaZakazivanje);
+            TerminProstorijeServis.Instance.ZakaziTerminUnutarProstorije(terminZaZakazivanje);
             TerminRepo.Instance.DodajTermin(terminZaZakazivanje);
             TerminRepo.Instance.Serijalizacija();
         }
 
         public void Otkazivanje(Termin terminZaOtkazivanje)
         {
-            UpravljanjeTerminimaPacijenata.Instance.OtkaziTerminKodPacijenta(terminZaOtkazivanje);
-            UpravljanjeTerminimaLekara.Instance.OtkaziTerminKodLekara(terminZaOtkazivanje);
-            UpravljanjeTerminimaProstorija.Instance.OtkaziTerminUnutarProstorije(terminZaOtkazivanje);
+            TerminPacijentaServis.Instance.OtkaziTerminKodPacijenta(terminZaOtkazivanje);
+            TerminLekaraServis.Instance.OtkaziTerminKodLekara(terminZaOtkazivanje);
+            TerminProstorijeServis.Instance.OtkaziTerminUnutarProstorije(terminZaOtkazivanje);
             TerminRepo.Instance.ObrisiTermin(terminZaOtkazivanje);
             TerminRepo.Instance.Serijalizacija();
         }
@@ -37,9 +36,9 @@ namespace Servis
         public void Pomeranje(Termin terminZaPomeranje, Termin noviTermin)
         {
             noviTermin.Status = StatusTermina.pomeren;
-            UpravljanjeTerminimaPacijenata.Instance.PomeriTerminKodPacijenta(terminZaPomeranje, noviTermin);
-            UpravljanjeTerminimaLekara.Instance.PomeriTerminKodLekara(terminZaPomeranje, noviTermin);
-            UpravljanjeTerminimaProstorija.Instance.PomeriTerminUnutarProstorije(terminZaPomeranje, noviTermin);
+            TerminPacijentaServis.Instance.PomeriTerminKodPacijenta(terminZaPomeranje, noviTermin);
+            TerminLekaraServis.Instance.PomeriTerminKodLekara(terminZaPomeranje, noviTermin);
+            TerminProstorijeServis.Instance.PomeriTerminUnutarProstorije(terminZaPomeranje, noviTermin);
             TerminRepo.Instance.ObrisiTermin(terminZaPomeranje);
             TerminRepo.Instance.DodajTermin(noviTermin);
             TerminRepo.Instance.Serijalizacija();

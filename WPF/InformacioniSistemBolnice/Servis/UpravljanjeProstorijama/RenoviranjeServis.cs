@@ -8,14 +8,14 @@ using Repozitorijum;
 
 namespace Servis
 {
-    class Renoviranje
+    public class RenoviranjeServis
     {
-        private static readonly Lazy<Renoviranje>
-           lazy =
-           new Lazy<Renoviranje>
-               (() => new Renoviranje());
+        private static readonly Lazy<RenoviranjeServis>
+           Lazy =
+           new Lazy<RenoviranjeServis>
+               (() => new RenoviranjeServis());
 
-        public static Renoviranje Instance { get { return lazy.Value; } }
+        public static RenoviranjeServis Instance { get { return Lazy.Value; } }
 
         public void ZakazivanjeRenoviranja(ProstorijaRenoviranjeDto dto)
         {

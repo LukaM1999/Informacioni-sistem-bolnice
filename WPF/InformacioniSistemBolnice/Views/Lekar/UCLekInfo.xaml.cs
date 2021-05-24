@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Xml;
+using Kontroler;
 using Model;
 using Repozitorijum;
 
@@ -24,14 +25,14 @@ namespace InformacioniSistemBolnice
     public partial class UCLekInfo : UserControl
     {
         public GlavniProzorLekara glavniProzorLekara;
-        public Lek lek;
+        private Lek lek;
 
-        public UCLekInfo(GlavniProzorLekara glavni, Lek lek)
+        public UCLekInfo(GlavniProzorLekara glavni, Lek izabranLek)
         {
             InitializeComponent();
             ZahtevRepo.Instance.Deserijalizacija();
             glavniProzorLekara = glavni;
-            this.lek = lek;
+            lek = izabranLek;
             naziv.Content = lek.Naziv;
             proizvodjac.Content = lek.Proizvodjac;
             sastojci.Text = lek.Sastojci;
@@ -45,20 +46,14 @@ namespace InformacioniSistemBolnice
         }
 
         private void Button_Click1(object sender, RoutedEventArgs e)
-        {
-            lek.Sastojci = sastojci.Text;
-            lek.Zamena = zamena.Text;
+        { 
+            LekarKontroler.Instance.IzmenaLeka(new(lek.Naziv, lek.Proizvodjac, sastojci.Text, zamena.Text, lek.Alergen));
             if (!string.IsNullOrWhiteSpace(komentar.Text))
             {
-                Zahtev zahtev = new Zahtev(komentar.Text,
-                (glavniProzorLekara.ulogovanLekar.Ime + " " + glavniProzorLekara.ulogovanLekar.Prezime).ToString());
+                LekarKontroler.Instance.KreirajZahtev(new(komentar.Text,
+                    (glavniProzorLekara.ulogovanLekar.Ime + " " + glavniProzorLekara.ulogovanLekar.Prezime)));
                 MessageBox.Show("Uspesno ste poslali zahtev");
-                ZahtevRepo.Instance.Zahtevi.Add(zahtev);
-                ZahtevRepo.Instance.Serijalizacija();
-                ZahtevRepo.Instance.Deserijalizacija();
             }
-            LekRepo.Instance.Serijalizacija();
-            LekRepo.Instance.Deserijalizacija();
             UCLekovi lekovi = new UCLekovi(glavniProzorLekara);
             glavniProzorLekara.contentControl.Content = lekovi;
         }

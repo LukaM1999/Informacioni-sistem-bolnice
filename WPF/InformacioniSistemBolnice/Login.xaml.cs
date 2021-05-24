@@ -28,8 +28,8 @@ namespace InformacioniSistemBolnice
             Repozitorijum.StatickaOpremaRepo.Instance.Deserijalizacija();
             ProstorijaRepo.Instance.Deserijalizacija();
             RenoviranjeRepo.Instance.Deserijalizacija();
-            new Thread(RasporedjivanjeStatickeOpreme.Instance.ProveraPremestajaOpreme).Start();
-            new Thread(Renoviranje.Instance.ProveraRenoviranja).Start();
+            new Thread(RaspodelaStatickeOpremeServis.Instance.ProveraPremestajaOpreme).Start();
+            new Thread(RenoviranjeServis.Instance.ProveraRenoviranja).Start();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

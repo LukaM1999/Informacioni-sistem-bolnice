@@ -30,10 +30,14 @@ namespace Repozitorijum
             Zahtevi = new ObservableCollection<Zahtev>();
         }
 
-        public void SacuvajPromene()
+        public void DodajZahtev(Zahtev noviZahtev)
         {
-            Serijalizacija();
-            Deserijalizacija();
+            Zahtevi.Add(noviZahtev);
+        } 
+
+        public bool ObrisiZahtev(Zahtev zahtev)
+        {
+            return Zahtevi.Remove(zahtev);
         }
     }
 }

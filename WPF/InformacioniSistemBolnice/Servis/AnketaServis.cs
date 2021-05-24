@@ -9,11 +9,11 @@ using Repozitorijum;
 
 namespace Servis
 {
-    public class UpravljanjeAnketama
+    public class AnketaServis
     {
-        private static readonly Lazy<UpravljanjeAnketama>
-            Lazy = new(() => new UpravljanjeAnketama());
-        public static UpravljanjeAnketama Instance => Lazy.Value;
+        private static readonly Lazy<AnketaServis>
+            Lazy = new(() => new AnketaServis());
+        public static AnketaServis Instance => Lazy.Value;
 
         private const int TerminaDoAnkete = 3;
         private const int MesecaDoAnkete = 4;

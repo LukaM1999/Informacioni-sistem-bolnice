@@ -8,10 +8,11 @@ using Repozitorijum;
 
 namespace Servis
 {
-    public class UpravljanjeLekovima
+    public class LekServis
     {
-        private static readonly Lazy<UpravljanjeLekovima> lazy = new Lazy<UpravljanjeLekovima> (() => new UpravljanjeLekovima());
-        public static UpravljanjeLekovima Instance { get { return lazy.Value; } }
+        private static readonly Lazy<LekServis> Lazy = new(() => new LekServis());
+        public static LekServis Instance => Lazy.Value;
+
         public void KreiranjeLeka(LekDto dto)
         {
             LekRepo.Instance.Lekovi.Add(new(dto.Naziv, dto.Proizvodjac, dto.Sastojci, dto.Zamena, dto.Alergeni));

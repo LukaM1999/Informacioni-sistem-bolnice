@@ -5,11 +5,11 @@ using Repozitorijum;
 
 namespace Servis
 {
-    public class RasporedjivanjeDinamickeOpreme
+    public class RaspodelaDinamickeOpremeServis
     {
-        private static readonly Lazy<RasporedjivanjeDinamickeOpreme> lazy = new Lazy<RasporedjivanjeDinamickeOpreme> 
-            (() => new RasporedjivanjeDinamickeOpreme());
-        public static RasporedjivanjeDinamickeOpreme Instance { get { return lazy.Value; } }
+        private static readonly Lazy<RaspodelaDinamickeOpremeServis> Lazy = new Lazy<RaspodelaDinamickeOpremeServis> 
+            (() => new RaspodelaDinamickeOpremeServis());
+        public static RaspodelaDinamickeOpremeServis Instance { get { return Lazy.Value; } }
         public void Premestanje(RaspodelaDinamickeOpremeDto dto)
         {
             if (dto.IzProstorijeId == null)

@@ -14,5 +14,10 @@ namespace Model
         {
             ReceptId = id;
         }
+
+        public void DodajTerapiju(Terapija novaTerapija)
+        {
+            terapije.Add(novaTerapija);
+        }
     }
 }

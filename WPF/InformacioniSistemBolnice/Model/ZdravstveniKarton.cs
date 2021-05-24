@@ -82,5 +82,10 @@ namespace Model
             KategorijaZdravstveneZastite = kategorijaZdravZastite;
             PodaciOZaposlenjuIZanimanju = podaciOZaposlenjuiZanimanju;
         }
+
+        public void DodajRecept(Recept noviRecept)
+        {
+            recepti.Add(noviRecept);
+        }
     }
 }

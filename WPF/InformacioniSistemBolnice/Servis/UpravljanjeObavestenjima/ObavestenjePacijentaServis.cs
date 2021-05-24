@@ -10,11 +10,11 @@ using Repozitorijum;
 
 namespace Servis
 {
-    public class UpravljanjeObavestenjimaPacijenta
+    public class ObavestenjePacijentaServis
     {
-        private static readonly Lazy<UpravljanjeObavestenjimaPacijenta>
-            Lazy = new(() => new UpravljanjeObavestenjimaPacijenta());
-        public static UpravljanjeObavestenjimaPacijenta Instance => Lazy.Value;
+        private static readonly Lazy<ObavestenjePacijentaServis>
+            Lazy = new(() => new ObavestenjePacijentaServis());
+        public static ObavestenjePacijentaServis Instance => Lazy.Value;
 
         public void UkljuciPodsetnike(string jmbgPacijenta)
         {

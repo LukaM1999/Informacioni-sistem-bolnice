@@ -10,44 +10,45 @@ namespace Kontroler
     public class LekarKontroler
     {
         private static readonly Lazy<LekarKontroler>
-             lazy =
+             Lazy =
              new Lazy<LekarKontroler>
                  (() => new LekarKontroler());
 
-        public static LekarKontroler Instance { get { return lazy.Value; } }
+        public static LekarKontroler Instance { get { return Lazy.Value; } }
 
         public void Zakazivanje(Termin izabranTermin)
         {
-            UpravljanjeTerminima.Instance.Zakazivanje(izabranTermin);
+            TerminServis.Instance.Zakazivanje(izabranTermin);
         }
 
         public void Otkazivanje(Termin izabranTermin)
         {
-            UpravljanjeTerminima.Instance.Otkazivanje(izabranTermin);
+            TerminServis.Instance.Otkazivanje(izabranTermin);
         }
 
         public void Pomeranje(Termin terminZaPomeranje, Termin noviTermin)
         {
-            UpravljanjeTerminima.Instance.Pomeranje(terminZaPomeranje, noviTermin);
+            TerminServis.Instance.Pomeranje(terminZaPomeranje, noviTermin);
         }
 
         public void Uvid(DataGrid listaZakazanihTerminaLekara)
         {
-            UpravljanjeTerminimaLekara.Instance.Uvid(listaZakazanihTerminaLekara);
+            TerminLekaraServis.Instance.Uvid(listaZakazanihTerminaLekara);
         }
 
-        public UpravljanjeTerminimaLekara upravljanjeTerminimaLekara;
-        public IzmenaKartonaPacijenta izmenaKartonaPacijenta;
-        
         public void IzdavanjeRecepta(ReceptDto recept)
         {
-            IzmenaKartonaPacijenta.Instance.IzdavanjeRecepta(recept);
+            ReceptServis.Instance.IzdajRecept(recept);
         }
 
-        public void DodavanjeAnamneze(AnamnezaForma anamneza)
+        public void DodavanjeAnamneze(AnamnezaDto anamneza)
         {
-            IzmenaKartonaPacijenta.Instance.DodavanjeAnamneze(anamneza);
+            AnamnezaServis.Instance.DodajAnamnezu(anamneza);
         }
+
+        public void IzmenaLeka(LekDto lek) => LekServis.Instance.IzmenaLeka(lek);
+
+        public void KreirajZahtev(ZahtevDto zahtev) => ZahtevServis.Instance.KreirajZahtev(zahtev);
 
     }
 }

@@ -10,10 +10,10 @@ using System.Threading.Tasks;
 
 namespace Servis
 {
-    public class UpravljanjeNalozimaLekara
+    public class LekarServis
     {
-        private static readonly Lazy<UpravljanjeNalozimaLekara> Lazy = new(() => new UpravljanjeNalozimaLekara());
-        public static UpravljanjeNalozimaLekara Instance => Lazy.Value;
+        private static readonly Lazy<LekarServis> Lazy = new(() => new LekarServis());
+        public static LekarServis Instance => Lazy.Value;
 
         public void KreirajNalog(LekarDto lekarDto)
         {

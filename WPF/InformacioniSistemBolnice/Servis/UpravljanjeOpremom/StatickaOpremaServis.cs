@@ -6,15 +6,10 @@ using System.Windows.Controls;
 
 namespace Servis
 {
-    public class UpravljanjeStatickomOpremom
+    public class StatickaOpremaServis
     {
-
-        private static readonly Lazy<UpravljanjeStatickomOpremom>
-           lazy =
-           new Lazy<UpravljanjeStatickomOpremom>
-               (() => new UpravljanjeStatickomOpremom());
-
-        public static UpravljanjeStatickomOpremom Instance { get { return lazy.Value; } }
+        private static readonly Lazy<StatickaOpremaServis> Lazy = new(() => new StatickaOpremaServis());
+        public static StatickaOpremaServis Instance => Lazy.Value;
 
         public void KreiranjeOpreme(StatickaOpremaDto dto)
         {

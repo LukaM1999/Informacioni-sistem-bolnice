@@ -6,11 +6,11 @@ using Repozitorijum;
 
 namespace Servis
 {
-    class UpravljanjeAntiTrollMehanizmom
+    public class AntiTrollServis
     {
-        private static readonly Lazy<UpravljanjeAntiTrollMehanizmom>
-            Lazy = new(() => new UpravljanjeAntiTrollMehanizmom());
-        public static UpravljanjeAntiTrollMehanizmom Instance { get { return Lazy.Value; } }
+        private static readonly Lazy<AntiTrollServis>
+            Lazy = new(() => new AntiTrollServis());
+        public static AntiTrollServis Instance { get { return Lazy.Value; } }
 
         private const int MaksimalniBrojMeseci = 12;
         private const int MaksimalnoMesecnihTermina = 3;

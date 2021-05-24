@@ -27,11 +27,11 @@ namespace InformacioniSistemBolnice
 
         private void PokreniNiti()
         {
-            new Thread(() => ProveraZavrsenostiTermina.Instance.ProveriZavrsenostTermina(ulogovanPacijent)).Start();
-            new Thread(() => UpravljanjeAntiTrollMehanizmom.Instance.ProveriMalicioznostPacijenta(ulogovanPacijent)).Start();
-            UpravljanjeAnketama.Instance.OtvoriAnketuOBolnici(ulogovanPacijent);
-            UpravljanjeObavestenjimaPacijenta.Instance.UkljuciPodsetnike(ulogovanPacijent.Jmbg);
-            new Thread(() => UpravljanjeObavestenjimaTerapija.Instance.UkljuciObavestenja(ulogovanPacijent)).Start();
+            new Thread(() => ZavrsenTerminServis.Instance.ProveriZavrsenostTermina(ulogovanPacijent)).Start();
+            new Thread(() => AntiTrollServis.Instance.ProveriMalicioznostPacijenta(ulogovanPacijent)).Start();
+            AnketaServis.Instance.OtvoriAnketuOBolnici(ulogovanPacijent);
+            ObavestenjePacijentaServis.Instance.UkljuciPodsetnike(ulogovanPacijent.Jmbg);
+            new Thread(() => ObavestenjeTerapijeServis.Instance.UkljuciObavestenja(ulogovanPacijent)).Start();
         }
 
         private void InicijalizujProzor(string korisnickoIme, string lozinka)

@@ -13,26 +13,26 @@ namespace Kontroler
 
         public void KreiranjeNalogaLekara(LekarDto lekarDto)
         {
-            UpravljanjeNalozimaLekara.Instance.KreirajNalog(lekarDto);
+            LekarServis.Instance.KreirajNalog(lekarDto);
         }
 
         public void UklanjanjeNalogaLekara(Lekar lekar)
         {
-            UpravljanjeNalozimaLekara.Instance.UkloniNalog(lekar);
+            LekarServis.Instance.UkloniNalog(lekar);
         }
 
         public void IzmenaNalogaLekara(LekarDto lekarDto, Lekar lekar)
         {
-            UpravljanjeNalozimaLekara.Instance.IzmeniNalog(lekarDto, lekar);
+            LekarServis.Instance.IzmeniNalog(lekarDto, lekar);
         }
         public LekarDto PregledNalogaLekara(Lekar lekar)
         {
-            return UpravljanjeNalozimaLekara.Instance.PregledajNalog(lekar);
+            return LekarServis.Instance.PregledajNalog(lekar);
         }
 
         public void KreiranjeNaloga(PacijentDto pacijentDto)
         {
-            UpravljanjeNalozimaPacijenata.Instance.KreirajNalog(pacijentDto);
+            PacijentServis.Instance.KreirajNalog(pacijentDto);
         }
 
         public void KreiranjeZdravstvenogKartona(ZdravstveniKartonDto zdravstveniKartonDto,
@@ -48,17 +48,17 @@ namespace Kontroler
 
         public void UklanjanjeNaloga(Pacijent pacijent)
         {
-            UpravljanjeNalozimaPacijenata.Instance.UkloniNalog(pacijent);
+            PacijentServis.Instance.UkloniNalog(pacijent);
         }
 
         public void UklanjanjeGostujucegNaloga(ListView listaPacijenata)
         {
-            UpravljanjeUrgentnimSistemom.Instance.UklanjanjeGostujucegNaloga(listaPacijenata);
+            UrgentniSistemServis.Instance.UklanjanjeGostujucegNaloga(listaPacijenata);
         }
 
         public void IzmenaNaloga(PacijentDto pacijentDto, Pacijent pacijent)
         {
-            UpravljanjeNalozimaPacijenata.Instance.IzmeniNalog(pacijentDto, pacijent);
+            PacijentServis.Instance.IzmeniNalog(pacijentDto, pacijent);
         }
 
         public void IzmenaZdravstvenogKartona(ZdravstveniKartonDto zdravstveniKartonDto, ZdravstveniKarton zdravstveniKarton,
@@ -69,23 +69,23 @@ namespace Kontroler
 
         public void DefinisanjeAlergena(AlergenDto alergen)
         {
-            UpravljanjeAlergenima.Instance.KreiranjeAlergena(alergen);
+            AlergenServis.Instance.KreiranjeAlergena(alergen);
 
         }
 
         public void IzmjenaAlergena(AlergenDto noviAlergen, Alergen stariAlergen)
         {
-            UpravljanjeAlergenima.Instance.IzmenaAlergena(noviAlergen, stariAlergen);
+            AlergenServis.Instance.IzmenaAlergena(noviAlergen, stariAlergen);
         }
 
         public void UklanjanjeAlergena(Alergen alergen)
         {
-            UpravljanjeAlergenima.Instance.UklanjanjeAlergena(alergen);
+            AlergenServis.Instance.UklanjanjeAlergena(alergen);
         }
 
         public AlergenDto PregledAlergena(Alergen alergen)
         {
-            return UpravljanjeAlergenima.Instance.PregledAlergena(alergen);
+            return AlergenServis.Instance.PregledAlergena(alergen);
         }
 
         public void DodavanjeAlergenaIzZdravstvenogKartona(Alergen alergen, string jmbg)
@@ -100,58 +100,58 @@ namespace Kontroler
 
         public void ZakazivanjeTermina(Termin termin)
         {
-            UpravljanjeTerminima.Instance.Zakazivanje(termin);
+            TerminServis.Instance.Zakazivanje(termin);
         }
 
         public void PomjeranjeTerminaPacijenata(Termin terminZaPomeranje, Termin noviTermin)
         {
-            UpravljanjeTerminima.Instance.Pomeranje(terminZaPomeranje, noviTermin);
+            TerminServis.Instance.Pomeranje(terminZaPomeranje, noviTermin);
         }
 
         public void Otkazivanje(Termin termin)
         {
-            UpravljanjeTerminima.Instance.Otkazivanje(termin);
+            TerminServis.Instance.Otkazivanje(termin);
         }
 
         public void PomeranjeVanrednogTerminaPacijenta(IzborTerminaZaNovoZakazivanje izborTerminaZaNovoZakazivanje, IzborTerminaZaPomeranje izborTerminaZaPomeranje)
         {
-            UpravljanjeUrgentnimSistemom.Instance.PomeranjeVanrednogTermina(izborTerminaZaNovoZakazivanje, izborTerminaZaPomeranje);
+            UrgentniSistemServis.Instance.PomeranjeVanrednogTermina(izborTerminaZaNovoZakazivanje, izborTerminaZaPomeranje);
         }
 
         public void KreiranjeVesti(VestDto vestDto)
         {
-            UpravljanjeVestima.Instance.KreiranjeVesti(vestDto);
+            VestServis.Instance.KreiranjeVesti(vestDto);
         }
 
         public VestDto PregledVesti(Vest vest)
         {
-            return UpravljanjeVestima.Instance.PregledVesti(vest);
+            return VestServis.Instance.PregledVesti(vest);
         }
 
         public void UklanjanjeVesti(Vest vest)
         {
-            UpravljanjeVestima.Instance.UklanjanjeVesti(vest);
+            VestServis.Instance.UklanjanjeVesti(vest);
         }
 
         public void IzmenaVesti(VestDto novaVest, Vest staraVest)
         {
-            UpravljanjeVestima.Instance.IzmenaVesti(novaVest, staraVest);
+            VestServis.Instance.IzmenaVesti(novaVest, staraVest);
         }
 
         public void KreiranjeGostujucegPacijenta(GostujuciNalogDto gostujuciNalogDto)
         {
-            UpravljanjeUrgentnimSistemom.Instance.KreiranjeGostujcegPacijenta(gostujuciNalogDto);
+            UrgentniSistemServis.Instance.KreiranjeGostujcegPacijenta(gostujuciNalogDto);
 
         }
 
         public void ZakazivanjeHitnogTermina(HitnoZakazivanjeDto hitnoZakazivanjeDto)
         {
-            UpravljanjeUrgentnimSistemom.Instance.ZakazivanjeHitnogTermina(hitnoZakazivanjeDto);
+            UrgentniSistemServis.Instance.ZakazivanjeHitnogTermina(hitnoZakazivanjeDto);
         }
 
         public void PomeranjeTermina(TerminiLekaraZaPomeranjeDto terminiLekaraZaPomeranjeDto)
         {
-            UpravljanjeUrgentnimSistemom.Instance.PomeranjeTermina(terminiLekaraZaPomeranjeDto);
+            UrgentniSistemServis.Instance.PomeranjeTermina(terminiLekaraZaPomeranjeDto);
         }
     }
 }

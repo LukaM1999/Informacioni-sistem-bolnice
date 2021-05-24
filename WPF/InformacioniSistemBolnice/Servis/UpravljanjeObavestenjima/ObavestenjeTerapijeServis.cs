@@ -9,11 +9,10 @@ using Model;
 
 namespace Servis
 {
-    public class UpravljanjeObavestenjimaTerapija
+    public class ObavestenjeTerapijeServis
     {
-        private static readonly Lazy<UpravljanjeObavestenjimaTerapija>
-            Lazy = new(() => new UpravljanjeObavestenjimaTerapija());
-        public static UpravljanjeObavestenjimaTerapija Instance { get { return Lazy.Value; } }
+        private static readonly Lazy<ObavestenjeTerapijeServis> Lazy = new(() => new ObavestenjeTerapijeServis());
+        public static ObavestenjeTerapijeServis Instance => Lazy.Value;
 
         private Pacijent ulogovanPacijent;
         private Terapija trenutnaTerapija;

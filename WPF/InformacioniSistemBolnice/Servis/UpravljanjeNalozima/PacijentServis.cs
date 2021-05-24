@@ -8,11 +8,11 @@ using System.Linq;
 
 namespace Servis
 {
-    public class UpravljanjeNalozimaPacijenata
+    public class PacijentServis
     {
-        private static readonly Lazy<UpravljanjeNalozimaPacijenata>
-          Lazy =new(() => new UpravljanjeNalozimaPacijenata());
-        public static UpravljanjeNalozimaPacijenata Instance => Lazy.Value;
+        private static readonly Lazy<PacijentServis>
+          Lazy =new(() => new PacijentServis());
+        public static PacijentServis Instance => Lazy.Value;
 
         private PacijentDto pacijentoviPodaci;
         private Pacijent pacijentZaIzmenu;

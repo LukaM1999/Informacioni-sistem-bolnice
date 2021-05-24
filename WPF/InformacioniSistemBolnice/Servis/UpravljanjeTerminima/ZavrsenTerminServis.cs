@@ -9,11 +9,10 @@ using Repozitorijum;
 
 namespace Servis
 {
-    public class ProveraZavrsenostiTermina
+    public class ZavrsenTerminServis
     {
-        private static readonly Lazy<ProveraZavrsenostiTermina>
-            Lazy = new(() => new ProveraZavrsenostiTermina());
-        public static ProveraZavrsenostiTermina Instance { get { return Lazy.Value; } }
+        private static readonly Lazy<ZavrsenTerminServis> Lazy = new(() => new ZavrsenTerminServis());
+        public static ZavrsenTerminServis Instance => Lazy.Value;
 
         public Pacijent ulogovanPacijent;
         public Termin pacijentovTermin;

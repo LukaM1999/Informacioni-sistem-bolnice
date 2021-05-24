@@ -7,11 +7,11 @@ using System.Linq;
 
 namespace Servis
 {
-    public class UpravljanjeTerminimaPacijenata
+    public class TerminPacijentaServis
     {
-        private static readonly Lazy<UpravljanjeTerminimaPacijenata>
-           Lazy = new(() => new UpravljanjeTerminimaPacijenata());
-        public static UpravljanjeTerminimaPacijenata Instance => Lazy.Value;
+        private static readonly Lazy<TerminPacijentaServis>
+           Lazy = new(() => new TerminPacijentaServis());
+        public static TerminPacijentaServis Instance => Lazy.Value;
 
         public void ZakaziTerminKodPacijenta(Termin terminZaZakazivanje)
         {

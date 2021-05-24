@@ -16,26 +16,25 @@ using Kontroler;
 
 namespace InformacioniSistemBolnice
 {
-    /// <summary>
-    /// Interaction logic for AnamnezaForma.xaml
-    /// </summary>
     public partial class AnamnezaForma : Window
     {
-        public Pacijent p;
+        public Pacijent pacijent;
         public AnamnezaForma(Pacijent pacijent)
         {
             InitializeComponent();
-            p = pacijent;
+            this.pacijent = pacijent;
             if (pacijent.zdravstveniKarton.Anamneza == null) return;
-            this.prvi.Text = pacijent.zdravstveniKarton.Anamneza.SadasnjaBolest;
-            this.drugi.Text = pacijent.zdravstveniKarton.Anamneza.RanijeBolesti;
-            this.treci.Text = pacijent.zdravstveniKarton.Anamneza.PorodicneAnamneze;
-            this.peti.Text = pacijent.zdravstveniKarton.Anamneza.Zakljucak;
+            SadasnjaBolest.Text = pacijent.zdravstveniKarton.Anamneza.SadasnjaBolest;
+            IstorijaBolesti.Text = pacijent.zdravstveniKarton.Anamneza.RanijeBolesti;
+            PorodicneBolesti.Text = pacijent.zdravstveniKarton.Anamneza.PorodicneAnamneze;
+            Zakljucak.Text = pacijent.zdravstveniKarton.Anamneza.Zakljucak;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            LekarKontroler.Instance.DodavanjeAnamneze(this);
+            AnamnezaDto anamneza =
+                new(pacijent.Jmbg, SadasnjaBolest.Text, IstorijaBolesti.Text, PorodicneBolesti.Text, Zakljucak.Text);
+            LekarKontroler.Instance.DodavanjeAnamneze(anamneza);
             this.Close();
         }
     }

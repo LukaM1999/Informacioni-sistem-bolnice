@@ -8,15 +8,15 @@ using InformacioniSistemBolnice;
 
 namespace Servis
 {
-    public class RasporedjivanjeStatickeOpreme
+    public class RaspodelaStatickeOpremeServis
     {
 
-        private static readonly Lazy<RasporedjivanjeStatickeOpreme>
-           lazy =
-           new Lazy<RasporedjivanjeStatickeOpreme>
-               (() => new RasporedjivanjeStatickeOpreme());
+        private static readonly Lazy<RaspodelaStatickeOpremeServis>
+           Lazy =
+           new Lazy<RaspodelaStatickeOpremeServis>
+               (() => new RaspodelaStatickeOpremeServis());
 
-        public static RasporedjivanjeStatickeOpreme Instance { get { return lazy.Value; } }
+        public static RaspodelaStatickeOpremeServis Instance { get { return Lazy.Value; } }
 
         public void ZakazivanjePremestanja(RaspodelaStatickeOpremeDto dto)
         {

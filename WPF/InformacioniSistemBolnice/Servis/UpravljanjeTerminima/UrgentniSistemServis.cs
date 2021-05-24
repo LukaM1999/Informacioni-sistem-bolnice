@@ -12,14 +12,14 @@ using System.Windows.Controls;
 
 namespace Servis
 {
-    class UpravljanjeUrgentnimSistemom
+    public class UrgentniSistemServis
     {
-        private static readonly Lazy<UpravljanjeUrgentnimSistemom>
-           lazy =
-           new Lazy<UpravljanjeUrgentnimSistemom>
-               (() => new UpravljanjeUrgentnimSistemom());
+        private static readonly Lazy<UrgentniSistemServis>
+           Lazy =
+           new Lazy<UrgentniSistemServis>
+               (() => new UrgentniSistemServis());
 
-        public static UpravljanjeUrgentnimSistemom Instance { get { return lazy.Value; } }
+        public static UrgentniSistemServis Instance { get { return Lazy.Value; } }
 
 
 

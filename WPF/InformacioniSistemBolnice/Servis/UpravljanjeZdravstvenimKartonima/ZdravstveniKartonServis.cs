@@ -14,10 +14,10 @@ namespace Servis
     public class ZdravstveniKartonServis
     {
         private static readonly Lazy<ZdravstveniKartonServis>
-          lazy =
+          Lazy =
           new Lazy<ZdravstveniKartonServis>
               (() => new ZdravstveniKartonServis());
-        public static ZdravstveniKartonServis Instance { get { return lazy.Value; } }
+        public static ZdravstveniKartonServis Instance { get { return Lazy.Value; } }
 
         public void KreirajZdravstveniKarton(ZdravstveniKartonDto zdravstveniKartonDto,
                                                 PodaciOZaposlenjuIZanimanjuDto podaciOZaposlenjuIZanimanjuDto)

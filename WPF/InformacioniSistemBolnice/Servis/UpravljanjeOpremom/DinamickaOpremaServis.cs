@@ -5,10 +5,11 @@ using InformacioniSistemBolnice;
 
 namespace Servis
 {
-    public class UpravljanjeDinamickomOpremom
+    public class DinamickaOpremaServis
     {
-        private static readonly Lazy<UpravljanjeDinamickomOpremom> lazy = new Lazy<UpravljanjeDinamickomOpremom> (() => new UpravljanjeDinamickomOpremom());
-        public static UpravljanjeDinamickomOpremom Instance { get { return lazy.Value; } }
+        private static readonly Lazy<DinamickaOpremaServis> Lazy = new(() => new DinamickaOpremaServis());
+        public static DinamickaOpremaServis Instance => Lazy.Value;
+
         public void KreiranjeOpreme(DinamickaOpremaDto dto)
         {
             if (DinamickaOpremaRepo.Instance.NadjiPoTipu(dto.Tip) == null)

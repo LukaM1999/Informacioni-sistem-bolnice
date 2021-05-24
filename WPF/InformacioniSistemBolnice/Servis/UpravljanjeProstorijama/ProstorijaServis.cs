@@ -5,12 +5,11 @@ using InformacioniSistemBolnice;
 using System.Windows.Controls;
 namespace Servis
 {
-   public class UpravljanjeProstorijama
+   public class ProstorijaServis
    {
-      private static readonly Lazy<UpravljanjeProstorijama> lazy = new Lazy<UpravljanjeProstorijama> (() => new UpravljanjeProstorijama());
+      private static readonly Lazy<ProstorijaServis> Lazy = new(() => new ProstorijaServis());
+      public static ProstorijaServis Instance => Lazy.Value;
 
-      public static UpravljanjeProstorijama Instance { get { return lazy.Value; } }
-      
       public void KreiranjeProstorije(ProstorijaDto dto)
       {
             ProstorijaRepo.Instance.Prostorije.Add(new Prostorija(dto.Sprat, dto.Tip, dto.Id, dto.JeZauzeta, dto.Inventar));

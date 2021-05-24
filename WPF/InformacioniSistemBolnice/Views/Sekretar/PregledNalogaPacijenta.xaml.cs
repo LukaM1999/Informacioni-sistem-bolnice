@@ -30,7 +30,7 @@ namespace InformacioniSistemBolnice
 
         private void zdravstveniKartonPacijenta_Click(object sender, RoutedEventArgs e)
         {
-           //UpravljanjeNalozimaPacijenata.Instance.PregledZdravstvenogKartona(this);
+           //PacijentServis.Instance.PregledZdravstvenogKartona(this);
         }
 
         private void NazadBtn_Click(object sender, RoutedEventArgs e)
