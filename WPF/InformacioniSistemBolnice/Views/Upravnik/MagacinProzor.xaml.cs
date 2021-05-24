@@ -50,6 +50,7 @@ namespace InformacioniSistemBolnice
             {
                 StatickaOprema oprema = (StatickaOprema)listViewStatOpreme.SelectedItem;
                 UpravnikKontroler.Instance.BrisanjeStatickeOpreme(new(oprema.Kolicina, oprema.Tip));
+                listViewStatOpreme.ItemsSource = StatickaOpremaRepo.Instance.ListaOpreme;
             }
         }
 
@@ -58,7 +59,6 @@ namespace InformacioniSistemBolnice
             if (listViewStatOpreme.SelectedValue != null)
             {
                 MagacinIzmeniProzor p = new MagacinIzmeniProzor(listViewStatOpreme);
-                p.postavljanjeVrednost();
                 p.Show();
             }
         }

@@ -34,21 +34,10 @@ namespace Servis
             StatickaOpremaRepo.Instance.SacuvajPromene();
         }
 
-        public void IzmenaOpreme(Model.StatickaOprema oprema, MagacinIzmeniProzor p)
+        public void IzmenaOpreme(StatickaOpremaDto dto)
         {
-             oprema.Kolicina = Int32.Parse(p.tb1.Text);
-             oprema.Tip = (TipStatickeOpreme)Enum.Parse(typeof(TipStatickeOpreme), p.cb1.Text, true);
-
-             Repozitorijum.StatickaOpremaRepo.Instance.Serijalizacija();
-             Repozitorijum.StatickaOpremaRepo.Instance.Deserijalizacija(); 
+            StatickaOpremaRepo.Instance.NadjiPoTipu(dto.Tip).Kolicina = dto.Kolicina;
+            StatickaOpremaRepo.Instance.SacuvajPromene();
         }
-
-        public void PregledOpreme()
-        {
-            throw new NotImplementedException();
-        }
-
-        public Repozitorijum.StatickaOpremaRepo magacin;
-
     }
 }
