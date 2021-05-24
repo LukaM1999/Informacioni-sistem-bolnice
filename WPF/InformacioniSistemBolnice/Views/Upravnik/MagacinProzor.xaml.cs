@@ -40,8 +40,8 @@ namespace InformacioniSistemBolnice
 
         private void dugmeKreirajOpemu_Click(object sender, RoutedEventArgs e)
         {
-            MagacinDodajProzor p = new MagacinDodajProzor(listViewStatOpreme);
-            p.Show();
+            MagacinDodajProzor prozor = new MagacinDodajProzor(listViewStatOpreme);
+            prozor.Show();
         }
 
         private void dugmeObrisiStatOpremu_Click(object sender, RoutedEventArgs e)
@@ -58,15 +58,15 @@ namespace InformacioniSistemBolnice
         {
             if (listViewStatOpreme.SelectedValue != null)
             {
-                MagacinIzmeniProzor p = new MagacinIzmeniProzor(listViewStatOpreme);
-                p.Show();
+                MagacinIzmeniProzor prozor = new MagacinIzmeniProzor(listViewStatOpreme);
+                prozor.Show();
             }
         }
 
         private void dugmeKreirajDinamickuOpremu_Click(object sender, RoutedEventArgs e)
         {
-            MagacinDodajDinamickuOpremu p = new MagacinDodajDinamickuOpremu(listViewDinamOpreme);
-            p.Show();
+            MagacinDodajDinamickuOpremu prozor = new MagacinDodajDinamickuOpremu(listViewDinamOpreme);
+            prozor.Show();
         }
 
         private void dugmeObrisiDinamOpremu_Click(object sender, RoutedEventArgs e)
@@ -83,9 +83,8 @@ namespace InformacioniSistemBolnice
         {
             if (listViewDinamOpreme.SelectedValue != null)
             {
-                MagacinIzmeniDinamickuOpremu p = new MagacinIzmeniDinamickuOpremu(listViewDinamOpreme);
-                p.postavljanjeVrednost();
-                p.Show();
+                MagacinIzmeniDinamickuOpremu prozor = new MagacinIzmeniDinamickuOpremu(listViewDinamOpreme);
+                prozor.Show();
             }
         }
 

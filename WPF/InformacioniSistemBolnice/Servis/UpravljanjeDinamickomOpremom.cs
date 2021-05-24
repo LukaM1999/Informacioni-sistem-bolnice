@@ -27,21 +27,10 @@ namespace Servis
             DinamickaOpremaRepo.Instance.SacuvajPromene();
         }
 
-        public void IzmenaOpreme(Model.DinamickaOprema oprema, MagacinIzmeniDinamickuOpremu p)
+        public void IzmenaOpreme(DinamickaOpremaDto dto)
         {
-            oprema.Kolicina = Int32.Parse(p.tb1.Text);
-            oprema.Tip = (TipDinamickeOpreme)Enum.Parse(typeof(TipDinamickeOpreme), p.cb1.Text, true);
-
-            Repozitorijum.DinamickaOpremaRepo.Instance.Serijalizacija();
-            Repozitorijum.DinamickaOpremaRepo.Instance.Deserijalizacija();
+            DinamickaOpremaRepo.Instance.NadjiPoTipu(dto.Tip).Kolicina = dto.Kolicina;
+            DinamickaOpremaRepo.Instance.SacuvajPromene();
         }
-
-        public void PregledOpreme()
-        {
-            throw new NotImplementedException();
-        }
-
-        public Repozitorijum.StatickaOpremaRepo magacin;
-
     }
 }

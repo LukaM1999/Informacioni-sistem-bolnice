@@ -18,12 +18,7 @@ namespace Kontroler
         public void IzmenaStatickeOpreme(StatickaOpremaDto dto) { UpravljanjeStatickomOpremom.Instance.IzmenaOpreme(dto); }
         public void KreiranjeDinamickeOpreme(DinamickaOpremaDto dto) { UpravljanjeDinamickomOpremom.Instance.KreiranjeOpreme(dto); }
         public void BrisanjeDinamickeOpreme(DinamickaOpremaDto dto) { UpravljanjeDinamickomOpremom.Instance.UklanjanjeOpreme(dto); }
-
-        public void IzmenaDinamickeOpreme(DinamickaOprema oprema, MagacinIzmeniDinamickuOpremu p)
-        {
-            UpravljanjeDinamickomOpremom.Instance.IzmenaOpreme(oprema, p);
-        }
-
+        public void IzmenaDinamickeOpreme(DinamickaOpremaDto dto) { UpravljanjeDinamickomOpremom.Instance.IzmenaOpreme(dto); }
         public void RasporedjivanjeDinamickeOpreme(RaspodelaDinamickeOpremeDto dto) { Servis.RasporedjivanjeDinamickeOpreme.Instance.Premestanje(dto); }
         public void RasporedjivanjeStatickeOpreme(RaspodelaStatickeOpremeDto dto) { Servis.RasporedjivanjeStatickeOpreme.Instance.ZakazivanjePremestanja(dto); }
         public void KreiranjeLeka(LekDto dto)
