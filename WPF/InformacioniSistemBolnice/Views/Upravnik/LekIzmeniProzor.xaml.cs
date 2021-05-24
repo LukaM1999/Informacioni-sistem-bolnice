@@ -44,9 +44,9 @@ namespace InformacioniSistemBolnice
         }
         private void btnPotvrdi_Click(object sender, RoutedEventArgs e)
         {
-            LekDto dto = new LekDto(tbNaziv.Text, tbProizvodjac.Text, tbSastojci.Text);
-            UpravnikKontroler.Instance.IzmenaLeka(dto, lek);
-            listaLekova.ItemsSource = Lekovi.Instance.listaLekova;
+            //LekDto dto = new LekDto(tbNaziv.Text, tbProizvodjac.Text, tbSastojci.Text);
+            //UpravnikKontroler.Instance.IzmenaLeka(dto, lek);
+            listaLekova.ItemsSource = Lekovi.Instance.ListaLekova;
             this.Close();
         }
     }

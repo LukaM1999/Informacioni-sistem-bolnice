@@ -21,16 +21,8 @@ namespace Kontroler
         public void IzmenaDinamickeOpreme(DinamickaOpremaDto dto) { UpravljanjeDinamickomOpremom.Instance.IzmenaOpreme(dto); }
         public void RasporedjivanjeDinamickeOpreme(RaspodelaDinamickeOpremeDto dto) { Servis.RasporedjivanjeDinamickeOpreme.Instance.Premestanje(dto); }
         public void RasporedjivanjeStatickeOpreme(RaspodelaStatickeOpremeDto dto) { Servis.RasporedjivanjeStatickeOpreme.Instance.ZakazivanjePremestanja(dto); }
-        public void KreiranjeLeka(LekDto dto)
-        {
-            UpravljanjeLekovima.Instance.KreiranjeLeka(dto);
-        }
-
-        public void BrisanjeLeka(Lek lek)
-        {
-            UpravljanjeLekovima.Instance.UklanjanjeLeka(lek);
-        }
-
+        public void KreiranjeLeka(LekDto dto) { UpravljanjeLekovima.Instance.KreiranjeLeka(dto); }
+        public void BrisanjeLeka(LekDto dto) { UpravljanjeLekovima.Instance.UklanjanjeLeka(dto); }
         public void IzmenaLeka(LekDto dto, Lek lek)
         {
             UpravljanjeLekovima.Instance.IzmenaLeka(dto, lek);

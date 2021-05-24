@@ -5,15 +5,22 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:InformacioniSistemBolnice"
         mc:Ignorable="d"
-        Title="LekDodajProzor" Height="589" Width="659">
+        Title="LekDodajProzor" Height="589" Width="883">
     <Grid>
         <Label Content="Proizvodjac:" HorizontalAlignment="Left" Margin="96,80,0,0" VerticalAlignment="Top" Height="30"/>
         <Button x:Name="btnPotvrdi" Content="Potvrdi" HorizontalAlignment="Left" Margin="425,447,0,0" VerticalAlignment="Top" Height="30" Width="100" Click="btnPotvrdi_Click"/>
         <TextBox x:Name="tbNaziv" HorizontalAlignment="Left" Margin="235,141,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="290" Height="30"/>
         <Label Content="Naziv:" HorizontalAlignment="Left" Margin="96,141,0,0" VerticalAlignment="Top" Height="30"/>
-        <Label Content="Sastojci" HorizontalAlignment="Left" Margin="96,198,0,0" VerticalAlignment="Top" Height="30"/>
-        <TextBox x:Name="tbSastojci" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="290" Height="172" Margin="235,198,0,0"/>
-        <TextBox x:Name="tbProizvodjac1" HorizontalAlignment="Left" Margin="235,80,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="290" Height="30"/>
+        <Label Content="Sastojci" HorizontalAlignment="Left" Margin="96,228,0,0" VerticalAlignment="Top" Height="30"/>
+        <TextBox x:Name="tbSastojci" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="290" Height="172" Margin="235,229,0,0"/>
+        <TextBox x:Name="tbProizvodjac" HorizontalAlignment="Left" Margin="235,80,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="290" Height="30"/>
+        <TextBox x:Name="tbZamena" HorizontalAlignment="Left" Margin="235,188,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="290" Height="30"/>
+        <Label Content="Zamena:" HorizontalAlignment="Left" Margin="96,188,0,0" VerticalAlignment="Top" Height="30"/>
+        <DataGrid x:Name="listaAlergena" HorizontalAlignment="Left" Height="198" Margin="604,203,0,0" VerticalAlignment="Top" Width="180"/>
+        <TextBox x:Name="tbNazivAlergena" HorizontalAlignment="Left" Margin="711,141,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="148" Height="30"/>
+        <Label Content="Alergeni:" HorizontalAlignment="Left" Margin="604,141,0,0" VerticalAlignment="Top" Height="30"/>
+        <Button x:Name="btnDodajAlergen" Content="Dodaj" HorizontalAlignment="Left" Margin="789,203,0,0" VerticalAlignment="Top" Height="35" Width="70" Click="btnDodajAlergen_Click"/>
+        <Button x:Name="btnObrisiAlergen" Content="Obrisi" HorizontalAlignment="Left" Margin="789,243,0,0" VerticalAlignment="Top" Width="70" Height="44" Click="btnObrisiAlergen_Click"/>
 
     </Grid>
 </Window>

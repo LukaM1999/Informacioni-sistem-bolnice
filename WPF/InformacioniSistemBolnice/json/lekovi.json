@@ -1,12 +1,26 @@
 [
   {
-    "alergen": [],
-    "Naziv": "Hemomicin",
+    "alergen": [
+      {
+        "Naziv": "lesnik"
+      },
+      {
+        "Naziv": "jagoda"
+      }
+    ],
+    "Naziv": "Enbicin",
     "Proizvodjac": "Galenika",
-    "Sastojci": "Nestoasdasdadadadsasdads",
-    "Zamena": "nesto",
-    "Alergen": [],
-    "tip": 0,
-    "kolicina": 0
+    "Sastojci": "sadasdsadasd",
+    "Zamena": "Gentamicin",
+    "Alergen": [
+      {
+        "Naziv": "lesnik"
+      },
+      {
+        "Naziv": "jagoda"
+      }
+    ],
+    "Tip": 0,
+    "Kolicina": 0
   }
 ]

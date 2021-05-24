@@ -37,18 +37,15 @@ namespace InformacioniSistemBolnice
             cbStaticka.ItemsSource = Enum.GetValues(typeof(TipStatickeOpreme));
             cbDinamicka.ItemsSource = Enum.GetValues(typeof(TipDinamickeOpreme));
         }
-
         private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
         }
-
         private void Dodaj(object sender, RoutedEventArgs e)
         {
             ProstorijaForma prozor = new ProstorijaForma(ListaProstorija);
             prozor.Show();
         }
-
         private void Obrisi(object sender, RoutedEventArgs e)
         {
             if (ListaProstorija.SelectedValue != null)
@@ -59,7 +56,6 @@ namespace InformacioniSistemBolnice
                 ListaProstorija.ItemsSource = listaProstorija;
             }
         }
-
         private void izmeniProstorijuDugme_Click(object sender, RoutedEventArgs e)
         {
             if (ListaProstorija.SelectedValue != null)
@@ -68,7 +64,6 @@ namespace InformacioniSistemBolnice
                 prozor.Show();
             }
         }
-
         private void infoDugme_Click(object sender, RoutedEventArgs e)
         {
             if (ListaProstorija.SelectedValue != null)
@@ -78,20 +73,17 @@ namespace InformacioniSistemBolnice
             }
 
         }
-
         private void magacinDugme_Click(object sender, RoutedEventArgs e)
         {
             DinamickaOpremaRepo.Instance.Deserijalizacija();
             MagacinProzor prozor = new MagacinProzor(ListaProstorija);
             prozor.Show();
         }
-
         private void lekoviDugme_Click(object sender, RoutedEventArgs e)
         {
             LekProzor prozor = new LekProzor();
             prozor.Show();
         }
-
         private void btnFilter_Click(object sender, RoutedEventArgs e)
         {
             ObservableCollection<Prostorija> novaListaProstorija = new ObservableCollection<Prostorija>();
@@ -99,8 +91,6 @@ namespace InformacioniSistemBolnice
             {
                 kolicina = int.Parse(tbKolicina.Text);
             }
-
-
             if ((bool)rbStaticka.IsChecked)
             {
                 TipStatickeOpreme tipStatickeOpreme = (TipStatickeOpreme)cbStaticka.SelectedItem;

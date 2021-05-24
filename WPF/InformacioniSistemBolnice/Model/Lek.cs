@@ -11,9 +11,7 @@ namespace Model
         public string Proizvodjac { get; set; }
 		public string Sastojci { get; set; }
         public string Zamena { get; set; }
-
         public ObservableCollection<Alergen> alergen;
-
         public ObservableCollection<Alergen> Alergen
         {
             get
@@ -32,7 +30,6 @@ namespace Model
                 }
             }
         }
-
         public void AddAlergen(Alergen newAlergen)
         {
             if (newAlergen == null)
@@ -42,7 +39,6 @@ namespace Model
             if (!this.alergen.Contains(newAlergen))
                 this.alergen.Add(newAlergen);
         }
-
         public void RemoveAlergen(Alergen oldAlergen)
         {
             if (oldAlergen == null)
@@ -51,19 +47,19 @@ namespace Model
                 if (this.alergen.Contains(oldAlergen))
                     this.alergen.Remove(oldAlergen);
         }
-
         public void RemoveAllAlergen()
         {
             if (alergen != null)
                 alergen.Clear();
         }
-
         public Lek() { }
-        public Lek(String naziv, String proizvodjac, String sastojci)
+        public Lek(String naziv, String proizvodjac, String sastojci, String zamena, ObservableCollection<Alergen> alergeni)
         {
-            this.Naziv = naziv;
-            this.Proizvodjac = proizvodjac;
-            this.Sastojci = sastojci;
+            Naziv = naziv;
+            Proizvodjac = proizvodjac;
+            Sastojci = sastojci;
+            Zamena = zamena;
+            Alergen = alergeni;
         }
         public Lek(string naziv, string proizvodjac, string sastojci, string zamena)
         {
