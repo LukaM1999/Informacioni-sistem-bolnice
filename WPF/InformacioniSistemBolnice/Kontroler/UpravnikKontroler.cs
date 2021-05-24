@@ -16,31 +16,16 @@ namespace Kontroler
         public void KreiranjeStatickeOpreme(StatickaOpremaDto dto) { UpravljanjeStatickomOpremom.Instance.KreiranjeOpreme(dto); }
         public void BrisanjeStatickeOpreme(StatickaOpremaDto dto) { UpravljanjeStatickomOpremom.Instance.UklanjanjeOpreme(dto); }
         public void IzmenaStatickeOpreme(StatickaOpremaDto dto) { UpravljanjeStatickomOpremom.Instance.IzmenaOpreme(dto); }
-        public void KreiranjeDinamickeOpreme(MagacinDodajDinamickuOpremu p)
-        {
-            UpravljanjeDinamickomOpremom.Instance.KreiranjeOpreme(p);
-        }
-
-        public void BrisanjeDinamickeOpreme(MagacinProzor p)
-        {
-            UpravljanjeDinamickomOpremom.Instance.UklanjanjeOpreme(p);
-        }
+        public void KreiranjeDinamickeOpreme(DinamickaOpremaDto dto) { UpravljanjeDinamickomOpremom.Instance.KreiranjeOpreme(dto); }
+        public void BrisanjeDinamickeOpreme(DinamickaOpremaDto dto) { UpravljanjeDinamickomOpremom.Instance.UklanjanjeOpreme(dto); }
 
         public void IzmenaDinamickeOpreme(DinamickaOprema oprema, MagacinIzmeniDinamickuOpremu p)
         {
             UpravljanjeDinamickomOpremom.Instance.IzmenaOpreme(oprema, p);
         }
 
-        public void RasporedjivanjeDinamickeOpreme(RaspodelaDinamickeOpremeDto dto) 
-        { 
-            Servis.RasporedjivanjeDinamickeOpreme.Instance.Premestanje(dto);
-        }
-
-        public void RasporedjivanjeStatickeOpreme(RaspodelaStatickeOpremeDto dto)
-        {
-            Servis.RasporedjivanjeStatickeOpreme.Instance.ZakazivanjePremestanja(dto);
-        }
-
+        public void RasporedjivanjeDinamickeOpreme(RaspodelaDinamickeOpremeDto dto) { Servis.RasporedjivanjeDinamickeOpreme.Instance.Premestanje(dto); }
+        public void RasporedjivanjeStatickeOpreme(RaspodelaStatickeOpremeDto dto) { Servis.RasporedjivanjeStatickeOpreme.Instance.ZakazivanjePremestanja(dto); }
         public void KreiranjeLeka(LekDto dto)
         {
             UpravljanjeLekovima.Instance.KreiranjeLeka(dto);

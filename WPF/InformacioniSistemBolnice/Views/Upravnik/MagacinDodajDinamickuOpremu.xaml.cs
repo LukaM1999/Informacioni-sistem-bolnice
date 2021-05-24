@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Kontroler;
+using Model;
+using Repozitorijum;
 
 namespace InformacioniSistemBolnice
 {
@@ -20,22 +22,22 @@ namespace InformacioniSistemBolnice
     /// </summary>
     public partial class MagacinDodajDinamickuOpremu : Window
     {
-        private DataGrid lista;
+        private DataGrid ListaDinamickeOpreme;
         public MagacinDodajDinamickuOpremu()
         {
             InitializeComponent();
         }
 
-        public MagacinDodajDinamickuOpremu(DataGrid lv)
+        public MagacinDodajDinamickuOpremu(DataGrid listaDinamickeOpreme)
         {
             InitializeComponent();
-            lista = lv;
+            ListaDinamickeOpreme = listaDinamickeOpreme;
         }
 
         private void dugmePotvrdi_Click(object sender, RoutedEventArgs e)
         {
-            UpravnikKontroler.Instance.KreiranjeDinamickeOpreme(this);
-            lista.ItemsSource = Repozitorijum.DinamickaOpremaRepo.Instance.ListaOpreme;
+            UpravnikKontroler.Instance.KreiranjeDinamickeOpreme(new(Int32.Parse(tbKol.Text), (TipDinamickeOpreme)Enum.Parse(typeof(TipDinamickeOpreme), cb1.Text)));
+            ListaDinamickeOpreme.ItemsSource = Repozitorijum.DinamickaOpremaRepo.Instance.ListaOpreme;
             this.Close();
         }
     }

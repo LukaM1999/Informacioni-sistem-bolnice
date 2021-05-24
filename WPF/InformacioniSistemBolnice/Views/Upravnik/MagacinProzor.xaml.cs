@@ -71,7 +71,12 @@ namespace InformacioniSistemBolnice
 
         private void dugmeObrisiDinamOpremu_Click(object sender, RoutedEventArgs e)
         {
-            UpravnikKontroler.Instance.BrisanjeDinamickeOpreme(this);
+            if (listViewDinamOpreme.SelectedValue != null)
+            {
+                DinamickaOprema oprema = (DinamickaOprema)listViewDinamOpreme.SelectedItem;
+                UpravnikKontroler.Instance.BrisanjeDinamickeOpreme(new(oprema.Kolicina, oprema.Tip));
+                listViewDinamOpreme.ItemsSource = DinamickaOpremaRepo.Instance.ListaOpreme;
+            }
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

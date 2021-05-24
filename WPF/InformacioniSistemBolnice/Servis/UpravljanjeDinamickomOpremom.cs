@@ -7,41 +7,24 @@ namespace Servis
 {
     public class UpravljanjeDinamickomOpremom
     {
-        private static readonly Lazy<UpravljanjeDinamickomOpremom>
-           lazy =
-           new Lazy<UpravljanjeDinamickomOpremom>
-               (() => new UpravljanjeDinamickomOpremom());
-
+        private static readonly Lazy<UpravljanjeDinamickomOpremom> lazy = new Lazy<UpravljanjeDinamickomOpremom> (() => new UpravljanjeDinamickomOpremom());
         public static UpravljanjeDinamickomOpremom Instance { get { return lazy.Value; } }
-
-        public void KreiranjeOpreme(MagacinDodajDinamickuOpremu p)
+        public void KreiranjeOpreme(DinamickaOpremaDto dto)
         {
-            Model.DinamickaOprema oprema = new Model.DinamickaOprema(Int32.Parse(p.tbKol.Text), (TipDinamickeOpreme)Enum.Parse(typeof(TipDinamickeOpreme), p.cb1.Text));
-
-            foreach (Model.DinamickaOprema so in Repozitorijum.DinamickaOpremaRepo.Instance.ListaOpreme)
+            if (DinamickaOpremaRepo.Instance.NadjiPoTipu(dto.Tip) == null)
             {
-                if (so.Tip.Equals(oprema.Tip))
-                {
-                    so.Kolicina += oprema.Kolicina;
-                    Repozitorijum.DinamickaOpremaRepo.Instance.Serijalizacija();
-                    Repozitorijum.DinamickaOpremaRepo.Instance.Deserijalizacija();
-                    return;
-                }
+                DinamickaOpremaRepo.Instance.ListaOpreme.Add(new(dto.Kolicina, dto.Tip));
+                DinamickaOpremaRepo.Instance.SacuvajPromene();
+                return;
             }
-
-            Repozitorijum.DinamickaOpremaRepo.Instance.ListaOpreme.Add(oprema);
-            Repozitorijum.DinamickaOpremaRepo.Instance.Serijalizacija();
-            Repozitorijum.DinamickaOpremaRepo.Instance.Deserijalizacija();
+            DinamickaOpremaRepo.Instance.NadjiPoTipu(dto.Tip).Kolicina += dto.Kolicina;
+            DinamickaOpremaRepo.Instance.SacuvajPromene();
         }
 
-        public void UklanjanjeOpreme(MagacinProzor p)
+        public void UklanjanjeOpreme(DinamickaOpremaDto dto)
         {
-            if (p.listViewDinamOpreme.SelectedValue != null)
-            {
-                Model.DinamickaOprema oprema = (Model.DinamickaOprema)p.listViewDinamOpreme.SelectedValue;
-                Repozitorijum.DinamickaOpremaRepo.Instance.ListaOpreme.Remove(oprema);
-                Repozitorijum.DinamickaOpremaRepo.Instance.Serijalizacija();
-            }
+            DinamickaOpremaRepo.Instance.BrisiPoTipu(dto.Tip);
+            DinamickaOpremaRepo.Instance.SacuvajPromene();
         }
 
         public void IzmenaOpreme(Model.DinamickaOprema oprema, MagacinIzmeniDinamickuOpremu p)
