@@ -34,9 +34,9 @@ namespace InformacioniSistemBolnice.Servis
 
         public PredlogSlobodnihTerminaServis(Termin izabranTermin)
         {
-            izabranLekar = Lekari.Instance.NadjiLekara(izabranTermin.lekarJMBG);
+            izabranLekar = LekarRepo.Instance.NadjiLekara(izabranTermin.LekarJmbg);
             terminZaPomeranje = izabranTermin;
-            zakazivanjeInfo = new ZakazivanjeTerminaPacijentaDTO(izabranTermin.pacijentJMBG);
+            zakazivanjeInfo = new ZakazivanjeTerminaPacijentaDTO(izabranTermin.PacijentJmbg);
         }
 
         public ObservableCollection<Termin> PonudiSlobodneTermine()
@@ -52,11 +52,11 @@ namespace InformacioniSistemBolnice.Servis
 
         public ObservableCollection<Termin> PonudiSlobodneTermineZaPomeranje()
         {
-            slobodanTermin = terminZaPomeranje.vreme.
-                Subtract(new TimeSpan(48 - 7 + terminZaPomeranje.vreme.Hour, 30, 0));
+            slobodanTermin = terminZaPomeranje.Vreme.
+                Subtract(new TimeSpan(48 - 7 + terminZaPomeranje.Vreme.Hour, 30, 0));
             PronadjiSlobodneTermineZaViseDana(DodatniDaniZaPomeranjeTermina);
-            slobodanTermin = terminZaPomeranje.vreme.
-                Subtract(new TimeSpan(terminZaPomeranje.vreme.Hour, 30, 0)).AddHours(24 + 7);
+            slobodanTermin = terminZaPomeranje.Vreme.
+                Subtract(new TimeSpan(terminZaPomeranje.Vreme.Hour, 30, 0)).AddHours(24 + 7);
             PronadjiSlobodneTermineZaViseDana(DodatniDaniZaPomeranjeTermina);
             IzbaciZauzetePredlozeneTermine();
             return slobodniTermini;
@@ -74,7 +74,7 @@ namespace InformacioniSistemBolnice.Servis
         private void PonudiTermineDrugogLekara()
         {
             slobodanTermin = zakazivanjeInfo.MinDatum.AddHours(PocetakRadnogVremenaSati);
-            izabranLekar = Lekari.Instance.NadjiLekaraIsteSpecijalizacije(izabranLekar);
+            izabranLekar = LekarRepo.Instance.NadjiLekaraIsteSpecijalizacije(izabranLekar);
             if (izabranLekar is null) return;
             PronadjiSlobodneTermineZaViseDana(intervalDana.Days);
             foreach (Termin predlozenTermin in slobodniTermini) IzbaciPoklapajuce(predlozenTermin);
@@ -91,7 +91,7 @@ namespace InformacioniSistemBolnice.Servis
             for (int j = 0; j < PolucasovniTerminiRadnogDana; j++)
             {
                 slobodniTermini.Add(new Termin(slobodanTermin, 30.0, TipTermina.pregled, StatusTermina.slobodan,
-                    zakazivanjeInfo.PacijentovJmbg, izabranLekar.jmbg, null));
+                    zakazivanjeInfo.PacijentJmbg, izabranLekar.Jmbg, null));
                 PostaviIdSlobodneProstorije();
                 if (!JePronadjenaSlobodnaProstorija()) slobodniTermini.Remove(slobodniTermini.Last());
                 slobodanTermin = slobodanTermin.AddMinutes(30);
@@ -101,21 +101,21 @@ namespace InformacioniSistemBolnice.Servis
 
         private bool JePronadjenaSlobodnaProstorija()
         {
-            return slobodniTermini.Last().idProstorije is not null;
+            return slobodniTermini.Last().ProstorijaId is not null;
         }
 
         private void PostaviIdSlobodneProstorije()
         {
             Prostorija slobodnaProstorija = PronadjiSlobodnuProstoriju();
-            if (slobodnaProstorija is not null) slobodniTermini.Last().idProstorije = slobodnaProstorija.Id;
+            if (slobodnaProstorija is not null) slobodniTermini.Last().ProstorijaId = slobodnaProstorija.Id;
         }
 
         private Prostorija PronadjiSlobodnuProstoriju()
         {
-            foreach (Prostorija prostorija in Prostorije.Instance.ListaProstorija)
+            foreach (Prostorija prostorija in ProstorijaRepo.Instance.Prostorije)
             {
                 if (prostorija.Tip != TipProstorije.prostorijaZaPreglede || 
-                    prostorija.NadjiTerminPoDatumu(slobodanTermin) != null) continue;
+                    prostorija.NadjiTerminPoDatumu(slobodanTermin) is not null) continue;
                 if (prostorija.Renoviranje is null || !JeTerminUOpseguRenoviranja(prostorija)) return prostorija;
             }
             return null;
@@ -134,8 +134,8 @@ namespace InformacioniSistemBolnice.Servis
 
         private bool IzbaciPoklapajuce(Termin predlozenTermin)
         {
-            foreach (Termin postojeciTermin in izabranLekar.zauzetiTermini)
-                if (predlozenTermin.vreme == postojeciTermin.vreme) return slobodniTermini.Remove(predlozenTermin);
+            foreach (Termin postojeciTermin in izabranLekar.ZauzetiTermini)
+                if (predlozenTermin.Vreme == postojeciTermin.Vreme) return slobodniTermini.Remove(predlozenTermin);
             return false;
         }
     }

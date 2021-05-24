@@ -23,14 +23,14 @@ namespace Servis
             ulogovanPacijent = pacijent;
             while (true)
             {
-                foreach (Termin termin in Termini.Instance.listaTermina.ToList())
+                foreach (Termin termin in TerminRepo.Instance.Termini.ToList())
                 {
                     pacijentovTermin = termin;
                     if (!JeTerminZavrsen()) continue;
                     ZavrsiPacijentovTermin();
-                    termin.status = StatusTermina.zavrsen;
-                    Termini.Instance.Serijalizacija();
-                    Termini.Instance.Deserijalizacija();
+                    termin.Status = StatusTermina.zavrsen;
+                    TerminRepo.Instance.Serijalizacija();
+                    TerminRepo.Instance.Deserijalizacija();
                     System.Diagnostics.Debug.WriteLine(DateTime.Now);
                 }
                 Thread.Sleep(1000);
@@ -42,20 +42,20 @@ namespace Servis
             foreach (Termin termin in ulogovanPacijent.zakazaniTermini)
             {
                 if (!JePacijentovNezavrsenTermin(termin)) continue;
-                pacijentovTermin.status = StatusTermina.zavrsen;
+                pacijentovTermin.Status = StatusTermina.zavrsen;
                 break;
             }
         }
 
         private bool JePacijentovNezavrsenTermin(Termin termin)
         {
-            return termin.vreme == pacijentovTermin.vreme && pacijentovTermin.status != StatusTermina.zavrsen;
+            return termin.Vreme == pacijentovTermin.Vreme && pacijentovTermin.Status != StatusTermina.zavrsen;
         }
 
         private bool JeTerminZavrsen()
         {
-            return pacijentovTermin.vreme.AddMinutes(pacijentovTermin.trajanje) < DateTime.Now &&
-                   pacijentovTermin.status != StatusTermina.zavrsen;
+            return pacijentovTermin.Vreme.AddMinutes(pacijentovTermin.Trajanje) < DateTime.Now &&
+                   pacijentovTermin.Status != StatusTermina.zavrsen;
         }
     }
 }

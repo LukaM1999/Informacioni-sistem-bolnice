@@ -8,14 +8,14 @@ namespace Model
 {
     public class HitnoZakazivanjeDto
     {
-        public string specijalizacija { get; set; }
-        public string jmbgPacijenta { get; set; }
-        public string idProstorije { get; set; }
+        public string Specijalizacija { get; set; }
+        public string PacijentJmbg { get; set; }
+        public string ProstorijaId { get; set; }
         public HitnoZakazivanjeDto(string specijalizacija, string jmbgPacijenta, string idProstorije)
         {
-            this.specijalizacija = specijalizacija;
-            this.jmbgPacijenta = jmbgPacijenta;
-            this.idProstorije = idProstorije;
+            this.Specijalizacija = specijalizacija;
+            this.PacijentJmbg = jmbgPacijenta;
+            this.ProstorijaId = idProstorije;
         }
     }
 }

@@ -28,7 +28,7 @@ namespace InformacioniSistemBolnice
             ListaLekova = listaLekova;
             Lek izabraniLek = (Lek)ListaLekova.SelectedValue;
             ListaAlergenaLeka = izabraniLek.Alergen;
-            listaAlergena.ItemsSource = Alergeni.Instance.listaAlergena;
+            listaAlergena.ItemsSource = AlergenRepo.Instance.Alergeni;
             listaAlergenaLeka.ItemsSource = izabraniLek.Alergen;
             PostaviText(izabraniLek);
         }
@@ -42,9 +42,10 @@ namespace InformacioniSistemBolnice
         }
         private void btnPotvrdi_Click(object sender, RoutedEventArgs e)
         {
-            UpravnikKontroler.Instance.IzmenaLeka(new(tbNaziv.Text, tbProizvodjac.Text, tbSastojci.Text, tbZamena.Text, ListaAlergenaLeka));
-            ListaLekova.ItemsSource = Lekovi.Instance.ListaLekova;
-            this.Close();
+            UpravnikKontroler.Instance.IzmenaLeka(new(tbNaziv.Text, tbProizvodjac.Text, tbSastojci.Text, 
+                tbZamena.Text, ListaAlergenaLeka));
+            ListaLekova.ItemsSource = LekRepo.Instance.Lekovi;
+            Close();
         }
         private void btnDodajAlergen_Click(object sender, RoutedEventArgs e)
         {

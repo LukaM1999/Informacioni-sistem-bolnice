@@ -27,7 +27,7 @@ namespace InformacioniSistemBolnice.ViewModels.Pacijent
         {
             KreiranjePodsetnikaView podsetnikForma = (KreiranjePodsetnikaView)new PronadjiProzorUtility().PronadjiProzor(this);
             PacijentKontroler.Instance.UkljuciNoviPodsetnik(new Podsetnik(podsetnikForma.Sadrzaj.Text, 
-                    podsetnikForma.Vreme.Text, ulogovanPacijent.jmbg));
+                    podsetnikForma.Vreme.Text, ulogovanPacijent.Jmbg));
             podsetnikForma.Close();
         }
     }

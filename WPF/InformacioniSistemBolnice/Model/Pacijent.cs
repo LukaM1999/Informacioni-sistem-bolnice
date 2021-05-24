@@ -11,55 +11,55 @@ namespace Model
     [AddINotifyPropertyChangedInterface]
     public class Pacijent : Osoba
     {
-        public bool maliciozan { get; set; }
+        public bool Maliciozan { get; set; }
         public ZdravstveniKarton zdravstveniKarton;
         public ObservableCollection<Termin> zakazaniTermini = new();
 
         public Pacijent() {}
         public Pacijent(Osoba o) 
         {
-            this.ime = o.ime;
-            this.prezime = o.prezime;
-            this.datumRodjenja = o.datumRodjenja;
-            this.jmbg = o.jmbg;
-            this.telefon = o.telefon;
-            this.email = o.email;
-            this.korisnik = o.korisnik;
-            this.adresa = o.adresa;
-            this.maliciozan = false;
+            this.Ime = o.Ime;
+            this.Prezime = o.Prezime;
+            this.DatumRodjenja = o.DatumRodjenja;
+            this.Jmbg = o.Jmbg;
+            this.Telefon = o.Telefon;
+            this.Email = o.Email;
+            this.Korisnik = o.Korisnik;
+            this.AdresaStanovanja = o.AdresaStanovanja;
+            this.Maliciozan = false;
         }
 
         public bool ObrisiTermin(Termin terminZaBrisanje)
         {
-            return zakazaniTermini.Remove(NadjiTerminPoDatumu(terminZaBrisanje.vreme));
+            return zakazaniTermini.Remove(NadjiTerminPoDatumu(terminZaBrisanje.Vreme));
         }
 
         public bool DodajTermin(Termin terminZaDodavanje)
         {
-            if (NadjiTerminPoDatumu(terminZaDodavanje.vreme) != null) return false;
+            if (NadjiTerminPoDatumu(terminZaDodavanje.Vreme) != null) return false;
             zakazaniTermini.Add(terminZaDodavanje);
             return true;
         }
         public override string ToString()
         {
-            return ime + " " + prezime;
+            return Ime + " " + Prezime;
         }
 
         private Termin NadjiTerminPoDatumu(DateTime vremeTermina)
         {
             foreach (Termin pronadjen in zakazaniTermini)
-                if (pronadjen.vreme == vremeTermina) return pronadjen;
+                if (pronadjen.Vreme == vremeTermina) return pronadjen;
             return null;
         }
 
         public List<Termin> DobaviSortiraneTermine()
         {
-            return zakazaniTermini.OrderBy(termin => termin.vreme).ToList();
+            return zakazaniTermini.OrderBy(termin => termin.Vreme).ToList();
         }
 
         public bool PacijentPosetioBolnicu(List<Termin> sortiraniTermini)
         {
-            return sortiraniTermini.Count != 0 && sortiraniTermini[0].status == StatusTermina.zavrsen;
+            return sortiraniTermini.Count != 0 && sortiraniTermini[0].Status == StatusTermina.zavrsen;
         }
     }
 }

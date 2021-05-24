@@ -25,7 +25,7 @@ namespace InformacioniSistemBolnice
         public ZakazivanjeTerminaPacijentaView(string jmbgPacijenta)
         {
             InitializeComponent();
-            lekari.ItemsSource = Lekari.Instance.listaLekara;
+            lekari.ItemsSource = LekarRepo.Instance.Lekari;
             pacijentJmbg = jmbgPacijenta;
         }
 

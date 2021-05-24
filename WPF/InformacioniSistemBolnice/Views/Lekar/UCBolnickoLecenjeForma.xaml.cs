@@ -31,7 +31,7 @@ namespace InformacioniSistemBolnice.Views.Lekar
         {
             InitializeComponent();
             BolnickoLecenjeRepo.Instance.Deserijalizacija();
-            Prostorije.Instance.Deserijalizacija();
+            ProstorijaRepo.Instance.Deserijalizacija();
             glavniProzor = glavni;
             pacijent = izabran;
             PronalaziProstorijeZaHospitalizaciju();
@@ -39,7 +39,7 @@ namespace InformacioniSistemBolnice.Views.Lekar
 
         private void PronalaziProstorijeZaHospitalizaciju()
         {
-            foreach (Prostorija prostorija in Prostorije.Instance.ListaProstorija)
+            foreach (Prostorija prostorija in ProstorijaRepo.Instance.Prostorije)
             {
                 DodajProstoriju(prostorija);
             }
@@ -97,7 +97,7 @@ namespace InformacioniSistemBolnice.Views.Lekar
                     {
                         if (brojac < oprema.Kolicina)
                         {
-                            BolnickoLecenje novoLecenje = new(pocetak, zavrsetak, prostorija.Id, pacijent.jmbg);
+                            BolnickoLecenje novoLecenje = new(pocetak, zavrsetak, prostorija.Id, pacijent.Jmbg);
                             BolnickoLecenjeRepo.Instance.DodajLecenje(novoLecenje);
                             BolnickoLecenjeRepo.Instance.Serijalizacija();
                             return;

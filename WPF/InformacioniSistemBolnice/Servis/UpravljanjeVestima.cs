@@ -22,7 +22,7 @@ namespace Servis
         public void KreiranjeVesti(VestDto vestDto)
         {
             Vest vest = new Vest(vestDto.Sadrzaj, vestDto.Id, vestDto.VremeObjave);
-            Vesti.Instance.DodajVest(vest);
+            VestRepo.Instance.DodajVest(vest);
         }
 
         public VestDto PregledVesti(Vest vest)
@@ -34,15 +34,15 @@ namespace Servis
 
         public void UklanjanjeVesti(Vest vest)
         {
-            Vesti.Instance.ObrisiVest(vest);
-            Vesti.Instance.SacuvajPromene();
+            VestRepo.Instance.ObrisiVest(vest);
+            VestRepo.Instance.SacuvajPromene();
         }
 
         public void IzmenaVesti(VestDto novaVest, Vest staraVest)
         {
             staraVest.Id = novaVest.Id;
             staraVest.Sadrzaj = novaVest.Sadrzaj;
-            Vesti.Instance.SacuvajPromene();
+            VestRepo.Instance.SacuvajPromene();
         }
     }
 }

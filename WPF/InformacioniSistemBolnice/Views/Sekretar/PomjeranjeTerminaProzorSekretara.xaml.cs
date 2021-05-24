@@ -30,34 +30,34 @@ namespace InformacioniSistemBolnice
             InitializeComponent();
             terminiPacijenta = termini;
             slobodniTermini = new ObservableCollection<Termin>();
-            foreach (Lekar izabraniLekar in Lekari.Instance.listaLekara)
+            foreach (Lekar izabraniLekar in LekarRepo.Instance.Lekari)
             {
-                if (izabraniLekar.jmbg == ((Termin)termini.listaZakazanihTermina.SelectedItem).lekarJMBG)
+                if (izabraniLekar.Jmbg == ((Termin)termini.listaZakazanihTermina.SelectedItem).LekarJmbg)
                 {
-                    DateTime slobodanTermin = (((Termin)termini.listaZakazanihTermina.SelectedItem).vreme).
-                        Subtract(new TimeSpan(48 + ((Termin)termini.listaZakazanihTermina.SelectedItem).vreme.Hour, 0, 0));
+                    DateTime slobodanTermin = (((Termin)termini.listaZakazanihTermina.SelectedItem).Vreme).
+                        Subtract(new TimeSpan(48 + ((Termin)termini.listaZakazanihTermina.SelectedItem).Vreme.Hour, 0, 0));
                     slobodanTermin = slobodanTermin.AddHours(7);
                     for (int i = 0; i < 2; i++)
                     {
                         for (int j = 0; j < 27; j++)
                         {
                             slobodniTermini.Add(new Termin(slobodanTermin, 30.0, TipTermina.pregled, StatusTermina.slobodan,
-                                                ((Termin)termini.listaZakazanihTermina.SelectedItem).pacijentJMBG, izabraniLekar.jmbg, ((Termin)termini.listaZakazanihTermina.SelectedItem).idProstorije));
+                                                ((Termin)termini.listaZakazanihTermina.SelectedItem).PacijentJmbg, izabraniLekar.Jmbg, ((Termin)termini.listaZakazanihTermina.SelectedItem).ProstorijaId));
 
                             slobodanTermin = slobodanTermin.AddMinutes(30);
 
                         }
                         slobodanTermin = slobodanTermin.AddHours(10.5);
                     }
-                    slobodanTermin = (((Termin)termini.listaZakazanihTermina.SelectedItem).vreme).
-                        Subtract(new TimeSpan(((Termin)termini.listaZakazanihTermina.SelectedItem).vreme.Hour, 0, 0)).AddHours(24 + 7);
+                    slobodanTermin = (((Termin)termini.listaZakazanihTermina.SelectedItem).Vreme).
+                        Subtract(new TimeSpan(((Termin)termini.listaZakazanihTermina.SelectedItem).Vreme.Hour, 0, 0)).AddHours(24 + 7);
 
                     for (int i = 0; i < 2; i++)
                     {
                         for (int j = 0; j < 27; j++)
                         {
                             slobodniTermini.Add(new Termin(slobodanTermin, 30.0, TipTermina.pregled, StatusTermina.slobodan,
-                                                ((Termin)termini.listaZakazanihTermina.SelectedItem).pacijentJMBG, izabraniLekar.jmbg, ((Termin)termini.listaZakazanihTermina.SelectedItem).idProstorije));
+                                                ((Termin)termini.listaZakazanihTermina.SelectedItem).PacijentJmbg, izabraniLekar.Jmbg, ((Termin)termini.listaZakazanihTermina.SelectedItem).ProstorijaId));
 
                             slobodanTermin = slobodanTermin.AddMinutes(30);
 
@@ -66,9 +66,9 @@ namespace InformacioniSistemBolnice
                     }
                     foreach (Termin predlozenTermin in slobodniTermini.ToList())
                     {
-                        foreach (Termin postojeciTermin in izabraniLekar.zauzetiTermini)
+                        foreach (Termin postojeciTermin in izabraniLekar.ZauzetiTermini)
                         {
-                            if (predlozenTermin.vreme == postojeciTermin.vreme)
+                            if (predlozenTermin.Vreme == postojeciTermin.Vreme)
                             {
                                 slobodniTermini.Remove(predlozenTermin);
                                 break;

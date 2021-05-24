@@ -23,20 +23,20 @@ namespace InformacioniSistemBolnice
         public Login()
         {
             InitializeComponent();
-            Korisnici.Instance.Deserijalizacija();
-            StatickaOpremaTermini.Instance.Deserijalizacija();
+            KorisnikRepo.Instance.Deserijalizacija();
+            PremestanjeStatickeOpremeRepo.Instance.Deserijalizacija();
             Repozitorijum.StatickaOpremaRepo.Instance.Deserijalizacija();
-            Prostorije.Instance.Deserijalizacija();
-            RenoviranjeTermini.Instance.Deserijalizacija();
+            ProstorijaRepo.Instance.Deserijalizacija();
+            RenoviranjeRepo.Instance.Deserijalizacija();
             new Thread(RasporedjivanjeStatickeOpreme.Instance.ProveraPremestajaOpreme).Start();
             new Thread(Renoviranje.Instance.ProveraRenoviranja).Start();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            foreach (Korisnik korisnik in Korisnici.Instance.listaKorisnika)
+            foreach (Korisnik korisnik in KorisnikRepo.Instance.Korisnici)
             {
-                if (username.Text != korisnik.korisnickoIme || password.Password.ToString() != korisnik.lozinka) continue;
+                if (username.Text != korisnik.KorisnickoIme || password.Password.ToString() != korisnik.Lozinka) continue;
                 PretraziUlogu(korisnik);
                 return;
             }
@@ -45,7 +45,7 @@ namespace InformacioniSistemBolnice
 
         private void PretraziUlogu(Korisnik korisnik)
         {
-            switch (korisnik.uloga)
+            switch (korisnik.Uloga)
             {
                 case UlogaKorisnika.upravnik:
                     ProstorijeProzor prostorijeP = new ProstorijeProzor();
@@ -54,13 +54,13 @@ namespace InformacioniSistemBolnice
                     return;
 
                 case UlogaKorisnika.lekar:
-                    GlavniProzorLekara glavniProzorLekara = new GlavniProzorLekara(korisnik.korisnickoIme, korisnik.lozinka);
+                    GlavniProzorLekara glavniProzorLekara = new GlavniProzorLekara(korisnik.KorisnickoIme, korisnik.Lozinka);
                     glavniProzorLekara.Show();
                     this.Close();
                     return;
 
                 case UlogaKorisnika.pacijent:
-                    TerminiPacijentaView tpp = new TerminiPacijentaView(korisnik.korisnickoIme, korisnik.lozinka);
+                    TerminiPacijentaView tpp = new TerminiPacijentaView(korisnik.KorisnickoIme, korisnik.Lozinka);
                     tpp.Show();
                     this.Close();
                     return;

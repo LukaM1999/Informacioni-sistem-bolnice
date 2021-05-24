@@ -22,14 +22,14 @@ namespace InformacioniSistemBolnice
         {
             InitializeComponent();
             Termin t = (Termin)listaZakazanih.SelectedItem;
-            datumLabela.Content = t.vreme.ToString("MM/dd/yyyy");
-            vremeLabela.Content = t.vreme.ToString("HH:mm");
-            tipTerminaLabela.Content = t.tipTermina.ToString();
-            statusTerminaLabela.Content = t.status.ToString();
-            trajanjeLabela.Content = t.trajanje.ToString();
-            if (t.idProstorije != null)
+            datumLabela.Content = t.Vreme.ToString("MM/dd/yyyy");
+            vremeLabela.Content = t.Vreme.ToString("HH:mm");
+            tipTerminaLabela.Content = t.Tip.ToString();
+            statusTerminaLabela.Content = t.Status.ToString();
+            trajanjeLabela.Content = t.Trajanje.ToString();
+            if (t.ProstorijaId != null)
             {
-                salaLabela.Content = t.idProstorije;
+                salaLabela.Content = t.ProstorijaId;
             }
             else
             {

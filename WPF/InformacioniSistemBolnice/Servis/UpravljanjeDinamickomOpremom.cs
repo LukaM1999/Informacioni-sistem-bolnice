@@ -13,7 +13,7 @@ namespace Servis
         {
             if (DinamickaOpremaRepo.Instance.NadjiPoTipu(dto.Tip) == null)
             {
-                DinamickaOpremaRepo.Instance.ListaOpreme.Add(new(dto.Kolicina, dto.Tip));
+                DinamickaOpremaRepo.Instance.DinamickaOprema.Add(new(dto.Kolicina, dto.Tip));
                 DinamickaOpremaRepo.Instance.SacuvajPromene();
                 return;
             }

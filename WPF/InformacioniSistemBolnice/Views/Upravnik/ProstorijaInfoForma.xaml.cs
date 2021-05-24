@@ -40,8 +40,8 @@ namespace InformacioniSistemBolnice
             listaDinamicke.ItemsSource = izabranaProstorija.Inventar.DinamickaOprema;
             listaStaticke.ItemsSource = izabranaProstorija.Inventar.StatickaOprema;
 
-            cbDinamicka.ItemsSource = Prostorije.Instance.ListaProstorija;
-            cbStaticka.ItemsSource = Prostorije.Instance.ListaProstorija;
+            cbDinamicka.ItemsSource = ProstorijaRepo.Instance.Prostorije;
+            cbStaticka.ItemsSource = ProstorijaRepo.Instance.Prostorije;
         }
         private void PostaviTekstLabelama(Prostorija izabranaProstorija)
         {
@@ -74,8 +74,8 @@ namespace InformacioniSistemBolnice
                     UpravnikKontroler.Instance.RasporedjivanjeDinamickeOpreme(dtoRaspodelaUDruguProstoriju);
                 }
             }
-            ListaProstorija.ItemsSource = Repozitorijum.Prostorije.Instance.ListaProstorija;
-            listaDinamicke.ItemsSource = Repozitorijum.Prostorije.Instance.NadjiPoId(izProstorije.Id).Inventar.DinamickaOprema;
+            ListaProstorija.ItemsSource = Repozitorijum.ProstorijaRepo.Instance.Prostorije;
+            listaDinamicke.ItemsSource = Repozitorijum.ProstorijaRepo.Instance.NadjiPoId(izProstorije.Id).Inventar.DinamickaOprema;
         }
 
         private void dugmeRaspodeliStaticku_Click(object sender, RoutedEventArgs e)

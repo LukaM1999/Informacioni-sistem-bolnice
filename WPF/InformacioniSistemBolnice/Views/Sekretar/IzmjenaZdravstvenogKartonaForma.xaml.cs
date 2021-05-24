@@ -29,7 +29,7 @@ namespace InformacioniSistemBolnice
             InitializeComponent();
             this.pacijentiProzor = pacijentiProzor;
             this.pocetna = pocetna;
-            Alergeni.Instance.Deserijalizacija();
+            AlergenRepo.Instance.Deserijalizacija();
             this.ListaAlergena.ItemsSource = ((Pacijent)pacijentiProzor.ListaPacijenata.SelectedItem).zdravstveniKarton.Alergeni;
         }
 
@@ -71,7 +71,7 @@ namespace InformacioniSistemBolnice
                 SekretarKontroler.Instance.UklanjanjeAlergenaIzZdravstvenogKartona
                     ((Alergen)ListaAlergena.SelectedItem, JMBGLabela.Content.ToString());
 
-                ListaAlergena.ItemsSource = Pacijenti.Instance
+                ListaAlergena.ItemsSource = PacijentRepo.Instance
                     .NadjiPoJmbg(JMBGLabela.Content.ToString()).zdravstveniKarton.Alergeni;
             }
         }

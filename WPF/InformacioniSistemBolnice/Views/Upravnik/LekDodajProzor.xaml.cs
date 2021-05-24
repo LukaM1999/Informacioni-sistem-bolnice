@@ -26,15 +26,16 @@ namespace InformacioniSistemBolnice
         public LekDodajProzor(DataGrid listaLekova)
         {
             InitializeComponent();
-            Alergeni.Instance.Deserijalizacija();
-            listaAlergena.ItemsSource = Alergeni.Instance.listaAlergena;
+            AlergenRepo.Instance.Deserijalizacija();
+            listaAlergena.ItemsSource = AlergenRepo.Instance.Alergeni;
             ListaAlergenaLeka = new ObservableCollection<Alergen>();
             ListaLekova = listaLekova;
         }
         private void btnPotvrdi_Click(object sender, RoutedEventArgs e)
         {
-            UpravnikKontroler.Instance.KreiranjeLeka(new(tbNaziv.Text, tbProizvodjac.Text, tbSastojci.Text, tbZamena.Text, ListaAlergenaLeka));
-            ListaLekova.ItemsSource = Lekovi.Instance.ListaLekova;
+            UpravnikKontroler.Instance.KreiranjeLeka(new(tbNaziv.Text, tbProizvodjac.Text, tbSastojci.Text,
+                tbZamena.Text, ListaAlergenaLeka));
+            ListaLekova.ItemsSource = LekRepo.Instance.Lekovi;
             this.Close();
         }
 

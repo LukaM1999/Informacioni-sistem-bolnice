@@ -6,16 +6,13 @@ namespace Model
     [AddINotifyPropertyChangedInterface]
     public class Recept
     {
-        public string id { get; set; }
+        public string ReceptId { get; set; }
+        public ObservableCollection<Terapija> terapije = new();
 
-        public ObservableCollection<Terapija> Terapije = new();
-
-        public Recept()
+        public Recept() { }
+        public Recept(string id)
         {
-        }
-        public Recept(string ID)
-        {
-            id = ID;
+            ReceptId = id;
         }
     }
 }

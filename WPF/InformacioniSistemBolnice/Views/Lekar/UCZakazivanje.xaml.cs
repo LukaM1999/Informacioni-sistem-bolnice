@@ -27,9 +27,9 @@ namespace InformacioniSistemBolnice.Views.Lekar
         public UCZakazivanje(GlavniProzorLekara glavni)
         {
             InitializeComponent();
-            Pacijenti.Instance.Deserijalizacija();
+            PacijentRepo.Instance.Deserijalizacija();
             glavniProzor = glavni;
-            ListaPacijenata.ItemsSource = Pacijenti.Instance.ListaPacijenata;
+            ListaPacijenata.ItemsSource = PacijentRepo.Instance.Pacijenti;
         }
 
         private void Nazad_Click(object sender, RoutedEventArgs e)

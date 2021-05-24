@@ -8,15 +8,15 @@ namespace Model
 {
     public class TerminiLekaraZaPomeranjeDto
     {
-        public Termin terminZaPomeranje { get; set; }
-        public Termin noviTermin { get; set; }
-        public string jmbgPacijenta { get; set; }
+        public Termin TerminZaPomeranje { get; set; }
+        public Termin NoviTermin { get; set; }
+        public string PacijentJmbg { get; set; }
 
         public TerminiLekaraZaPomeranjeDto(Termin terminZaPomeranje, Termin noviTermin, string jmbgPacijenta)
         {
-            this.terminZaPomeranje = terminZaPomeranje;
-            this.noviTermin = noviTermin;
-            this.jmbgPacijenta = jmbgPacijenta;
+            this.TerminZaPomeranje = terminZaPomeranje;
+            this.NoviTermin = noviTermin;
+            this.PacijentJmbg = jmbgPacijenta;
         }
     }
 }

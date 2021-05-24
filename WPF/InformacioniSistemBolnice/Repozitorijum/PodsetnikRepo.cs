@@ -10,42 +10,41 @@ using Newtonsoft.Json;
 
 namespace Repozitorijum
 {
-    public class Podsetnici : Repozitorijum
+    public class PodsetnikRepo : Repozitorijum
     {
         private const string Putanja = "../../../json/podsetnici.json";
 
-        private static readonly Lazy<Podsetnici> Lazy = new(() => new Podsetnici());
-        public static Podsetnici Instance => Lazy.Value;
+        private static readonly Lazy<PodsetnikRepo> Lazy = new(() => new PodsetnikRepo());
+        public static PodsetnikRepo Instance => Lazy.Value;
 
-        public ObservableCollection<Podsetnik> listaPodsetnika;
+        public ObservableCollection<Podsetnik> Podsetnici { get; set; }
 
         public void Deserijalizacija()
         {
-            listaPodsetnika = JsonConvert.DeserializeObject<ObservableCollection<Podsetnik>>(File.ReadAllText(Putanja));
+            Podsetnici = JsonConvert.DeserializeObject<ObservableCollection<Podsetnik>>(File.ReadAllText(Putanja));
         }
 
         public void Serijalizacija()
         {
-            string json = JsonConvert.SerializeObject(listaPodsetnika, Formatting.Indented);
-            File.WriteAllText(Putanja, json);
+            File.WriteAllText(Putanja, JsonConvert.SerializeObject(Podsetnici, Formatting.Indented));
         }
 
         public void DodajPodsetnik(Podsetnik noviPodsetnik)
         {
-            listaPodsetnika.Add(noviPodsetnik);
+            Podsetnici.Add(noviPodsetnik);
             Serijalizacija();
         }
 
         public bool PodsetnikVecPostoji(Podsetnik podsetnik)
         {
-            foreach (Podsetnik nadjenPodsetnik in listaPodsetnika) if (podsetnik == nadjenPodsetnik) return true;
+            foreach (Podsetnik nadjenPodsetnik in Podsetnici) if (podsetnik == nadjenPodsetnik) return true;
             return false;
         }
 
         public ObservableCollection<Podsetnik> NadjiSvePoJmbg(string jmbgPacijenta)
         {
             ObservableCollection<Podsetnik> pacijentoviPodsetnici = new();
-            foreach (Podsetnik podsetnik in listaPodsetnika) 
+            foreach (Podsetnik podsetnik in Podsetnici) 
                 if (podsetnik.PacijentJmbg == jmbgPacijenta) pacijentoviPodsetnici.Add(podsetnik);
             return pacijentoviPodsetnici;
         }

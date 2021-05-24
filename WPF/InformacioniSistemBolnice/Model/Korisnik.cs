@@ -4,14 +4,14 @@ namespace Model
 {
     public class Korisnik
     {
-        public string korisnickoIme { get; set; }
-        public string lozinka { get; set; }
-        public UlogaKorisnika uloga { get; set; }
+        public string KorisnickoIme { get; set; }
+        public string Lozinka { get; set; }
+        public UlogaKorisnika Uloga { get; set; }
         public Korisnik(string korisnickoIme, string lozinka, UlogaKorisnika uloga)
         {
-            this.korisnickoIme = korisnickoIme;
-            this.lozinka = lozinka;
-            this.uloga = uloga;
+            this.KorisnickoIme = korisnickoIme;
+            this.Lozinka = lozinka;
+            this.Uloga = uloga;
         }
     }
 }

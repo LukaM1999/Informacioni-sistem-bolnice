@@ -25,20 +25,20 @@ namespace InformacioniSistemBolnice
         {
             InitializeComponent();
             zakazivanjeHitnogTermina = zakazivanje;
-            Termini.Instance.Deserijalizacija();
-            Lekari.Instance.Deserijalizacija();
-            Specijalizacije.Instance.Deserijalizacija();
+            TerminRepo.Instance.Deserijalizacija();
+            LekarRepo.Instance.Deserijalizacija();
+            SpecijalizacijaRepo.Instance.Deserijalizacija();
             ProveriSpecijalizacijuLekara();
             ponudjeniTerminiZaPomeranje.ItemsSource = terminiZaPomeranje.ToList();
         }
 
         private void ProveriSpecijalizacijuLekara()
         {
-            foreach (Lekar lekar in Lekari.Instance.listaLekara)
+            foreach (Lekar lekar in LekarRepo.Instance.Lekari)
             {
-                if (lekar.specijalizacija.Naziv == zakazivanjeHitnogTermina.specijalizacijeLekara.SelectedItem.ToString())
+                if (lekar.Specijalizacija.Naziv == zakazivanjeHitnogTermina.specijalizacijeLekara.SelectedItem.ToString())
                 {
-                    foreach (Termin zauzetiTermin in lekar.zauzetiTermini)
+                    foreach (Termin zauzetiTermin in lekar.ZauzetiTermini)
                     {
                         if (!zauzetiTermin.Hitan) terminiZaPomeranje.Add(zauzetiTermin);
                     }

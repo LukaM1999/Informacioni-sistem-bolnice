@@ -43,17 +43,17 @@ namespace InformacioniSistemBolnice
 
             DateTime pomocni = slobodanTermin;
 
-            Lekari.Instance.Deserijalizacija();
+            LekarRepo.Instance.Deserijalizacija();
             
-            foreach (Lekar lekar in Lekari.Instance.listaLekara)
+            foreach (Lekar lekar in LekarRepo.Instance.Lekari)
             {
                 Pacijent p = (Pacijent)zakazivanje.pacijenti.SelectedItem;
-                    if (lekar.specijalizacija.Naziv == zakazivanjeHitnogTermina.specijalizacijeLekara.SelectedItem.ToString())
+                    if (lekar.Specijalizacija.Naziv == zakazivanjeHitnogTermina.specijalizacijeLekara.SelectedItem.ToString())
                     {
                         for (int j = 0; j < 3; j++)
                         {
                             Termin t = new Termin(slobodanTermin, 30.0, TipTermina.pregled, StatusTermina.slobodan,
-                                                           p.jmbg, lekar.jmbg, "P1", true);
+                                                           p.Jmbg, lekar.Jmbg, "P1", true);
                             slobodniTermini.Add(t);
                             //System.Diagnostics.Debug.WriteLine(t);
                             slobodanTermin = slobodanTermin.AddMinutes(30);
@@ -62,23 +62,23 @@ namespace InformacioniSistemBolnice
 
                         //System.Diagnostics.Debug.WriteLine(lekar)
                         //int broj = slobodniTermini.Count();
-                        //System.Diagnostics.Debug.WriteLine("UKUPNO: " + broj + " za ljekara " + lekar.ime);
+                        //System.Diagnostics.Debug.WriteLine("UKUPNO: " + broj + " za ljekara " + lekar.Ime);
                         //Pacijenti.Instance.Deserijalizacija();
                         //ponudjeniiTermini.ItemsSource = Pacijenti.Instance.ListaPacijenata;
                     }
                     foreach (Termin predlozenTermin in slobodniTermini.ToList())
                     {
-                        //System.Diagnostics.Debug.WriteLine("PREDLOZENI:" + predlozenTermin.vreme + "\n");
-                        foreach (Termin postojeciTermin in lekar.zauzetiTermini)
+                        //System.Diagnostics.Debug.WriteLine("PREDLOZENI:" + predlozenTermin.Vreme + "\n");
+                        foreach (Termin postojeciTermin in lekar.ZauzetiTermini)
                         {
-                            if (predlozenTermin.vreme.Equals(postojeciTermin.vreme))
+                            if (predlozenTermin.Vreme.Equals(postojeciTermin.Vreme))
                             {
                                 slobodniTermini.Remove(predlozenTermin);
                                 break;
                             }
 
-                            //System.Diagnostics.Debug.WriteLine("PREDLOZENI:" + predlozenTermin.vreme + "\n");
-                            // System.Diagnostics.Debug.WriteLine("POSTOJECI:" + postojeciTermin.vreme + "\n");
+                            //System.Diagnostics.Debug.WriteLine("PREDLOZENI:" + predlozenTermin.Vreme + "\n");
+                            // System.Diagnostics.Debug.WriteLine("POSTOJECI:" + postojeciTermin.Vreme + "\n");
 
                         }
                     }
@@ -90,7 +90,7 @@ namespace InformacioniSistemBolnice
                 {
                     System.Diagnostics.Debug.WriteLine(t.ToString() + "\n");
 
-                    if (t.vreme < najblizi.vreme)
+                    if (t.Vreme < najblizi.Vreme)
                     {
                         najblizi = t;
                     }
@@ -99,30 +99,30 @@ namespace InformacioniSistemBolnice
                 }
 
 
-                Termini.Instance.Deserijalizacija();
-                najblizi.status = StatusTermina.zakazan;
-                Termini.Instance.listaTermina.Add(najblizi);
-                Termini.Instance.Serijalizacija();
-                Termini.Instance.Deserijalizacija();
-            foreach (Pacijent pacijent in Pacijenti.Instance.ListaPacijenata)
+                TerminRepo.Instance.Deserijalizacija();
+                najblizi.Status = StatusTermina.zakazan;
+                TerminRepo.Instance.Termini.Add(najblizi);
+                TerminRepo.Instance.Serijalizacija();
+                TerminRepo.Instance.Deserijalizacija();
+            foreach (Pacijent pacijent in PacijentRepo.Instance.Pacijenti)
             {
-                if (pacijent.jmbg == najblizi.pacijentJMBG)
+                if (pacijent.Jmbg == najblizi.PacijentJmbg)
                 {
                     pacijent.zakazaniTermini.Add(najblizi);
-                    Pacijenti.Instance.Serijalizacija();
-                    Pacijenti.Instance.Deserijalizacija();
+                    PacijentRepo.Instance.Serijalizacija();
+                    PacijentRepo.Instance.Deserijalizacija();
                 }
             }
 
-                string l = najblizi.lekarJMBG;
+                string l = najblizi.LekarJmbg;
 
-                foreach (Lekar lekar in Lekari.Instance.listaLekara)
+                foreach (Lekar lekar in LekarRepo.Instance.Lekari)
                 {
-                    if (lekar.jmbg == l)
+                    if (lekar.Jmbg == l)
                     {
-                        lekar.zauzetiTermini.Add(najblizi);
-                        Lekari.Instance.Serijalizacija();
-                        Pacijenti.Instance.Deserijalizacija();
+                        lekar.ZauzetiTermini.Add(najblizi);
+                        LekarRepo.Instance.Serijalizacija();
+                        PacijentRepo.Instance.Deserijalizacija();
                     }
                 }
             }

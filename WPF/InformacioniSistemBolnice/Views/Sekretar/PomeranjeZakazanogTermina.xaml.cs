@@ -24,21 +24,21 @@ namespace InformacioniSistemBolnice
         public PomeranjeZakazanogTermina(IzborTerminaZaPomeranje izborTerminaZaPomeranje)
         {
             InitializeComponent();
-            Termini.Instance.Deserijalizacija();
+            TerminRepo.Instance.Deserijalizacija();
 
 
             if(izborTerminaZaPomeranje.ponudjeniTerminiZaPomeranje.SelectedItem != null)
             {
                 Termin selektovaniTerminZaPomeranje = (Termin)izborTerminaZaPomeranje.ponudjeniTerminiZaPomeranje.SelectedItem;
 
-                foreach (Termin zakazaniTermin in Termini.Instance.listaTermina) 
+                foreach (Termin zakazaniTermin in TerminRepo.Instance.Termini) 
                 { 
-                    if(selektovaniTerminZaPomeranje.vreme == zakazaniTermin.vreme)
+                    if(selektovaniTerminZaPomeranje.Vreme == zakazaniTermin.Vreme)
                     {
-                        pacijent.Content = zakazaniTermin.pacijentJMBG;
-                        lekar.Content = zakazaniTermin.lekarJMBG;
-                        tipTermina.Content = zakazaniTermin.tipTermina.ToString();
-                        prostorija.Content = zakazaniTermin.idProstorije;
+                        pacijent.Content = zakazaniTermin.PacijentJmbg;
+                        lekar.Content = zakazaniTermin.LekarJmbg;
+                        tipTermina.Content = zakazaniTermin.Tip.ToString();
+                        prostorija.Content = zakazaniTermin.ProstorijaId;
                     }
                 }
 

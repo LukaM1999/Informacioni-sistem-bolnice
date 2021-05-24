@@ -68,8 +68,8 @@ namespace InformacioniSistemBolnice
                     zdravstveniKartonForma.adresaLabela.Content = this.drzavaUnos.Text + ", " + this.gradUnos.Text;
                     zdravstveniKartonForma.ulicaIBrojLabela.Content = this.ulicaUnos.Text + ", " + this.brojUnos.Text;
                     
-                    Alergeni.Instance.Deserijalizacija();
-                    zdravstveniKartonForma.ListaAlergena.ItemsSource = Alergeni.Instance.listaAlergena;
+                    AlergenRepo.Instance.Deserijalizacija();
+                    zdravstveniKartonForma.ListaAlergena.ItemsSource = AlergenRepo.Instance.Alergeni;
                     pocetna.contentControl.Content = zdravstveniKartonForma.Content;
 
 

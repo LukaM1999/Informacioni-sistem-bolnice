@@ -27,10 +27,10 @@ namespace InformacioniSistemBolnice
         public UCReceptInfo(UCListaRecepata recepti)
         {
             InitializeComponent();
-            Pacijenti.Instance.Deserijalizacija();
+            PacijentRepo.Instance.Deserijalizacija();
             Recept r = (Recept) recepti.listaRecepata.SelectedItem;
-            listaTerapija.ItemsSource = r.Terapije;
-            ID.Content = r.id;
+            listaTerapija.ItemsSource = r.terapije;
+            ID.Content = r.ReceptId;
             listaRecepata = recepti;
         }
 

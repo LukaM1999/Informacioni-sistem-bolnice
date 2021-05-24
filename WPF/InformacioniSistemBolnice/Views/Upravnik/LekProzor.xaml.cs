@@ -22,8 +22,8 @@ namespace InformacioniSistemBolnice
         public LekProzor()
         {
             InitializeComponent();
-            Lekovi.Instance.Deserijalizacija();
-            listaLekova.ItemsSource = Lekovi.Instance.ListaLekova;
+            LekRepo.Instance.Deserijalizacija();
+            listaLekova.ItemsSource = LekRepo.Instance.Lekovi;
         }
         private void btnDodaj_Click(object sender, RoutedEventArgs e)
         {
@@ -36,7 +36,7 @@ namespace InformacioniSistemBolnice
             {
                 Lek izabraniLek = (Lek)listaLekova.SelectedValue;
                 UpravnikKontroler.Instance.BrisanjeLeka(new(izabraniLek.Naziv, izabraniLek.Proizvodjac, izabraniLek.Sastojci, izabraniLek.Zamena, izabraniLek.Alergen));
-                listaLekova.ItemsSource = Lekovi.Instance.ListaLekova;
+                listaLekova.ItemsSource = LekRepo.Instance.Lekovi;
             }
         }
         private void btnIzmeni_Click(object sender, RoutedEventArgs e)

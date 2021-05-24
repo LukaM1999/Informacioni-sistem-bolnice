@@ -26,8 +26,8 @@ namespace InformacioniSistemBolnice
         public UCPacijenti(GlavniProzorLekara glavni)
         {
             InitializeComponent();
-            Pacijenti.Instance.Deserijalizacija();
-            listaPacijenata.ItemsSource = Pacijenti.Instance.ListaPacijenata;
+            PacijentRepo.Instance.Deserijalizacija();
+            listaPacijenata.ItemsSource = PacijentRepo.Instance.Pacijenti;
             glavniProzorLekara = glavni;
         }
 

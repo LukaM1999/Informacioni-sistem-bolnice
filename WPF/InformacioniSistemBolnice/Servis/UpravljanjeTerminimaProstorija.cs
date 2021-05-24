@@ -15,24 +15,24 @@ namespace Servis
 
         public void ZakaziTerminUnutarProstorije(Termin terminZaZakazivanje)
         {
-            Prostorija prostorija = Prostorije.Instance.NadjiPoId(terminZaZakazivanje.idProstorije);
+            Prostorija prostorija = ProstorijaRepo.Instance.NadjiPoId(terminZaZakazivanje.ProstorijaId);
             prostorija.DodajTermin(terminZaZakazivanje);
-            Prostorije.Instance.Serijalizacija();
+            ProstorijaRepo.Instance.Serijalizacija();
         }
 
         public void OtkaziTerminUnutarProstorije(Termin terminZaOtkazivanje)
         {
-            Prostorija prostorija = Prostorije.Instance.NadjiPoId(terminZaOtkazivanje.idProstorije);
+            Prostorija prostorija = ProstorijaRepo.Instance.NadjiPoId(terminZaOtkazivanje.ProstorijaId);
             prostorija.ObrisiTermin(terminZaOtkazivanje);
-            Prostorije.Instance.Serijalizacija();
+            ProstorijaRepo.Instance.Serijalizacija();
         }
 
         public void PomeriTerminUnutarProstorije(Termin terminZaPomeranje, Termin noviTermin)
         {
-            Prostorija prostorija = Prostorije.Instance.NadjiPoId(noviTermin.idProstorije);
+            Prostorija prostorija = ProstorijaRepo.Instance.NadjiPoId(noviTermin.ProstorijaId);
             prostorija.ObrisiTermin(terminZaPomeranje);
             prostorija.DodajTermin(noviTermin);
-            Prostorije.Instance.Serijalizacija();
+            ProstorijaRepo.Instance.Serijalizacija();
         }
         public void Uvid(DataGrid listaZakazanihTerminaLekara)
         {

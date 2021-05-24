@@ -13,7 +13,7 @@ namespace Model
         public Lekar IzabranLekar { get; set; }
         public Pacijent IzabranPacijent { get; set; }
         public TipTermina IzabraniTip { get; set; }
-        public Prostorija IzabrnaProstorija { get; set; }
+        public Prostorija IzabranaProstorija { get; set; }
         public bool VremePrioritet { get; set; }
 
         public ZakazivanjeTerminaSekretarDto(DateTime minDatum, DateTime maxDatum, Lekar izabranLekar,
@@ -25,7 +25,7 @@ namespace Model
             IzabranLekar = izabranLekar;
             IzabranPacijent = izabraniPacijent;
             IzabraniTip = izbraniTip;
-            IzabrnaProstorija = izabranaProstorija;
+            IzabranaProstorija = izabranaProstorija;
             VremePrioritet = vremePrioritet;
         }
     }

@@ -8,7 +8,7 @@ namespace Repozitorijum
 {
     public class BolnickoLecenjeRepo : Repozitorijum
     {
-        private string putanja = "../../../json/bolnickaLecenja.json";
+        private const string Putanja = "../../../json/bolnickaLecenja.json";
 
         private static readonly Lazy<BolnickoLecenjeRepo> Lazy = new(() => new BolnickoLecenjeRepo());
         public static BolnickoLecenjeRepo Instance => Lazy.Value;
@@ -18,18 +18,13 @@ namespace Repozitorijum
         public void Deserijalizacija()
         {
             lock (BolnickaLecenja)
-            {
-                BolnickaLecenja = JsonConvert.DeserializeObject<ObservableCollection<BolnickoLecenje>>(File.ReadAllText(putanja));
-            }
+                BolnickaLecenja = JsonConvert.DeserializeObject<ObservableCollection<BolnickoLecenje>>(File.ReadAllText(Putanja));
         }
 
         public void Serijalizacija()
         {
             lock (BolnickaLecenja)
-            {
-                string json = JsonConvert.SerializeObject(BolnickaLecenja, Formatting.Indented);
-                File.WriteAllText(putanja, json);
-            }
+                File.WriteAllText(Putanja, JsonConvert.SerializeObject(BolnickaLecenja, Formatting.Indented));
         }
 
         public BolnickoLecenjeRepo()

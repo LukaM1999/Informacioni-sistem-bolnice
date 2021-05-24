@@ -8,8 +8,8 @@ namespace Model
 {
     public class RaspodelaDinamickeOpremeDto
     {
-        public String IzProstorijeId { get; set; }
-        public String UProstorijuId { get; set; }
+        public string IzProstorijeId { get; set; }
+        public string UProstorijuId { get; set; }
         public DinamickaOprema Oprema { get; set; }
         public int Kolicina { get; set; }
         public RaspodelaDinamickeOpremeDto() 
@@ -19,7 +19,7 @@ namespace Model
             Oprema = null;
             Kolicina = 0;
         }
-        public RaspodelaDinamickeOpremeDto(String izProstorije, String uProstoriju, DinamickaOprema oprema, int kolicina)
+        public RaspodelaDinamickeOpremeDto(string izProstorije, string uProstoriju, DinamickaOprema oprema, int kolicina)
         {
             IzProstorijeId = izProstorije;
             UProstorijuId = uProstoriju;

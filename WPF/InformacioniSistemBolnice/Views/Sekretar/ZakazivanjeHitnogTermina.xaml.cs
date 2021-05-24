@@ -32,14 +32,14 @@ namespace InformacioniSistemBolnice
 
             vrijeme.Content = DateTime.Now.TimeOfDay.ToString();
 
-            Specijalizacije.Instance.Deserijalizacija();
-            specijalizacijeLekara.ItemsSource = Specijalizacije.Instance.listaSpecijalizacija;
+            SpecijalizacijaRepo.Instance.Deserijalizacija();
+            specijalizacijeLekara.ItemsSource = SpecijalizacijaRepo.Instance.Specijalizacije;
 
-            Pacijenti.Instance.Deserijalizacija();
-            pacijenti.ItemsSource = Pacijenti.Instance.ListaPacijenata;
+            PacijentRepo.Instance.Deserijalizacija();
+            pacijenti.ItemsSource = PacijentRepo.Instance.Pacijenti;
 
-            Prostorije.Instance.Deserijalizacija();
-            prostorije.ItemsSource = Prostorije.Instance.ListaProstorija;
+            ProstorijaRepo.Instance.Deserijalizacija();
+            prostorije.ItemsSource = ProstorijaRepo.Instance.Prostorije;
 
         }
 
@@ -49,11 +49,11 @@ namespace InformacioniSistemBolnice
             Prostorija prostorija = (Prostorija)this.prostorije.SelectedItem;
 
             HitnoZakazivanjeDto hitnoZakazivanjeDto = new HitnoZakazivanjeDto(this.specijalizacijeLekara.SelectedItem.ToString(),
-                pacijent.jmbg, prostorija.Id);
+                pacijent.Jmbg, prostorija.Id);
             SekretarKontroler.Instance.ZakazivanjeHitnogTermina(hitnoZakazivanjeDto);
             
-            Termini.Instance.Deserijalizacija();
-            upravljanjeUrgentnimSistemomProzor.ListaTermina.ItemsSource = Termini.Instance.listaTermina;
+            TerminRepo.Instance.Deserijalizacija();
+            upravljanjeUrgentnimSistemomProzor.ListaTermina.ItemsSource = TerminRepo.Instance.Termini;
             this.Visibility = Visibility.Hidden;
             this.pocetna.contentControl.Content = this.upravljanjeUrgentnimSistemomProzor.Content;
 

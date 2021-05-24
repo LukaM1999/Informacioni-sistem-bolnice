@@ -20,7 +20,7 @@ namespace Servis
         {
             if (StatickaOpremaRepo.Instance.NadjiPoTipu(dto.Tip) == null)
             {
-                StatickaOpremaRepo.Instance.ListaOpreme.Add(new(dto.Kolicina, dto.Tip));
+                StatickaOpremaRepo.Instance.StatickaOprema.Add(new(dto.Kolicina, dto.Tip));
                 StatickaOpremaRepo.Instance.SacuvajPromene();
                 return;
             }

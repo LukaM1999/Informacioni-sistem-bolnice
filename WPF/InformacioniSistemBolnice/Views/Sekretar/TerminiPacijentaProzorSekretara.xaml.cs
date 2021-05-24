@@ -26,20 +26,20 @@ namespace InformacioniSistemBolnice
         {
             InitializeComponent();
             pocetna = pocetnaStranicaSekretara;
-            Termini.Instance.Deserijalizacija();
-            Pacijenti.Instance.Deserijalizacija();
-            Lekari.Instance.Deserijalizacija();
+            TerminRepo.Instance.Deserijalizacija();
+            PacijentRepo.Instance.Deserijalizacija();
+            LekarRepo.Instance.Deserijalizacija();
 
             /*foreach (Pacijent pacijent in Pacijenti.Instance.listaPacijenata)
             {
-                if (pacijent.korisnik.korisnickoIme.Equals(korisnickoIme))
+                if (pacijent.Korisnik.KorisnickoIme.Equals(korisnickoIme))
                 {
                     ulogovanPacijent = pacijent;
                     break;
                 }
             }
             */
-            listaZakazanihTermina.ItemsSource = Termini.Instance.listaTermina;
+            listaZakazanihTermina.ItemsSource = TerminRepo.Instance.Termini;
         }
 
         private void zakaziDugme_Click(object sender, RoutedEventArgs e)
@@ -54,7 +54,7 @@ namespace InformacioniSistemBolnice
             {
                 System.Diagnostics.Debug.WriteLine((Termin)listaZakazanihTermina.SelectedValue);
                 SekretarKontroler.Instance.Otkazivanje((Termin)listaZakazanihTermina.SelectedValue);
-                listaZakazanihTermina.ItemsSource = Termini.Instance.listaTermina;
+                listaZakazanihTermina.ItemsSource = TerminRepo.Instance.Termini;
             }
         }
 

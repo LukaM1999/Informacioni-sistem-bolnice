@@ -23,7 +23,7 @@ namespace Servis
         public void PopuniAnketuOLekaru(Termin zavrsenTermin, AnketaOLekaru novaAnketa)
         {
             zavrsenTermin.PopuniAnketuOLekaru(novaAnketa);
-            Termini.Instance.Serijalizacija();
+            TerminRepo.Instance.Serijalizacija();
         }
 
         public async void OtvoriAnketuOBolnici(Pacijent pacijent)
@@ -31,7 +31,7 @@ namespace Servis
             ulogovanPacijent = pacijent;
             if (!ulogovanPacijent.PacijentPosetioBolnicu(ulogovanPacijent.DobaviSortiraneTermine())) return;
             if (PrebrojTermineDoAnkete() < TerminaDoAnkete && !JeVremeZaAnketu()) return;
-            AnketaOBolniciFormaView anketaOBolnici = new(ulogovanPacijent.jmbg);
+            AnketaOBolniciFormaView anketaOBolnici = new(ulogovanPacijent.Jmbg);
             await Task.Delay(7000);
             anketaOBolnici.Show();
         }
@@ -49,32 +49,32 @@ namespace Servis
 
         private bool JePrvaAnketa(Termin termin)
         {
-            return AnketeOBolnici.Instance.DobaviPacijentoveAnkete(ulogovanPacijent).Count == 0 &&
-                   termin.status == StatusTermina.zavrsen;
+            return AnketaOBolniciRepo.Instance.DobaviPacijentoveAnkete(ulogovanPacijent).Count == 0 &&
+                   termin.Status == StatusTermina.zavrsen;
         }
 
         private bool JeNovozavrsen(Termin termin)
         {
-            List<AnketaOBolnici> sortiraneAnkete = AnketeOBolnici.Instance.DobaviPacijentoveAnkete(ulogovanPacijent);
-            sortiraneAnkete = AnketeOBolnici.Instance.DobaviVremenskiOpadajuciSortiraneAnkete(sortiraneAnkete);
+            List<AnketaOBolnici> sortiraneAnkete = AnketaOBolniciRepo.Instance.DobaviPacijentoveAnkete(ulogovanPacijent);
+            sortiraneAnkete = AnketaOBolniciRepo.Instance.DobaviVremenskiOpadajuciSortiraneAnkete(sortiraneAnkete);
             if (sortiraneAnkete.Count <= 1)
-                return termin.status == StatusTermina.zavrsen && sortiraneAnkete.Count != 0 &&
-                       termin.vreme < sortiraneAnkete[0].VremePopunjavanja;
-            return termin.status == StatusTermina.zavrsen && termin.vreme > sortiraneAnkete[1].VremePopunjavanja &&
-                   termin.vreme > sortiraneAnkete[0].VremePopunjavanja && termin.vreme < DateTime.Now;
+                return termin.Status == StatusTermina.zavrsen && sortiraneAnkete.Count != 0 &&
+                       termin.Vreme < sortiraneAnkete[0].VremePopunjavanja;
+            return termin.Status == StatusTermina.zavrsen && termin.Vreme > sortiraneAnkete[1].VremePopunjavanja &&
+                   termin.Vreme > sortiraneAnkete[0].VremePopunjavanja && termin.Vreme < DateTime.Now;
         }
 
         private bool JeVremeZaAnketu()
         {
-            List<AnketaOBolnici> sortiraneAnkete = AnketeOBolnici.Instance.DobaviPacijentoveAnkete(ulogovanPacijent);
-            sortiraneAnkete = AnketeOBolnici.Instance.DobaviVremenskiOpadajuciSortiraneAnkete(sortiraneAnkete);
+            List<AnketaOBolnici> sortiraneAnkete = AnketaOBolniciRepo.Instance.DobaviPacijentoveAnkete(ulogovanPacijent);
+            sortiraneAnkete = AnketaOBolniciRepo.Instance.DobaviVremenskiOpadajuciSortiraneAnkete(sortiraneAnkete);
             if (sortiraneAnkete.Count == 0) return false;
             return sortiraneAnkete[0].VremePopunjavanja.AddMonths(MesecaDoAnkete) < DateTime.Now;
         }
 
         public void PosaljiAnketuOBolnici(AnketaOBolnici anketa)
         {
-            AnketeOBolnici.Instance.DodajAnketu(anketa);
+            AnketaOBolniciRepo.Instance.DodajAnketu(anketa);
         }
     }
 }

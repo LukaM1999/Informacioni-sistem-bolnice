@@ -13,8 +13,8 @@ namespace InformacioniSistemBolnice
         {
             InitializeComponent();
             pocetna = pocetnaStranicaSekretara;
-            Alergeni.Instance.Deserijalizacija();
-            ListaAlergena.ItemsSource = Alergeni.Instance.listaAlergena;
+            AlergenRepo.Instance.Deserijalizacija();
+            ListaAlergena.ItemsSource = AlergenRepo.Instance.Alergeni;
         }
 
         private void DefinisiAlergen_Click(object sender, RoutedEventArgs e)

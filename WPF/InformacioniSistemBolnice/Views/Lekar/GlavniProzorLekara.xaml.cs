@@ -27,11 +27,11 @@ namespace InformacioniSistemBolnice
         public GlavniProzorLekara(string korisnickoIme, string lozinka)
         {
             InitializeComponent();
-            Lekari.Instance.Deserijalizacija();
-            foreach (Lekar lekar in Lekari.Instance.listaLekara)
+            LekarRepo.Instance.Deserijalizacija();
+            foreach (Lekar lekar in LekarRepo.Instance.Lekari)
             {
-                System.Diagnostics.Debug.WriteLine(lekar.korisnik.korisnickoIme);
-                if (lekar.korisnik.korisnickoIme.Equals(korisnickoIme) && lekar.korisnik.lozinka.Equals(lozinka))
+                System.Diagnostics.Debug.WriteLine(lekar.Korisnik.KorisnickoIme);
+                if (lekar.Korisnik.KorisnickoIme.Equals(korisnickoIme) && lekar.Korisnik.Lozinka.Equals(lozinka))
                 {
                     ulogovanLekar = lekar;
                     break;

@@ -28,10 +28,10 @@ namespace InformacioniSistemBolnice
         public ProstorijeProzor()
         {
             InitializeComponent();
-            Prostorije.Instance.Deserijalizacija();
+            ProstorijaRepo.Instance.Deserijalizacija();
             DinamickaOpremaRepo.Instance.Deserijalizacija();
             StatickaOpremaRepo.Instance.Deserijalizacija();
-            listaProstorija = Prostorije.Instance.ListaProstorija;
+            listaProstorija = ProstorijaRepo.Instance.Prostorije;
 
             ListaProstorija.ItemsSource = listaProstorija;
             cbStaticka.ItemsSource = Enum.GetValues(typeof(TipStatickeOpreme));
@@ -52,7 +52,7 @@ namespace InformacioniSistemBolnice
             {
                 Prostorija izabranaProstorija = (Prostorija)ListaProstorija.SelectedValue;
                 UpravnikKontroler.Instance.UklanjanjeProstorije(new ProstorijaDto() { Id = izabranaProstorija.Id });
-                listaProstorija = Prostorije.Instance.ListaProstorija;
+                listaProstorija = ProstorijaRepo.Instance.Prostorije;
                 ListaProstorija.ItemsSource = listaProstorija;
             }
         }
@@ -94,7 +94,7 @@ namespace InformacioniSistemBolnice
             if ((bool)rbStaticka.IsChecked)
             {
                 TipStatickeOpreme tipStatickeOpreme = (TipStatickeOpreme)cbStaticka.SelectedItem;
-                foreach (Prostorija prostorija in Prostorije.Instance.ListaProstorija.ToList())
+                foreach (Prostorija prostorija in ProstorijaRepo.Instance.Prostorije.ToList())
                 {
                     foreach(StatickaOprema statickaOprema in prostorija.Inventar.StatickaOprema.ToList())
                     {
@@ -108,7 +108,7 @@ namespace InformacioniSistemBolnice
             else
             {
                 TipDinamickeOpreme tipDinamickeOpreme = (TipDinamickeOpreme)cbDinamicka.SelectedItem;
-                foreach (Prostorija prostorija in Prostorije.Instance.ListaProstorija.ToList())
+                foreach (Prostorija prostorija in ProstorijaRepo.Instance.Prostorije.ToList())
                 {
                     foreach (DinamickaOprema dinamickaOprema in prostorija.Inventar.DinamickaOprema.ToList())
                     {
@@ -125,7 +125,7 @@ namespace InformacioniSistemBolnice
 
         private void btnOsvezi_Click(object sender, RoutedEventArgs e)
         {
-            listaProstorija = Prostorije.Instance.ListaProstorija;
+            listaProstorija = ProstorijaRepo.Instance.Prostorije;
             ListaProstorija.ItemsSource = listaProstorija;
         }
 

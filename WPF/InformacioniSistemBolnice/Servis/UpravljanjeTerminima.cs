@@ -17,12 +17,12 @@ namespace Servis
 
         public void Zakazivanje(Termin terminZaZakazivanje)
         {
-            terminZaZakazivanje.status = StatusTermina.zakazan;
+            terminZaZakazivanje.Status = StatusTermina.zakazan;
             UpravljanjeTerminimaPacijenata.Instance.ZakaziTerminKodPacijenta(terminZaZakazivanje);
             UpravljanjeTerminimaLekara.Instance.ZakaziTerminKodLekara(terminZaZakazivanje);
             UpravljanjeTerminimaProstorija.Instance.ZakaziTerminUnutarProstorije(terminZaZakazivanje);
-            Termini.Instance.DodajTermin(terminZaZakazivanje);
-            Termini.Instance.Serijalizacija();
+            TerminRepo.Instance.DodajTermin(terminZaZakazivanje);
+            TerminRepo.Instance.Serijalizacija();
         }
 
         public void Otkazivanje(Termin terminZaOtkazivanje)
@@ -30,19 +30,19 @@ namespace Servis
             UpravljanjeTerminimaPacijenata.Instance.OtkaziTerminKodPacijenta(terminZaOtkazivanje);
             UpravljanjeTerminimaLekara.Instance.OtkaziTerminKodLekara(terminZaOtkazivanje);
             UpravljanjeTerminimaProstorija.Instance.OtkaziTerminUnutarProstorije(terminZaOtkazivanje);
-            Termini.Instance.ObrisiTermin(terminZaOtkazivanje);
-            Termini.Instance.Serijalizacija();
+            TerminRepo.Instance.ObrisiTermin(terminZaOtkazivanje);
+            TerminRepo.Instance.Serijalizacija();
         }
 
         public void Pomeranje(Termin terminZaPomeranje, Termin noviTermin)
         {
-            noviTermin.status = StatusTermina.pomeren;
+            noviTermin.Status = StatusTermina.pomeren;
             UpravljanjeTerminimaPacijenata.Instance.PomeriTerminKodPacijenta(terminZaPomeranje, noviTermin);
             UpravljanjeTerminimaLekara.Instance.PomeriTerminKodLekara(terminZaPomeranje, noviTermin);
             UpravljanjeTerminimaProstorija.Instance.PomeriTerminUnutarProstorije(terminZaPomeranje, noviTermin);
-            Termini.Instance.ObrisiTermin(terminZaPomeranje);
-            Termini.Instance.DodajTermin(noviTermin);
-            Termini.Instance.Serijalizacija();
+            TerminRepo.Instance.ObrisiTermin(terminZaPomeranje);
+            TerminRepo.Instance.DodajTermin(noviTermin);
+            TerminRepo.Instance.Serijalizacija();
 
         }
 

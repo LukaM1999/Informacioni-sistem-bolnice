@@ -29,7 +29,7 @@ namespace InformacioniSistemBolnice
         public UCLekInfo(GlavniProzorLekara glavni, Lek lek)
         {
             InitializeComponent();
-            Zahtevi.Instance.Deserijalizacija();
+            ZahtevRepo.Instance.Deserijalizacija();
             glavniProzorLekara = glavni;
             this.lek = lek;
             naziv.Content = lek.Naziv;
@@ -51,14 +51,14 @@ namespace InformacioniSistemBolnice
             if (!string.IsNullOrWhiteSpace(komentar.Text))
             {
                 Zahtev zahtev = new Zahtev(komentar.Text,
-                (glavniProzorLekara.ulogovanLekar.ime + " " + glavniProzorLekara.ulogovanLekar.prezime).ToString());
+                (glavniProzorLekara.ulogovanLekar.Ime + " " + glavniProzorLekara.ulogovanLekar.Prezime).ToString());
                 MessageBox.Show("Uspesno ste poslali zahtev");
-                Zahtevi.Instance.listaZahteva.Add(zahtev);
-                Zahtevi.Instance.Serijalizacija();
-                Zahtevi.Instance.Deserijalizacija();
+                ZahtevRepo.Instance.Zahtevi.Add(zahtev);
+                ZahtevRepo.Instance.Serijalizacija();
+                ZahtevRepo.Instance.Deserijalizacija();
             }
-            Lekovi.Instance.Serijalizacija();
-            Lekovi.Instance.Deserijalizacija();
+            LekRepo.Instance.Serijalizacija();
+            LekRepo.Instance.Deserijalizacija();
             UCLekovi lekovi = new UCLekovi(glavniProzorLekara);
             glavniProzorLekara.contentControl.Content = lekovi;
         }

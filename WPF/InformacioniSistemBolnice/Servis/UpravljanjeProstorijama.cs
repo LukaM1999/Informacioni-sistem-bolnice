@@ -13,26 +13,26 @@ namespace Servis
       
       public void KreiranjeProstorije(ProstorijaDto dto)
       {
-            Prostorije.Instance.ListaProstorija.Add(new Prostorija(dto.Sprat, dto.Tip, dto.Id, dto.JeZauzeta, dto.Inventar));
-            Prostorije.Instance.Serijalizacija();
-            Prostorije.Instance.Deserijalizacija();
+            ProstorijaRepo.Instance.Prostorije.Add(new Prostorija(dto.Sprat, dto.Tip, dto.Id, dto.JeZauzeta, dto.Inventar));
+            ProstorijaRepo.Instance.Serijalizacija();
+            ProstorijaRepo.Instance.Deserijalizacija();
         }
       
       public void UklanjanjeProstorije(ProstorijaDto dto)
       {
-            Prostorije.Instance.BrisiProstorijuIzSvihTermina(dto.Id);
-            if (!Prostorije.Instance.BrisiPoId(dto.Id)) return;
-            Prostorije.Instance.SacuvajPromene();            
+            ProstorijaRepo.Instance.BrisiProstorijuIzSvihTermina(dto.Id);
+            if (!ProstorijaRepo.Instance.BrisiPoId(dto.Id)) return;
+            ProstorijaRepo.Instance.SacuvajPromene();            
        }
       
       public void IzmenaProstorije(ProstorijaDto dto)
       {
             IzmeniIzabranuProstoriju(dto);
-            Prostorije.Instance.SacuvajPromene();
+            ProstorijaRepo.Instance.SacuvajPromene();
        }
       private void IzmeniIzabranuProstoriju(ProstorijaDto dto)
        {
-            Prostorija izabranaProstorija = Prostorije.Instance.NadjiPoId(dto.Id);
+            Prostorija izabranaProstorija = ProstorijaRepo.Instance.NadjiPoId(dto.Id);
             izabranaProstorija.Sprat = dto.Sprat;
             izabranaProstorija.Tip = dto.Tip;
             izabranaProstorija.Id = dto.Id;

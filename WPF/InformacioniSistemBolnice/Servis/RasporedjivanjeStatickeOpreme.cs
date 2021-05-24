@@ -20,16 +20,16 @@ namespace Servis
 
         public void ZakazivanjePremestanja(RaspodelaStatickeOpremeDto dto)
         {
-            StatickaOpremaTermini.Instance.listaTermina.Add(new(dto.IzProstorijeId, dto.UProstorijuId,
+            PremestanjeStatickeOpremeRepo.Instance.TerminiPremestanja.Add(new(dto.IzProstorijeId, dto.UProstorijuId,
                     dto.Oprema, dto.Kolicina, dto.Datum));
-            StatickaOpremaTermini.Instance.SacuvajPromene();
+            PremestanjeStatickeOpremeRepo.Instance.SacuvajPromene();
         }
 
         public void ProveraPremestajaOpreme()
         {
             while (true)
             {
-                foreach(StatickaOpremaTermin termin in StatickaOpremaTermini.Instance.listaTermina.ToList())
+                foreach(StatickaOpremaTermin termin in PremestanjeStatickeOpremeRepo.Instance.TerminiPremestanja.ToList())
                 {
                     if (JeProsaoDatumRaspodeleStatickeOpreme(termin))
                     {
@@ -65,31 +65,31 @@ namespace Servis
         }
         private void ObrisiTerminKojiJeProsao(StatickaOpremaTermin termin)
         {
-            StatickaOpremaTermini.Instance.listaTermina.Remove(termin);
-            StatickaOpremaTermini.Instance.SacuvajPromene();
+            PremestanjeStatickeOpremeRepo.Instance.TerminiPremestanja.Remove(termin);
+            PremestanjeStatickeOpremeRepo.Instance.SacuvajPromene();
         }
         private void DodajOpremuUProstoriju(StatickaOpremaTermin termin)
         {
-            if (Prostorije.Instance.NadjiPoId(termin.UProstorijuId).Inventar.NadjiStatickuOpremuPoTipu(termin.Oprema.Tip) == null)
+            if (ProstorijaRepo.Instance.NadjiPoId(termin.UProstorijuId).Inventar.NadjiStatickuOpremuPoTipu(termin.Oprema.Tip) == null)
             {
-                Prostorije.Instance.NadjiPoId(termin.UProstorijuId).Inventar.StatickaOprema.Add(new(termin.Kolicina, termin.Oprema.Tip));
-                Prostorije.Instance.SacuvajPromene();
+                ProstorijaRepo.Instance.NadjiPoId(termin.UProstorijuId).Inventar.StatickaOprema.Add(new(termin.Kolicina, termin.Oprema.Tip));
+                ProstorijaRepo.Instance.SacuvajPromene();
                 return;
             }
-            Prostorije.Instance.NadjiPoId(termin.UProstorijuId).Inventar.NadjiStatickuOpremuPoTipu(termin.Oprema.Tip).Kolicina += termin.Kolicina;
-            Prostorije.Instance.SacuvajPromene();
+            ProstorijaRepo.Instance.NadjiPoId(termin.UProstorijuId).Inventar.NadjiStatickuOpremuPoTipu(termin.Oprema.Tip).Kolicina += termin.Kolicina;
+            ProstorijaRepo.Instance.SacuvajPromene();
         }
         private void SmanjiKolicinuOpremeUProstoriji(StatickaOpremaTermin termin)
         {
-            Prostorije.Instance.NadjiPoId(termin.IzProstorijeId).Inventar.NadjiStatickuOpremuPoTipu(termin.Oprema.Tip).
-                                Kolicina -= termin.Kolicina;
-            Prostorije.Instance.SacuvajPromene();
+            ProstorijaRepo.Instance.NadjiPoId(termin.IzProstorijeId).Inventar.NadjiStatickuOpremuPoTipu(termin.Oprema.Tip)
+                        .Kolicina -= termin.Kolicina;
+            ProstorijaRepo.Instance.SacuvajPromene();
         }
         private void DodajOpremuUMagacin(StatickaOpremaTermin termin)
         {
             if (StatickaOpremaRepo.Instance.NadjiPoTipu(termin.Oprema.Tip) == null)
             {
-                StatickaOpremaRepo.Instance.ListaOpreme.Add(new(termin.Kolicina, termin.Oprema.Tip));
+                StatickaOpremaRepo.Instance.StatickaOprema.Add(new(termin.Kolicina, termin.Oprema.Tip));
                 StatickaOpremaRepo.Instance.SacuvajPromene();
                 return;
             }

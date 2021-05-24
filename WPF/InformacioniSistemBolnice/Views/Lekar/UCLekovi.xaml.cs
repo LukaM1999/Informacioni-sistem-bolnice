@@ -26,8 +26,8 @@ namespace InformacioniSistemBolnice
         public UCLekovi(GlavniProzorLekara glavni)
         {
             InitializeComponent();
-            Lekovi.Instance.Deserijalizacija();
-            listaLekova.ItemsSource = Lekovi.Instance.ListaLekova;
+            LekRepo.Instance.Deserijalizacija();
+            listaLekova.ItemsSource = LekRepo.Instance.Lekovi;
             glavniProzorLekara = glavni;
         }
 

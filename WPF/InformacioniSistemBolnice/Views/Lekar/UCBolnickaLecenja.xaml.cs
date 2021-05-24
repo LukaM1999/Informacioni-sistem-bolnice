@@ -27,7 +27,7 @@ namespace InformacioniSistemBolnice
         {
             InitializeComponent();
             BolnickoLecenjeRepo.Instance.Deserijalizacija();
-            Pacijenti.Instance.Deserijalizacija();
+            PacijentRepo.Instance.Deserijalizacija();
             BolnickaLecenja.ItemsSource = BolnickoLecenjeRepo.Instance.BolnickaLecenja;
             glavniProzorLekara = glavni;
         }
@@ -37,7 +37,7 @@ namespace InformacioniSistemBolnice
             if (BolnickaLecenja.SelectedIndex > -1)
             {
                 BolnickoLecenje lecenje = (BolnickoLecenje)BolnickaLecenja.SelectedItem;
-                Pacijent naLecenju = Pacijenti.Instance.NadjiPoJmbg(lecenje.JmbgPacijenta);
+                Pacijent naLecenju = PacijentRepo.Instance.NadjiPoJmbg(lecenje.JmbgPacijenta);
                 IzmenaZdravstvenogKartonaLekar zk = new(naLecenju, glavniProzorLekara);
                 zk.Show();
             }

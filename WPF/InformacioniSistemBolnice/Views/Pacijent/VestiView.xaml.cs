@@ -26,11 +26,11 @@ namespace InformacioniSistemBolnice
         public VestiView()
         {
             InitializeComponent();
-            Korisnici.Instance.Deserijalizacija();
+            KorisnikRepo.Instance.Deserijalizacija();
 
-            foreach (Korisnik pacijent in Korisnici.Instance.listaKorisnika)
+            foreach (Korisnik pacijent in KorisnikRepo.Instance.Korisnici)
             {
-                if (pacijent.uloga.Equals("2"))
+                if (pacijent.Uloga.Equals("2"))
                 {
                     korisnik = pacijent;
                     break;
@@ -38,8 +38,8 @@ namespace InformacioniSistemBolnice
             }
 
 
-            Vesti.Instance.Deserijalizacija();
-            ListaVesti.ItemsSource = Vesti.Instance.listaVesti;
+            VestRepo.Instance.Deserijalizacija();
+            ListaVesti.ItemsSource = VestRepo.Instance.Vesti;
 
 
 

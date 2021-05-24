@@ -14,9 +14,7 @@ namespace Model
 
         public override string ToString()
         {
-            return Potpis.ToString();
-
+            return Potpis;
         }
-
     }
 }

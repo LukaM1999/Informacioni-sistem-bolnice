@@ -28,7 +28,7 @@ namespace InformacioniSistemBolnice
         public IzmenaZdravstvenogKartonaLekar(Pacijent pacijent, GlavniProzorLekara glavni)
         {
             InitializeComponent();
-            Pacijenti.Instance.Deserijalizacija();
+            PacijentRepo.Instance.Deserijalizacija();
             PopunjavaKarton(pacijent);
             glavniProzorLekara = glavni;
         }
@@ -36,10 +36,10 @@ namespace InformacioniSistemBolnice
         public IzmenaZdravstvenogKartonaLekar(Termin termin, GlavniProzorLekara glavni)
         {
             InitializeComponent();
-            Pacijenti.Instance.Deserijalizacija();
-            foreach (Pacijent pacijent in Pacijenti.Instance.ListaPacijenata)
+            PacijentRepo.Instance.Deserijalizacija();
+            foreach (Pacijent pacijent in PacijentRepo.Instance.Pacijenti)
             {
-                if (pacijent.jmbg.Equals(termin.pacijentJMBG))
+                if (pacijent.Jmbg.Equals(termin.PacijentJmbg))
                 {
                     PopunjavaKarton(pacijent);
 
@@ -50,19 +50,19 @@ namespace InformacioniSistemBolnice
 
         private void PopunjavaKarton(Pacijent pacijent)
         {
-            Alergeni.Instance.Deserijalizacija();
-            Kartoni.Instance.Deserijalizacija();
+            AlergenRepo.Instance.Deserijalizacija();
+            ZdravstveniKartonRepo.Instance.Deserijalizacija();
             this.pacijent = pacijent;
             this.brojKartonaLabela.Content = pacijent.zdravstveniKarton.BrojKartona;
             this.brojKnjiziceLabela.Content = pacijent.zdravstveniKarton.BrojKnjizice;
             this.jmbgLabela.Content = pacijent.zdravstveniKarton.Jmbg;
-            this.prezimeLabela.Content = pacijent.prezime;
+            this.prezimeLabela.Content = pacijent.Prezime;
             this.roditeljLabela.Content = pacijent.zdravstveniKarton.ImeJednogRoditelja;
-            this.imeLabela.Content = pacijent.ime;
-            this.datumRodjenjaLabela.Content = pacijent.datumRodjenja;
-            this.adresaLabela.Content = pacijent.adresa.Grad + ", " + pacijent.adresa.Drzava;
-            this.ulicaIBrojLabela.Content = pacijent.adresa.Ulica + " " + pacijent.adresa.Broj;
-            this.telefonLabela.Content = pacijent.telefon;
+            this.imeLabela.Content = pacijent.Ime;
+            this.datumRodjenjaLabela.Content = pacijent.DatumRodjenja;
+            this.adresaLabela.Content = pacijent.AdresaStanovanja.Grad + ", " + pacijent.AdresaStanovanja.Drzava;
+            this.ulicaIBrojLabela.Content = pacijent.AdresaStanovanja.Ulica + " " + pacijent.AdresaStanovanja.Broj;
+            this.telefonLabela.Content = pacijent.Telefon;
             this.polLabela.Content = pacijent.zdravstveniKarton.PolPacijenta;
             this.bracnoStanjeLabela.Content = pacijent.zdravstveniKarton.BracnoStanje;
             this.zdravstvenaZastitaLabela.Content = pacijent.zdravstveniKarton.LiceZaZdravstvenuZastitu;

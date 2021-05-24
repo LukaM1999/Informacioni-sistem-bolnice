@@ -12,14 +12,12 @@ namespace Model
         public Inventar Inventar { get; set; }
         public RenoviranjeTermin Renoviranje { get; set; }
         public ObservableCollection<Termin> TerminiProstorije { get; set; }
-        public Prostorija()
-        {
-            JeZauzeta = false;
-        }
 
-        public Prostorija(int Sprat, TipProstorije tip, string sifra, bool zauzeta, Inventar inventar)
+        public Prostorija() { JeZauzeta = false; }
+
+        public Prostorija(int sprat, TipProstorije tip, string sifra, bool zauzeta, Inventar inventar)
         {
-            this.Sprat = Sprat;
+            this.Sprat = sprat;
             this.Tip = tip;
             this.Id = sifra;
             JeZauzeta = zauzeta;
@@ -34,12 +32,12 @@ namespace Model
 
         public bool ObrisiTermin(Termin terminZaBrisanje)
         {
-            return TerminiProstorije.Remove(NadjiTerminPoDatumu(terminZaBrisanje.vreme));
+            return TerminiProstorije.Remove(NadjiTerminPoDatumu(terminZaBrisanje.Vreme));
         }
 
         public bool DodajTermin(Termin terminZaDodavanje)
         {
-            if (NadjiTerminPoDatumu(terminZaDodavanje.vreme) != null) return false;
+            if (NadjiTerminPoDatumu(terminZaDodavanje.Vreme) != null) return false;
             TerminiProstorije.Add(terminZaDodavanje);
             return true;
         }
@@ -47,7 +45,7 @@ namespace Model
         public Termin NadjiTerminPoDatumu(DateTime vremeTermina)
         {
             foreach (Termin pronadjen in TerminiProstorije)
-                if (pronadjen.vreme == vremeTermina) return pronadjen;
+                if (pronadjen.Vreme == vremeTermina) return pronadjen;
             return null;
         }
     }

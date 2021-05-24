@@ -43,7 +43,7 @@ namespace InformacioniSistemBolnice
         {
             DinamickaOprema oprema = (DinamickaOprema)ListaDinamickeOpreme.SelectedValue;
             UpravnikKontroler.Instance.IzmenaDinamickeOpreme(new(Int32.Parse(tb1.Text), (TipDinamickeOpreme)Enum.Parse(typeof(TipDinamickeOpreme), cb1.Text)));
-            ListaDinamickeOpreme.ItemsSource = Repozitorijum.DinamickaOpremaRepo.Instance.ListaOpreme;
+            ListaDinamickeOpreme.ItemsSource = Repozitorijum.DinamickaOpremaRepo.Instance.DinamickaOprema;
             this.Close();
         }
     }

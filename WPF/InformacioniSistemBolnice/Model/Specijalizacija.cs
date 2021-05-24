@@ -13,7 +13,7 @@ namespace Model
 
         public override string ToString()
         {
-            return Naziv.ToString();
+            return Naziv;
         }
 
     }

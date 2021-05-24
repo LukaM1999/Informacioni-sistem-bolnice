@@ -65,7 +65,7 @@ namespace InformacioniSistemBolnice
 
         public bool daLiPostojiTerminUIzabranomOpseguVremena(Termin zakazaniTermin)
         {
-            return zakazaniTermin.vreme >= datumPocetkaRenoviranja.SelectedDate && zakazaniTermin.vreme < datumKrajaRenoviranja.SelectedDate;
+            return zakazaniTermin.Vreme >= datumPocetkaRenoviranja.SelectedDate && zakazaniTermin.Vreme < datumKrajaRenoviranja.SelectedDate;
         }
     }
 }

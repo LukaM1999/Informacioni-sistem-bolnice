@@ -22,7 +22,7 @@ namespace Servis
         public void ProveriMalicioznostPacijenta(Pacijent ulogovan)
         {
             PronadjiUlogovanogPacijenta(ulogovan);
-            while (!UlogovanPacijent.maliciozan)
+            while (!UlogovanPacijent.Maliciozan)
             {
                 if (ProveriMalicioznostZakazivanjaTermina()) break;
                 if (ProveriMalicioznostPomeranjaTermina()) break;
@@ -32,9 +32,9 @@ namespace Servis
 
         private void PronadjiUlogovanogPacijenta(Pacijent ulogovan)
         {
-            foreach (Pacijent ulogovanPacijent in Pacijenti.Instance.ListaPacijenata)
+            foreach (Pacijent ulogovanPacijent in PacijentRepo.Instance.Pacijenti)
             {
-                if (ulogovanPacijent.jmbg != ulogovan.jmbg) continue;
+                if (ulogovanPacijent.Jmbg != ulogovan.Jmbg) continue;
                 UlogovanPacijent = ulogovanPacijent;
             }
         }
@@ -61,13 +61,13 @@ namespace Servis
 
         private static bool JeUnutarTromesecnogIntervala(Termin termin, int mesec)
         {
-            return termin.vreme > DateTime.Now.AddMonths((mesec - 1) * 3) &&
-                   termin.vreme < DateTime.Now.AddMonths(mesec * 3) && JePomerenPregled(termin);
+            return termin.Vreme > DateTime.Now.AddMonths((mesec - 1) * 3) &&
+                   termin.Vreme < DateTime.Now.AddMonths(mesec * 3) && JePomerenPregled(termin);
         }
 
         private static bool JePomerenPregled(Termin termin)
         {
-            return termin.status == StatusTermina.pomeren && termin.tipTermina == TipTermina.pregled;
+            return termin.Status == StatusTermina.pomeren && termin.Tip == TipTermina.pregled;
         }
 
         private bool ProveriMalicioznostZakazivanjaTermina()
@@ -92,27 +92,27 @@ namespace Servis
 
         private static bool JeUnutarMesecnogIntervala(Termin termin, int mesec)
         {
-            return termin.vreme > DateTime.Now.AddMonths(mesec - 1) &&
-                   termin.vreme < DateTime.Now.AddMonths(mesec) && termin.tipTermina == TipTermina.pregled &&
-                   termin.status == StatusTermina.zakazan;
+            return termin.Vreme > DateTime.Now.AddMonths(mesec - 1) &&
+                   termin.Vreme < DateTime.Now.AddMonths(mesec) && termin.Tip == TipTermina.pregled &&
+                   termin.Status == StatusTermina.zakazan;
         }
 
         private bool OznaciMalicioznogPacijenta(int mesecnihTermina, int maksimalnoTermina)
         {
             if (mesecnihTermina <= maksimalnoTermina) return false;
             OznaciUlogovanog();
-            Pacijenti.Instance.Serijalizacija();
-            Pacijenti.Instance.Deserijalizacija();
+            PacijentRepo.Instance.Serijalizacija();
+            PacijentRepo.Instance.Deserijalizacija();
             System.Diagnostics.Debug.WriteLine("Oznaceni ste kao maliciozni!");
             return true;
         }
 
         private void OznaciUlogovanog()
         {
-            foreach (Pacijent maliciozanPacijent in Pacijenti.Instance.ListaPacijenata)
+            foreach (Pacijent maliciozanPacijent in PacijentRepo.Instance.Pacijenti)
             {
-                if (maliciozanPacijent.jmbg != UlogovanPacijent.jmbg) continue;
-                maliciozanPacijent.maliciozan = true;
+                if (maliciozanPacijent.Jmbg != UlogovanPacijent.Jmbg) continue;
+                maliciozanPacijent.Maliciozan = true;
             }
         }
     }

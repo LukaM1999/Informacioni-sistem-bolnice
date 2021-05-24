@@ -15,24 +15,24 @@ namespace Servis
 
         public void ZakaziTerminKodLekara(Termin terminZaZakazivanje)
         {
-            Lekar lekar = Lekari.Instance.NadjiLekara(terminZaZakazivanje.lekarJMBG);
+            Lekar lekar = LekarRepo.Instance.NadjiLekara(terminZaZakazivanje.LekarJmbg);
             lekar.DodajTermin(terminZaZakazivanje);
-            Lekari.Instance.Serijalizacija();
+            LekarRepo.Instance.Serijalizacija();
         }
 
         public void OtkaziTerminKodLekara(Termin terminZaOtkazivanje)
         {
-            Lekar lekar = Lekari.Instance.NadjiLekara(terminZaOtkazivanje.lekarJMBG);
+            Lekar lekar = LekarRepo.Instance.NadjiLekara(terminZaOtkazivanje.LekarJmbg);
             lekar.ObrisiTermin(terminZaOtkazivanje);
-            Lekari.Instance.Serijalizacija();
+            LekarRepo.Instance.Serijalizacija();
         }
 
         public void PomeriTerminKodLekara(Termin terminZaPomeranje, Termin noviTermin)
         {
-            Lekar lekar = Lekari.Instance.NadjiLekara(noviTermin.lekarJMBG);
+            Lekar lekar = LekarRepo.Instance.NadjiLekara(noviTermin.LekarJmbg);
             lekar.ObrisiTermin(terminZaPomeranje);
             lekar.DodajTermin(noviTermin);
-            Lekari.Instance.Serijalizacija();
+            LekarRepo.Instance.Serijalizacija();
         }
         public void Uvid(DataGrid listaZakazanihTerminaLekara)
         {

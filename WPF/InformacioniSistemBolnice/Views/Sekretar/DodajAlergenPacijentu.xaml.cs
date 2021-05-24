@@ -28,9 +28,9 @@ namespace InformacioniSistemBolnice
         {
             InitializeComponent();
             this.izmjenaZdravstvenogKartonaForma = izmjenaZdravstvenogKartonaForma;
-            Alergeni.Instance.Deserijalizacija();
-            listaAlergena = Alergeni.Instance.listaAlergena;
-            foreach (Pacijent p in Pacijenti.Instance.ListaPacijenata)
+            AlergenRepo.Instance.Deserijalizacija();
+            listaAlergena = AlergenRepo.Instance.Alergeni;
+            foreach (Pacijent p in PacijentRepo.Instance.Pacijenti)
             {
                 if(p.zdravstveniKarton.Jmbg.Equals(izmjenaZdravstvenogKartonaForma.JMBGLabela.Content))
                 {
@@ -60,7 +60,7 @@ namespace InformacioniSistemBolnice
 
         private void AzurirajPrikazAlergena()
         {
-            izmjenaZdravstvenogKartonaForma.ListaAlergena.ItemsSource = Pacijenti.Instance.NadjiPoJmbg
+            izmjenaZdravstvenogKartonaForma.ListaAlergena.ItemsSource = PacijentRepo.Instance.NadjiPoJmbg
             (izmjenaZdravstvenogKartonaForma.JMBGLabela.Content.ToString()). zdravstveniKarton.Alergeni;
         }
     }

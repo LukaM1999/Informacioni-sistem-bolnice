@@ -26,8 +26,8 @@ namespace InformacioniSistemBolnice
         public PacijentiProzor(PocetnaStranicaSekretara pocetnaStranicaSekretara)
         {
             InitializeComponent();
-            Pacijenti.Instance.Deserijalizacija();
-            foreach (Pacijent pacijent in Pacijenti.Instance.ListaPacijenata) pacijenti.Add(pacijent);
+            PacijentRepo.Instance.Deserijalizacija();
+            foreach (Pacijent pacijent in PacijentRepo.Instance.Pacijenti) pacijenti.Add(pacijent);
             ListaPacijenata.ItemsSource = pacijenti.ToList();
             pocetna = pocetnaStranicaSekretara;
         }
@@ -50,18 +50,18 @@ namespace InformacioniSistemBolnice
             {
                 Pacijent p = (Pacijent)ListaPacijenata.SelectedItem;
                 IzmenaNalogaPacijentaForma izmena = new IzmenaNalogaPacijentaForma(this, pocetna);
-                izmena.imeUnos.Text = p.ime;
-                izmena.prezimeUnos.Text = p.prezime;
-                izmena.JMBGUnos.Text = p.jmbg;
-                izmena.drzavaUnos.Text = p.adresa.Drzava;
-                izmena.gradUnos.Text = p.adresa.Grad;
-                izmena.ulicaUnos.Text = p.adresa.Ulica;
-                izmena.brojUnos.Text = p.adresa.Broj;
-                izmena.datumUnos.Text = p.datumRodjenja.ToString("MM/dd/yyyy");
-                izmena.telUnos.Text = p.telefon;
-                izmena.mailUnos.Text = p.email;
-                izmena.korisnikUnos.Text = p.korisnik.korisnickoIme;
-                izmena.lozinkaUnos.Password = p.korisnik.lozinka;
+                izmena.imeUnos.Text = p.Ime;
+                izmena.prezimeUnos.Text = p.Prezime;
+                izmena.JMBGUnos.Text = p.Jmbg;
+                izmena.drzavaUnos.Text = p.AdresaStanovanja.Drzava;
+                izmena.gradUnos.Text = p.AdresaStanovanja.Grad;
+                izmena.ulicaUnos.Text = p.AdresaStanovanja.Ulica;
+                izmena.brojUnos.Text = p.AdresaStanovanja.Broj;
+                izmena.datumUnos.Text = p.DatumRodjenja.ToString("MM/dd/yyyy");
+                izmena.telUnos.Text = p.Telefon;
+                izmena.mailUnos.Text = p.Email;
+                izmena.korisnikUnos.Text = p.Korisnik.KorisnickoIme;
+                izmena.lozinkaUnos.Password = p.Korisnik.Lozinka;
                 pocetna.contentControl.Content = izmena.Content;
             }
 
@@ -75,17 +75,17 @@ namespace InformacioniSistemBolnice
             {
                 Pacijent p = (Pacijent)ListaPacijenata.SelectedItem;
                 PregledNalogaPacijenta pregledNalogaPacijenta = new PregledNalogaPacijenta(this);
-                pregledNalogaPacijenta.imeLabela.Content = p.ime;
-                pregledNalogaPacijenta.prezimeLabela.Content = p.prezime;
-                pregledNalogaPacijenta.datumLabela.Content = p.datumRodjenja.ToString("dd/MM/yyyy");
-                pregledNalogaPacijenta.drzavaLabela.Content = p.adresa.Drzava;
-                pregledNalogaPacijenta.gradLabela.Content = p.adresa.Grad;
-                pregledNalogaPacijenta.ulicaLabela.Content = p.adresa.Ulica;
-                pregledNalogaPacijenta.brojLabela.Content = p.adresa.Broj;
-                pregledNalogaPacijenta.telLabela.Content = p.telefon;
-                pregledNalogaPacijenta.mailLabela.Content = p.email;
-                pregledNalogaPacijenta.korisnikLabela.Content = p.korisnik.korisnickoIme;
-                pregledNalogaPacijenta.JMBGUnos.Content = p.jmbg;
+                pregledNalogaPacijenta.imeLabela.Content = p.Ime;
+                pregledNalogaPacijenta.prezimeLabela.Content = p.Prezime;
+                pregledNalogaPacijenta.datumLabela.Content = p.DatumRodjenja.ToString("dd/MM/yyyy");
+                pregledNalogaPacijenta.drzavaLabela.Content = p.AdresaStanovanja.Drzava;
+                pregledNalogaPacijenta.gradLabela.Content = p.AdresaStanovanja.Grad;
+                pregledNalogaPacijenta.ulicaLabela.Content = p.AdresaStanovanja.Ulica;
+                pregledNalogaPacijenta.brojLabela.Content = p.AdresaStanovanja.Broj;
+                pregledNalogaPacijenta.telLabela.Content = p.Telefon;
+                pregledNalogaPacijenta.mailLabela.Content = p.Email;
+                pregledNalogaPacijenta.korisnikLabela.Content = p.Korisnik.KorisnickoIme;
+                pregledNalogaPacijenta.JMBGUnos.Content = p.Jmbg;
                 pocetna.contentControl.Content = pregledNalogaPacijenta;
             }
         }
@@ -100,14 +100,14 @@ namespace InformacioniSistemBolnice
                     PregledZdravstvenogKartona pregledZdravstvenogKartona = new PregledZdravstvenogKartona(this);
                     pregledZdravstvenogKartona.brojKartona.Content = p.zdravstveniKarton.BrojKartona;
                     pregledZdravstvenogKartona.brojKnjizice.Content = p.zdravstveniKarton.BrojKnjizice;
-                    pregledZdravstvenogKartona.imeLabela.Content = p.ime;
-                    pregledZdravstvenogKartona.prezime.Content = p.prezime;
+                    pregledZdravstvenogKartona.imeLabela.Content = p.Ime;
+                    pregledZdravstvenogKartona.prezime.Content = p.Prezime;
                     pregledZdravstvenogKartona.imeRoditelja.Content = p.zdravstveniKarton.ImeJednogRoditelja;
                     pregledZdravstvenogKartona.JMBG.Content = p.zdravstveniKarton.Jmbg;
-                    pregledZdravstvenogKartona.datumRodjenja.Content = p.datumRodjenja.ToString("dd/MM/yyyy");
-                    pregledZdravstvenogKartona.telefon.Content = p.telefon;
-                    pregledZdravstvenogKartona.adresa.Content = p.adresa.Drzava + ", " + p.adresa.Grad;
-                    pregledZdravstvenogKartona.ulicaIBroj.Content = p.adresa.Ulica + ", " + p.adresa.Broj;
+                    pregledZdravstvenogKartona.datumRodjenja.Content = p.DatumRodjenja.ToString("dd/MM/yyyy");
+                    pregledZdravstvenogKartona.telefon.Content = p.Telefon;
+                    pregledZdravstvenogKartona.adresa.Content = p.AdresaStanovanja.Drzava + ", " + p.AdresaStanovanja.Grad;
+                    pregledZdravstvenogKartona.ulicaIBroj.Content = p.AdresaStanovanja.Ulica + ", " + p.AdresaStanovanja.Broj;
                     pregledZdravstvenogKartona.liceZdrZastita.Content = p.zdravstveniKarton.LiceZaZdravstvenuZastitu;
                     pregledZdravstvenogKartona.pol.Content = p.zdravstveniKarton.PolPacijenta.ToString();
                     pregledZdravstvenogKartona.bracnoStanje.Content = p.zdravstveniKarton.BracnoStanje.ToString();
@@ -142,14 +142,14 @@ namespace InformacioniSistemBolnice
                     IzmjenaZdravstvenogKartonaForma izmjenaZdravstvenogKartonaForma = new IzmjenaZdravstvenogKartonaForma(this, pocetna);
                     izmjenaZdravstvenogKartonaForma.brojKartona.Text = p.zdravstveniKarton.BrojKartona.ToString();
                     izmjenaZdravstvenogKartonaForma.brojKnjizice.Text = p.zdravstveniKarton.BrojKnjizice;
-                    izmjenaZdravstvenogKartonaForma.imeLabela.Content = p.ime;
-                    izmjenaZdravstvenogKartonaForma.prezimeLabela.Content = p.prezime;
+                    izmjenaZdravstvenogKartonaForma.imeLabela.Content = p.Ime;
+                    izmjenaZdravstvenogKartonaForma.prezimeLabela.Content = p.Prezime;
                     izmjenaZdravstvenogKartonaForma.imeRoditelja.Text = p.zdravstveniKarton.ImeJednogRoditelja;
-                    izmjenaZdravstvenogKartonaForma.JMBGLabela.Content = p.jmbg;
-                    izmjenaZdravstvenogKartonaForma.datumRodjenjaLabela.Content = p.datumRodjenja.ToString("dd/MM/yyyy");
-                    izmjenaZdravstvenogKartonaForma.telefon.Content = p.telefon;
-                    izmjenaZdravstvenogKartonaForma.adresa.Content = p.adresa.Drzava + ", " + p.adresa.Grad;
-                    izmjenaZdravstvenogKartonaForma.ulicaIBrojLabela.Content = p.adresa.Ulica + ", " + p.adresa.Broj;
+                    izmjenaZdravstvenogKartonaForma.JMBGLabela.Content = p.Jmbg;
+                    izmjenaZdravstvenogKartonaForma.datumRodjenjaLabela.Content = p.DatumRodjenja.ToString("dd/MM/yyyy");
+                    izmjenaZdravstvenogKartonaForma.telefon.Content = p.Telefon;
+                    izmjenaZdravstvenogKartonaForma.adresa.Content = p.AdresaStanovanja.Drzava + ", " + p.AdresaStanovanja.Grad;
+                    izmjenaZdravstvenogKartonaForma.ulicaIBrojLabela.Content = p.AdresaStanovanja.Ulica + ", " + p.AdresaStanovanja.Broj;
                     izmjenaZdravstvenogKartonaForma.liceZdrZastita.Text = p.zdravstveniKarton.LiceZaZdravstvenuZastitu;
                     izmjenaZdravstvenogKartonaForma.polUnos.Text = p.zdravstveniKarton.PolPacijenta.ToString();
                     izmjenaZdravstvenogKartonaForma.bracnoStanjeUnos.Text = p.zdravstveniKarton.BracnoStanje.ToString();

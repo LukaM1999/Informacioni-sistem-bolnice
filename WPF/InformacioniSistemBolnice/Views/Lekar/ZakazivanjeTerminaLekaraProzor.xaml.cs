@@ -39,19 +39,19 @@ namespace InformacioniSistemBolnice
                 datum = datum.AddMinutes(30);
             }
 
-            Prostorije.Instance.Deserijalizacija();
-            Pacijenti.Instance.Deserijalizacija();
+            ProstorijaRepo.Instance.Deserijalizacija();
+            PacijentRepo.Instance.Deserijalizacija();
             listaSati.ItemsSource = listaDatuma;
             
-            foreach(Prostorija p in Prostorije.Instance.ListaProstorija)
+            foreach(Prostorija p in ProstorijaRepo.Instance.Prostorije)
             {
                 prostorijeID.Add(p.Id);
             }
             sala.ItemsSource = prostorijeID;
 
-            foreach (Pacijent p in Pacijenti.Instance.ListaPacijenata)
+            foreach (Pacijent p in PacijentRepo.Instance.Pacijenti)
             {
-                jmbgPacijent.Add(p.jmbg);
+                jmbgPacijent.Add(p.Jmbg);
             }
 
             jmbg = jmbgLekara;

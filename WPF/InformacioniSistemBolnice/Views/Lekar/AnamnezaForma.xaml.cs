@@ -26,13 +26,11 @@ namespace InformacioniSistemBolnice
         {
             InitializeComponent();
             p = pacijent;
-            if (pacijent.zdravstveniKarton.anamneza != null)
-            {
-                this.prvi.Text = pacijent.zdravstveniKarton.anamneza.sadasnjaBolest;
-                this.drugi.Text = pacijent.zdravstveniKarton.anamneza.ranijeBolesti;
-                this.treci.Text = pacijent.zdravstveniKarton.anamneza.porodicneAnamneze;
-                this.peti.Text = pacijent.zdravstveniKarton.anamneza.zakljucak;
-            }
+            if (pacijent.zdravstveniKarton.Anamneza == null) return;
+            this.prvi.Text = pacijent.zdravstveniKarton.Anamneza.SadasnjaBolest;
+            this.drugi.Text = pacijent.zdravstveniKarton.Anamneza.RanijeBolesti;
+            this.treci.Text = pacijent.zdravstveniKarton.Anamneza.PorodicneAnamneze;
+            this.peti.Text = pacijent.zdravstveniKarton.Anamneza.Zakljucak;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

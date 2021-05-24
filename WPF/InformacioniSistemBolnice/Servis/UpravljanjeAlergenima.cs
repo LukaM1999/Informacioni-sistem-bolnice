@@ -19,19 +19,19 @@ namespace Servis
 
         public void KreiranjeAlergena(AlergenDto alergenDto)
         {
-            Alergeni.Instance.DodajAlergen(new Alergen(alergenDto.Naziv));
+            AlergenRepo.Instance.DodajAlergen(new Alergen(alergenDto.Naziv));
         }
 
         public void UklanjanjeAlergena(Alergen alergen)
         {
-            Alergeni.Instance.BrisiPoNazivu(alergen.Naziv);
-            Alergeni.Instance.SacuvajPromene();
+            AlergenRepo.Instance.BrisiPoNazivu(alergen.Naziv);
+            AlergenRepo.Instance.SacuvajPromene();
         }
 
         public void IzmenaAlergena(AlergenDto noviAlergen, Alergen stariAlergen)
         {
             stariAlergen.Naziv = noviAlergen.Naziv;
-            Alergeni.Instance.SacuvajPromene();
+            AlergenRepo.Instance.SacuvajPromene();
         }
 
         public AlergenDto PregledAlergena(Alergen alergen)

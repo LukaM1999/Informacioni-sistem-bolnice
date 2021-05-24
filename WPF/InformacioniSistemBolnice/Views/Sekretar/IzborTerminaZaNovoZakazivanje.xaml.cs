@@ -53,13 +53,13 @@ namespace InformacioniSistemBolnice
                 }
                 foreach (Termin predlozenTermin in slobodniTermini.ToList())
                 {
-                    foreach (Lekar izabraniLekar in Lekari.Instance.listaLekara)
+                    foreach (Lekar izabraniLekar in LekarRepo.Instance.Lekari)
                     {
-                        if (izabraniLekar.jmbg == jmbgLekara)
+                        if (izabraniLekar.Jmbg == jmbgLekara)
                         {
-                            foreach (Termin postojeciTermin in izabraniLekar.zauzetiTermini)
+                            foreach (Termin postojeciTermin in izabraniLekar.ZauzetiTermini)
                             {
-                                if (predlozenTermin.vreme == postojeciTermin.vreme)
+                                if (predlozenTermin.Vreme == postojeciTermin.Vreme)
                                 {
                                     slobodniTermini.Remove(predlozenTermin);
                                     break;
@@ -104,13 +104,13 @@ namespace InformacioniSistemBolnice
                         }
                         foreach (Termin predlozenTermin in slobodniTermini.ToList())
                         {
-                            foreach (Lekar izabraniLekar in Lekari.Instance.listaLekara)
+                            foreach (Lekar izabraniLekar in LekarRepo.Instance.Lekari)
                             {
-                                if (izabraniLekar.jmbg == jmbgLekara)
+                                if (izabraniLekar.Jmbg == jmbgLekara)
                                 {
-                                    foreach (Termin postojeciTermin in izabraniLekar.zauzetiTermini)
+                                    foreach (Termin postojeciTermin in izabraniLekar.ZauzetiTermini)
                                     {
-                                        if (predlozenTermin.vreme == postojeciTermin.vreme)
+                                        if (predlozenTermin.Vreme == postojeciTermin.Vreme)
                                         {
                                             slobodniTermini.Remove(predlozenTermin);
                                             break;
@@ -124,14 +124,14 @@ namespace InformacioniSistemBolnice
                     else
                     {
                         slobodanTermin = ((DateTime)pomeranje.minDatumTermina.SelectedDate).AddHours(7);
-                        foreach (Lekar drugiLekar in Lekari.Instance.listaLekara)
+                        foreach (Lekar drugiLekar in LekarRepo.Instance.Lekari)
                         {
-                            foreach (Lekar izabraniLekar in Lekari.Instance.listaLekara)
+                            foreach (Lekar izabraniLekar in LekarRepo.Instance.Lekari)
                             {
-                                if (izabraniLekar.jmbg == jmbgLekara)
+                                if (izabraniLekar.Jmbg == jmbgLekara)
                                 {
                                     if (drugiLekar == izabraniLekar) continue;
-                                    if (drugiLekar.specijalizacija == izabraniLekar.specijalizacija)
+                                    if (drugiLekar.Specijalizacija == izabraniLekar.Specijalizacija)
                                     {
                                         for (int i = 0; i < intervalDana.Days; i++)
                                         {
@@ -147,9 +147,9 @@ namespace InformacioniSistemBolnice
                                         }
                                         foreach (Termin predlozenTermin in slobodniTermini.ToList())
                                         {
-                                            foreach (Termin postojeciTermin in drugiLekar.zauzetiTermini)
+                                            foreach (Termin postojeciTermin in drugiLekar.ZauzetiTermini)
                                             {
-                                                if (predlozenTermin.vreme == postojeciTermin.vreme)
+                                                if (predlozenTermin.Vreme == postojeciTermin.Vreme)
                                                 {
                                                     slobodniTermini.Remove(predlozenTermin);
                                                     break;

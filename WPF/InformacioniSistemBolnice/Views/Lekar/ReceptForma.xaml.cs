@@ -26,9 +26,9 @@ namespace InformacioniSistemBolnice
         public ReceptForma(Pacijent pacijent)
         {
             InitializeComponent();
-            Lekovi.Instance.Deserijalizacija();
+            LekRepo.Instance.Deserijalizacija();
             this.pacijent = pacijent;
-            listaLekova.ItemsSource = Lekovi.Instance.ListaLekova;
+            listaLekova.ItemsSource = LekRepo.Instance.Lekovi;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

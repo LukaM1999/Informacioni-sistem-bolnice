@@ -29,24 +29,24 @@ namespace InformacioniSistemBolnice.Views.Lekar
         public UCRaspored(GlavniProzorLekara glavniProzorLekara)
         {
             InitializeComponent();
-            Pacijenti.Instance.Deserijalizacija();
-            Lekari.Instance.Deserijalizacija();
-            Prostorije.Instance.Deserijalizacija();
-            Termini.Instance.Deserijalizacija();
+            PacijentRepo.Instance.Deserijalizacija();
+            LekarRepo.Instance.Deserijalizacija();
+            ProstorijaRepo.Instance.Deserijalizacija();
+            TerminRepo.Instance.Deserijalizacija();
             lekar = glavniProzorLekara.ulogovanLekar;
-            lekar.zauzetiTermini.Clear();
+            lekar.ZauzetiTermini.Clear();
             PronadjiTermineLekara();
-            ZakazaniTermini.ItemsSource = lekar.zauzetiTermini;
+            ZakazaniTermini.ItemsSource = lekar.ZauzetiTermini;
             glavniProzor = glavniProzorLekara;
         }
 
         private void PronadjiTermineLekara()
         {
-            foreach (Termin termin in Termini.Instance.listaTermina.ToList())
+            foreach (Termin termin in TerminRepo.Instance.Termini.ToList())
             {
-                if (lekar.jmbg.Equals(termin.lekarJMBG))
+                if (lekar.Jmbg.Equals(termin.LekarJmbg))
                 {
-                    lekar.zauzetiTermini.Add(termin);
+                    lekar.ZauzetiTermini.Add(termin);
                 }
             }
         }

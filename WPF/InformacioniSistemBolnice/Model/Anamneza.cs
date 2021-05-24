@@ -5,19 +5,19 @@ namespace Model
     [AddINotifyPropertyChangedInterface]
     public class Anamneza
     {
-        public string id { get; set; }
-        public string sadasnjaBolest { get; set; }
-        public string ranijeBolesti { get; set; }
-        public string porodicneAnamneze { get; set; }
-        public string zakljucak { get; set; }
+        public string AnamnezaId { get; set; }
+        public string SadasnjaBolest { get; set; }
+        public string RanijeBolesti { get; set; }
+        public string PorodicneAnamneze { get; set; }
+        public string Zakljucak { get; set; }
         public string BeleskePacijenta { get; set; }
 
-        public Anamneza(string sadasnja, string ranije, string porodicne, string z)
+        public Anamneza(string sadasnja, string ranije, string porodicne, string zakljucak)
         {
-            sadasnjaBolest = sadasnja;
-            ranijeBolesti = ranije;
-            porodicneAnamneze = porodicne;
-            zakljucak = z;
+            SadasnjaBolest = sadasnja;
+            RanijeBolesti = ranije;
+            PorodicneAnamneze = porodicne;
+            Zakljucak = zakljucak;
         }
     }
 }

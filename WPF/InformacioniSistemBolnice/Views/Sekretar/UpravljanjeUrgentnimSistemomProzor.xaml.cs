@@ -25,9 +25,9 @@ namespace InformacioniSistemBolnice
         public UpravljanjeUrgentnimSistemomProzor(PocetnaStranicaSekretara pocetnaStranicaSekretara)
         {
             InitializeComponent();
-            Pacijenti.Instance.Deserijalizacija();
-            Termini.Instance.Deserijalizacija();
-            ListaTermina.ItemsSource = Termini.Instance.listaTermina;
+            PacijentRepo.Instance.Deserijalizacija();
+            TerminRepo.Instance.Deserijalizacija();
+            ListaTermina.ItemsSource = TerminRepo.Instance.Termini;
             pocetna = pocetnaStranicaSekretara;
 
         }

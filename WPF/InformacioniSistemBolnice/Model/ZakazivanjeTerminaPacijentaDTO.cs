@@ -12,7 +12,7 @@ namespace Model
         public DateTime MaxDatum { get; set; }
         public Lekar IzabranLekar { get; set; }
         public bool VremePrioritet { get; set; }
-        public string PacijentovJmbg { get; set; }
+        public string PacijentJmbg { get; set; }
 
         public ZakazivanjeTerminaPacijentaDTO(DateTime minDatum, DateTime maxDatum,
             Lekar izabranLekar, bool vremePrioritet, string pacijentovJmbg)
@@ -21,12 +21,12 @@ namespace Model
             MaxDatum = maxDatum;
             IzabranLekar = izabranLekar;
             VremePrioritet = vremePrioritet;
-            PacijentovJmbg = pacijentovJmbg;
+            PacijentJmbg = pacijentovJmbg;
         }
 
         public ZakazivanjeTerminaPacijentaDTO(string pacijentovJmbg)
         {
-            PacijentovJmbg = pacijentovJmbg;
+            PacijentJmbg = pacijentovJmbg;
         }
     }
 }

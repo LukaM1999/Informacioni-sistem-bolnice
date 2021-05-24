@@ -28,12 +28,12 @@ namespace InformacioniSistemBolnice
             InitializeComponent();
 
             this.terminiPacijentaProzorSekretara = terminiPacijentaProzorSekretara;
-            Lekari.Instance.Deserijalizacija();
-            lekari.ItemsSource = Lekari.Instance.listaLekara;
-            Pacijenti.Instance.Deserijalizacija();
-            pacijenti.ItemsSource = Pacijenti.Instance.ListaPacijenata;
-            Prostorije.Instance.Deserijalizacija();
-            prostorije.ItemsSource = Prostorije.Instance.ListaProstorija;
+            LekarRepo.Instance.Deserijalizacija();
+            lekari.ItemsSource = LekarRepo.Instance.Lekari;
+            PacijentRepo.Instance.Deserijalizacija();
+            pacijenti.ItemsSource = PacijentRepo.Instance.Pacijenti;
+            ProstorijaRepo.Instance.Deserijalizacija();
+            prostorije.ItemsSource = ProstorijaRepo.Instance.Prostorije;
 
 
         }

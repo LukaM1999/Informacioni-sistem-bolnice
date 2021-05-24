@@ -30,10 +30,10 @@ namespace InformacioniSistemBolnice
         public UputForma(Pacijent pacijent)
         {
             InitializeComponent();
-            Lekari.Instance.Deserijalizacija();
-            Specijalizacije.Instance.Deserijalizacija();
-            Prostorije.Instance.Deserijalizacija();
-            Termini.Instance.Deserijalizacija();
+            LekarRepo.Instance.Deserijalizacija();
+            SpecijalizacijaRepo.Instance.Deserijalizacija();
+            ProstorijaRepo.Instance.Deserijalizacija();
+            TerminRepo.Instance.Deserijalizacija();
             PopunjavanjeListeSpecijalizacija();
             specijalizacije.ItemsSource = listaSpecijalizacija;
             this.pacijent = pacijent;
@@ -41,7 +41,7 @@ namespace InformacioniSistemBolnice
             
             if (tip.SelectedItem != null)
             {
-                foreach (Prostorija ponudjenaProstorija in Prostorije.Instance.ListaProstorija)
+                foreach (Prostorija ponudjenaProstorija in ProstorijaRepo.Instance.Prostorije)
                 {
                     if (tip.SelectionBoxItemStringFormat.Equals("pregled"))
                     {
@@ -60,7 +60,7 @@ namespace InformacioniSistemBolnice
 
         private void PopunjavanjeListeSpecijalizacija()
         {
-            foreach (Specijalizacija specijalizacija in Specijalizacije.Instance.listaSpecijalizacija)
+            foreach (Specijalizacija specijalizacija in SpecijalizacijaRepo.Instance.Specijalizacije)
             {
                 listaSpecijalizacija.Add(specijalizacija.Naziv);
             }
@@ -69,7 +69,7 @@ namespace InformacioniSistemBolnice
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             imajuSpecijalizaciju.Clear();
-            foreach (Lekar lekar in Lekari.Instance.listaLekara)
+            foreach (Lekar lekar in LekarRepo.Instance.Lekari)
             {
                 PretragaLekara(lekar);
             }
@@ -85,7 +85,7 @@ namespace InformacioniSistemBolnice
 
         private void PopunjavanjeListeLekara(Lekar lekar)
         {
-            if (specijalizacije.SelectedItem.ToString() == lekar.specijalizacija.Naziv)
+            if (specijalizacije.SelectedItem.ToString() == lekar.Specijalizacija.Naziv)
                 imajuSpecijalizaciju.Add(lekar);
         }
 

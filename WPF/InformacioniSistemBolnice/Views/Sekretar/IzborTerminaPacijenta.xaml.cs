@@ -31,7 +31,7 @@ namespace InformacioniSistemBolnice
             Lekar izabranLekar = zakazivanje.IzabranLekar;
             Pacijent izabraniPacijent = zakazivanje.IzabranPacijent;
             TipTermina izabraniTip = zakazivanje.IzabraniTip;
-            Prostorija izabranaProstorija = zakazivanje.IzabrnaProstorija;
+            Prostorija izabranaProstorija = zakazivanje.IzabranaProstorija;
             TimeSpan intervalDana = zakazivanje.MaxDatum - zakazivanje.MinDatum;
             DateTime slobodanTermin = zakazivanje.MinDatum.AddHours(7);
             for (int i = 0; i < intervalDana.Days; i++)
@@ -40,7 +40,7 @@ namespace InformacioniSistemBolnice
                 {
 
                     slobodniTermini.Add(new Termin(slobodanTermin, 30.0, izabraniTip, StatusTermina.slobodan,
-                                                   izabraniPacijent.jmbg, izabranLekar.jmbg, izabranaProstorija.Id));
+                                                   izabraniPacijent.Jmbg, izabranLekar.Jmbg, izabranaProstorija.Id));
                    
                     slobodanTermin = slobodanTermin.AddMinutes(30);
 
@@ -51,9 +51,9 @@ namespace InformacioniSistemBolnice
 
             foreach (Termin predlozenTermin in slobodniTermini.ToList())
             {
-                foreach (Termin postojeciTermin in izabranLekar.zauzetiTermini)
+                foreach (Termin postojeciTermin in izabranLekar.ZauzetiTermini)
                 {
-                    if (predlozenTermin.vreme != postojeciTermin.vreme) continue;
+                    if (predlozenTermin.Vreme != postojeciTermin.Vreme) continue;
                     slobodniTermini.Remove(predlozenTermin);
                     break;
                 }
@@ -69,11 +69,11 @@ namespace InformacioniSistemBolnice
                         for (int j = 0; j < 27; j++)
                         {
                             slobodniTermini.Add(new Termin(slobodanTermin, 30.0, izabraniTip, StatusTermina.slobodan,
-                                                               izabraniPacijent.jmbg, izabranLekar.jmbg, izabranaProstorija.Id));
+                                                               izabraniPacijent.Jmbg, izabranLekar.Jmbg, izabranaProstorija.Id));
 
                            
 
-                            if (slobodniTermini.Last().idProstorije == null)
+                            if (slobodniTermini.Last().ProstorijaId == null)
                                 slobodniTermini.RemoveAt(slobodniTermini.Count - 1);
                             slobodanTermin = slobodanTermin.AddMinutes(30);
 
@@ -87,7 +87,7 @@ namespace InformacioniSistemBolnice
                         {
 
                             slobodniTermini.Add(new Termin(slobodanTermin, 30.0, izabraniTip, StatusTermina.slobodan,
-                                                           izabraniPacijent.jmbg, izabranLekar.jmbg, izabranaProstorija.Id));
+                                                           izabraniPacijent.Jmbg, izabranLekar.Jmbg, izabranaProstorija.Id));
 
                             
 
@@ -96,9 +96,9 @@ namespace InformacioniSistemBolnice
                     }
                     foreach (Termin predlozenTermin in slobodniTermini.ToList())
                     {
-                        foreach (Termin postojeciTermin in izabranLekar.zauzetiTermini)
+                        foreach (Termin postojeciTermin in izabranLekar.ZauzetiTermini)
                         {
-                            if (predlozenTermin.vreme == postojeciTermin.vreme)
+                            if (predlozenTermin.Vreme == postojeciTermin.Vreme)
                             {
                                 slobodniTermini.Remove(predlozenTermin);
                                 break;
@@ -110,20 +110,20 @@ namespace InformacioniSistemBolnice
                 else
                 {
                     slobodanTermin = zakazivanje.MinDatum.AddHours(7);
-                    foreach (Lekar drugiLekar in Lekari.Instance.listaLekara)
+                    foreach (Lekar drugiLekar in LekarRepo.Instance.Lekari)
                     {
-                        if (drugiLekar.jmbg == zakazivanje.IzabranLekar.jmbg) continue;
-                        if (drugiLekar.specijalizacija == zakazivanje.IzabranLekar.specijalizacija)
+                        if (drugiLekar.Jmbg == zakazivanje.IzabranLekar.Jmbg) continue;
+                        if (drugiLekar.Specijalizacija == zakazivanje.IzabranLekar.Specijalizacija)
                         {
                             for (int i = 0; i < intervalDana.Days; i++)
                             {
                                 for (int j = 0; j < 27; j++)
                                 {
                                     slobodniTermini.Add(new Termin(slobodanTermin, 30.0, izabraniTip, StatusTermina.slobodan,
-                                                                  izabraniPacijent.jmbg, drugiLekar.jmbg, izabranaProstorija.Id));
+                                                                  izabraniPacijent.Jmbg, drugiLekar.Jmbg, izabranaProstorija.Id));
 
                                 
-                                    if (slobodniTermini.Last().idProstorije == null)
+                                    if (slobodniTermini.Last().ProstorijaId == null)
                                         slobodniTermini.RemoveAt(slobodniTermini.Count - 1);
                                     slobodanTermin = slobodanTermin.AddMinutes(30);
 
@@ -132,9 +132,9 @@ namespace InformacioniSistemBolnice
                             }
                             foreach (Termin predlozenTermin in slobodniTermini.ToList())
                             {
-                                foreach (Termin postojeciTermin in drugiLekar.zauzetiTermini)
+                                foreach (Termin postojeciTermin in drugiLekar.ZauzetiTermini)
                                 {
-                                    if (predlozenTermin.vreme == postojeciTermin.vreme)
+                                    if (predlozenTermin.Vreme == postojeciTermin.Vreme)
                                     {
                                         slobodniTermini.Remove(predlozenTermin);
                                         break;

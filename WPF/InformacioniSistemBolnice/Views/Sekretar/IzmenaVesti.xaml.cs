@@ -33,7 +33,7 @@ namespace InformacioniSistemBolnice
         {
             VestDto vestDto = new VestDto(naslovVesti.Text, sadrzajVesti.Text);
             SekretarKontroler.Instance.IzmenaVesti(vestDto, (Vest)vesti.ListaVesti.SelectedItem);
-            vesti.ListaVesti.ItemsSource = Vesti.Instance.listaVesti;
+            vesti.ListaVesti.ItemsSource = VestRepo.Instance.Vesti;
             pocetna.contentControl.Content = vesti.Content;
             
         }

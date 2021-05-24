@@ -31,12 +31,12 @@ namespace InformacioniSistemBolnice
             if (listaGostujucihNaloga.SelectedValue != null)
             {
                 Pacijent p = (Pacijent)listaGostujucihNaloga.SelectedItem;
-                this.imeUnos.Content = p.ime;
-                this.prezimeUnos.Content = p.prezime;
-                this.datumUnos.Content = p.datumRodjenja.ToString("dd/MM/yyyy");
-                this.JMBGUnos.Content = p.jmbg;
-                this.telUnos.Content = p.telefon;
-                this.mailUnos.Content = p.email;
+                this.imeUnos.Content = p.Ime;
+                this.prezimeUnos.Content = p.Prezime;
+                this.datumUnos.Content = p.DatumRodjenja.ToString("dd/MM/yyyy");
+                this.JMBGUnos.Content = p.Jmbg;
+                this.telUnos.Content = p.Telefon;
+                this.mailUnos.Content = p.Email;
 
             } 
         }

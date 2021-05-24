@@ -32,40 +32,40 @@ namespace Servis
         {
             DinamickaOpremaRepo.Instance.NadjiPoTipu(dto.Oprema.Tip).Kolicina -= dto.Kolicina;
             DinamickaOpremaRepo.Instance.SacuvajPromene();
-            if (Prostorije.Instance.NadjiPoId(dto.UProstorijuId).Inventar.NadjiDinamickuOpremuPoTipu(dto.Oprema.Tip) != null)
+            if (ProstorijaRepo.Instance.NadjiPoId(dto.UProstorijuId).Inventar.NadjiDinamickuOpremuPoTipu(dto.Oprema.Tip) != null)
             {
-                Prostorije.Instance.NadjiPoId(dto.UProstorijuId).Inventar.NadjiDinamickuOpremuPoTipu(dto.Oprema.Tip).Kolicina += dto.Kolicina;
-                Prostorije.Instance.SacuvajPromene();
+                ProstorijaRepo.Instance.NadjiPoId(dto.UProstorijuId).Inventar.NadjiDinamickuOpremuPoTipu(dto.Oprema.Tip).Kolicina += dto.Kolicina;
+                ProstorijaRepo.Instance.SacuvajPromene();
                 return;
             }
-            Prostorije.Instance.NadjiPoId(dto.UProstorijuId).Inventar.DinamickaOprema.Add(new(dto.Kolicina, dto.Oprema.Tip));
-            Prostorije.Instance.SacuvajPromene();
+            ProstorijaRepo.Instance.NadjiPoId(dto.UProstorijuId).Inventar.DinamickaOprema.Add(new(dto.Kolicina, dto.Oprema.Tip));
+            ProstorijaRepo.Instance.SacuvajPromene();
         }
         private void RaspodeliOpremuIzProstorijeUMagacin(RaspodelaDinamickeOpremeDto dto)
         {
-            Prostorije.Instance.NadjiPoId(dto.IzProstorijeId).Inventar.NadjiDinamickuOpremuPoTipu(dto.Oprema.Tip).Kolicina -= dto.Kolicina;
-            Prostorije.Instance.SacuvajPromene();
+            ProstorijaRepo.Instance.NadjiPoId(dto.IzProstorijeId).Inventar.NadjiDinamickuOpremuPoTipu(dto.Oprema.Tip).Kolicina -= dto.Kolicina;
+            ProstorijaRepo.Instance.SacuvajPromene();
             if (DinamickaOpremaRepo.Instance.NadjiPoTipu(dto.Oprema.Tip) != null)
             {
                 DinamickaOpremaRepo.Instance.NadjiPoTipu(dto.Oprema.Tip).Kolicina += dto.Kolicina;
                 DinamickaOpremaRepo.Instance.SacuvajPromene();
                 return;
             }
-            DinamickaOpremaRepo.Instance.ListaOpreme.Add(new(dto.Kolicina, dto.Oprema.Tip));
+            DinamickaOpremaRepo.Instance.DinamickaOprema.Add(new(dto.Kolicina, dto.Oprema.Tip));
             DinamickaOpremaRepo.Instance.SacuvajPromene();
         }
         private void RaspodeliOpremuIzProstorijeUProstoriju(RaspodelaDinamickeOpremeDto dto)
         {
-            Prostorije.Instance.NadjiPoId(dto.IzProstorijeId).Inventar.NadjiDinamickuOpremuPoTipu(dto.Oprema.Tip).Kolicina -= dto.Kolicina;
-            Prostorije.Instance.SacuvajPromene();
-            if (Prostorije.Instance.NadjiPoId(dto.UProstorijuId).Inventar.NadjiDinamickuOpremuPoTipu(dto.Oprema.Tip) != null)
+            ProstorijaRepo.Instance.NadjiPoId(dto.IzProstorijeId).Inventar.NadjiDinamickuOpremuPoTipu(dto.Oprema.Tip).Kolicina -= dto.Kolicina;
+            ProstorijaRepo.Instance.SacuvajPromene();
+            if (ProstorijaRepo.Instance.NadjiPoId(dto.UProstorijuId).Inventar.NadjiDinamickuOpremuPoTipu(dto.Oprema.Tip) != null)
             {
-                Prostorije.Instance.NadjiPoId(dto.UProstorijuId).Inventar.NadjiDinamickuOpremuPoTipu(dto.Oprema.Tip).Kolicina += dto.Kolicina;
-                Prostorije.Instance.SacuvajPromene();
+                ProstorijaRepo.Instance.NadjiPoId(dto.UProstorijuId).Inventar.NadjiDinamickuOpremuPoTipu(dto.Oprema.Tip).Kolicina += dto.Kolicina;
+                ProstorijaRepo.Instance.SacuvajPromene();
                 return;
             }
-            Prostorije.Instance.NadjiPoId(dto.UProstorijuId).Inventar.DinamickaOprema.Add(new(dto.Kolicina, dto.Oprema.Tip));
-            Prostorije.Instance.SacuvajPromene();
+            ProstorijaRepo.Instance.NadjiPoId(dto.UProstorijuId).Inventar.DinamickaOprema.Add(new(dto.Kolicina, dto.Oprema.Tip));
+            ProstorijaRepo.Instance.SacuvajPromene();
         }
 
     }

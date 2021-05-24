@@ -50,35 +50,35 @@ namespace Servis
         private void ZakaziHitanTermin()
         {
             Termin hitan = UzmiNajbliziSlobodanTerminIzListeSlobodnihTermina();
-            hitan.status = StatusTermina.zakazan;
-            Termini.Instance.listaTermina.Add(hitan);
-            Termini.Instance.Serijalizacija();
-            Termini.Instance.Deserijalizacija();
+            hitan.Status = StatusTermina.zakazan;
+            TerminRepo.Instance.Termini.Add(hitan);
+            TerminRepo.Instance.Serijalizacija();
+            TerminRepo.Instance.Deserijalizacija();
             SacuvajHitanTerminUListuZakazanihTerminaPacijenta(hitan);
             SacuvajHitanTerminUListuZakazanihTerminaLekara(hitan);
         }
 
         private static void SacuvajHitanTerminUListuZakazanihTerminaLekara(Termin hitan)
         {
-            foreach (Lekar lekar in Lekari.Instance.listaLekara)
+            foreach (Lekar lekar in LekarRepo.Instance.Lekari)
             {
-                if (lekar.jmbg == hitan.lekarJMBG)
+                if (lekar.Jmbg == hitan.LekarJmbg)
                 {
-                    lekar.zauzetiTermini.Add(hitan);
-                    Lekari.Instance.Serijalizacija();
-                    Lekari.Instance.Deserijalizacija();
+                    lekar.ZauzetiTermini.Add(hitan);
+                    LekarRepo.Instance.Serijalizacija();
+                    LekarRepo.Instance.Deserijalizacija();
                 }
             }
         }
         private static void SacuvajHitanTerminUListuZakazanihTerminaPacijenta(Termin hitan)
         {
-            foreach (Pacijent pacijent in Pacijenti.Instance.ListaPacijenata)
+            foreach (Pacijent pacijent in PacijentRepo.Instance.Pacijenti)
             {
-                if (pacijent.jmbg == hitan.pacijentJMBG)
+                if (pacijent.Jmbg == hitan.PacijentJmbg)
                 {
                     pacijent.zakazaniTermini.Add(hitan);
-                    Pacijenti.Instance.Serijalizacija();
-                    Pacijenti.Instance.Deserijalizacija();
+                    PacijentRepo.Instance.Serijalizacija();
+                    PacijentRepo.Instance.Deserijalizacija();
                 }
             }
         }
@@ -88,7 +88,7 @@ namespace Servis
             Termin najbliziSlobodan = slobodniTermini.First();
             foreach (Termin t in slobodniTermini)
             {
-                if (t.vreme < najbliziSlobodan.vreme)
+                if (t.Vreme < najbliziSlobodan.Vreme)
                 {
                     najbliziSlobodan = t;
                     break;
@@ -100,10 +100,10 @@ namespace Servis
 
         private void GenerisanjeNajblizegSlobodnogTerminaZaOdredjenuSpecijalizaciju()
         {
-            Lekari.Instance.Deserijalizacija();
-            foreach (Lekar lekar in Lekari.Instance.listaLekara)
+            LekarRepo.Instance.Deserijalizacija();
+            foreach (Lekar lekar in LekarRepo.Instance.Lekari)
             {
-                if (lekar.specijalizacija.Naziv == zakazivanjeHitnogTerminaDto.specijalizacija)
+                if (lekar.Specijalizacija.Naziv == zakazivanjeHitnogTerminaDto.Specijalizacija)
                 {
                     IzgenerisiSlobodneTermine(lekar);
                     ProveriStatusTermina(lekar);
@@ -115,9 +115,9 @@ namespace Servis
         {
             foreach (Termin predlozenTermin in slobodniTermini.ToList())
             {
-                foreach (Termin postojeciTermin in lekar.zauzetiTermini)
+                foreach (Termin postojeciTermin in lekar.ZauzetiTermini)
                 {
-                    if (predlozenTermin.vreme == postojeciTermin.vreme)
+                    if (predlozenTermin.Vreme == postojeciTermin.Vreme)
                     {
                         slobodniTermini.Remove(predlozenTermin);
                         break;
@@ -131,8 +131,8 @@ namespace Servis
             for (int j = 0; j < 2; j++)
             {
                 Termin t = new Termin(slobodanTermin, 30.0, TipTermina.pregled, StatusTermina.slobodan,
-                                      zakazivanjeHitnogTerminaDto.jmbgPacijenta, lekar.jmbg,
-                                      zakazivanjeHitnogTerminaDto.idProstorije, true);
+                                      zakazivanjeHitnogTerminaDto.PacijentJmbg, lekar.Jmbg,
+                                      zakazivanjeHitnogTerminaDto.ProstorijaId, true);
                 slobodniTermini.Add(t);
                 slobodanTermin = slobodanTermin.AddMinutes(30);
             }
@@ -154,8 +154,8 @@ namespace Servis
         public void PomeranjeTermina(TerminiLekaraZaPomeranjeDto terminiLekaraZaPomeranjeDto)
         {
             this.terminiLekaraZaPomeranjeDto = terminiLekaraZaPomeranjeDto;
-            DateTime staroVreme = ((Termin)terminiLekaraZaPomeranjeDto.terminZaPomeranje).vreme;
-            Termin noviTermin = (Termin)terminiLekaraZaPomeranjeDto.noviTermin;
+            DateTime staroVreme = ((Termin)terminiLekaraZaPomeranjeDto.TerminZaPomeranje).Vreme;
+            Termin noviTermin = (Termin)terminiLekaraZaPomeranjeDto.NoviTermin;
             PomeriTermin(staroVreme, noviTermin);
             PomeriTerminPacijentu(staroVreme, noviTermin);
             PomeriTerminLekaru(staroVreme, noviTermin);
@@ -164,15 +164,15 @@ namespace Servis
 
         private void PomeriTermin(DateTime staroVreme, Termin noviTermin)
         {
-            noviTermin.status = StatusTermina.pomeren;
-            foreach (Termin stariTermin in Termini.Instance.listaTermina.ToList())
+            noviTermin.Status = StatusTermina.pomeren;
+            foreach (Termin stariTermin in TerminRepo.Instance.Termini.ToList())
             {
-                if (stariTermin.vreme == staroVreme && stariTermin.lekarJMBG == ((Termin)terminiLekaraZaPomeranjeDto.noviTermin).lekarJMBG)
+                if (stariTermin.Vreme == staroVreme && stariTermin.LekarJmbg == ((Termin)terminiLekaraZaPomeranjeDto.NoviTermin).LekarJmbg)
                 {
                     PromeniParametreTermina(stariTermin);
-                    Termini.Instance.listaTermina.Add(noviTermin);
-                    Termini.Instance.Serijalizacija();
-                    Termini.Instance.Deserijalizacija();
+                    TerminRepo.Instance.Termini.Add(noviTermin);
+                    TerminRepo.Instance.Serijalizacija();
+                    TerminRepo.Instance.Deserijalizacija();
 
                     break;
                 }
@@ -181,22 +181,22 @@ namespace Servis
 
         private void PomeriTerminLekaru(DateTime staroVreme, Termin noviTermin)
         {
-            foreach (Lekar lekar in Lekari.Instance.listaLekara.ToList())
+            foreach (Lekar lekar in LekarRepo.Instance.Lekari.ToList())
             {
-                if (lekar.jmbg == noviTermin.lekarJMBG)
+                if (lekar.Jmbg == noviTermin.LekarJmbg)
                     SacuvajPromeneUTerminimaLekara(staroVreme, noviTermin, lekar);
             }
         }
 
         private void SacuvajPromeneUTerminimaLekara(DateTime staroVreme, Termin noviTermin, Lekar lekar)
         {
-            foreach (Termin stariTermin in lekar.zauzetiTermini)
+            foreach (Termin stariTermin in lekar.ZauzetiTermini)
             {
-                if (stariTermin.vreme != staroVreme) continue;
+                if (stariTermin.Vreme != staroVreme) continue;
                 PromeniParametreTermina(stariTermin);
-                lekar.zauzetiTermini.Add(noviTermin);
-                Lekari.Instance.Serijalizacija();
-                Lekari.Instance.Deserijalizacija();
+                lekar.ZauzetiTermini.Add(noviTermin);
+                LekarRepo.Instance.Serijalizacija();
+                LekarRepo.Instance.Deserijalizacija();
                 break;
 
             }
@@ -204,9 +204,9 @@ namespace Servis
 
         private void PomeriTerminPacijentu(DateTime staroVreme, Termin noviTermin)
         {
-            foreach (Pacijent pacijent in Pacijenti.Instance.ListaPacijenata.ToList())
+            foreach (Pacijent pacijent in PacijentRepo.Instance.Pacijenti.ToList())
             {
-                if (pacijent.jmbg == noviTermin.pacijentJMBG)
+                if (pacijent.Jmbg == noviTermin.PacijentJmbg)
                 {
                     SacuvajPromeneUTerminimaPacijenta(staroVreme, noviTermin, pacijent);
                 }
@@ -217,12 +217,12 @@ namespace Servis
         {
             foreach (Termin stariTermin in pacijent.zakazaniTermini)
             {
-                if (stariTermin.vreme == staroVreme)
+                if (stariTermin.Vreme == staroVreme)
                 {
                     PromeniParametreTermina(stariTermin);
                     pacijent.zakazaniTermini.Add(noviTermin);
-                    Pacijenti.Instance.Serijalizacija();
-                    Pacijenti.Instance.Deserijalizacija();
+                    PacijentRepo.Instance.Serijalizacija();
+                    PacijentRepo.Instance.Deserijalizacija();
                     break;
                 }
             }
@@ -230,9 +230,9 @@ namespace Servis
 
         private void PromeniParametreTermina(Termin stariTermin)
         {
-            stariTermin.status = StatusTermina.zakazan;
+            stariTermin.Status = StatusTermina.zakazan;
             stariTermin.Hitan = true;
-            stariTermin.pacijentJMBG = terminiLekaraZaPomeranjeDto.jmbgPacijenta;
+            stariTermin.PacijentJmbg = terminiLekaraZaPomeranjeDto.PacijentJmbg;
         }
 
 
@@ -240,8 +240,8 @@ namespace Servis
         {
             gostujuciNalogDto = gostujuciNalog;
             ObservableCollection<Termin> zakazaniTermini = new ObservableCollection<Termin>();
-            Pacijent gostujuciPacijent = new Pacijent(new Osoba(gostujuciNalogDto.ime, gostujuciNalogDto.prezime, gostujuciNalogDto.jmbg,
-                gostujuciNalogDto.datumRodjenja, gostujuciNalogDto.telefon, gostujuciNalogDto.email,
+            Pacijent gostujuciPacijent = new Pacijent(new Osoba(gostujuciNalogDto.Ime, gostujuciNalogDto.Prezime, gostujuciNalogDto.Jmbg,
+                gostujuciNalogDto.DatumRodjenja, gostujuciNalogDto.Telefon, gostujuciNalogDto.Email,
                 new Korisnik(null, null, (Model.UlogaKorisnika)Enum.Parse(typeof(Model.UlogaKorisnika), "pacijent")), null));
             gostujuciPacijent.zakazaniTermini = zakazaniTermini;
             DodajGostujucegPacijenta(gostujuciPacijent);
@@ -249,24 +249,24 @@ namespace Servis
 
         private static void DodajGostujucegPacijenta(Pacijent gostujuciPacijent)
         {
-            Pacijenti.Instance.ListaPacijenata.Add(gostujuciPacijent);
-            Pacijenti.Instance.Serijalizacija();
-            Pacijenti.Instance.Deserijalizacija();
+            PacijentRepo.Instance.Pacijenti.Add(gostujuciPacijent);
+            PacijentRepo.Instance.Serijalizacija();
+            PacijentRepo.Instance.Deserijalizacija();
         }
         public void UklanjanjeGostujucegNaloga(ListView gostujuciNalozi)
         {
             if (gostujuciNalozi.SelectedValue != null)
             {
                 Pacijent pacijent = (Pacijent)gostujuciNalozi.SelectedValue;
-                Pacijenti pacijenti = Pacijenti.Instance;
-                Korisnici korisnici = Korisnici.Instance;
-                foreach (Pacijent p in pacijenti.ListaPacijenata)
+                PacijentRepo pacijenti = PacijentRepo.Instance;
+                KorisnikRepo korisnici = KorisnikRepo.Instance;
+                foreach (Pacijent p in pacijenti.Pacijenti)
                 {
-                    if (p.jmbg.Equals(pacijent.jmbg))
+                    if (p.Jmbg.Equals(pacijent.Jmbg))
                     {
-                        pacijenti.ListaPacijenata.Remove(p);
-                        Pacijenti.Instance.Serijalizacija();
-                        Pacijenti.Instance.Deserijalizacija();
+                        pacijenti.Pacijenti.Remove(p);
+                        PacijentRepo.Instance.Serijalizacija();
+                        PacijentRepo.Instance.Deserijalizacija();
                         break;
                     }
                 }
@@ -278,9 +278,9 @@ namespace Servis
         private static void azurirajPrikazListeGostujucihNaloga(ListView gostujuciNalozi)
         {
             ObservableCollection<Pacijent> gostujuciPacijenti = new ObservableCollection<Pacijent>();
-            foreach (Pacijent gostujuciPacijent in Pacijenti.Instance.ListaPacijenata)
+            foreach (Pacijent gostujuciPacijent in PacijentRepo.Instance.Pacijenti)
             {
-                if (gostujuciPacijent.korisnik.korisnickoIme == null)
+                if (gostujuciPacijent.Korisnik.KorisnickoIme == null)
                 {
                     gostujuciPacijenti.Add(gostujuciPacijent);
                 }
@@ -293,53 +293,53 @@ namespace Servis
         {
             if (izborTerminaZaNovoZakazivanje.ponudjeniTerminiZaNovoZakazivanje.SelectedIndex >= 0)
             {
-                DateTime staroVreme = ((Termin)izborTerminaZaPomeranje.ponudjeniTerminiZaPomeranje.SelectedItem).vreme;
+                DateTime staroVreme = ((Termin)izborTerminaZaPomeranje.ponudjeniTerminiZaPomeranje.SelectedItem).Vreme;
                 Termin noviTermin = (Termin)izborTerminaZaNovoZakazivanje.ponudjeniTerminiZaNovoZakazivanje.SelectedItem;
-                noviTermin.status = StatusTermina.pomeren;
+                noviTermin.Status = StatusTermina.pomeren;
 
-                foreach (Termin stariTermin in Termini.Instance.listaTermina.ToList())
+                foreach (Termin stariTermin in TerminRepo.Instance.Termini.ToList())
                 {
-                    if (stariTermin.vreme == staroVreme)
+                    if (stariTermin.Vreme == staroVreme)
                     {
-                        Termini.Instance.listaTermina.Remove(stariTermin);
-                        Termini.Instance.listaTermina.Add(noviTermin);
-                        Termini.Instance.Serijalizacija();
-                        Termini.Instance.Deserijalizacija();
+                        TerminRepo.Instance.Termini.Remove(stariTermin);
+                        TerminRepo.Instance.Termini.Add(noviTermin);
+                        TerminRepo.Instance.Serijalizacija();
+                        TerminRepo.Instance.Deserijalizacija();
                         break;
                     }
                 }
 
-                foreach (Pacijent pacijent in Pacijenti.Instance.ListaPacijenata.ToList())
+                foreach (Pacijent pacijent in PacijentRepo.Instance.Pacijenti.ToList())
                 {
-                    if (pacijent.jmbg == noviTermin.pacijentJMBG)
+                    if (pacijent.Jmbg == noviTermin.PacijentJmbg)
                     {
                         foreach (Termin stariTermin in pacijent.zakazaniTermini)
                         {
-                            if (stariTermin.vreme == staroVreme)
+                            if (stariTermin.Vreme == staroVreme)
                             {
                                 pacijent.zakazaniTermini.Remove(stariTermin);
                                 pacijent.zakazaniTermini.Add(noviTermin);
                                 //izborTerminaZaNovoZakazivanje.terminiPacijenta.listaZakazanihTermina.ItemsSource = pacijent.zakazaniTermini;
-                                Pacijenti.Instance.Serijalizacija();
-                                Pacijenti.Instance.Deserijalizacija();
+                                PacijentRepo.Instance.Serijalizacija();
+                                PacijentRepo.Instance.Deserijalizacija();
                                 break;
                             }
                         }
                     }
                 }
 
-                foreach (Lekar lekar in Lekari.Instance.listaLekara.ToList())
+                foreach (Lekar lekar in LekarRepo.Instance.Lekari.ToList())
                 {
-                    if (lekar.jmbg == noviTermin.lekarJMBG)
+                    if (lekar.Jmbg == noviTermin.LekarJmbg)
                     {
-                        foreach (Termin stariTermin in lekar.zauzetiTermini)
+                        foreach (Termin stariTermin in lekar.ZauzetiTermini)
                         {
-                            if (stariTermin.vreme == staroVreme)
+                            if (stariTermin.Vreme == staroVreme)
                             {
-                                lekar.zauzetiTermini.Remove(stariTermin);
-                                lekar.zauzetiTermini.Add(noviTermin);
-                                Lekari.Instance.Serijalizacija();
-                                Lekari.Instance.Deserijalizacija();
+                                lekar.ZauzetiTermini.Remove(stariTermin);
+                                lekar.ZauzetiTermini.Add(noviTermin);
+                                LekarRepo.Instance.Serijalizacija();
+                                LekarRepo.Instance.Deserijalizacija();
                                 break;
                             }
                         }

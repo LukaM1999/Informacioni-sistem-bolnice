@@ -28,9 +28,9 @@ namespace Servis
 
         private void PrikaziObavestenja()
         {
-            foreach (Recept recept in ulogovanPacijent.zdravstveniKarton.Recepti)
+            foreach (Recept recept in ulogovanPacijent.zdravstveniKarton.recepti)
             {
-                foreach (Terapija t in recept.Terapije)
+                foreach (Terapija t in recept.terapije)
                 {
                     trenutnaTerapija = t;
                     if (JeVremeZaPrikaz()) OmoguciPrikazObavestenja();
@@ -53,14 +53,14 @@ namespace Servis
 
         private bool JeVremeZaPrikaz()
         {
-            return DateTime.Now > trenutnaTerapija.pocetakTerapije && DateTime.Now < trenutnaTerapija.krajTerapije;
+            return DateTime.Now > trenutnaTerapija.PocetakTerapije && DateTime.Now < trenutnaTerapija.KrajTerapije;
         }
 
         private void ZakaziObavestenja()
         {
-            foreach (Recept recept in ulogovanPacijent.zdravstveniKarton.Recepti)
+            foreach (Recept recept in ulogovanPacijent.zdravstveniKarton.recepti)
             {
-                foreach (Terapija terapija in recept.Terapije)
+                foreach (Terapija terapija in recept.terapije)
                 {
                     JobManager.Initialize();
                     ZakaziPrvoObavestenje(terapija);
@@ -73,7 +73,7 @@ namespace Servis
         {
             int redovnost = terapija.DobaviRedovnostTerapije();
             JobManager.AddJob(
-                () => Debug.WriteLine("Vreme je da uzmete: " + terapija.Lek.Naziv + ", " + terapija.mera + " mg."),
+                () => Debug.WriteLine("Vreme je da uzmete: " + terapija.Lek.Naziv + ", " + terapija.MeraLeka + " mg."),
                 (s) => s.WithName("uzimanje: " + terapija.Lek.Naziv).ToRunEvery(redovnost).Seconds()
                     .DelayFor(redovnost - DateTime.Now.Second % redovnost).Seconds());
         }
@@ -82,7 +82,7 @@ namespace Servis
         {
             int redovnost = terapija.DobaviRedovnostTerapije();
             JobManager.AddJob(
-                () => Debug.WriteLine("Vreme je da uzmete: " + terapija.Lek.Naziv + ", " + terapija.mera + " mg."),
+                () => Debug.WriteLine("Vreme je da uzmete: " + terapija.Lek.Naziv + ", " + terapija.MeraLeka + " mg."),
                 (s) => s.WithName("prvo uzimanje: " + terapija.Lek.Naziv)
                     .ToRunOnceIn(redovnost - DateTime.Now.Second % redovnost).Seconds());
         }

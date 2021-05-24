@@ -27,8 +27,8 @@ namespace InformacioniSistemBolnice
                                         IzmenaNalogaPacijentaForma izmenaNalogaForma)
         {
             InitializeComponent();
-            Alergeni.Instance.Deserijalizacija();
-            ListaAlergena.ItemsSource = Alergeni.Instance.listaAlergena;
+            AlergenRepo.Instance.Deserijalizacija();
+            ListaAlergena.ItemsSource = AlergenRepo.Instance.Alergeni;
             pocetna = pocetnaStranicaSekretara;
             izmenaNalogaPacijentaForma = izmenaNalogaForma;
         }

@@ -39,26 +39,26 @@ namespace InformacioniSistemBolnice
             }
             listaSati.ItemsSource = listaDatuma;
 
-            trajanjeTerminaUnos.Text = zakazanTermin.trajanje.ToString();
-            tipTerminaUnos.Text = zakazanTermin.tipTermina.ToString();
+            trajanjeTerminaUnos.Text = zakazanTermin.Trajanje.ToString();
+            tipTerminaUnos.Text = zakazanTermin.Tip.ToString();
 
-            Prostorije.Instance.Deserijalizacija();
+            ProstorijaRepo.Instance.Deserijalizacija();
             listaSati.ItemsSource = listaDatuma;
             
-            foreach (Prostorija p in Prostorije.Instance.ListaProstorija)
+            foreach (Prostorija p in ProstorijaRepo.Instance.Prostorije)
             {
                 prostorijeID.Add(p.Id);
             }
             sala.ItemsSource = prostorijeID;
 
-            if (zakazanTermin.idProstorije != null)
+            if (zakazanTermin.ProstorijaId != null)
             {
-                sala.Text = zakazanTermin.idProstorije;
+                sala.Text = zakazanTermin.ProstorijaId;
             }
 
-            datumTermina.Text = zakazanTermin.vreme.ToString("MM/dd/yyyy");
+            datumTermina.Text = zakazanTermin.Vreme.ToString("MM/dd/yyyy");
 
-            string sat = zakazanTermin.vreme.ToString("HH:mm");
+            string sat = zakazanTermin.Vreme.ToString("HH:mm");
             for (int i = 0; i < listaDatuma.Count; i++)
             {
                 if (sat.Equals(listaDatuma[i]))

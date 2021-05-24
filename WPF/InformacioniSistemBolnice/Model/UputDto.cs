@@ -27,9 +27,5 @@ namespace Model
             Tip = tip;
             Hitan = hitan;
         }
-
-        public UputDto()
-        {
-        }
     }
 }

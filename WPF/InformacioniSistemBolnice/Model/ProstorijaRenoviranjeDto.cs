@@ -9,9 +9,7 @@ namespace Model
     public class ProstorijaRenoviranjeDto
     {
         public DateTime PocetakRenoviranja { get; set; }
-        
         public DateTime KrajRenoviranja { get; set; }
-
         public Prostorija Prostorija { get; set; }
 
         public ProstorijaRenoviranjeDto(DateTime pocetakRenoviranja, DateTime krajRenoviranja, Prostorija prostorija)

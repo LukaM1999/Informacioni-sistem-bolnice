@@ -12,34 +12,30 @@ namespace Servis
 {
     public class UpravljanjeNalozimaLekara
     {
-        private static readonly Lazy<UpravljanjeNalozimaLekara>
-           lazy =
-           new Lazy<UpravljanjeNalozimaLekara>
-               (() => new UpravljanjeNalozimaLekara());
-
-        public static UpravljanjeNalozimaLekara Instance { get { return lazy.Value; } }
+        private static readonly Lazy<UpravljanjeNalozimaLekara> Lazy = new(() => new UpravljanjeNalozimaLekara());
+        public static UpravljanjeNalozimaLekara Instance => Lazy.Value;
 
         public void KreirajNalog(LekarDto lekarDto)
         {
-            Lekar lekar = new(new Osoba(lekarDto.ime, lekarDto.prezime, lekarDto.jmbg, DateTime.Parse(lekarDto.datumRodjenja.ToString()),
-                                        lekarDto.telefon, lekarDto.email, KreirajKorisnika(lekarDto),
-                                        new Adresa(lekarDto.drzava, lekarDto.grad, lekarDto.ulica, lekarDto.broj)),
-                                        new Specijalizacija(lekarDto.specijalizacija));
-            Lekari.Instance.DodajLekara(lekar);
+            Lekar lekar = new(new Osoba(lekarDto.Ime, lekarDto.Prezime, lekarDto.LekarJmbg, DateTime.Parse(lekarDto.DatumRodjenja.ToString("g")),
+                                        lekarDto.Telefon, lekarDto.Email, KreirajKorisnika(lekarDto),
+                                        new Adresa(lekarDto.Drzava, lekarDto.Grad, lekarDto.Ulica, lekarDto.Broj)),
+                                        new Specijalizacija(lekarDto.Specijalizacija));
+            LekarRepo.Instance.DodajLekara(lekar); 
         }
 
-        private static Korisnik KreirajKorisnika(LekarDto lekarDto)
+        private Korisnik KreirajKorisnika(LekarDto lekarDto)
         {
-            Korisnik korisnik = new(lekarDto.korisnickoIme, lekarDto.lozinka,
+            Korisnik korisnik = new(lekarDto.KorisnickoIme, lekarDto.Lozinka,
                                     (Model.UlogaKorisnika)Enum.Parse(typeof(Model.UlogaKorisnika), "lekar"));
-            Korisnici.Instance.DodajKorisnika(korisnik);
+            KorisnikRepo.Instance.DodajKorisnika(korisnik);
             return korisnik;
         }
        
         public void UkloniNalog(Lekar lekar)
         {
-            Lekari.Instance.ObrisiLekara(lekar);
-            Korisnici.Instance.ObrisiKorisnika(lekar.korisnik);
+            LekarRepo.Instance.ObrisiLekara(lekar);
+            KorisnikRepo.Instance.ObrisiKorisnika(lekar.Korisnik);
             SacuvajURepozitorijum();
         }
         
@@ -52,34 +48,33 @@ namespace Servis
             SacuvajURepozitorijum();
         }
 
-        private static void IzmeniSpecijalizaciju(LekarDto lekarDto, Lekar lekar)
+        private void IzmeniSpecijalizaciju(LekarDto lekarDto, Lekar lekar)
         {
-            if (lekarDto.specijalizacija != null) lekar.specijalizacija.Naziv = lekarDto.specijalizacija;
+            if (lekarDto.Specijalizacija != null) lekar.Specijalizacija.Naziv = lekarDto.Specijalizacija;
         }
 
-        private static void IzmeniLicnePodatke(LekarDto lekarDto, Lekar lekar)
+        private void IzmeniLicnePodatke(LekarDto lekarDto, Lekar lekar)
         {
-            lekar.ime = lekarDto.ime;
-            lekar.prezime = lekarDto.prezime;
-            lekar.jmbg = lekarDto.jmbg;
-            lekar.datumRodjenja = lekarDto.datumRodjenja;
-            lekar.telefon = lekarDto.telefon;
-            lekar.email = lekarDto.email;
+            lekar.Ime = lekarDto.Ime;
+            lekar.Prezime = lekarDto.Prezime;
+            lekar.Jmbg = lekarDto.LekarJmbg;
+            lekar.DatumRodjenja = lekarDto.DatumRodjenja;
+            lekar.Telefon = lekarDto.Telefon;
+            lekar.Email = lekarDto.Email;
         }
 
-        private static void IzmeniKorisnickePodatke(LekarDto lekarDto, Lekar lekar)
+        private void IzmeniKorisnickePodatke(LekarDto lekarDto, Lekar lekar)
         {
-            lekar.korisnik.korisnickoIme = lekarDto.korisnickoIme;
-            lekar.korisnik.lozinka = lekarDto.lozinka;
-            Korisnik korisnik = lekar.korisnik;
+            lekar.Korisnik.KorisnickoIme = lekarDto.KorisnickoIme;
+            lekar.Korisnik.Lozinka = lekarDto.Lozinka;
         }
 
-        private static void IzmeniAdresu(LekarDto lekarDto, Lekar lekar)
+        private void IzmeniAdresu(LekarDto lekarDto, Lekar lekar)
         {
-            lekar.adresa.Drzava = lekarDto.drzava;
-            lekar.adresa.Grad = lekarDto.grad;
-            lekar.adresa.Ulica = lekarDto.ulica;
-            lekar.adresa.Broj = lekarDto.broj;
+            lekar.AdresaStanovanja.Drzava = lekarDto.Drzava;
+            lekar.AdresaStanovanja.Grad = lekarDto.Grad;
+            lekar.AdresaStanovanja.Ulica = lekarDto.Ulica;
+            lekar.AdresaStanovanja.Broj = lekarDto.Broj;
         }
 
         public LekarDto PregledajNalog(Lekar lekar)
@@ -91,35 +86,35 @@ namespace Servis
             return lekarDto;
         }
 
-        private static void PregledajKorisnickePodatake(LekarDto lekarDto, Lekar lekar)
+        private void PregledajKorisnickePodatake(LekarDto lekarDto, Lekar lekar)
         {
-            lekarDto.korisnickoIme = lekar.korisnik.korisnickoIme;
-            lekarDto.lozinka = lekar.korisnik.lozinka;
+            lekarDto.KorisnickoIme = lekar.Korisnik.KorisnickoIme;
+            lekarDto.Lozinka = lekar.Korisnik.Lozinka;
         }
 
-        private static void PregledajAdresu(Lekar lekar, LekarDto lekarDto)
+        private void PregledajAdresu(Lekar lekar, LekarDto lekarDto)
         {
-            lekarDto.drzava = lekar.adresa.Drzava;
-            lekarDto.ulica = lekar.adresa.Ulica;
-            lekarDto.grad = lekar.adresa.Grad;
-            lekarDto.broj = lekar.adresa.Broj;
+            lekarDto.Drzava = lekar.AdresaStanovanja.Drzava;
+            lekarDto.Ulica = lekar.AdresaStanovanja.Ulica;
+            lekarDto.Grad = lekar.AdresaStanovanja.Grad;
+            lekarDto.Broj = lekar.AdresaStanovanja.Broj;
         }
 
-        private static void PregledLicnihPodataka(LekarDto lekarDto, Lekar lekar)
+        private void PregledLicnihPodataka(LekarDto lekarDto, Lekar lekar)
         {
-            lekarDto.ime = lekar.ime;
-            lekarDto.prezime = lekar.prezime;
-            lekarDto.jmbg = lekar.jmbg;
-            lekarDto.telefon = lekar.telefon;
-            lekarDto.email = lekar.email;
-            lekarDto.datumRodjenja = lekar.datumRodjenja;
-            lekarDto.specijalizacija = lekar.specijalizacija.Naziv;
+            lekarDto.Ime = lekar.Ime;
+            lekarDto.Prezime = lekar.Prezime;
+            lekarDto.LekarJmbg = lekar.Jmbg;
+            lekarDto.Telefon = lekar.Telefon;
+            lekarDto.Email = lekar.Email;
+            lekarDto.DatumRodjenja = lekar.DatumRodjenja;
+            lekarDto.Specijalizacija = lekar.Specijalizacija.Naziv;
         }
 
-        private static void SacuvajURepozitorijum()
+        private void SacuvajURepozitorijum()
         {
-            Korisnici.Instance.SacuvajPromene();
-            Lekari.Instance.SacuvajPromene();
+            KorisnikRepo.Instance.SacuvajPromene();
+            LekarRepo.Instance.SacuvajPromene();
         }
     }
 }

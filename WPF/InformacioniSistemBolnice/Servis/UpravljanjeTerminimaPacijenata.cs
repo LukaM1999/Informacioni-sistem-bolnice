@@ -15,24 +15,24 @@ namespace Servis
 
         public void ZakaziTerminKodPacijenta(Termin terminZaZakazivanje)
         {
-            Pacijent pacijent = Pacijenti.Instance.NadjiPoJmbg(terminZaZakazivanje.pacijentJMBG);
+            Pacijent pacijent = PacijentRepo.Instance.NadjiPoJmbg(terminZaZakazivanje.PacijentJmbg);
             pacijent.DodajTermin(terminZaZakazivanje);
-            Pacijenti.Instance.Serijalizacija();
+            PacijentRepo.Instance.Serijalizacija();
         }
 
         public void OtkaziTerminKodPacijenta(Termin terminZaOtkazivanje)
         {
-            Pacijent pacijent = Pacijenti.Instance.NadjiPoJmbg(terminZaOtkazivanje.pacijentJMBG);
+            Pacijent pacijent = PacijentRepo.Instance.NadjiPoJmbg(terminZaOtkazivanje.PacijentJmbg);
             pacijent.ObrisiTermin(terminZaOtkazivanje);
-            Pacijenti.Instance.Serijalizacija();
+            PacijentRepo.Instance.Serijalizacija();
         }
 
         public void PomeriTerminKodPacijenta(Termin terminZaPomeranje, Termin noviTermin)
         {
-            Pacijent pacijent = Pacijenti.Instance.NadjiPoJmbg(noviTermin.pacijentJMBG);
+            Pacijent pacijent = PacijentRepo.Instance.NadjiPoJmbg(noviTermin.PacijentJmbg);
             pacijent.ObrisiTermin(terminZaPomeranje);
             pacijent.DodajTermin(noviTermin);
-            Pacijenti.Instance.Serijalizacija();
+            PacijentRepo.Instance.Serijalizacija();
         }
         public void Uvid(DataGrid listaZakazanihTerminaLekara)
         {

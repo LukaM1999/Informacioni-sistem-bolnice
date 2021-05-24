@@ -29,7 +29,7 @@ namespace InformacioniSistemBolnice
             InitializeComponent();
             glavniProzorLekara = glavni;
             this.pacijent = pacijent;
-            listaRecepata.ItemsSource = pacijent.zdravstveniKarton.Recepti;
+            listaRecepata.ItemsSource = pacijent.zdravstveniKarton.recepti;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

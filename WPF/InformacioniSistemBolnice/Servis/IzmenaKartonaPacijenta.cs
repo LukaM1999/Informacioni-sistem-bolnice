@@ -19,7 +19,7 @@ namespace Servis
         public void IzdavanjeRecepta(ReceptDto dto)
         {
             receptDto = dto;
-            foreach (Pacijent pacijent in Pacijenti.Instance.ListaPacijenata)
+            foreach (Pacijent pacijent in PacijentRepo.Instance.Pacijenti)
             {
                 if (PretragaPacijenta(pacijent, KreiranjeRecepta())) break;
             }
@@ -27,17 +27,17 @@ namespace Servis
 
         private bool PretragaPacijenta(Pacijent pacijent, Recept recept)
         {
-            if (!pacijent.jmbg.Equals(receptDto.Pacijent.jmbg)) return false;
-            pacijent.zdravstveniKarton.Recepti.Add(recept);
-            Pacijenti.Instance.Serijalizacija();
-            Pacijenti.Instance.Deserijalizacija();
+            if (!pacijent.Jmbg.Equals(receptDto.Pacijent.Jmbg)) return false;
+            pacijent.zdravstveniKarton.recepti.Add(recept);
+            PacijentRepo.Instance.Serijalizacija();
+            PacijentRepo.Instance.Deserijalizacija();
             return true;
         }
 
         private Recept KreiranjeRecepta()
         {
             Recept recept = new Recept(receptDto.Id);
-            recept.Terapije.Add(new Terapija(receptDto.PocetakTerapije, receptDto.KrajTerapije,
+            recept.terapije.Add(new Terapija(receptDto.PocetakTerapije, receptDto.KrajTerapije,
                 receptDto.MeraLeka, receptDto.RedovnostUzimanjaLeka, receptDto.Lek));
             return recept;
         }
@@ -46,13 +46,13 @@ namespace Servis
         public void DodavanjeAnamneze(AnamnezaForma anamneza)
         {
             Anamneza a = new Anamneza(anamneza.prvi.Text, anamneza.drugi.Text, anamneza.treci.Text, anamneza.peti.Text);
-            foreach (Pacijent pacijent in Pacijenti.Instance.ListaPacijenata)
+            foreach (Pacijent pacijent in PacijentRepo.Instance.Pacijenti)
             {
-                if (pacijent.jmbg.Equals(anamneza.p.jmbg))
+                if (pacijent.Jmbg.Equals(anamneza.p.Jmbg))
                 {
-                    pacijent.zdravstveniKarton.anamneza = a;
-                    Pacijenti.Instance.Serijalizacija();
-                    Pacijenti.Instance.Deserijalizacija();
+                    pacijent.zdravstveniKarton.Anamneza = a;
+                    PacijentRepo.Instance.Serijalizacija();
+                    PacijentRepo.Instance.Deserijalizacija();
                     break;
                 }
             }
@@ -61,11 +61,9 @@ namespace Servis
         public void DodajBeleske(Pacijent ulogovanPacijent, string beleske)
         {
             ZdravstveniKarton kartonPacijenta = ulogovanPacijent.zdravstveniKarton;
-            Anamneza anamnezaPacijenta = kartonPacijenta.anamneza;
+            Anamneza anamnezaPacijenta = kartonPacijenta.Anamneza;
             anamnezaPacijenta.BeleskePacijenta = beleske;
-            Pacijenti.Instance.Serijalizacija();
+            PacijentRepo.Instance.Serijalizacija();
         }
-
-        public Repozitorijum.Pacijenti pacijenti;
     }
 }

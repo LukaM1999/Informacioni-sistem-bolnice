@@ -23,7 +23,7 @@ namespace InformacioniSistemBolnice.ViewModels.Pacijent
         {
             ulogovanPacijent = ulogovan;
             ZdravstveniKarton kartonPacijenta = ulogovanPacijent.zdravstveniKarton;
-            PacijentovaAnamneza = kartonPacijenta.anamneza;
+            PacijentovaAnamneza = kartonPacijenta.Anamneza;
             SacuvajIzmeneAnamneze = new Command(o => SacuvajIzmene());
         }
 

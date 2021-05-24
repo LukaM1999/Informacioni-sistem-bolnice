@@ -18,13 +18,9 @@ namespace Model
         public KategorijaZdravstveneZastite KategorijaZdravstveneZastite { get; set; }
         public PodaciOZaposlenjuIZanimanju PodaciOZaposlenjuIZanimanju { get; set; }
         public ObservableCollection<Alergen> alergeni;
-        public ObservableCollection<Recept> Recepti = new ObservableCollection<Recept>();
+        public ObservableCollection<Recept> recepti = new();
 
-        public Anamneza anamneza
-        {
-            get;
-            set;
-        }
+        public Anamneza Anamneza { get; set; }
 
         public ObservableCollection<Alergen> Alergeni
         {

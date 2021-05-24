@@ -18,9 +18,9 @@ namespace Servis
 
         public void UkljuciPodsetnike(string jmbgPacijenta)
         {
-            Podsetnici.Instance.Deserijalizacija();
+            PodsetnikRepo.Instance.Deserijalizacija();
             JobManager.Initialize();
-            foreach (Podsetnik pacijentovPodsetnik in Podsetnici.Instance.NadjiSvePoJmbg(jmbgPacijenta))
+            foreach (Podsetnik pacijentovPodsetnik in PodsetnikRepo.Instance.NadjiSvePoJmbg(jmbgPacijenta))
                 UkljuciNoviPodsetnik(pacijentovPodsetnik);
         }
 
@@ -30,8 +30,8 @@ namespace Servis
             JobManager.AddJob(() => Debug.WriteLine(novPodsetnik.Sadrzaj),
                 (s) => s.WithName(novPodsetnik.PacijentJmbg + novPodsetnik.Vreme)
                     .ToRunEvery(1).Days().At(satMinut[0], satMinut[1]));
-            if (!Podsetnici.Instance.PodsetnikVecPostoji(novPodsetnik))
-                Podsetnici.Instance.DodajPodsetnik(novPodsetnik);
+            if (!PodsetnikRepo.Instance.PodsetnikVecPostoji(novPodsetnik))
+                PodsetnikRepo.Instance.DodajPodsetnik(novPodsetnik);
         }
 
         private int[] KonvertujVremePodsetnika(string vreme)

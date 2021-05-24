@@ -9,37 +9,43 @@ namespace Repozitorijum
 {
     public class DinamickaOpremaRepo:Repozitorijum
     {
-        private string putanja = "../../../json/dinamickaOprema.json";
-        private static readonly Lazy<DinamickaOpremaRepo> lazy = new Lazy<DinamickaOpremaRepo> (() => new DinamickaOpremaRepo());
-        public static DinamickaOpremaRepo Instance { get { return lazy.Value; } }
-        public ObservableCollection<DinamickaOprema> ListaOpreme {get; set;}
+        private const string Putanja = "../../../json/dinamickaOprema.json";
+
+        private static readonly Lazy<DinamickaOpremaRepo> Lazy = new(() => new DinamickaOpremaRepo());
+        public static DinamickaOpremaRepo Instance => Lazy.Value;
+
+        public ObservableCollection<DinamickaOprema> DinamickaOprema {get; set;}
+
         public void Deserijalizacija()
         {
-            ListaOpreme = JsonConvert.DeserializeObject<ObservableCollection<DinamickaOprema>>(File.ReadAllText(putanja));
+            DinamickaOprema = JsonConvert.DeserializeObject<ObservableCollection<DinamickaOprema>>(File.ReadAllText(Putanja));
         }
+
         public void Serijalizacija()
         {
-            string json = JsonConvert.SerializeObject(ListaOpreme, Formatting.Indented);
-            File.WriteAllText(putanja, json);
+            File.WriteAllText(Putanja, JsonConvert.SerializeObject(DinamickaOprema, Formatting.Indented));
         }
+
         public DinamickaOprema NadjiPoTipu(TipDinamickeOpreme tip)
         {
-            foreach (DinamickaOprema pronadjena in ListaOpreme)
+            foreach (DinamickaOprema pronadjena in DinamickaOprema)
             {
                 if (!pronadjena.Tip.Equals(tip)) continue;
                 return pronadjena;
             }
             return null;
         }
+
         public bool BrisiPoTipu(TipDinamickeOpreme tip)
         {
-            foreach (DinamickaOprema pronadjena in ListaOpreme)
+            foreach (DinamickaOprema pronadjena in DinamickaOprema)
             {
                 if (pronadjena.Tip != tip) continue;
-                return ListaOpreme.Remove(pronadjena);
+                return DinamickaOprema.Remove(pronadjena);
             }
             return false;
         }
+
         public void SacuvajPromene()
         {
             Serijalizacija();

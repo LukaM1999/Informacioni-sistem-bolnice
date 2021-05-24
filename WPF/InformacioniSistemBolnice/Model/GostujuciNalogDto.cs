@@ -8,20 +8,20 @@ namespace Model
 {
     public class GostujuciNalogDto
     {
-        public string ime { get; set; }
-        public string prezime { get; set; }
-        public string jmbg { get; set; }
-        public DateTime datumRodjenja { get; set; }
-        public string telefon { get; set; }
-        public string email { get; set; }
+        public string Ime { get; set; }
+        public string Prezime { get; set; }
+        public string Jmbg { get; set; }
+        public DateTime DatumRodjenja { get; set; }
+        public string Telefon { get; set; }
+        public string Email { get; set; }
         public GostujuciNalogDto(string ime, string prezime, string jmbg, DateTime datumRodjenja, string telefon, string email)
         {
-            this.ime = ime;
-            this.prezime = prezime;
-            this.jmbg = jmbg;
-            this.datumRodjenja = datumRodjenja;
-            this.telefon = telefon;
-            this.email = email;
+            this.Ime = ime;
+            this.Prezime = prezime;
+            this.Jmbg = jmbg;
+            this.DatumRodjenja = datumRodjenja;
+            this.Telefon = telefon;
+            this.Email = email;
         }
     }
 }

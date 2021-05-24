@@ -33,7 +33,7 @@ namespace InformacioniSistemBolnice
         private void AzurirajIzgled()
         {
             pocetna.Content = new AlergeniProzor(pocetna);
-            alergeni.ListaAlergena.ItemsSource = Alergeni.Instance.listaAlergena;
+            alergeni.ListaAlergena.ItemsSource = AlergenRepo.Instance.Alergeni;
         }
 
         private void NazadBtn_Click(object sender, RoutedEventArgs e)

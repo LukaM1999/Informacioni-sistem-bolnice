@@ -8,12 +8,8 @@ namespace Kontroler
 {
     public class SekretarKontroler
     {
-        private static readonly Lazy<SekretarKontroler>
-           lazy =
-           new Lazy<SekretarKontroler>
-               (() => new SekretarKontroler());
-
-        public static SekretarKontroler Instance { get { return lazy.Value; } }
+        private static readonly Lazy<SekretarKontroler> Lazy = new(() => new SekretarKontroler());
+        public static SekretarKontroler Instance => Lazy.Value;
 
         public void KreiranjeNalogaLekara(LekarDto lekarDto)
         {
@@ -71,11 +67,6 @@ namespace Kontroler
             ZdravstveniKartonServis.Instance.IzmeniZdravstveniKarton(zdravstveniKartonDto, podaciOZaposlenjuIZanimanjuDto, zdravstveniKarton);
         }
 
-        public void PregledNaloga(ListView pacijenti)
-        {
-            //UpravljanjeNalozimaPacijenata.Instance.PregledNaloga(pacijenti);
-        }
-
         public void DefinisanjeAlergena(AlergenDto alergen)
         {
             UpravljanjeAlergenima.Instance.KreiranjeAlergena(alergen);
@@ -96,7 +87,6 @@ namespace Kontroler
         {
             return UpravljanjeAlergenima.Instance.PregledAlergena(alergen);
         }
-
 
         public void DodavanjeAlergenaIzZdravstvenogKartona(Alergen alergen, string jmbg)
         {
@@ -163,10 +153,5 @@ namespace Kontroler
         {
             UpravljanjeUrgentnimSistemom.Instance.PomeranjeTermina(terminiLekaraZaPomeranjeDto);
         }
-
-        public UpravljanjeNalozimaPacijenata upravljanjeNalozimaPacijenata;
-        public UpravljanjeAlergenima upravljanjeAlergenima;
-        public UpravljanjeTerminima upravljanjeTerminima;
-
     }
 }

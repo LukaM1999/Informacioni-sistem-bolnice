@@ -26,8 +26,8 @@ namespace InformacioniSistemBolnice
         {
             InitializeComponent();
             pocetna = pocetnaStranicaSekretara;
-            Specijalizacije.Instance.Deserijalizacija();
-            specijalizacijeLekara.ItemsSource = Specijalizacije.Instance.listaSpecijalizacija;
+            SpecijalizacijaRepo.Instance.Deserijalizacija();
+            specijalizacijeLekara.ItemsSource = SpecijalizacijaRepo.Instance.Specijalizacije;
         }
 
         private void NazadBtn_Click(object sender, RoutedEventArgs e)

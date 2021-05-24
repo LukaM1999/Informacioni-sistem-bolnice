@@ -27,8 +27,8 @@ namespace InformacioniSistemBolnice
             InitializeComponent();
             pocetna = pocetnaStranicaSekretara;
             UCLekari = uCLekari;
-            Specijalizacije.Instance.Deserijalizacija();
-            specijalizacijeLekara.ItemsSource = Specijalizacije.Instance.listaSpecijalizacija;
+            SpecijalizacijaRepo.Instance.Deserijalizacija();
+            specijalizacijeLekara.ItemsSource = SpecijalizacijaRepo.Instance.Specijalizacije;
         }
 
         private void PotvrdiDugme_Click(object sender, RoutedEventArgs e)

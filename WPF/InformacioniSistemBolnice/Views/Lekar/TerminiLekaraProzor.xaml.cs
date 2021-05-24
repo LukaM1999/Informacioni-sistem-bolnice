@@ -28,20 +28,20 @@ namespace InformacioniSistemBolnice
         {
             InitializeComponent();
 
-            Pacijenti.Instance.Deserijalizacija();
-            Lekari.Instance.Deserijalizacija();
-            Termini.Instance.Deserijalizacija();
-            ulogovanLekar.zauzetiTermini.Clear();
-            foreach (Termin termin in Termini.Instance.listaTermina.ToList())
+            PacijentRepo.Instance.Deserijalizacija();
+            LekarRepo.Instance.Deserijalizacija();
+            TerminRepo.Instance.Deserijalizacija();
+            ulogovanLekar.ZauzetiTermini.Clear();
+            foreach (Termin termin in TerminRepo.Instance.Termini.ToList())
             {
-                if (ulogovanLekar.jmbg.Equals(termin.lekarJMBG))
+                if (ulogovanLekar.Jmbg.Equals(termin.LekarJmbg))
                 {
-                    ulogovanLekar.zauzetiTermini.Add(termin);
+                    ulogovanLekar.ZauzetiTermini.Add(termin);
                 }
             }
-            listaZakazanihTerminaLekara.ItemsSource = ulogovanLekar.zauzetiTermini;
+            listaZakazanihTerminaLekara.ItemsSource = ulogovanLekar.ZauzetiTermini;
             lekar = ulogovanLekar;
-            jmbgLekara = ulogovanLekar.jmbg;
+            jmbgLekara = ulogovanLekar.Jmbg;
             System.Diagnostics.Debug.WriteLine(jmbgLekara);
             glavniProzorLekara = glavni;
         }
@@ -66,7 +66,7 @@ namespace InformacioniSistemBolnice
             if (listaZakazanihTerminaLekara.SelectedIndex > -1)
             {
                 LekarKontroler.Instance.Otkazivanje((Termin)listaZakazanihTerminaLekara.SelectedItem);
-                listaZakazanihTerminaLekara.ItemsSource = lekar.zauzetiTermini;
+                listaZakazanihTerminaLekara.ItemsSource = lekar.ZauzetiTermini;
             }
         }
 

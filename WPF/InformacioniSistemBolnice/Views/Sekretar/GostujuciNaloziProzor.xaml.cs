@@ -29,12 +29,12 @@ namespace InformacioniSistemBolnice
         public GostujuciNaloziProzor(PocetnaStranicaSekretara pocetnaStranicaSekretara)
         {
             InitializeComponent();
-            Pacijenti.Instance.Deserijalizacija();
+            PacijentRepo.Instance.Deserijalizacija();
             pocetna = pocetnaStranicaSekretara;
             
-            foreach (Pacijent gostujuciPacijent in Pacijenti.Instance.ListaPacijenata)
+            foreach (Pacijent gostujuciPacijent in PacijentRepo.Instance.Pacijenti)
             {
-                if (gostujuciPacijent.korisnik.korisnickoIme == null)
+                if (gostujuciPacijent.Korisnik.KorisnickoIme == null)
                 {
                     gostujuciNalozi.Add(gostujuciPacijent);
                    

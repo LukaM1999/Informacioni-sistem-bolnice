@@ -18,14 +18,13 @@ namespace Model
         public KategorijaZdravstveneZastite KategorijaZdravstveneZastite { get; set; }
         public Alergen Alergen { get; set; }
 
-
-
-        public ZdravstveniKartonDto(String brojZdrKartona, String brojZdrKnjizice, String JMBG, String imeRoditelja, String liceZaZdravZastitu, Pol pol,
-                                 BracnoStanje bracnoStanjee, KategorijaZdravstveneZastite kategorijaZdravZastite, Alergen alergen)
+        public ZdravstveniKartonDto(string brojZdrKartona, string brojZdrKnjizice, string jmbg, string imeRoditelja, 
+                                    string liceZaZdravZastitu, Pol pol, BracnoStanje bracnoStanjee, 
+                                    KategorijaZdravstveneZastite kategorijaZdravZastite, Alergen alergen)
         {
             BrojKartona = brojZdrKartona;
             BrojKnjizice = brojZdrKnjizice;
-            Jmbg = JMBG;
+            Jmbg = jmbg;
             ImeJednogRoditelja = imeRoditelja;
             LiceZaZdravstvenuZastitu = liceZaZdravZastitu;
             PolPacijenta = pol;

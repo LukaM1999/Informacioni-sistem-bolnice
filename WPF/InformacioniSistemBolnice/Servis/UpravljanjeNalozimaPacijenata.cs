@@ -19,33 +19,33 @@ namespace Servis
 
         public void KreirajNalog(PacijentDto pacijentDto)
         {
-            Pacijent pacijent = new Pacijent(new Osoba(pacijentDto.ime, pacijentDto.prezime, pacijentDto.jmbg,
-                                            DateTime.Parse(pacijentDto.datumRodjenja.ToString("g")), pacijentDto.telefon, pacijentDto.email,
+            Pacijent pacijent = new Pacijent(new Osoba(pacijentDto.Ime, pacijentDto.Prezime, pacijentDto.PacijentJmbg,
+                                            DateTime.Parse(pacijentDto.DatumRodjenja.ToString("g")), pacijentDto.Telefon, pacijentDto.Email,
                                             KreirajKorisnika(pacijentDto),
-                                            new Adresa(pacijentDto.drzava, pacijentDto.grad, pacijentDto.ulica, pacijentDto.broj)));
-            Pacijenti.Instance.DodajPacijenta(pacijent);
+                                            new Adresa(pacijentDto.Drzava, pacijentDto.Grad, pacijentDto.Ulica, pacijentDto.Broj)));
+            PacijentRepo.Instance.DodajPacijenta(pacijent);
         }
 
 
         private Korisnik KreirajKorisnika(PacijentDto pacijentDto)
         {
-            Korisnik korisnik = new Korisnik(pacijentDto.korisnickoIme, pacijentDto.lozinka,
+            Korisnik korisnik = new Korisnik(pacijentDto.KorisnickoIme, pacijentDto.Lozinka,
                                             (Model.UlogaKorisnika)Enum.Parse(typeof(Model.UlogaKorisnika), "pacijent"));
-            Korisnici.Instance.DodajKorisnika(korisnik);
+            KorisnikRepo.Instance.DodajKorisnika(korisnik);
             return korisnik;
         }
 
         public void UkloniNalog(Pacijent pacijentZaBrisanje)
         {
-            Pacijenti.Instance.ObrisiPacijenta(pacijentZaBrisanje);
-            Korisnici.Instance.ObrisiKorisnika(pacijentZaBrisanje.korisnik);
+            PacijentRepo.Instance.ObrisiPacijenta(pacijentZaBrisanje);
+            KorisnikRepo.Instance.ObrisiKorisnika(pacijentZaBrisanje.Korisnik);
             SacuvajURepozitorijum();
         }
 
         private static void SacuvajURepozitorijum()
         {
-            Pacijenti.Instance.Serijalizacija();
-            Korisnici.Instance.Serijalizacija();
+            PacijentRepo.Instance.Serijalizacija();
+            KorisnikRepo.Instance.Serijalizacija();
         }
 
         public void IzmeniNalog(PacijentDto pacijentDto, Pacijent pacijent)
@@ -60,28 +60,28 @@ namespace Servis
 
         private void IzmeniKorisnickePodatke()
         {
-            Korisnik korisnikZaIzmenu = pacijentZaIzmenu.korisnik;
-            korisnikZaIzmenu.korisnickoIme = pacijentoviPodaci.korisnickoIme; 
-            korisnikZaIzmenu.lozinka = pacijentoviPodaci.lozinka;
+            Korisnik korisnikZaIzmenu = pacijentZaIzmenu.Korisnik;
+            korisnikZaIzmenu.KorisnickoIme = pacijentoviPodaci.KorisnickoIme; 
+            korisnikZaIzmenu.Lozinka = pacijentoviPodaci.Lozinka;
         }
 
         private void IzmeniAdresu()
         {
-            Adresa adresaZaIzmenu = pacijentZaIzmenu.adresa;
-            adresaZaIzmenu.Drzava = pacijentoviPodaci.drzava;
-            adresaZaIzmenu.Grad = pacijentoviPodaci.grad;
-            adresaZaIzmenu.Ulica = pacijentoviPodaci.ulica;
-            adresaZaIzmenu.Broj = pacijentoviPodaci.broj;
+            Adresa adresaZaIzmenu = pacijentZaIzmenu.AdresaStanovanja;
+            adresaZaIzmenu.Drzava = pacijentoviPodaci.Drzava;
+            adresaZaIzmenu.Grad = pacijentoviPodaci.Grad;
+            adresaZaIzmenu.Ulica = pacijentoviPodaci.Ulica;
+            adresaZaIzmenu.Broj = pacijentoviPodaci.Broj;
         }
 
         private void IzmeniLicnePodatke()
         {
-            pacijentZaIzmenu.ime = pacijentoviPodaci.ime;
-            pacijentZaIzmenu.prezime = pacijentoviPodaci.prezime;
-            pacijentZaIzmenu.jmbg = pacijentoviPodaci.jmbg;
-            pacijentZaIzmenu.datumRodjenja = pacijentoviPodaci.datumRodjenja;
-            pacijentZaIzmenu.telefon = pacijentoviPodaci.telefon;
-            pacijentZaIzmenu.email = pacijentoviPodaci.email;
+            pacijentZaIzmenu.Ime = pacijentoviPodaci.Ime;
+            pacijentZaIzmenu.Prezime = pacijentoviPodaci.Prezime;
+            pacijentZaIzmenu.Jmbg = pacijentoviPodaci.PacijentJmbg;
+            pacijentZaIzmenu.DatumRodjenja = pacijentoviPodaci.DatumRodjenja;
+            pacijentZaIzmenu.Telefon = pacijentoviPodaci.Telefon;
+            pacijentZaIzmenu.Email = pacijentoviPodaci.Email;
         }
     }
 

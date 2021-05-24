@@ -24,8 +24,8 @@ namespace InformacioniSistemBolnice
         {
             InitializeComponent();
             menu = menuSekretara;
-            Vesti.Instance.Deserijalizacija();
-            ListaVesti.ItemsSource = Vesti.Instance.listaVesti;
+            VestRepo.Instance.Deserijalizacija();
+            ListaVesti.ItemsSource = VestRepo.Instance.Vesti;
         }
 
         private void kreirajVest_Clik(object sender, RoutedEventArgs e)
@@ -49,7 +49,7 @@ namespace InformacioniSistemBolnice
             if (ListaVesti.SelectedValue != null)
             {
                 SekretarKontroler.Instance.UklanjanjeVesti((Vest)ListaVesti.SelectedValue);
-                ListaVesti.ItemsSource = Vesti.Instance.listaVesti;
+                ListaVesti.ItemsSource = VestRepo.Instance.Vesti;
             }
         }
 
@@ -60,7 +60,7 @@ namespace InformacioniSistemBolnice
                 IzmenaVesti izmenaAVesti = new IzmenaVesti(this, this.menu.pocetna);
                 izmenaAVesti.naslovVesti.Text = ((Vest)ListaVesti.SelectedItem).Id;
                 izmenaAVesti.sadrzajVesti.Text = ((Vest)ListaVesti.SelectedItem).Sadrzaj;
-                ListaVesti.ItemsSource = Vesti.Instance.listaVesti;
+                ListaVesti.ItemsSource = VestRepo.Instance.Vesti;
                 this.menu.pocetna.contentControl.Content = izmenaAVesti.Content;
             }
         }

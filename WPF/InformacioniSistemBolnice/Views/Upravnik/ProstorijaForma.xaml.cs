@@ -32,7 +32,7 @@ namespace InformacioniSistemBolnice
             Inventar inventar = new();
             ProstorijaDto dto = new(Int32.Parse(SpratUnos.Text), (TipProstorije)Enum.Parse(typeof(TipProstorije), tipUnos.Text), idUnos.Text, false, inventar);
             UpravnikKontroler.Instance.KreiranjeProstorije(dto);
-            listaProstorija.ItemsSource = Prostorije.Instance.ListaProstorija;
+            listaProstorija.ItemsSource = ProstorijaRepo.Instance.Prostorije;
             this.Close();
 
         }
