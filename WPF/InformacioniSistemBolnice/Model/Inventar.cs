@@ -18,33 +18,10 @@ namespace Model
             foreach (DinamickaOprema oprema in DinamickaOprema) if (oprema.Tip == tipOpreme) return oprema;
             return null;
         }
-        public StatickaOprema getSelected(StatickaOprema oprema)
+        public StatickaOprema NadjiStatickuOpremuPoTipu(TipStatickeOpreme tipOpreme)
         {
-            return StatickaOprema.ElementAt(StatickaOprema.IndexOf(oprema));
-        }
-        public DinamickaOprema getSelectedD(DinamickaOprema p)
-        {
-            DinamickaOprema prs = null;
-            foreach (DinamickaOprema pr in DinamickaOprema)
-            {
-                if (pr.Tip.Equals(p.Tip))
-                {
-                    prs = pr;
-                }
-            }
-            return DinamickaOprema.ElementAt(DinamickaOprema.IndexOf(prs));
-        }
-        public StatickaOprema getSelectedS(StatickaOprema p)
-        {
-            StatickaOprema prs = null;
-            foreach (StatickaOprema pr in StatickaOprema)
-            {
-                if (pr.Tip.Equals(p.Tip))
-                {
-                    prs = pr;
-                }
-            }
-            return StatickaOprema.ElementAt(StatickaOprema.IndexOf(prs));
+            foreach (StatickaOprema oprema in StatickaOprema) if (oprema.Tip == tipOpreme) return oprema;
+            return null;
         }
     }
 }

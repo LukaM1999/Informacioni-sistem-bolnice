@@ -8,19 +8,18 @@ namespace Model
 {
     class StatickaOpremaTermin
     { 
-        public DateTime datumPremestaja { get; set;}
-        public Prostorija izProstorije { get; set;}
-        public Prostorija uProstoriju { get; set;}
-        public int kolicina { get; set;}
-        public StatickaOprema oprema { get; set;}
-
-        public StatickaOpremaTermin(Prostorija izProstorije, Prostorija uProstoriju, StatickaOprema statickaOprema, int kolicina, DateTime datum)
+        public DateTime DatumPremestaja { get; set;}
+        public String IzProstorijeId { get; set;}
+        public String UProstorijuId { get; set;}
+        public int Kolicina { get; set;}
+        public StatickaOprema Oprema { get; set;}
+        public StatickaOpremaTermin(String izProstorije, String uProstoriju, StatickaOprema statickaOprema, int kolicina, DateTime datum)
         {
-            this.izProstorije = izProstorije;
-            this.uProstoriju = uProstoriju;
-            oprema = statickaOprema;
-            this.kolicina = kolicina;
-            datumPremestaja = datum;
+            IzProstorijeId = izProstorije;
+            UProstorijuId = uProstoriju;
+            Oprema = statickaOprema;
+            Kolicina = kolicina;
+            DatumPremestaja = datum;
         }
     }
 }

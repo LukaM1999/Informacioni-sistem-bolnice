@@ -17,18 +17,15 @@ namespace Repozitorijum
         {
             ListaOpreme = JsonConvert.DeserializeObject<ObservableCollection<Model.StatickaOprema>>(File.ReadAllText(putanja));
         }
-
         public void Serijalizacija()
         {
                 string json = JsonConvert.SerializeObject(ListaOpreme, Formatting.Indented);
                 File.WriteAllText(putanja, json);
         }
-
         public StatickaOpremaRepo()
         {
             ListaOpreme = new ObservableCollection<Model.StatickaOprema>();
         }
-
         public Model.StatickaOprema getSelected(Model.StatickaOprema p)
         {
             Model.StatickaOprema prs = null;

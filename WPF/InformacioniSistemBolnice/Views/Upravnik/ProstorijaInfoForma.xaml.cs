@@ -82,23 +82,17 @@ namespace InformacioniSistemBolnice
         {
             if ((bool)rbMagacin.IsChecked && listaStaticke.SelectedValue != null && datum.SelectedDate != null)
             {
-                StatickaOprema oprema = (StatickaOprema)listaStaticke.SelectedItem;
-                int kolicina = Int32.Parse(tbKolicinaStaticka.Text);
-                Prostorija izProstorije = (Prostorija)ListaProstorija.SelectedItem;
-
-                UpravnikKontroler.Instance.RasporedjivanjeStatickeOpreme(izProstorije, null, oprema, kolicina, (DateTime)datum.SelectedDate);
+                UpravnikKontroler.Instance.RasporedjivanjeStatickeOpreme(new(izProstorije.Id, null, (StatickaOprema)listaStaticke.SelectedItem,
+                    Int32.Parse(tbKolicinaStaticka.Text), (DateTime)datum.SelectedDate));
             }
             else
             {
                 if (cbStaticka.SelectedItem != (Prostorija)ListaProstorija.SelectedItem && listaStaticke.SelectedValue != null 
                     && cbStaticka.SelectedItem != null && datum.SelectedDate != null)
                 {
-                    StatickaOprema oprema = (StatickaOprema)listaStaticke.SelectedItem;
-                    int kolicina = Int32.Parse(tbKolicinaStaticka.Text);
-                    Prostorija izProstorije = (Prostorija)ListaProstorija.SelectedItem;
                     Prostorija uProstoriju = (Prostorija)cbStaticka.SelectedItem;
-
-                    UpravnikKontroler.Instance.RasporedjivanjeStatickeOpreme(izProstorije, uProstoriju, oprema, kolicina, (DateTime)datum.SelectedDate);
+                    UpravnikKontroler.Instance.RasporedjivanjeStatickeOpreme(new(izProstorije.Id, uProstoriju.Id,
+                        (StatickaOprema)listaStaticke.SelectedItem, Int32.Parse(tbKolicinaStaticka.Text), (DateTime)datum.SelectedDate));
                 }
 
             }

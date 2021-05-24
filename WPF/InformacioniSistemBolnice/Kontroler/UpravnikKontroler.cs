@@ -48,9 +48,9 @@ namespace Kontroler
             Servis.RasporedjivanjeDinamickeOpreme.Instance.Premestanje(dto);
         }
 
-        public void RasporedjivanjeStatickeOpreme(Prostorija izProstorije, Prostorija uProstoriju, StatickaOprema statickaOprema, int kolicina, DateTime datum)
+        public void RasporedjivanjeStatickeOpreme(RaspodelaStatickeOpremeDto dto)
         {
-            Servis.RasporedjivanjeStatickeOpreme.Instance.ZakazivanjePremestanja(izProstorije, uProstoriju, statickaOprema, kolicina, datum);
+            Servis.RasporedjivanjeStatickeOpreme.Instance.ZakazivanjePremestanja(dto);
         }
 
         public void KreiranjeLeka(LekDto dto)

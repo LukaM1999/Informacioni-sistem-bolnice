@@ -104,11 +104,9 @@ namespace InformacioniSistemBolnice
         {
             if (listViewStatOpreme.SelectedValue != null && listaProstorijaS.SelectedValue != null && datumStat.SelectedDate != null)
             {
-                StatickaOprema oprema = (StatickaOprema)listViewStatOpreme.SelectedItem;
-                int kolicina = Int32.Parse(tbKolStat.Text);
                 Prostorija prostorija = (Prostorija)listaProstorijaS.SelectedItem;
-                
-                UpravnikKontroler.Instance.RasporedjivanjeStatickeOpreme(null, prostorija, oprema, kolicina, (DateTime)datumStat.SelectedDate);
+                UpravnikKontroler.Instance.RasporedjivanjeStatickeOpreme(new(null, prostorija.Id, 
+                    (StatickaOprema)listViewStatOpreme.SelectedItem, Int32.Parse(tbKolStat.Text), (DateTime)datumStat.SelectedDate));
                 listViewStatOpreme.ItemsSource = Repozitorijum.StatickaOpremaRepo.Instance.ListaOpreme;
                 ListaProstorija.ItemsSource = Prostorije.Instance.ListaProstorija;
             }

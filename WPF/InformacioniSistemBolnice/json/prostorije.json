@@ -17,12 +17,12 @@
       ],
       "StatickaOprema": [
         {
-          "tip": 1,
-          "kolicina": 4
+          "Tip": 1,
+          "Kolicina": 4
         },
         {
-          "tip": 3,
-          "kolicina": 0
+          "Tip": 3,
+          "Kolicina": 0
         }
       ]
     },
@@ -74,8 +74,8 @@
       ],
       "StatickaOprema": [
         {
-          "tip": 3,
-          "kolicina": 6
+          "Tip": 3,
+          "Kolicina": 6
         }
       ]
     },
@@ -116,12 +116,12 @@
       ],
       "StatickaOprema": [
         {
-          "tip": 3,
-          "kolicina": 10
+          "Tip": 3,
+          "Kolicina": 10
         },
         {
-          "tip": 1,
-          "kolicina": 1
+          "Tip": 1,
+          "Kolicina": 1
         }
       ]
     },
@@ -146,8 +146,8 @@
       ],
       "StatickaOprema": [
         {
-          "tip": 3,
-          "kolicina": -3
+          "Tip": 3,
+          "Kolicina": -3
         }
       ]
     },
@@ -172,8 +172,8 @@
       ],
       "StatickaOprema": [
         {
-          "tip": 3,
-          "kolicina": 10
+          "Tip": 3,
+          "Kolicina": 10
         }
       ]
     },
@@ -206,8 +206,8 @@
       "DinamickaOprema": [],
       "StatickaOprema": [
         {
-          "tip": 0,
-          "kolicina": 4
+          "Tip": 0,
+          "Kolicina": 4
         }
       ]
     },
@@ -223,8 +223,8 @@
       "DinamickaOprema": [],
       "StatickaOprema": [
         {
-          "tip": 0,
-          "kolicina": 3
+          "Tip": 0,
+          "Kolicina": 3
         }
       ]
     },
@@ -245,8 +245,8 @@
       ],
       "StatickaOprema": [
         {
-          "tip": 0,
-          "kolicina": 1
+          "Tip": 0,
+          "Kolicina": 1
         }
       ]
     },

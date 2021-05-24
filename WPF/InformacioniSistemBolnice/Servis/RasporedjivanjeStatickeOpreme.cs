@@ -18,147 +18,88 @@ namespace Servis
 
         public static RasporedjivanjeStatickeOpreme Instance { get { return lazy.Value; } }
 
-        public void ZakazivanjePremestanja( Prostorija izProstorije, Prostorija uProstoriju, Model.StatickaOprema statickaOprema, int kolicina, DateTime datum)
+        public void ZakazivanjePremestanja(RaspodelaStatickeOpremeDto dto)
         {
-            if (izProstorije == null)
-            {
-                StatickaOpremaTermin novTermin1 = new StatickaOpremaTermin(izProstorije, uProstoriju, statickaOprema, kolicina, datum);
-                StatickaOpremaTermini.Instance.listaTermina.Add(novTermin1);
-                StatickaOpremaTermini.Instance.Serijalizacija();
-                StatickaOpremaTermini.Instance.Deserijalizacija();
-                return;
-            }
-            if (uProstoriju == null)
-            {
-                StatickaOpremaTermin novTermin2 = new StatickaOpremaTermin(izProstorije, uProstoriju, statickaOprema, kolicina, datum);
-                StatickaOpremaTermini.Instance.listaTermina.Add(novTermin2);
-                StatickaOpremaTermini.Instance.Serijalizacija();
-                StatickaOpremaTermini.Instance.Deserijalizacija();
-                return;
-            }
-            StatickaOpremaTermin novTermin3 = new StatickaOpremaTermin(izProstorije, uProstoriju, statickaOprema, kolicina, datum);
-            StatickaOpremaTermini.Instance.listaTermina.Add(novTermin3);
-            StatickaOpremaTermini.Instance.Serijalizacija();
-            StatickaOpremaTermini.Instance.Deserijalizacija();
+            StatickaOpremaTermini.Instance.listaTermina.Add(new(dto.IzProstorijeId, dto.UProstorijuId,
+                    dto.Oprema, dto.Kolicina, dto.Datum));
+            StatickaOpremaTermini.Instance.SacuvajPromene();
         }
 
         public void ProveraPremestajaOpreme()
         {
             while (true)
             {
-                //while(StatickaOpremaTermini.Instance.listaTermina.ToList().Count == 0)
-                //{
-                //    Thread.Sleep(10000);
-                //}
-                int temp = 0;
-                foreach(StatickaOpremaTermin t in StatickaOpremaTermini.Instance.listaTermina.ToList())
+                foreach(StatickaOpremaTermin termin in StatickaOpremaTermini.Instance.listaTermina.ToList())
                 {
-                    if (t.datumPremestaja.Year <= DateTime.Now.Year && t.datumPremestaja.Day <= DateTime.Now.Day && t.datumPremestaja.Month <= DateTime.Now.Month)
+                    if (JeProsaoDatumRaspodeleStatickeOpreme(termin))
                     {
-                        if(t.izProstorije == null)
+                        if(termin.IzProstorijeId == null)
                         {
-                            foreach (Model.StatickaOprema s in t.uProstoriju.Inventar.StatickaOprema.ToList())
-                            {
-                                if (s.Tip.Equals(t.oprema.Tip))
-                                {
-                                    Prostorije.Instance.NadjiPoId(t.uProstoriju.Id).Inventar.getSelectedS(s).Kolicina += t.kolicina;
-                                    temp = 1;
-                                    break;
-                                }
-                            }
-                            if (temp != 1)
-                            {
-                                Model.StatickaOprema stat = new Model.StatickaOprema(t.kolicina, t.oprema.Tip);
-                                Prostorije.Instance.NadjiPoId(t.uProstoriju.Id).Inventar.StatickaOprema.Add(stat);
-                                temp = 0;
-                            }
-                            
-                            Prostorije.Instance.Serijalizacija();
-                            Prostorije.Instance.Deserijalizacija();
-                            foreach (Model.StatickaOprema s in Repozitorijum.StatickaOpremaRepo.Instance.ListaOpreme.ToList())
-                            {
-                                if (s.Tip.Equals(t.oprema.Tip))
-                                {
-                                    Repozitorijum.StatickaOpremaRepo.Instance.getSelected(s).Kolicina -= t.kolicina;
-                                    break;
-                                }
-                            }
-                            Repozitorijum.StatickaOpremaRepo.Instance.Serijalizacija();
-                            Repozitorijum.StatickaOpremaRepo.Instance.Deserijalizacija();
-
-                            StatickaOpremaTermini.Instance.listaTermina.Remove(t);
-                            StatickaOpremaTermini.Instance.Serijalizacija();
-                            StatickaOpremaTermini.Instance.Deserijalizacija();
+                            SmanjiKolicinuOpremeUMagacinu(termin);
+                            DodajOpremuUProstoriju(termin);
+                            ObrisiTerminKojiJeProsao(termin);
+                            break;
                         }
-                        if (t.uProstoriju == null)
+                        if (termin.UProstorijuId == null)
                         {
-                            foreach (Model.StatickaOprema s in t.izProstorije.Inventar.StatickaOprema.ToList())
-                            {
-                                if (s.Tip.Equals(t.oprema.Tip))
-                                {
-                                    Prostorije.Instance.NadjiPoId(t.izProstorije.Id).Inventar.getSelectedS(s).Kolicina -= t.kolicina;
-                                    break;
-                                }
-                            }
-                            Prostorije.Instance.Serijalizacija();
-                            Prostorije.Instance.Deserijalizacija();
-                            foreach (Model.StatickaOprema s in Repozitorijum.StatickaOpremaRepo.Instance.ListaOpreme.ToList())
-                            {
-                                if (s.Tip.Equals(t.oprema.Tip))
-                                {
-                                    Repozitorijum.StatickaOpremaRepo.Instance.getSelected(s).Kolicina += t.kolicina;
-                                    break;
-                                }
-                            }
-                            Repozitorijum.StatickaOpremaRepo.Instance.Serijalizacija();
-                            Repozitorijum.StatickaOpremaRepo.Instance.Deserijalizacija();
-
-                            StatickaOpremaTermini.Instance.listaTermina.Remove(t);
-                            StatickaOpremaTermini.Instance.Serijalizacija();
-                            StatickaOpremaTermini.Instance.Deserijalizacija();
+                            SmanjiKolicinuOpremeUProstoriji(termin);
+                            DodajOpremuUMagacin(termin);
+                            ObrisiTerminKojiJeProsao(termin);
+                            break;
                         }
-                        if (t.uProstoriju != null && t.izProstorije != null)
+                        if (termin.UProstorijuId != null && termin.IzProstorijeId != null)
                         {
-                            foreach (Model.StatickaOprema s in t.uProstoriju.Inventar.StatickaOprema.ToList())
-                            {
-                                if (s.Tip.Equals(t.oprema.Tip))
-                                {
-                                    Prostorije.Instance.NadjiPoId(t.uProstoriju.Id).Inventar.getSelectedS(s).Kolicina += t.kolicina;
-                                    temp = 1;
-                                    break;
-                                }
-                            }
-                            if (temp != 1)
-                            {
-                                Model.StatickaOprema stat = new Model.StatickaOprema(t.kolicina, t.oprema.Tip);
-                                Prostorije.Instance.NadjiPoId(t.uProstoriju.Id).Inventar.StatickaOprema.Add(stat);
-                                temp = 0;
-                            }
-
-                            foreach (Model.StatickaOprema s in t.izProstorije.Inventar.StatickaOprema.ToList())
-                            {
-                                if (s.Tip.Equals(t.oprema.Tip))
-                                {
-                                    Prostorije.Instance.NadjiPoId(t.izProstorije.Id).Inventar.getSelectedS(s).Kolicina -= t.kolicina;
-                                    break;
-                                }
-                            }
-                            
-                            Prostorije.Instance.Serijalizacija();
-                            Prostorije.Instance.Deserijalizacija();
-                            
-
-                            StatickaOpremaTermini.Instance.listaTermina.Remove(t);
-                            StatickaOpremaTermini.Instance.Serijalizacija();
-                            StatickaOpremaTermini.Instance.Deserijalizacija();
+                            SmanjiKolicinuOpremeUProstoriji(termin);
+                            DodajOpremuUProstoriju(termin);
+                            ObrisiTerminKojiJeProsao(termin);
+                            break;
                         }
                     }
                 }
             }
         }
-
-        public Repozitorijum.StatickaOpremaRepo magacin;
-        public Repozitorijum.Prostorije prostorije;
-
+        private bool JeProsaoDatumRaspodeleStatickeOpreme(StatickaOpremaTermin termin)
+        {
+            return termin.DatumPremestaja.Year <= DateTime.Now.Year && termin.DatumPremestaja.Day <= DateTime.Now.Day 
+                && termin.DatumPremestaja.Month <= DateTime.Now.Month;
+        }
+        private void ObrisiTerminKojiJeProsao(StatickaOpremaTermin termin)
+        {
+            StatickaOpremaTermini.Instance.listaTermina.Remove(termin);
+            StatickaOpremaTermini.Instance.SacuvajPromene();
+        }
+        private void DodajOpremuUProstoriju(StatickaOpremaTermin termin)
+        {
+            if (Prostorije.Instance.NadjiPoId(termin.UProstorijuId).Inventar.NadjiStatickuOpremuPoTipu(termin.Oprema.Tip) == null)
+            {
+                Prostorije.Instance.NadjiPoId(termin.UProstorijuId).Inventar.StatickaOprema.Add(new(termin.Kolicina, termin.Oprema.Tip));
+                Prostorije.Instance.SacuvajPromene();
+                return;
+            }
+            Prostorije.Instance.NadjiPoId(termin.UProstorijuId).Inventar.NadjiStatickuOpremuPoTipu(termin.Oprema.Tip).Kolicina += termin.Kolicina;
+            Prostorije.Instance.SacuvajPromene();
+        }
+        private void SmanjiKolicinuOpremeUProstoriji(StatickaOpremaTermin termin)
+        {
+            Prostorije.Instance.NadjiPoId(termin.IzProstorijeId).Inventar.NadjiStatickuOpremuPoTipu(termin.Oprema.Tip).
+                                Kolicina -= termin.Kolicina;
+            Prostorije.Instance.SacuvajPromene();
+        }
+        private void DodajOpremuUMagacin(StatickaOpremaTermin termin)
+        {
+            if (StatickaOpremaRepo.Instance.NadjiPoTipu(termin.Oprema.Tip) == null)
+            {
+                StatickaOpremaRepo.Instance.ListaOpreme.Add(new(termin.Kolicina, termin.Oprema.Tip));
+                StatickaOpremaRepo.Instance.SacuvajPromene();
+                return;
+            }
+            StatickaOpremaRepo.Instance.NadjiPoTipu(termin.Oprema.Tip).Kolicina += termin.Kolicina;
+            StatickaOpremaRepo.Instance.SacuvajPromene();
+        }
+        private void SmanjiKolicinuOpremeUMagacinu(StatickaOpremaTermin termin)
+        {
+            StatickaOpremaRepo.Instance.NadjiPoTipu(termin.Oprema.Tip).Kolicina -= termin.Kolicina;
+            StatickaOpremaRepo.Instance.SacuvajPromene();
+        }
     }
 }
