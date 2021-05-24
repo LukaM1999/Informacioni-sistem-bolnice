@@ -1,12 +1,15 @@
 [
   {
-    "alergen": [],
-    "Naziv": "Hemomicin",
+    "Naziv": "Enbecin",
     "Proizvodjac": "Galenika",
-    "Sastojci": "Nestoasdasdadadadsasdads",
-    "Zamena": "nesto",
-    "Alergen": [],
-    "tip": 0,
-    "kolicina": 0
+    "Sastojci": "nesto...",
+    "Zamena": "Gentamicin",
+    "Alergen": [
+      {
+        "Naziv": "pencilin"
+      }
+    ],
+    "Tip": 0,
+    "Kolicina": 0
   }
 ]

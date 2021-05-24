@@ -14,40 +14,52 @@ using System.Windows.Shapes;
 using Model;
 using Kontroler;
 using Repozitorijum;
+using System.Collections.ObjectModel;
 
 namespace InformacioniSistemBolnice
 {
-    /// <summary>
-    /// Interaction logic for LekIzmeniProzor.xaml
-    /// </summary>
     public partial class LekIzmeniProzor : Window
     {
-        private Lek lek;
-        private DataGrid listaLekova;
-        public LekIzmeniProzor()
-        {
-            InitializeComponent();
-        }
-
+        private ObservableCollection<Alergen> ListaAlergenaLeka { get; set; }
+        private DataGrid ListaLekova { get; set; }
         public LekIzmeniProzor(DataGrid listaLekova)
         {
             InitializeComponent();
-            lek = (Lek)listaLekova.SelectedItem;
-            this.listaLekova = listaLekova;
+            ListaLekova = listaLekova;
+            Lek izabraniLek = (Lek)ListaLekova.SelectedValue;
+            ListaAlergenaLeka = izabraniLek.Alergen;
+            listaAlergena.ItemsSource = Alergeni.Instance.listaAlergena;
+            listaAlergenaLeka.ItemsSource = izabraniLek.Alergen;
+            PostaviText(izabraniLek);
         }
-
-        public void PostaviText()
+        public void PostaviText(Lek izabraniLek)
         {
-            tbNaziv.Text = lek.Naziv;
-            tbProizvodjac.Text = lek.Proizvodjac;
-            tbSastojci.Text = lek.Sastojci;
+            tbNaziv.Text = izabraniLek.Naziv;
+            tbNaziv.IsReadOnly = true;
+            tbProizvodjac.Text = izabraniLek.Proizvodjac;
+            tbSastojci.Text = izabraniLek.Sastojci;
+            tbZamena.Text = izabraniLek.Zamena;
         }
         private void btnPotvrdi_Click(object sender, RoutedEventArgs e)
         {
-            LekDto dto = new LekDto(tbNaziv.Text, tbProizvodjac.Text, tbSastojci.Text);
-            UpravnikKontroler.Instance.IzmenaLeka(dto, lek);
-            listaLekova.ItemsSource = Lekovi.Instance.listaLekova;
+            UpravnikKontroler.Instance.IzmenaLeka(new(tbNaziv.Text, tbProizvodjac.Text, tbSastojci.Text, tbZamena.Text, ListaAlergenaLeka));
+            ListaLekova.ItemsSource = Lekovi.Instance.ListaLekova;
             this.Close();
+        }
+        private void btnDodajAlergen_Click(object sender, RoutedEventArgs e)
+        {
+            Alergen izabraniAlergen = (Alergen)listaAlergena.SelectedValue;
+            ListaAlergenaLeka.Add(izabraniAlergen);
+            listaAlergenaLeka.ItemsSource = ListaAlergenaLeka;
+        }
+        private void btnObrisiAlergen_Click(object sender, RoutedEventArgs e)
+        {
+            if (listaAlergenaLeka.SelectedValue != null)
+            {
+                Alergen izabraniAlergen = (Alergen)listaAlergenaLeka.SelectedValue;
+                ListaAlergenaLeka.Remove(izabraniAlergen);
+                listaAlergenaLeka.ItemsSource = ListaAlergenaLeka;
+            }
         }
     }
 }

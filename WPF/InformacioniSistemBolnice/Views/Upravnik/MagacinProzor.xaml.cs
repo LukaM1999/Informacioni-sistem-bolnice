@@ -23,7 +23,6 @@ namespace InformacioniSistemBolnice
     public partial class MagacinProzor : Window
     {
         private DataGrid ListaProstorija;
-
         public MagacinProzor() { }
         public MagacinProzor(DataGrid listaProstorija)
         {
@@ -37,13 +36,11 @@ namespace InformacioniSistemBolnice
             this.listaProstorija.ItemsSource = Prostorije.Instance.ListaProstorija;
             listaProstorijaS.ItemsSource = Prostorije.Instance.ListaProstorija;
         }
-
         private void dugmeKreirajOpemu_Click(object sender, RoutedEventArgs e)
         {
             MagacinDodajProzor prozor = new MagacinDodajProzor(listViewStatOpreme);
             prozor.Show();
         }
-
         private void dugmeObrisiStatOpremu_Click(object sender, RoutedEventArgs e)
         {
             if (listViewStatOpreme.SelectedValue != null)
@@ -53,7 +50,6 @@ namespace InformacioniSistemBolnice
                 listViewStatOpreme.ItemsSource = StatickaOpremaRepo.Instance.ListaOpreme;
             }
         }
-
         private void dugmeIzmeniStatOpremu_Click(object sender, RoutedEventArgs e)
         {
             if (listViewStatOpreme.SelectedValue != null)
@@ -62,13 +58,11 @@ namespace InformacioniSistemBolnice
                 prozor.Show();
             }
         }
-
         private void dugmeKreirajDinamickuOpremu_Click(object sender, RoutedEventArgs e)
         {
             MagacinDodajDinamickuOpremu prozor = new MagacinDodajDinamickuOpremu(listViewDinamOpreme);
             prozor.Show();
         }
-
         private void dugmeObrisiDinamOpremu_Click(object sender, RoutedEventArgs e)
         {
             if (listViewDinamOpreme.SelectedValue != null)
@@ -78,7 +72,6 @@ namespace InformacioniSistemBolnice
                 listViewDinamOpreme.ItemsSource = DinamickaOpremaRepo.Instance.ListaOpreme;
             }
         }
-
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             if (listViewDinamOpreme.SelectedValue != null)
@@ -87,7 +80,6 @@ namespace InformacioniSistemBolnice
                 prozor.Show();
             }
         }
-
         private void dugmeRaspodeliDinamicku_Click(object sender, RoutedEventArgs e)
         {
             if (listViewDinamOpreme.SelectedValue != null && listaProstorija.SelectedValue != null)
@@ -99,12 +91,8 @@ namespace InformacioniSistemBolnice
                 listViewDinamOpreme.ItemsSource = Repozitorijum.DinamickaOpremaRepo.Instance.ListaOpreme;
                 ListaProstorija.ItemsSource = Prostorije.Instance.ListaProstorija;
                 ListaProstorija.ItemsSource = Prostorije.Instance.ListaProstorija;
-                
             }
-
-
         }
-
         private void dugmeRaspodeliStaticku_Click(object sender, RoutedEventArgs e)
         {
             if (listViewStatOpreme.SelectedValue != null && listaProstorijaS.SelectedValue != null && datumStat.SelectedDate != null)

@@ -17,43 +17,43 @@ using Kontroler;
 
 namespace InformacioniSistemBolnice
 {
-    /// <summary>
-    /// Interaction logic for LekProzor.xaml
-    /// </summary>
     public partial class LekProzor : Window
     {
         public LekProzor()
         {
             InitializeComponent();
             Lekovi.Instance.Deserijalizacija();
-            listaLekova.ItemsSource = Lekovi.Instance.listaLekova;
+            listaLekova.ItemsSource = Lekovi.Instance.ListaLekova;
         }
-
         private void btnDodaj_Click(object sender, RoutedEventArgs e)
         {
-            LekDodajProzor prozor = new LekDodajProzor();
+            LekDodajProzor prozor = new LekDodajProzor(listaLekova);
             prozor.Show();
-            listaLekova.ItemsSource = Lekovi.Instance.listaLekova;
         }
-
         private void btnObrisi_Click(object sender, RoutedEventArgs e)
         {
-            Lek lek = (Lek)listaLekova.SelectedItem;
-            UpravnikKontroler.Instance.BrisanjeLeka(lek);
-            listaLekova.ItemsSource = Lekovi.Instance.listaLekova;
+            if (listaLekova.SelectedValue != null)
+            {
+                Lek izabraniLek = (Lek)listaLekova.SelectedValue;
+                UpravnikKontroler.Instance.BrisanjeLeka(new(izabraniLek.Naziv, izabraniLek.Proizvodjac, izabraniLek.Sastojci, izabraniLek.Zamena, izabraniLek.Alergen));
+                listaLekova.ItemsSource = Lekovi.Instance.ListaLekova;
+            }
         }
-
         private void btnIzmeni_Click(object sender, RoutedEventArgs e)
         {
-            LekIzmeniProzor prozor = new LekIzmeniProzor(listaLekova);
-            prozor.PostaviText();
-            prozor.Show();
+            if (listaLekova.SelectedValue != null)
+            {
+                LekIzmeniProzor prozor = new LekIzmeniProzor(listaLekova);
+                prozor.Show();
+            }
         }
-
         private void btnInfo_Click(object sender, RoutedEventArgs e)
         {
-            LekInfoProzor prozor = new LekInfoProzor((Lek)listaLekova.SelectedItem);
-            prozor.Show();
+            if (listaLekova.SelectedValue != null)
+            {
+                LekInfoProzor prozor = new LekInfoProzor(listaLekova);
+                prozor.Show();
+            }
         }
     }
 }

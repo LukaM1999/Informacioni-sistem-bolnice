@@ -28,7 +28,7 @@ namespace InformacioniSistemBolnice
             InitializeComponent();
             Lekovi.Instance.Deserijalizacija();
             this.pacijent = pacijent;
-            listaLekova.ItemsSource = Lekovi.Instance.listaLekova;
+            listaLekova.ItemsSource = Lekovi.Instance.ListaLekova;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

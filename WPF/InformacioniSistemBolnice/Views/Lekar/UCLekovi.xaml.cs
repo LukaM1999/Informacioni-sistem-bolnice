@@ -27,7 +27,7 @@ namespace InformacioniSistemBolnice
         {
             InitializeComponent();
             Lekovi.Instance.Deserijalizacija();
-            listaLekova.ItemsSource = Lekovi.Instance.listaLekova;
+            listaLekova.ItemsSource = Lekovi.Instance.ListaLekova;
             glavniProzorLekara = glavni;
         }
 
