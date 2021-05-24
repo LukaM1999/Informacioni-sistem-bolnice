@@ -16,51 +16,28 @@ namespace Servis
 
         public static UpravljanjeStatickomOpremom Instance { get { return lazy.Value; } }
 
-        public void KreiranjeOpreme(MagacinDodajProzor p)
+        public void KreiranjeOpreme(StatickaOpremaDto dto)
         {
-            Model.StatickaOprema oprema = new Model.StatickaOprema(Int32.Parse(p.tbKol.Text), (TipStatickeOpreme)Enum.Parse(typeof(TipStatickeOpreme), p.cb1.Text));
-            
-            foreach (Model.StatickaOprema so in Repozitorijum.StatickaOpremaRepo.Instance.ListaOpreme)
+            if (StatickaOpremaRepo.Instance.NadjiPoTipu(dto.Tip) == null)
             {
-                if (so.Tip.Equals(oprema.Tip))
-                {
-                    so.Kolicina += oprema.Kolicina;
-                    Repozitorijum.StatickaOpremaRepo.Instance.Serijalizacija();
-                    Repozitorijum.StatickaOpremaRepo.Instance.Deserijalizacija();
-                    return;
-                }
+                StatickaOpremaRepo.Instance.ListaOpreme.Add(new(dto.Kolicina, dto.Tip));
+                StatickaOpremaRepo.Instance.SacuvajPromene();
+                return;
             }
-
-            Repozitorijum.StatickaOpremaRepo.Instance.ListaOpreme.Add(oprema);
-            Repozitorijum.StatickaOpremaRepo.Instance.Serijalizacija();
-            Repozitorijum.StatickaOpremaRepo.Instance.Deserijalizacija();
+            StatickaOpremaRepo.Instance.NadjiPoTipu(dto.Tip).Kolicina += dto.Kolicina;
+            StatickaOpremaRepo.Instance.SacuvajPromene();
         }
 
-        public void UklanjanjeOpreme(MagacinProzor p)
+        public void UklanjanjeOpreme(StatickaOpremaDto dto)
         {
-            if (p.listViewStatOpreme.SelectedValue != null)
-            {
-                Model.StatickaOprema oprema = (Model.StatickaOprema)p.listViewStatOpreme.SelectedValue;
-                Repozitorijum.StatickaOpremaRepo.Instance.ListaOpreme.Remove(oprema);
-                Repozitorijum.StatickaOpremaRepo.Instance.Serijalizacija();
-            }
+            StatickaOpremaRepo.Instance.BrisiPoTipu(dto.Tip);
+            StatickaOpremaRepo.Instance.SacuvajPromene();
         }
 
-        public void IzmenaOpreme(Model.StatickaOprema oprema, MagacinIzmeniProzor p)
+        public void IzmenaOpreme(StatickaOpremaDto dto)
         {
-             oprema.Kolicina = Int32.Parse(p.tb1.Text);
-             oprema.Tip = (TipStatickeOpreme)Enum.Parse(typeof(TipStatickeOpreme), p.cb1.Text, true);
-
-             Repozitorijum.StatickaOpremaRepo.Instance.Serijalizacija();
-             Repozitorijum.StatickaOpremaRepo.Instance.Deserijalizacija(); 
+            StatickaOpremaRepo.Instance.NadjiPoTipu(dto.Tip).Kolicina = dto.Kolicina;
+            StatickaOpremaRepo.Instance.SacuvajPromene();
         }
-
-        public void PregledOpreme()
-        {
-            throw new NotImplementedException();
-        }
-
-        public Repozitorijum.StatickaOpremaRepo magacin;
-
     }
 }

@@ -12,30 +12,28 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Kontroler;
+using Model;
 
 namespace InformacioniSistemBolnice
 {
-    /// <summary>
-    /// Interaction logic for MagacinDodajProzor.xaml
-    /// </summary>
     public partial class MagacinDodajProzor : Window
     {
-        private DataGrid lista;
+        private DataGrid ListaStatickeOpreme { get; set; }
         public MagacinDodajProzor()
         {
             InitializeComponent();
         }
 
-        public MagacinDodajProzor(DataGrid lv)
+        public MagacinDodajProzor(DataGrid listaStatickeOpreme)
         {
             InitializeComponent();
-            lista = lv;
+            ListaStatickeOpreme = listaStatickeOpreme;
         }
 
         private void dugmePotvrdi_Click(object sender, RoutedEventArgs e)
         {
-            UpravnikKontroler.Instance.KreiranjeStatickeOpreme(this);
-            lista.ItemsSource = Repozitorijum.StatickaOpremaRepo.Instance.ListaOpreme;
+            UpravnikKontroler.Instance.KreiranjeStatickeOpreme(new(Int32.Parse(tbKol.Text), (TipStatickeOpreme)Enum.Parse(typeof(TipStatickeOpreme), cb1.Text)));
+            ListaStatickeOpreme.ItemsSource = Repozitorijum.StatickaOpremaRepo.Instance.ListaOpreme;
             this.Close();
         }
     }

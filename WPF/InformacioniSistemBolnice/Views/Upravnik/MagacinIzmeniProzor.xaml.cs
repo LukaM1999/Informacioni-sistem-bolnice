@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Kontroler;
 using Model;
+using Repozitorijum;
 
 namespace InformacioniSistemBolnice
 {
@@ -21,30 +22,31 @@ namespace InformacioniSistemBolnice
     /// </summary>
     public partial class MagacinIzmeniProzor : Window
     {
-        private DataGrid lista;
+        private DataGrid ListaStatickeOpreme;
         public MagacinIzmeniProzor()
         {
             InitializeComponent();
         }
 
-        public MagacinIzmeniProzor(DataGrid lv)
+        public MagacinIzmeniProzor(DataGrid listaStatickeOpreme)
         {
             InitializeComponent();
-            lista = lv;
+            ListaStatickeOpreme = listaStatickeOpreme;
+            postavljanjeVrednost();
         }
 
-        public void postavljanjeVrednost()
+        private void postavljanjeVrednost()
         {
-            StatickaOprema oprema = (StatickaOprema)lista.SelectedValue;
+            StatickaOprema oprema = (StatickaOprema)ListaStatickeOpreme.SelectedValue;
             tb1.Text = oprema.Kolicina.ToString();
             cb1.Text = oprema.Tip.ToString();
+            cb1.IsEnabled = false;
         }
 
         private void dugmePotvrdi_Click(object sender, RoutedEventArgs e)
         {
-            StatickaOprema oprema = (StatickaOprema)lista.SelectedValue;
-            UpravnikKontroler.Instance.IzmenaStatickeOpreme(oprema, this);
-            lista.ItemsSource = Repozitorijum.StatickaOpremaRepo.Instance.ListaOpreme;
+            UpravnikKontroler.Instance.IzmenaStatickeOpreme(new(Int32.Parse(tb1.Text), (TipStatickeOpreme)Enum.Parse(typeof(TipStatickeOpreme), cb1.Text)));
+            ListaStatickeOpreme.ItemsSource = StatickaOpremaRepo.Instance.ListaOpreme;
             this.Close();
         }
     }

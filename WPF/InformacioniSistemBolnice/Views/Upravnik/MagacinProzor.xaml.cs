@@ -20,9 +20,6 @@ using StatickaOprema = Model.StatickaOprema;
 
 namespace InformacioniSistemBolnice
 {
-    /// <summary>
-    /// Interaction logic for MagacinProzor.xaml
-    /// </summary>
     public partial class MagacinProzor : Window
     {
         private DataGrid ListaProstorija;
@@ -49,7 +46,12 @@ namespace InformacioniSistemBolnice
 
         private void dugmeObrisiStatOpremu_Click(object sender, RoutedEventArgs e)
         {
-            UpravnikKontroler.Instance.BrisanjeStatickeOpreme(this);
+            if (listViewStatOpreme.SelectedValue != null)
+            {
+                StatickaOprema oprema = (StatickaOprema)listViewStatOpreme.SelectedItem;
+                UpravnikKontroler.Instance.BrisanjeStatickeOpreme(new(oprema.Kolicina, oprema.Tip));
+                listViewStatOpreme.ItemsSource = StatickaOpremaRepo.Instance.ListaOpreme;
+            }
         }
 
         private void dugmeIzmeniStatOpremu_Click(object sender, RoutedEventArgs e)
@@ -57,7 +59,6 @@ namespace InformacioniSistemBolnice
             if (listViewStatOpreme.SelectedValue != null)
             {
                 MagacinIzmeniProzor p = new MagacinIzmeniProzor(listViewStatOpreme);
-                p.postavljanjeVrednost();
                 p.Show();
             }
         }
