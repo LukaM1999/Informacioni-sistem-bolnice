@@ -13,16 +13,8 @@ namespace Kontroler
         public void KreiranjeProstorije(ProstorijaDto dto) => UpravljanjeProstorijama.Instance.KreiranjeProstorije(dto);
         public void UklanjanjeProstorije(ProstorijaDto dto) => UpravljanjeProstorijama.Instance.UklanjanjeProstorije(dto);
         public void IzmenaProstorije(ProstorijaDto dto) => UpravljanjeProstorijama.Instance.IzmenaProstorije(dto);
-        public void KreiranjeStatickeOpreme(MagacinDodajProzor p)
-        {
-            UpravljanjeStatickomOpremom.Instance.KreiranjeOpreme(p);
-        }
-
-        public void BrisanjeStatickeOpreme(MagacinProzor p)
-        {
-            UpravljanjeStatickomOpremom.Instance.UklanjanjeOpreme(p);
-        }
-
+        public void KreiranjeStatickeOpreme(StatickaOpremaDto dto) { UpravljanjeStatickomOpremom.Instance.KreiranjeOpreme(dto); }
+        public void BrisanjeStatickeOpreme(StatickaOpremaDto dto) { UpravljanjeStatickomOpremom.Instance.UklanjanjeOpreme(dto); }
         public void IzmenaStatickeOpreme(StatickaOprema oprema, MagacinIzmeniProzor p)
         {
             UpravljanjeStatickomOpremom.Instance.IzmenaOpreme(oprema, p);
