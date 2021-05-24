@@ -17,42 +17,42 @@ namespace Kontroler
 
         public void KreiranjeNalogaLekara(LekarDto lekarDto)
         {
-            UpravljanjeNalozimaLekara.Instance.KreiranjeNaloga(lekarDto);
+            UpravljanjeNalozimaLekara.Instance.KreirajNalog(lekarDto);
         }
 
         public void UklanjanjeNalogaLekara(Lekar lekar)
         {
-            UpravljanjeNalozimaLekara.Instance.UklanjanjeNaloga(lekar);
+            UpravljanjeNalozimaLekara.Instance.UkloniNalog(lekar);
         }
 
         public void IzmenaNalogaLekara(LekarDto lekarDto, Lekar lekar)
         {
-            UpravljanjeNalozimaLekara.Instance.IzmenaNaloga(lekarDto, lekar);
+            UpravljanjeNalozimaLekara.Instance.IzmeniNalog(lekarDto, lekar);
         }
         public LekarDto PregledNalogaLekara(Lekar lekar)
         {
-            return UpravljanjeNalozimaLekara.Instance.PregledNaloga(lekar);
+            return UpravljanjeNalozimaLekara.Instance.PregledajNalog(lekar);
         }
 
         public void KreiranjeNaloga(PacijentDto pacijentDto)
         {
-            UpravljanjeNalozimaPacijenata.Instance.KreiranjeNaloga(pacijentDto);
+            UpravljanjeNalozimaPacijenata.Instance.KreirajNalog(pacijentDto);
         }
 
         public void KreiranjeZdravstvenogKartona(ZdravstveniKartonDto zdravstveniKartonDto,
                                                 PodaciOZaposlenjuIZanimanjuDto podaciOZaposlenjuIZanimanjuDto)
         {
-            ZdravstveniKartonServis.Instance.KreiranjeZdravstvenogKarton(zdravstveniKartonDto, podaciOZaposlenjuIZanimanjuDto);
+            ZdravstveniKartonServis.Instance.KreirajZdravstveniKarton(zdravstveniKartonDto, podaciOZaposlenjuIZanimanjuDto);
         }
 
-        public void DodjelaZdravstvenogKartonaPacijentu()
+        public void DodelaZdravstvenogKartonaPacijentu()
         {
-            ZdravstveniKartonServis.Instance.DodjelaZdravstvenogKartonaPacijentu();
+            ZdravstveniKartonServis.Instance.DodeliZdravstveniKartonPacijentu();
         }
 
         public void UklanjanjeNaloga(Pacijent pacijent)
         {
-            UpravljanjeNalozimaPacijenata.Instance.UklanjanjeNaloga(pacijent);
+            UpravljanjeNalozimaPacijenata.Instance.UkloniNalog(pacijent);
         }
 
         public void UklanjanjeGostujucegNaloga(ListView listaPacijenata)
@@ -62,13 +62,13 @@ namespace Kontroler
 
         public void IzmenaNaloga(PacijentDto pacijentDto, Pacijent pacijent)
         {
-            UpravljanjeNalozimaPacijenata.Instance.IzmenaNaloga(pacijentDto, pacijent);
+            UpravljanjeNalozimaPacijenata.Instance.IzmeniNalog(pacijentDto, pacijent);
         }
 
         public void IzmenaZdravstvenogKartona(ZdravstveniKartonDto zdravstveniKartonDto, ZdravstveniKarton zdravstveniKarton,
             PodaciOZaposlenjuIZanimanjuDto podaciOZaposlenjuIZanimanjuDto)
         {
-            ZdravstveniKartonServis.Instance.IzmjenaZdravstvenogKartona(zdravstveniKartonDto, podaciOZaposlenjuIZanimanjuDto, zdravstveniKarton);
+            ZdravstveniKartonServis.Instance.IzmeniZdravstveniKarton(zdravstveniKartonDto, podaciOZaposlenjuIZanimanjuDto, zdravstveniKarton);
         }
 
         public void PregledNaloga(ListView pacijenti)
@@ -100,12 +100,12 @@ namespace Kontroler
 
         public void DodavanjeAlergenaIzZdravstvenogKartona(Alergen alergen, string jmbg)
         {
-            ZdravstveniKartonServis.Instance.DodavanjeAlergenaPacijentu(alergen, jmbg);
+            ZdravstveniKartonServis.Instance.DodajAlergenPacijentu(alergen, jmbg);
         }
 
         public void UklanjanjeAlergenaIzZdravstvenogKartona(Alergen alergen, string jmbg)
         {
-            ZdravstveniKartonServis.Instance.BrisanjeAlergenaPacijentu(alergen, jmbg);
+            ZdravstveniKartonServis.Instance.ObrisiAlergenPacijentu(alergen, jmbg);
         }
 
         public void ZakazivanjeTermina(Termin termin)

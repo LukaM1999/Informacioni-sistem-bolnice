@@ -91,5 +91,28 @@
       "lozinka": "drNikola",
       "uloga": 1
     }
+  },
+  {
+    "zauzetiTermini": [],
+    "specijalizacija": {
+      "Naziv": "Dermatolog"
+    },
+    "ime": "mako",
+    "prezime": "alall",
+    "jmbg": "alal",
+    "datumRodjenja": "2021-05-17T00:00:00",
+    "telefon": "lal",
+    "email": "lla",
+    "adresa": {
+      "Broj": "lal",
+      "Ulica": "lall",
+      "Grad": "lalal",
+      "Drzava": "alal"
+    },
+    "korisnik": {
+      "korisnickoIme": "llal",
+      "lozinka": "lalaaa",
+      "uloga": 1
+    }
   }
 ]

@@ -42,7 +42,7 @@ namespace InformacioniSistemBolnice
                                                         this.korisnikUnos.Text, this.lozinkaUnos.Password,
                                                          this.drzavaUnos.Text, this.gradUnos.Text, this.ulicaUnos.Text, this.brojUnos.Text);
                 SekretarKontroler.Instance.IzmenaNaloga(pacijentDto, (Pacijent)listaPacijenata.SelectedItem);
-                SekretarKontroler.Instance.DodjelaZdravstvenogKartonaPacijentu();
+                SekretarKontroler.Instance.DodelaZdravstvenogKartonaPacijentu();
                 pocetna.contentControl.Content = new PacijentiProzor(pocetna);
             }
         }

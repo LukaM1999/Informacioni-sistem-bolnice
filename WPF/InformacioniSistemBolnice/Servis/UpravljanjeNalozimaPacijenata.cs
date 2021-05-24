@@ -17,7 +17,7 @@ namespace Servis
         private PacijentDto pacijentoviPodaci;
         private Pacijent pacijentZaIzmenu;
 
-        public void KreiranjeNaloga(PacijentDto pacijentDto)
+        public void KreirajNalog(PacijentDto pacijentDto)
         {
             Pacijent pacijent = new Pacijent(new Osoba(pacijentDto.ime, pacijentDto.prezime, pacijentDto.jmbg,
                                             DateTime.Parse(pacijentDto.datumRodjenja.ToString("g")), pacijentDto.telefon, pacijentDto.email,
@@ -35,7 +35,7 @@ namespace Servis
             return korisnik;
         }
 
-        public void UklanjanjeNaloga(Pacijent pacijentZaBrisanje)
+        public void UkloniNalog(Pacijent pacijentZaBrisanje)
         {
             Pacijenti.Instance.ObrisiPacijenta(pacijentZaBrisanje);
             Korisnici.Instance.ObrisiKorisnika(pacijentZaBrisanje.korisnik);
@@ -48,7 +48,7 @@ namespace Servis
             Korisnici.Instance.Serijalizacija();
         }
 
-        public void IzmenaNaloga(PacijentDto pacijentDto, Pacijent pacijent)
+        public void IzmeniNalog(PacijentDto pacijentDto, Pacijent pacijent)
         {
             pacijentoviPodaci = pacijentDto;
             pacijentZaIzmenu = pacijent;

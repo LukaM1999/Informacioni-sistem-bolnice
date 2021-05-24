@@ -19,7 +19,7 @@ namespace Servis
               (() => new ZdravstveniKartonServis());
         public static ZdravstveniKartonServis Instance { get { return lazy.Value; } }
 
-        public void KreiranjeZdravstvenogKarton(ZdravstveniKartonDto zdravstveniKartonDto,
+        public void KreirajZdravstveniKarton(ZdravstveniKartonDto zdravstveniKartonDto,
                                                 PodaciOZaposlenjuIZanimanjuDto podaciOZaposlenjuIZanimanjuDto)
         {
             ZdravstveniKarton zdravstveniKarton = new(zdravstveniKartonDto.BrojKartona, zdravstveniKartonDto.BrojKnjizice,
@@ -27,7 +27,7 @@ namespace Servis
                                                       zdravstveniKartonDto.LiceZaZdravstvenuZastitu, zdravstveniKartonDto.PolPacijenta,
                                                       zdravstveniKartonDto.BracnoStanje, zdravstveniKartonDto.KategorijaZdravstveneZastite,
                                                       VratiPodatkeOZaposlenju(podaciOZaposlenjuIZanimanjuDto));
-            zdravstveniKarton.Alergeni.Add(zdravstveniKartonDto.Alergen);
+            zdravstveniKarton.DodajAlergen(zdravstveniKartonDto.Alergen);
             Kartoni.Instance.DodajKarton(zdravstveniKarton);
         }
 
@@ -38,13 +38,13 @@ namespace Servis
                         podaciOZaposlenjuDto.RadPodPosebnimUslovima, podaciOZaposlenjuDto.Promjene);
         }
 
-        public void DodjelaZdravstvenogKartonaPacijentu()
+        public void DodeliZdravstveniKartonPacijentu()
         {
             foreach (ZdravstveniKarton zdravstveniKarton in Kartoni.Instance.listaKartona)
                 Pacijenti.Instance.DodjelaZdravstvenogKartonaPacijentu(zdravstveniKarton);
         }
 
-        public void IzmjenaZdravstvenogKartona(ZdravstveniKartonDto zdravstveniKartonDto,
+        public void IzmeniZdravstveniKarton(ZdravstveniKartonDto zdravstveniKartonDto,
                                                 PodaciOZaposlenjuIZanimanjuDto podaciOZaposlenjuIZanimanjuDto,
                                                 ZdravstveniKarton zdravstveniKarton)
         {
@@ -68,37 +68,30 @@ namespace Servis
         private static void IzmeniPodatkeOZanimanju(PodaciOZaposlenjuIZanimanjuDto podaciOZaposlenjuIZanimanjuDto,
                                                     ZdravstveniKarton zdravstveniKarton)
         {
-            zdravstveniKarton.PodaciOZaposlenjuIZanimanju.RadnoMjesto = podaciOZaposlenjuIZanimanjuDto.RadnoMjesto;
-            zdravstveniKarton.PodaciOZaposlenjuIZanimanju.RegistarskiBroj = podaciOZaposlenjuIZanimanjuDto.RegistarskiBroj;
-            zdravstveniKarton.PodaciOZaposlenjuIZanimanju.SifraDelatnosti = podaciOZaposlenjuIZanimanjuDto.SifraDelatnosti;
-            zdravstveniKarton.PodaciOZaposlenjuIZanimanju.RadnoMjesto = podaciOZaposlenjuIZanimanjuDto.RadnoMjesto;
-            zdravstveniKarton.PodaciOZaposlenjuIZanimanju.PosaoKojiObavlja = podaciOZaposlenjuIZanimanjuDto.PosaoKojiObavlja;
-            zdravstveniKarton.PodaciOZaposlenjuIZanimanju.Promjene = podaciOZaposlenjuIZanimanjuDto.Promjene;
+            PodaciOZaposlenjuIZanimanju zaposlenjeIZanimanje = zdravstveniKarton.PodaciOZaposlenjuIZanimanju;
+            zaposlenjeIZanimanje.RadnoMjesto = podaciOZaposlenjuIZanimanjuDto.RadnoMjesto;
+            zaposlenjeIZanimanje.RegistarskiBroj = podaciOZaposlenjuIZanimanjuDto.RegistarskiBroj;
+            zaposlenjeIZanimanje.SifraDelatnosti = podaciOZaposlenjuIZanimanjuDto.SifraDelatnosti;
+            zaposlenjeIZanimanje.RadnoMjesto = podaciOZaposlenjuIZanimanjuDto.RadnoMjesto;
+            zaposlenjeIZanimanje.PosaoKojiObavlja = podaciOZaposlenjuIZanimanjuDto.PosaoKojiObavlja;
+            zaposlenjeIZanimanje.Promjene = podaciOZaposlenjuIZanimanjuDto.Promjene;
         }
 
-
-        public void DodavanjeAlergenaPacijentu(Alergen alergen, string jmbg)
+        public void DodajAlergenPacijentu(Alergen alergen, string jmbg)
         {
             Pacijent pacijent = Pacijenti.Instance.NadjiPoJmbg(jmbg);
-            pacijent.zdravstveniKarton.AddAlergen(Alergeni.Instance.NadjiPoNazivu(alergen.Naziv));
+            ZdravstveniKarton zdravstveniKarton = pacijent.zdravstveniKarton;
+            zdravstveniKarton.DodajAlergen(alergen);
             Pacijenti.Instance.SacuvajPromene();
         }
 
-
-
-
-        public void BrisanjeAlergenaPacijentu(Alergen alergen, string jmbg)
+        public void ObrisiAlergenPacijentu(Alergen alergen, string jmbg)
         {
             Pacijent pacijent = Pacijenti.Instance.NadjiPoJmbg(jmbg);
-            foreach (Alergen a in pacijent.zdravstveniKarton.Alergeni)
-            {
-                if (a.Naziv == alergen.Naziv)
-                {
-                    pacijent.zdravstveniKarton.Alergeni.Remove(a);
-                    Pacijenti.Instance.SacuvajPromene();
-                    break;
-                }
-            }
+            ZdravstveniKarton zdravstveniKarton = pacijent.zdravstveniKarton;
+            zdravstveniKarton.ObrisiAlergen(alergen);
+            Pacijenti.Instance.SacuvajPromene();
         }
     }
 }
+

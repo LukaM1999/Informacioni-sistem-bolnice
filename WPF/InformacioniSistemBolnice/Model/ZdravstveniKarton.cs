@@ -8,15 +8,15 @@ namespace Model
     [AddINotifyPropertyChangedInterface]
     public class ZdravstveniKarton
     {
-        public string BrojKartona { get; set;}
-        public string BrojKnjizice { get; set;}
-        public string Jmbg { get; set;}
-        public string ImeJednogRoditelja { get; set;}
-        public string LiceZaZdravstvenuZastitu { get; set;}
-        public Pol PolPacijenta { get; set;}
-        public BracnoStanje BracnoStanje { get; set;}
-        public KategorijaZdravstveneZastite KategorijaZdravstveneZastite { get; set;}
-        public PodaciOZaposlenjuIZanimanju PodaciOZaposlenjuIZanimanju { get; set;}
+        public string BrojKartona { get; set; }
+        public string BrojKnjizice { get; set; }
+        public string Jmbg { get; set; }
+        public string ImeJednogRoditelja { get; set; }
+        public string LiceZaZdravstvenuZastitu { get; set; }
+        public Pol PolPacijenta { get; set; }
+        public BracnoStanje BracnoStanje { get; set; }
+        public KategorijaZdravstveneZastite KategorijaZdravstveneZastite { get; set; }
+        public PodaciOZaposlenjuIZanimanju PodaciOZaposlenjuIZanimanju { get; set; }
         public ObservableCollection<Alergen> alergeni;
         public ObservableCollection<Recept> Recepti = new ObservableCollection<Recept>();
 
@@ -40,12 +40,12 @@ namespace Model
                 if (value != null)
                 {
                     foreach (Alergen Oalergen in value)
-                        AddAlergen(Oalergen);
+                        DodajAlergen(Oalergen);
                 }
             }
         }
 
-        public void AddAlergen(Alergen newAlergen)
+        public void DodajAlergen(Alergen newAlergen)
         {
             if (newAlergen == null)
                 return;
@@ -59,6 +59,18 @@ namespace Model
         {
             if (alergeni != null)
                 alergeni.Clear();
+        }
+
+        public Alergen NadjiPoNazivu(string naziv)
+        {
+            foreach (Alergen alergen in Alergeni)
+                if (alergen.Naziv == naziv) return alergen;
+            return null;
+        }
+
+        public bool ObrisiAlergen(Alergen alergen)
+        {
+            return Alergeni.Remove(NadjiPoNazivu(alergen.Naziv));
         }
 
         public ZdravstveniKarton(String brojZdrKartona, String brojZdrKnjizice, String JMBG, String imeRoditelja, String liceZaZdravZastitu, Pol pol,

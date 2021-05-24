@@ -7,9 +7,6 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
-    <Compile Update="Views\Lekar\UCBolnickoLecenjeForma.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Update="Views\Lekar\UCRaspored.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -38,9 +35,6 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Views\Sekretar\DodajAlergenPacijentu.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="Views\Sekretar\GlavniProzorSekretara.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Views\Sekretar\GostujuciNaloziProzor.xaml.cs">
@@ -190,7 +184,7 @@
     <Compile Update="Views\Sekretar\UCMenuSekretara.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Views\Lekar\UCBolnickaLecenja.xaml.cs">
+    <Compile Update="Views\Lekar\UCPacijenti.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Views\Sekretar\TerminiPacijentaProzorSekretara.xaml.cs">
@@ -225,9 +219,6 @@
     <Page Update="Views\Lekar\GlavniProzorLekara.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Views\Lekar\UCBolnickoLecenjeForma.xaml">
-      <SubType>Designer</SubType>
-    </Page>
     <Page Update="Views\Lekar\UCRaspored.xaml">
       <SubType>Designer</SubType>
     </Page>
@@ -259,9 +250,6 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\Sekretar\DodajAlergenPacijentu.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="Views\Sekretar\GlavniProzorSekretara.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\Sekretar\GostujuciNaloziProzor.xaml">
@@ -423,7 +411,7 @@
     <Page Update="Views\Sekretar\UCMenuSekretara.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Views\Lekar\UCBolnickaLecenja.xaml">
+    <Page Update="Views\Lekar\UCPacijenti.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\Sekretar\TerminiPacijentaProzorSekretara.xaml">

@@ -19,9 +19,6 @@ using System.Collections.ObjectModel;
 
 namespace InformacioniSistemBolnice
 {
-    /// <summary>
-    /// Interaction logic for DodajAlergenPacijentu.xaml
-    /// </summary>
     public partial class DodajAlergenPacijentu : Window
     {
         
