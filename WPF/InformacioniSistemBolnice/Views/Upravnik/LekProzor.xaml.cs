@@ -41,14 +41,19 @@ namespace InformacioniSistemBolnice
         }
         private void btnIzmeni_Click(object sender, RoutedEventArgs e)
         {
-            LekIzmeniProzor prozor = new LekIzmeniProzor(listaLekova);
-            prozor.PostaviText();
-            prozor.Show();
+            if (listaLekova.SelectedValue != null)
+            {
+                LekIzmeniProzor prozor = new LekIzmeniProzor(listaLekova);
+                prozor.Show();
+            }
         }
         private void btnInfo_Click(object sender, RoutedEventArgs e)
         {
-            LekInfoProzor prozor = new LekInfoProzor((Lek)listaLekova.SelectedItem);
-            prozor.Show();
+            if (listaLekova.SelectedValue != null)
+            {
+                LekInfoProzor prozor = new LekInfoProzor(listaLekova);
+                prozor.Show();
+            }
         }
     }
 }

@@ -15,17 +15,17 @@ using Model;
 
 namespace InformacioniSistemBolnice
 {
-    /// <summary>
-    /// Interaction logic for LekInfoProzor.xaml
-    /// </summary>
     public partial class LekInfoProzor : Window
     {
-        public LekInfoProzor(Lek lek)
+        public LekInfoProzor(DataGrid listaLekova)
         {
             InitializeComponent();
-            tbNaziv.Text = lek.Naziv;
-            tbProizvodjac.Text = lek.Proizvodjac;
-            tbSastojci.Text = lek.Sastojci;
+            Lek izabraniLek = (Lek)listaLekova.SelectedValue;
+            tbNaziv.Text = izabraniLek.Naziv;
+            tbProizvodjac.Text = izabraniLek.Proizvodjac;
+            tbSastojci.Text = izabraniLek.Sastojci;
+            tbZamena.Text = izabraniLek.Zamena;
+            listaAlergena.ItemsSource = izabraniLek.Alergen;
         }
     }
 }

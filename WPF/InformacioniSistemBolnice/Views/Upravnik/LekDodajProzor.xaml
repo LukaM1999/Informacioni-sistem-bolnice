@@ -16,11 +16,11 @@
         <TextBox x:Name="tbProizvodjac" HorizontalAlignment="Left" Margin="235,80,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="290" Height="30"/>
         <TextBox x:Name="tbZamena" HorizontalAlignment="Left" Margin="235,188,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="290" Height="30"/>
         <Label Content="Zamena:" HorizontalAlignment="Left" Margin="96,188,0,0" VerticalAlignment="Top" Height="30"/>
-        <DataGrid x:Name="listaAlergena" HorizontalAlignment="Left" Height="198" Margin="604,203,0,0" VerticalAlignment="Top" Width="180"/>
-        <TextBox x:Name="tbNazivAlergena" HorizontalAlignment="Left" Margin="711,141,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="148" Height="30"/>
-        <Label Content="Alergeni:" HorizontalAlignment="Left" Margin="604,141,0,0" VerticalAlignment="Top" Height="30"/>
-        <Button x:Name="btnDodajAlergen" Content="Dodaj" HorizontalAlignment="Left" Margin="789,203,0,0" VerticalAlignment="Top" Height="35" Width="70" Click="btnDodajAlergen_Click"/>
-        <Button x:Name="btnObrisiAlergen" Content="Obrisi" HorizontalAlignment="Left" Margin="789,243,0,0" VerticalAlignment="Top" Width="70" Height="44" Click="btnObrisiAlergen_Click"/>
+        <DataGrid x:Name="listaAlergenaLeka" HorizontalAlignment="Left" Height="198" Margin="582,275,0,0" VerticalAlignment="Top" Width="180"/>
+        <Label Content="Alergeni:" HorizontalAlignment="Left" Margin="565,47,0,0" VerticalAlignment="Top" Height="30"/>
+        <Button x:Name="btnDodajAlergen" Content="Dodaj" HorizontalAlignment="Left" Margin="767,275,0,0" VerticalAlignment="Top" Height="35" Width="70" Click="btnDodajAlergen_Click"/>
+        <Button x:Name="btnObrisiAlergen" Content="Obrisi" HorizontalAlignment="Left" Margin="767,315,0,0" VerticalAlignment="Top" Width="70" Height="44" Click="btnObrisiAlergen_Click"/>
+        <DataGrid x:Name="listaAlergena" HorizontalAlignment="Left" Height="163" Margin="582,95,0,0" VerticalAlignment="Top" Width="180"/>
 
     </Grid>
 </Window>

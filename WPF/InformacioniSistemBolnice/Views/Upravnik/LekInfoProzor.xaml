@@ -7,12 +7,16 @@
         mc:Ignorable="d"
         Title="LekInfoProzor" Height="450" Width="800">
     <Grid>
-        <Label Content="Proizvodjac:" HorizontalAlignment="Left" Margin="96,80,0,0" VerticalAlignment="Top" Height="30"/>
-        <Label Content="Naziv:" HorizontalAlignment="Left" Margin="96,141,0,0" VerticalAlignment="Top" Height="30"/>
+        <Label Content="Proizvodjac:" HorizontalAlignment="Left" Margin="96,28,0,0" VerticalAlignment="Top" Height="30"/>
+        <Label Content="Naziv:" HorizontalAlignment="Left" Margin="96,89,0,0" VerticalAlignment="Top" Height="30"/>
         <Label Content="Sastojci" HorizontalAlignment="Left" Margin="96,198,0,0" VerticalAlignment="Top" Height="30"/>
-        <TextBox x:Name="tbProizvodjac" HorizontalAlignment="Left" Margin="310,80,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" Height="30" IsReadOnly="True"/>
-        <TextBox x:Name="tbNaziv" HorizontalAlignment="Left" Margin="310,141,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" Height="30" IsReadOnly="True"/>
+        <TextBox x:Name="tbProizvodjac" HorizontalAlignment="Left" Margin="310,28,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" Height="30" IsReadOnly="True"/>
+        <TextBox x:Name="tbNaziv" HorizontalAlignment="Left" Margin="310,89,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" Height="30" IsReadOnly="True"/>
         <TextBox x:Name="tbSastojci" HorizontalAlignment="Left" Margin="310,210,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" Height="164" IsReadOnly="True"/>
+        <Label Content="Zamena:" HorizontalAlignment="Left" Margin="96,148,0,0" VerticalAlignment="Top" Height="30"/>
+        <TextBox x:Name="tbZamena" HorizontalAlignment="Left" Margin="310,148,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" Height="30" IsReadOnly="True"/>
+        <Label Content="Alergeni:" HorizontalAlignment="Left" Margin="598,28,0,0" VerticalAlignment="Top" Height="30"/>
+        <DataGrid x:Name="listaAlergena" HorizontalAlignment="Left" Height="162" Margin="598,82,0,0" VerticalAlignment="Top" Width="192"/>
 
     </Grid>
 </Window>

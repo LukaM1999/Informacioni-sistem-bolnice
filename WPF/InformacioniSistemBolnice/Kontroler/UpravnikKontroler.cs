@@ -23,9 +23,9 @@ namespace Kontroler
         public void RasporedjivanjeStatickeOpreme(RaspodelaStatickeOpremeDto dto) { Servis.RasporedjivanjeStatickeOpreme.Instance.ZakazivanjePremestanja(dto); }
         public void KreiranjeLeka(LekDto dto) { UpravljanjeLekovima.Instance.KreiranjeLeka(dto); }
         public void BrisanjeLeka(LekDto dto) { UpravljanjeLekovima.Instance.UklanjanjeLeka(dto); }
-        public void IzmenaLeka(LekDto dto, Lek lek)
+        public void IzmenaLeka(LekDto dto)
         {
-            UpravljanjeLekovima.Instance.IzmenaLeka(dto, lek);
+            UpravljanjeLekovima.Instance.IzmenaLeka(dto);
         }
 
         public void ZakazivanjeRenoviranja(ProstorijaRenoviranjeDto dto)

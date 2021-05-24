@@ -20,35 +20,41 @@ namespace InformacioniSistemBolnice
 {
     public partial class LekDodajProzor : Window
     {
-        private ObservableCollection<Alergen> ListaAlergena { get; set; }
+        private ObservableCollection<Alergen> ListaAlergenaLeka { get; set; }
         private DataGrid ListaLekova { get; set; }
 
         public LekDodajProzor(DataGrid listaLekova)
         {
             InitializeComponent();
-            ListaAlergena = new ObservableCollection<Alergen>();
+            Alergeni.Instance.Deserijalizacija();
+            listaAlergena.ItemsSource = Alergeni.Instance.listaAlergena;
+            ListaAlergenaLeka = new ObservableCollection<Alergen>();
             ListaLekova = listaLekova;
         }
         private void btnPotvrdi_Click(object sender, RoutedEventArgs e)
         {
-            UpravnikKontroler.Instance.KreiranjeLeka(new(tbNaziv.Text, tbProizvodjac.Text, tbSastojci.Text, tbZamena.Text, ListaAlergena));
+            UpravnikKontroler.Instance.KreiranjeLeka(new(tbNaziv.Text, tbProizvodjac.Text, tbSastojci.Text, tbZamena.Text, ListaAlergenaLeka));
             ListaLekova.ItemsSource = Lekovi.Instance.ListaLekova;
             this.Close();
         }
 
         private void btnDodajAlergen_Click(object sender, RoutedEventArgs e)
         {
-            ListaAlergena.Add(new(tbNazivAlergena.Text));
-            listaAlergena.ItemsSource = ListaAlergena;
+            if (listaAlergena.SelectedValue != null)
+            {
+                Alergen izabranAlergen = (Alergen)listaAlergena.SelectedValue;
+                ListaAlergenaLeka.Add(izabranAlergen);
+                listaAlergenaLeka.ItemsSource = ListaAlergenaLeka;
+            }
         }
 
         private void btnObrisiAlergen_Click(object sender, RoutedEventArgs e)
         {
-            if(listaAlergena.SelectedValue != null)
+            if(listaAlergenaLeka.SelectedValue != null)
             {
-                Alergen izabraniAlergen = (Alergen)listaAlergena.SelectedValue;
-                ListaAlergena.Remove(izabraniAlergen);
-                listaAlergena.ItemsSource = ListaAlergena;
+                Alergen izabraniAlergen = (Alergen)listaAlergenaLeka.SelectedValue;
+                ListaAlergenaLeka.Remove(izabraniAlergen);
+                listaAlergena.ItemsSource = ListaAlergenaLeka;
             }
         }
     }

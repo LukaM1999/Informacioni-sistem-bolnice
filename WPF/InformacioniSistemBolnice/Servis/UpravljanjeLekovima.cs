@@ -22,13 +22,13 @@ namespace Servis
             Lekovi.Instance.BrisiPoNazivu(dto.Naziv);
             Lekovi.Instance.SacuvajPromene();
         }
-        public void IzmenaLeka(LekDto dto, Lek lek)
+        public void IzmenaLeka(LekDto dto)
         {
-            Lekovi.Instance.getSelected(lek).Naziv = dto.Naziv;
-            Lekovi.Instance.getSelected(lek).Proizvodjac = dto.Proizvodjac;
-            Lekovi.Instance.getSelected(lek).Sastojci = dto.Sastojci;
-            Lekovi.Instance.Serijalizacija();
-            Lekovi.Instance.Deserijalizacija();
+            Lekovi.Instance.NadjiPoNazivu(dto.Naziv).Proizvodjac = dto.Proizvodjac;
+            Lekovi.Instance.NadjiPoNazivu(dto.Naziv).Zamena = dto.Zamena;
+            Lekovi.Instance.NadjiPoNazivu(dto.Naziv).Sastojci = dto.Sastojci;
+            Lekovi.Instance.NadjiPoNazivu(dto.Naziv).Alergen = dto.Alergeni;
+            Lekovi.Instance.SacuvajPromene();
         }
     }
 }
