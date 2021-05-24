@@ -33,9 +33,8 @@ namespace InformacioniSistemBolnice
         {
             ZakazivanjeTerminaPacijentaDTO zakazivanje = new((DateTime)minDatumTermina.SelectedDate,
                 (DateTime)maxDatumTermina.SelectedDate, (Lekar)lekari.SelectedItem, (bool)vremeRadio.IsChecked, pacijentJmbg);
-            if (zakazivanje.MinDatum >= zakazivanje.MaxDatum || zakazivanje.IzabranLekar == null) return;
-            IzborTerminaPacijentaView izborTerminaPacijentaViewProzor = new(zakazivanje) { Owner = this };
-            izborTerminaPacijentaViewProzor.Show();
+            if (zakazivanje.MinDatum < zakazivanje.MaxDatum && zakazivanje.IzabranLekar != null)
+                new IzborTerminaPacijentaView(zakazivanje) { Owner = this }.Show();
         }
     }
 }

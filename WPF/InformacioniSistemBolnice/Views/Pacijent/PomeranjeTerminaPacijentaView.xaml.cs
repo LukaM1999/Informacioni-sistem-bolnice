@@ -16,67 +16,21 @@ using Repozitorijum;
 using Servis;
 using Kontroler;
 using System.Collections.ObjectModel;
+using InformacioniSistemBolnice.Servis;
+using InformacioniSistemBolnice.Utilities;
 
 namespace InformacioniSistemBolnice
 {
     public partial class PomeranjeTerminaPacijentaView : Window
     {
-        private Termin terminZaPomeranje;
-        public TerminiPacijentaView terminiPacijenta;
+        private readonly Termin terminZaPomeranje;
 
         public PomeranjeTerminaPacijentaView(Termin izabranTermin)
         {
             InitializeComponent();
             terminZaPomeranje = izabranTermin;
-            ObservableCollection<Termin> slobodniTermini = new();
-            foreach (Lekar izabraniLekar in Lekari.Instance.listaLekara)
-            {
-                if (izabraniLekar.jmbg == terminZaPomeranje.lekarJMBG)
-                {
-                    DateTime slobodanTermin = terminZaPomeranje.vreme.
-                        Subtract(new TimeSpan(48 + terminZaPomeranje.vreme.Hour, 0, 0));
-                    slobodanTermin = slobodanTermin.AddHours(7);
-                    for (int i = 0; i < 2; i++)
-                    {
-                        for (int j = 0; j < 27; j++)
-                        {
-                            slobodniTermini.Add(new Termin(slobodanTermin, 30.0, TipTermina.pregled, StatusTermina.slobodan,
-                                                terminZaPomeranje.pacijentJMBG, izabraniLekar.jmbg, null));
-
-                            slobodanTermin = slobodanTermin.AddMinutes(30);
-
-                        }
-                        slobodanTermin = slobodanTermin.AddHours(10.5);
-                    }
-                    slobodanTermin = terminZaPomeranje.vreme.
-                        Subtract(new TimeSpan(terminZaPomeranje.vreme.Hour, 0, 0)).AddHours(24 + 7);
-
-                    for (int i = 0; i < 2; i++)
-                    {
-                        for (int j = 0; j < 27; j++)
-                        {
-                            slobodniTermini.Add(new Termin(slobodanTermin, 30.0, TipTermina.pregled, StatusTermina.slobodan,
-                                                terminZaPomeranje.pacijentJMBG, izabraniLekar.jmbg, null));
-
-                            slobodanTermin = slobodanTermin.AddMinutes(30);
-
-                        }
-                        slobodanTermin = slobodanTermin.AddHours(10.5);
-                    }
-                    foreach (Termin predlozenTermin in slobodniTermini.ToList())
-                    {
-                        foreach (Termin postojeciTermin in izabraniLekar.zauzetiTermini)
-                        {
-                            if (predlozenTermin.vreme == postojeciTermin.vreme)
-                            {
-                                slobodniTermini.Remove(predlozenTermin);
-                                break;
-                            }
-                        }
-                    }
-                }
-            }
-            ponudjeniTermini.ItemsSource = slobodniTermini;
+            ponudjeniTermini.ItemsSource =
+                new PredlogSlobodnihTerminaServis(izabranTermin).PonudiSlobodneTermineZaPomeranje();
         }
 
         private void potvrdaPomeranjaDugme_Click(object sender, RoutedEventArgs e)

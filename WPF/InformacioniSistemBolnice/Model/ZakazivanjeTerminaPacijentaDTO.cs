@@ -23,5 +23,10 @@ namespace Model
             VremePrioritet = vremePrioritet;
             PacijentovJmbg = pacijentovJmbg;
         }
+
+        public ZakazivanjeTerminaPacijentaDTO(string pacijentovJmbg)
+        {
+            PacijentovJmbg = pacijentovJmbg;
+        }
     }
 }

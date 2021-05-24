@@ -41,6 +41,19 @@ namespace Repozitorijum
             return null;
         }
 
+        public Lekar NadjiLekaraIsteSpecijalizacije(Lekar lekarSpecijalista)
+        {
+            foreach (Lekar pronadjen in listaLekara)
+                if (JeIsteSpecijalizacije(lekarSpecijalista, pronadjen)) return pronadjen;
+            return null;
+        }
+
+        public bool JeIsteSpecijalizacije(Lekar lekarSpecijalista, Lekar pronadjen)
+        {
+            return pronadjen.jmbg != lekarSpecijalista.jmbg &&
+                   lekarSpecijalista.specijalizacija.Naziv == pronadjen.specijalizacija.Naziv;
+        }
+
         public void SacuvajPromene()
         {
             Serijalizacija();
