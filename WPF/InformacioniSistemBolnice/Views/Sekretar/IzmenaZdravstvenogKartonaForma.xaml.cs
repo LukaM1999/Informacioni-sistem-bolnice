@@ -13,14 +13,18 @@ namespace InformacioniSistemBolnice
     {
         public PacijentiProzor pacijentiProzor;
         public PocetnaStranicaSekretara pocetna;
+        public ZdravstveniKarton ZdravstveniKarton { get; set; }
+        public Pacijent Pacijent { get; set; }
 
-        public IzmenaZdravstvenogKartonaForma(PacijentiProzor pacijenti, PocetnaStranicaSekretara pocetnaStranica)
+        public IzmenaZdravstvenogKartonaForma(PacijentiProzor pacijenti, 
+            PocetnaStranicaSekretara pocetnaStranica, Pacijent izabraniPacijent)
         {
+            ZdravstveniKarton = izabraniPacijent.zdravstveniKarton;
+            Pacijent = izabraniPacijent;
             InitializeComponent();
             pacijentiProzor = pacijenti;
             pocetna = pocetnaStranica;
             AlergenRepo.Instance.Deserijalizacija();
-            AlergeniPacijenta.ItemsSource = ((Pacijent)pacijentiProzor.ListaPacijenata.SelectedItem).zdravstveniKarton.Alergeni;
         }
 
         private void IzmeniZdravstveniKarton_Click(object sender, RoutedEventArgs e)
@@ -45,11 +49,10 @@ namespace InformacioniSistemBolnice
 
         private ZdravstveniKartonDto PokupiPodatkeZdravstvenogKartona()
         {
-            return new(brojKartona.Text, brojKnjizice.Text, JMBGLabela.Content.ToString(),
-                                imeRoditelja.Text, liceZdrZastita.Text, (Model.Pol)Enum.Parse(typeof(Model.Pol), polUnos.Text),
-                                (Model.BracnoStanje)Enum.Parse(typeof(Model.BracnoStanje), bracnoStanjeUnos.Text),
-                                (Model.KategorijaZdravstveneZastite)Enum.Parse(typeof(Model.KategorijaZdravstveneZastite),
-                                kategorijaZdrZastiteUnos.Text), (Alergen)AlergeniPacijenta.SelectedItem);
+            return new(ZdravstveniKarton.BrojKartona, ZdravstveniKarton.BrojKnjizice, ZdravstveniKarton.Jmbg,
+                       ZdravstveniKarton.ImeJednogRoditelja, ZdravstveniKarton.LiceZaZdravstvenuZastitu, 
+                       ZdravstveniKarton.PolPacijenta, ZdravstveniKarton.BracnoStanje, ZdravstveniKarton.KategorijaZdravstveneZastite,
+                       (Alergen)AlergeniPacijenta.SelectedItem);
         }
 
         private PodaciOZaposlenjuIZanimanjuDto PokupiPodatkeOZanimanju()
@@ -59,10 +62,8 @@ namespace InformacioniSistemBolnice
             OSIZ.Text.ToString(), radUPosebnimUslovimaUnos.Text.ToString(), promjene.Text.ToString());
         }
 
-        private void NazadBtn_Click(object sender, RoutedEventArgs e)
-        {
-            this.pocetna.contentControl.Content = this.pacijentiProzor.Content;
-        }
+        private void NazadBtn_Click(object sender, RoutedEventArgs e) 
+            => this.pocetna.contentControl.Content = this.pacijentiProzor.Content;
 
         private void DodajAlergen_Click(object sender, RoutedEventArgs e)
         {
@@ -75,14 +76,14 @@ namespace InformacioniSistemBolnice
             if (AlergeniPacijenta.SelectedItem != null)
             {
                 SekretarKontroler.Instance.UklanjanjeAlergenaIzZdravstvenogKartona
-                    ((Alergen)AlergeniPacijenta.SelectedItem, JMBGLabela.Content.ToString());
+                    ((Alergen)AlergeniPacijenta.SelectedItem, ZdravstveniKarton.Jmbg);
                 AzurirajPrikazAlergenaPacijenta();
             }
         }
 
         private void AzurirajPrikazAlergenaPacijenta()
         {
-            Pacijent pacijent = PacijentRepo.Instance.NadjiPoJmbg(JMBGLabela.Content.ToString());
+            Pacijent pacijent = PacijentRepo.Instance.NadjiPoJmbg(Pacijent.Jmbg);
             ZdravstveniKarton zdravstveniKarton = pacijent.zdravstveniKarton;
             AlergeniPacijenta.ItemsSource = zdravstveniKarton.Alergeni;
         }

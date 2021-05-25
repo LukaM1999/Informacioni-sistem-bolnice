@@ -7,7 +7,7 @@
         xmlns:local="clr-namespace:InformacioniSistemBolnice"
         xmlns:model="clr-namespace:Model"
         mc:Ignorable="d"
-         Height="600" Width="1000">
+        Height="600" Width="1000" DataContext='{Binding RelativeSource={RelativeSource Self}}' >
     <Grid Height="600" Width="1000" HorizontalAlignment="Center" VerticalAlignment="Center" Background="LightGray">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="300*"/>
@@ -37,35 +37,34 @@
             <Label Content="OSIZ zdravstvene zastite: " Canvas.Left="315" Canvas.Top="337" Width="151" Height="29"/>
             <Label Content="Rad pod posebnim uslovima: " Canvas.Left="315" Canvas.Top="371" Width="182"/>
             <Label Content="Promene: " Canvas.Left="315" Canvas.Top="400" Width="116"/>
-            <TextBox x:Name="brojKartonaUnos" Canvas.Left="149" Text="" TextWrapping="Wrap" Width="120" Canvas.Top="-22"/>
-            <TextBox x:Name="brojKnjiziceUnos" Canvas.Left="148" Canvas.Top="6" Text="" TextWrapping="Wrap" Width="120"/>
-            <TextBox x:Name="JMBGUnos" Canvas.Left="148" Canvas.Top="38" Text="" TextWrapping="Wrap" Width="120"/>
-            <Label x:Name="prezimeLabela" Canvas.Left="150" Canvas.Top="65"  Width="120" Height="34"/>
+            <TextBox x:Name="brojKartonaUnos" Text="{Binding ZdravstveniKarton.BrojKartona}" Canvas.Left="149"  TextWrapping="Wrap" Width="120" Canvas.Top="-22"/>
+            <TextBox x:Name="brojKnjiziceUnos" Canvas.Left="148" Canvas.Top="6" Text="{Binding ZdravstveniKarton.BrojKnjizice}" TextWrapping="Wrap" Width="120"/>
+            <TextBox x:Name="JMBGUnos" Text="{Binding Pacijent.Jmbg}" Canvas.Left="148" Canvas.Top="38" TextWrapping="Wrap" Width="120"/>
+            <Label x:Name="prezimeLabela"  Content="{Binding Pacijent.Prezime}" Canvas.Left="150" Canvas.Top="65"  Width="120" Height="34"/>
             <TextBox x:Name="imeRoditeljaUnos" Canvas.Left="151" Canvas.Top="105" Text="" TextWrapping="Wrap" Width="120"/>
-            <Label x:Name="imeLabela" Canvas.Left="151" Canvas.Top="133"   Width="120" Height="34"/>
-            <Label x:Name="adresaLabela" Canvas.Left="175" Canvas.Top="221"   Width="120" Height="34"/>
-            <Label x:Name="datumRodjenjaLabela" Canvas.Left="159" Canvas.Top="178"  Width="72" Height="34"/>
-            <Label x:Name="ulicaIBrojLabela" Canvas.Left="173" Canvas.Top="262"  Width="120" Height="34"/>
-            <Label x:Name="telefon" Canvas.Left="170" Canvas.Top="304"  Width="120" Height="34"/>
-            <ComboBox x:Name="polUnos" Canvas.Left="165" Canvas.Top="344" Width="120"  ItemsSource="{Binding Source={local:EnumBindingSource {x:Type model:Pol}}}"/>
-            <ComboBox x:Name="bracnoStanjeUnos" Canvas.Left="166" Canvas.Top="379" Width="120"  ItemsSource="{Binding Source={local:EnumBindingSource {x:Type model:BracnoStanje}}}"/>
-            <TextBox x:Name="liceZdrZastitaUnos" Canvas.Left="529" Canvas.Top="74" Text="" TextWrapping="Wrap" Width="118"/>
-            <ComboBox x:Name="kategorijaZdrZastiteUnos" Canvas.Left="529" Canvas.Top="109" Width="118"  ItemsSource="{Binding Source={local:EnumBindingSource {x:Type model:KategorijaZdravstveneZastite}}}"/>
-
+            <Label x:Name="imeLabela" Content="{Binding Pacijent.Ime}" Canvas.Left="151" Canvas.Top="133"   Width="120" Height="34"/>
+            <Label x:Name="adresaLabela"  Content="{Binding Pacijent.AdresaStanovanja.Grad}" Canvas.Left="175" Canvas.Top="221"   Width="120" Height="34"/>
+            <Label x:Name="datumRodjenjaLabela" Content="{Binding Pacijent.DatumRodjenja}" Canvas.Left="159" Canvas.Top="178"  Width="72" Height="34"/>
+            <Label x:Name="ulicaIBrojLabela" Content="{Binding Pacijent.AdresaStanovanja.Ulica}" Canvas.Left="173" Canvas.Top="262"  Width="120" Height="34"/>
+            <Label x:Name="telefon" Content="{Binding Pacijent.Telefon}" Canvas.Left="170" Canvas.Top="304"  Width="120" Height="34"/>
+            <ComboBox x:Name="polUnos"  Canvas.Left="165" Canvas.Top="344" Width="120"  ItemsSource="{Binding Source={local:EnumBindingSource {x:Type model:Pol}}}"/>
+            <ComboBox x:Name="bracnoStanjeUnos"  Canvas.Left="166" Canvas.Top="379" Width="120"  ItemsSource="{Binding Source={local:EnumBindingSource {x:Type model:BracnoStanje}}}"/>
+            <TextBox x:Name="liceZdrZastitaUnos"  Canvas.Left="529" Canvas.Top="74" TextWrapping="Wrap" Width="118"/>
+            <ComboBox x:Name="kategorijaZdrZastiteUnos"  Canvas.Left="529" Canvas.Top="109" Width="118"  ItemsSource="{Binding Source={local:EnumBindingSource {x:Type model:KategorijaZdravstveneZastite}}}"/>
             <Label Content="Podaci o zdravstvenoj zastiti " Canvas.Left="382" Canvas.Top="38" Width="177"/>
             <Label Content="Licni podaci " Canvas.Left="147" Width="80" Canvas.Top="-57"/>
-            <TextBox x:Name="radnoMjestoUnos" Canvas.Left="530" Canvas.Top="209" Text="" TextWrapping="Wrap" Width="120"/>
-            <TextBox x:Name="registarskiBrojUnos" Canvas.Left="530" Canvas.Top="243" Text="" TextWrapping="Wrap" Width="120"/>
-            <TextBox x:Name="sifraDjelatnostiUnos" Canvas.Left="530" Canvas.Top="274" Text="" TextWrapping="Wrap" Width="120"/>
-            <TextBox x:Name="posaoUnos" Canvas.Left="530" Canvas.Top="307" Text="" TextWrapping="Wrap" Width="120"/>
-            <TextBox x:Name="OSIZ" Canvas.Left="530" Canvas.Top="341" Text="" TextWrapping="Wrap" Width="120"/>
-            <TextBox x:Name="radUPosebnimUslovimaUnos" Canvas.Left="530" Canvas.Top="375" Text="" TextWrapping="Wrap" Width="120" Height="20"/>
-            <TextBox x:Name="promjene" Canvas.Left="530" Canvas.Top="407" Text="" TextWrapping="Wrap" Width="120"/>
+            <TextBox x:Name="radnoMjestoUnos" Text=" " Canvas.Left="530" Canvas.Top="209" TextWrapping="Wrap" Width="120"/>
+            <TextBox x:Name="registarskiBrojUnos" Canvas.Left="530" Canvas.Top="243" Text=" " TextWrapping="Wrap" Width="120"/>
+            <TextBox x:Name="sifraDjelatnostiUnos" Canvas.Left="530" Canvas.Top="274" Text=" " TextWrapping="Wrap" Width="120"/>
+            <TextBox x:Name="posaoUnos" Canvas.Left="530" Canvas.Top="307" Text=" " TextWrapping="Wrap" Width="120"/>
+            <TextBox x:Name="OSIZ" Canvas.Left="530" Canvas.Top="341" Text=" " TextWrapping="Wrap" Width="120"/>
+            <TextBox x:Name="radUPosebnimUslovimaUnos" Canvas.Left="530" Canvas.Top="375" Text=" " TextWrapping="Wrap" Width="120" Height="20"/>
+            <TextBox x:Name="promjene" Canvas.Left="530" Canvas.Top="407" Text=" " TextWrapping="Wrap" Width="120"/>
             <Button x:Name="potvrdiDugme" Content="Kreiraj zdravstveni karton" Grid.Column="1" Width="149" Canvas.Left="806" Canvas.Top="494" Click="KreirajZdravstveniKarton_Click"/>
         </Canvas>
         <Label Content="Zdravstveno stanje pacijenta" Grid.Column="2" HorizontalAlignment="Left" Margin="79,29,0,0" VerticalAlignment="Top"/>
         <Label Content="Alergeni:" Grid.Column="2" HorizontalAlignment="Left" Margin="27,64,0,0" VerticalAlignment="Top" />
-        <ListView  Name ="ListaAlergena" Grid.Column="2" Margin="10,95,50,197">
+        <ListView  Name ="ListaAlergena" SelectedItem="{Binding SelektovaniAlergen}" Grid.Column="2" Margin="10,95,50,197">
             <ListView.View>
                 <GridView>
                     <GridViewColumn/>

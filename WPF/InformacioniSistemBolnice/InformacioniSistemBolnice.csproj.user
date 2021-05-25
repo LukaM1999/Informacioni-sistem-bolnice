@@ -70,7 +70,7 @@
     <Compile Update="Views\Sekretar\IzmenaVesti.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Views\Sekretar\IzmjenaZdravstvenogKartonaForma.xaml.cs">
+    <Compile Update="Views\Sekretar\IzmenaZdravstvenogKartonaForma.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Views\Sekretar\KreirajVijestProzor.xaml.cs">
@@ -291,7 +291,7 @@
     <Page Update="Views\Lekar\IzmenaZdravstvenogKartonaLekar.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Views\Sekretar\IzmjenaZdravstvenogKartonaForma.xaml">
+    <Page Update="Views\Sekretar\IzmenaZdravstvenogKartonaForma.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\Sekretar\KreirajVijestProzor.xaml">
