@@ -66,16 +66,18 @@ namespace Servis
 
         private void IzmeniKorisnickePodatke(LekarDto lekarDto, Lekar lekar)
         {
-            lekar.Korisnik.KorisnickoIme = lekarDto.KorisnickoIme;
-            lekar.Korisnik.Lozinka = lekarDto.Lozinka;
+            Korisnik korisnik = lekar.Korisnik;
+            korisnik.KorisnickoIme = lekarDto.KorisnickoIme;
+            korisnik.Lozinka = lekarDto.Lozinka;
         }
 
         private void IzmeniAdresu(LekarDto lekarDto, Lekar lekar)
         {
-            lekar.AdresaStanovanja.Drzava = lekarDto.Drzava;
-            lekar.AdresaStanovanja.Grad = lekarDto.Grad;
-            lekar.AdresaStanovanja.Ulica = lekarDto.Ulica;
-            lekar.AdresaStanovanja.Broj = lekarDto.Broj;
+            Adresa adresa = lekar.AdresaStanovanja;
+            adresa.Drzava = lekarDto.Drzava;
+            adresa.Grad = lekarDto.Grad;
+            adresa.Ulica = lekarDto.Ulica;
+            adresa.Broj = lekarDto.Broj;
         }
 
         public LekarDto PregledajNalog(Lekar lekar)
@@ -89,16 +91,18 @@ namespace Servis
 
         private void PregledajKorisnickePodatake(LekarDto lekarDto, Lekar lekar)
         {
-            lekarDto.KorisnickoIme = lekar.Korisnik.KorisnickoIme;
-            lekarDto.Lozinka = lekar.Korisnik.Lozinka;
+            Korisnik korisnik = lekar.Korisnik;
+            lekarDto.KorisnickoIme = korisnik.KorisnickoIme;
+            lekarDto.Lozinka = korisnik.Lozinka;
         }
 
         private void PregledajAdresu(Lekar lekar, LekarDto lekarDto)
         {
-            lekarDto.Drzava = lekar.AdresaStanovanja.Drzava;
-            lekarDto.Ulica = lekar.AdresaStanovanja.Ulica;
-            lekarDto.Grad = lekar.AdresaStanovanja.Grad;
-            lekarDto.Broj = lekar.AdresaStanovanja.Broj;
+            Adresa adresa = lekar.AdresaStanovanja;
+            lekarDto.Drzava = adresa.Drzava;
+            lekarDto.Ulica = adresa.Ulica;
+            lekarDto.Grad = adresa.Grad;
+            lekarDto.Broj = adresa.Broj;
         }
 
         private void PregledLicnihPodataka(LekarDto lekarDto, Lekar lekar)

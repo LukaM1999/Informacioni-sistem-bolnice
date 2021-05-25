@@ -3,26 +3,19 @@
     "Specijalizacija": {
       "Naziv": "Lekar opste prakse"
     },
-    "ZauzetiTermini": [
-      {
-        "Vreme": "2021-05-20T08:00:00",
-        "Trajanje": 30.0,
-        "Tip": 0,
-        "Status": 0,
-        "AnketaOLekaru": null,
-        "PacijentJmbg": "1905981123124",
-        "LekarJmbg": "231568933",
-        "ProstorijaId": null,
-        "Hitan": false
-      }
-    ],
+    "ZauzetiTermini": [],
     "Ime": "Darko",
-    "Prezime": "Pericic",
-    "Jmbg": "231568933",
-    "DatumRodjenja": "1992-06-08T00:00:00",
-    "Telefon": "064345590",
+    "Prezime": "Peric",
+    "Jmbg": "1605988156156",
+    "DatumRodjenja": "1988-05-16T00:00:00",
+    "Telefon": "064151515",
     "Email": "pdarko@gmail.com",
-    "AdresaStanovanja": null,
+    "AdresaStanovanja": {
+      "Broj": "18",
+      "Ulica": "Ive Andrica",
+      "Grad": "Novi Sad",
+      "Drzava": "Srbija"
+    },
     "Korisnik": {
       "KorisnickoIme": "lekar1",
       "Lozinka": "lekar1",
@@ -31,67 +24,24 @@
   },
   {
     "Specijalizacija": {
-      "Naziv": "Neurolog"
-    },
-    "ZauzetiTermini": [
-      {
-        "Vreme": "2021-05-19T10:30:00",
-        "Trajanje": 30.0,
-        "Tip": 0,
-        "Status": 0,
-        "AnketaOLekaru": null,
-        "PacijentJmbg": "1203998123123",
-        "LekarJmbg": "985467356",
-        "ProstorijaId": null,
-        "Hitan": false
-      }
-    ],
-    "Ime": "Marko",
-    "Prezime": "Lazic",
-    "Jmbg": "985467356",
-    "DatumRodjenja": "1987-01-05T00:00:00",
-    "Telefon": "063454664",
-    "Email": "lmarko@gmail.com",
-    "AdresaStanovanja": null,
-    "Korisnik": {
-      "KorisnickoIme": "lekar2",
-      "Lozinka": "lekar2",
-      "Uloga": 1
-    }
-  },
-  {
-    "Specijalizacija": {
       "Naziv": "Psihijatar"
     },
     "ZauzetiTermini": [],
-    "Ime": "Nikola",
-    "Prezime": "Markovic",
-    "Jmbg": "1203980171188",
-    "DatumRodjenja": "1980-03-12T00:00:00",
-    "Telefon": "0645251234444",
-    "Email": "nmarkovic@gmail.com",
-    "AdresaStanovanja": null,
-    "Korisnik": {
-      "KorisnickoIme": "drNikolaaa",
-      "Lozinka": "drNikola",
-      "Uloga": 1
-    }
-  },
-  {
-    "Specijalizacija": {
-      "Naziv": "Dermatolog"
+    "Ime": "Marko",
+    "Prezime": "Lazic",
+    "Jmbg": "1209971",
+    "DatumRodjenja": "1971-09-12T00:00:00",
+    "Telefon": "0641551551",
+    "Email": "lmarko@gmail.com",
+    "AdresaStanovanja": {
+      "Broj": "15",
+      "Ulica": "Danila Kisa",
+      "Grad": "Novi Sad",
+      "Drzava": "Srbija"
     },
-    "ZauzetiTermini": [],
-    "Ime": "mako",
-    "Prezime": "alall",
-    "Jmbg": "alal",
-    "DatumRodjenja": "2021-05-17T00:00:00",
-    "Telefon": "lal",
-    "Email": "lla",
-    "AdresaStanovanja": null,
     "Korisnik": {
-      "KorisnickoIme": "llal",
-      "Lozinka": "lalaaa",
+      "KorisnickoIme": "lekar2",
+      "Lozinka": "lekar2",
       "Uloga": 1
     }
   }

@@ -1,26 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace InformacioniSistemBolnice
 {
     public partial class PregledVesti : Window
     {
-        public ListView listaVesti;
-        public PregledVesti(ListView lista)
+        public ListView vesti;
+
+        public PregledVesti(ListView vesti)
         {
             InitializeComponent();
-            listaVesti = lista;
+            this.vesti = vesti;
         }
     }
 }

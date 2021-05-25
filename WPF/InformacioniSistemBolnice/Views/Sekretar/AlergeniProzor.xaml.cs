@@ -10,6 +10,7 @@ namespace InformacioniSistemBolnice
     public partial class AlergeniProzor : UserControl
     {
         public PocetnaStranicaSekretara pocetna;
+
         public AlergeniProzor(PocetnaStranicaSekretara pocetnaStranicaSekretara)
         {
             InitializeComponent();
@@ -30,7 +31,7 @@ namespace InformacioniSistemBolnice
             this.pocetna.contentControl.Content = new AlergeniProzor(pocetna);
         }
 
-        private void IzmjeniAlergen_Click(object sender, RoutedEventArgs e)
+        private void IzmeniAlergen_Click(object sender, RoutedEventArgs e)
         {
             if (ListaAlergena.SelectedValue != null)
             {

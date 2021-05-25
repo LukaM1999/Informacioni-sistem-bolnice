@@ -1,19 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 using InformacioniSistemBolnice.DTO;
 using Kontroler;
-using Model;
 
 namespace InformacioniSistemBolnice
 {
@@ -21,6 +9,7 @@ namespace InformacioniSistemBolnice
     {
         public PocetnaStranicaSekretara pocetna;
         public AlergeniProzor alergeni;
+
         public DefinisanjeAlergenaForma(AlergeniProzor alergeniProzor)
         {
             InitializeComponent();
@@ -28,7 +17,7 @@ namespace InformacioniSistemBolnice
             pocetna = alergeniProzor.pocetna;
         }
 
-        private void definisiAlergenDugme_Click(object sender, RoutedEventArgs e)
+        private void DefinisiAlergen_Click(object sender, RoutedEventArgs e)
         {
             AlergenDto alergenDto = new(nazivAlergenaUnos.Text);
             SekretarKontroler.Instance.DefinisanjeAlergena(alergenDto);

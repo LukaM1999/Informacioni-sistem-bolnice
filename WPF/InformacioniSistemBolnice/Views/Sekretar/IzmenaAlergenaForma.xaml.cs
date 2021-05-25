@@ -19,14 +19,14 @@ namespace InformacioniSistemBolnice
             alergeni = alergeniProzor;
             pocetna = alergeniProzor.pocetna;
             listaAlergena = alergeniProzor.ListaAlergena;
-
         }
 
-        private void potvrdiIzmeneDugme_Click(object sender, RoutedEventArgs e)
+        private void PotvrdiIzmene_Click(object sender, RoutedEventArgs e)
         {
             if (listaAlergena.SelectedValue != null)
             {
-                SekretarKontroler.Instance.IzmjenaAlergena(new AlergenDto(nazivAlergenaUnos.Text), (Alergen)listaAlergena.SelectedItem);
+                SekretarKontroler.Instance.IzmenaAlergena
+                    (new AlergenDto(nazivAlergenaUnos.Text), (Alergen)listaAlergena.SelectedItem);
                 AzurirajIzgled();
             }
         }

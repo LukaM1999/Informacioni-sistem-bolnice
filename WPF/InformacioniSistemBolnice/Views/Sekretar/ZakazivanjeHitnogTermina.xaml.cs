@@ -1,16 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 using InformacioniSistemBolnice.DTO;
 using Model;
 using Repozitorijum;
@@ -18,59 +8,55 @@ using Kontroler;
 
 namespace InformacioniSistemBolnice
 {
-    /// <summary>
-    /// Interaction logic for ZakazivanjeHitnogTermina.xaml
-    /// </summary>
     public partial class ZakazivanjeHitnogTermina : UserControl
     {
         public UpravljanjeUrgentnimSistemomProzor upravljanjeUrgentnimSistemomProzor;
         public PocetnaStranicaSekretara pocetna;
+
         public ZakazivanjeHitnogTermina(UpravljanjeUrgentnimSistemomProzor upravljanje)
         {
+            InitializeComponent();
             upravljanjeUrgentnimSistemomProzor = upravljanje;
             pocetna = upravljanje.pocetna;
-            InitializeComponent();
-
             vrijeme.Content = DateTime.Now.TimeOfDay.ToString();
+            GenerisiListe();
+        }
 
+        private void GenerisiListe()
+        {
             SpecijalizacijaRepo.Instance.Deserijalizacija();
             specijalizacijeLekara.ItemsSource = SpecijalizacijaRepo.Instance.Specijalizacije;
-
             PacijentRepo.Instance.Deserijalizacija();
             pacijenti.ItemsSource = PacijentRepo.Instance.Pacijenti;
-
             ProstorijaRepo.Instance.Deserijalizacija();
             prostorije.ItemsSource = ProstorijaRepo.Instance.Prostorije;
-
         }
 
-        private void zakaziHitanTermin_Click(object sender, RoutedEventArgs e)
+        private void ZakaziHitanTermin_Click(object sender, RoutedEventArgs e)
         {
-            Pacijent pacijent = (Pacijent)this.pacijenti.SelectedItem;
-            Prostorija prostorija = (Prostorija)this.prostorije.SelectedItem;
-
-            HitnoZakazivanjeDto hitnoZakazivanjeDto = new HitnoZakazivanjeDto(this.specijalizacijeLekara.SelectedItem.ToString(),
-                pacijent.Jmbg, prostorija.Id);
+            Pacijent pacijent = (Pacijent)pacijenti.SelectedItem;
+            Prostorija prostorija = (Prostorija)prostorije.SelectedItem;
+            HitnoZakazivanjeDto hitnoZakazivanjeDto = new(specijalizacijeLekara.SelectedItem.ToString(),
+                                                          pacijent.Jmbg, prostorija.Id);
             SekretarKontroler.Instance.ZakazivanjeHitnogTermina(hitnoZakazivanjeDto);
-            
+            AzurirajPrikaz();
+        }
+
+        private void AzurirajPrikaz()
+        {
             TerminRepo.Instance.Deserijalizacija();
             upravljanjeUrgentnimSistemomProzor.ListaTermina.ItemsSource = TerminRepo.Instance.Termini;
-            this.Visibility = Visibility.Hidden;
-            this.pocetna.contentControl.Content = this.upravljanjeUrgentnimSistemomProzor.Content;
-
-
+            pocetna.contentControl.Content = upravljanjeUrgentnimSistemomProzor.Content;
         }
 
-        private void pomeriPostojeciTermin_Click(object sender, RoutedEventArgs e)
+        private void PomeriPostojeciTermin_Click(object sender, RoutedEventArgs e)
         {
             IzborTerminaZaPomeranje izborTerminaZaPomeranje = new IzborTerminaZaPomeranje(this);
             izborTerminaZaPomeranje.Show();
         }
 
         private void NazadBtn_Click(object sender, RoutedEventArgs e)
-        {
-            this.Visibility = Visibility.Hidden;
-            this.pocetna.contentControl.Content = this.upravljanjeUrgentnimSistemomProzor.Content;
-        }
+            => pocetna.contentControl.Content = this.upravljanjeUrgentnimSistemomProzor.Content;
+
     }
 }
