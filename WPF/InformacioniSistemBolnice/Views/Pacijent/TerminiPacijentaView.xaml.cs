@@ -29,7 +29,7 @@ namespace InformacioniSistemBolnice
         {
             new Thread(() => ZavrsenTerminServis.Instance.ProveriZavrsenostTermina(ulogovanPacijent)).Start();
             new Thread(() => AntiTrollServis.Instance.ProveriMalicioznostPacijenta(ulogovanPacijent)).Start();
-            AnketaServis.Instance.OtvoriAnketuOBolnici(ulogovanPacijent);
+            PrikazBolnickeAnketeServis.Instance.OtvoriAnketuOBolnici(ulogovanPacijent);
             ObavestenjePacijentaServis.Instance.UkljuciPodsetnike(ulogovanPacijent.Jmbg);
             new Thread(() => ObavestenjeTerapijeServis.Instance.UkljuciObavestenja(ulogovanPacijent)).Start();
         }
