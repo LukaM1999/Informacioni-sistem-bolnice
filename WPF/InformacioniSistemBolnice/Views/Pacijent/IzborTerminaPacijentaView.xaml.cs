@@ -30,7 +30,7 @@ namespace InformacioniSistemBolnice
             ponudjeniTermini.ItemsSource = new PredlogSlobodnihTerminaServis(zakazivanje).PonudiSlobodneTermine();
         }
 
-        private void zakaziDugme_Click(object sender, RoutedEventArgs e)
+        private void ZakaziTermin(object sender, RoutedEventArgs e)
         {
             PacijentKontroler.Instance.Zakazivanje((Termin)ponudjeniTermini.SelectedValue);
             Owner?.Close();

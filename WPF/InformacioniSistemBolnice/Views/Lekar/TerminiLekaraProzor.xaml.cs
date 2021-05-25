@@ -31,15 +31,15 @@ namespace InformacioniSistemBolnice
             PacijentRepo.Instance.Deserijalizacija();
             LekarRepo.Instance.Deserijalizacija();
             TerminRepo.Instance.Deserijalizacija();
-            ulogovanLekar.ZauzetiTermini.Clear();
+            ulogovanLekar.ZakazaniTermini.Clear();
             foreach (Termin termin in TerminRepo.Instance.Termini.ToList())
             {
                 if (ulogovanLekar.Jmbg.Equals(termin.LekarJmbg))
                 {
-                    ulogovanLekar.ZauzetiTermini.Add(termin);
+                    ulogovanLekar.ZakazaniTermini.Add(termin);
                 }
             }
-            listaZakazanihTerminaLekara.ItemsSource = ulogovanLekar.ZauzetiTermini;
+            listaZakazanihTerminaLekara.ItemsSource = ulogovanLekar.ZakazaniTermini;
             lekar = ulogovanLekar;
             jmbgLekara = ulogovanLekar.Jmbg;
             System.Diagnostics.Debug.WriteLine(jmbgLekara);
@@ -66,7 +66,7 @@ namespace InformacioniSistemBolnice
             if (listaZakazanihTerminaLekara.SelectedIndex > -1)
             {
                 LekarKontroler.Instance.Otkazivanje((Termin)listaZakazanihTerminaLekara.SelectedItem);
-                listaZakazanihTerminaLekara.ItemsSource = lekar.ZauzetiTermini;
+                listaZakazanihTerminaLekara.ItemsSource = lekar.ZakazaniTermini;
             }
         }
 

@@ -52,7 +52,7 @@ namespace InformacioniSistemBolnice
 
             foreach (Termin predlozenTermin in slobodniTermini.ToList())
             {
-                foreach (Termin postojeciTermin in izabranLekar.ZauzetiTermini)
+                foreach (Termin postojeciTermin in izabranLekar.ZakazaniTermini)
                 {
                     if (predlozenTermin.Vreme != postojeciTermin.Vreme) continue;
                     slobodniTermini.Remove(predlozenTermin);
@@ -97,7 +97,7 @@ namespace InformacioniSistemBolnice
                     }
                     foreach (Termin predlozenTermin in slobodniTermini.ToList())
                     {
-                        foreach (Termin postojeciTermin in izabranLekar.ZauzetiTermini)
+                        foreach (Termin postojeciTermin in izabranLekar.ZakazaniTermini)
                         {
                             if (predlozenTermin.Vreme == postojeciTermin.Vreme)
                             {
@@ -133,7 +133,7 @@ namespace InformacioniSistemBolnice
                             }
                             foreach (Termin predlozenTermin in slobodniTermini.ToList())
                             {
-                                foreach (Termin postojeciTermin in drugiLekar.ZauzetiTermini)
+                                foreach (Termin postojeciTermin in drugiLekar.ZakazaniTermini)
                                 {
                                     if (predlozenTermin.Vreme == postojeciTermin.Vreme)
                                     {

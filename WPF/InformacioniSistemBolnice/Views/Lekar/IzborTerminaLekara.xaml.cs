@@ -68,7 +68,7 @@ namespace InformacioniSistemBolnice
 
         private DateTime PopunjavaNovuListuSlobodnihTermina(DateTime slobodanTermin)
         {
-            foreach (Termin zauzetTermin in uput.Lekar.ZauzetiTermini)
+            foreach (Termin zauzetTermin in uput.Lekar.ZakazaniTermini)
             {
                 slobodniTermini.Add(new Termin(slobodanTermin, 30.0,
                     uput.Tip, StatusTermina.slobodan,
@@ -125,7 +125,7 @@ namespace InformacioniSistemBolnice
         {
             foreach (Termin predlozenTermin in slobodniTermini.ToList())
             {
-                foreach (Termin postojeciTermin in uput.Lekar.ZauzetiTermini)
+                foreach (Termin postojeciTermin in uput.Lekar.ZakazaniTermini)
                 {
                     if (predlozenTermin.Vreme == postojeciTermin.Vreme)
                     {
@@ -139,7 +139,7 @@ namespace InformacioniSistemBolnice
         {
             foreach (Termin predlozenTermin in slobodniTermini.ToList())
             {
-                foreach (Termin postojeciTermin in uput.Pacijent.zakazaniTermini)
+                foreach (Termin postojeciTermin in uput.Pacijent.ZakazaniTermini)
                 {
                     if (predlozenTermin.Vreme == postojeciTermin.Vreme)
                     {

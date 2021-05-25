@@ -57,7 +57,7 @@ namespace InformacioniSistemBolnice
                     {
                         if (izabraniLekar.Jmbg == jmbgLekara)
                         {
-                            foreach (Termin postojeciTermin in izabraniLekar.ZauzetiTermini)
+                            foreach (Termin postojeciTermin in izabraniLekar.ZakazaniTermini)
                             {
                                 if (predlozenTermin.Vreme == postojeciTermin.Vreme)
                                 {
@@ -108,7 +108,7 @@ namespace InformacioniSistemBolnice
                             {
                                 if (izabraniLekar.Jmbg == jmbgLekara)
                                 {
-                                    foreach (Termin postojeciTermin in izabraniLekar.ZauzetiTermini)
+                                    foreach (Termin postojeciTermin in izabraniLekar.ZakazaniTermini)
                                     {
                                         if (predlozenTermin.Vreme == postojeciTermin.Vreme)
                                         {
@@ -147,7 +147,7 @@ namespace InformacioniSistemBolnice
                                         }
                                         foreach (Termin predlozenTermin in slobodniTermini.ToList())
                                         {
-                                            foreach (Termin postojeciTermin in drugiLekar.ZauzetiTermini)
+                                            foreach (Termin postojeciTermin in drugiLekar.ZakazaniTermini)
                                             {
                                                 if (predlozenTermin.Vreme == postojeciTermin.Vreme)
                                                 {

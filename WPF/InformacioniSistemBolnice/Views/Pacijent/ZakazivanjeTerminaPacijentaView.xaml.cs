@@ -30,7 +30,7 @@ namespace InformacioniSistemBolnice
             pacijentJmbg = jmbgPacijenta;
         }
 
-        private void potvrdaZakazivanjaDugme_Click(object sender, RoutedEventArgs e)
+        private void OtvoriIzborTermina(object sender, RoutedEventArgs e)
         {
             if (minDatumTermina.SelectedDate >= maxDatumTermina.SelectedDate && lekari.SelectedIndex is -1) return;
             ZakazivanjeTerminaPacijentaDto zakazivanje = new((DateTime)minDatumTermina.SelectedDate,

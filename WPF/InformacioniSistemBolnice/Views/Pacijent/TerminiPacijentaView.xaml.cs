@@ -27,8 +27,8 @@ namespace InformacioniSistemBolnice
 
         private void PokreniNiti()
         {
-            new Thread(() => ZavrsenTerminServis.Instance.ProveriZavrsenostTermina(ulogovanPacijent)).Start();
-            new Thread(() => AntiTrollServis.Instance.ProveriMalicioznostPacijenta(ulogovanPacijent)).Start();
+            new Thread(() => new ZavrsenTerminServis<Pacijent>().PokreniProveruZavrsenostiTermina(ulogovanPacijent)).Start();
+            new Thread(() => AntiTrollServis.Instance.ProveriMalicioznostPacijenta(ulogovanPacijent.Jmbg)).Start();
             PrikazBolnickeAnketeServis.Instance.OtvoriAnketuOBolnici(ulogovanPacijent);
             ObavestenjePacijentaServis.Instance.UkljuciPodsetnike(ulogovanPacijent.Jmbg);
             new Thread(() => ObavestenjeTerapijeServis.Instance.UkljuciObavestenja(ulogovanPacijent)).Start();
@@ -42,10 +42,10 @@ namespace InformacioniSistemBolnice
             AnketaOBolniciRepo.Instance.Deserijalizacija();
             ulogovanPacijent = PacijentRepo.Instance.PronadjiUlogovanogPacijenta(korisnickoIme, lozinka);
             PacijentRepo.Instance.PostaviTermineUlogovanogPacijenta(ulogovanPacijent);
-            listaZakazanihTermina.ItemsSource = ulogovanPacijent.zakazaniTermini;
+            listaZakazanihTermina.ItemsSource = ulogovanPacijent.ZakazaniTermini;
         }
 
-        private void pomeriDugme_Click(object sender, RoutedEventArgs e)
+        private void OtvoriPomeranjeTermina(object sender, RoutedEventArgs e)
         {
             Termin terminZaPomeranje = (Termin)listaZakazanihTermina.SelectedItem;
             if (listaZakazanihTermina.SelectedIndex >= 0 && terminZaPomeranje.Vreme > DateTime.Now.AddHours(24)
@@ -53,22 +53,22 @@ namespace InformacioniSistemBolnice
                 new PomeranjeTerminaPacijentaView(terminZaPomeranje).Show();
         }
 
-        private void zakaziDugme_Click(object sender, RoutedEventArgs e)
+        private void OtvoriZakazivanjeTermina(object sender, RoutedEventArgs e)
         {
             new ZakazivanjeTerminaPacijentaView(ulogovanPacijent.Jmbg).Show();
         }
 
-        private void otkaziDugme_Click(object sender, RoutedEventArgs e)
+        private void OtkaziTermin(object sender, RoutedEventArgs e)
         {
             PacijentKontroler.Instance.Otkazivanje((Termin)listaZakazanihTermina.SelectedValue);
         }
 
-        private void infoDugme_Click(object sender, RoutedEventArgs e)
+        private void OtvoriTerminInfo(object sender, RoutedEventArgs e)
         {
             if (listaZakazanihTermina.SelectedIndex >= 0) PacijentKontroler.Instance.Uvid(listaZakazanihTermina);
         }
 
-        private void prikaziVesti_Click(object sender, RoutedEventArgs e)
+        private void OtvoriVesti(object sender, RoutedEventArgs e)
         {
             new VestiView().Show();
         }
@@ -84,7 +84,7 @@ namespace InformacioniSistemBolnice
             new KreiranjePodsetnikaView { DataContext = new KreiranjePodsetnikaViewModel(ulogovanPacijent) }.Show();
         }
 
-        private static bool JeIzabranZavrsenTermin(Termin izabranTermin)
+        private bool JeIzabranZavrsenTermin(Termin izabranTermin)
         {
             return izabranTermin is { Status: StatusTermina.zavrsen, AnketaOLekaru: null };
         }

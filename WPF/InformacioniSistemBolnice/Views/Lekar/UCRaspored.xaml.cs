@@ -34,9 +34,9 @@ namespace InformacioniSistemBolnice.Views.Lekar
             ProstorijaRepo.Instance.Deserijalizacija();
             TerminRepo.Instance.Deserijalizacija();
             lekar = glavniProzorLekara.ulogovanLekar;
-            lekar.ZauzetiTermini.Clear();
+            lekar.ZakazaniTermini.Clear();
             PronadjiTermineLekara();
-            ZakazaniTermini.ItemsSource = lekar.ZauzetiTermini;
+            ZakazaniTermini.ItemsSource = lekar.ZakazaniTermini;
             glavniProzor = glavniProzorLekara;
         }
 
@@ -46,7 +46,7 @@ namespace InformacioniSistemBolnice.Views.Lekar
             {
                 if (lekar.Jmbg.Equals(termin.LekarJmbg))
                 {
-                    lekar.ZauzetiTermini.Add(termin);
+                    lekar.ZakazaniTermini.Add(termin);
                 }
             }
         }

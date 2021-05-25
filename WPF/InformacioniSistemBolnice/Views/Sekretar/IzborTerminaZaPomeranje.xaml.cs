@@ -38,7 +38,7 @@ namespace InformacioniSistemBolnice
             {
                 if (lekar.Specijalizacija.Naziv == zakazivanjeHitnogTermina.specijalizacijeLekara.SelectedItem.ToString())
                 {
-                    foreach (Termin zauzetiTermin in lekar.ZauzetiTermini)
+                    foreach (Termin zauzetiTermin in lekar.ZakazaniTermini)
                     {
                         if (!zauzetiTermin.Hitan) terminiZaPomeranje.Add(zauzetiTermin);
                     }

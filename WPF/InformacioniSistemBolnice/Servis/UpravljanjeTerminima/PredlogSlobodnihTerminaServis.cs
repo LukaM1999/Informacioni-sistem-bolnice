@@ -135,7 +135,7 @@ namespace InformacioniSistemBolnice.Servis
 
         private bool IzbaciPoklapajuce(Termin predlozenTermin)
         {
-            foreach (Termin postojeciTermin in izabranLekar.ZauzetiTermini)
+            foreach (Termin postojeciTermin in izabranLekar.ZakazaniTermini)
                 if (predlozenTermin.Vreme == postojeciTermin.Vreme) return slobodniTermini.Remove(predlozenTermin);
             return false;
         }

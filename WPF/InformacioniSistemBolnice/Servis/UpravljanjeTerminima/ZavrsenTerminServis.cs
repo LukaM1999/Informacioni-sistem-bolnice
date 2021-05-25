@@ -9,52 +9,47 @@ using Repozitorijum;
 
 namespace Servis
 {
-    public class ZavrsenTerminServis
+    public class ZavrsenTerminServis<T> where T: IUcesnikPregleda
     {
-        private static readonly Lazy<ZavrsenTerminServis> Lazy = new(() => new ZavrsenTerminServis());
-        public static ZavrsenTerminServis Instance => Lazy.Value;
+        private T ulogovanKorisnik;
+        private Termin korisnikovTermin;
 
-        public Pacijent ulogovanPacijent;
-        public Termin pacijentovTermin;
-
-        public void ProveriZavrsenostTermina(Pacijent pacijent)
+        public void PokreniProveruZavrsenostiTermina(T korisnik)
         {
-            ulogovanPacijent = pacijent;
+            ulogovanKorisnik = korisnik;
             while (true)
             {
                 foreach (Termin termin in TerminRepo.Instance.Termini.ToList())
                 {
-                    pacijentovTermin = termin;
+                    korisnikovTermin = termin;
                     if (!JeTerminZavrsen()) continue;
-                    ZavrsiPacijentovTermin();
+                    ZavrsiKorisnikovTermin();
                     termin.Status = StatusTermina.zavrsen;
                     TerminRepo.Instance.Serijalizacija();
-                    TerminRepo.Instance.Deserijalizacija();
-                    System.Diagnostics.Debug.WriteLine(DateTime.Now);
                 }
                 Thread.Sleep(1000);
             }
         }
 
-        private void ZavrsiPacijentovTermin()
+        private void ZavrsiKorisnikovTermin()
         {
-            foreach (Termin termin in ulogovanPacijent.zakazaniTermini)
+            foreach (Termin termin in ulogovanKorisnik.ZakazaniTermini)
             {
-                if (!JePacijentovNezavrsenTermin(termin)) continue;
-                pacijentovTermin.Status = StatusTermina.zavrsen;
+                if (!JeKorisnikovNezavrsenTermin(termin)) continue;
+                korisnikovTermin.Status = StatusTermina.zavrsen;
                 break;
             }
         }
 
-        private bool JePacijentovNezavrsenTermin(Termin termin)
+        private bool JeKorisnikovNezavrsenTermin(Termin termin)
         {
-            return termin.Vreme == pacijentovTermin.Vreme && pacijentovTermin.Status != StatusTermina.zavrsen;
+            return termin.Vreme == korisnikovTermin.Vreme && korisnikovTermin.Status is not StatusTermina.zavrsen;
         }
 
         private bool JeTerminZavrsen()
         {
-            return pacijentovTermin.Vreme.AddMinutes(pacijentovTermin.Trajanje) < DateTime.Now &&
-                   pacijentovTermin.Status != StatusTermina.zavrsen;
+            return korisnikovTermin.Vreme.AddMinutes(korisnikovTermin.Trajanje) < DateTime.Now &&
+                   korisnikovTermin.Status != StatusTermina.zavrsen;
         }
     }
 }

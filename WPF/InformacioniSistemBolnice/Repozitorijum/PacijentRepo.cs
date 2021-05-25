@@ -58,7 +58,7 @@ namespace Repozitorijum
             ObservableCollection<Termin> zakazaniTermini = new();
             foreach (Termin termin in TerminRepo.Instance.Termini)
                 if (termin.PacijentJmbg == ulogovanPacijent.Jmbg) zakazaniTermini.Add(termin);
-            ulogovanPacijent.zakazaniTermini = zakazaniTermini;
+            ulogovanPacijent.ZakazaniTermini = zakazaniTermini;
             Serijalizacija();
         }
 

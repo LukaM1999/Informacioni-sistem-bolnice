@@ -87,7 +87,7 @@ namespace InformacioniSistemBolnice
         {
             foreach (Termin predlozenTermin in slobodniTermini.ToList())
             {
-                foreach (Termin postojeciTermin in izabraniLekar.ZauzetiTermini)
+                foreach (Termin postojeciTermin in izabraniLekar.ZakazaniTermini)
                 {
                     if (predlozenTermin.Vreme == postojeciTermin.Vreme)
                     {

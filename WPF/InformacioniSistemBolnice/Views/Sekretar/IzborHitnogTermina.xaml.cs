@@ -69,7 +69,7 @@ namespace InformacioniSistemBolnice
                     foreach (Termin predlozenTermin in slobodniTermini.ToList())
                     {
                         //System.Diagnostics.Debug.WriteLine("PREDLOZENI:" + predlozenTermin.Vreme + "\n");
-                        foreach (Termin postojeciTermin in lekar.ZauzetiTermini)
+                        foreach (Termin postojeciTermin in lekar.ZakazaniTermini)
                         {
                             if (predlozenTermin.Vreme.Equals(postojeciTermin.Vreme))
                             {
@@ -108,7 +108,7 @@ namespace InformacioniSistemBolnice
             {
                 if (pacijent.Jmbg == najblizi.PacijentJmbg)
                 {
-                    pacijent.zakazaniTermini.Add(najblizi);
+                    pacijent.ZakazaniTermini.Add(najblizi);
                     PacijentRepo.Instance.Serijalizacija();
                     PacijentRepo.Instance.Deserijalizacija();
                 }
@@ -120,7 +120,7 @@ namespace InformacioniSistemBolnice
                 {
                     if (lekar.Jmbg == l)
                     {
-                        lekar.ZauzetiTermini.Add(najblizi);
+                        lekar.ZakazaniTermini.Add(najblizi);
                         LekarRepo.Instance.Serijalizacija();
                         PacijentRepo.Instance.Deserijalizacija();
                     }

@@ -4,12 +4,15 @@ using PropertyChanged;
 namespace Model
 {
     [AddINotifyPropertyChangedInterface]
-    public class Lekar : Osoba
+    public class Lekar : Osoba, IUcesnikPregleda
     {
         public Specijalizacija Specijalizacija { get; set; }
-        public ObservableCollection<Termin> ZauzetiTermini { get; set; }
+        public ObservableCollection<Termin> ZakazaniTermini { get; set; }
 
-        public Lekar() {}
+        public Lekar()
+        {
+            ZakazaniTermini = new ObservableCollection<Termin>();
+        }
 
         public Lekar(Osoba o, Specijalizacija specijalizacija)
         {
@@ -22,7 +25,7 @@ namespace Model
             this.Email = o.Email;
             this.Korisnik = o.Korisnik;
             this.Specijalizacija = specijalizacija;
-            ZauzetiTermini = new ObservableCollection<Termin>();
+            ZakazaniTermini = new ObservableCollection<Termin>();
         }
         public override string ToString()
         {
@@ -30,19 +33,19 @@ namespace Model
         }
         public bool ObrisiTermin(Termin terminZaBrisanje)
         {
-            return ZauzetiTermini.Remove(NadjiTerminPoDatumu(terminZaBrisanje.Vreme));
+            return ZakazaniTermini.Remove(NadjiTerminPoDatumu(terminZaBrisanje.Vreme));
         }
 
         public bool DodajTermin(Termin terminZaDodavanje)
         {
             if (NadjiTerminPoDatumu(terminZaDodavanje.Vreme) != null) return false;
-            ZauzetiTermini.Add(terminZaDodavanje);
+            ZakazaniTermini.Add(terminZaDodavanje);
             return true;
         }
 
         public Termin NadjiTerminPoDatumu(DateTime vremeTermina)
         {
-            foreach (Termin pronadjen in ZauzetiTermini)
+            foreach (Termin pronadjen in ZakazaniTermini)
                 if (pronadjen.Vreme == vremeTermina) return pronadjen;
             return null;
         }
