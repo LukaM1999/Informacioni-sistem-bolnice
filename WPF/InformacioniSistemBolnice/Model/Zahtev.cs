@@ -6,6 +6,7 @@ namespace Model
     {
         public string Komentar { get; set; }
         public string Potpis { get; set; }
+
         public Zahtev(string komentar, string potpis)
         {
             Komentar = komentar;

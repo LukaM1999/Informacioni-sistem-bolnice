@@ -19,5 +19,12 @@ namespace Servis
             ZahtevRepo.Instance.DodajZahtev(new Zahtev(noviZahtev.Komentar, noviZahtev.Potpis));
             ZahtevRepo.Instance.Serijalizacija();
         }
+
+        public void ObrisiZahtev(ZahtevDto dto)
+        {
+            Zahtev izabraniZahtev = new(dto.Komentar, dto.Potpis);
+            ZahtevRepo.Instance.BrisiPoKomentaru(izabraniZahtev.Komentar);
+            ZahtevRepo.Instance.Serijalizacija();
+        }
     }
 }

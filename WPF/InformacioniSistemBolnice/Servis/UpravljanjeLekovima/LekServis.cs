@@ -16,8 +16,7 @@ namespace Servis
 
         public void KreiranjeLeka(LekDto dto)
         {
-            LekRepo.Instance.Lekovi.Add(new(dto.Naziv, dto.Proizvodjac, dto.Sastojci, dto.Zamena, dto.Alergeni));
-            LekRepo.Instance.Serijalizacija();
+            LekRepo.Instance.DodajLek(new(dto.Naziv, dto.Proizvodjac, dto.Sastojci, dto.Zamena, dto.Alergeni));
         }
         public void UklanjanjeLeka(LekDto dto)
         {

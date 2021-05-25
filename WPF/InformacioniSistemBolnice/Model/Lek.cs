@@ -12,7 +12,9 @@ namespace Model
 		public string Sastojci { get; set; }
         public string Zamena { get; set; }
         public ObservableCollection<Alergen> Alergen { get; set; }
+
         public Lek() { }
+
         public Lek(String naziv, String proizvodjac, String sastojci, String zamena, ObservableCollection<Alergen> alergeni)
         {
             Naziv = naziv;

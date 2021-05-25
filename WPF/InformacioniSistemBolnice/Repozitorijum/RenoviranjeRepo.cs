@@ -33,5 +33,15 @@ namespace Repozitorijum
         {
             RenoviranjeTermini = new ObservableCollection<RenoviranjeTermin>();
         }
+
+        public void DodajTerminRenoviranja(RenoviranjeTermin noviTermin)
+        {
+            RenoviranjeTermini.Add(noviTermin);
+        }
+
+        public bool BrisiTerminRenoviranja(RenoviranjeTermin izabraniTermin)
+        {
+            return RenoviranjeTermini.Remove(izabraniTermin);
+        }
     }
 }

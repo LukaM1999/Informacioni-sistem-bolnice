@@ -45,5 +45,11 @@ namespace Repozitorijum
             }
             return false;
         }
+
+        public void DodajDinamickuOpremu(DinamickaOprema novaOprema)
+        {
+            DinamickaOprema.Add(novaOprema);
+            Serijalizacija();
+        }
     }
 }

@@ -25,6 +25,7 @@
         <ComboBox x:Name="cbDinamicka" HorizontalAlignment="Left" Margin="95,115,0,0" VerticalAlignment="Top" Width="120" Height="25"/>
         <Button x:Name="btnOsvezi" Content="Osvezi" HorizontalAlignment="Left" Margin="403,97,0,0" VerticalAlignment="Top" Height="30" Width="53" Click="btnOsvezi_Click"/>
         <Button x:Name="btnRenoviranje" Content="Renoviraj" HorizontalAlignment="Left" Margin="147,45,0,0" VerticalAlignment="Top" Height="30" Width="100" Click="btnRenoviranje_Click"/>
+        <Button x:Name="btnZahtev" Content="Zahtevi" HorizontalAlignment="Left" Margin="41,45,0,0" VerticalAlignment="Top" Height="30" Width="101" Click="btnZahtev_Click"/>
 
     </Grid>
 </Window>

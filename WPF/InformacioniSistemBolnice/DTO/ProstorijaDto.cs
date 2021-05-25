@@ -12,7 +12,9 @@ namespace InformacioniSistemBolnice.DTO
         public Inventar Inventar { get; set; }
         public RenoviranjeTermin Renoviranje { get; set; }
         public ObservableCollection<Termin> TerminiProstorije { get; set; }
+
         public ProstorijaDto() { }
+
         public ProstorijaDto(int sprat, TipProstorije tip, string sifra, bool zauzeta, Inventar inventar)
         {
             this.Sprat = sprat;

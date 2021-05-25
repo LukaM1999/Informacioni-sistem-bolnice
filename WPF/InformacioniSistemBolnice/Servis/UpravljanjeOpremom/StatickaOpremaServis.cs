@@ -16,11 +16,12 @@ namespace Servis
         {
             if (StatickaOpremaRepo.Instance.NadjiPoTipu(dto.Tip) == null)
             {
-                StatickaOpremaRepo.Instance.StatickaOprema.Add(new(dto.Kolicina, dto.Tip));
+                StatickaOpremaRepo.Instance.DodajStatickuOpremu(new(dto.Kolicina, dto.Tip));
                 StatickaOpremaRepo.Instance.Serijalizacija();
                 return;
             }
-            StatickaOpremaRepo.Instance.NadjiPoTipu(dto.Tip).Kolicina += dto.Kolicina;
+            StatickaOprema izabranaOprema = StatickaOpremaRepo.Instance.NadjiPoTipu(dto.Tip);
+            izabranaOprema.Kolicina += dto.Kolicina;
             StatickaOpremaRepo.Instance.Serijalizacija();
         }
 
@@ -32,7 +33,8 @@ namespace Servis
 
         public void IzmenaOpreme(StatickaOpremaDto dto)
         {
-            StatickaOpremaRepo.Instance.NadjiPoTipu(dto.Tip).Kolicina = dto.Kolicina;
+            StatickaOprema izabranaOprema = StatickaOpremaRepo.Instance.NadjiPoTipu(dto.Tip);
+            izabranaOprema.Kolicina = dto.Kolicina;
             StatickaOpremaRepo.Instance.Serijalizacija();
         }
     }
