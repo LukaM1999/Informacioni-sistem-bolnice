@@ -4,14 +4,7 @@
     {
         public string Naziv { get; set; }
 
-        public AlergenDto(string naziv)
-        {
-            Naziv = naziv;
-        }
-
-        public override string ToString()
-        {
-            return Naziv;
-        }
+        public AlergenDto(string naziv) => Naziv = naziv;
+        public override string ToString() { return Naziv; }
     }
 }

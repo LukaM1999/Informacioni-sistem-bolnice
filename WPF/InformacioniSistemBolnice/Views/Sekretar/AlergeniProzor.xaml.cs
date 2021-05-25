@@ -3,7 +3,6 @@ using Repozitorijum;
 using Kontroler;
 using Model;
 using System.Windows.Controls;
-using InformacioniSistemBolnice.DTO;
 
 namespace InformacioniSistemBolnice
 {
@@ -26,30 +25,22 @@ namespace InformacioniSistemBolnice
 
         private void ObrisiAlergen_Click(object sender, RoutedEventArgs e)
         {
-            if (ListaAlergena.SelectedValue != null)
-                SekretarKontroler.Instance.UklanjanjeAlergena((Alergen)ListaAlergena.SelectedValue);
-            this.pocetna.contentControl.Content = new AlergeniProzor(pocetna);
+            SekretarKontroler.Instance.UklanjanjeAlergena((Alergen)ListaAlergena.SelectedValue);
+            pocetna.contentControl.Content = new AlergeniProzor(pocetna);
         }
 
         private void IzmeniAlergen_Click(object sender, RoutedEventArgs e)
         {
-            if (ListaAlergena.SelectedValue != null)
-            {
-                IzmenaAlergenaForma izmenaAlergenaForma = new IzmenaAlergenaForma(this);
-                izmenaAlergenaForma.nazivAlergenaUnos.Text = ((Alergen)ListaAlergena.SelectedItem).Naziv;
-                pocetna.contentControl.Content = izmenaAlergenaForma.Content;
-            }
+            Alergen izabraniAlergen = (Alergen)ListaAlergena.SelectedItem;
+            if (izabraniAlergen is not null)
+                pocetna.contentControl.Content = new IzmenaAlergenaForma(this, izabraniAlergen);
         }
 
         private void PregledAlergena_Click(object sender, RoutedEventArgs e)
         {
-            if (ListaAlergena.SelectedIndex >= 0)
-            {
-                PregledAlergena pregledAlergena = new PregledAlergena(this);
-                AlergenDto alergenDto = SekretarKontroler.Instance.PregledAlergena((Alergen)ListaAlergena.SelectedItem);
-                pregledAlergena.naziv.Content = alergenDto.Naziv;
-                pocetna.contentControl.Content = pregledAlergena.Content;
-            }
+            Alergen izabraniAlergen = (Alergen)ListaAlergena.SelectedItem;
+            if (izabraniAlergen is not null)
+                pocetna.contentControl.Content = new PregledAlergena(this, izabraniAlergen);
         }
 
 
