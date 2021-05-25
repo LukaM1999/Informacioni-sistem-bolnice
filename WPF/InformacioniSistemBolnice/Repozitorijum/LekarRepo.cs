@@ -45,17 +45,11 @@ namespace Repozitorijum
                    lekarSpecijalista.Specijalizacija.Naziv == pronadjen.Specijalizacija.Naziv;
         }
 
-        public void SacuvajPromene()
-        {
-            Serijalizacija();
-            Deserijalizacija();
-        }
-
         public bool DodajLekara(Lekar lekarZaDodavanje)
         {
             if (Lekari.Contains(lekarZaDodavanje)) return false;
             Lekari.Add(lekarZaDodavanje);
-            SacuvajPromene();
+            Serijalizacija();
             return true;
         }
 

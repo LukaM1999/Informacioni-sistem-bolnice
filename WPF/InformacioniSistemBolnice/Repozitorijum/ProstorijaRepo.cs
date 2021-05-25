@@ -51,19 +51,13 @@ namespace Repozitorijum
             {
                 if (t.ProstorijaId != idProstorije) continue;
                 t.ProstorijaId = null;
-                TerminRepo.Instance.SacuvajPromene();
+                TerminRepo.Instance.Serijalizacija();
             }
         }
 
         private ProstorijaRepo()
         {
             Prostorije = new ObservableCollection<Prostorija>();
-        }
-
-        public void SacuvajPromene()
-        {
-            Serijalizacija();
-            Deserijalizacija();
         }
     }
 }

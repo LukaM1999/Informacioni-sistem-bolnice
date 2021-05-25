@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using InformacioniSistemBolnice.DTO;
 using Model;
 using Repozitorijum;
 
@@ -16,12 +17,12 @@ namespace Servis
         public void KreiranjeLeka(LekDto dto)
         {
             LekRepo.Instance.Lekovi.Add(new(dto.Naziv, dto.Proizvodjac, dto.Sastojci, dto.Zamena, dto.Alergeni));
-            LekRepo.Instance.SacuvajPromene();
+            LekRepo.Instance.Serijalizacija();
         }
         public void UklanjanjeLeka(LekDto dto)
         {
             LekRepo.Instance.BrisiPoNazivu(dto.Naziv);
-            LekRepo.Instance.SacuvajPromene();
+            LekRepo.Instance.Serijalizacija();
         }
         public void IzmenaLeka(LekDto dto)
         {
@@ -29,7 +30,7 @@ namespace Servis
             LekRepo.Instance.NadjiPoNazivu(dto.Naziv).Zamena = dto.Zamena;
             LekRepo.Instance.NadjiPoNazivu(dto.Naziv).Sastojci = dto.Sastojci;
             LekRepo.Instance.NadjiPoNazivu(dto.Naziv).Alergen = dto.Alergeni;
-            LekRepo.Instance.SacuvajPromene();
+            LekRepo.Instance.Serijalizacija();
         }
     }
 }

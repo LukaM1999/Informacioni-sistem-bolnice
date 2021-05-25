@@ -8,7 +8,7 @@
         Title="IzborTermina" Height="450" Width="400">
     <Canvas>
         <DataGrid x:Name="ponudjeniTermini" Height="377" Width="400" CanUserAddRows="False"/>
-        <Button x:Name="zakaziDugme" Content="Zakazi" Canvas.Left="170" Canvas.Top="394" Width="60" Click="zakaziDugme_Click"/>
+        <Button x:Name="zakaziDugme" Content="Zakazi" Canvas.Left="170" Canvas.Top="394" Width="60" Click="ZakaziTermin"/>
 
     </Canvas>
 </Window>

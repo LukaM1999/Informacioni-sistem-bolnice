@@ -25,17 +25,11 @@ namespace Repozitorijum
             File.WriteAllText(Putanja, JsonConvert.SerializeObject(Vesti, Formatting.Indented));
         }
 
-        public void SacuvajPromene()
-        {
-            Serijalizacija();
-            Deserijalizacija();
-        }
-
         public bool DodajVest(Vest vestZaDodavanje)
         {
             if (Vesti.Contains(vestZaDodavanje)) return false;
             Vesti.Add(vestZaDodavanje);
-            SacuvajPromene();
+            Serijalizacija();
             return true;
         }
 

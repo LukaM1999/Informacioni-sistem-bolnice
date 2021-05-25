@@ -27,7 +27,7 @@
             <Button x:Name="registrujPacijentaDugme" Content="Registruj" Canvas.Left="50" Canvas.Top="20" Width="100" Margin="10,0,0,0" Click="RegistrujLekara_Click" Background="White" FontSize="14"/>
             <Button x:Name="pregledajPacijentaDugme" Content="Info" Canvas.Left="150" Canvas.Top="20" Margin="20,0,0,0" Width="100" Click="PregledNalogaLekara_Click" Background="White" FontSize="14"/>
             <Button x:Name="obrisiPacijentaDugme" Content="Obrisi" Canvas.Left="250" Canvas.Top="20" Margin="30,0,0,0" Width="100" Click="ObrisiLekara_Click" Background="White" FontSize="14"/>
-            <Button x:Name="izmeniPacijentaDugme" Content="Izmeni" Canvas.Left="350" Canvas.Top="20" Margin="40,0,0,0" Width="100" Click="izmeniLekara_Click" Background="White" FontSize="14"/>
+            <Button x:Name="izmeniPacijentaDugme" Content="Izmeni" Canvas.Left="350" Canvas.Top="20" Margin="40,0,0,0" Width="100" Click="IzmeniLekara_Click" Background="White" FontSize="14"/>
         </Canvas>
     </Grid>
 </UserControl>

@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using InformacioniSistemBolnice.DTO;
 using Kontroler;
 using Model;
 using Repozitorijum;
@@ -46,10 +47,10 @@ namespace InformacioniSistemBolnice
         {
             if (specijalizacijeLekara.SelectedItem != null)
             {
-                LekarDto lekarDto1 = new LekarDto(imeUnos.Text, prezimeUnos.Text, JMBGUnos.Text, DateTime.Parse(datumUnos.Text),
+                LekarDto lekarDto = new LekarDto(imeUnos.Text, prezimeUnos.Text, JMBGUnos.Text, DateTime.Parse(datumUnos.Text),
                                             drzavaUnos.Text, gradUnos.Text, ulicaUnos.Text, brojUnos.Text,
                                            telUnos.Text, mailUnos.Text, korisnikUnos.Text, lozinkaUnos.Password, specijalizacijeLekara.SelectedItem.ToString());
-                SekretarKontroler.Instance.IzmenaNalogaLekara(lekarDto1, lekar);
+                SekretarKontroler.Instance.IzmenaNalogaLekara(lekarDto, lekar);
             }
         }
 

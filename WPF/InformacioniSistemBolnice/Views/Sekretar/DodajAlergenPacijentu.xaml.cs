@@ -21,47 +21,42 @@ namespace InformacioniSistemBolnice
 {
     public partial class DodajAlergenPacijentu : Window
     {
-        
-        public IzmjenaZdravstvenogKartonaForma izmjenaZdravstvenogKartonaForma;
-        public ObservableCollection<Alergen> listaAlergena = new ObservableCollection<Alergen>();
-        public DodajAlergenPacijentu(IzmjenaZdravstvenogKartonaForma izmjenaZdravstvenogKartonaForma)
+        public IzmenaZdravstvenogKartonaForma izmenaZdravstvenogKartonaForma;
+        public ObservableCollection<Alergen> alergeniZaDodavanje = new ObservableCollection<Alergen>();
+
+        public DodajAlergenPacijentu(IzmenaZdravstvenogKartonaForma izmenaZdravstvenogKartona)
         {
             InitializeComponent();
-            this.izmjenaZdravstvenogKartonaForma = izmjenaZdravstvenogKartonaForma;
+            izmenaZdravstvenogKartonaForma = izmenaZdravstvenogKartona;
             AlergenRepo.Instance.Deserijalizacija();
-            listaAlergena = AlergenRepo.Instance.Alergeni;
-            foreach (Pacijent p in PacijentRepo.Instance.Pacijenti)
-            {
-                if(p.zdravstveniKarton.Jmbg.Equals(izmjenaZdravstvenogKartonaForma.JMBGLabela.Content))
-                {
-                   foreach(Alergen a in p.zdravstveniKarton.Alergeni.ToList())
-                    {
-                        foreach(Alergen alergen in listaAlergena.ToList())
-                        {
-                            if(alergen.Naziv == a.Naziv)
-                            {
-                                listaAlergena.Remove(alergen);
-                            }
-                        }
-                    }
-                }
-            }
-            ListaAlergena.ItemsSource = listaAlergena;
+            alergeniZaDodavanje = AlergenRepo.Instance.Alergeni;
+            ZdravstveniKarton zdravstveniKarton = PacijentRepo.Instance.PronadjiZdravstveniKarton
+                (izmenaZdravstvenogKartonaForma.JMBGLabela.Content.ToString());
+            GenerisiAlergeneZaDodavanje(zdravstveniKarton);
+            ListaAlergena.ItemsSource = alergeniZaDodavanje;
+        }
 
+        private void GenerisiAlergeneZaDodavanje(ZdravstveniKarton zdravstveniKarton)
+        {
+            foreach (Alergen a in zdravstveniKarton.Alergeni.ToList())
+            {
+                foreach (Alergen alergen in alergeniZaDodavanje.ToList())
+                    if (alergen.Naziv == a.Naziv) alergeniZaDodavanje.Remove(alergen);
+            }
         }
 
         private void dodajAlergenPacijentu_Click(object sender, RoutedEventArgs e)
         {
             SekretarKontroler.Instance.DodavanjeAlergenaIzZdravstvenogKartona((Alergen)ListaAlergena.SelectedItem,
-                izmjenaZdravstvenogKartonaForma.JMBGLabela.Content.ToString());
+                izmenaZdravstvenogKartonaForma.JMBGLabela.Content.ToString());
             AzurirajPrikazAlergena();
             this.Close();
         }
 
         private void AzurirajPrikazAlergena()
         {
-            izmjenaZdravstvenogKartonaForma.ListaAlergena.ItemsSource = PacijentRepo.Instance.NadjiPoJmbg
-            (izmjenaZdravstvenogKartonaForma.JMBGLabela.Content.ToString()). zdravstveniKarton.Alergeni;
+            izmenaZdravstvenogKartonaForma.AlergeniPacijenta.ItemsSource = PacijentRepo.Instance.NadjiPoJmbg
+            (izmenaZdravstvenogKartonaForma.JMBGLabela.Content.ToString()).zdravstveniKarton.Alergeni;
         }
     }
 }

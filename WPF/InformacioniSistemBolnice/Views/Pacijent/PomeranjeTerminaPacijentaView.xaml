@@ -9,6 +9,6 @@
         Title="PomeranjeTerminaPacijentaView" Height="450" Width="400">
     <Canvas>
         <DataGrid x:Name="ponudjeniTermini" Height="377" Width="400" CanUserAddRows="False"/>
-        <Button x:Name="pomeriDugme" Content="Pomeri" Canvas.Left="170" Canvas.Top="394" Width="60" Click="potvrdaPomeranjaDugme_Click"/>
+        <Button x:Name="pomeriDugme" Content="Pomeri" Canvas.Left="170" Canvas.Top="394" Width="60" Click="PomeriTermin"/>
     </Canvas>
 </Window>

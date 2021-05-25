@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
 using InformacioniSistemBolnice;
+using InformacioniSistemBolnice.DTO;
 using Model;
 using Repozitorijum;
 
@@ -31,14 +32,14 @@ namespace Servis
         public void UklanjanjeVesti(Vest vest)
         {
             VestRepo.Instance.ObrisiVest(vest);
-            VestRepo.Instance.SacuvajPromene();
+            VestRepo.Instance.Serijalizacija();
         }
 
         public void IzmenaVesti(VestDto novaVest, Vest staraVest)
         {
             staraVest.Id = novaVest.Id;
             staraVest.Sadrzaj = novaVest.Sadrzaj;
-            VestRepo.Instance.SacuvajPromene();
+            VestRepo.Instance.Serijalizacija();
         }
     }
 }

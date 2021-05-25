@@ -12,6 +12,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using InformacioniSistemBolnice.DTO;
 using InformacioniSistemBolnice.Servis;
 using InformacioniSistemBolnice.Utilities;
 using Kontroler;
@@ -23,13 +24,13 @@ namespace InformacioniSistemBolnice
 {
     public partial class IzborTerminaPacijentaView : Window
     {
-        public IzborTerminaPacijentaView(ZakazivanjeTerminaPacijentaDTO zakazivanje)
+        public IzborTerminaPacijentaView(ZakazivanjeTerminaPacijentaDto zakazivanje)
         {
             InitializeComponent();
             ponudjeniTermini.ItemsSource = new PredlogSlobodnihTerminaServis(zakazivanje).PonudiSlobodneTermine();
         }
 
-        private void zakaziDugme_Click(object sender, RoutedEventArgs e)
+        private void ZakaziTermin(object sender, RoutedEventArgs e)
         {
             PacijentKontroler.Instance.Zakazivanje((Termin)ponudjeniTermini.SelectedValue);
             Owner?.Close();

@@ -8,34 +8,24 @@ namespace Servis
 {
     public class AntiTrollServis
     {
-        private static readonly Lazy<AntiTrollServis>
-            Lazy = new(() => new AntiTrollServis());
-        public static AntiTrollServis Instance { get { return Lazy.Value; } }
+        private static readonly Lazy<AntiTrollServis> Lazy = new(() => new AntiTrollServis());
+        public static AntiTrollServis Instance => Lazy.Value;
 
         private const int MaksimalniBrojMeseci = 12;
         private const int MaksimalnoMesecnihTermina = 3;
         private const int MaksimalnoPomerenihTermina = 4;
         private const int Tromesecje = 3;
 
-        public Pacijent UlogovanPacijent { get; set; }
+        private Pacijent ulogovanPacijent;
 
-        public void ProveriMalicioznostPacijenta(Pacijent ulogovan)
+        public void ProveriMalicioznostPacijenta(string pacijentJmbg)
         {
-            PronadjiUlogovanogPacijenta(ulogovan);
-            while (!UlogovanPacijent.Maliciozan)
+            ulogovanPacijent = PacijentRepo.Instance.NadjiPoJmbg(pacijentJmbg);
+            while (!ulogovanPacijent.Maliciozan)
             {
                 if (ProveriMalicioznostZakazivanjaTermina()) break;
                 if (ProveriMalicioznostPomeranjaTermina()) break;
                 Thread.Sleep(5000);
-            }
-        }
-
-        private void PronadjiUlogovanogPacijenta(Pacijent ulogovan)
-        {
-            foreach (Pacijent ulogovanPacijent in PacijentRepo.Instance.Pacijenti)
-            {
-                if (ulogovanPacijent.Jmbg != ulogovan.Jmbg) continue;
-                UlogovanPacijent = ulogovanPacijent;
             }
         }
 
@@ -52,20 +42,20 @@ namespace Servis
         private int PrebrojPomereneTerminePacijenta(int mesec)
         {
             int pomerenihTermina = 0;
-            foreach (Termin termin in UlogovanPacijent.zakazaniTermini.ToList())
+            foreach (Termin termin in ulogovanPacijent.ZakazaniTermini.ToList())
             {
                 if (JeUnutarTromesecnogIntervala(termin, mesec)) pomerenihTermina++;
             }
             return pomerenihTermina;
         }
 
-        private static bool JeUnutarTromesecnogIntervala(Termin termin, int mesec)
+        private bool JeUnutarTromesecnogIntervala(Termin termin, int mesec)
         {
             return termin.Vreme > DateTime.Now.AddMonths((mesec - 1) * 3) &&
                    termin.Vreme < DateTime.Now.AddMonths(mesec * 3) && JePomerenPregled(termin);
         }
 
-        private static bool JePomerenPregled(Termin termin)
+        private bool JePomerenPregled(Termin termin)
         {
             return termin.Status == StatusTermina.pomeren && termin.Tip == TipTermina.pregled;
         }
@@ -83,14 +73,14 @@ namespace Servis
         private int PrebrojZakazaneTerminePacijenta(int mesec)
         {
             int mesecnihTermina = 0;
-            foreach (Termin termin in UlogovanPacijent.zakazaniTermini.ToList())
+            foreach (Termin termin in ulogovanPacijent.ZakazaniTermini.ToList())
             {
                 if (JeUnutarMesecnogIntervala(termin, mesec)) mesecnihTermina++;
             }
             return mesecnihTermina;
         }
 
-        private static bool JeUnutarMesecnogIntervala(Termin termin, int mesec)
+        private bool JeUnutarMesecnogIntervala(Termin termin, int mesec)
         {
             return termin.Vreme > DateTime.Now.AddMonths(mesec - 1) &&
                    termin.Vreme < DateTime.Now.AddMonths(mesec) && termin.Tip == TipTermina.pregled &&
@@ -111,7 +101,7 @@ namespace Servis
         {
             foreach (Pacijent maliciozanPacijent in PacijentRepo.Instance.Pacijenti)
             {
-                if (maliciozanPacijent.Jmbg != UlogovanPacijent.Jmbg) continue;
+                if (maliciozanPacijent.Jmbg != ulogovanPacijent.Jmbg) continue;
                 maliciozanPacijent.Maliciozan = true;
             }
         }

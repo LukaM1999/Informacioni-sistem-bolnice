@@ -1,27 +1,16 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+using InformacioniSistemBolnice.DTO;
 using Repozitorijum;
-using Model;
 using Kontroler;
 
 namespace InformacioniSistemBolnice
 {
-    
     public partial class RegistracijaLekaraForma : UserControl
     {
         public PocetnaStranicaSekretara pocetna;
+
         public RegistracijaLekaraForma(PocetnaStranicaSekretara pocetnaStranicaSekretara)
         {
             InitializeComponent();
@@ -42,10 +31,7 @@ namespace InformacioniSistemBolnice
                                             telUnos.Text, mailUnos.Text, korisnikUnos.Text, lozinkaUnos.Password,
                                             specijalizacijeLekara.SelectedItem.ToString());
             SekretarKontroler.Instance.KreiranjeNalogaLekara(lekarDto);
-            this.pocetna.contentControl.Content = new UCLekari(pocetna);
-
+            pocetna.contentControl.Content = new UCLekari(pocetna);
         }
-
-       
     }
 }

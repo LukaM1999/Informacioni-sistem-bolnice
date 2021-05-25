@@ -18,9 +18,6 @@ using Kontroler;
 
 namespace InformacioniSistemBolnice
 {
-    /// <summary>
-    /// Interaction logic for PomjeranjeTerminaProzorSekretara.xaml
-    /// </summary>
     public partial class PomjeranjeTerminaProzorSekretara : Window
     {
         private ObservableCollection<Termin> slobodniTermini;
@@ -66,7 +63,7 @@ namespace InformacioniSistemBolnice
                     }
                     foreach (Termin predlozenTermin in slobodniTermini.ToList())
                     {
-                        foreach (Termin postojeciTermin in izabraniLekar.ZauzetiTermini)
+                        foreach (Termin postojeciTermin in izabraniLekar.ZakazaniTermini)
                         {
                             if (predlozenTermin.Vreme == postojeciTermin.Vreme)
                             {

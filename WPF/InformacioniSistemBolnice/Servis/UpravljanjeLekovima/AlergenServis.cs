@@ -3,6 +3,7 @@ using Model;
 using Repozitorijum;
 using InformacioniSistemBolnice;
 using System.Windows.Controls;
+using InformacioniSistemBolnice.DTO;
 
 
 namespace Servis
@@ -15,7 +16,7 @@ namespace Servis
            new Lazy<AlergenServis>
                (() => new AlergenServis());
 
-        public static AlergenServis Instance { get { return Lazy.Value; } }
+        public static AlergenServis Instance => Lazy.Value;
 
         public void KreiranjeAlergena(AlergenDto alergenDto)
         {
@@ -25,13 +26,13 @@ namespace Servis
         public void UklanjanjeAlergena(Alergen alergen)
         {
             AlergenRepo.Instance.BrisiPoNazivu(alergen.Naziv);
-            AlergenRepo.Instance.SacuvajPromene();
+            AlergenRepo.Instance.Serijalizacija();
         }
 
         public void IzmenaAlergena(AlergenDto noviAlergen, Alergen stariAlergen)
         {
             stariAlergen.Naziv = noviAlergen.Naziv;
-            AlergenRepo.Instance.SacuvajPromene();
+            AlergenRepo.Instance.Serijalizacija();
         }
 
         public AlergenDto PregledAlergena(Alergen alergen)

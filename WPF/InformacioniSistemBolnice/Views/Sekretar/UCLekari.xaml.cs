@@ -1,24 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+using InformacioniSistemBolnice.DTO;
 using Repozitorijum;
 using Model;
 using Kontroler;
 
 namespace InformacioniSistemBolnice
 {
-    
     public partial class UCLekari : UserControl
     {
         public PocetnaStranicaSekretara pocetna;
@@ -28,7 +16,6 @@ namespace InformacioniSistemBolnice
             pocetna = pocetnaStranicaSekretara;
             LekarRepo.Instance.Deserijalizacija();
             ListaLekara.ItemsSource = LekarRepo.Instance.Lekari;
-
         }
 
         private void RegistrujLekara_Click(object sender, RoutedEventArgs e)
@@ -89,28 +76,32 @@ namespace InformacioniSistemBolnice
             ListaLekara.ItemsSource = LekarRepo.Instance.Lekari;
         }
 
-        private void izmeniLekara_Click(object sender, RoutedEventArgs e)
+        private void IzmeniLekara_Click(object sender, RoutedEventArgs e)
         {
             if (ListaLekara.SelectedValue != null)
             {
                 Lekar lekar = (Lekar)(ListaLekara.SelectedItem);
                 IzmenaNalogaLekaraForma izmena = new IzmenaNalogaLekaraForma(pocetna, this);
-                izmena.imeUnos.Text = lekar.Ime;
-                izmena.prezimeUnos.Text = lekar.Prezime;
-                izmena.JMBGUnos.Text = lekar.Jmbg;
-                izmena.drzavaUnos.Text = lekar.AdresaStanovanja.Drzava;
-                izmena.gradUnos.Text = lekar.AdresaStanovanja.Grad;
-                izmena.ulicaUnos.Text = lekar.AdresaStanovanja.Ulica;
-                izmena.brojUnos.Text = lekar.AdresaStanovanja.Broj;
-                izmena.datumUnos.Text = lekar.DatumRodjenja.ToString("MM/dd/yyyy");
-                izmena.telUnos.Text = lekar.Telefon;
-                izmena.mailUnos.Text = lekar.Email;
-                izmena.korisnikUnos.Text = lekar.Korisnik.KorisnickoIme;
-                izmena.lozinkaUnos.Password = lekar.Korisnik.Lozinka;
-                izmena.specijalizacijeLekara.SelectedItem = lekar.Specijalizacija;
+                PrepisiPodatkeNaFormu(lekar, izmena);
                 pocetna.contentControl.Content = izmena.Content;
             }
+        }
 
+        private void PrepisiPodatkeNaFormu(Lekar lekar, IzmenaNalogaLekaraForma izmena)
+        {
+            izmena.imeUnos.Text = lekar.Ime;
+            izmena.prezimeUnos.Text = lekar.Prezime;
+            izmena.JMBGUnos.Text = lekar.Jmbg;
+            izmena.drzavaUnos.Text = lekar.AdresaStanovanja.Drzava;
+            izmena.gradUnos.Text = lekar.AdresaStanovanja.Grad;
+            izmena.ulicaUnos.Text = lekar.AdresaStanovanja.Ulica;
+            izmena.brojUnos.Text = lekar.AdresaStanovanja.Broj;
+            izmena.datumUnos.Text = lekar.DatumRodjenja.ToString("MM/dd/yyyy");
+            izmena.telUnos.Text = lekar.Telefon;
+            izmena.mailUnos.Text = lekar.Email;
+            izmena.korisnikUnos.Text = lekar.Korisnik.KorisnickoIme;
+            izmena.lozinkaUnos.Password = lekar.Korisnik.Lozinka;
+            izmena.specijalizacijeLekara.SelectedItem = lekar.Specijalizacija;
         }
     }
 }

@@ -30,12 +30,6 @@ namespace Repozitorijum
             Korisnici = new ObservableCollection<Korisnik>();
         }
 
-        public void SacuvajPromene()
-        {
-            Serijalizacija();
-            Deserijalizacija();
-        }
-
         public Korisnik NadjiKorisnika(string korisnickoIme)
         {
             foreach (Korisnik pronadjen in Korisnici)
@@ -47,7 +41,7 @@ namespace Repozitorijum
         {
             if (Korisnici.Contains(korisnikZaDodavanje)) return false;
             Korisnici.Add(korisnikZaDodavanje);
-            SacuvajPromene();
+            Serijalizacija();
             return true;
         }
 

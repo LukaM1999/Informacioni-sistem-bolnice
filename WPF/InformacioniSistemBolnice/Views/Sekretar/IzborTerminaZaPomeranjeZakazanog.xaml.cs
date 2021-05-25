@@ -12,6 +12,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using InformacioniSistemBolnice.DTO;
 using Model;
 using Repozitorijum;
 using Servis;
@@ -86,7 +87,7 @@ namespace InformacioniSistemBolnice
         {
             foreach (Termin predlozenTermin in slobodniTermini.ToList())
             {
-                foreach (Termin postojeciTermin in izabraniLekar.ZauzetiTermini)
+                foreach (Termin postojeciTermin in izabraniLekar.ZakazaniTermini)
                 {
                     if (predlozenTermin.Vreme == postojeciTermin.Vreme)
                     {

@@ -30,12 +30,6 @@ namespace Repozitorijum
             File.WriteAllText(Putanja, JsonConvert.SerializeObject(Lekovi, Formatting.Indented));
         }
 
-        public Lek getSelected(Lek p)
-        {
-            foreach (Lek pr in Lekovi) if (pr.Naziv.Equals(p.Naziv)) return Lekovi.ElementAt(Lekovi.IndexOf(pr));
-            return null;
-        }
-
         public Lek NadjiPoNazivu(string naziv)
         {
             foreach (Lek pronadjen in Lekovi)
@@ -51,12 +45,6 @@ namespace Repozitorijum
                 return Lekovi.Remove(pronadjen);
             }
             return false;
-        }
-
-        public void SacuvajPromene()
-        {
-            Serijalizacija();
-            Deserijalizacija();
         }
     }
 }

@@ -58,7 +58,7 @@ namespace Repozitorijum
             ObservableCollection<Termin> zakazaniTermini = new();
             foreach (Termin termin in TerminRepo.Instance.Termini)
                 if (termin.PacijentJmbg == ulogovanPacijent.Jmbg) zakazaniTermini.Add(termin);
-            ulogovanPacijent.zakazaniTermini = zakazaniTermini;
+            ulogovanPacijent.ZakazaniTermini = zakazaniTermini;
             Serijalizacija();
         }
 
@@ -69,22 +69,48 @@ namespace Repozitorijum
             return null;
         }
 
+        public Pacijent PronadjiGostujucegPacijenta()
+        {
+            foreach (Pacijent gostujuciPacijent in PacijentRepo.Instance.Pacijenti)
+                if (gostujuciPacijent.Korisnik.KorisnickoIme == null) return gostujuciPacijent;
+            return null;
+        }
+
+        public ObservableCollection<Pacijent> ListaPacijenata()
+        {
+            ObservableCollection < Pacijent > pacijenti = new();
+            foreach (Pacijent pacijent in PacijentRepo.Instance.Pacijenti)
+            {
+                if (pacijent.Korisnik.KorisnickoIme != null) 
+                    pacijenti.Add(pacijent);
+            }
+            return pacijenti;
+        }
+
+        public ObservableCollection<Pacijent> GenerisiGostujucePacijente()
+        {
+            ObservableCollection<Pacijent> gostujuciPacijenti = new ObservableCollection<Pacijent>();
+            gostujuciPacijenti.Add(PronadjiGostujucegPacijenta());
+            return gostujuciPacijenti;
+        }
+
+        public ZdravstveniKarton PronadjiZdravstveniKarton(string jmbg)
+        {
+            foreach (Pacijent p in PacijentRepo.Instance.Pacijenti)
+                if (p.zdravstveniKarton.Jmbg.Equals(jmbg)) return p.zdravstveniKarton;
+            return null;
+        }
+
         public bool JeUlogovaniPacijent(string korisnickoIme, string lozinka, Pacijent pacijent)
         {
             return pacijent.Korisnik.KorisnickoIme == korisnickoIme && pacijent.Korisnik.Lozinka == lozinka;
-        }
-
-        public void SacuvajPromene()
-        {
-            Serijalizacija();
-            Deserijalizacija();
         }
 
         public bool DodajPacijenta(Pacijent pacijentZaDodavanje)
         {
             if (Pacijenti.Contains(pacijentZaDodavanje)) return false;
             Pacijenti.Add(pacijentZaDodavanje);
-            SacuvajPromene();
+            Serijalizacija();
             return true;
         }
 

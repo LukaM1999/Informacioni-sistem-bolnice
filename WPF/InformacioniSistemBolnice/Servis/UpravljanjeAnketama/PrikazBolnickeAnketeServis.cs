@@ -9,22 +9,15 @@ using Repozitorijum;
 
 namespace Servis
 {
-    public class AnketaServis
+    public class PrikazBolnickeAnketeServis
     {
-        private static readonly Lazy<AnketaServis>
-            Lazy = new(() => new AnketaServis());
-        public static AnketaServis Instance => Lazy.Value;
+        private static readonly Lazy<PrikazBolnickeAnketeServis> Lazy = new(() => new PrikazBolnickeAnketeServis());
+        public static PrikazBolnickeAnketeServis Instance => Lazy.Value;
 
         private const int TerminaDoAnkete = 3;
         private const int MesecaDoAnkete = 4;
 
         private Pacijent ulogovanPacijent;
-
-        public void PopuniAnketuOLekaru(Termin zavrsenTermin, AnketaOLekaru novaAnketa)
-        {
-            zavrsenTermin.PopuniAnketuOLekaru(novaAnketa);
-            TerminRepo.Instance.Serijalizacija();
-        }
 
         public async void OtvoriAnketuOBolnici(Pacijent pacijent)
         {
@@ -70,11 +63,6 @@ namespace Servis
             sortiraneAnkete = AnketaOBolniciRepo.Instance.DobaviVremenskiOpadajuciSortiraneAnkete(sortiraneAnkete);
             if (sortiraneAnkete.Count == 0) return false;
             return sortiraneAnkete[0].VremePopunjavanja.AddMonths(MesecaDoAnkete) < DateTime.Now;
-        }
-
-        public void PosaljiAnketuOBolnici(AnketaOBolnici anketa)
-        {
-            AnketaOBolniciRepo.Instance.DodajAnketu(anketa);
         }
     }
 }

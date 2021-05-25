@@ -37,6 +37,7 @@ namespace InformacioniSistemBolnice
             proizvodjac.Content = lek.Proizvodjac;
             sastojci.Text = lek.Sastojci;
             zamena.Text = lek.Zamena;
+            Alergeni.ItemsSource = lek.Alergen;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

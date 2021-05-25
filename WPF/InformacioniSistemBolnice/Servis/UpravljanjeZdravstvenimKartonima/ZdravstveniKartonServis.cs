@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
+using InformacioniSistemBolnice.DTO;
 
 namespace Servis
 {
@@ -57,7 +58,7 @@ namespace Servis
         {
             IzmeniOsnovnePodatke(zdravstveniKartonDto, zdravstveniKarton);
             IzmeniPodatkeOZanimanju(podaciOZaposlenjuIZanimanjuDto, zdravstveniKarton);
-            PacijentRepo.Instance.SacuvajPromene();
+            PacijentRepo.Instance.Serijalizacija();
         }
 
         private static void IzmeniOsnovnePodatke(ZdravstveniKartonDto zdravstveniKartonDto, ZdravstveniKarton zdravstveniKarton)
@@ -89,7 +90,7 @@ namespace Servis
             Pacijent pacijent = PacijentRepo.Instance.NadjiPoJmbg(jmbg);
             ZdravstveniKarton zdravstveniKarton = pacijent.zdravstveniKarton;
             zdravstveniKarton.DodajAlergen(alergen);
-            PacijentRepo.Instance.SacuvajPromene();
+            PacijentRepo.Instance.Serijalizacija();
         }
 
         public void ObrisiAlergenPacijentu(Alergen alergen, string jmbg)
@@ -97,7 +98,7 @@ namespace Servis
             Pacijent pacijent = PacijentRepo.Instance.NadjiPoJmbg(jmbg);
             ZdravstveniKarton zdravstveniKarton = pacijent.zdravstveniKarton;
             zdravstveniKarton.ObrisiAlergen(alergen);
-            PacijentRepo.Instance.SacuvajPromene();
+            PacijentRepo.Instance.Serijalizacija();
         }
     }
 }

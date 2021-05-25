@@ -1,5 +1,6 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
+using InformacioniSistemBolnice.DTO;
 using Kontroler;
 using Model;
 using Repozitorijum;
@@ -18,14 +19,14 @@ namespace InformacioniSistemBolnice
             alergeni = alergeniProzor;
             pocetna = alergeniProzor.pocetna;
             listaAlergena = alergeniProzor.ListaAlergena;
-
         }
 
-        private void potvrdiIzmeneDugme_Click(object sender, RoutedEventArgs e)
+        private void PotvrdiIzmene_Click(object sender, RoutedEventArgs e)
         {
             if (listaAlergena.SelectedValue != null)
             {
-                SekretarKontroler.Instance.IzmjenaAlergena(new AlergenDto(nazivAlergenaUnos.Text), (Alergen)listaAlergena.SelectedItem);
+                SekretarKontroler.Instance.IzmenaAlergena
+                    (new AlergenDto(nazivAlergenaUnos.Text), (Alergen)listaAlergena.SelectedItem);
                 AzurirajIzgled();
             }
         }

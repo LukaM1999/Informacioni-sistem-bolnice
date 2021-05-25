@@ -1,19 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
-using Model;
-using Repozitorijum;
-using Servis;
+using InformacioniSistemBolnice.DTO;
 using Kontroler;
 
 namespace InformacioniSistemBolnice
@@ -29,27 +17,18 @@ namespace InformacioniSistemBolnice
             pocetna = pacijentiProzor.pocetna;
         }
 
-        private void potvrdiDugme_Click(object sender, RoutedEventArgs e)
+        private void PotvrdiBtn_Click(object sender, RoutedEventArgs e)
         {
-           PacijentDto registracijaPacijentaDto = new PacijentDto(this.imeUnos.Text, this.prezimeUnos.Text, this.JMBGUnos.Text,
-                DateTime.Parse(this.datumUnos.Text), this.telUnos.Text, this.mailUnos.Text, this.korisnikUnos.Text, this.lozinkaUnos.Password, 
-                this.drzavaUnos.Text, this.gradUnos.Text, this.ulicaUnos.Text, this.brojUnos.Text);
+            PacijentDto registracijaPacijentaDto = new(imeUnos.Text, prezimeUnos.Text, JMBGUnos.Text,
+                                             DateTime.Parse(datumUnos.Text), telUnos.Text, mailUnos.Text,
+                                             korisnikUnos.Text, lozinkaUnos.Password,
+                                             drzavaUnos.Text, gradUnos.Text, ulicaUnos.Text, brojUnos.Text);
             SekretarKontroler.Instance.KreiranjeNaloga(registracijaPacijentaDto);
-            this.Visibility = Visibility.Hidden;
-            PacijentiProzor pacijentiProzor = new PacijentiProzor(pocetna);
-            this.pocetna.contentControl.Content = pacijentiProzor;
-
+            pocetna.contentControl.Content = new PacijentiProzor(pocetna);
         }
 
         private void NazadBtn_Click(object sender, RoutedEventArgs e)
-        {
-            this.Visibility = Visibility.Hidden;
-            this.pocetna.contentControl.Content = this.pacijentiProzor.Content;
-        }
+                  => pocetna.contentControl.Content = pacijentiProzor.Content;
 
-        private void PotvrdiBtn_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
     }
 }

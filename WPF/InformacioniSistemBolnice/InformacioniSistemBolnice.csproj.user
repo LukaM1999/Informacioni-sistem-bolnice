@@ -79,7 +79,7 @@
     <Compile Update="Views\Sekretar\KreiranjeGostujucegPacijentaProzor.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Login.xaml.cs">
+    <Compile Update="Views\Login.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Views\Sekretar\PregledNalogaLekara.xaml.cs">
@@ -166,7 +166,7 @@
     <Compile Update="Views\Lekar\TerminiLekaraProzor.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="TerminInfoProzor.xaml.cs">
+    <Compile Update="Views\TerminInfoProzor.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Views\Pacijent\TerminiPacijentaView.xaml.cs">
@@ -306,7 +306,7 @@
     <Page Update="Views\Sekretar\KreiranjeGostujucegPacijentaProzor.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Login.xaml">
+    <Page Update="Views\Login.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\Sekretar\PregledNalogaLekara.xaml">
@@ -396,7 +396,7 @@
     <Page Update="Views\Lekar\TerminiLekaraProzor.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="TerminInfoProzor.xaml">
+    <Page Update="Views\TerminInfoProzor.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\Lekar\TerminiLekaraProzor.xaml">

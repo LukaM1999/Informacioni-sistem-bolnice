@@ -9,11 +9,11 @@ using PropertyChanged;
 namespace Model
 {
     [AddINotifyPropertyChangedInterface]
-    public class Pacijent : Osoba
+    public class Pacijent : Osoba, IUcesnikPregleda
     {
         public bool Maliciozan { get; set; }
         public ZdravstveniKarton zdravstveniKarton;
-        public ObservableCollection<Termin> zakazaniTermini = new();
+        public ObservableCollection<Termin> ZakazaniTermini { get; set; }
 
         public Pacijent() {}
         public Pacijent(Osoba o) 
@@ -31,13 +31,13 @@ namespace Model
 
         public bool ObrisiTermin(Termin terminZaBrisanje)
         {
-            return zakazaniTermini.Remove(NadjiTerminPoDatumu(terminZaBrisanje.Vreme));
+            return ZakazaniTermini.Remove(NadjiTerminPoDatumu(terminZaBrisanje.Vreme));
         }
 
         public bool DodajTermin(Termin terminZaDodavanje)
         {
             if (NadjiTerminPoDatumu(terminZaDodavanje.Vreme) != null) return false;
-            zakazaniTermini.Add(terminZaDodavanje);
+            ZakazaniTermini.Add(terminZaDodavanje);
             return true;
         }
         public override string ToString()
@@ -47,14 +47,14 @@ namespace Model
 
         private Termin NadjiTerminPoDatumu(DateTime vremeTermina)
         {
-            foreach (Termin pronadjen in zakazaniTermini)
+            foreach (Termin pronadjen in ZakazaniTermini)
                 if (pronadjen.Vreme == vremeTermina) return pronadjen;
             return null;
         }
 
         public List<Termin> DobaviSortiraneTermine()
         {
-            return zakazaniTermini.OrderBy(termin => termin.Vreme).ToList();
+            return ZakazaniTermini.OrderBy(termin => termin.Vreme).ToList();
         }
 
         public bool PacijentPosetioBolnicu(List<Termin> sortiraniTermini)

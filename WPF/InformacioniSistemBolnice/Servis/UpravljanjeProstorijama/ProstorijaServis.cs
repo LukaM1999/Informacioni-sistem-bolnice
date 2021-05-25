@@ -3,6 +3,8 @@ using Model;
 using Repozitorijum;
 using InformacioniSistemBolnice;
 using System.Windows.Controls;
+using InformacioniSistemBolnice.DTO;
+
 namespace Servis
 {
    public class ProstorijaServis
@@ -21,13 +23,13 @@ namespace Servis
       {
             ProstorijaRepo.Instance.BrisiProstorijuIzSvihTermina(dto.Id);
             if (!ProstorijaRepo.Instance.BrisiPoId(dto.Id)) return;
-            ProstorijaRepo.Instance.SacuvajPromene();            
+            ProstorijaRepo.Instance.Serijalizacija();            
        }
       
       public void IzmenaProstorije(ProstorijaDto dto)
       {
             IzmeniIzabranuProstoriju(dto);
-            ProstorijaRepo.Instance.SacuvajPromene();
+            ProstorijaRepo.Instance.Serijalizacija();
        }
       private void IzmeniIzabranuProstoriju(ProstorijaDto dto)
        {

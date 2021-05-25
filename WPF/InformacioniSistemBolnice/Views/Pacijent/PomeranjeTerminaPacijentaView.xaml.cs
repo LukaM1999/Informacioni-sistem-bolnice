@@ -33,7 +33,7 @@ namespace InformacioniSistemBolnice
                 new PredlogSlobodnihTerminaServis(izabranTermin).PonudiSlobodneTermineZaPomeranje();
         }
 
-        private void potvrdaPomeranjaDugme_Click(object sender, RoutedEventArgs e)
+        private void PomeriTermin(object sender, RoutedEventArgs e)
         {
             PacijentKontroler.Instance.Pomeranje(terminZaPomeranje, (Termin)ponudjeniTermini.SelectedValue);
             Close();

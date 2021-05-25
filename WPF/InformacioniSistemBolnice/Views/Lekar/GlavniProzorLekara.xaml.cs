@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -14,6 +15,7 @@ using System.Windows.Shapes;
 using InformacioniSistemBolnice.Views.Lekar;
 using Model;
 using Repozitorijum;
+using Servis;
 
 namespace InformacioniSistemBolnice
 {
@@ -38,6 +40,7 @@ namespace InformacioniSistemBolnice
                 }
             }
             contentControl.Content = new UCRaspored(this);
+            new Thread(() => new ZavrsenTerminServis<Lekar>().PokreniProveruZavrsenostiTermina(ulogovanLekar)).Start();
         }
 
         private void RasporedBtn_Click(object sender, RoutedEventArgs e)
