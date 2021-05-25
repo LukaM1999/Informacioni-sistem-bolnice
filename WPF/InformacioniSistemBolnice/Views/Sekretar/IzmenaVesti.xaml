@@ -5,10 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:InformacioniSistemBolnice"
         mc:Ignorable="d"
-        Height="650" Width="1000" Background="LightGray">
+        Height="650" Width="1000" Background="LightGray" DataContext='{Binding RelativeSource={RelativeSource Self}}'>
     <Grid>
-        <TextBox x:Name="naslovVesti"  FontSize="16" AcceptsReturn="True" VerticalScrollBarVisibility="Visible" HorizontalAlignment="Left" Margin="64,110,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="900" Height="30"/>
-        <TextBox x:Name="sadrzajVesti" FontSize="16" AcceptsReturn="True" VerticalScrollBarVisibility="Visible" Background="White"  HorizontalAlignment="Left" Margin="66,182,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Height="420" Width="900"/>
+        <TextBox x:Name="naslovVesti" Text="{Binding Vest.Id}" FontSize="16" AcceptsReturn="True" VerticalScrollBarVisibility="Visible" HorizontalAlignment="Left" Margin="64,110,0,0"  TextWrapping="Wrap" VerticalAlignment="Top" Width="900" Height="30"/>
+        <TextBox x:Name="sadrzajVesti" Text="{Binding Vest.Sadrzaj}" FontSize="16" AcceptsReturn="True" VerticalScrollBarVisibility="Visible" Background="White"  HorizontalAlignment="Left" Margin="66,182,0,0"  TextWrapping="Wrap" VerticalAlignment="Top" Height="420" Width="900"/>
         <Button Content="Izmeni" HorizontalAlignment="Left" Margin="868,614,0,0" VerticalAlignment="Top" Click="IzmeniVest_Click" Width="100" Background="White"/>
         <Label Content="Naslov vesti" HorizontalAlignment="Left" Margin="35,78,0,0" VerticalAlignment="Top" Height="24"/>
         <Label Content="Sadrzaj vesti" HorizontalAlignment="Left" Margin="35,152,0,0" VerticalAlignment="Top"/>

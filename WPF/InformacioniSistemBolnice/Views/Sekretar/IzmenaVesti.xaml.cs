@@ -11,12 +11,15 @@ namespace InformacioniSistemBolnice
     {
         public PocetnaStranicaSekretara pocetna;
         public VestiProzor vesti;
+        public Vest Vest { get; set; }
 
-        public IzmenaVesti(VestiProzor vestiProzor, PocetnaStranicaSekretara pocetnaStranicaSekretara)
+        public IzmenaVesti(VestiProzor vestiProzor, PocetnaStranicaSekretara pocetnaStranicaSekretara, Vest izabranaVest)
         {
+            Vest = izabranaVest;
             InitializeComponent();
             vesti = vestiProzor;
             pocetna = pocetnaStranicaSekretara;
+            Vest = izabranaVest;
         }
 
         private void IzmeniVest_Click(object sender, RoutedEventArgs e)
@@ -28,6 +31,5 @@ namespace InformacioniSistemBolnice
         }
 
         private void NazadBtn_Click(object sender, RoutedEventArgs e) => pocetna.contentControl.Content = vesti.Content;
-
     }
 }

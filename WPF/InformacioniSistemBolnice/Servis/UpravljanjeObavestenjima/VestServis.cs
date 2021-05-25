@@ -16,26 +16,26 @@ namespace Servis
         private static readonly Lazy<VestServis> Lazy = new(() => new VestServis());
         public static VestServis Instance => Lazy.Value;
 
-        public void KreiranjeVesti(VestDto vestDto)
+        public void KreirajVesti(VestDto vestDto)
         {
             Vest vest = new Vest(vestDto.Sadrzaj, vestDto.Id, vestDto.VremeObjave);
             VestRepo.Instance.DodajVest(vest);
         }
 
-        public VestDto PregledVesti(Vest vest)
+        public VestDto PregledajVest(Vest vest)
         {
             VestDto vestZaPrikazivanje = new(vest.Id, vest.Sadrzaj);
             vestZaPrikazivanje.VremeObjave = vest.VremeObjave;
             return vestZaPrikazivanje;
         }
 
-        public void UklanjanjeVesti(Vest vest)
+        public void UkloniVest(Vest vest)
         {
             VestRepo.Instance.ObrisiVest(vest);
             VestRepo.Instance.Serijalizacija();
         }
 
-        public void IzmenaVesti(VestDto novaVest, Vest staraVest)
+        public void IzmeniVest(VestDto novaVest, Vest staraVest)
         {
             staraVest.Id = novaVest.Id;
             staraVest.Sadrzaj = novaVest.Sadrzaj;

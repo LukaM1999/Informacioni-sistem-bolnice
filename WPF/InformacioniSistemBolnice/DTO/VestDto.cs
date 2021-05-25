@@ -13,6 +13,5 @@ namespace InformacioniSistemBolnice.DTO
             Id = naslov;
             Sadrzaj = sadrzajVesti;
         }
-
     }
 }
