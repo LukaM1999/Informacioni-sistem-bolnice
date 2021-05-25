@@ -1,16 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 using Repozitorijum;
 using Model;
 using Servis;
@@ -23,33 +13,40 @@ namespace InformacioniSistemBolnice
     {
         public PocetnaStranicaSekretara pocetna;
         public ObservableCollection<Pacijent> pacijenti = new ObservableCollection<Pacijent>();
+
         public PacijentiProzor(PocetnaStranicaSekretara pocetnaStranicaSekretara)
         {
             InitializeComponent();
-            PacijentRepo.Instance.Deserijalizacija();
-            foreach (Pacijent pacijent in PacijentRepo.Instance.Pacijenti) pacijenti.Add(pacijent);
-            ListaPacijenata.ItemsSource = pacijenti.ToList();
             pocetna = pocetnaStranicaSekretara;
+            PrikaziPacijente();
         }
 
-        private void registrujPacijentaDugme_Click(object sender, RoutedEventArgs e)
+        private void PrikaziPacijente()
         {
-            this.pocetna.contentControl.Content = new RegistracijaPacijentaForma(this);
+            PacijentRepo.Instance.Deserijalizacija();
+            foreach (Pacijent pacijent in PacijentRepo.Instance.Pacijenti)
+                if (pacijent.Korisnik.KorisnickoIme != null) pacijenti.Add(pacijent);
+            ListaPacijenata.ItemsSource = pacijenti.ToList();
         }
 
-        private void ObrisiPacijenta(object sender, RoutedEventArgs e)
+        private void RegistrujPacijenta_Click(object sender, RoutedEventArgs e)
+        {
+            pocetna.contentControl.Content = new RegistracijaPacijentaForma(this);
+        }
+
+        private void ObrisiPacijenta_Click(object sender, RoutedEventArgs e)
         {
             if (ListaPacijenata.SelectedValue != null)
                 SekretarKontroler.Instance.UklanjanjeNaloga((Pacijent)ListaPacijenata.SelectedItem);
             this.pocetna.contentControl.Content = new PacijentiProzor(pocetna);
         }
-        private void izmeniPacijentaDugme_Click(object sender, RoutedEventArgs e)
-        {
 
+        private void IzmeniPacijenta_Click(object sender, RoutedEventArgs e)
+        {
             if (ListaPacijenata.SelectedValue != null)
             {
                 Pacijent p = (Pacijent)ListaPacijenata.SelectedItem;
-                IzmenaNalogaPacijentaForma izmena = new IzmenaNalogaPacijentaForma(this, pocetna);
+                IzmenaNalogaPacijentaForma izmena = new IzmenaNalogaPacijentaForma(this);
                 izmena.imeUnos.Text = p.Ime;
                 izmena.prezimeUnos.Text = p.Prezime;
                 izmena.JMBGUnos.Text = p.Jmbg;
@@ -68,8 +65,7 @@ namespace InformacioniSistemBolnice
 
         }
 
- 
-        private void pregledPacijenta(object sender, RoutedEventArgs e)
+        private void VidiPacijenta_Click(object sender, RoutedEventArgs e)
         {
             if (ListaPacijenata.SelectedValue != null)
             {
@@ -90,7 +86,7 @@ namespace InformacioniSistemBolnice
             }
         }
 
-        private void zdravstveniKartonPacijenta(object sender, RoutedEventArgs e)
+        private void ZdravstveniKartonPacijenta_Click(object sender, RoutedEventArgs e)
         {
             if (ListaPacijenata.SelectedValue != null)
             {
@@ -132,14 +128,14 @@ namespace InformacioniSistemBolnice
 
         }
 
-        private void izmjeniZdravstveniKarton_Click(object sender, RoutedEventArgs e)
+        private void IzmeniZdravstveniKarton_Click(object sender, RoutedEventArgs e)
         {
             if (this.ListaPacijenata.SelectedValue != null)
             {
                 Pacijent p = (Pacijent)ListaPacijenata.SelectedItem;
                 if (p.zdravstveniKarton != null)
                 {
-                    IzmjenaZdravstvenogKartonaForma izmjenaZdravstvenogKartonaForma = new IzmjenaZdravstvenogKartonaForma(this, pocetna);
+                    IzmenaZdravstvenogKartonaForma izmjenaZdravstvenogKartonaForma = new IzmenaZdravstvenogKartonaForma(this, pocetna);
                     izmjenaZdravstvenogKartonaForma.brojKartona.Text = p.zdravstveniKarton.BrojKartona.ToString();
                     izmjenaZdravstvenogKartonaForma.brojKnjizice.Text = p.zdravstveniKarton.BrojKnjizice;
                     izmjenaZdravstvenogKartonaForma.imeLabela.Content = p.Ime;
@@ -161,7 +157,7 @@ namespace InformacioniSistemBolnice
                     izmjenaZdravstvenogKartonaForma.OSIZ.Text = p.zdravstveniKarton.PodaciOZaposlenjuIZanimanju.OSIZZdrZastite;
                     izmjenaZdravstvenogKartonaForma.radUPosebnimUslovimaUnos.Text = p.zdravstveniKarton.PodaciOZaposlenjuIZanimanju.RadPodPosebnimUslovima;
                     izmjenaZdravstvenogKartonaForma.promjene.Text = p.zdravstveniKarton.PodaciOZaposlenjuIZanimanju.Promjene;
-                    izmjenaZdravstvenogKartonaForma.ListaAlergena.ItemsSource = p.zdravstveniKarton.Alergeni.ToList();
+                    izmjenaZdravstvenogKartonaForma.AlergeniPacijenta.ItemsSource = p.zdravstveniKarton.Alergeni.ToList();
                     pocetna.contentControl.Content = izmjenaZdravstvenogKartonaForma.Content;
                 }
                 else

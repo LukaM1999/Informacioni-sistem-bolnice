@@ -9,7 +9,7 @@
     <Grid>
         <TextBox x:Name="naslovVesti"  FontSize="16" AcceptsReturn="True" VerticalScrollBarVisibility="Visible" HorizontalAlignment="Left" Margin="64,110,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="900" Height="30"/>
         <TextBox x:Name="sadrzajVesti" FontSize="16" AcceptsReturn="True" VerticalScrollBarVisibility="Visible" Background="White"  HorizontalAlignment="Left" Margin="66,182,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Height="420" Width="900"/>
-        <Button Content="Izmeni" HorizontalAlignment="Left" Margin="868,614,0,0" VerticalAlignment="Top" Click="izmeniVest_Click" Width="100" Background="White"/>
+        <Button Content="Izmeni" HorizontalAlignment="Left" Margin="868,614,0,0" VerticalAlignment="Top" Click="IzmeniVest_Click" Width="100" Background="White"/>
         <Label Content="Naslov vesti" HorizontalAlignment="Left" Margin="35,78,0,0" VerticalAlignment="Top" Height="24"/>
         <Label Content="Sadrzaj vesti" HorizontalAlignment="Left" Margin="35,152,0,0" VerticalAlignment="Top"/>
         <Button Style="{StaticResource ResourceKey=MainButtons}" x:Name="Nazad"  Click="NazadBtn_Click" HorizontalAlignment="Left" VerticalAlignment="Top" Background="LightGray"  Width="50" Height="60" Margin="10,10,0,0" >

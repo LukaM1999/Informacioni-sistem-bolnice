@@ -61,7 +61,7 @@
             <TextBox x:Name="OSIZ" Canvas.Left="530" Canvas.Top="341" Text="" TextWrapping="Wrap" Width="120"/>
             <TextBox x:Name="radUPosebnimUslovimaUnos" Canvas.Left="530" Canvas.Top="375" Text="" TextWrapping="Wrap" Width="120" Height="20"/>
             <TextBox x:Name="promjene" Canvas.Left="530" Canvas.Top="407" Text="" TextWrapping="Wrap" Width="120"/>
-            <Button x:Name="potvrdiDugme" Content="Kreiraj zdravstveni karton" Grid.Column="1" Width="149" Canvas.Left="806" Canvas.Top="494" Click="kreirajZdravstveniKarton_Click"/>
+            <Button x:Name="potvrdiDugme" Content="Kreiraj zdravstveni karton" Grid.Column="1" Width="149" Canvas.Left="806" Canvas.Top="494" Click="KreirajZdravstveniKarton_Click"/>
         </Canvas>
         <Label Content="Zdravstveno stanje pacijenta" Grid.Column="2" HorizontalAlignment="Left" Margin="79,29,0,0" VerticalAlignment="Top"/>
         <Label Content="Alergeni:" Grid.Column="2" HorizontalAlignment="Left" Margin="27,64,0,0" VerticalAlignment="Top" />

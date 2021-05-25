@@ -17,7 +17,7 @@
             <Label Content="Broj kartona: " Canvas.Left="30" Canvas.Top="110" Width="96"/>
             <Label Content="Broj knjizice: " Canvas.Left="30" Canvas.Top="150" Width="94"/>
             <Label Content="JMBG: " Canvas.Left="30" Canvas.Top="190" Width="70"/>
-            <Label Content="Przime: " Canvas.Left="30" Canvas.Top="230" Width="94"/>
+            <Label Content="Prezime: " Canvas.Left="30" Canvas.Top="230" Width="94"/>
             <Label Content="Ime jednog roditelja: " Canvas.Left="30" Canvas.Top="270" Width="143"/>
             <Label Content="Ime: " Canvas.Left="30" Canvas.Top="310" Width="70"/>
             <Label Content="Lice zaduzeno za zdravstvenu zastitu: " Canvas.Left="350" Canvas.Top="110" Width="212"/>

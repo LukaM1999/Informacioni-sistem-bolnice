@@ -1,24 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 using Repozitorijum;
-using Model;
 
 namespace InformacioniSistemBolnice
 {
-    /// <summary>
-    /// Interaction logic for UpravljanjeUrgentnimSistemomProzor.xaml
-    /// </summary>
     public partial class UpravljanjeUrgentnimSistemomProzor : UserControl
     {
         public PocetnaStranicaSekretara pocetna;
@@ -29,20 +15,12 @@ namespace InformacioniSistemBolnice
             TerminRepo.Instance.Deserijalizacija();
             ListaTermina.ItemsSource = TerminRepo.Instance.Termini;
             pocetna = pocetnaStranicaSekretara;
-
         }
 
         private void zakaziHitanTermin(object sender, RoutedEventArgs e)
         {
-            this.Visibility = Visibility.Hidden;
-            this.pocetna.contentControl.Content = new ZakazivanjeHitnogTermina(this);
+            pocetna.contentControl.Content = new ZakazivanjeHitnogTermina(this);
         }
 
-
-        private void kreirajGostujucegPacijenta_click(object sender, RoutedEventArgs e)
-        {
-            this.Visibility = Visibility.Hidden;
-            //this.pocetna.contentControl.Content = new KreiranjeGostujucegPacijentaProzor(this);
-        }
     }
 }

@@ -20,7 +20,7 @@
             <DatePicker x:Name="datumUnos"  Canvas.Top="200" Canvas.Left="160" Width="140" Height="27" FontSize="14"/>
             <TextBox x:Name="telUnos" Text="" TextWrapping="Wrap" Canvas.Top="250" Canvas.Left="160" Width="140" Height="27" FontSize="14"/>
             <TextBox x:Name="mailUnos" Text="" TextWrapping="Wrap"  Canvas.Top="300"  Canvas.Left="160" Width="140" Height="27" FontSize="14" />
-            <Button x:Name="potvrdiDugme" Content="Potvrdi" Canvas.Left="220" Canvas.Top="375" Width="140" Height="30" Click="potvrdiDugme_Click" Background="White" FontSize="14"/>
+            <Button x:Name="potvrdiDugme" Content="Potvrdi" Canvas.Left="220" Canvas.Top="375" Width="140" Height="30" Click="KreirajGostujuciNalog_Click" Background="White" FontSize="14"/>
             <Button Style="{StaticResource ResourceKey=MainButtons}" x:Name="Nazad"  Click="NazadBtn_Click" HorizontalAlignment="Left" VerticalAlignment="Top" Background="LightGray"  Width="50" Height="60" Margin="-150,10,0,0">
                 <StackPanel Orientation="Vertical">
                     <Image Source="../../images/back.png" Width="30" Height="30" RenderOptions.BitmapScalingMode="Fant"/>

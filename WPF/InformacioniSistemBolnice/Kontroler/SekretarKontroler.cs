@@ -74,7 +74,7 @@ namespace Kontroler
 
         }
 
-        public void IzmjenaAlergena(AlergenDto noviAlergen, Alergen stariAlergen)
+        public void IzmenaAlergena(AlergenDto noviAlergen, Alergen stariAlergen)
         {
             AlergenServis.Instance.IzmenaAlergena(noviAlergen, stariAlergen);
         }

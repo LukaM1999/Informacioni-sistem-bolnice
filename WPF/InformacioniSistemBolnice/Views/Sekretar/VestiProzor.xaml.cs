@@ -1,16 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 using InformacioniSistemBolnice.DTO;
 using Repozitorijum;
 using Kontroler;
@@ -29,13 +18,10 @@ namespace InformacioniSistemBolnice
             ListaVesti.ItemsSource = VestRepo.Instance.Vesti;
         }
 
-        private void kreirajVest_Clik(object sender, RoutedEventArgs e)
-        {
+        private void KreirajVest_Clik(object sender, RoutedEventArgs e) =>
             menu.pocetna.contentControl.Content = new KreirajVestProzor(menu.pocetna, menu, this);
-        }
 
-       
-        private void pregledVesti_Click(object sender, RoutedEventArgs e)
+        private void VidiVest_Click(object sender, RoutedEventArgs e)
         {
             PregledVesti pregledVesti = new PregledVesti(ListaVesti);
             VestDto vestDto = SekretarKontroler.Instance.PregledVesti((Vest)ListaVesti.SelectedItem);
@@ -45,25 +31,24 @@ namespace InformacioniSistemBolnice
             pregledVesti.Show();
         }
 
-        private void obrisiVesti_Clik(object sender, RoutedEventArgs e)
+        private void ObrisiVest_Clik(object sender, RoutedEventArgs e)
         {
-            if (ListaVesti.SelectedValue != null)
-            {
+            if (ListaVesti.SelectedValue is not null)
                 SekretarKontroler.Instance.UklanjanjeVesti((Vest)ListaVesti.SelectedValue);
-                ListaVesti.ItemsSource = VestRepo.Instance.Vesti;
-            }
+            ListaVesti.ItemsSource = VestRepo.Instance.Vesti;
         }
 
-        private void izmeniVest_Click(object sender, RoutedEventArgs e)
+        private void IzmeniVest_Click(object sender, RoutedEventArgs e)
         {
-            if (this.ListaVesti.SelectedValue != null)
+            if (this.ListaVesti.SelectedValue is not null)
             {
-                IzmenaVesti izmenaAVesti = new IzmenaVesti(this, this.menu.pocetna);
+                IzmenaVesti izmenaAVesti = new IzmenaVesti(this, menu.pocetna);
                 izmenaAVesti.naslovVesti.Text = ((Vest)ListaVesti.SelectedItem).Id;
                 izmenaAVesti.sadrzajVesti.Text = ((Vest)ListaVesti.SelectedItem).Sadrzaj;
                 ListaVesti.ItemsSource = VestRepo.Instance.Vesti;
-                this.menu.pocetna.contentControl.Content = izmenaAVesti.Content;
+                menu.pocetna.contentControl.Content = izmenaAVesti.Content;
             }
         }
+
     }
 }

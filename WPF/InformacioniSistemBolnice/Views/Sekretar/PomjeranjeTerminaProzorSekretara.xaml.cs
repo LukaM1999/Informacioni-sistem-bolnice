@@ -18,9 +18,6 @@ using Kontroler;
 
 namespace InformacioniSistemBolnice
 {
-    /// <summary>
-    /// Interaction logic for PomjeranjeTerminaProzorSekretara.xaml
-    /// </summary>
     public partial class PomjeranjeTerminaProzorSekretara : Window
     {
         private ObservableCollection<Termin> slobodniTermini;

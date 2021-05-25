@@ -15,8 +15,7 @@
             <Label Content="Telefon: " Canvas.Left="23" Canvas.Top="360" Width="58"/>
             <Label Content="E-mail: " Canvas.Left="23" Canvas.Top="400" Width="70"/>
             <Label Content="Korisnicko ime: " Canvas.Left="23" Canvas.Top="440" Width="94"/>
-            <Label Content="Lozinka: " Canvas.Left="23" Canvas.Top="480" Width="70"/>
-            <Label Content="Specijalizacija: " Canvas.Left="23" Canvas.Top="520" Width="94"/>
+            <Label Content="Specijalizacija: " Canvas.Left="23" Canvas.Top="480" Width="94"/>
             <TextBox x:Name="imeUnos" Canvas.Left="132" Canvas.Top="40" Text="" TextWrapping="Wrap" Width="140" Height="25" FontSize="14"/>
             <TextBox x:Name="prezimeUnos" Canvas.Left="132" Canvas.Top="80" Width="140" Height="25" FontSize="14" />
             <TextBox x:Name="JMBGUnos" Canvas.Left="132" Canvas.Top="120" Text="" TextWrapping="Wrap" Width="140" Height="25" FontSize="14"/>
@@ -28,8 +27,7 @@
             <TextBox x:Name="telUnos" Canvas.Left="132" Canvas.Top="360" Text="" TextWrapping="Wrap" Width="140" Height="25" FontSize="14"/>
             <TextBox x:Name="mailUnos" Canvas.Left="132" Canvas.Top="400" Width="140" Height="25" FontSize="14" />
             <TextBox x:Name="korisnikUnos" Canvas.Left="132" Canvas.Top="440" Text="" TextWrapping="Wrap" Width="140" Height="25" FontSize="14"/>
-            <PasswordBox x:Name="lozinkaUnos" Canvas.Left="132" Canvas.Top="480" Width="140" Height="25" FontSize="14" />
-            <TextBox x:Name="specijalizacijeLekara" Canvas.Left="132" Canvas.Top="520" Width="140" Height="25" FontSize="14" />
+            <TextBox x:Name="specijalizacijeLekara" Canvas.Left="132" Canvas.Top="480" Width="140" Height="25" FontSize="14" />
             <Label Content="Drzava: " Canvas.Left="23" Canvas.Top="200" Width="58"/>
             <Label Content="Grad: " Canvas.Left="23" Canvas.Top="240" Width="58" Height="26"/>
             <Label Content="Ulica: " Canvas.Left="23" Canvas.Top="280" Width="94"/>
