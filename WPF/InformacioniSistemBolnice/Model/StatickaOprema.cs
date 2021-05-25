@@ -6,6 +6,7 @@ namespace Model
     {
         public TipStatickeOpreme Tip { get; set; }
         public int Kolicina { get; set; }
+
         public StatickaOprema(int kolicina, TipStatickeOpreme tip)
         {
             this.Kolicina = kolicina;

@@ -20,10 +20,12 @@ namespace Repozitorijum
         {
             StatickaOprema = JsonConvert.DeserializeObject<ObservableCollection<StatickaOprema>>(File.ReadAllText(Putanja));
         }
+
         public void Serijalizacija()
         {
             File.WriteAllText(Putanja, JsonConvert.SerializeObject(StatickaOprema, Formatting.Indented));
         }
+
         public StatickaOpremaRepo()
         {
             StatickaOprema = new ObservableCollection<Model.StatickaOprema>();
@@ -41,6 +43,11 @@ namespace Repozitorijum
             foreach (StatickaOprema pronadjena in StatickaOprema)
                 if (pronadjena.Tip == tip) return StatickaOprema.Remove(pronadjena);
             return false;
+        }
+
+        public void DodajStatickuOpremu(StatickaOprema novaOprema)
+        {
+            StatickaOprema.Add(novaOprema);
         }
     }
 }

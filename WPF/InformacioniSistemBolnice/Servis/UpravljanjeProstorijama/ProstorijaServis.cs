@@ -14,9 +14,8 @@ namespace Servis
 
       public void KreiranjeProstorije(ProstorijaDto dto)
       {
-            ProstorijaRepo.Instance.Prostorije.Add(new Prostorija(dto.Sprat, dto.Tip, dto.Id, dto.JeZauzeta, dto.Inventar));
+            ProstorijaRepo.Instance.DodajProstoriju(new Prostorija(dto.Sprat, dto.Tip, dto.Id, dto.JeZauzeta, dto.Inventar));
             ProstorijaRepo.Instance.Serijalizacija();
-            ProstorijaRepo.Instance.Deserijalizacija();
         }
       
       public void UklanjanjeProstorije(ProstorijaDto dto)

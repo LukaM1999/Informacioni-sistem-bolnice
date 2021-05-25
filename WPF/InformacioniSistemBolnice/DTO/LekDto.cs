@@ -11,6 +11,7 @@ namespace InformacioniSistemBolnice.DTO
         public string Sastojci { get; set; }
         public string Zamena { get; set; }
         public ObservableCollection<Alergen> Alergeni { get; set; }
+
         public LekDto(String naziv, String proizvodjac, String sastojci, String zamena, ObservableCollection<Alergen> alergeni)
         {
             Naziv = naziv;

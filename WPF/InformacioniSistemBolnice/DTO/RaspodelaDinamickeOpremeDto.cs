@@ -8,13 +8,7 @@ namespace InformacioniSistemBolnice.DTO
         public string UProstorijuId { get; set; }
         public DinamickaOprema Oprema { get; set; }
         public int Kolicina { get; set; }
-        public RaspodelaDinamickeOpremeDto() 
-        {
-            IzProstorijeId = "";
-            UProstorijuId = "";
-            Oprema = null;
-            Kolicina = 0;
-        }
+
         public RaspodelaDinamickeOpremeDto(string izProstorije, string uProstoriju, DinamickaOprema oprema, int kolicina)
         {
             IzProstorijeId = izProstorije;

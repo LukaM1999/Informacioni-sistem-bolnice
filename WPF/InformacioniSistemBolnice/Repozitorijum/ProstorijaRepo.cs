@@ -15,6 +15,7 @@ namespace Repozitorijum
         public static ProstorijaRepo Instance => Lazy.Value;
 
         public ObservableCollection<Prostorija> Prostorije { get; set; }
+
         public void Deserijalizacija()
         {
             lock (Prostorije)
@@ -58,6 +59,11 @@ namespace Repozitorijum
         private ProstorijaRepo()
         {
             Prostorije = new ObservableCollection<Prostorija>();
+        }
+
+        public void DodajProstoriju(Prostorija novaProstorija)
+        {
+            Prostorije.Add(novaProstorija);
         }
     }
 }

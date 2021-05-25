@@ -11,22 +11,17 @@ namespace Servis
 {
     public class RenoviranjeServis
     {
-        private static readonly Lazy<RenoviranjeServis>
-           Lazy =
-           new Lazy<RenoviranjeServis>
-               (() => new RenoviranjeServis());
-
+        private static readonly Lazy<RenoviranjeServis> Lazy = new(() => new RenoviranjeServis());
         public static RenoviranjeServis Instance { get { return Lazy.Value; } }
 
         public void ZakazivanjeRenoviranja(ProstorijaRenoviranjeDto dto)
         {
             RenoviranjeTermin novTermin = new RenoviranjeTermin(dto.PocetakRenoviranja, dto.KrajRenoviranja, dto.Prostorija.Id);
-            ProstorijaRepo.Instance.NadjiPoId(dto.Prostorija.Id).Renoviranje = novTermin;
+            Prostorija izabranaProstorija = ProstorijaRepo.Instance.NadjiPoId(dto.Prostorija.Id);
+            izabranaProstorija.Renoviranje = novTermin;
             ProstorijaRepo.Instance.Serijalizacija();
-            ProstorijaRepo.Instance.Deserijalizacija();
-            RenoviranjeRepo.Instance.RenoviranjeTermini.Add(novTermin);
+            RenoviranjeRepo.Instance.DodajTerminRenoviranja(novTermin);
             RenoviranjeRepo.Instance.Serijalizacija();
-            RenoviranjeRepo.Instance.Deserijalizacija();
         }
 
         public void ProveraRenoviranja()
@@ -58,9 +53,9 @@ namespace Servis
             foreach (Prostorija prostorija in ProstorijaRepo.Instance.Prostorije.ToList())
             {
                 if (!prostorija.Id.Equals(termin.idProstorije)) continue;
-                ProstorijaRepo.Instance.NadjiPoId(prostorija.Id).JeZauzeta = true;
+                Prostorija izabranaProstorija = ProstorijaRepo.Instance.NadjiPoId(prostorija.Id);
+                izabranaProstorija.JeZauzeta = true;
                 ProstorijaRepo.Instance.Serijalizacija();
-                ProstorijaRepo.Instance.Deserijalizacija();
                 break;
             }
         }
@@ -70,13 +65,12 @@ namespace Servis
             foreach (Prostorija prostorija in ProstorijaRepo.Instance.Prostorije.ToList())
             {
                 if (!prostorija.Id.Equals(termin.idProstorije)) continue;
-                ProstorijaRepo.Instance.NadjiPoId(prostorija.Id).JeZauzeta = false;
-                ProstorijaRepo.Instance.NadjiPoId(prostorija.Id).Renoviranje = null;
-                RenoviranjeRepo.Instance.RenoviranjeTermini.Remove(termin);
+                Prostorija izabranaProstorija = ProstorijaRepo.Instance.NadjiPoId(prostorija.Id);
+                izabranaProstorija.JeZauzeta = false;
+                izabranaProstorija.Renoviranje = null;
+                RenoviranjeRepo.Instance.BrisiTerminRenoviranja(termin);
                 ProstorijaRepo.Instance.Serijalizacija();
-                ProstorijaRepo.Instance.Deserijalizacija();
                 RenoviranjeRepo.Instance.Serijalizacija();
-                RenoviranjeRepo.Instance.Deserijalizacija();
                 break;
             }
         }

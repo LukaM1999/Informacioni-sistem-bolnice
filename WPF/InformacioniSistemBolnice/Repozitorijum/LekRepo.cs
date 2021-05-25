@@ -46,5 +46,11 @@ namespace Repozitorijum
             }
             return false;
         }
+
+        public void DodajLek(Lek noviLek)
+        {
+            Lekovi.Add(noviLek);
+            Serijalizacija();
+        }
     }
 }

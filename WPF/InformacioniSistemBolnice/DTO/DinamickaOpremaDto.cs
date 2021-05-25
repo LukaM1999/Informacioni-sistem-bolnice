@@ -6,6 +6,7 @@ namespace InformacioniSistemBolnice.DTO
     {
         public TipDinamickeOpreme Tip { get; set; }
         public int Kolicina { get; set; }
+
         public DinamickaOpremaDto() { }
         public DinamickaOpremaDto(int kolicina, TipDinamickeOpreme tip)
         {

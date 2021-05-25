@@ -29,5 +29,15 @@ namespace Repozitorijum
         {
             TerminiPremestanja = new ObservableCollection<StatickaOpremaTermin>();
         }
+
+        public void DodajStatickuOpremu(StatickaOpremaTermin novaOprema)
+        {
+            TerminiPremestanja.Add(novaOprema);
+        }
+
+        public bool BrisiTermin(StatickaOpremaTermin izabranTermin)
+        {
+            return TerminiPremestanja.Remove(izabranTermin);
+        }
     }
 }
