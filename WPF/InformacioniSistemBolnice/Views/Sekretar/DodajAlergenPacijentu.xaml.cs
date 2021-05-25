@@ -1,16 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Linq;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 using Repozitorijum;
 using Servis;
 using Kontroler;
@@ -31,7 +20,7 @@ namespace InformacioniSistemBolnice
             AlergenRepo.Instance.Deserijalizacija();
             alergeniZaDodavanje = AlergenRepo.Instance.Alergeni;
             ZdravstveniKarton zdravstveniKarton = PacijentRepo.Instance.PronadjiZdravstveniKarton
-                (izmenaZdravstvenogKartonaForma.JMBGLabela.Content.ToString());
+                (izmenaZdravstvenogKartonaForma.ZdravstveniKarton.Jmbg);
             GenerisiAlergeneZaDodavanje(zdravstveniKarton);
             ListaAlergena.ItemsSource = alergeniZaDodavanje;
         }
@@ -45,18 +34,20 @@ namespace InformacioniSistemBolnice
             }
         }
 
-        private void dodajAlergenPacijentu_Click(object sender, RoutedEventArgs e)
+        private void DodajAlergenPacijentu_Click(object sender, RoutedEventArgs e)
         {
-            SekretarKontroler.Instance.DodavanjeAlergenaIzZdravstvenogKartona((Alergen)ListaAlergena.SelectedItem,
-                izmenaZdravstvenogKartonaForma.JMBGLabela.Content.ToString());
+            ZdravstveniKarton zdravstveniKarton = izmenaZdravstvenogKartonaForma.ZdravstveniKarton;
+            SekretarKontroler.Instance.DodavanjeAlergenaIzZdravstvenogKartona
+                ((Alergen)ListaAlergena.SelectedItem, zdravstveniKarton.Jmbg);
             AzurirajPrikazAlergena();
             this.Close();
         }
 
         private void AzurirajPrikazAlergena()
         {
-            izmenaZdravstvenogKartonaForma.AlergeniPacijenta.ItemsSource = PacijentRepo.Instance.NadjiPoJmbg
-            (izmenaZdravstvenogKartonaForma.JMBGLabela.Content.ToString()).zdravstveniKarton.Alergeni;
+            Pacijent pacijent = PacijentRepo.Instance.NadjiPoJmbg(izmenaZdravstvenogKartonaForma.Pacijent.Jmbg);
+            ZdravstveniKarton zdravstveniKarton = pacijent.zdravstveniKarton;
+            izmenaZdravstvenogKartonaForma.AlergeniPacijenta.ItemsSource = zdravstveniKarton.Alergeni;
         }
     }
 }

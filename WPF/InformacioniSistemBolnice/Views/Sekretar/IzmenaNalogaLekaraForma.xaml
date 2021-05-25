@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:InformacioniSistemBolnice"
              mc:Ignorable="d" 
-            Height="650" Width="1000" Background="LightGray" Margin="0,0,0,30">
+            Height="650" Width="1000" Background="LightGray" Margin="0,0,0,30" DataContext='{Binding RelativeSource={RelativeSource Self}}'>
     <Grid Height="650" Width="1000" HorizontalAlignment="Center" VerticalAlignment="Center">
         <Canvas Height="640" Width="325" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="70,10,0,0">
             <Label Content="Ime: " Canvas.Left="23" Canvas.Top="40" Width="44" HorizontalAlignment="Right"/>

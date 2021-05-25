@@ -20,17 +20,15 @@ namespace InformacioniSistemBolnice
     {
         public PocetnaStranicaSekretara pocetna;
         public PacijentiProzor pacijenti;
-        public PregledNalogaPacijenta(PacijentiProzor pacijentiProzor)
+        public Pacijent Pacijent { get; set; }
+
+        public PregledNalogaPacijenta(PacijentiProzor pacijentiProzor, Pacijent izabraniPacijent)
         {
+            Pacijent = izabraniPacijent;
             InitializeComponent();
             pacijenti = pacijentiProzor;
             pocetna = pacijentiProzor.pocetna;
            
-        }
-
-        private void zdravstveniKartonPacijenta_Click(object sender, RoutedEventArgs e)
-        {
-           //PacijentServis.Instance.PregledZdravstvenogKartona(this);
         }
 
         private void NazadBtn_Click(object sender, RoutedEventArgs e)

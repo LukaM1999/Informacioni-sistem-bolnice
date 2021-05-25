@@ -160,6 +160,12 @@
         },
         {
           "Naziv": "polen"
+        },
+        {
+          "Naziv": "laktoza"
+        },
+        {
+          "Naziv": "pencilin"
         }
       ],
       "recepti": [],
@@ -187,6 +193,12 @@
         },
         {
           "Naziv": "polen"
+        },
+        {
+          "Naziv": "laktoza"
+        },
+        {
+          "Naziv": "pencilin"
         }
       ]
     },
@@ -211,19 +223,60 @@
     }
   },
   {
-    "zdravstveniKarton": null,
+    "zdravstveniKarton": {
+      "alergeni": [
+        {
+          "Naziv": "laktoza"
+        },
+        {
+          "Naziv": "polen"
+        }
+      ],
+      "recepti": [],
+      "BrojKartona": "lala",
+      "BrojKnjizice": "lalla",
+      "Jmbg": "nana",
+      "ImeJednogRoditelja": "alla",
+      "LiceZaZdravstvenuZastitu": "alla",
+      "PolPacijenta": 0,
+      "BracnoStanje": 0,
+      "KategorijaZdravstveneZastite": 4,
+      "PodaciOZaposlenjuIZanimanju": {
+        "RadnoMjesto": "alall ",
+        "RegistarskiBroj": "all ",
+        "SifraDelatnosti": "al ",
+        "PosaoKojiObavlja": "lall ",
+        "OSIZZdrZastite": "al ",
+        "RadPodPosebnimUslovima": "lal ",
+        "Promjene": "lal "
+      },
+      "Anamneza": null,
+      "Alergeni": [
+        {
+          "Naziv": "laktoza"
+        },
+        {
+          "Naziv": "polen"
+        }
+      ]
+    },
     "zakazaniTermini": [],
     "Maliciozan": false,
-    "Ime": "Nikola",
-    "Prezime": "Ivkovic",
-    "Jmbg": "1205945199199",
-    "DatumRodjenja": "1945-05-12T00:00:00",
-    "Telefon": "06451515515",
-    "Email": "nema",
-    "AdresaStanovanja": null,
+    "Ime": "Mila",
+    "Prezime": "nanan",
+    "Jmbg": "nana",
+    "DatumRodjenja": "2021-05-17T00:00:00",
+    "Telefon": "nan",
+    "Email": "nan",
+    "AdresaStanovanja": {
+      "Broj": "an",
+      "Ulica": "nann",
+      "Grad": "anna",
+      "Drzava": "nana"
+    },
     "Korisnik": {
-      "KorisnickoIme": null,
-      "Lozinka": null,
+      "KorisnickoIme": "nan",
+      "Lozinka": "nanan",
       "Uloga": 2
     }
   }

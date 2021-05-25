@@ -86,16 +86,6 @@
   },
   {
     "KorisnickoIme": "lal",
-    "Lozinka": "la",
-    "Uloga": 2
-  },
-  {
-    "KorisnickoIme": "lal",
-    "Lozinka": "lala",
-    "Uloga": 2
-  },
-  {
-    "KorisnickoIme": "lal",
     "Lozinka": "lalal",
     "Uloga": 2
   },
@@ -168,5 +158,20 @@
     "KorisnickoIme": "lekar2",
     "Lozinka": "lekar2",
     "Uloga": 1
+  },
+  {
+    "KorisnickoIme": "lal",
+    "Lozinka": "kaka",
+    "Uloga": 2
+  },
+  {
+    "KorisnickoIme": "lal",
+    "Lozinka": "al",
+    "Uloga": 2
+  },
+  {
+    "KorisnickoIme": "nan",
+    "Lozinka": "nanan",
+    "Uloga": 2
   }
 ]

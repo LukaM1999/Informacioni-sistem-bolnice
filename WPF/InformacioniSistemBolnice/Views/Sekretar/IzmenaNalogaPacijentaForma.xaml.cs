@@ -1,9 +1,7 @@
-﻿using System;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
 using InformacioniSistemBolnice.DTO;
 using Model;
-using Repozitorijum;
 using Kontroler;
 
 namespace InformacioniSistemBolnice
@@ -14,68 +12,44 @@ namespace InformacioniSistemBolnice
         public PregledZdravstvenogKartona pregledZdravstvenogKartona;
         public PocetnaStranicaSekretara pocetna;
         public PacijentiProzor pacijentiProzor;
+        public Pacijent Pacijent { get; set; }
 
-        public IzmenaNalogaPacijentaForma(PacijentiProzor pacijentiProzor)
+        public IzmenaNalogaPacijentaForma(PacijentiProzor pacijentiProzor, Pacijent izabraniPacijent)
         {
+            Pacijent = izabraniPacijent;
             InitializeComponent();
             this.pacijentiProzor = pacijentiProzor;
             listaPacijenata = pacijentiProzor.ListaPacijenata;
             pocetna = pacijentiProzor.pocetna;
         }
 
-        private void potvrdiDugme_Click(object sender, RoutedEventArgs e)
+        private void PotvrdiDugme_Click(object sender, RoutedEventArgs e)
         {
-            if (listaPacijenata.SelectedValue != null)
-            {
-                PacijentDto pacijentDto = PokupiPodatkeSaForme();
-                SekretarKontroler.Instance.IzmenaNaloga(pacijentDto, (Pacijent)listaPacijenata.SelectedItem);
-                SekretarKontroler.Instance.DodelaZdravstvenogKartonaPacijentu();
-                pocetna.contentControl.Content = new PacijentiProzor(pocetna);
-            }
+            PacijentDto pacijentDto = PokupiPodatkeSaForme();
+            SekretarKontroler.Instance.IzmenaNaloga(pacijentDto, (Pacijent)listaPacijenata.SelectedItem);
+            SekretarKontroler.Instance.DodelaZdravstvenogKartonaPacijentu();
+            pocetna.contentControl.Content = new PacijentiProzor(pocetna);
         }
 
         private PacijentDto PokupiPodatkeSaForme()
         {
-            return new PacijentDto(this.imeUnos.Text, this.prezimeUnos.Text, this.JMBGUnos.Text,
-                                    DateTime.Parse(this.datumUnos.Text), this.telUnos.Text,
-                                    this.mailUnos.Text, this.korisnikUnos.Text, this.lozinkaUnos.Password,
-                                    this.drzavaUnos.Text, this.gradUnos.Text, this.ulicaUnos.Text,
-                                    this.brojUnos.Text);
+            Korisnik korisnik = Pacijent.Korisnik;
+            Adresa adresa = Pacijent.AdresaStanovanja;
+            return new PacijentDto(Pacijent.Ime, Pacijent.Prezime, Pacijent.Jmbg, Pacijent.DatumRodjenja, Pacijent.Telefon,
+                                    Pacijent.Email, korisnik.KorisnickoIme, korisnik.Lozinka,
+                                    adresa.Drzava, adresa.Grad, adresa.Ulica, adresa.Broj);
         }
 
-        private void zdravstveniKartonDugme_Click(object sender, RoutedEventArgs e)
+        private void ZdravstveniKartonDugme_Click(object sender, RoutedEventArgs e)
         {
-            if (listaPacijenata.SelectedItem is null)
+            if (Pacijent.zdravstveniKarton is null)
             {
-                Pacijent p = (Pacijent)listaPacijenata.SelectedItem;
-                if (p.zdravstveniKarton is null) 
-                {
-                    ZdravstveniKartonForma zdravstveniKartonForma = new ZdravstveniKartonForma(pocetna, this);
-                    PrepisiPodatkeNaZdravsteniKarton(zdravstveniKartonForma);
-                    pocetna.contentControl.Content = zdravstveniKartonForma.Content;
-                }
-                else MessageBox.Show("Pacijent vec ima kreiran zdravstveni karton");
+                pocetna.contentControl.Content = new ZdravstveniKartonForma(pocetna, this, Pacijent);
             }
-        }
-
-        private void PrepisiPodatkeNaZdravsteniKarton(ZdravstveniKartonForma zdravstveniKartonForma)
-        {
-            zdravstveniKartonForma.imeLabela.Content = imeUnos.Text;
-            zdravstveniKartonForma.prezimeLabela.Content = prezimeUnos.Text;
-            zdravstveniKartonForma.datumRodjenjaLabela.Content = datumUnos.Text.ToString();
-            zdravstveniKartonForma.JMBGUnos.Text = JMBGUnos.Text;
-            zdravstveniKartonForma.telefon.Content = telUnos.Text;
-            zdravstveniKartonForma.adresaLabela.Content = drzavaUnos.Text + ", " + gradUnos.Text;
-            zdravstveniKartonForma.ulicaIBrojLabela.Content = ulicaUnos.Text + ", " + brojUnos.Text;
-            AlergenRepo.Instance.Deserijalizacija();
-            zdravstveniKartonForma.ListaAlergena.ItemsSource = AlergenRepo.Instance.Alergeni;
+            else MessageBox.Show("Pacijent vec ima kreiran zdravstveni karton");
         }
 
         private void NazadBtn_Click(object sender, RoutedEventArgs e)
-        {
-            this.Visibility = Visibility.Hidden;
-            this.pocetna.contentControl.Content = this.pacijentiProzor.Content;
-        }
-
+            => this.pocetna.contentControl.Content = this.pacijentiProzor.Content;
     }
 }
