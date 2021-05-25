@@ -25,6 +25,7 @@ namespace InformacioniSistemBolnice
         public LekIzmeniProzor(DataGrid listaLekova)
         {
             InitializeComponent();
+            AlergenRepo.Instance.Deserijalizacija();
             ListaLekova = listaLekova;
             Lek izabraniLek = (Lek)ListaLekova.SelectedValue;
             ListaAlergenaLeka = izabraniLek.Alergen;

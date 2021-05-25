@@ -3,6 +3,7 @@ using System.Windows.Controls;
 using InformacioniSistemBolnice;
 using Model;
 using Servis;
+using Repozitorijum;
 
 namespace Kontroler
 {
@@ -31,6 +32,13 @@ namespace Kontroler
         public void ZakazivanjeRenoviranja(ProstorijaRenoviranjeDto dto)
         {
             RenoviranjeServis.Instance.ZakazivanjeRenoviranja(dto);
+        }
+
+        public void BrisanjeZahtevaLeka(ZahtevDto dto)
+        {
+            ZahtevServis.Instance.ObrisiZahtev(dto);
+            ZahtevRepo.Instance.Serijalizacija();
+            ZahtevRepo.Instance.Deserijalizacija();
         }
     }
 }

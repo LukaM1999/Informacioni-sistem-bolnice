@@ -12,12 +12,10 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Model;
-using Servis;
 using Repozitorijum;
 using Kontroler;
 using System.Collections.ObjectModel;
-using StatickaOprema = Model.StatickaOprema;
-using DinamickaOprema = Model.DinamickaOprema;
+using InformacioniSistemBolnice.Views.Upravnik;
 
 namespace InformacioniSistemBolnice
 {
@@ -132,6 +130,12 @@ namespace InformacioniSistemBolnice
         private void btnRenoviranje_Click(object sender, RoutedEventArgs e)
         {
             ProstorijaRenoviranjeProzor prozor = new ProstorijaRenoviranjeProzor(ListaProstorija);
+            prozor.Show();
+        }
+
+        private void btnZahtev_Click(object sender, RoutedEventArgs e)
+        {
+            ZahteviProzor prozor = new ZahteviProzor();
             prozor.Show();
         }
     }

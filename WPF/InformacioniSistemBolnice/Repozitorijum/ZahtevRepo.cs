@@ -33,11 +33,13 @@ namespace Repozitorijum
         public void DodajZahtev(Zahtev noviZahtev)
         {
             Zahtevi.Add(noviZahtev);
-        } 
+        }
 
-        public bool ObrisiZahtev(Zahtev zahtev)
+        public bool BrisiPoKomentaru(string komentar)
         {
-            return Zahtevi.Remove(zahtev);
+            foreach (Zahtev pronadjen in Zahtevi)
+                if (pronadjen.Komentar == komentar) return Zahtevi.Remove(pronadjen);
+            return false;
         }
     }
 }

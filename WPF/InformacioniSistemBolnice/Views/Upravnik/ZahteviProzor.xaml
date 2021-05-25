@@ -1,0 +1,16 @@
+﻿<Window x:Class="InformacioniSistemBolnice.Views.Upravnik.ZahteviProzor"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:InformacioniSistemBolnice.Views.Upravnik"
+        mc:Ignorable="d"
+        Title="ZahteviProzor" Height="450" Width="607">
+    <Grid>
+        <Label Content="Zahtevi:" HorizontalAlignment="Left" Margin="43,30,0,0" VerticalAlignment="Top" Height="29" Width="92"/>
+        <Button x:Name="btnObrisiZahtev" Content="Obrisi zahtev" HorizontalAlignment="Left" Margin="490,113,0,0" VerticalAlignment="Top" Width="82" Height="30" Click="btnObrisiZahtev_Click"/>
+        <Button x:Name="btnLekovi" Content="Lekovi" HorizontalAlignment="Left" Margin="490,168,0,0" VerticalAlignment="Top" Width="82" Height="29" Click="btnLekovi_Click"/>
+        <Button x:Name="btnInfoZahteva" Content="Info zahteva" HorizontalAlignment="Left" Margin="490,66,0,0" VerticalAlignment="Top" Width="82" Height="28" Click="btnInfoZahteva_Click"/>
+        <DataGrid x:Name="listaZahteva" HorizontalAlignment="Left" Height="277" Margin="43,66,0,0" VerticalAlignment="Top" Width="402" ColumnWidth="*"/>
+    </Grid>
+</Window>

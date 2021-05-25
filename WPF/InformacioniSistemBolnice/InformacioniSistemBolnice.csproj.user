@@ -211,6 +211,12 @@
     <Compile Update="Views\Sekretar\ZdravstveniKartonForma.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Views\Upravnik\ZahteviInfoProzor.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\Upravnik\ZahteviProzor.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Page Update="ResourceDictionaries\Dictionary1.xaml">
@@ -439,6 +445,12 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\Sekretar\ZdravstveniKartonForma.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Upravnik\ZahteviInfoProzor.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Upravnik\ZahteviProzor.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
