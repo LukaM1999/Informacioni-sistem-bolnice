@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using InformacioniSistemBolnice.Views.Lekar;
 using Model;
 using Repozitorijum;
 
@@ -45,7 +46,11 @@ namespace InformacioniSistemBolnice
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            return;
+            if (BolnickaLecenja.SelectedIndex > -1)
+            {
+                UCBolnickoLecenjeIzmena lecenje = new((BolnickoLecenje)BolnickaLecenja.SelectedItem, glavniProzorLekara);
+                glavniProzorLekara.contentControl.Content = lecenje;
+            }
         }
     }
 }

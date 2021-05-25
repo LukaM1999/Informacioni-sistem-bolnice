@@ -50,6 +50,5 @@ namespace Repozitorijum
         {
             return BolnickaLecenja.Remove(NadjiLecenje(lecenje.JmbgPacijenta));
         }
-
     }
 }

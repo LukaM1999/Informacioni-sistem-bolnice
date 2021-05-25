@@ -35,7 +35,7 @@ namespace InformacioniSistemBolnice
         {
             if (listaPacijenata.SelectedIndex > -1)
             {
-                IzmenaZdravstvenogKartonaLekar zk = new IzmenaZdravstvenogKartonaLekar((Pacijent)listaPacijenata.SelectedItem, glavniProzorLekara);
+                IzmenaZdravstvenogKartonaLekar zk = new((Pacijent)listaPacijenata.SelectedItem, glavniProzorLekara);
                 zk.Show();
 
             }

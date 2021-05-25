@@ -12,6 +12,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using InformacioniSistemBolnice.Servis.UpravljanjeBolnickimLecenjima;
 using InformacioniSistemBolnice.Views.Lekar;
 using Model;
 using Repozitorijum;
@@ -30,41 +31,44 @@ namespace InformacioniSistemBolnice
         {
             InitializeComponent();
             LekarRepo.Instance.Deserijalizacija();
-            foreach (Lekar lekar in LekarRepo.Instance.Lekari)
-            {
-                System.Diagnostics.Debug.WriteLine(lekar.Korisnik.KorisnickoIme);
-                if (lekar.Korisnik.KorisnickoIme.Equals(korisnickoIme) && lekar.Korisnik.Lozinka.Equals(lozinka))
-                {
-                    ulogovanLekar = lekar;
-                    break;
-                }
-            }
+            TerminRepo.Instance.Deserijalizacija();
+            BolnickoLecenjeRepo.Instance.Deserijalizacija();
+            PronadjiUlogovanogLekara(korisnickoIme, lozinka);
             contentControl.Content = new UCRaspored(this);
             new Thread(() => new ZavrsenTerminServis<Lekar>().PokreniProveruZavrsenostiTermina(ulogovanLekar)).Start();
+            new Thread(() => new ZavrsenoBolnickoLecenjeServis().ProveriZavrsenostLecenja()).Start();
+        }
+
+        private void PronadjiUlogovanogLekara(string korisnickoIme, string lozinka)
+        {
+            foreach (Lekar lekar in LekarRepo.Instance.Lekari)
+            {
+                if (!lekar.Korisnik.KorisnickoIme.Equals(korisnickoIme) ||
+                    !lekar.Korisnik.Lozinka.Equals(lozinka)) continue;
+                ulogovanLekar = lekar;
+                break;
+            }
         }
 
         private void RasporedBtn_Click(object sender, RoutedEventArgs e)
         {
             TerminiLekaraProzor terminiLekara = new TerminiLekaraProzor(ulogovanLekar, this);
-            //terminiLekara.Show();
             contentControl.Content = new UCRaspored(this);
         }
         private void PacijentiBtn_Click(object sender, RoutedEventArgs e)
         {
-            //userControl
             this.contentControl.Content = new UCPacijenti(this);
-            //this.Show();
         }
         private void OdjavaBtn_Click(object sender, RoutedEventArgs e)
         {
             Login login = new Login();
             login.Show();
-            this.Close();
+            Close();
         }
 
         private void Lekovi_Click(object sender, RoutedEventArgs e)
         {
-            this.contentControl.Content = new UCLekovi(this);
+            contentControl.Content = new UCLekovi(this);
         }
 
         private void BolnickaLecenja_Click(object sender, RoutedEventArgs e)

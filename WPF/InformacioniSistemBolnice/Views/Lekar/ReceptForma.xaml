@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:InformacioniSistemBolnice"
+        xmlns:system="clr-namespace:System;assembly=System.Runtime"
         mc:Ignorable="d"
         Title="ReceptForma" Height="510" Width="644">
     <Grid>
@@ -12,8 +13,8 @@
         <Label Content="Mera:" HorizontalAlignment="Left" Margin="37,210,0,0" VerticalAlignment="Top" Height="42" Width="123"/>
         <Label Content="Na koliko sati?" HorizontalAlignment="Left" Margin="37,276,0,0" VerticalAlignment="Top" Height="42" Width="123"/>
         <TextBox x:Name="Id" HorizontalAlignment="Left" Margin="165,31,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="137" Height="21"/>
-        <DatePicker Name="Pocetak" HorizontalAlignment="Left" Margin="165,78,0,0" VerticalAlignment="Top" Height="21" Width="137"/>
-        <DatePicker Name="Kraj" HorizontalAlignment="Left" Margin="165,143,0,0" VerticalAlignment="Top" Height="21" Width="137"/>
+        <DatePicker DisplayDateStart="{Binding Path=., Source={x:Static system:DateTime.Today}}" Name="Pocetak" HorizontalAlignment="Left" Margin="165,78,0,0" VerticalAlignment="Top" Height="21" Width="137"/>
+        <DatePicker DisplayDateStart="{Binding Path=., Source={x:Static system:DateTime.Today}}" Name="Kraj" HorizontalAlignment="Left" Margin="165,143,0,0" VerticalAlignment="Top" Height="21" Width="137"/>
         <TextBox Name="Mera" HorizontalAlignment="Left" Margin="165,220,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="137" Height="21"/>
         <TextBox x:Name="Redovnost" HorizontalAlignment="Left" Margin="165,276,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="137" Height="21"/>
         <Label Content="ID:" HorizontalAlignment="Left" Margin="37,32,0,0" VerticalAlignment="Top" Height="42" Width="123"/>

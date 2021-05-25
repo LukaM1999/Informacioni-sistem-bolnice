@@ -14,7 +14,6 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Model;
 using Repozitorijum;
-using System.Linq;
 
 namespace InformacioniSistemBolnice
 {
@@ -28,7 +27,7 @@ namespace InformacioniSistemBolnice
         {
             InitializeComponent();
             PacijentRepo.Instance.Deserijalizacija();
-            Recept r = (Recept) recepti.listaRecepata.SelectedItem;
+            Recept r = (Recept)recepti.listaRecepata.SelectedItem;
             listaTerapija.ItemsSource = r.terapije;
             ID.Content = r.ReceptId;
             listaRecepata = recepti;
@@ -38,18 +37,24 @@ namespace InformacioniSistemBolnice
         {
             listaRecepata.glavniProzorLekara.contentControl.Content = listaRecepata;
         }
+
         private void Button_Click1(object sender, RoutedEventArgs e)
         {
             if (listaTerapija.SelectedIndex > -1)
             {
-                Terapija t = (Terapija) listaTerapija.SelectedItem;
-                if (t.Lek != null)
-                {
-                    naziv.Content = t.Lek.Naziv;
-                    proizvodjac.Content = t.Lek.Proizvodjac;
-                    sastojci.Content = t.Lek.Sastojci;
-                    zamena.Content = t.Lek.Zamena;
-                }
+                Terapija terapija = (Terapija)listaTerapija.SelectedItem;
+                IspuniPodatkeOLeku(terapija);
+            }
+        }
+
+        private void IspuniPodatkeOLeku(Terapija terapija)
+        {
+            if (terapija.Lek != null)
+            {
+                naziv.Content = terapija.Lek.Naziv;
+                proizvodjac.Content = terapija.Lek.Proizvodjac;
+                sastojci.Content = terapija.Lek.Sastojci;
+                zamena.Content = terapija.Lek.Zamena;
             }
         }
     }

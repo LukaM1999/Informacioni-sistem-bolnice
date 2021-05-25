@@ -36,9 +36,9 @@ namespace InformacioniSistemBolnice
         {
             if (listaLekova.SelectedIndex > -1)
             {
-                ReceptDto dtoRecept = new ReceptDto((DateTime) Pocetak.SelectedDate, (DateTime) Kraj.SelectedDate,
-                    double.Parse(Mera.Text), double.Parse(Redovnost.Text), Id.Text, pacijent, (Lek)listaLekova.SelectedItem);
-                LekarKontroler.Instance.IzdavanjeRecepta(dtoRecept);
+                LekarKontroler.Instance.IzdavanjeRecepta(new((DateTime)Pocetak.SelectedDate, (DateTime)Kraj.SelectedDate,
+                    double.Parse(Mera.Text), double.Parse(Redovnost.Text), 
+                    Id.Text, pacijent, (Lek)listaLekova.SelectedItem));
                 this.Close();
             }
         }

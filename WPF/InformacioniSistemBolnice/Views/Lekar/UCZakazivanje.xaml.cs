@@ -42,10 +42,9 @@ namespace InformacioniSistemBolnice.Views.Lekar
         {
             if (pocetak.SelectedDate != null && kraj.SelectedDate != null && ListaPacijenata.SelectedIndex > -1 && tip.SelectedIndex > -1)
             {
-                UputDto uputDto = new UputDto((DateTime)pocetak.SelectedDate, (DateTime)kraj.SelectedDate,
+                IzborTerminaLekara izborTerminaLekara = new(new((DateTime)pocetak.SelectedDate, (DateTime)kraj.SelectedDate,
                     glavniProzor.ulogovanLekar, (Model.Pacijent)ListaPacijenata.SelectedItem,
-                    (TipTermina)Enum.Parse(typeof(TipTermina), tip.SelectedItem.ToString()), (bool)hitno.IsChecked);
-                IzborTerminaLekara izborTerminaLekara = new(uputDto);
+                    (TipTermina)Enum.Parse(typeof(TipTermina), tip.SelectedItem.ToString()), (bool)hitno.IsChecked));
                 izborTerminaLekara.Show();
             }
         }

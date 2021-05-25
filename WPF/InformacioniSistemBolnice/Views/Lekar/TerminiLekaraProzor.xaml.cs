@@ -70,11 +70,6 @@ namespace InformacioniSistemBolnice
             }
         }
 
-        private void infoDugme_Click(object sender, RoutedEventArgs e)
-        {
-            LekarKontroler.Instance.Uvid(listaZakazanihTerminaLekara);
-        }
-
         private void pregledDugme_Click(object sender, RoutedEventArgs e)
         {
             if (listaZakazanihTerminaLekara.SelectedIndex >= 0)

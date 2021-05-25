@@ -7,6 +7,9 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="Views\Lekar\UCBolnickoLecenjeIzmena.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Views\Lekar\UCRaspored.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -223,6 +226,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\Lekar\GlavniProzorLekara.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Lekar\UCBolnickoLecenjeIzmena.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\Lekar\UCRaspored.xaml">

@@ -15,6 +15,8 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Repozitorijum;
 using Model;
+using InformacioniSistemBolnice.DTO;
+using Kontroler;
 
 
 namespace InformacioniSistemBolnice.Views.Lekar
@@ -48,10 +50,7 @@ namespace InformacioniSistemBolnice.Views.Lekar
 
         private void DodajProstoriju(Prostorija prostorija)
         {
-            if (prostorija.Tip == TipProstorije.prostorijaZaHospitalizaciju)
-            {
-                sobe.Add(prostorija);
-            }
+            if (prostorija.Tip == TipProstorije.prostorijaZaHospitalizaciju) sobe.Add(prostorija);
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -64,48 +63,8 @@ namespace InformacioniSistemBolnice.Views.Lekar
         {
             if (Pocetak.SelectedDate != null && Zavrsetak.SelectedDate != null && ProstorijeZaHospitalizaciju.SelectedIndex > -1)
             {
-                int brojac = 0;
-                Prostorija prostorija = (Prostorija)ProstorijeZaHospitalizaciju.SelectedItem;
-                DateTime pocetak = (DateTime)Pocetak.SelectedDate;
-                DateTime zavrsetak = (DateTime)Zavrsetak.SelectedDate;
-
-                if (prostorija.Renoviranje != null)
-                {
-                    if (pocetak >= prostorija.Renoviranje.PocetakRenoviranja &&
-                        pocetak <= prostorija.Renoviranje.KrajRenoviranja ||
-                        zavrsetak >= prostorija.Renoviranje.PocetakRenoviranja &&
-                        zavrsetak <= prostorija.Renoviranje.KrajRenoviranja)
-                    {
-                        MessageBox.Show("Prostorija ima zakazano renoviranje izmedju "
-                                        + prostorija.Renoviranje.PocetakRenoviranja.ToString("g") +
-                                        " i " + prostorija.Renoviranje.KrajRenoviranja.Date.ToString("g"));
-                        return;
-                    }
-                }
-
-                foreach (BolnickoLecenje lecenje in BolnickoLecenjeRepo.Instance.BolnickaLecenja)
-                {
-                    if (lecenje.NazivProstorije == prostorija.Id)
-                    {
-                        brojac++;
-                    }
-                }
-
-                foreach (Model.StatickaOprema oprema in prostorija.Inventar.StatickaOprema)
-                {
-                    if (oprema.Tip == TipStatickeOpreme.krevet)
-                    {
-                        if (brojac < oprema.Kolicina)
-                        {
-                            BolnickoLecenje novoLecenje = new(pocetak, zavrsetak, prostorija.Id, pacijent.Jmbg);
-                            BolnickoLecenjeRepo.Instance.DodajLecenje(novoLecenje);
-                            BolnickoLecenjeRepo.Instance.Serijalizacija();
-                            return;
-                        }
-                        MessageBox.Show("Zauzeti svi kreveti u prostoriji");
-                        return;
-                    }
-                }
+                LekarKontroler.Instance.KreirajBolnickoLecenje(new((DateTime)Pocetak.SelectedDate, 
+                    (DateTime)Zavrsetak.SelectedDate, pacijent, (Prostorija)ProstorijeZaHospitalizaciju.SelectedItem));
             }
         }
     }

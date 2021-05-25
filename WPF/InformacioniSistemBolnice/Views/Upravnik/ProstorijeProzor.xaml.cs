@@ -15,6 +15,7 @@ using Model;
 using Repozitorijum;
 using Kontroler;
 using System.Collections.ObjectModel;
+using InformacioniSistemBolnice.DTO;
 using InformacioniSistemBolnice.Views.Upravnik;
 
 namespace InformacioniSistemBolnice

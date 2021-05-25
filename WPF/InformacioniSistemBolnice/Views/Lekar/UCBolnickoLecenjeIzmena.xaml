@@ -1,0 +1,23 @@
+﻿<UserControl x:Class="InformacioniSistemBolnice.Views.Lekar.UCBolnickoLecenjeIzmena"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:InformacioniSistemBolnice.Views.Lekar"
+             xmlns:system="clr-namespace:System;assembly=System.Runtime"
+             mc:Ignorable="d" 
+             d:DesignHeight="612" Width="834">
+    <Grid>
+        <Button Content="Nazad" HorizontalAlignment="Left" Margin="50,35,0,0" VerticalAlignment="Top" Click="Button_Click" Height="30" Width="50"/>
+        <DatePicker Name="Pocetak" HorizontalAlignment="Center" Margin="0,125,0,0" VerticalAlignment="Top" Height="24" Width="118" IsEnabled="False"/>
+        <Label Content="Pocetak:" HorizontalAlignment="Left" Margin="282,125,0,0" VerticalAlignment="Top" Height="24" Width="66"/>
+        <DatePicker DisplayDateStart="{Binding Path=., Source={x:Static system:DateTime.Today}}" Name="Zavrsetak" HorizontalAlignment="Center" Margin="0,178,0,0" VerticalAlignment="Top" Height="24" Width="118" IsEnabled="False"/>
+        <Label Content="Zavrsetak:" HorizontalAlignment="Left" Margin="282,178,0,0" VerticalAlignment="Top" Height="24" Width="66"/>
+        <Label Content="Pacijent:" HorizontalAlignment="Left" Margin="282,230,0,0" VerticalAlignment="Top" Height="24" Width="66"/>
+        <Label Content="Prostorija:" HorizontalAlignment="Left" Margin="282,282,0,0" VerticalAlignment="Top" Height="24" Width="66"/>
+        <Label Name="ImePacijenta" Content="" HorizontalAlignment="Center" Margin="0,230,0,0" VerticalAlignment="Top" Height="24" Width="118"/>
+        <Label Name="NazivProstorije" Content="" HorizontalAlignment="Center" Margin="0,282,0,0" VerticalAlignment="Top" Height="24" Width="118"/>
+        <Button Content="Izmeni" HorizontalAlignment="Left" Margin="458,388,0,0" VerticalAlignment="Top" Height="30" Width="50" Click="Button_Click_1"/>
+
+    </Grid>
+</UserControl>
