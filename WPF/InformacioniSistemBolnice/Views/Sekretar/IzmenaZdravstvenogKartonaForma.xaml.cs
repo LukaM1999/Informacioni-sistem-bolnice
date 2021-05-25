@@ -1,11 +1,9 @@
-﻿using System;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
 using InformacioniSistemBolnice.DTO;
 using Kontroler;
 using Model;
 using Repozitorijum;
-using Servis;
 
 namespace InformacioniSistemBolnice
 {

@@ -11,7 +11,8 @@ namespace InformacioniSistemBolnice
         public PocetnaStranicaSekretara pocetna;
         public VestiProzor vesti;
         public UCMenuSekretara menu;
-        public KreirajVestProzor(PocetnaStranicaSekretara pocetnaStranicaSekretara, UCMenuSekretara menuSekretara, VestiProzor vestiProzor)
+        public KreirajVestProzor(PocetnaStranicaSekretara pocetnaStranicaSekretara, UCMenuSekretara menuSekretara, 
+                                 VestiProzor vestiProzor)
         {
             InitializeComponent();
             pocetna = pocetnaStranicaSekretara;
@@ -28,8 +29,6 @@ namespace InformacioniSistemBolnice
         }
 
         private void NazadBtn_Click(object sender, RoutedEventArgs e)
-        {
-            pocetna.contentControl.Content = vesti.Content;
-        }
+           => pocetna.contentControl.Content = vesti.Content;
     }
 }

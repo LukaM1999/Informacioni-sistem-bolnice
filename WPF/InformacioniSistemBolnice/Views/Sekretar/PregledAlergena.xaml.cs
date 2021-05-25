@@ -17,8 +17,6 @@ namespace InformacioniSistemBolnice
         }
 
         private void NazadBtn_Click(object sender, RoutedEventArgs e)
-        {
-            pocetna.contentControl.Content = new AlergeniProzor(this.pocetna);
-        }
+            => pocetna.contentControl.Content = new AlergeniProzor(this.pocetna);
     }
 }

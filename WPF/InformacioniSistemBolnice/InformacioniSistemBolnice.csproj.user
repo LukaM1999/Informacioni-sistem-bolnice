@@ -73,7 +73,7 @@
     <Compile Update="Views\Sekretar\IzmenaZdravstvenogKartonaForma.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Views\Sekretar\KreirajVijestProzor.xaml.cs">
+    <Compile Update="Views\Sekretar\KreirajVestProzor.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Views\Sekretar\KreiranjeGostujucegPacijentaProzor.xaml.cs">
@@ -88,7 +88,7 @@
     <Compile Update="Views\Sekretar\RegistracijaLekaraForma.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Views\Sekretar\UCLekari.xaml.cs">
+    <Compile Update="Views\Sekretar\Lekari.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Views\Upravnik\MagacinDodajDinamickuOpremu.xaml.cs">
@@ -294,7 +294,7 @@
     <Page Update="Views\Sekretar\IzmenaZdravstvenogKartonaForma.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Views\Sekretar\KreirajVijestProzor.xaml">
+    <Page Update="Views\Sekretar\KreirajVestProzor.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\Sekretar\KreiranjeGostujucegPacijentaProzor.xaml">
@@ -309,7 +309,7 @@
     <Page Update="Views\Sekretar\RegistracijaLekaraForma.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Views\Sekretar\UCLekari.xaml">
+    <Page Update="Views\Sekretar\Lekari.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\Upravnik\MagacinDodajDinamickuOpremu.xaml">
