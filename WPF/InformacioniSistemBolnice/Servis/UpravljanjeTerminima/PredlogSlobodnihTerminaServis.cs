@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using InformacioniSistemBolnice.DTO;
 using Model;
 using Repozitorijum;
 
@@ -22,11 +23,11 @@ namespace InformacioniSistemBolnice.Servis
         private readonly TimeSpan intervalDana;
         private DateTime slobodanTermin;
         private readonly Termin terminZaPomeranje;
-        private readonly ZakazivanjeTerminaPacijentaDTO zakazivanjeInfo;
+        private readonly ZakazivanjeTerminaPacijentaDto zakazivanjeInfo;
 
-        public PredlogSlobodnihTerminaServis(ZakazivanjeTerminaPacijentaDTO zakazivanje)
+        public PredlogSlobodnihTerminaServis(ZakazivanjeTerminaPacijentaDto zakazivanje)
         {
-            izabranLekar = zakazivanje.IzabranLekar;
+            izabranLekar = LekarRepo.Instance.NadjiLekara(zakazivanje.LekarJmbg);
             intervalDana = zakazivanje.MaxDatum - zakazivanje.MinDatum;
             slobodanTermin = zakazivanje.MinDatum.AddHours(PocetakRadnogVremenaSati);
             zakazivanjeInfo = zakazivanje;
@@ -36,7 +37,7 @@ namespace InformacioniSistemBolnice.Servis
         {
             izabranLekar = LekarRepo.Instance.NadjiLekara(izabranTermin.LekarJmbg);
             terminZaPomeranje = izabranTermin;
-            zakazivanjeInfo = new ZakazivanjeTerminaPacijentaDTO(izabranTermin.PacijentJmbg);
+            zakazivanjeInfo = new ZakazivanjeTerminaPacijentaDto(izabranTermin.PacijentJmbg);
         }
 
         public ObservableCollection<Termin> PonudiSlobodneTermine()

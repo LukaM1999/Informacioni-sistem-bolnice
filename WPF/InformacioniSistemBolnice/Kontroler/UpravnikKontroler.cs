@@ -1,6 +1,7 @@
 using System;
 using System.Windows.Controls;
 using InformacioniSistemBolnice;
+using InformacioniSistemBolnice.DTO;
 using Model;
 using Servis;
 

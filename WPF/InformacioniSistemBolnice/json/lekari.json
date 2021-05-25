@@ -1,118 +1,98 @@
 [
   {
-    "zauzetiTermini": [
-      {
-        "vreme": "2021-05-20T08:00:00",
-        "trajanje": 30.0,
-        "tipTermina": 0,
-        "status": 0,
-        "AnketaOLekaru": null,
-        "pacijentJMBG": "1905981123124",
-        "lekarJMBG": "231568933",
-        "idProstorije": "OS1",
-        "Hitan": false
-      }
-    ],
-    "specijalizacija": {
+    "Specijalizacija": {
       "Naziv": "Lekar opste prakse"
     },
-    "ime": "Darko",
-    "prezime": "Pericic",
-    "jmbg": "231568933",
-    "datumRodjenja": "1992-06-08T00:00:00",
-    "telefon": "064345590",
-    "email": "pdarko@gmail.com",
-    "adresa": {
-      "Broj": "2",
-      "Ulica": "Danila Kisa",
-      "Grad": "Novi Sad",
-      "Drzava": "Srbijaa"
-    },
-    "korisnik": {
-      "korisnickoIme": "lekar1",
-      "lozinka": "lekar1",
-      "uloga": 1
-    }
-  },
-  {
-    "zauzetiTermini": [
+    "ZauzetiTermini": [
       {
-        "vreme": "2021-05-19T10:30:00",
-        "trajanje": 30.0,
-        "tipTermina": 1,
-        "status": 0,
+        "Vreme": "2021-05-20T08:00:00",
+        "Trajanje": 30.0,
+        "Tip": 0,
+        "Status": 0,
         "AnketaOLekaru": null,
-        "pacijentJMBG": "1203998123123",
-        "lekarJMBG": "985467356",
-        "idProstorije": "ID: OS1",
+        "PacijentJmbg": "1905981123124",
+        "LekarJmbg": "231568933",
+        "ProstorijaId": null,
         "Hitan": false
       }
     ],
-    "specijalizacija": {
+    "Ime": "Darko",
+    "Prezime": "Pericic",
+    "Jmbg": "231568933",
+    "DatumRodjenja": "1992-06-08T00:00:00",
+    "Telefon": "064345590",
+    "Email": "pdarko@gmail.com",
+    "AdresaStanovanja": null,
+    "Korisnik": {
+      "KorisnickoIme": "lekar1",
+      "Lozinka": "lekar1",
+      "Uloga": 1
+    }
+  },
+  {
+    "Specijalizacija": {
       "Naziv": "Neurolog"
     },
-    "ime": "Marko",
-    "prezime": "Lazic",
-    "jmbg": "985467356",
-    "datumRodjenja": "1987-01-05T00:00:00",
-    "telefon": "063454664",
-    "email": "lmarko@gmail.com",
-    "adresa": {
-      "Broj": "2",
-      "Ulica": "Danila Kisa",
-      "Grad": "Novi Sad",
-      "Drzava": "Srbijaa"
-    },
-    "korisnik": {
-      "korisnickoIme": "lekar2",
-      "lozinka": "lekar2",
-      "uloga": 1
+    "ZauzetiTermini": [
+      {
+        "Vreme": "2021-05-19T10:30:00",
+        "Trajanje": 30.0,
+        "Tip": 0,
+        "Status": 0,
+        "AnketaOLekaru": null,
+        "PacijentJmbg": "1203998123123",
+        "LekarJmbg": "985467356",
+        "ProstorijaId": null,
+        "Hitan": false
+      }
+    ],
+    "Ime": "Marko",
+    "Prezime": "Lazic",
+    "Jmbg": "985467356",
+    "DatumRodjenja": "1987-01-05T00:00:00",
+    "Telefon": "063454664",
+    "Email": "lmarko@gmail.com",
+    "AdresaStanovanja": null,
+    "Korisnik": {
+      "KorisnickoIme": "lekar2",
+      "Lozinka": "lekar2",
+      "Uloga": 1
     }
   },
   {
-    "zauzetiTermini": [],
-    "specijalizacija": {
+    "Specijalizacija": {
       "Naziv": "Psihijatar"
     },
-    "ime": "Nikola",
-    "prezime": "Markovic",
-    "jmbg": "1203980171188",
-    "datumRodjenja": "1980-03-12T00:00:00",
-    "telefon": "0645251234444",
-    "email": "nmarkovic@gmail.com",
-    "adresa": {
-      "Broj": "2",
-      "Ulica": "Danila Kisa",
-      "Grad": "Novi Sad",
-      "Drzava": "Srbija"
-    },
-    "korisnik": {
-      "korisnickoIme": "drNikolaaa",
-      "lozinka": "drNikola",
-      "uloga": 1
+    "ZauzetiTermini": [],
+    "Ime": "Nikola",
+    "Prezime": "Markovic",
+    "Jmbg": "1203980171188",
+    "DatumRodjenja": "1980-03-12T00:00:00",
+    "Telefon": "0645251234444",
+    "Email": "nmarkovic@gmail.com",
+    "AdresaStanovanja": null,
+    "Korisnik": {
+      "KorisnickoIme": "drNikolaaa",
+      "Lozinka": "drNikola",
+      "Uloga": 1
     }
   },
   {
-    "zauzetiTermini": [],
-    "specijalizacija": {
+    "Specijalizacija": {
       "Naziv": "Dermatolog"
     },
-    "ime": "mako",
-    "prezime": "alall",
-    "jmbg": "alal",
-    "datumRodjenja": "2021-05-17T00:00:00",
-    "telefon": "lal",
-    "email": "lla",
-    "adresa": {
-      "Broj": "lal",
-      "Ulica": "lall",
-      "Grad": "lalal",
-      "Drzava": "alal"
-    },
-    "korisnik": {
-      "korisnickoIme": "llal",
-      "lozinka": "lalaaa",
-      "uloga": 1
+    "ZauzetiTermini": [],
+    "Ime": "mako",
+    "Prezime": "alall",
+    "Jmbg": "alal",
+    "DatumRodjenja": "2021-05-17T00:00:00",
+    "Telefon": "lal",
+    "Email": "lla",
+    "AdresaStanovanja": null,
+    "Korisnik": {
+      "KorisnickoIme": "llal",
+      "Lozinka": "lalaaa",
+      "Uloga": 1
     }
   }
 ]

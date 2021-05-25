@@ -12,7 +12,7 @@
           "Naziv": "pencilin"
         }
       ],
-      "Recepti": [],
+      "recepti": [],
       "BrojKartona": "K121",
       "BrojKnjizice": "1515155151",
       "Jmbg": "1203998123123",
@@ -30,7 +30,7 @@
         "RadPodPosebnimUslovima": "nema",
         "Promjene": "nema"
       },
-      "anamneza": null,
+      "Anamneza": null,
       "Alergeni": [
         {
           "Naziv": "jagode"
@@ -45,34 +45,29 @@
     },
     "zakazaniTermini": [
       {
-        "vreme": "2021-05-19T10:30:00",
-        "trajanje": 30.0,
-        "tipTermina": 1,
-        "status": 0,
+        "Vreme": "2021-05-19T10:30:00",
+        "Trajanje": 30.0,
+        "Tip": 0,
+        "Status": 0,
         "AnketaOLekaru": null,
-        "pacijentJMBG": "1203998123123",
-        "lekarJMBG": "985467356",
-        "idProstorije": "ID: OS1",
+        "PacijentJmbg": "1203998123123",
+        "LekarJmbg": "985467356",
+        "ProstorijaId": null,
         "Hitan": false
       }
     ],
-    "maliciozan": false,
-    "ime": "Milan",
-    "prezime": "Maric",
-    "jmbg": "1203998123123",
-    "datumRodjenja": "1998-03-12T00:00:00",
-    "telefon": "06455151551",
-    "email": "milanm@gmail.com",
-    "adresa": {
-      "Broj": "5",
-      "Ulica": "Kosovska",
-      "Grad": "Novi Sad",
-      "Drzava": "Srbija"
-    },
-    "korisnik": {
-      "korisnickoIme": "milan",
-      "lozinka": "milan",
-      "uloga": 2
+    "Maliciozan": false,
+    "Ime": "Milan",
+    "Prezime": "Maric",
+    "Jmbg": "1203998123123",
+    "DatumRodjenja": "1998-03-12T00:00:00",
+    "Telefon": "06455151551",
+    "Email": "milanm@gmail.com",
+    "AdresaStanovanja": null,
+    "Korisnik": {
+      "KorisnickoIme": "milan",
+      "Lozinka": "milan",
+      "Uloga": 2
     }
   },
   {
@@ -85,7 +80,7 @@
           "Naziv": "gluten"
         }
       ],
-      "Recepti": [],
+      "recepti": [],
       "BrojKartona": "K132333",
       "BrojKnjizice": "123141515111",
       "Jmbg": "1905981123124",
@@ -103,12 +98,12 @@
         "RadPodPosebnimUslovima": "nema",
         "Promjene": "nema"
       },
-      "anamneza": {
-        "id": null,
-        "sadasnjaBolest": "asdcsdcsd",
-        "ranijeBolesti": "fgbfgbf",
-        "porodicneAnamneze": "fgvbfg",
-        "zakljucak": "Sve u redu.",
+      "Anamneza": {
+        "AnamnezaId": null,
+        "SadasnjaBolest": "asdcsdcsd",
+        "RanijeBolesti": "fgbfgbf",
+        "PorodicneAnamneze": "fgvbfg",
+        "Zakljucak": "Sve u redu.",
         "BeleskePacijenta": "Neke beleskeeee."
       },
       "Alergeni": [
@@ -122,34 +117,29 @@
     },
     "zakazaniTermini": [
       {
-        "vreme": "2021-05-20T08:00:00",
-        "trajanje": 30.0,
-        "tipTermina": 0,
-        "status": 0,
+        "Vreme": "2021-05-20T08:00:00",
+        "Trajanje": 30.0,
+        "Tip": 0,
+        "Status": 4,
         "AnketaOLekaru": null,
-        "pacijentJMBG": "1905981123124",
-        "lekarJMBG": "231568933",
-        "idProstorije": "OS1",
+        "PacijentJmbg": "1905981123124",
+        "LekarJmbg": "231568933",
+        "ProstorijaId": null,
         "Hitan": false
       }
     ],
-    "maliciozan": false,
-    "ime": "Milica",
-    "prezime": "Markovic",
-    "jmbg": "1905981123124",
-    "datumRodjenja": "1981-05-19T00:00:00",
-    "telefon": "0654141414",
-    "email": "mmilica@gmail.com",
-    "adresa": {
-      "Broj": "18",
-      "Ulica": "Laze Kostica",
-      "Grad": "Novi Sad",
-      "Drzava": "Srbija"
-    },
-    "korisnik": {
-      "korisnickoIme": "milica",
-      "lozinka": "milica",
-      "uloga": 2
+    "Maliciozan": false,
+    "Ime": "Milica",
+    "Prezime": "Markovic",
+    "Jmbg": "1905981123124",
+    "DatumRodjenja": "1981-05-19T00:00:00",
+    "Telefon": "0654141414",
+    "Email": "mmilica@gmail.com",
+    "AdresaStanovanja": null,
+    "Korisnik": {
+      "KorisnickoIme": "milica",
+      "Lozinka": "milica",
+      "Uloga": 2
     }
   }
 ]

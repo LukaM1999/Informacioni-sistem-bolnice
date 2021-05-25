@@ -15,6 +15,7 @@ using System.Collections.ObjectModel;
 using Model;
 using Repozitorijum;
 using InformacioniSistemBolnice;
+using InformacioniSistemBolnice.DTO;
 using Kontroler;
 using Servis;
 

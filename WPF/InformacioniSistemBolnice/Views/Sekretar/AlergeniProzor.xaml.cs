@@ -3,6 +3,7 @@ using Repozitorijum;
 using Kontroler;
 using Model;
 using System.Windows.Controls;
+using InformacioniSistemBolnice.DTO;
 
 namespace InformacioniSistemBolnice
 {

@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using InformacioniSistemBolnice.DTO;
 using Repozitorijum;
 using Model;
 using Servis;
@@ -31,10 +32,11 @@ namespace InformacioniSistemBolnice
 
         private void potvrdaZakazivanjaDugme_Click(object sender, RoutedEventArgs e)
         {
-            ZakazivanjeTerminaPacijentaDTO zakazivanje = new((DateTime)minDatumTermina.SelectedDate,
-                (DateTime)maxDatumTermina.SelectedDate, (Lekar)lekari.SelectedItem, (bool)vremeRadio.IsChecked, pacijentJmbg);
-            if (zakazivanje.MinDatum < zakazivanje.MaxDatum && zakazivanje.IzabranLekar != null)
-                new IzborTerminaPacijentaView(zakazivanje) { Owner = this }.Show();
+            if (minDatumTermina.SelectedDate >= maxDatumTermina.SelectedDate && lekari.SelectedIndex is -1) return;
+            ZakazivanjeTerminaPacijentaDto zakazivanje = new((DateTime)minDatumTermina.SelectedDate,
+            (DateTime)maxDatumTermina.SelectedDate, ((Lekar)lekari.SelectedItem).Jmbg, pacijentJmbg,
+            vremePrioritet: (bool)vremeRadio.IsChecked);
+            new IzborTerminaPacijentaView(zakazivanje) { Owner = this }.Show();
         }
     }
 }

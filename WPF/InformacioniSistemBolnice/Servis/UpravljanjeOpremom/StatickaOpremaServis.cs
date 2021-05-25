@@ -3,6 +3,7 @@ using Model;
 using Repozitorijum;
 using InformacioniSistemBolnice;
 using System.Windows.Controls;
+using InformacioniSistemBolnice.DTO;
 
 namespace Servis
 {

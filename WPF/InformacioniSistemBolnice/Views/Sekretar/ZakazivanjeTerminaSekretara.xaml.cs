@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using InformacioniSistemBolnice.DTO;
 using Repozitorijum;
 using Model;
 namespace InformacioniSistemBolnice
@@ -47,8 +48,6 @@ namespace InformacioniSistemBolnice
             if (zakazivanje.MinDatum >= zakazivanje.MaxDatum || zakazivanje.IzabranLekar == null) return;
             IzborTerminaPacijenta izborTermina = new IzborTerminaPacijenta(zakazivanje);
             izborTermina.Visibility = Visibility.Visible;
-
-
         }
     }
 }

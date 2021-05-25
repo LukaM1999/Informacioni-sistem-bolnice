@@ -16,6 +16,7 @@ using Servis;
 using Repozitorijum;
 using Kontroler;
 using System.Collections.ObjectModel;
+using InformacioniSistemBolnice.DTO;
 using StatickaOprema = Model.StatickaOprema;
 using DinamickaOprema = Model.DinamickaOprema;
 

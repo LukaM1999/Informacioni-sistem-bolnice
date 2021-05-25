@@ -5,6 +5,7 @@ using System.Linq;
 using System.Collections.ObjectModel;
 using System.Threading;
 using InformacioniSistemBolnice;
+using InformacioniSistemBolnice.DTO;
 
 namespace Servis
 {

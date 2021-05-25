@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Model;
 using InformacioniSistemBolnice;
+using InformacioniSistemBolnice.DTO;
 using Repozitorijum;
 
 namespace InformacioniSistemBolnice.Views.Lekar
