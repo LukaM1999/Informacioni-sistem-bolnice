@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:InformacioniSistemBolnice"
              mc:Ignorable="d" 
-            Height="650" Width="1000" Background="LightGray" Margin="0,0,0,30">
+            Height="650" Width="1000" Background="LightGray" Margin="0,0,0,30" DataContext='{Binding RelativeSource={RelativeSource Self}}'>
     <Grid Height="650" Width="1000" HorizontalAlignment="Center" VerticalAlignment="Center">
         <Canvas Height="640" Width="325" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="70,10,0,0">
             <Label Content="Ime: " Canvas.Left="23" Canvas.Top="40" Width="44" HorizontalAlignment="Right"/>
@@ -16,18 +16,18 @@
             <Label Content="E-mail: " Canvas.Left="23" Canvas.Top="400" Width="70"/>
             <Label Content="Korisnicko ime: " Canvas.Left="23" Canvas.Top="440" Width="94"/>
             <Label Content="Specijalizacija: " Canvas.Left="23" Canvas.Top="480" Width="94"/>
-            <TextBox x:Name="imeUnos" Canvas.Left="132" Canvas.Top="40" Text="" TextWrapping="Wrap" Width="140" Height="25" FontSize="14"/>
-            <TextBox x:Name="prezimeUnos" Canvas.Left="132" Canvas.Top="80" Width="140" Height="25" FontSize="14" />
-            <TextBox x:Name="JMBGUnos" Canvas.Left="132" Canvas.Top="120" Text="" TextWrapping="Wrap" Width="140" Height="25" FontSize="14"/>
-            <DatePicker x:Name="datumUnos" Canvas.Left="132" Canvas.Top="160"  Width="140" Height="25" FontSize="14"/>
-            <TextBox x:Name="drzavaUnos" Canvas.Left="132" Canvas.Top="200" Text="" TextWrapping="Wrap" Width="140" Height="25" FontSize="14"/>
-            <TextBox x:Name="gradUnos" Canvas.Left="132" Canvas.Top="240" Width="140" Height="25" FontSize="14" />
-            <TextBox x:Name="ulicaUnos" Canvas.Left="132" Canvas.Top="280" Width="140" Height="25" FontSize="14"/>
-            <TextBox x:Name="brojUnos" Canvas.Left="132" Canvas.Top="320" Width="140" Height="25" FontSize="14" />
-            <TextBox x:Name="telUnos" Canvas.Left="132" Canvas.Top="360" Text="" TextWrapping="Wrap" Width="140" Height="25" FontSize="14"/>
-            <TextBox x:Name="mailUnos" Canvas.Left="132" Canvas.Top="400" Width="140" Height="25" FontSize="14" />
-            <TextBox x:Name="korisnikUnos" Canvas.Left="132" Canvas.Top="440" Text="" TextWrapping="Wrap" Width="140" Height="25" FontSize="14"/>
-            <TextBox x:Name="specijalizacijeLekara" Canvas.Left="132" Canvas.Top="480" Width="140" Height="25" FontSize="14" />
+            <TextBox x:Name="imeUnos" Canvas.Left="132" Canvas.Top="40" Text="{Binding Lekar.Ime}" TextWrapping="Wrap" Width="140" Height="25" FontSize="14"/>
+            <TextBox x:Name="prezimeUnos" Text="{Binding Lekar.Prezime}" Canvas.Left="132" Canvas.Top="80" Width="140" Height="25" FontSize="14" />
+            <TextBox x:Name="JMBGUnos" Text="{Binding Lekar.Jmbg}" Canvas.Left="132" Canvas.Top="120"  TextWrapping="Wrap" Width="140" Height="25" FontSize="14"/>
+            <DatePicker x:Name="datumUnos" Text="{Binding Lekar.DatumRodjenja}" Canvas.Left="132" Canvas.Top="160"  Width="140" Height="25" FontSize="14"/>
+            <TextBox x:Name="drzavaUnos" Canvas.Left="132" Canvas.Top="200" Text="{Binding Lekar.AdresaStanovanja.Drzava}" TextWrapping="Wrap" Width="140" Height="25" FontSize="14" TextChanged="drzavaUnos_TextChanged"/>
+            <TextBox x:Name="gradUnos" Canvas.Left="132" Canvas.Top="240" Text="{Binding Lekar.AdresaStanovanja.Grad}" Width="140" Height="25" FontSize="14" />
+            <TextBox x:Name="ulicaUnos" Canvas.Left="132" Canvas.Top="280" Text="{Binding Lekar.AdresaStanovanja.Ulica}" Width="140" Height="25" FontSize="14"/>
+            <TextBox x:Name="brojUnos" Canvas.Left="132" Canvas.Top="320" Text="{Binding Lekar.AdresaStanovanja.Broj}" Width="140" Height="25" FontSize="14" />
+            <TextBox x:Name="telUnos" Text="{Binding Lekar.Telefon}" Canvas.Left="132" Canvas.Top="360"  TextWrapping="Wrap" Width="140" Height="25" FontSize="14"/>
+            <TextBox x:Name="mailUnos" Text="{Binding Lekar.Email}" Canvas.Left="132" Canvas.Top="400" Width="140" Height="25" FontSize="14" />
+            <TextBox x:Name="korisnikUnos" Canvas.Left="132" Canvas.Top="440" Text="{Binding Lekar.Korisnik.KorisnickoIme}" TextWrapping="Wrap" Width="140" Height="25" FontSize="14"/>
+            <TextBox x:Name="specijalizacijeLekara" Text="{Binding Lekar.Specijalizacija.Naziv}" Canvas.Left="132" Canvas.Top="480" Width="140" Height="25" FontSize="14" />
             <Label Content="Drzava: " Canvas.Left="23" Canvas.Top="200" Width="58"/>
             <Label Content="Grad: " Canvas.Left="23" Canvas.Top="240" Width="58" Height="26"/>
             <Label Content="Ulica: " Canvas.Left="23" Canvas.Top="280" Width="94"/>

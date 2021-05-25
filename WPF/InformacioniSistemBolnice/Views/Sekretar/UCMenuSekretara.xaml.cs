@@ -35,6 +35,6 @@ namespace InformacioniSistemBolnice
             => pocetna.contentControl.Content = new VestiProzor(this);
 
         private void UpravljanjeNalozimaLekara_Click(object sender, RoutedEventArgs e)
-            => pocetna.contentControl.Content = new UCLekari(pocetna);
+            => pocetna.contentControl.Content = new Lekari(pocetna);
     }
 }

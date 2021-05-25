@@ -18,45 +18,24 @@ namespace InformacioniSistemBolnice.DTO
         public string Lozinka { get; set; }
         public string Specijalizacija { get; set; }
 
-        public LekarDto() {}
-        public LekarDto(string ime, string prezime, string jmbg, DateTime datumRodjenja, 
-                        string drzava, string grad, string ulica, string broj,
-                        string telefon,string email, string korisnickoIme, string lozinka, 
+        public LekarDto(string ime, string prezime, string jmbg, DateTime datumRodjenja, string drzava, string grad, 
+                        string ulica, string broj, string telefon, string email, string korisnickoIme, string lozinka,
                         string specijalizacija)
         {
-            this.Ime = ime;
-            this.Prezime = prezime;
-            this.LekarJmbg = jmbg;
-            this.DatumRodjenja = datumRodjenja;
-            this.Drzava = drzava;
-            this.Grad = grad;
-            this.Ulica = ulica;
-            this.Broj = broj;
-            this.Telefon = telefon;
-            this.Email = email;
-            this.KorisnickoIme = korisnickoIme;
-            this.Lozinka = lozinka;
-            this.Specijalizacija = specijalizacija;
+            Ime = ime;
+            Prezime = prezime;
+            LekarJmbg = jmbg;
+            DatumRodjenja = datumRodjenja;
+            Drzava = drzava;
+            Grad = grad;
+            Ulica = ulica;
+            Broj = broj;
+            Telefon = telefon;
+            Email = email;
+            KorisnickoIme = korisnickoIme;
+            Lozinka = lozinka;
+            Specijalizacija = specijalizacija;
            
-        }
-
-        public LekarDto(string ime, string prezime, string jmbg, DateTime datumRodjenja,
-                        string drzava, string grad, string ulica, string broj,
-                        string telefon, string email, string korisnickoIme, string lozinka)
-        {
-            this.Ime = ime;
-            this.Prezime = prezime;
-            this.LekarJmbg = jmbg;
-            this.DatumRodjenja = datumRodjenja;
-            this.Drzava = drzava;
-            this.Grad = grad;
-            this.Ulica = ulica;
-            this.Broj = broj;
-            this.Telefon = telefon;
-            this.Email = email;
-            this.KorisnickoIme = korisnickoIme;
-            this.Lozinka = lozinka;
-            
         }
     }
 }

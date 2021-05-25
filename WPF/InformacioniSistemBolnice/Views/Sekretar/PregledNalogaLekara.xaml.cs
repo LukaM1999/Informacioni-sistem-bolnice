@@ -1,35 +1,29 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+using Model;
 
 namespace InformacioniSistemBolnice
 {
     public partial class PregledNalogaLekara : UserControl
     {
         public PocetnaStranicaSekretara pocetna;
-        public UCLekari UCLekari;
+        public Lekari lekari;
+        public Lekar Lekar { get; set;}
 
-        public PregledNalogaLekara(PocetnaStranicaSekretara pocetnaStranicaSekretara, UCLekari uCLekari)
+        public PregledNalogaLekara(PocetnaStranicaSekretara pocetnaStranicaSekretara, Lekari uCLekari, Lekar izabraniLekar)
         {
+            Lekar = izabraniLekar;
             InitializeComponent();
             pocetna = pocetnaStranicaSekretara;
-            UCLekari = uCLekari;
+            lekari = uCLekari;      
         }
 
         private void NazadBtn_Click(object sender, RoutedEventArgs e)
+           => pocetna.contentControl.Content = lekari.Content;
+
+        private void drzavaUnos_TextChanged(object sender, TextChangedEventArgs e)
         {
-            pocetna.contentControl.Content = UCLekari.Content;
+
         }
     }
 }

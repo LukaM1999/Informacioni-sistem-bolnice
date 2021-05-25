@@ -18,8 +18,6 @@ namespace Kontroler
 
         public void IzmenaNalogaLekara(LekarDto lekarDto, Lekar lekar) => LekarServis.Instance.IzmeniNalog(lekarDto, lekar);
 
-        public LekarDto PregledNalogaLekara(Lekar lekar) { return LekarServis.Instance.PregledajNalog(lekar); }
-
         public void KreiranjeNaloga(PacijentDto pacijentDto) => PacijentServis.Instance.KreirajNalog(pacijentDto);
 
         public void KreiranjeZdravstvenogKartona(ZdravstveniKartonDto zdravstveniKartonDto,
@@ -75,6 +73,8 @@ namespace Kontroler
 
         public void IzmenaVesti(VestDto novaVest, Vest staraVest) => VestServis.Instance.IzmenaVesti(novaVest, staraVest);
 
+        public void ZakazivanjeTermina(Termin termin) => TerminServis.Instance.Zakazivanje(termin);
+       
         public void KreiranjeGostujucegPacijenta(GostujuciNalogDto gostujuciNalogDto)
                 => UrgentniSistemServis.Instance.KreiranjeGostujcegPacijenta(gostujuciNalogDto);
 

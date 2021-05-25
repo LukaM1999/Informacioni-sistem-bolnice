@@ -125,11 +125,6 @@
     "Uloga": 1
   },
   {
-    "KorisnickoIme": "lall",
-    "Lozinka": "lal",
-    "Uloga": 1
-  },
-  {
     "KorisnickoIme": "llalal",
     "Lozinka": "llall",
     "Uloga": 1
@@ -173,5 +168,10 @@
     "KorisnickoIme": "nan",
     "Lozinka": "nanan",
     "Uloga": 2
+  },
+  {
+    "KorisnickoIme": "lall",
+    "Lozinka": "al",
+    "Uloga": 1
   }
 ]
