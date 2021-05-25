@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows;
 using System.Windows.Controls;
+using Model;
 
 namespace InformacioniSistemBolnice
 {
@@ -9,14 +10,17 @@ namespace InformacioniSistemBolnice
         public ListView listaAlergena;
         public PocetnaStranicaSekretara pocetna;
         public AlergeniProzor alergeni;
-        public PregledAlergena(AlergeniProzor alergeniProzor)
+        public Alergen Alergen { get; set; }
+
+        public PregledAlergena(AlergeniProzor alergeniProzor, Alergen izabraniAlergen)
         {
+            Alergen = izabraniAlergen;
             InitializeComponent();
             alergeni = alergeniProzor;
             pocetna = alergeniProzor.pocetna;
         }
 
         private void NazadBtn_Click(object sender, RoutedEventArgs e)
-            => pocetna.contentControl.Content = new AlergeniProzor(this.pocetna);
+            => pocetna.contentControl.Content = new AlergeniProzor(pocetna);
     }
 }

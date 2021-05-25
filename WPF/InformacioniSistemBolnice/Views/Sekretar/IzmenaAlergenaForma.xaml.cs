@@ -12,9 +12,11 @@ namespace InformacioniSistemBolnice
         public ListView listaAlergena;
         public PocetnaStranicaSekretara pocetna;
         public AlergeniProzor alergeni;
-       
-        public IzmenaAlergenaForma(AlergeniProzor alergeniProzor)
+        public Alergen Alergen { get; set; }
+
+        public IzmenaAlergenaForma(AlergeniProzor alergeniProzor, Alergen izabraniAlergen)
         {
+            Alergen = izabraniAlergen;
             InitializeComponent();
             alergeni = alergeniProzor;
             pocetna = alergeniProzor.pocetna;
@@ -23,19 +25,10 @@ namespace InformacioniSistemBolnice
 
         private void PotvrdiIzmene_Click(object sender, RoutedEventArgs e)
         {
-            if (listaAlergena.SelectedValue != null)
-            {
-                SekretarKontroler.Instance.IzmenaAlergena
-                    (new AlergenDto(nazivAlergenaUnos.Text), (Alergen)listaAlergena.SelectedItem);
-                AzurirajIzgled();
-            }
+            SekretarKontroler.Instance.IzmenaAlergena(new AlergenDto(Alergen.Naziv), (Alergen)listaAlergena.SelectedItem);
+            pocetna.Content = new AlergeniProzor(pocetna);
         }
 
-        private void AzurirajIzgled()
-        {
-            pocetna.Content = new AlergeniProzor(pocetna);
-            alergeni.ListaAlergena.ItemsSource = AlergenRepo.Instance.Alergeni;
-        }
 
         private void NazadBtn_Click(object sender, RoutedEventArgs e)
         {

@@ -5,10 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:InformacioniSistemBolnice"
         mc:Ignorable="d"
-        Height="460" Width="660" Margin="0,0,0,20">
+        Height="460" Width="660" Margin="0,0,0,20" DataContext='{Binding RelativeSource={RelativeSource Self}}'>
     <Grid Height="480" Width="660" Background="LightGray">
         <Label Content="Novi alergen:" HorizontalAlignment="Left"  VerticalAlignment="Top" RenderTransformOrigin="0.486,0.587" Cursor="" Margin="195,80,0,0" Width="100" FontSize="14"/>
-        <Label x:Name="naziv" HorizontalAlignment="Left" Background="White" Width="155" Height="34" Margin="300,80,0,366" FontSize="14"/>
+        <Label x:Name="naziv" Content="{Binding Alergen.Naziv}" HorizontalAlignment="Left" Background="White" Width="155" Height="34" Margin="300,80,0,366" FontSize="14"/>
         <Button Style="{StaticResource ResourceKey=MainButtons}" x:Name="Nazad"  Click="NazadBtn_Click" HorizontalAlignment="Left" VerticalAlignment="Top" Background="LightGray"  Width="50" Height="60" >
             <StackPanel Orientation="Vertical">
                 <Image Source="../../images/back.png" Width="30" Height="30" RenderOptions.BitmapScalingMode="Fant"/>

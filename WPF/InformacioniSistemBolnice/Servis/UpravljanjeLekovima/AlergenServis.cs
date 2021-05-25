@@ -1,8 +1,6 @@
 using System;
 using Model;
 using Repozitorijum;
-using InformacioniSistemBolnice;
-using System.Windows.Controls;
 using InformacioniSistemBolnice.DTO;
 
 
@@ -10,11 +8,7 @@ namespace Servis
 {
     public class AlergenServis
     {
-
-        private static readonly Lazy<AlergenServis>
-           Lazy =
-           new Lazy<AlergenServis>
-               (() => new AlergenServis());
+        private static readonly Lazy<AlergenServis> Lazy = new Lazy<AlergenServis>(() => new AlergenServis());
 
         public static AlergenServis Instance => Lazy.Value;
 
@@ -33,12 +27,6 @@ namespace Servis
         {
             stariAlergen.Naziv = noviAlergen.Naziv;
             AlergenRepo.Instance.SacuvajPromene();
-        }
-
-        public AlergenDto PregledAlergena(Alergen alergen)
-        {
-            AlergenDto alergenDto = new(alergen.Naziv);
-            return alergenDto;
         }
 
     }

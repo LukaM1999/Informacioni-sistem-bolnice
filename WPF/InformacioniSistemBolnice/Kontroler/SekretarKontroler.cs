@@ -48,7 +48,6 @@ namespace Kontroler
 
         public void UklanjanjeAlergena(Alergen alergen) => AlergenServis.Instance.UklanjanjeAlergena(alergen);
 
-        public AlergenDto PregledAlergena(Alergen alergen) { return AlergenServis.Instance.PregledAlergena(alergen); }
 
         public void DodavanjeAlergenaIzZdravstvenogKartona(Alergen alergen, string jmbg)
                 => ZdravstveniKartonServis.Instance.DodajAlergenPacijentu(alergen, jmbg);
