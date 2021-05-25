@@ -5,11 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:InformacioniSistemBolnice"
         mc:Ignorable="d"
-        Title="PregledVesti" Height="650" MaxHeight="650" MinHeight="650" Width="1000" MaxWidth="1000" MinWidth="1000">
+        Title="PregledVesti" Height="650" MaxHeight="650" MinHeight="650" Width="1000" MaxWidth="1000" MinWidth="1000"
+        DataContext='{Binding RelativeSource={RelativeSource Self}}'>
     <Grid Background="Aqua">
-        <Label x:Name ="naslov" Background="White" HorizontalAlignment="Left" Margin="65,91,0,0" VerticalAlignment="Top" Height="60" Width="901" FontSize="22"/>
-        <TextBox x:Name="sadrzaj" FontSize="16" AcceptsReturn="True" VerticalScrollBarVisibility="Visible" Background="White"  HorizontalAlignment="Left" Margin="66,182,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Height="420" Width="900"/>
-        <Label  x:Name ="vremeObjave" HorizontalAlignment="Left" Margin="806,28,0,0" VerticalAlignment="Top" Height="30" Width="159" Background="White"/>
+        <Label x:Name ="naslov" Content="{Binding Vest.Id}" Background="White" HorizontalAlignment="Left" Margin="65,91,0,0" VerticalAlignment="Top" Height="60" Width="901" FontSize="22"/>
+        <TextBox x:Name="sadrzaj" Text="{Binding Vest.Sadrzaj}" FontSize="16" AcceptsReturn="True" VerticalScrollBarVisibility="Visible" Background="White"  HorizontalAlignment="Left" Margin="66,182,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="420" Width="900"/>
+        <Label  x:Name ="vremeObjave" Content="{Binding Vest.VremeObjave}" HorizontalAlignment="Left" Margin="806,28,0,0" VerticalAlignment="Top" Height="30" Width="159" Background="White"/>
         <Label Content="Objavljeno:" HorizontalAlignment="Left" Margin="728,34,0,0" VerticalAlignment="Top" Height="24"/>
     </Grid>
 </Window>

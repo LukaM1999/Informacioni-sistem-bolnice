@@ -64,13 +64,13 @@ namespace Kontroler
                                                         IzborTerminaZaPomeranje izborTerminaZaPomeranje)
                 => UrgentniSistemServis.Instance.PomeranjeVanrednogTermina(izborTerminaZaNovoZakazivanje, izborTerminaZaPomeranje);
 
-        public void KreiranjeVesti(VestDto vestDto) => VestServis.Instance.KreiranjeVesti(vestDto);
+        public void KreiranjeVesti(VestDto vestDto) => VestServis.Instance.KreirajVesti(vestDto);
 
-        public VestDto PregledVesti(Vest vest) { return VestServis.Instance.PregledVesti(vest); }
+        public VestDto PregledVesti(Vest vest) { return VestServis.Instance.PregledajVest(vest); }
 
-        public void UklanjanjeVesti(Vest vest) => VestServis.Instance.UklanjanjeVesti(vest);
+        public void UklanjanjeVesti(Vest vest) => VestServis.Instance.UkloniVest(vest);
 
-        public void IzmenaVesti(VestDto novaVest, Vest staraVest) => VestServis.Instance.IzmenaVesti(novaVest, staraVest);
+        public void IzmenaVesti(VestDto novaVest, Vest staraVest) => VestServis.Instance.IzmeniVest(novaVest, staraVest);
 
         public void ZakazivanjeTermina(Termin termin) => TerminServis.Instance.Zakazivanje(termin);
        
