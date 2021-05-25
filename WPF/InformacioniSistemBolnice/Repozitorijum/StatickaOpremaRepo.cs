@@ -42,11 +42,5 @@ namespace Repozitorijum
                 if (pronadjena.Tip == tip) return StatickaOprema.Remove(pronadjena);
             return false;
         }
-
-        public void SacuvajPromene()
-        {
-            Serijalizacija();
-            Deserijalizacija();
-        }
     }
 }

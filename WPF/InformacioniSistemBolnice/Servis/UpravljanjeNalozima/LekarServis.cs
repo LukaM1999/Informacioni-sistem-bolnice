@@ -114,8 +114,8 @@ namespace Servis
 
         private void SacuvajURepozitorijum()
         {
-            KorisnikRepo.Instance.SacuvajPromene();
-            LekarRepo.Instance.SacuvajPromene();
+            KorisnikRepo.Instance.Serijalizacija();
+            LekarRepo.Instance.Serijalizacija();
         }
     }
 }

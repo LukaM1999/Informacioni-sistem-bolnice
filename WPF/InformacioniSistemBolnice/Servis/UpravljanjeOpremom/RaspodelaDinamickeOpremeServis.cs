@@ -32,41 +32,41 @@ namespace Servis
         private void RaspodeliOpremuUIzMagacinaUProstoriju(RaspodelaDinamickeOpremeDto dto)
         {
             DinamickaOpremaRepo.Instance.NadjiPoTipu(dto.Oprema.Tip).Kolicina -= dto.Kolicina;
-            DinamickaOpremaRepo.Instance.SacuvajPromene();
+            DinamickaOpremaRepo.Instance.Serijalizacija();
             if (ProstorijaRepo.Instance.NadjiPoId(dto.UProstorijuId).Inventar.NadjiDinamickuOpremuPoTipu(dto.Oprema.Tip) != null)
             {
                 ProstorijaRepo.Instance.NadjiPoId(dto.UProstorijuId).Inventar.NadjiDinamickuOpremuPoTipu(dto.Oprema.Tip).Kolicina += dto.Kolicina;
-                ProstorijaRepo.Instance.SacuvajPromene();
+                ProstorijaRepo.Instance.Serijalizacija();
                 return;
             }
             ProstorijaRepo.Instance.NadjiPoId(dto.UProstorijuId).Inventar.DinamickaOprema.Add(new(dto.Kolicina, dto.Oprema.Tip));
-            ProstorijaRepo.Instance.SacuvajPromene();
+            ProstorijaRepo.Instance.Serijalizacija();
         }
         private void RaspodeliOpremuIzProstorijeUMagacin(RaspodelaDinamickeOpremeDto dto)
         {
             ProstorijaRepo.Instance.NadjiPoId(dto.IzProstorijeId).Inventar.NadjiDinamickuOpremuPoTipu(dto.Oprema.Tip).Kolicina -= dto.Kolicina;
-            ProstorijaRepo.Instance.SacuvajPromene();
+            ProstorijaRepo.Instance.Serijalizacija();
             if (DinamickaOpremaRepo.Instance.NadjiPoTipu(dto.Oprema.Tip) != null)
             {
                 DinamickaOpremaRepo.Instance.NadjiPoTipu(dto.Oprema.Tip).Kolicina += dto.Kolicina;
-                DinamickaOpremaRepo.Instance.SacuvajPromene();
+                DinamickaOpremaRepo.Instance.Serijalizacija();
                 return;
             }
             DinamickaOpremaRepo.Instance.DinamickaOprema.Add(new(dto.Kolicina, dto.Oprema.Tip));
-            DinamickaOpremaRepo.Instance.SacuvajPromene();
+            DinamickaOpremaRepo.Instance.Serijalizacija();
         }
         private void RaspodeliOpremuIzProstorijeUProstoriju(RaspodelaDinamickeOpremeDto dto)
         {
             ProstorijaRepo.Instance.NadjiPoId(dto.IzProstorijeId).Inventar.NadjiDinamickuOpremuPoTipu(dto.Oprema.Tip).Kolicina -= dto.Kolicina;
-            ProstorijaRepo.Instance.SacuvajPromene();
+            ProstorijaRepo.Instance.Serijalizacija();
             if (ProstorijaRepo.Instance.NadjiPoId(dto.UProstorijuId).Inventar.NadjiDinamickuOpremuPoTipu(dto.Oprema.Tip) != null)
             {
                 ProstorijaRepo.Instance.NadjiPoId(dto.UProstorijuId).Inventar.NadjiDinamickuOpremuPoTipu(dto.Oprema.Tip).Kolicina += dto.Kolicina;
-                ProstorijaRepo.Instance.SacuvajPromene();
+                ProstorijaRepo.Instance.Serijalizacija();
                 return;
             }
             ProstorijaRepo.Instance.NadjiPoId(dto.UProstorijuId).Inventar.DinamickaOprema.Add(new(dto.Kolicina, dto.Oprema.Tip));
-            ProstorijaRepo.Instance.SacuvajPromene();
+            ProstorijaRepo.Instance.Serijalizacija();
         }
 
     }

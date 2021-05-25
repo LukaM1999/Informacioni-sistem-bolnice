@@ -74,17 +74,11 @@ namespace Repozitorijum
             return pacijent.Korisnik.KorisnickoIme == korisnickoIme && pacijent.Korisnik.Lozinka == lozinka;
         }
 
-        public void SacuvajPromene()
-        {
-            Serijalizacija();
-            Deserijalizacija();
-        }
-
         public bool DodajPacijenta(Pacijent pacijentZaDodavanje)
         {
             if (Pacijenti.Contains(pacijentZaDodavanje)) return false;
             Pacijenti.Add(pacijentZaDodavanje);
-            SacuvajPromene();
+            Serijalizacija();
             return true;
         }
 

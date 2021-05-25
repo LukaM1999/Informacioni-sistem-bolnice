@@ -26,13 +26,13 @@ namespace Servis
         public void UklanjanjeAlergena(Alergen alergen)
         {
             AlergenRepo.Instance.BrisiPoNazivu(alergen.Naziv);
-            AlergenRepo.Instance.SacuvajPromene();
+            AlergenRepo.Instance.Serijalizacija();
         }
 
         public void IzmenaAlergena(AlergenDto noviAlergen, Alergen stariAlergen)
         {
             stariAlergen.Naziv = noviAlergen.Naziv;
-            AlergenRepo.Instance.SacuvajPromene();
+            AlergenRepo.Instance.Serijalizacija();
         }
 
         public AlergenDto PregledAlergena(Alergen alergen)

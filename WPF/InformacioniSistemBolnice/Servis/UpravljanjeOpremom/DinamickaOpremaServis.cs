@@ -16,23 +16,23 @@ namespace Servis
             if (DinamickaOpremaRepo.Instance.NadjiPoTipu(dto.Tip) == null)
             {
                 DinamickaOpremaRepo.Instance.DinamickaOprema.Add(new(dto.Kolicina, dto.Tip));
-                DinamickaOpremaRepo.Instance.SacuvajPromene();
+                DinamickaOpremaRepo.Instance.Serijalizacija();
                 return;
             }
             DinamickaOpremaRepo.Instance.NadjiPoTipu(dto.Tip).Kolicina += dto.Kolicina;
-            DinamickaOpremaRepo.Instance.SacuvajPromene();
+            DinamickaOpremaRepo.Instance.Serijalizacija();
         }
 
         public void UklanjanjeOpreme(DinamickaOpremaDto dto)
         {
             DinamickaOpremaRepo.Instance.BrisiPoTipu(dto.Tip);
-            DinamickaOpremaRepo.Instance.SacuvajPromene();
+            DinamickaOpremaRepo.Instance.Serijalizacija();
         }
 
         public void IzmenaOpreme(DinamickaOpremaDto dto)
         {
             DinamickaOpremaRepo.Instance.NadjiPoTipu(dto.Tip).Kolicina = dto.Kolicina;
-            DinamickaOpremaRepo.Instance.SacuvajPromene();
+            DinamickaOpremaRepo.Instance.Serijalizacija();
         }
     }
 }

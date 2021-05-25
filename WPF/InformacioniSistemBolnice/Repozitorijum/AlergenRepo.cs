@@ -45,7 +45,7 @@ namespace Repozitorijum
         {
             if (Alergeni.Contains(alergenZaDodavanje)) return false;
             Alergeni.Add(alergenZaDodavanje);
-            SacuvajPromene();
+            Serijalizacija();
             return true;
         }
 
@@ -58,12 +58,5 @@ namespace Repozitorijum
             }
             return false;
         }
-
-        public void SacuvajPromene()
-        {
-            Serijalizacija();
-            Deserijalizacija();
-        }
-
     }
 }

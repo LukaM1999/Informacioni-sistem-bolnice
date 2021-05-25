@@ -29,11 +29,5 @@ namespace Repozitorijum
         {
             TerminiPremestanja = new ObservableCollection<StatickaOpremaTermin>();
         }
-
-        public void SacuvajPromene()
-        {
-            Serijalizacija();
-            Deserijalizacija();
-        }
     }
 }

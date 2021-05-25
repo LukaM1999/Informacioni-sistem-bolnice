@@ -17,23 +17,23 @@ namespace Servis
             if (StatickaOpremaRepo.Instance.NadjiPoTipu(dto.Tip) == null)
             {
                 StatickaOpremaRepo.Instance.StatickaOprema.Add(new(dto.Kolicina, dto.Tip));
-                StatickaOpremaRepo.Instance.SacuvajPromene();
+                StatickaOpremaRepo.Instance.Serijalizacija();
                 return;
             }
             StatickaOpremaRepo.Instance.NadjiPoTipu(dto.Tip).Kolicina += dto.Kolicina;
-            StatickaOpremaRepo.Instance.SacuvajPromene();
+            StatickaOpremaRepo.Instance.Serijalizacija();
         }
 
         public void UklanjanjeOpreme(StatickaOpremaDto dto)
         {
             StatickaOpremaRepo.Instance.BrisiPoTipu(dto.Tip);
-            StatickaOpremaRepo.Instance.SacuvajPromene();
+            StatickaOpremaRepo.Instance.Serijalizacija();
         }
 
         public void IzmenaOpreme(StatickaOpremaDto dto)
         {
             StatickaOpremaRepo.Instance.NadjiPoTipu(dto.Tip).Kolicina = dto.Kolicina;
-            StatickaOpremaRepo.Instance.SacuvajPromene();
+            StatickaOpremaRepo.Instance.Serijalizacija();
         }
     }
 }

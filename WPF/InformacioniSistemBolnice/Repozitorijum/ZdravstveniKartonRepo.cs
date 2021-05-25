@@ -30,17 +30,11 @@ namespace Repozitorijum
             ZdravstveniKartoni = new ObservableCollection<ZdravstveniKarton>();
         }
 
-        public void SacuvajPromene()
-        {
-            Serijalizacija();
-            Deserijalizacija();
-        }
-
         public bool DodajKarton(ZdravstveniKarton kartonZaDodavanje)
         {
             if (ZdravstveniKartoni.Contains(kartonZaDodavanje)) return false;
             ZdravstveniKartoni.Add(kartonZaDodavanje);
-            SacuvajPromene();
+            Serijalizacija();
             return true;
         }
     }

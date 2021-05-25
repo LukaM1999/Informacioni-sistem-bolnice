@@ -32,12 +32,6 @@ namespace Repozitorijum
             Termini = new ObservableCollection<Termin>();
         }
 
-        public void SacuvajPromene()
-        {
-            Serijalizacija();
-            Deserijalizacija();
-        }
-
         public Termin NadjiTermin(DateTime vreme, string jmbgPacijenta, string jmbgLekara)
         {
             foreach (Termin pronadjen in Termini)

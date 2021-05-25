@@ -32,14 +32,14 @@ namespace Servis
         public void UklanjanjeVesti(Vest vest)
         {
             VestRepo.Instance.ObrisiVest(vest);
-            VestRepo.Instance.SacuvajPromene();
+            VestRepo.Instance.Serijalizacija();
         }
 
         public void IzmenaVesti(VestDto novaVest, Vest staraVest)
         {
             staraVest.Id = novaVest.Id;
             staraVest.Sadrzaj = novaVest.Sadrzaj;
-            VestRepo.Instance.SacuvajPromene();
+            VestRepo.Instance.Serijalizacija();
         }
     }
 }

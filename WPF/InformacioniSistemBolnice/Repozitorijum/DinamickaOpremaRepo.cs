@@ -45,11 +45,5 @@ namespace Repozitorijum
             }
             return false;
         }
-
-        public void SacuvajPromene()
-        {
-            Serijalizacija();
-            Deserijalizacija();
-        }
     }
 }
