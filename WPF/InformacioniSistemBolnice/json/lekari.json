@@ -3,7 +3,7 @@
     "Specijalizacija": {
       "Naziv": "Lekar opste prakse"
     },
-    "ZauzetiTermini": [
+    "ZakazaniTermini": [
       {
         "Vreme": "2021-05-27T12:00:00",
         "Trajanje": 30.0,
@@ -71,7 +71,7 @@
     "Specijalizacija": {
       "Naziv": "Kardiolog"
     },
-    "ZauzetiTermini": [
+    "ZakazaniTermini": [
       {
         "Vreme": "2021-05-28T14:00:00",
         "Trajanje": 30.0,

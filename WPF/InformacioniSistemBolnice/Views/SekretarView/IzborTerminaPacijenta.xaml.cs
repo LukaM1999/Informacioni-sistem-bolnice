@@ -85,7 +85,7 @@ namespace InformacioniSistemBolnice
                         if (drugiLekar.Specijalizacija == zakazivanje.IzabranLekar.Specijalizacija)
                         {
                             Termin t = new Termin(slobodanTermin, 30.0, izabraniTip, StatusTermina.slobodan,
-                                                                  izabraniPacijent.Jmbg, drugiLekar.Jmbg, izabranaProstorija.Id)
+                                izabraniPacijent.Jmbg, drugiLekar.Jmbg, izabranaProstorija.Id);
 
                             for (int i = 0; i < intervalDana.Days; i++)
                             {
@@ -114,7 +114,7 @@ namespace InformacioniSistemBolnice
         {
             foreach (Termin predlozenTermin in slobodniTermini.ToList())
             {
-                foreach (Termin postojeciTermin in izabranLekar.ZauzetiTermini)
+                foreach (Termin postojeciTermin in izabranLekar.ZakazaniTermini)
                 {
                     if (predlozenTermin.Vreme != postojeciTermin.Vreme) continue;
                     slobodniTermini.Remove(predlozenTermin);

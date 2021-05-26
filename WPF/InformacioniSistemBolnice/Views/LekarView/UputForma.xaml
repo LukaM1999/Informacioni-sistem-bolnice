@@ -6,7 +6,8 @@
         xmlns:local="clr-namespace:InformacioniSistemBolnice"
         xmlns:system="clr-namespace:System;assembly=System.Runtime"
         mc:Ignorable="d"
-        Title="UputForma" Height="450" Width="800">
+        Title="UputForma" Height="450" Width="800"
+        DataContext='{Binding RelativeSource={RelativeSource Self}}'>
     <Grid>
         <ComboBox x:Name="specijalizacije" HorizontalAlignment="Left" Margin="43,72,0,0" VerticalAlignment="Top" Width="182" Height="29"/>
         <Label Content="Specijalizacija:" HorizontalAlignment="Left" Margin="43,41,0,0" VerticalAlignment="Top"/>
@@ -19,7 +20,7 @@
         <DatePicker DisplayDateStart="{Binding Path=., Source={x:Static system:DateTime.Today}}" x:Name="kraj" HorizontalAlignment="Left" Margin="108,222,0,0" VerticalAlignment="Top" Height="24" Width="117"/>
         <Label Content="Kraj:" HorizontalAlignment="Left" Margin="43,217,0,0" VerticalAlignment="Top" Height="34" Width="55"/>
         <Label Content="Prostorija:" HorizontalAlignment="Left" Margin="43,316,0,0" VerticalAlignment="Top" Height="34" Width="71"/>
-        <ComboBox x:Name="tip" HorizontalAlignment="Left" Margin="134,271,0,0" VerticalAlignment="Top" Width="94">
+        <ComboBox x:Name="tip" HorizontalAlignment="Left" Margin="134,271,0,0" VerticalAlignment="Top" Width="94" SelectionChanged="tip_SelectedIndexChanged">
             <system:String>pregled</system:String>
             <system:String>operacija</system:String>
         </ComboBox>

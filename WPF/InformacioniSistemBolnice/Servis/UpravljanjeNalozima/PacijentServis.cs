@@ -90,13 +90,13 @@ namespace Servis
                                             gostujuciNalog.DatumRodjenja, gostujuciNalog.Telefon, gostujuciNalog.Email,
                 new Korisnik(null, null, (Model.UlogaKorisnika)Enum.Parse(typeof(Model.UlogaKorisnika), "pacijent")), null));
             ObservableCollection<Termin> zakazaniTermini = new ObservableCollection<Termin>();
-            gostujuciPacijent.zakazaniTermini = zakazaniTermini;
+            gostujuciPacijent.ZakazaniTermini = zakazaniTermini;
             PacijentRepo.Instance.DodajPacijenta(gostujuciPacijent);
         }
 
         public void UkloniGostujuciNalog(Pacijent pacijent)
         {
-            PacijentRepo.Instance.ObrisiPacijenta(pacijent);
+            PacijentRepo.Instance.BrisiPoJmbg(pacijent.Jmbg);
             KorisnikRepo.Instance.ObrisiKorisnika(pacijent.Korisnik);
             PacijentRepo.Instance.Serijalizacija();
             KorisnikRepo.Instance.Serijalizacija();

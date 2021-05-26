@@ -41,7 +41,7 @@ namespace Servis
         {
             Termin hitan = UzmiNajbliziSlobodanTerminIzListeSlobodnihTermina();
             hitan.Status = StatusTermina.zakazan;
-            TerminServis.Instance.Zakazivanje(hitan);
+            TerminServis.Instance.ZakaziTermin(hitan);
         }
 
         private Termin UzmiNajbliziSlobodanTerminIzListeSlobodnihTermina()
@@ -121,8 +121,8 @@ namespace Servis
             noviTermin.Status = StatusTermina.pomeren;
             TerminRepo.Instance.NadjiTermin(stariTermin.Vreme, stariTermin.LekarJmbg, stariTermin.PacijentJmbg);
             PromeniParametreTermina(stariTermin);
-            TerminServis.Instance.Zakazivanje(stariTermin);
-            TerminServis.Instance.Zakazivanje(noviTermin);
+            TerminServis.Instance.ZakaziTermin(stariTermin);
+            TerminServis.Instance.ZakaziTermin(noviTermin);
         }
 
         private void PomeriTerminLekaru(Termin staroVreme, Termin noviTermin)
@@ -185,8 +185,8 @@ namespace Servis
         public void PomeranjeVanrednogTermina(Termin terminZaPomeranje, Termin noviTermin)
         {
             noviTermin.Status = StatusTermina.pomeren;
-            TerminServis.Instance.Otkazivanje(terminZaPomeranje);
-            TerminServis.Instance.Zakazivanje(noviTermin);
+            TerminServis.Instance.OtkaziTermin(terminZaPomeranje);
+            TerminServis.Instance.ZakaziTermin(noviTermin);
         }
     }
 }
