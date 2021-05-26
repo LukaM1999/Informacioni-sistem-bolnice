@@ -78,7 +78,7 @@ namespace InformacioniSistemBolnice
             if (pocetak.SelectedDate != null && lekari.SelectedIndex > -1 && kraj.SelectedDate != null && tip.SelectedIndex > -1)
             {
                 UputDto uputDto = new UputDto((DateTime)pocetak.SelectedDate, (DateTime)kraj.SelectedDate,
-                    (Lekar)lekari.SelectedItem, pacijent, /*(Prostorija)prostorija.SelectionBoxItem,*/
+                    (Lekar)lekari.SelectedItem, pacijent, (Prostorija)prostorija.SelectionBoxItem,
                     (TipTermina)Enum.Parse(typeof(TipTermina), tip.SelectedItem.ToString()), (bool)hitno.IsChecked);
                 IzborTerminaLekara izborTerminaLekara = new(uputDto);
                 izborTerminaLekara.Show();
@@ -92,17 +92,15 @@ namespace InformacioniSistemBolnice
             {
                 foreach (Prostorija ponudjenaProstorija in ProstorijaRepo.Instance.Prostorije)
                 {
-                    if (tip.SelectedIndex == 0) DodajProstorijuIzabranogTipa(ponudjenaProstorija);
+                    if (tip.SelectedIndex == 0)
+                    {
+                        if (ponudjenaProstorija.Tip == TipProstorije.prostorijaZaPreglede)
+                            FiltriraneProstorije.Add(ponudjenaProstorija);
+                    }
+                    else if (ponudjenaProstorija.Tip == TipProstorije.operacionaSala) 
+                        FiltriraneProstorije.Add(ponudjenaProstorija);
                 }
             }
-        }
-
-        private void DodajProstorijuIzabranogTipa(Prostorija ponudjenaProstorija)
-        {
-            if (ponudjenaProstorija.Tip == TipProstorije.prostorijaZaPreglede)
-                FiltriraneProstorije.Add(ponudjenaProstorija);
-            else if (ponudjenaProstorija.Tip == TipProstorije.operacionaSala)
-                FiltriraneProstorije.Add(ponudjenaProstorija);
         }
     }
 }

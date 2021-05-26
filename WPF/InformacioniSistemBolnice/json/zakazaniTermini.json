@@ -53,5 +53,16 @@
     "LekarJmbg": "1605988156156",
     "ProstorijaId": null,
     "Hitan": false
+  },
+  {
+    "Vreme": "2021-05-27T08:00:00",
+    "Trajanje": 30.0,
+    "Tip": 1,
+    "Status": 0,
+    "AnketaOLekaru": null,
+    "PacijentJmbg": "1805999134144",
+    "LekarJmbg": "1605988156156",
+    "ProstorijaId": "P1",
+    "Hitan": false
   }
 ]

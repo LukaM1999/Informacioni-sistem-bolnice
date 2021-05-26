@@ -6,23 +6,27 @@
              xmlns:local="clr-namespace:InformacioniSistemBolnice.Views"
              xmlns:System="clr-namespace:System;assembly=System.Runtime" x:Class="InformacioniSistemBolnice.Views.UCZakazivanje"
              mc:Ignorable="d" 
-             d:DesignHeight="612" d:DesignWidth="834">
+             d:DesignHeight="612" d:DesignWidth="834"
+             DataContext='{Binding RelativeSource={RelativeSource Self}}'>
     <Grid>
         <Button Name="Nazad" Content="Nazad" HorizontalAlignment="Left" Margin="50,35,0,0" VerticalAlignment="Top" Height="29" Width="53" Click="Nazad_Click"/>
 
         <DatePicker x:Name="pocetak" Width="117" VerticalAlignment="Top" Margin="183,128,0,0" Height="24" HorizontalAlignment="Left" DisplayDateStart="{Binding Path=., Source={x:Static System:DateTime.Today}}"/>
         <Label VerticalAlignment="Top" Margin="118,123,0,0" Height="34" HorizontalAlignment="Left" Content="Pocetak:"/>
-            <DatePicker x:Name="kraj" Width="117" VerticalAlignment="Top" Margin="183,181,0,0" Height="24" HorizontalAlignment="Left" DisplayDateStart="{Binding Path=., Source={x:Static System:DateTime.Today}}"/>
+        <DatePicker x:Name="kraj" Width="117" VerticalAlignment="Top" Margin="183,181,0,0" Height="24" HorizontalAlignment="Left" DisplayDateStart="{Binding Path=., Source={x:Static System:DateTime.Today}}"/>
         <Label Width="55" VerticalAlignment="Top" Margin="118,176,0,0" Height="34" HorizontalAlignment="Left" Content="Kraj:"/>
-        <ComboBox x:Name="tip" HorizontalAlignment="Left" Margin="209,230,0,0" VerticalAlignment="Top" Width="94">
+        <ComboBox x:Name="tip" HorizontalAlignment="Left" Margin="209,230,0,0" VerticalAlignment="Top" Width="94" SelectionChanged="tip_SelectedIndexChanged">
             <System:String>pregled</System:String>
             <System:String>operacija</System:String>
         </ComboBox>
         <Label Content="Tip:" HorizontalAlignment="Left" Margin="118,230,0,0" VerticalAlignment="Top" Height="34" Width="55"/>
-        <CheckBox x:Name="hitno" Content="Hitno" HorizontalAlignment="Left" Margin="243,284,0,0" VerticalAlignment="Top" Height="24" Width="60"/>
+        <CheckBox x:Name="hitno" Content="Hitno" HorizontalAlignment="Left" Margin="240,344,0,0" VerticalAlignment="Top" Height="24" Width="60"/>
         <Label VerticalAlignment="Top" Margin="348,34,0,0" Height="34" HorizontalAlignment="Left" Content="Pacijent:"/>
         <DataGrid Style="{StaticResource ResourceKey=Tables}" x:Name="ListaPacijenata" Margin="348,74,23,70" CanUserAddRows="False"/>
         <Button Name="Potvrdi" Content="Potvrdi" HorizontalAlignment="Left" Margin="230,513,0,0" VerticalAlignment="Top" Height="29" Width="52" Click="Potvrdi_Click"/>
+        <ComboBox Name="Prostorija" HorizontalAlignment="Left" Margin="208,289,0,0" VerticalAlignment="Top" Width="94">
+        </ComboBox>
+        <Label Content="Prostorija:" HorizontalAlignment="Left" Margin="117,0,0,0" VerticalAlignment="Center" Height="34" Width="55"/>
 
     </Grid>
 </UserControl>

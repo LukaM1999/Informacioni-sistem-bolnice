@@ -61,7 +61,6 @@ namespace InformacioniSistemBolnice
                 {
                     slobodanTermin = PopunjavaNovuListuSlobodnihTermina(slobodanTermin);
                 }
-
                 slobodanTermin = slobodanTermin.AddHours(10.5);
             }
         }
@@ -72,53 +71,22 @@ namespace InformacioniSistemBolnice
             {
                 slobodniTermini.Add(new Termin(slobodanTermin, 30.0,
                     uput.Tip, StatusTermina.slobodan,
-                    uput.Pacijent.Jmbg, uput.Lekar.Jmbg, null, uput.Hitan));
-                foreach (Prostorija prostorija in ProstorijaRepo.Instance.Prostorije)
-                {
-                    bool vecZakazan = false;
-                    if (uput.Tip == TipTermina.pregled)
-                    {
-                        if (prostorija.Tip != TipProstorije.prostorijaZaPreglede) continue;
-                        foreach (Termin termin in prostorija.TerminiProstorije)
-                        {
-                            if (slobodanTermin != termin.Vreme) continue;
-                            vecZakazan = true;
-                            break;
-                        }
-                        if (vecZakazan) continue;
-                        if (prostorija.Renoviranje != null)
-                        {
-                            if (slobodanTermin >= prostorija.Renoviranje.PocetakRenoviranja &&
-                                slobodanTermin <= prostorija.Renoviranje.KrajRenoviranja) continue;
-                        }
-
-                        slobodniTermini.Last().ProstorijaId = prostorija.Id;
-                    }
-                    else
-                    {
-                        if (prostorija.Tip != TipProstorije.operacionaSala) continue;
-                        foreach (Termin termin in prostorija.TerminiProstorije)
-                        {
-                            if (slobodanTermin != termin.Vreme) continue;
-                            vecZakazan = true;
-                            break;
-                        }
-
-                        if (vecZakazan) continue;
-                        if (prostorija.Renoviranje != null)
-                        {
-                            if (slobodanTermin >= prostorija.Renoviranje.PocetakRenoviranja &&
-                                slobodanTermin <= prostorija.Renoviranje.KrajRenoviranja) continue;
-                        }
-
-                        slobodniTermini.Last().ProstorijaId = prostorija.Id;
-                    }
-                }
-                if (slobodniTermini.Last().ProstorijaId == null)
-                    slobodniTermini.RemoveAt(slobodniTermini.Count - 1);
+                    uput.Pacijent.Jmbg, uput.Lekar.Jmbg, uput.Prostorija.Id, uput.Hitan));
+                if (ImaZakazanoRenoviranje(slobodanTermin, uput.Prostorija.Id)) continue;
                 slobodanTermin = slobodanTermin.AddMinutes(30);
             }
             return slobodanTermin;
+        }
+
+        private bool ImaZakazanoRenoviranje(DateTime slobodanTermin, string id)
+        {
+            Prostorija prostorija = ProstorijaRepo.Instance.NadjiPoId(id);
+            if (prostorija.Renoviranje != null)
+            {
+                if (slobodanTermin >= prostorija.Renoviranje.PocetakRenoviranja &&
+                    slobodanTermin <= prostorija.Renoviranje.KrajRenoviranja) return true;
+            }
+            return false;
         }
 
         private void IzbacujeZauzeteTermineLekara()
@@ -165,52 +133,8 @@ namespace InformacioniSistemBolnice
             {
                 slobodniTermini.Add(new Termin(slobodanTermin, 30.0,
                     uput.Tip, StatusTermina.slobodan,
-                    uput.Pacijent.Jmbg, uput.Lekar.Jmbg, null, uput.Hitan));
-
-                foreach (Prostorija prostorija in ProstorijaRepo.Instance.Prostorije)
-                {
-                    bool vecZakazan = false;
-                    if (uput.Tip == TipTermina.pregled)
-                    {
-                        if (prostorija.Tip != TipProstorije.prostorijaZaPreglede) continue;
-                        foreach (Termin termin in prostorija.TerminiProstorije)
-                        {
-                            if (slobodanTermin != termin.Vreme) continue;
-                            vecZakazan = true;
-                            break;
-                        }
-                        if (vecZakazan) continue;
-                        if (prostorija.Renoviranje != null)
-                        {
-                            if (slobodanTermin >= prostorija.Renoviranje.PocetakRenoviranja &&
-                                slobodanTermin <= prostorija.Renoviranje.KrajRenoviranja) continue;
-                        }
-
-                        slobodniTermini.Last().ProstorijaId = prostorija.Id;
-                    }
-                    else
-                    {
-                        if (prostorija.Tip != TipProstorije.operacionaSala) continue;
-                        foreach (Termin termin in prostorija.TerminiProstorije)
-                        {
-                            if (slobodanTermin != termin.Vreme) continue;
-                            vecZakazan = true;
-                            break;
-                        }
-
-                        if (vecZakazan) continue;
-                        if (prostorija.Renoviranje != null)
-                        {
-                            if (slobodanTermin >= prostorija.Renoviranje.PocetakRenoviranja &&
-                                slobodanTermin <= prostorija.Renoviranje.KrajRenoviranja) continue;
-                        }
-
-                        slobodniTermini.Last().ProstorijaId = prostorija.Id;
-                    }
-                }
-
-                if (slobodniTermini.Last().ProstorijaId == null)
-                    slobodniTermini.RemoveAt(slobodniTermini.Count - 1);
+                    uput.Pacijent.Jmbg, uput.Lekar.Jmbg, uput.Prostorija.Id, uput.Hitan));
+                if (ImaZakazanoRenoviranje(slobodanTermin, uput.Prostorija.Id)) continue;
                 slobodanTermin = slobodanTermin.AddMinutes(30);
             }
             return slobodanTermin;

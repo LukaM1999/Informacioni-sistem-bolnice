@@ -33,7 +33,7 @@ namespace InformacioniSistemBolnice
         private void OtvoriIzborTermina(object sender, RoutedEventArgs e)
         {
             if (minDatumTermina.SelectedDate >= maxDatumTermina.SelectedDate && lekari.SelectedIndex is -1) return;
-            ZakazivanjeTerminaPacijentaDto zakazivanje = new((DateTime)minDatumTermina.SelectedDate,
+            ZakazivanjeTerminaDto zakazivanje = new((DateTime)minDatumTermina.SelectedDate,
             (DateTime)maxDatumTermina.SelectedDate, ((Lekar)lekari.SelectedItem).Jmbg, pacijentJmbg,
             vremePrioritet: (bool)vremeRadio.IsChecked);
             new IzborTerminaPacijentaView(zakazivanje) { Owner = this }.Show();

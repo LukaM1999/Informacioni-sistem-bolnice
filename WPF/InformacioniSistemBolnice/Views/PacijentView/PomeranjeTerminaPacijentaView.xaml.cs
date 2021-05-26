@@ -35,7 +35,7 @@ namespace InformacioniSistemBolnice
 
         private void PomeriTermin(object sender, RoutedEventArgs e)
         {
-            PacijentKontroler.Instance.Pomeranje(terminZaPomeranje, (Termin)ponudjeniTermini.SelectedValue);
+            PacijentKontroler.Instance.PomeriTermin(terminZaPomeranje, (Termin)ponudjeniTermini.SelectedValue);
             Close();
         }
     }

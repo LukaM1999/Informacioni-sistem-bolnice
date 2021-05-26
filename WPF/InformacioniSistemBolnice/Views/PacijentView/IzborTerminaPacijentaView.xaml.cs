@@ -24,7 +24,7 @@ namespace InformacioniSistemBolnice
 {
     public partial class IzborTerminaPacijentaView : Window
     {
-        public IzborTerminaPacijentaView(ZakazivanjeTerminaPacijentaDto zakazivanje)
+        public IzborTerminaPacijentaView(ZakazivanjeTerminaDto zakazivanje)
         {
             InitializeComponent();
             ponudjeniTermini.ItemsSource = new PredlogSlobodnihTerminaServis(zakazivanje).PonudiSlobodneTermine();
@@ -32,7 +32,7 @@ namespace InformacioniSistemBolnice
 
         private void ZakaziTermin(object sender, RoutedEventArgs e)
         {
-            PacijentKontroler.Instance.Zakazivanje((Termin)ponudjeniTermini.SelectedValue);
+            PacijentKontroler.Instance.ZakaziTermin((Termin)ponudjeniTermini.SelectedValue);
             Owner?.Close();
             Close();
         }

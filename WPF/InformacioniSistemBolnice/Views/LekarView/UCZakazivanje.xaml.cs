@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -25,12 +26,16 @@ namespace InformacioniSistemBolnice.Views
     public partial class UCZakazivanje : UserControl
     {
         private GlavniProzorLekara glavniProzor;
+        public ObservableCollection<Prostorija> FiltriraneProstorije { get; set; }
         public UCZakazivanje(GlavniProzorLekara glavni)
         {
             InitializeComponent();
             PacijentRepo.Instance.Deserijalizacija();
+            ProstorijaRepo.Instance.Deserijalizacija();
             glavniProzor = glavni;
             ListaPacijenata.ItemsSource = PacijentRepo.Instance.Pacijenti;
+            FiltriraneProstorije = new();
+            Prostorija.ItemsSource = FiltriraneProstorije;
         }
 
         private void Nazad_Click(object sender, RoutedEventArgs e)
@@ -43,9 +48,26 @@ namespace InformacioniSistemBolnice.Views
             if (pocetak.SelectedDate != null && kraj.SelectedDate != null && ListaPacijenata.SelectedIndex > -1 && tip.SelectedIndex > -1)
             {
                 IzborTerminaLekara izborTerminaLekara = new(new((DateTime)pocetak.SelectedDate, (DateTime)kraj.SelectedDate,
-                    glavniProzor.ulogovanLekar, (global::Model.Pacijent)ListaPacijenata.SelectedItem,
+                    glavniProzor.ulogovanLekar, (global::Model.Pacijent)ListaPacijenata.SelectedItem, (Prostorija)Prostorija.SelectionBoxItem,
                     (TipTermina)Enum.Parse(typeof(TipTermina), tip.SelectedItem.ToString()), (bool)hitno.IsChecked));
                 izborTerminaLekara.Show();
+            }
+        }
+        private void tip_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            FiltriraneProstorije.Clear();
+            if (tip.SelectedItem != null)
+            {
+                foreach (Prostorija ponudjenaProstorija in ProstorijaRepo.Instance.Prostorije)
+                {
+                    if (tip.SelectedIndex == 0)
+                    {
+                        if (ponudjenaProstorija.Tip == TipProstorije.prostorijaZaPreglede)
+                            FiltriraneProstorije.Add(ponudjenaProstorija);
+                    }
+                    else if (ponudjenaProstorija.Tip == TipProstorije.operacionaSala)
+                        FiltriraneProstorije.Add(ponudjenaProstorija);
+                }
             }
         }
     }

@@ -43,7 +43,8 @@
         }
       ]
     },
-    "zakazaniTermini": [
+    "Maliciozan": false,
+    "ZakazaniTermini": [
       {
         "Vreme": "2021-05-28T14:00:00",
         "Trajanje": 30.0,
@@ -56,7 +57,6 @@
         "Hitan": false
       }
     ],
-    "Maliciozan": false,
     "Ime": "Milan",
     "Prezime": "Maric",
     "Jmbg": "1203998123123",
@@ -120,7 +120,8 @@
         }
       ]
     },
-    "zakazaniTermini": [
+    "Maliciozan": false,
+    "ZakazaniTermini": [
       {
         "Vreme": "2021-05-27T12:00:00",
         "Trajanje": 30.0,
@@ -166,7 +167,6 @@
         "Hitan": false
       }
     ],
-    "Maliciozan": false,
     "Ime": "Milica",
     "Prezime": "Markovic",
     "Jmbg": "1905981123124",
@@ -235,8 +235,20 @@
         }
       ]
     },
-    "zakazaniTermini": [],
     "Maliciozan": false,
+    "ZakazaniTermini": [
+      {
+        "Vreme": "2021-05-27T08:00:00",
+        "Trajanje": 30.0,
+        "Tip": 1,
+        "Status": 0,
+        "AnketaOLekaru": null,
+        "PacijentJmbg": "1805999134144",
+        "LekarJmbg": "1605988156156",
+        "ProstorijaId": "P1",
+        "Hitan": false
+      }
+    ],
     "Ime": "Milos",
     "Prezime": "Ivezic",
     "Jmbg": "1805999134144",
@@ -293,8 +305,8 @@
         }
       ]
     },
-    "zakazaniTermini": [],
     "Maliciozan": false,
+    "ZakazaniTermini": [],
     "Ime": "Mila",
     "Prezime": "nanan",
     "Jmbg": "nana",

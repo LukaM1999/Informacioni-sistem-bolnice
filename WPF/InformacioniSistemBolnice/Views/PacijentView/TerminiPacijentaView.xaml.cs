@@ -60,7 +60,7 @@ namespace InformacioniSistemBolnice
 
         private void OtkaziTermin(object sender, RoutedEventArgs e)
         {
-            PacijentKontroler.Instance.Otkazivanje((Termin)listaZakazanihTermina.SelectedValue);
+            PacijentKontroler.Instance.OtkaziTermin((Termin)listaZakazanihTermina.SelectedValue);
         }
 
         private void OtvoriVesti(object sender, RoutedEventArgs e)
