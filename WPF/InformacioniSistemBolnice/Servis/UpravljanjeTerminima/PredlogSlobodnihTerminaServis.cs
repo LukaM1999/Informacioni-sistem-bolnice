@@ -18,9 +18,9 @@ namespace InformacioniSistemBolnice.Servis
         private readonly TimeSpan intervalDana;
         private DateTime slobodanTermin;
         private readonly Termin terminZaPomeranje;
-        private readonly ZakazivanjeTerminaPacijentaDto zakazivanjeInfo;
+        private readonly ZakazivanjeTerminaDto zakazivanjeInfo;
 
-        public PredlogSlobodnihTerminaServis(ZakazivanjeTerminaPacijentaDto zakazivanje)
+        public PredlogSlobodnihTerminaServis(ZakazivanjeTerminaDto zakazivanje)
         {
             izabranLekar = LekarRepo.Instance.NadjiLekara(zakazivanje.LekarJmbg);
             intervalDana = zakazivanje.MaxDatum - zakazivanje.MinDatum;
@@ -32,7 +32,7 @@ namespace InformacioniSistemBolnice.Servis
         {
             izabranLekar = LekarRepo.Instance.NadjiLekara(izabranTermin.LekarJmbg);
             terminZaPomeranje = izabranTermin;
-            zakazivanjeInfo = new ZakazivanjeTerminaPacijentaDto(izabranTermin.PacijentJmbg);
+            zakazivanjeInfo = new ZakazivanjeTerminaDto(izabranTermin.PacijentJmbg);
         }
 
         public ObservableCollection<Termin> PonudiSlobodneTermine()

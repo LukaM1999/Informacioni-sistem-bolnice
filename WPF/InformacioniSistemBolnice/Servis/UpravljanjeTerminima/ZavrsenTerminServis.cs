@@ -19,15 +19,20 @@ namespace Servis
             ulogovanKorisnik = korisnik;
             while (true)
             {
-                foreach (Termin termin in TerminRepo.Instance.Termini.ToList())
-                {
-                    korisnikovTermin = termin;
-                    if (!JeTerminZavrsen()) continue;
-                    ZavrsiKorisnikovTermin();
-                    termin.Status = StatusTermina.zavrsen;
-                    TerminRepo.Instance.Serijalizacija();
-                }
+                ProveriZavrsenostTermina();
                 Thread.Sleep(1000);
+            }
+        }
+
+        private void ProveriZavrsenostTermina()
+        {
+            foreach (Termin termin in TerminRepo.Instance.Termini.ToList())
+            {
+                korisnikovTermin = termin;
+                if (!JeTerminZavrsen()) continue;
+                ZavrsiKorisnikovTermin();
+                termin.Status = StatusTermina.zavrsen;
+                TerminRepo.Instance.Serijalizacija();
             }
         }
 

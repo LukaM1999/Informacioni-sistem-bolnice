@@ -3,7 +3,7 @@ using Model;
 
 namespace InformacioniSistemBolnice.DTO
 {
-    public class ZakazivanjeTerminaPacijentaDto
+    public class ZakazivanjeTerminaDto
     {
         public DateTime MinDatum { get; set; }
         public DateTime MaxDatum { get; set; }
@@ -15,7 +15,7 @@ namespace InformacioniSistemBolnice.DTO
         public bool Hitan { get; set; }
         public TipTermina IzabraniTip { get; set; }
 
-        public ZakazivanjeTerminaPacijentaDto(DateTime minDatum, DateTime maxDatum,
+        public ZakazivanjeTerminaDto(DateTime minDatum, DateTime maxDatum,
             string lekarJmbg, string pacijentJmbg, string specijalizacija = null, bool vremePrioritet = false, 
             string prostorijaId = null, bool hitan = false, TipTermina izabraniTip = TipTermina.pregled)
         {
@@ -30,7 +30,7 @@ namespace InformacioniSistemBolnice.DTO
             IzabraniTip = izabraniTip;
         }
 
-        public ZakazivanjeTerminaPacijentaDto(string pacijentovJmbg)
+        public ZakazivanjeTerminaDto(string pacijentovJmbg)
         {
             PacijentJmbg = pacijentovJmbg;
         }

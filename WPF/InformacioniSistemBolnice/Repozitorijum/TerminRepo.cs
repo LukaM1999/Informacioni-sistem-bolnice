@@ -58,5 +58,14 @@ namespace Repozitorijum
                 terminZaBrisanje.PacijentJmbg, terminZaBrisanje.LekarJmbg));
         }
 
+        public void BrisiProstorijuIzSvihTermina(string idProstorije)
+        {
+            foreach (Termin termin in Termini)
+            {
+                if (termin.ProstorijaId != idProstorije) continue;
+                termin.ProstorijaId = null;
+                Serijalizacija();
+            }
+        }
     }
 }

@@ -46,16 +46,6 @@ namespace Repozitorijum
             return pronadjena.TerminiProstorije.Count == 0 && Prostorije.Remove(pronadjena);
         }
 
-        public void BrisiProstorijuIzSvihTermina(string idProstorije)
-        {
-            foreach (Termin t in TerminRepo.Instance.Termini)
-            {
-                if (t.ProstorijaId != idProstorije) continue;
-                t.ProstorijaId = null;
-                TerminRepo.Instance.Serijalizacija();
-            }
-        }
-
         private ProstorijaRepo()
         {
             Prostorije = new ObservableCollection<Prostorija>();

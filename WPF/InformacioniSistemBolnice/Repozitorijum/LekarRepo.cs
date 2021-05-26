@@ -53,9 +53,9 @@ namespace Repozitorijum
             return true;
         }
 
-        public bool ObrisiLekara(Lekar lekar)
+        public bool ObrisiLekara(Lekar lekarZaBrisanje)
         {
-            return Lekari.Remove(NadjiLekara(lekar.Jmbg));
+            return Lekari.Remove(NadjiLekara(lekarZaBrisanje.Jmbg));
         }
     }
 }

@@ -11,13 +11,13 @@ namespace Kontroler
         private static readonly Lazy<PacijentKontroler> Lazy = new(() => new PacijentKontroler());
         public static PacijentKontroler Instance => Lazy.Value;
 
-        public void Zakazivanje(Termin terminZaZakazivanje)
+        public void ZakaziTermin(Termin terminZaZakazivanje)
             => TerminServis.Instance.ZakaziTermin(terminZaZakazivanje);
 
-        public void Otkazivanje(Termin terminZaOtkazivanje)
+        public void OtkaziTermin(Termin terminZaOtkazivanje)
             => TerminServis.Instance.OtkaziTermin(terminZaOtkazivanje);
 
-        public void Pomeranje(Termin terminZaPomeranje, Termin noviTermin)
+        public void PomeriTermin(Termin terminZaPomeranje, Termin noviTermin)
             => TerminServis.Instance.PomeriTermin(terminZaPomeranje, noviTermin);
 
         public void PosaljiAnketuOLekaru(Termin zavrsenTermin, AnketaDto novaAnketa)

@@ -39,13 +39,6 @@ namespace Repozitorijum
             return null;
         }
 
-        public Pacijent NadjiRegistrovanogPacijenta()
-        {
-            foreach (Pacijent pronadjen in Pacijenti)
-                if (pronadjen.Korisnik.KorisnickoIme != null) return pronadjen;
-            return null;
-        }
-
         public bool BrisiPoJmbg(string jmbg)
         {
             foreach (Pacijent pronadjen in Pacijenti)

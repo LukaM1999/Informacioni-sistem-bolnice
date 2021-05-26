@@ -20,7 +20,7 @@ namespace Servis
       
       public void UklanjanjeProstorije(ProstorijaDto dto)
       {
-            ProstorijaRepo.Instance.BrisiProstorijuIzSvihTermina(dto.Id);
+            TerminRepo.Instance.BrisiProstorijuIzSvihTermina(dto.Id);
             if (!ProstorijaRepo.Instance.BrisiPoId(dto.Id)) return;
             ProstorijaRepo.Instance.Serijalizacija();            
        }
