@@ -7,20 +7,20 @@ using System.Windows;
 using System.Windows.Input;
 using InformacioniSistemBolnice.Utilities;
 using InformacioniSistemBolnice.ViewModels;
-using InformacioniSistemBolnice.Views.Pacijent;
+using InformacioniSistemBolnice.Views.PacijentView;
 using Kontroler;
 using Model;
 using PropertyChanged;
 
-namespace InformacioniSistemBolnice
+namespace InformacioniSistemBolnice.ViewModels.PacijentViewModel
 {
     public class AnamnezaViewModel
     {
-        private readonly Pacijent ulogovanPacijent;
+        private readonly Model.Pacijent ulogovanPacijent;
         public Anamneza PacijentovaAnamneza { get; set; }
         public ICommand SacuvajIzmeneAnamneze { get; set; }
 
-        public AnamnezaViewModel(Pacijent ulogovan)
+        public AnamnezaViewModel(Model.Pacijent ulogovan)
         {
             ulogovanPacijent = ulogovan;
             ZdravstveniKarton kartonPacijenta = ulogovanPacijent.zdravstveniKarton;

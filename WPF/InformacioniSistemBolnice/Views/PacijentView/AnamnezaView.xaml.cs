@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Windows;
 
 
-namespace InformacioniSistemBolnice.Views.Pacijent
+namespace InformacioniSistemBolnice.Views.PacijentView
 {
     public partial class AnamnezaView : Window
     {

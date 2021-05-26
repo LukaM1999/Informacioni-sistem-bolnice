@@ -11,6 +11,8 @@ using System.Threading;
 using InformacioniSistemBolnice.Views.Pacijent;
 using System.Diagnostics;
 using InformacioniSistemBolnice.ViewModels.Pacijent;
+using InformacioniSistemBolnice.ViewModels.PacijentViewModel;
+using InformacioniSistemBolnice.Views.PacijentView;
 
 namespace InformacioniSistemBolnice
 {
