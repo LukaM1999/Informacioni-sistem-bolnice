@@ -1,0 +1,47 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:InformacioniSistemBolnice.Views.Upravnik"
+        xmlns:InformacioniSistemBolnice="clr-namespace:InformacioniSistemBolnice" xmlns:Model="clr-namespace:Model" x:Class="InformacioniSistemBolnice.Views.Upravnik.SpajanjeProzor"
+        mc:Ignorable="d"
+        Title="SpajanjeProzor" Height="446" Width="800">
+    <Grid>
+        <RadioButton x:Name="rbRazdvajanje" Content="Razdvajanje" HorizontalAlignment="Left" Margin="136,32,0,0" VerticalAlignment="Top" IsChecked="True"/>
+        <RadioButton x:Name="rbSpajanje" Content="Spajanje" HorizontalAlignment="Left" Margin="565,31,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="cbStaraProstorija" HorizontalAlignment="Left" Height="22" Margin="118,78,0,0" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="tbSpratNovaProstorija1" HorizontalAlignment="Left" Height="22" Margin="118,143,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="tbIdNovaProstorija1" HorizontalAlignment="Left" Height="22" Margin="118,0,0,0" TextWrapping="Wrap" VerticalAlignment="Center" Width="120"/>
+        <ComboBox x:Name="cbTipNovaProstorija1" HorizontalAlignment="Left" Height="22" Margin="118,173,0,0" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Stara prostorija:" HorizontalAlignment="Left" Height="23" Margin="10,77,0,0" VerticalAlignment="Top" Width="104"/>
+        <Label Content="Nova prostorija 1:" HorizontalAlignment="Left" Height="23" Margin="10,118,0,0" VerticalAlignment="Top" Width="104"/>
+        <Label Content="Sprat:" HorizontalAlignment="Left" Height="23" Margin="67,142,0,0" VerticalAlignment="Top" Width="47"/>
+        <Label Content="Tip:" HorizontalAlignment="Left" Height="24" Margin="67,172,0,0" VerticalAlignment="Top" Width="47"/>
+        <Label Content="ID:" HorizontalAlignment="Left" Height="24" Margin="67,0,0,0" VerticalAlignment="Center" Width="47"/>
+        <Label Content="Nova prostorija 2:" HorizontalAlignment="Left" Height="23" Margin="257,118,0,0" VerticalAlignment="Top" Width="104"/>
+        <Label Content="Sprat:" HorizontalAlignment="Left" Height="23" Margin="314,143,0,0" VerticalAlignment="Top" Width="47"/>
+        <Label Content="Tip:" HorizontalAlignment="Left" Height="24" Margin="314,171,0,0" VerticalAlignment="Top" Width="47"/>
+        <Label Content="ID:" HorizontalAlignment="Left" Height="24" Margin="314,201,0,0" VerticalAlignment="Top" Width="47"/>
+        <TextBox x:Name="tbSpratNovaProstorija2" HorizontalAlignment="Left" Height="22" Margin="366,144,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <ComboBox x:Name="cbTipNovaProstorija2" HorizontalAlignment="Left" Height="22" Margin="366,174,0,0" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="tbIdNovaProstorija2" HorizontalAlignment="Left" Height="22" Margin="366,205,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Stara prostorija 1:" HorizontalAlignment="Left" Height="23" Margin="494,78,0,0" VerticalAlignment="Top" Width="104"/>
+        <ComboBox x:Name="cbStaraProstorija1" HorizontalAlignment="Left" Height="22" Margin="603,79,0,0" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Stara prostorija 2:" HorizontalAlignment="Left" Height="24" Margin="494,106,0,0" VerticalAlignment="Top" Width="104"/>
+        <ComboBox x:Name="cbStaraProstorija2" HorizontalAlignment="Left" Height="22" Margin="603,106,0,0" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Nova prostorija:" HorizontalAlignment="Left" Height="23" Margin="494,139,0,0" VerticalAlignment="Top" Width="104"/>
+        <Label Content="Sprat:" HorizontalAlignment="Left" Height="22" Margin="551,174,0,0" VerticalAlignment="Top" Width="47"/>
+        <Label Content="Tip:" HorizontalAlignment="Left" Height="24" Margin="551,207,0,0" VerticalAlignment="Top" Width="47"/>
+        <Label Content="ID:" HorizontalAlignment="Left" Height="24" Margin="551,243,0,0" VerticalAlignment="Top" Width="47"/>
+        <TextBox x:Name="tbSpratNovaProstorija" HorizontalAlignment="Left" Height="22" Margin="607,174,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <ComboBox x:Name="cbTipNovaProstorija" HorizontalAlignment="Left" Height="22" Margin="607,209,0,0" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="tbIdNovaProstorija" HorizontalAlignment="Left" Height="22" Margin="607,243,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Button x:Name="btnPotvrdi" Content="Potvrdi" HorizontalAlignment="Left" Margin="325,336,0,0" VerticalAlignment="Top" Height="30" Width="114" Click="btnPotvrdi_Click"/>
+        <DatePicker x:Name="dpPocetak" HorizontalAlignment="Left" Margin="119,317,0,0" VerticalAlignment="Top" Width="119"/>
+        <DatePicker x:Name="dpKraj" HorizontalAlignment="Left" Margin="118,351,0,0" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Pocetak:" HorizontalAlignment="Left" Height="24" Margin="38,320,0,0" VerticalAlignment="Top" Width="61"/>
+        <Label Content="Kraj:" HorizontalAlignment="Left" Height="24" Margin="44,349,0,0" VerticalAlignment="Top" Width="46"/>
+
+    </Grid>
+</Window>

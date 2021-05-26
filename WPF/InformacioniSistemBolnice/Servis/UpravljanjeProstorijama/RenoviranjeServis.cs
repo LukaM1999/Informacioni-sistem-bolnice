@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using InformacioniSistemBolnice.DTO;
 using Model;
 using Repozitorijum;
+using InformacioniSistemBolnice.Servis.UpravljanjeProstorijama;
 
 namespace Servis
 {
@@ -35,6 +36,7 @@ namespace Servis
                     if (!SeRenoviranjeZavrsilo(termin)) continue;
                     OslobodiProstoriju(termin);
                 }
+                TransformacijaProstorijeServis.Instance.ProveraTransformacijeProstorija();
             }
         }
 

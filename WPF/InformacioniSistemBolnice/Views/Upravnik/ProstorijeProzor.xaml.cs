@@ -16,6 +16,7 @@ using Repozitorijum;
 using Kontroler;
 using System.Collections.ObjectModel;
 using InformacioniSistemBolnice.Views.Upravnik;
+using InformacioniSistemBolnice.DTO;
 
 namespace InformacioniSistemBolnice
 {
@@ -136,6 +137,12 @@ namespace InformacioniSistemBolnice
         private void btnZahtev_Click(object sender, RoutedEventArgs e)
         {
             ZahteviProzor prozor = new ZahteviProzor();
+            prozor.Show();
+        }
+
+        private void btnSpajanje_Click(object sender, RoutedEventArgs e)
+        {
+            SpajanjeProzor prozor = new SpajanjeProzor();
             prozor.Show();
         }
     }

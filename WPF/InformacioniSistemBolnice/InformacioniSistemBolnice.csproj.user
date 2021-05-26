@@ -211,6 +211,9 @@
     <Compile Update="Views\Sekretar\ZdravstveniKartonForma.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Views\Upravnik\SpajanjeProzor.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Views\Upravnik\ZahteviInfoProzor.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -445,6 +448,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\Sekretar\ZdravstveniKartonForma.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Upravnik\SpajanjeProzor.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\Upravnik\ZahteviInfoProzor.xaml">
