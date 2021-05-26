@@ -9,18 +9,22 @@ namespace Model
         public Specijalizacija Specijalizacija { get; set; }
         public ObservableCollection<Termin> ZauzetiTermini { get; set; }
 
+        public Lekar()
+        {
+
+        }
         public Lekar(Osoba osoba, Specijalizacija specijalizacija)
         {
-            Ime = osoba.Ime;
-            Prezime = osoba.Prezime;
-            Jmbg = osoba.Jmbg;
-            DatumRodjenja = osoba.DatumRodjenja;
-            AdresaStanovanja = osoba.AdresaStanovanja;
-            Telefon = osoba.Telefon;
-            Email = osoba.Email;
-            Korisnik = osoba.Korisnik;
-            Specijalizacija = specijalizacija;
-            ZauzetiTermini = new ObservableCollection<Termin>();
+            this.Ime = osoba.Ime;
+            this.Prezime = osoba.Prezime;
+            this.Jmbg = osoba.Jmbg;
+            this.DatumRodjenja = osoba.DatumRodjenja;
+            this.AdresaStanovanja = osoba.AdresaStanovanja;
+            this.Telefon = osoba.Telefon;
+            this.Email = osoba.Email;
+            this.Korisnik = osoba.Korisnik;
+            this.Specijalizacija = specijalizacija;
+            this.ZauzetiTermini = new ObservableCollection<Termin>();
         }
 
         public override string ToString()

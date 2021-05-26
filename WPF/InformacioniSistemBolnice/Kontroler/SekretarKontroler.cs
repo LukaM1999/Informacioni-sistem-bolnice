@@ -30,8 +30,8 @@ namespace Kontroler
 
         public void UklanjanjeNaloga(Pacijent pacijent) => PacijentServis.Instance.UkloniNalog(pacijent);
 
-        public void UklanjanjeGostujucegNaloga(ListView listaPacijenata)
-                => UrgentniSistemServis.Instance.UklanjanjeGostujucegNaloga(listaPacijenata);
+        public void UklanjanjeGostujucegNaloga(Pacijent pacijent)
+                => PacijentServis.Instance.UkloniGostujuciNalog(pacijent);
 
         public void IzmenaNaloga(PacijentDto pacijentDto, Pacijent pacijent)
             => PacijentServis.Instance.IzmeniNalog(pacijentDto, pacijent);
@@ -60,9 +60,8 @@ namespace Kontroler
 
         public void Otkazivanje(Termin termin) => TerminServis.Instance.Otkazivanje(termin);
 
-        public void PomeranjeVanrednogTerminaPacijenta(IzborTerminaZaNovoZakazivanje izborTerminaZaNovoZakazivanje,
-                                                        IzborTerminaZaPomeranje izborTerminaZaPomeranje)
-                => UrgentniSistemServis.Instance.PomeranjeVanrednogTermina(izborTerminaZaNovoZakazivanje, izborTerminaZaPomeranje);
+        public void PomeranjeVanrednogTerminaPacijenta(Termin stariTermin, Termin noviTermin)
+                => UrgentniSistemServis.Instance.PomeranjeVanrednogTermina(stariTermin, noviTermin);
 
         public void KreiranjeVesti(VestDto vestDto) => VestServis.Instance.KreirajVesti(vestDto);
 
@@ -75,7 +74,7 @@ namespace Kontroler
         public void ZakazivanjeTermina(Termin termin) => TerminServis.Instance.Zakazivanje(termin);
        
         public void KreiranjeGostujucegPacijenta(GostujuciNalogDto gostujuciNalogDto)
-                => UrgentniSistemServis.Instance.KreiranjeGostujcegPacijenta(gostujuciNalogDto);
+                => PacijentServis.Instance.KreirajGostujuciNalog(gostujuciNalogDto);
 
         public void ZakazivanjeHitnogTermina(HitnoZakazivanjeDto hitnoZakazivanjeDto)
                => UrgentniSistemServis.Instance.ZakazivanjeHitnogTermina(hitnoZakazivanjeDto);

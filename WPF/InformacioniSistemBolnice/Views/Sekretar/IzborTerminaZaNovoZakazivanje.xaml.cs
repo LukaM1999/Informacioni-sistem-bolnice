@@ -168,7 +168,13 @@ namespace InformacioniSistemBolnice
 
         private void zakaziDugme_Click(object sender, RoutedEventArgs e)
         {
-            SekretarKontroler.Instance.PomeranjeVanrednogTerminaPacijenta(this, izborTerminaZaPomeranje);
+            if (ponudjeniTerminiZaNovoZakazivanje.SelectedIndex >= 0)
+            {
+                SekretarKontroler.Instance.PomeranjeVanrednogTerminaPacijenta
+                ((Termin)izborTerminaZaPomeranje.ponudjeniTerminiZaPomeranje.SelectedItem,
+                (Termin)ponudjeniTerminiZaNovoZakazivanje.SelectedItem);
+                this.Close();
+            }
         }
     }
  }

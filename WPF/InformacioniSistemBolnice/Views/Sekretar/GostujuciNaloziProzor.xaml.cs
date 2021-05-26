@@ -31,7 +31,8 @@ namespace InformacioniSistemBolnice
 
         private void UkloniGostujuciNalog_Click(object sender, RoutedEventArgs e)
         {
-            SekretarKontroler.Instance.UklanjanjeGostujucegNaloga(this.listaGostujucihNaloga);
+            SekretarKontroler.Instance.UklanjanjeGostujucegNaloga((Pacijent)listaGostujucihNaloga.SelectedItem);
+            pocetna.contentControl.Content = new GostujuciNaloziProzor(pocetna);
         }
 
         private void KreirajGostujuciNalog_Click(object sender, RoutedEventArgs e)
