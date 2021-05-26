@@ -1,10 +1,7 @@
 using System;
 using Model;
 using Repozitorijum;
-using System.Windows.Controls;
-using InformacioniSistemBolnice;
 using System.Collections.ObjectModel;
-using System.Linq;
 using InformacioniSistemBolnice.DTO;
 
 namespace Servis
@@ -20,8 +17,8 @@ namespace Servis
         public void KreirajNalog(PacijentDto pacijentDto)
         {
             Pacijent pacijent = new Pacijent(new Osoba(pacijentDto.Ime, pacijentDto.Prezime, pacijentDto.PacijentJmbg,
-                                            DateTime.Parse(pacijentDto.DatumRodjenja.ToString("g")), pacijentDto.Telefon, pacijentDto.Email,
-                                            KreirajKorisnika(pacijentDto),
+                                            DateTime.Parse(pacijentDto.DatumRodjenja.ToString("g")), pacijentDto.Telefon,
+                                            pacijentDto.Email, KreirajKorisnika(pacijentDto),
                                             new Adresa(pacijentDto.Drzava, pacijentDto.Grad, pacijentDto.Ulica, pacijentDto.Broj)));
             PacijentRepo.Instance.DodajPacijenta(pacijent);
         }

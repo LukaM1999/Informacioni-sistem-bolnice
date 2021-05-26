@@ -13,31 +13,23 @@ namespace InformacioniSistemBolnice
     public partial class IzborTerminaPacijenta : Window
     {
         private ObservableCollection<Termin> slobodniTermini = new();
+        public Lekar IzabraniLekar { get; set; }
+        public Pacijent IzabraniPacijent { get; set; }
+        public TipTermina IzabraniTip { get; set; }
+        public Prostorija IzabranaProstorija { get; set; }
+
+        private readonly TimeSpan intervalDana;
         public IzborTerminaPacijenta(ZakazivanjeTerminaSekretarDto zakazivanje)
         {
             InitializeComponent();
-            Lekar izabranLekar = zakazivanje.IzabranLekar;
-            Pacijent izabraniPacijent = zakazivanje.IzabranPacijent;
-            TipTermina izabraniTip = zakazivanje.IzabraniTip;
-            Prostorija izabranaProstorija = zakazivanje.IzabranaProstorija;
-            TimeSpan intervalDana = zakazivanje.MaxDatum - zakazivanje.MinDatum;
+            IzabraniLekar = zakazivanje.IzabranLekar;
+            IzabraniPacijent = zakazivanje.IzabranPacijent;
+            IzabraniTip = zakazivanje.IzabraniTip;
+            IzabranaProstorija = zakazivanje.IzabranaProstorija;
+            intervalDana = zakazivanje.MaxDatum - zakazivanje.MinDatum;
             DateTime slobodanTermin = zakazivanje.MinDatum.AddHours(7);
-            for (int i = 0; i < intervalDana.Days; i++)
-            {
-                for (int j = 0; j < 27; j++)
-                {
-
-                    slobodniTermini.Add(new Termin(slobodanTermin, 30.0, izabraniTip, StatusTermina.slobodan,
-                                                   izabraniPacijent.Jmbg, izabranLekar.Jmbg, izabranaProstorija.Id));
-
-                    slobodanTermin = slobodanTermin.AddMinutes(30);
-
-                }
-
-                slobodanTermin = slobodanTermin.AddHours(10.5);
-            }
-
-            ProveriTermineLekara(izabranLekar);
+            slobodanTermin = GenerisiRadnoVreme(intervalDana, slobodanTermin);
+            ProveriTermineLekara(IzabraniLekar);
             if (slobodniTermini.Count == 0)
             {
                 if (!zakazivanje.VremePrioritet)
@@ -48,15 +40,11 @@ namespace InformacioniSistemBolnice
                     {
                         for (int j = 0; j < 27; j++)
                         {
-                            slobodniTermini.Add(new Termin(slobodanTermin, 30.0, izabraniTip, StatusTermina.slobodan,
-                                                               izabraniPacijent.Jmbg, izabranLekar.Jmbg, izabranaProstorija.Id));
-
-
-
+                            slobodniTermini.Add(new Termin(slobodanTermin, 30.0, IzabraniTip, StatusTermina.slobodan,
+                                           IzabraniPacijent.Jmbg, IzabraniLekar.Jmbg, IzabranaProstorija.Id));
                             if (slobodniTermini.Last().ProstorijaId == null)
                                 slobodniTermini.RemoveAt(slobodniTermini.Count - 1);
                             slobodanTermin = slobodanTermin.AddMinutes(30);
-
                         }
                         slobodanTermin = slobodanTermin.AddHours(10.5);
                     }
@@ -65,16 +53,12 @@ namespace InformacioniSistemBolnice
                     {
                         for (int j = 0; j < 27; j++)
                         {
-
-                            slobodniTermini.Add(new Termin(slobodanTermin, 30.0, izabraniTip, StatusTermina.slobodan,
-                                                           izabraniPacijent.Jmbg, izabranLekar.Jmbg, izabranaProstorija.Id));
-
-
-
+                            slobodniTermini.Add(new Termin(slobodanTermin, 30.0, IzabraniTip, StatusTermina.slobodan,
+                                           IzabraniPacijent.Jmbg, IzabraniLekar.Jmbg, IzabranaProstorija.Id));
                         }
                         slobodanTermin = slobodanTermin.AddHours(10.5);
                     }
-                    ProveriTermineLekara(izabranLekar);
+                    ProveriTermineLekara(IzabraniLekar);
                 }
                 else
                 {
@@ -84,20 +68,17 @@ namespace InformacioniSistemBolnice
                         if (drugiLekar.Jmbg == zakazivanje.IzabranLekar.Jmbg) continue;
                         if (drugiLekar.Specijalizacija == zakazivanje.IzabranLekar.Specijalizacija)
                         {
-                            Termin t = new Termin(slobodanTermin, 30.0, izabraniTip, StatusTermina.slobodan,
-                                izabraniPacijent.Jmbg, drugiLekar.Jmbg, izabranaProstorija.Id);
+                            Termin t = new Termin(slobodanTermin, 30.0, IzabraniTip, StatusTermina.slobodan,
+                                IzabraniPacijent.Jmbg, drugiLekar.Jmbg, IzabranaProstorija.Id);
 
                             for (int i = 0; i < intervalDana.Days; i++)
                             {
                                 for (int j = 0; j < 27; j++)
                                 {
                                     slobodniTermini.Add(t);
-
-
                                     if (slobodniTermini.Last().ProstorijaId == null)
                                         slobodniTermini.RemoveAt(slobodniTermini.Count - 1);
                                     slobodanTermin = slobodanTermin.AddMinutes(30);
-
                                 }
                                 slobodanTermin = slobodanTermin.AddHours(10.5);
                             }
@@ -106,8 +87,23 @@ namespace InformacioniSistemBolnice
                     }
                 }
             }
-
             ponudjeniTermini.ItemsSource = slobodniTermini;
+        }
+
+        private DateTime GenerisiRadnoVreme(TimeSpan intervalDana, DateTime slobodanTermin)
+        {
+            for (int i = 0; i < intervalDana.Days; i++)
+            {
+                for (int j = 0; j < 27; j++)
+                {
+                    slobodniTermini.Add(new Termin(slobodanTermin, 30.0, IzabraniTip, StatusTermina.slobodan,
+                                           IzabraniPacijent.Jmbg, IzabraniLekar.Jmbg, IzabranaProstorija.Id));
+                    slobodanTermin = slobodanTermin.AddMinutes(30);
+                }
+                slobodanTermin = slobodanTermin.AddHours(10.5);
+            }
+
+            return slobodanTermin;
         }
 
         private void ProveriTermineLekara(Lekar izabranLekar)

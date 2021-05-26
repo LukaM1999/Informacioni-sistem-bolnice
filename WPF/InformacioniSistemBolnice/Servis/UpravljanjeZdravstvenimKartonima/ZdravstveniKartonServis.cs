@@ -1,23 +1,15 @@
-﻿using InformacioniSistemBolnice;
-using Model;
+﻿using Model;
 using Repozitorijum;
 using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Controls;
 using InformacioniSistemBolnice.DTO;
 
 namespace Servis
 {
     public class ZdravstveniKartonServis
     {
-        private static readonly Lazy<ZdravstveniKartonServis>
-          Lazy =
-          new Lazy<ZdravstveniKartonServis>
-              (() => new ZdravstveniKartonServis());
+        private static readonly Lazy<ZdravstveniKartonServis> Lazy = new Lazy<ZdravstveniKartonServis>
+                (() => new ZdravstveniKartonServis());
+
         public static ZdravstveniKartonServis Instance { get { return Lazy.Value; } }
 
         public void KreirajZdravstveniKarton(ZdravstveniKartonDto zdravstveniKartonDto,
@@ -25,8 +17,9 @@ namespace Servis
         {
             ZdravstveniKarton zdravstveniKarton = new(zdravstveniKartonDto.BrojKartona, zdravstveniKartonDto.BrojKnjizice,
                                                       zdravstveniKartonDto.Jmbg, zdravstveniKartonDto.ImeJednogRoditelja,
-                                                      zdravstveniKartonDto.LiceZaZdravstvenuZastitu, zdravstveniKartonDto.PolPacijenta,
-                                                      zdravstveniKartonDto.BracnoStanje, zdravstveniKartonDto.KategorijaZdravstveneZastite,
+                                                      zdravstveniKartonDto.LiceZaZdravstvenuZastitu, 
+                                                      zdravstveniKartonDto.PolPacijenta, zdravstveniKartonDto.BracnoStanje,
+                                                      zdravstveniKartonDto.KategorijaZdravstveneZastite,
                                                       VratiPodatkeOZaposlenju(podaciOZaposlenjuIZanimanjuDto));
             zdravstveniKarton.DodajAlergen(zdravstveniKartonDto.Alergen);
             ZdravstveniKartonRepo.Instance.DodajKarton(zdravstveniKarton);
