@@ -11,7 +11,20 @@ namespace Model
 
         public Lekar()
         {
-            ZakazaniTermini = new ObservableCollection<Termin>();
+
+        }
+        public Lekar(Osoba osoba, Specijalizacija specijalizacija)
+        {
+            this.Ime = osoba.Ime;
+            this.Prezime = osoba.Prezime;
+            this.Jmbg = osoba.Jmbg;
+            this.DatumRodjenja = osoba.DatumRodjenja;
+            this.AdresaStanovanja = osoba.AdresaStanovanja;
+            this.Telefon = osoba.Telefon;
+            this.Email = osoba.Email;
+            this.Korisnik = osoba.Korisnik;
+            this.Specijalizacija = specijalizacija;
+            this.ZauzetiTermini = new ObservableCollection<Termin>();
         }
 
         public Lekar(Osoba o, Specijalizacija specijalizacija)

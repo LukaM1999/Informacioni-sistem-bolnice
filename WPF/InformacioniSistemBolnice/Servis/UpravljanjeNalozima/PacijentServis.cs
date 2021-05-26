@@ -83,6 +83,24 @@ namespace Servis
             pacijentZaIzmenu.Telefon = pacijentoviPodaci.Telefon;
             pacijentZaIzmenu.Email = pacijentoviPodaci.Email;
         }
+
+        public void KreirajGostujuciNalog(GostujuciNalogDto gostujuciNalog)
+        {
+            Pacijent gostujuciPacijent = new(new Osoba(gostujuciNalog.Ime, gostujuciNalog.Prezime, gostujuciNalog.Jmbg,
+                                            gostujuciNalog.DatumRodjenja, gostujuciNalog.Telefon, gostujuciNalog.Email,
+                new Korisnik(null, null, (Model.UlogaKorisnika)Enum.Parse(typeof(Model.UlogaKorisnika), "pacijent")), null));
+            ObservableCollection<Termin> zakazaniTermini = new ObservableCollection<Termin>();
+            gostujuciPacijent.zakazaniTermini = zakazaniTermini;
+            PacijentRepo.Instance.DodajPacijenta(gostujuciPacijent);
+        }
+
+        public void UkloniGostujuciNalog(Pacijent pacijent)
+        {
+            PacijentRepo.Instance.ObrisiPacijenta(pacijent);
+            KorisnikRepo.Instance.ObrisiKorisnika(pacijent.Korisnik);
+            PacijentRepo.Instance.Serijalizacija();
+            KorisnikRepo.Instance.Serijalizacija();
+        }
     }
 }
 

@@ -45,14 +45,14 @@
     },
     "zakazaniTermini": [
       {
-        "Vreme": "2021-05-19T10:30:00",
+        "Vreme": "2021-05-28T14:00:00",
         "Trajanje": 30.0,
         "Tip": 0,
         "Status": 0,
         "AnketaOLekaru": null,
         "PacijentJmbg": "1203998123123",
-        "LekarJmbg": "985467356",
-        "ProstorijaId": null,
+        "LekarJmbg": "1209971",
+        "ProstorijaId": "P1",
         "Hitan": false
       }
     ],
@@ -122,13 +122,46 @@
     },
     "zakazaniTermini": [
       {
-        "Vreme": "2021-05-20T08:00:00",
+        "Vreme": "2021-05-27T12:00:00",
         "Trajanje": 30.0,
-        "Tip": 0,
-        "Status": 4,
+        "Tip": 1,
+        "Status": 0,
+        "AnketaOLekaru": null,
+        "PacijentJmbg": "1203998123123",
+        "LekarJmbg": "1605988156156",
+        "ProstorijaId": "P1",
+        "Hitan": true
+      },
+      {
+        "Vreme": "2021-05-26T09:00:00+02:00",
+        "Trajanje": 30.0,
+        "Tip": 1,
+        "Status": 0,
         "AnketaOLekaru": null,
         "PacijentJmbg": "1905981123124",
-        "LekarJmbg": "231568933",
+        "LekarJmbg": "1605988156156",
+        "ProstorijaId": "P1",
+        "Hitan": true
+      },
+      {
+        "Vreme": "2021-05-28T15:00:00",
+        "Trajanje": 30.0,
+        "Tip": 1,
+        "Status": 0,
+        "AnketaOLekaru": null,
+        "PacijentJmbg": "1203998123123",
+        "LekarJmbg": "1605988156156",
+        "ProstorijaId": "P1",
+        "Hitan": true
+      },
+      {
+        "Vreme": "2021-05-24T14:00:00",
+        "Trajanje": 30.0,
+        "Tip": 1,
+        "Status": 3,
+        "AnketaOLekaru": null,
+        "PacijentJmbg": "1905981123124",
+        "LekarJmbg": "1605988156156",
         "ProstorijaId": null,
         "Hitan": false
       }
