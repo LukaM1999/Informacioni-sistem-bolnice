@@ -19,7 +19,7 @@ using InformacioniSistemBolnice.DTO;
 using Kontroler;
 
 
-namespace InformacioniSistemBolnice.Views.Lekar
+namespace InformacioniSistemBolnice
 {
     /// <summary>
     /// Interaction logic for UCBolnickoLecenjeForma.xaml
@@ -28,8 +28,8 @@ namespace InformacioniSistemBolnice.Views.Lekar
     {
         private GlavniProzorLekara glavniProzor;
         public ObservableCollection<Prostorija> sobe = new();
-        public Model.Pacijent pacijent;
-        public UCBolnickoLecenjeForma(Model.Pacijent izabran, GlavniProzorLekara glavni)
+        public Pacijent pacijent;
+        public UCBolnickoLecenjeForma(Pacijent izabran, GlavniProzorLekara glavni)
         {
             InitializeComponent();
             BolnickoLecenjeRepo.Instance.Deserijalizacija();

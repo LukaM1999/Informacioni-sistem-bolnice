@@ -38,9 +38,9 @@ namespace InformacioniSistemBolnice
         private ZdravstveniKartonDto PokupiPodatkeZdravstvenogKartona()
         {
             return new(brojKartonaUnos.Text,brojKnjiziceUnos.Text, JMBGUnos.Text, imeRoditeljaUnos.Text, liceZdrZastitaUnos.Text,
-                       (Model.Pol)Enum.Parse(typeof(Model.Pol), polUnos.SelectedItem.ToString()),
-                       (Model.BracnoStanje)Enum.Parse(typeof(Model.BracnoStanje), bracnoStanjeUnos.SelectedItem.ToString()),
-                       (Model.KategorijaZdravstveneZastite)Enum.Parse(typeof(Model.KategorijaZdravstveneZastite), 
+                       (Pol)Enum.Parse(typeof(Pol), polUnos.SelectedItem.ToString()),
+                       (BracnoStanje)Enum.Parse(typeof(BracnoStanje), bracnoStanjeUnos.SelectedItem.ToString()),
+                       (KategorijaZdravstveneZastite)Enum.Parse(typeof(KategorijaZdravstveneZastite), 
                        kategorijaZdrZastiteUnos.SelectedItem.ToString()), (Alergen)ListaAlergena.SelectedItem);
         }
 

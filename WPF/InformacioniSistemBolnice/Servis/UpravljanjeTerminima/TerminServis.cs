@@ -43,11 +43,5 @@ namespace Servis
             TerminRepo.Instance.DodajTermin(noviTermin);
             TerminRepo.Instance.Serijalizacija();
         }
-
-        public void Uvid(DataGrid listaZakazanihTermina)
-        {
-            new TerminInfoProzor(listaZakazanihTermina).Show();
-        }
-
     }
 }

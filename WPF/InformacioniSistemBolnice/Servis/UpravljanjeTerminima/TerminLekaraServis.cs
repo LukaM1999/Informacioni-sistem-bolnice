@@ -33,13 +33,5 @@ namespace Servis
             lekar.DodajTermin(noviTermin);
             LekarRepo.Instance.Serijalizacija();
         }
-        public void Uvid(DataGrid listaZakazanihTerminaLekara)
-        {
-            if (listaZakazanihTerminaLekara.SelectedIndex >= 0)
-            {
-                TerminInfoProzor terminInfo = new TerminInfoProzor(listaZakazanihTerminaLekara);
-                terminInfo.Show();
-            }
-        }
     }
 }

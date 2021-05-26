@@ -13,7 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using InformacioniSistemBolnice.Servis.UpravljanjeBolnickimLecenjima;
-using InformacioniSistemBolnice.Views.Lekar;
+using InformacioniSistemBolnice.Views;
 using Model;
 using Repozitorijum;
 using Servis;

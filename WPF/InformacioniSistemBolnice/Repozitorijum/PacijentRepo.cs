@@ -69,34 +69,9 @@ namespace Repozitorijum
             return null;
         }
 
-        public Pacijent PronadjiGostujucegPacijenta()
-        {
-            foreach (Pacijent gostujuciPacijent in PacijentRepo.Instance.Pacijenti)
-                if (gostujuciPacijent.Korisnik.KorisnickoIme == null) return gostujuciPacijent;
-            return null;
-        }
-
-        public ObservableCollection<Pacijent> ListaPacijenata()
-        {
-            ObservableCollection < Pacijent > pacijenti = new();
-            foreach (Pacijent pacijent in PacijentRepo.Instance.Pacijenti)
-            {
-                if (pacijent.Korisnik.KorisnickoIme != null) 
-                    pacijenti.Add(pacijent);
-            }
-            return pacijenti;
-        }
-
-        public ObservableCollection<Pacijent> GenerisiGostujucePacijente()
-        {
-            ObservableCollection<Pacijent> gostujuciPacijenti = new ObservableCollection<Pacijent>();
-            gostujuciPacijenti.Add(PronadjiGostujucegPacijenta());
-            return gostujuciPacijenti;
-        }
-
         public ZdravstveniKarton PronadjiZdravstveniKarton(string jmbg)
         {
-            foreach (Pacijent p in PacijentRepo.Instance.Pacijenti)
+            foreach (Pacijent p in Pacijenti)
                 if (p.zdravstveniKarton.Jmbg.Equals(jmbg)) return p.zdravstveniKarton;
             return null;
         }
@@ -112,11 +87,6 @@ namespace Repozitorijum
             Pacijenti.Add(pacijentZaDodavanje);
             Serijalizacija();
             return true;
-        }
-
-        public bool ObrisiPacijenta(Pacijent pacijentZaBrisanje)
-        {
-            return Pacijenti.Remove(NadjiPoJmbg(pacijentZaBrisanje.Jmbg));
         }
     }
 }

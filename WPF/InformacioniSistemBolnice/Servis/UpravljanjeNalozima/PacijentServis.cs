@@ -37,7 +37,7 @@ namespace Servis
 
         public void UkloniNalog(Pacijent pacijentZaBrisanje)
         {
-            PacijentRepo.Instance.ObrisiPacijenta(pacijentZaBrisanje);
+            PacijentRepo.Instance.BrisiPoJmbg(pacijentZaBrisanje.Jmbg);
             KorisnikRepo.Instance.ObrisiKorisnika(pacijentZaBrisanje.Korisnik);
             SacuvajURepozitorijum();
         }

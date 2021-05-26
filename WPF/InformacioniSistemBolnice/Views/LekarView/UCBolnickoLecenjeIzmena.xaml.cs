@@ -16,7 +16,7 @@ using Kontroler;
 using Model;
 using Repozitorijum;
 
-namespace InformacioniSistemBolnice.Views.Lekar
+namespace InformacioniSistemBolnice
 {
     /// <summary>
     /// Interaction logic for UCBolnickoLecenjeIzmena.xaml
@@ -25,7 +25,7 @@ namespace InformacioniSistemBolnice.Views.Lekar
     {
         private GlavniProzorLekara glavniProzorLekara;
         private BolnickoLecenje lecenje;
-        private Model.Pacijent pacijent;
+        private Pacijent pacijent;
         private Prostorija prostorija;
         public UCBolnickoLecenjeIzmena(BolnickoLecenje izabranoLecenje, GlavniProzorLekara glavni)
         {

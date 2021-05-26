@@ -16,15 +16,16 @@ using Model;
 using Repozitorijum;
 using InformacioniSistemBolnice;
 using Kontroler;
+using InformacioniSistemBolnice.Views;
 
-namespace InformacioniSistemBolnice.Views.Lekar
+namespace InformacioniSistemBolnice
 {
     /// <summary>
     /// Interaction logic for UCRaspored.xaml
     /// </summary>
     public partial class UCRaspored : UserControl
     {
-        public Model.Lekar lekar;
+        public Lekar lekar;
         public GlavniProzorLekara glavniProzor;
         public UCRaspored(GlavniProzorLekara glavniProzorLekara)
         {

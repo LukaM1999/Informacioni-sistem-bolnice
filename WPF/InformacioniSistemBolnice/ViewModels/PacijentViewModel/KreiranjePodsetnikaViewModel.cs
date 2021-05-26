@@ -6,18 +6,19 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 using InformacioniSistemBolnice.Utilities;
+using InformacioniSistemBolnice.ViewModels;
 using InformacioniSistemBolnice.Views.Pacijent;
 using Kontroler;
 using Model;
 
-namespace InformacioniSistemBolnice.ViewModels.Pacijent
+namespace InformacioniSistemBolnice
 {
     public class KreiranjePodsetnikaViewModel
     {
-        private readonly Model.Pacijent ulogovanPacijent;
+        private readonly Pacijent ulogovanPacijent;
         public ICommand KreirajPacijentovPodsetnik { get; set; }
 
-        public KreiranjePodsetnikaViewModel(Model.Pacijent ulogovan)
+        public KreiranjePodsetnikaViewModel(Pacijent ulogovan)
         {
             ulogovanPacijent = ulogovan;
             KreirajPacijentovPodsetnik = new Command(o => KreirajPodsetnik());

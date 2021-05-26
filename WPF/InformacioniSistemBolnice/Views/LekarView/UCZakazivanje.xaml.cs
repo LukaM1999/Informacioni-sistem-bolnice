@@ -17,7 +17,7 @@ using InformacioniSistemBolnice;
 using InformacioniSistemBolnice.DTO;
 using Repozitorijum;
 
-namespace InformacioniSistemBolnice.Views.Lekar
+namespace InformacioniSistemBolnice.Views
 {
     /// <summary>
     /// Interaction logic for UCZakazivanje.xaml
@@ -43,7 +43,7 @@ namespace InformacioniSistemBolnice.Views.Lekar
             if (pocetak.SelectedDate != null && kraj.SelectedDate != null && ListaPacijenata.SelectedIndex > -1 && tip.SelectedIndex > -1)
             {
                 IzborTerminaLekara izborTerminaLekara = new(new((DateTime)pocetak.SelectedDate, (DateTime)kraj.SelectedDate,
-                    glavniProzor.ulogovanLekar, (Model.Pacijent)ListaPacijenata.SelectedItem,
+                    glavniProzor.ulogovanLekar, (global::Model.Pacijent)ListaPacijenata.SelectedItem,
                     (TipTermina)Enum.Parse(typeof(TipTermina), tip.SelectedItem.ToString()), (bool)hitno.IsChecked));
                 izborTerminaLekara.Show();
             }

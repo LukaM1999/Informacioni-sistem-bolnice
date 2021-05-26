@@ -11,7 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using InformacioniSistemBolnice.Views.Lekar;
+using InformacioniSistemBolnice.Views;
 using Kontroler;
 using Model;
 using Repozitorijum;

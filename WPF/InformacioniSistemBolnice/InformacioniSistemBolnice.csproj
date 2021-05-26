@@ -31,40 +31,40 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Update="Views\Lekar\IzborTerminaLekara.xaml.cs">
+    <Compile Update="Views\LekarView\IzborTerminaLekara.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Views\Lekar\IzmenaZdravstvenogKartonaLekar.xaml.cs">
+    <Compile Update="Views\LekarView\IzmenaZdravstvenogKartonaLekar.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Views\Lekar\PomeranjeTerminaLekaraProzor.xaml.cs">
+    <Compile Update="Views\LekarView\PomeranjeTerminaLekaraProzor.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Views\Lekar\TerminiLekaraProzor.xaml.cs">
+    <Compile Update="Views\LekarView\TerminiLekaraProzor.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Views\Lekar\UCPacijenti - Copy.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Views\Lekar\ZakazivanjeTerminaLekaraProzor.xaml.cs">
+    <Compile Update="Views\LekarView\ZakazivanjeTerminaLekaraProzor.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
 
   <ItemGroup>
-    <Page Update="Views\Lekar\IzborTerminaLekara.xaml">
+    <Page Update="Views\LekarView\IzborTerminaLekara.xaml">
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Views\Lekar\IzmenaZdravstvenogKartonaLekar.xaml">
+    <Page Update="Views\LekarView\IzmenaZdravstvenogKartonaLekar.xaml">
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Views\Lekar\PomeranjeTerminaLekaraProzor.xaml">
+    <Page Update="Views\LekarView\PomeranjeTerminaLekaraProzor.xaml">
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Views\Lekar\TerminiLekaraProzor.xaml">
+    <Page Update="Views\LekarView\TerminiLekaraProzor.xaml">
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
       <SubType>Designer</SubType>
     </Page>
@@ -72,7 +72,7 @@
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Views\Lekar\ZakazivanjeTerminaLekaraProzor.xaml">
+    <Page Update="Views\LekarView\ZakazivanjeTerminaLekaraProzor.xaml">
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
       <SubType>Designer</SubType>
     </Page>

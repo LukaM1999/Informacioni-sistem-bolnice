@@ -7,217 +7,217 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
-    <Compile Update="Views\Lekar\UCBolnickoLecenjeIzmena.xaml.cs">
+    <Compile Update="Views\LekarView\UCBolnickoLecenjeIzmena.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Views\Lekar\UCRaspored.xaml.cs">
+    <Compile Update="Views\LekarView\UCRaspored.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Views\Lekar\UCZakazivanje.xaml.cs">
+    <Compile Update="Views\LekarView\UCZakazivanje.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Views\Pacijent\AnamnezaView.xaml.cs">
+    <Compile Update="Views\PacijentView\AnamnezaView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Views\Pacijent\KreiranjePodsetnikaView.xaml.cs">
+    <Compile Update="Views\PacijentView\KreiranjePodsetnikaView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Views\Sekretar\AlergeniProzor.xaml.cs">
+    <Compile Update="Views\SekretarView\AlergeniProzor.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Views\Lekar\AnamnezaForma.xaml.cs">
+    <Compile Update="Views\LekarView\AnamnezaForma.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Views\Pacijent\AnketaOBolniciFormaView.xaml.cs">
+    <Compile Update="Views\PacijentView\AnketaOBolniciFormaView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Views\Pacijent\AnketaOLekaruFormaView.xaml.cs">
+    <Compile Update="Views\PacijentView\AnketaOLekaruFormaView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Views\Sekretar\DefinisanjeAlergenaForma.xaml.cs">
+    <Compile Update="Views\SekretarView\DefinisanjeAlergenaForma.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Views\Sekretar\DodajAlergenPacijentu.xaml.cs">
+    <Compile Update="Views\SekretarView\DodajAlergenPacijentu.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Views\Sekretar\GostujuciNaloziProzor.xaml.cs">
+    <Compile Update="Views\SekretarView\GostujuciNaloziProzor.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Views\Sekretar\IzborHitnogTermina.xaml.cs">
+    <Compile Update="Views\SekretarView\IzborHitnogTermina.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Views\Sekretar\IzborTerminaPacijenta.xaml.cs">
+    <Compile Update="Views\SekretarView\IzborTerminaPacijenta.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Views\Sekretar\IzborTerminaZaNovoZakazivanje.xaml.cs">
+    <Compile Update="Views\SekretarView\IzborTerminaZaNovoZakazivanje.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Views\Sekretar\IzborTerminaZaPomeranje.xaml.cs">
+    <Compile Update="Views\SekretarView\IzborTerminaZaPomeranje.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Views\Sekretar\IzborTerminaZaPomeranjeZakazanog.xaml.cs">
+    <Compile Update="Views\SekretarView\IzborTerminaZaPomeranjeZakazanog.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Views\Sekretar\IzmenaAlergenaForma.xaml.cs">
+    <Compile Update="Views\SekretarView\IzmenaAlergenaForma.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Views\Pacijent\IzborTerminaPacijentaView.xaml.cs">
+    <Compile Update="Views\PacijentView\IzborTerminaPacijentaView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Views\Sekretar\IzmenaNalogaLekaraForma.xaml.cs">
+    <Compile Update="Views\SekretarView\IzmenaNalogaLekaraForma.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Views\Sekretar\IzmenaNalogaPacijentaForma.xaml.cs">
+    <Compile Update="Views\SekretarView\IzmenaNalogaPacijentaForma.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Views\Sekretar\IzmenaVesti.xaml.cs">
+    <Compile Update="Views\SekretarView\IzmenaVesti.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Views\Sekretar\IzmenaZdravstvenogKartonaForma.xaml.cs">
+    <Compile Update="Views\SekretarView\IzmenaZdravstvenogKartonaForma.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Views\Sekretar\KreirajVestProzor.xaml.cs">
+    <Compile Update="Views\SekretarView\KreirajVestProzor.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Views\Sekretar\KreiranjeGostujucegPacijentaProzor.xaml.cs">
+    <Compile Update="Views\SekretarView\KreiranjeGostujucegPacijentaProzor.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Views\Login.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Views\Sekretar\PregledNalogaLekara.xaml.cs">
+    <Compile Update="Views\SekretarView\PregledNalogaLekara.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Views\Sekretar\RegistracijaLekaraForma.xaml.cs">
+    <Compile Update="Views\SekretarView\RegistracijaLekaraForma.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Views\Sekretar\Lekari.xaml.cs">
+    <Compile Update="Views\SekretarView\Lekari.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Views\Upravnik\MagacinDodajDinamickuOpremu.xaml.cs">
+    <Compile Update="Views\UpravnikView\MagacinDodajDinamickuOpremu.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Views\Upravnik\MagacinDodajProzor.xaml.cs">
+    <Compile Update="Views\UpravnikView\MagacinDodajProzor.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Views\Upravnik\MagacinIzmeniDinamickuOpremu.xaml.cs">
+    <Compile Update="Views\UpravnikView\MagacinIzmeniDinamickuOpremu.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Views\Upravnik\MagacinIzmeniProzor.xaml.cs">
+    <Compile Update="Views\UpravnikView\MagacinIzmeniProzor.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Views\Upravnik\MagacinProzor.xaml.cs">
+    <Compile Update="Views\UpravnikView\MagacinProzor.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Views\Sekretar\PacijentiProzor.xaml.cs">
+    <Compile Update="Views\SekretarView\PacijentiProzor.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Views\Sekretar\PocetnaStranicaSekretara.xaml.cs">
+    <Compile Update="Views\SekretarView\PocetnaStranicaSekretara.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Views\Sekretar\PomeranjeTermina.xaml.cs">
+    <Compile Update="Views\SekretarView\PomeranjeTermina.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Views\Pacijent\PomeranjeTerminaPacijentaView.xaml.cs">
+    <Compile Update="Views\PacijentView\PomeranjeTerminaPacijentaView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Views\Sekretar\PomeranjeZakazanogTermina.xaml.cs">
+    <Compile Update="Views\SekretarView\PomeranjeZakazanogTermina.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Views\Sekretar\PomjeranjeTerminaProzorSekretara.xaml.cs">
+    <Compile Update="Views\SekretarView\PomjeranjeTerminaProzorSekretara.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Views\Sekretar\PregledAlergena.xaml.cs">
+    <Compile Update="Views\SekretarView\PregledAlergena.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Views\Sekretar\PregledGostujucegNaloga.xaml.cs">
+    <Compile Update="Views\SekretarView\PregledGostujucegNaloga.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Views\Sekretar\PregledVesti.xaml.cs">
+    <Compile Update="Views\SekretarView\PregledVesti.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Views\Sekretar\PregledZdravstvenogKartona.xaml.cs">
+    <Compile Update="Views\SekretarView\PregledZdravstvenogKartona.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Views\Upravnik\ProstorijaForma.xaml.cs">
+    <Compile Update="Views\UpravnikView\ProstorijaForma.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Views\Upravnik\ProstorijaFormaIzmeni.xaml.cs">
+    <Compile Update="Views\UpravnikView\ProstorijaFormaIzmeni.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Views\Upravnik\ProstorijaInfoForma.xaml.cs">
+    <Compile Update="Views\UpravnikView\ProstorijaInfoForma.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Views\Upravnik\ProstorijaRenoviranjeProzor.xaml.cs">
+    <Compile Update="Views\UpravnikView\ProstorijaRenoviranjeProzor.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Views\Upravnik\ProstorijeProzor.xaml.cs">
+    <Compile Update="Views\UpravnikView\ProstorijeProzor.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Views\Pacijent\VestiView.xaml.cs">
+    <Compile Update="Views\PacijentView\VestiView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Views\Lekar\ReceptForma.xaml.cs">
+    <Compile Update="Views\LekarView\ReceptForma.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Views\Sekretar\RegistracijaPacijentaForma.xaml.cs">
+    <Compile Update="Views\SekretarView\RegistracijaPacijentaForma.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Views\Sekretar\RegistrujNovogPacijenta.xaml.cs">
+    <Compile Update="Views\SekretarView\RegistrujNovogPacijenta.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Views\Lekar\TerminiLekaraProzor.xaml.cs">
+    <Compile Update="Views\LekarView\TerminiLekaraProzor.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Views\TerminInfoProzor.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Views\Pacijent\TerminiPacijentaView.xaml.cs">
+    <Compile Update="Views\PacijentView\TerminiPacijentaView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Views\Lekar\UCLekInfo.xaml.cs">
+    <Compile Update="Views\LekarView\UCLekInfo.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Views\Lekar\UCLekovi.xaml.cs">
+    <Compile Update="Views\LekarView\UCLekovi.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Views\Lekar\UCListaRecepata.xaml.cs">
+    <Compile Update="Views\LekarView\UCListaRecepata.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Views\Sekretar\UCMenuSekretara.xaml.cs">
+    <Compile Update="Views\SekretarView\UCMenuSekretara.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Views\Lekar\UCPacijenti.xaml.cs">
+    <Compile Update="Views\LekarView\UCPacijenti.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Views\Sekretar\TerminiPacijentaProzorSekretara.xaml.cs">
+    <Compile Update="Views\SekretarView\TerminiPacijentaProzorSekretara.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Views\Lekar\UCReceptInfo.xaml.cs">
+    <Compile Update="Views\LekarView\UCReceptInfo.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Views\Sekretar\UpravljanjeUrgentnimSistemomProzor.xaml.cs">
+    <Compile Update="Views\SekretarView\UpravljanjeUrgentnimSistemomProzor.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Views\Sekretar\VestiProzor.xaml.cs">
+    <Compile Update="Views\SekretarView\VestiProzor.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Views\Sekretar\ZakazivanjeHitnogTermina.xaml.cs">
+    <Compile Update="Views\SekretarView\ZakazivanjeHitnogTermina.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Views\Pacijent\ZakazivanjeTerminaPacijentaView.xaml.cs">
+    <Compile Update="Views\PacijentView\ZakazivanjeTerminaPacijentaView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Views\Sekretar\ZakazivanjeTerminaSekretara.xaml.cs">
+    <Compile Update="Views\SekretarView\ZakazivanjeTerminaSekretara.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Views\Sekretar\ZdravstveniKartonForma.xaml.cs">
+    <Compile Update="Views\SekretarView\ZdravstveniKartonForma.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Views\Upravnik\ZahteviInfoProzor.xaml.cs">
+    <Compile Update="Views\UpravnikView\ZahteviInfoProzor.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Views\Upravnik\ZahteviProzor.xaml.cs">
+    <Compile Update="Views\UpravnikView\ZahteviProzor.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
@@ -225,238 +225,238 @@
     <Page Update="ResourceDictionaries\Dictionary1.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Views\Lekar\GlavniProzorLekara.xaml">
+    <Page Update="Views\LekarView\GlavniProzorLekara.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Views\Lekar\UCBolnickoLecenjeIzmena.xaml">
+    <Page Update="Views\LekarView\UCBolnickoLecenjeIzmena.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Views\Lekar\UCRaspored.xaml">
+    <Page Update="Views\LekarView\UCRaspored.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Views\Lekar\UCZakazivanje.xaml">
+    <Page Update="Views\LekarView\UCZakazivanje.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Views\Lekar\UputForma.xaml">
+    <Page Update="Views\LekarView\UputForma.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Views\Pacijent\AnamnezaView.xaml">
+    <Page Update="Views\PacijentView\AnamnezaView.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Views\Pacijent\KreiranjePodsetnikaView.xaml">
+    <Page Update="Views\PacijentView\KreiranjePodsetnikaView.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Views\Sekretar\AlergeniProzor.xaml">
+    <Page Update="Views\SekretarView\AlergeniProzor.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Views\Lekar\AnamnezaForma.xaml">
+    <Page Update="Views\LekarView\AnamnezaForma.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Views\Pacijent\AnketaOBolniciFormaView.xaml">
+    <Page Update="Views\PacijentView\AnketaOBolniciFormaView.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Views\Pacijent\AnketaOLekaruFormaView.xaml">
+    <Page Update="Views\PacijentView\AnketaOLekaruFormaView.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Views\Sekretar\DefinisanjeAlergenaForma.xaml">
+    <Page Update="Views\SekretarView\DefinisanjeAlergenaForma.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Views\Sekretar\DodajAlergenPacijentu.xaml">
+    <Page Update="Views\SekretarView\DodajAlergenPacijentu.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Views\Sekretar\GostujuciNaloziProzor.xaml">
+    <Page Update="Views\SekretarView\GostujuciNaloziProzor.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Views\Sekretar\IzborHitnogTermina.xaml">
+    <Page Update="Views\SekretarView\IzborHitnogTermina.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Views\Lekar\IzborTerminaLekara.xaml">
+    <Page Update="Views\LekarView\IzborTerminaLekara.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Views\Sekretar\IzborTerminaPacijenta.xaml">
+    <Page Update="Views\SekretarView\IzborTerminaPacijenta.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Views\Sekretar\IzborTerminaZaNovoZakazivanje.xaml">
+    <Page Update="Views\SekretarView\IzborTerminaZaNovoZakazivanje.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Views\Sekretar\IzborTerminaZaPomeranje.xaml">
+    <Page Update="Views\SekretarView\IzborTerminaZaPomeranje.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Views\Sekretar\IzborTerminaZaPomeranjeZakazanog.xaml">
+    <Page Update="Views\SekretarView\IzborTerminaZaPomeranjeZakazanog.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Views\Sekretar\IzmenaAlergenaForma.xaml">
+    <Page Update="Views\SekretarView\IzmenaAlergenaForma.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Views\Pacijent\IzborTerminaPacijentaView.xaml">
+    <Page Update="Views\PacijentView\IzborTerminaPacijentaView.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Views\Sekretar\IzmenaNalogaLekaraForma.xaml">
+    <Page Update="Views\SekretarView\IzmenaNalogaLekaraForma.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Views\Sekretar\IzmenaNalogaPacijentaForma.xaml">
+    <Page Update="Views\SekretarView\IzmenaNalogaPacijentaForma.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Views\Sekretar\IzmenaVesti.xaml">
+    <Page Update="Views\SekretarView\IzmenaVesti.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Views\Lekar\IzmenaZdravstvenogKartonaLekar.xaml">
+    <Page Update="Views\LekarView\IzmenaZdravstvenogKartonaLekar.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Views\Sekretar\IzmenaZdravstvenogKartonaForma.xaml">
+    <Page Update="Views\SekretarView\IzmenaZdravstvenogKartonaForma.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Views\Sekretar\KreirajVestProzor.xaml">
+    <Page Update="Views\SekretarView\KreirajVestProzor.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Views\Sekretar\KreiranjeGostujucegPacijentaProzor.xaml">
+    <Page Update="Views\SekretarView\KreiranjeGostujucegPacijentaProzor.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\Login.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Views\Sekretar\PregledNalogaLekara.xaml">
+    <Page Update="Views\SekretarView\PregledNalogaLekara.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Views\Sekretar\RegistracijaLekaraForma.xaml">
+    <Page Update="Views\SekretarView\RegistracijaLekaraForma.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Views\Sekretar\Lekari.xaml">
+    <Page Update="Views\SekretarView\Lekari.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Views\Upravnik\MagacinDodajDinamickuOpremu.xaml">
+    <Page Update="Views\UpravnikView\MagacinDodajDinamickuOpremu.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Views\Upravnik\MagacinDodajProzor.xaml">
+    <Page Update="Views\UpravnikView\MagacinDodajProzor.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Views\Upravnik\MagacinIzmeniDinamickuOpremu.xaml">
+    <Page Update="Views\UpravnikView\MagacinIzmeniDinamickuOpremu.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Views\Upravnik\MagacinIzmeniProzor.xaml">
+    <Page Update="Views\UpravnikView\MagacinIzmeniProzor.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Views\Upravnik\MagacinProzor.xaml">
+    <Page Update="Views\UpravnikView\MagacinProzor.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Views\Sekretar\PacijentiProzor.xaml">
+    <Page Update="Views\SekretarView\PacijentiProzor.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Views\Sekretar\PocetnaStranicaSekretara.xaml">
+    <Page Update="Views\SekretarView\PocetnaStranicaSekretara.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Views\Sekretar\PomeranjeTermina.xaml">
+    <Page Update="Views\SekretarView\PomeranjeTermina.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Views\Lekar\PomeranjeTerminaLekaraProzor.xaml">
+    <Page Update="Views\LekarView\PomeranjeTerminaLekaraProzor.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Views\Pacijent\PomeranjeTerminaPacijentaView.xaml">
+    <Page Update="Views\PacijentView\PomeranjeTerminaPacijentaView.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Views\Sekretar\PomeranjeZakazanogTermina.xaml">
+    <Page Update="Views\SekretarView\PomeranjeZakazanogTermina.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Views\Sekretar\PomjeranjeTerminaProzorSekretara.xaml">
+    <Page Update="Views\SekretarView\PomjeranjeTerminaProzorSekretara.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Views\Sekretar\PregledAlergena.xaml">
+    <Page Update="Views\SekretarView\PregledAlergena.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Views\Sekretar\PregledGostujucegNaloga.xaml">
+    <Page Update="Views\SekretarView\PregledGostujucegNaloga.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Views\Sekretar\PregledVesti.xaml">
+    <Page Update="Views\SekretarView\PregledVesti.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Views\Sekretar\PregledZdravstvenogKartona.xaml">
+    <Page Update="Views\SekretarView\PregledZdravstvenogKartona.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Views\Upravnik\ProstorijaForma.xaml">
+    <Page Update="Views\UpravnikView\ProstorijaForma.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Views\Upravnik\ProstorijaFormaIzmeni.xaml">
+    <Page Update="Views\UpravnikView\ProstorijaFormaIzmeni.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Views\Upravnik\ProstorijaInfoForma.xaml">
+    <Page Update="Views\UpravnikView\ProstorijaInfoForma.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Views\Upravnik\ProstorijaRenoviranjeProzor.xaml">
+    <Page Update="Views\UpravnikView\ProstorijaRenoviranjeProzor.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Views\Upravnik\ProstorijeProzor.xaml">
+    <Page Update="Views\UpravnikView\ProstorijeProzor.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Views\Pacijent\VestiView.xaml">
+    <Page Update="Views\PacijentView\VestiView.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Views\Lekar\ReceptForma.xaml">
+    <Page Update="Views\LekarView\ReceptForma.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Views\Sekretar\RegistracijaPacijentaForma.xaml">
+    <Page Update="Views\SekretarView\RegistracijaPacijentaForma.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Views\Sekretar\RegistrujNovogPacijenta.xaml">
+    <Page Update="Views\SekretarView\RegistrujNovogPacijenta.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Views\Lekar\TerminiLekaraProzor.xaml">
+    <Page Update="Views\LekarView\TerminiLekaraProzor.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\TerminInfoProzor.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Views\Lekar\TerminiLekaraProzor.xaml">
+    <Page Update="Views\LekarView\TerminiLekaraProzor.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Views\Pacijent\TerminiPacijentaView.xaml">
+    <Page Update="Views\PacijentView\TerminiPacijentaView.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Views\Lekar\UCLekInfo.xaml">
+    <Page Update="Views\LekarView\UCLekInfo.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Views\Lekar\UCLekovi.xaml">
+    <Page Update="Views\LekarView\UCLekovi.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Views\Lekar\UCListaRecepata.xaml">
+    <Page Update="Views\LekarView\UCListaRecepata.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Views\Sekretar\UCMenuSekretara.xaml">
+    <Page Update="Views\SekretarView\UCMenuSekretara.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Views\Lekar\UCPacijenti.xaml">
+    <Page Update="Views\LekarView\UCPacijenti.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Views\Sekretar\TerminiPacijentaProzorSekretara.xaml">
+    <Page Update="Views\SekretarView\TerminiPacijentaProzorSekretara.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Views\Lekar\UCReceptInfo.xaml">
+    <Page Update="Views\LekarView\UCReceptInfo.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Views\Sekretar\UpravljanjeUrgentnimSistemomProzor.xaml">
+    <Page Update="Views\SekretarView\UpravljanjeUrgentnimSistemomProzor.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Views\Sekretar\VestiProzor.xaml">
+    <Page Update="Views\SekretarView\VestiProzor.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Views\Sekretar\ZakazivanjeHitnogTermina.xaml">
+    <Page Update="Views\SekretarView\ZakazivanjeHitnogTermina.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Views\Lekar\ZakazivanjeTerminaLekaraProzor.xaml">
+    <Page Update="Views\LekarView\ZakazivanjeTerminaLekaraProzor.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Views\Pacijent\ZakazivanjeTerminaPacijentaView.xaml">
+    <Page Update="Views\PacijentView\ZakazivanjeTerminaPacijentaView.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Views\Sekretar\ZakazivanjeTerminaSekretara.xaml">
+    <Page Update="Views\SekretarView\ZakazivanjeTerminaSekretara.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Views\Sekretar\ZdravstveniKartonForma.xaml">
+    <Page Update="Views\SekretarView\ZdravstveniKartonForma.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Views\Upravnik\ZahteviInfoProzor.xaml">
+    <Page Update="Views\UpravnikView\ZahteviInfoProzor.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Views\Upravnik\ZahteviProzor.xaml">
+    <Page Update="Views\UpravnikView\ZahteviProzor.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
