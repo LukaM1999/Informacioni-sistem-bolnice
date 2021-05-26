@@ -63,11 +63,6 @@ namespace InformacioniSistemBolnice
             PacijentKontroler.Instance.Otkazivanje((Termin)listaZakazanihTermina.SelectedValue);
         }
 
-        private void OtvoriTerminInfo(object sender, RoutedEventArgs e)
-        {
-            if (listaZakazanihTermina.SelectedIndex >= 0) PacijentKontroler.Instance.Uvid(listaZakazanihTermina);
-        }
-
         private void OtvoriVesti(object sender, RoutedEventArgs e)
         {
             new VestiView().Show();

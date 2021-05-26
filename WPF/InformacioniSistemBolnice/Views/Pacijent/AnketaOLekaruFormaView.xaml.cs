@@ -30,7 +30,7 @@ namespace InformacioniSistemBolnice
 
         private void Potvrda(object sender, RoutedEventArgs e)
         {
-            AnketaOLekaru novaAnketa = new(UBroj(IzabranoRadioDugme(Ljubaznost)),
+            AnketaDto novaAnketa = new(UBroj(IzabranoRadioDugme(Ljubaznost)),
                 UBroj(IzabranoRadioDugme(Profesionalizam)), UBroj(IzabranoRadioDugme(Strpljenje)),
                 UBroj(IzabranoRadioDugme(Komunikativnost)), UBroj(IzabranoRadioDugme(Azurnost)),
                 UBroj(IzabranoRadioDugme(Korisnost)), Komentari.Text);

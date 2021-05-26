@@ -11,7 +11,7 @@
         <Button x:Name="zakaziDugme" Canvas.Left="129" Canvas.Top="19" Width="64" Click="OtvoriZakazivanjeTermina">Zakazi</Button>
         <Button x:Name="otkaziDugme" Canvas.Left="225" Canvas.Top="19" Width="64" Content="Otkazi" Click="OtkaziTermin"/>
         <Button x:Name="pomeriDugme" Canvas.Left="322" Canvas.Top="19" Width="64" Content="Pomeri" Click="OtvoriPomeranjeTermina"/>
-        <Button x:Name="infoDugme" Canvas.Left="423" Canvas.Top="19" Width="64" Content="Info" Click="OtvoriTerminInfo"/>
+        <Button x:Name="infoDugme" Canvas.Left="423" Canvas.Top="19" Width="64" Content="Info"/>
         <Button Content="Vesti" Canvas.Left="20" Canvas.Top="69" Width="60" Click="OtvoriVesti"/>
         <Button Content="Anketa" Canvas.Left="20" Canvas.Top="117" Width="60" Click="OtvoriAnketu"/>
         <Button x:Name="Podsetnik" Canvas.Left="20" Canvas.Top="165" Width="60" Click="OtvoriPodsetnikFormu">

@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using InformacioniSistemBolnice.DTO;
+using InformacioniSistemBolnice.Utilities;
 using Model;
 using Repozitorijum;
 
@@ -12,12 +13,6 @@ namespace InformacioniSistemBolnice.Servis
 {
     public class PredlogSlobodnihTerminaServis
     {
-        private const int PocetakRadnogVremenaSati = 7;
-        private const int DodatniDaniPredlaganjaTermina = 2;
-        private const int DodatniDaniZaPomeranjeTermina = 2;
-        private const int PolucasovniTerminiRadnogDana = 27;
-        private const double SatiDoSledecegRadnogDana = 10.5;
-
         private readonly ObservableCollection<Termin> slobodniTermini = new();
         private Lekar izabranLekar;
         private readonly TimeSpan intervalDana;
@@ -29,7 +24,7 @@ namespace InformacioniSistemBolnice.Servis
         {
             izabranLekar = LekarRepo.Instance.NadjiLekara(zakazivanje.LekarJmbg);
             intervalDana = zakazivanje.MaxDatum - zakazivanje.MinDatum;
-            slobodanTermin = zakazivanje.MinDatum.AddHours(PocetakRadnogVremenaSati);
+            slobodanTermin = zakazivanje.MinDatum.AddHours(TerminUtility.PocetakRadnogVremenaSati);
             zakazivanjeInfo = zakazivanje;
         }
 
@@ -45,57 +40,56 @@ namespace InformacioniSistemBolnice.Servis
             PronadjiSlobodneTermineZaViseDana(intervalDana.Days);
             IzbaciZauzetePredlozeneTermine();
             //slobodniTermini.Clear();
-            if (slobodniTermini.Count != 0) return slobodniTermini;
-            if (zakazivanjeInfo.VremePrioritet) PonudiTermineDrugogLekara();
-            else PonudiVremenskiIzmenjeneTermine();
-            return slobodniTermini;
+            if (slobodniTermini.Count is not 0) return slobodniTermini;
+            return zakazivanjeInfo.VremePrioritet ? PonudiTermineDrugogLekara() : PonudiVremenskiIzmenjeneTermine();
         }
 
         public ObservableCollection<Termin> PonudiSlobodneTermineZaPomeranje()
         {
-            slobodanTermin = terminZaPomeranje.Vreme.
-                Subtract(new TimeSpan(48 - 7 + terminZaPomeranje.Vreme.Hour, 30, 0));
-            PronadjiSlobodneTermineZaViseDana(DodatniDaniZaPomeranjeTermina);
-            slobodanTermin = terminZaPomeranje.Vreme.
-                Subtract(new TimeSpan(terminZaPomeranje.Vreme.Hour, 30, 0)).AddHours(24 + 7);
-            PronadjiSlobodneTermineZaViseDana(DodatniDaniZaPomeranjeTermina);
+            slobodanTermin = TerminUtility.IzracunajPomeranjeUnazad(terminZaPomeranje);
+            PronadjiSlobodneTermineZaViseDana(TerminUtility.DodatniDaniZaPomeranjeTermina);
+            slobodanTermin = TerminUtility.IzracunajPomeranjeUnapred(terminZaPomeranje);
+            PronadjiSlobodneTermineZaViseDana(TerminUtility.DodatniDaniZaPomeranjeTermina);
             IzbaciZauzetePredlozeneTermine();
             return slobodniTermini;
         }
 
-        private void PonudiVremenskiIzmenjeneTermine()
+        private ObservableCollection<Termin> PonudiVremenskiIzmenjeneTermine()
         {
-            slobodanTermin = zakazivanjeInfo.MinDatum.Subtract(new TimeSpan(48 - PocetakRadnogVremenaSati, 0, 0));
-            PronadjiSlobodneTermineZaViseDana(DodatniDaniPredlaganjaTermina);
-            slobodanTermin = zakazivanjeInfo.MaxDatum.AddHours(PocetakRadnogVremenaSati);
-            PronadjiSlobodneTermineZaViseDana(DodatniDaniPredlaganjaTermina);
+            slobodanTermin = zakazivanjeInfo.MinDatum.Subtract(new TimeSpan(TerminUtility.DvaDanaUnazad, 0, 0));
+            PronadjiSlobodneTermineZaViseDana(TerminUtility.DodatniDaniPredlaganjaTermina);
+            slobodanTermin = zakazivanjeInfo.MaxDatum.AddHours(TerminUtility.PocetakRadnogVremenaSati);
+            PronadjiSlobodneTermineZaViseDana(TerminUtility.DodatniDaniPredlaganjaTermina);
             foreach (Termin predlozenTermin in slobodniTermini) IzbaciPoklapajuce(predlozenTermin);
+            return slobodniTermini;
         }
 
-        private void PonudiTermineDrugogLekara()
+        private ObservableCollection<Termin> PonudiTermineDrugogLekara()
         {
-            slobodanTermin = zakazivanjeInfo.MinDatum.AddHours(PocetakRadnogVremenaSati);
+            slobodanTermin = zakazivanjeInfo.MinDatum.AddHours(TerminUtility.PocetakRadnogVremenaSati);
             izabranLekar = LekarRepo.Instance.NadjiLekaraIsteSpecijalizacije(izabranLekar);
-            if (izabranLekar is null) return;
+            if (izabranLekar is null) return null;
             PronadjiSlobodneTermineZaViseDana(intervalDana.Days);
             foreach (Termin predlozenTermin in slobodniTermini) IzbaciPoklapajuce(predlozenTermin);
+            return slobodniTermini;
         }
 
         private void PronadjiSlobodneTermineZaViseDana(int danaZaPretragu)
         {
             for (int i = 0; i < danaZaPretragu; i++)
-                slobodanTermin = PronadjiSlobodanTermin().AddHours(SatiDoSledecegRadnogDana);
+                slobodanTermin = PronadjiSlobodanTermin().AddHours(TerminUtility.SatiDoSledecegRadnogDana);
         }
 
         private DateTime PronadjiSlobodanTermin()
         {
-            for (int j = 0; j < PolucasovniTerminiRadnogDana; j++)
+            for (int j = 0; j < TerminUtility.PolucasovniTerminiRadnogDana; j++)
             {
-                slobodniTermini.Add(new Termin(slobodanTermin, 30.0, TipTermina.pregled, StatusTermina.slobodan,
-                    zakazivanjeInfo.PacijentJmbg, izabranLekar.Jmbg, null));
+                slobodniTermini.Add(new Termin(slobodanTermin, TerminUtility.PodrazumevanoTrajanjeTermina, 
+                    TipTermina.pregled, StatusTermina.slobodan,
+                    zakazivanjeInfo.PacijentJmbg, izabranLekar.Jmbg, zakazivanjeInfo.ProstorijaId));
                 PostaviIdSlobodneProstorije();
                 if (!JePronadjenaSlobodnaProstorija()) slobodniTermini.Remove(slobodniTermini.Last());
-                slobodanTermin = slobodanTermin.AddMinutes(30);
+                slobodanTermin = slobodanTermin.AddMinutes(TerminUtility.PodrazumevanoTrajanjeTermina);
             }
             return slobodanTermin;
         }

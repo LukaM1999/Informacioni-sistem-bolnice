@@ -28,7 +28,7 @@ namespace InformacioniSistemBolnice
 
         private void Potvrda(object sender, RoutedEventArgs e)
         {
-            AnketaOBolnici anketa = new(UBroj(IzabranoRadioDugme(Ljubaznost)),
+            AnketaDto anketa = new(UBroj(IzabranoRadioDugme(Ljubaznost)),
                 UBroj(IzabranoRadioDugme(Profesionalizam)), UBroj(IzabranoRadioDugme(Strpljenje)),
                 UBroj(IzabranoRadioDugme(Komunikativnost)), UBroj(IzabranoRadioDugme(Azurnost)),
                 UBroj(IzabranoRadioDugme(Korisnost)), Komentari.Text, pacijentovJmbg, DateTime.Now);

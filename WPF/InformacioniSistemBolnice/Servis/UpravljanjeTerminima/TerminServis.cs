@@ -14,7 +14,7 @@ namespace Servis
         private static readonly Lazy<TerminServis> Lazy = new(() => new TerminServis());
         public static TerminServis Instance => Lazy.Value;
 
-        public void Zakazivanje(Termin terminZaZakazivanje)
+        public void ZakaziTermin(Termin terminZaZakazivanje)
         {
             terminZaZakazivanje.Status = StatusTermina.zakazan;
             TerminPacijentaServis.Instance.ZakaziTerminKodPacijenta(terminZaZakazivanje);
@@ -24,7 +24,7 @@ namespace Servis
             TerminRepo.Instance.Serijalizacija();
         }
 
-        public void Otkazivanje(Termin terminZaOtkazivanje)
+        public void OtkaziTermin(Termin terminZaOtkazivanje)
         {
             TerminPacijentaServis.Instance.OtkaziTerminKodPacijenta(terminZaOtkazivanje);
             TerminLekaraServis.Instance.OtkaziTerminKodLekara(terminZaOtkazivanje);
@@ -33,7 +33,7 @@ namespace Servis
             TerminRepo.Instance.Serijalizacija();
         }
 
-        public void Pomeranje(Termin terminZaPomeranje, Termin noviTermin)
+        public void PomeriTermin(Termin terminZaPomeranje, Termin noviTermin)
         {
             noviTermin.Status = StatusTermina.pomeren;
             TerminPacijentaServis.Instance.PomeriTerminKodPacijenta(terminZaPomeranje, noviTermin);
@@ -42,7 +42,6 @@ namespace Servis
             TerminRepo.Instance.ObrisiTermin(terminZaPomeranje);
             TerminRepo.Instance.DodajTermin(noviTermin);
             TerminRepo.Instance.Serijalizacija();
-
         }
 
         public void Uvid(DataGrid listaZakazanihTermina)

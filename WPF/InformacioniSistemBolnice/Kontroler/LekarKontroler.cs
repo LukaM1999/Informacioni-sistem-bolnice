@@ -17,12 +17,12 @@ namespace Kontroler
 
         public static LekarKontroler Instance { get { return Lazy.Value; } }
 
-        public void Zakazivanje(Termin izabranTermin) => TerminServis.Instance.Zakazivanje(izabranTermin);
+        public void Zakazivanje(Termin izabranTermin) => TerminServis.Instance.ZakaziTermin(izabranTermin);
 
-        public void Otkazivanje(Termin izabranTermin) => TerminServis.Instance.Otkazivanje(izabranTermin);
+        public void Otkazivanje(Termin izabranTermin) => TerminServis.Instance.OtkaziTermin(izabranTermin);
         
         public void Pomeranje(Termin terminZaPomeranje, Termin noviTermin) 
-            => TerminServis.Instance.Pomeranje(terminZaPomeranje, noviTermin);
+            => TerminServis.Instance.PomeriTermin(terminZaPomeranje, noviTermin);
 
         public void IzdavanjeRecepta(ReceptDto recept) => ReceptServis.Instance.IzdajRecept(recept);
 

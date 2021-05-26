@@ -43,12 +43,6 @@ namespace InformacioniSistemBolnice
                pomjeranje.Show();
             }
         }
-
-        private void VidiTermin_Click(object sender, RoutedEventArgs e)
-        {
-            if (listaZakazanihTermina.SelectedIndex >= 0)
-                PacijentKontroler.Instance.Uvid(listaZakazanihTermina);
-        }
     }
 }
 

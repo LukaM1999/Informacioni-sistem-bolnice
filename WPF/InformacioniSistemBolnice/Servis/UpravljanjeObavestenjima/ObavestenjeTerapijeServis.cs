@@ -14,27 +14,29 @@ namespace Servis
         private static readonly Lazy<ObavestenjeTerapijeServis> Lazy = new(() => new ObavestenjeTerapijeServis());
         public static ObavestenjeTerapijeServis Instance => Lazy.Value;
 
-        private Pacijent ulogovanPacijent;
+        private ZdravstveniKarton kartonPacijenta;
         private Terapija trenutnaTerapija;
 
         public void UkljuciObavestenja(Pacijent pacijent)
         {
             if (pacijent.zdravstveniKarton == null) return;
-            ulogovanPacijent = pacijent;
+            kartonPacijenta = pacijent.zdravstveniKarton;
             ZakaziObavestenja();
             while (true) PrikaziObavestenja();
         }
 
         private void PrikaziObavestenja()
         {
-            foreach (Recept recept in ulogovanPacijent.zdravstveniKarton.recepti)
+            foreach (Recept recept in kartonPacijenta.recepti) UkljuciObavestenjaIzRecepta(recept);
+        }
+
+        private void UkljuciObavestenjaIzRecepta(Recept recept)
+        {
+            foreach (Terapija t in recept.terapije)
             {
-                foreach (Terapija t in recept.terapije)
-                {
-                    trenutnaTerapija = t;
-                    if (JeVremeZaPrikaz()) OmoguciPrikazObavestenja();
-                    else OnemoguciPrikazObavestenja();
-                }
+                trenutnaTerapija = t;
+                if (JeVremeZaPrikaz()) OmoguciPrikazObavestenja();
+                else OnemoguciPrikazObavestenja();
             }
         }
 
@@ -57,18 +59,20 @@ namespace Servis
 
         private void ZakaziObavestenja()
         {
-            foreach (Recept recept in ulogovanPacijent.zdravstveniKarton.recepti)
+            foreach (Recept recept in kartonPacijenta.recepti) ZakaziObavestenjaIzRecepta(recept);
+        }
+
+        private void ZakaziObavestenjaIzRecepta(Recept recept)
+        {
+            foreach (Terapija terapija in recept.terapije)
             {
-                foreach (Terapija terapija in recept.terapije)
-                {
-                    JobManager.Initialize();
-                    ZakaziPrvoObavestenje(terapija);
-                    ZakaziDaljaObavestenja(terapija);
-                }
+                JobManager.Initialize();
+                ZakaziPrvoObavestenje(terapija);
+                ZakaziDaljaObavestenja(terapija);
             }
         }
 
-        private static void ZakaziDaljaObavestenja(Terapija terapija)
+        private void ZakaziDaljaObavestenja(Terapija terapija)
         {
             int redovnost = terapija.DobaviRedovnostTerapije();
             JobManager.AddJob(
@@ -77,7 +81,7 @@ namespace Servis
                     .DelayFor(redovnost - DateTime.Now.Second % redovnost).Seconds());
         }
 
-        private static void ZakaziPrvoObavestenje(Terapija terapija)
+        private void ZakaziPrvoObavestenje(Terapija terapija)
         {
             int redovnost = terapija.DobaviRedovnostTerapije();
             JobManager.AddJob(

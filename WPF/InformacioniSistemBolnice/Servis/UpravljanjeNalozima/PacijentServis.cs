@@ -11,8 +11,7 @@ namespace Servis
 {
     public class PacijentServis
     {
-        private static readonly Lazy<PacijentServis>
-          Lazy =new(() => new PacijentServis());
+        private static readonly Lazy<PacijentServis> Lazy =new(() => new PacijentServis());
         public static PacijentServis Instance => Lazy.Value;
 
         private PacijentDto pacijentoviPodaci;
@@ -85,7 +84,6 @@ namespace Servis
             pacijentZaIzmenu.Email = pacijentoviPodaci.Email;
         }
     }
-
 }
 
 

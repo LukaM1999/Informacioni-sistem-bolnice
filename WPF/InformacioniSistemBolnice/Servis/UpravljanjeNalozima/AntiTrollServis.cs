@@ -92,7 +92,6 @@ namespace Servis
             if (mesecnihTermina <= maksimalnoTermina) return false;
             OznaciUlogovanog();
             PacijentRepo.Instance.Serijalizacija();
-            PacijentRepo.Instance.Deserijalizacija();
             System.Diagnostics.Debug.WriteLine("Oznaceni ste kao maliciozni!");
             return true;
         }

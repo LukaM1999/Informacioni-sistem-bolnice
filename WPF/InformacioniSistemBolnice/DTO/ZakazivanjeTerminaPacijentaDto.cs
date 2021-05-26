@@ -15,8 +15,6 @@ namespace InformacioniSistemBolnice.DTO
         public bool Hitan { get; set; }
         public TipTermina IzabraniTip { get; set; }
 
-
-
         public ZakazivanjeTerminaPacijentaDto(DateTime minDatum, DateTime maxDatum,
             string lekarJmbg, string pacijentJmbg, string specijalizacija = null, bool vremePrioritet = false, 
             string prostorijaId = null, bool hitan = false, TipTermina izabraniTip = TipTermina.pregled)

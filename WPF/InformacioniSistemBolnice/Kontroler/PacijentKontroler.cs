@@ -12,43 +12,24 @@ namespace Kontroler
         public static PacijentKontroler Instance => Lazy.Value;
 
         public void Zakazivanje(Termin terminZaZakazivanje)
-        {
-            TerminServis.Instance.Zakazivanje(terminZaZakazivanje);
-        }
+            => TerminServis.Instance.ZakaziTermin(terminZaZakazivanje);
 
         public void Otkazivanje(Termin terminZaOtkazivanje)
-        {
-            TerminServis.Instance.Otkazivanje(terminZaOtkazivanje);
-        }
+            => TerminServis.Instance.OtkaziTermin(terminZaOtkazivanje);
 
         public void Pomeranje(Termin terminZaPomeranje, Termin noviTermin)
-        {
-            TerminServis.Instance.Pomeranje(terminZaPomeranje, noviTermin);
-        }
+            => TerminServis.Instance.PomeriTermin(terminZaPomeranje, noviTermin);
 
-        public void Uvid(DataGrid listaZakazanihTermina)
-        {
-            TerminServis.Instance.Uvid(listaZakazanihTermina);
-        }
+        public void PosaljiAnketuOLekaru(Termin zavrsenTermin, AnketaDto novaAnketa)
+            => SlanjeAnketeServis.Instance.PosaljiAnketuOLekaru(zavrsenTermin, novaAnketa);
 
-        public void PosaljiAnketuOLekaru(Termin zavrsenTermin, AnketaOLekaru novaAnketa)
-        {
-            SlanjeAnketeServis.Instance.PosaljiAnketuOLekaru(zavrsenTermin, novaAnketa);
-        }
-
-        public void PosaljiAnketuOBolnici(AnketaOBolnici anketa)
-        {
-            SlanjeAnketeServis.Instance.PosaljiAnketuOBolnici(anketa);
-        }
+        public void PosaljiAnketuOBolnici(AnketaDto anketa)
+            => SlanjeAnketeServis.Instance.PosaljiAnketuOBolnici(anketa);
 
         public void UkljuciNoviPodsetnik(Podsetnik novPodsetnik)
-        {
-            ObavestenjePacijentaServis.Instance.UkljuciNoviPodsetnik(novPodsetnik);
-        }
+            => ObavestenjePacijentaServis.Instance.UkljuciNoviPodsetnik(novPodsetnik);
 
         public void DodajBeleske(Pacijent ulogovanPacijent, string beleske)
-        {
-            AnamnezaServis.Instance.DodajBeleske(ulogovanPacijent, beleske);
-        }
+            => AnamnezaServis.Instance.DodajBeleske(ulogovanPacijent, beleske);
     }
 }

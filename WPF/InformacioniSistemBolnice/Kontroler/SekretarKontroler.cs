@@ -56,9 +56,9 @@ namespace Kontroler
                 => ZdravstveniKartonServis.Instance.ObrisiAlergenPacijentu(alergen, jmbg);
 
         public void PomjeranjeTerminaPacijenata(Termin terminZaPomeranje, Termin noviTermin)
-                => TerminServis.Instance.Pomeranje(terminZaPomeranje, noviTermin);
+                => TerminServis.Instance.PomeriTermin(terminZaPomeranje, noviTermin);
 
-        public void Otkazivanje(Termin termin) => TerminServis.Instance.Otkazivanje(termin);
+        public void Otkazivanje(Termin termin) => TerminServis.Instance.OtkaziTermin(termin);
 
         public void PomeranjeVanrednogTerminaPacijenta(IzborTerminaZaNovoZakazivanje izborTerminaZaNovoZakazivanje,
                                                         IzborTerminaZaPomeranje izborTerminaZaPomeranje)
@@ -72,7 +72,7 @@ namespace Kontroler
 
         public void IzmenaVesti(VestDto novaVest, Vest staraVest) => VestServis.Instance.IzmeniVest(novaVest, staraVest);
 
-        public void ZakazivanjeTermina(Termin termin) => TerminServis.Instance.Zakazivanje(termin);
+        public void ZakazivanjeTermina(Termin termin) => TerminServis.Instance.ZakaziTermin(termin);
        
         public void KreiranjeGostujucegPacijenta(GostujuciNalogDto gostujuciNalogDto)
                 => UrgentniSistemServis.Instance.KreiranjeGostujcegPacijenta(gostujuciNalogDto);

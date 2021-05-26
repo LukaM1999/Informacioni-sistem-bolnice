@@ -15,15 +15,19 @@ namespace Servis
             Lazy = new(() => new SlanjeAnketeServis());
         public static SlanjeAnketeServis Instance => Lazy.Value;
 
-        public void PosaljiAnketuOLekaru(Termin zavrsenTermin, AnketaOLekaru novaAnketa)
+        public void PosaljiAnketuOLekaru(Termin zavrsenTermin, AnketaDto novaAnketa)
         {
-            zavrsenTermin.PopuniAnketuOLekaru(novaAnketa);
+            zavrsenTermin.PopuniAnketuOLekaru(new AnketaOLekaru(novaAnketa.Ljubaznost, novaAnketa.Profesionalizam, 
+                novaAnketa.Strpljenje, novaAnketa.Komunikativnost, novaAnketa.Azurnost,
+                novaAnketa.Korisnost, novaAnketa.GeneralniKomentari));
             TerminRepo.Instance.Serijalizacija();
         }
 
-        public void PosaljiAnketuOBolnici(AnketaOBolnici anketa)
+        public void PosaljiAnketuOBolnici(AnketaDto anketa)
         {
-            AnketaOBolniciRepo.Instance.DodajAnketu(anketa);
+            AnketaOBolniciRepo.Instance.DodajAnketu(new AnketaOBolnici(anketa.Ljubaznost, anketa.Profesionalizam, 
+                anketa.Strpljenje, anketa.Komunikativnost, anketa.Azurnost,
+                anketa.Korisnost, anketa.GeneralniKomentari, anketa.PacijentovJmbg, anketa.VremePopunjavanja));
         }
     }
 }

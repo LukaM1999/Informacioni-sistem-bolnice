@@ -9,7 +9,7 @@ namespace InformacioniSistemBolnice.Utilities
 {
     public class PronadjiProzorUtility
     {
-        public Window PronadjiProzor(object viewModel)
+        public static Window PronadjiProzor(object viewModel)
         {
             foreach (Window prozor in Application.Current.Windows) 
                 if (prozor.DataContext == viewModel) return prozor;

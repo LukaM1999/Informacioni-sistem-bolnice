@@ -68,6 +68,5 @@ namespace InformacioniSistemBolnice
             if (izabraniPacijent is not null && izabraniPacijent.zdravstveniKarton is not null)
                 pocetna.contentControl.Content = new IzmenaZdravstvenogKartonaForma(this, pocetna, izabraniPacijent);
         }
-
     }
 }
