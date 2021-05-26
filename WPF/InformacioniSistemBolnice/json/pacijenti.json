@@ -43,7 +43,8 @@
         }
       ]
     },
-    "zakazaniTermini": [
+    "Maliciozan": false,
+    "ZakazaniTermini": [
       {
         "Vreme": "2021-05-28T14:00:00",
         "Trajanje": 30.0,
@@ -56,7 +57,6 @@
         "Hitan": false
       }
     ],
-    "Maliciozan": false,
     "Ime": "Milan",
     "Prezime": "Maric",
     "Jmbg": "1203998123123",
@@ -109,7 +109,7 @@
         "RanijeBolesti": "fgbfgbf",
         "PorodicneAnamneze": "fgvbfg",
         "Zakljucak": "Sve u redu.",
-        "BeleskePacijenta": "Neke beleskeeee."
+        "BeleskePacijenta": "Neke beleske."
       },
       "Alergeni": [
         {
@@ -120,23 +120,13 @@
         }
       ]
     },
-    "zakazaniTermini": [
-      {
-        "Vreme": "2021-05-27T12:00:00",
-        "Trajanje": 30.0,
-        "Tip": 1,
-        "Status": 0,
-        "AnketaOLekaru": null,
-        "PacijentJmbg": "1203998123123",
-        "LekarJmbg": "1605988156156",
-        "ProstorijaId": "P1",
-        "Hitan": true
-      },
+    "Maliciozan": false,
+    "ZakazaniTermini": [
       {
         "Vreme": "2021-05-26T09:00:00+02:00",
         "Trajanje": 30.0,
         "Tip": 1,
-        "Status": 0,
+        "Status": 4,
         "AnketaOLekaru": null,
         "PacijentJmbg": "1905981123124",
         "LekarJmbg": "1605988156156",
@@ -144,18 +134,7 @@
         "Hitan": true
       },
       {
-        "Vreme": "2021-05-28T15:00:00",
-        "Trajanje": 30.0,
-        "Tip": 1,
-        "Status": 0,
-        "AnketaOLekaru": null,
-        "PacijentJmbg": "1203998123123",
-        "LekarJmbg": "1605988156156",
-        "ProstorijaId": "P1",
-        "Hitan": true
-      },
-      {
-        "Vreme": "2021-05-24T14:00:00",
+        "Vreme": "2021-05-26T13:00:00",
         "Trajanje": 30.0,
         "Tip": 1,
         "Status": 3,
@@ -166,7 +145,6 @@
         "Hitan": false
       }
     ],
-    "Maliciozan": false,
     "Ime": "Milica",
     "Prezime": "Markovic",
     "Jmbg": "1905981123124",
@@ -235,8 +213,8 @@
         }
       ]
     },
-    "zakazaniTermini": [],
     "Maliciozan": false,
+    "ZakazaniTermini": [],
     "Ime": "Milos",
     "Prezime": "Ivezic",
     "Jmbg": "1805999134144",
@@ -293,8 +271,8 @@
         }
       ]
     },
-    "zakazaniTermini": [],
     "Maliciozan": false,
+    "ZakazaniTermini": [],
     "Ime": "Mila",
     "Prezime": "nanan",
     "Jmbg": "nana",
