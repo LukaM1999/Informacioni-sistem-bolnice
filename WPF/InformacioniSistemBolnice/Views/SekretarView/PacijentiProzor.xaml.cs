@@ -6,6 +6,7 @@ using Model;
 using Servis;
 using Kontroler;
 using System.Collections.ObjectModel;
+using InformacioniSistemBolnice.ViewModels.SekretarViewModel;
 
 namespace InformacioniSistemBolnice
 {
@@ -13,6 +14,7 @@ namespace InformacioniSistemBolnice
     {
         public PocetnaStranicaSekretara pocetna;
         public ObservableCollection<Pacijent> pacijenti = new ObservableCollection<Pacijent>();
+       
 
         public PacijentiProzor(PocetnaStranicaSekretara pocetnaStranicaSekretara)
         {
@@ -31,7 +33,8 @@ namespace InformacioniSistemBolnice
 
         private void RegistrujPacijenta_Click(object sender, RoutedEventArgs e)
         {
-            pocetna.contentControl.Content = new RegistracijaPacijentaForma(this);
+            pocetna.contentControl.Content = new RegistracijaPacijentaForma() 
+            { DataContext = new RegistracijaPacijentaViewModel(this) }; 
         }
 
         private void ObrisiPacijenta_Click(object sender, RoutedEventArgs e)
@@ -45,21 +48,23 @@ namespace InformacioniSistemBolnice
         {
             Pacijent izabraniPacijent = (Pacijent)ListaPacijenata.SelectedValue;
             if (izabraniPacijent is not null)
-                pocetna.contentControl.Content = new IzmenaNalogaPacijentaForma(this, izabraniPacijent);
+                pocetna.contentControl.Content = new IzmenaNalogaPacijentaForma(this, izabraniPacijent); 
         }
 
         private void VidiPacijenta_Click(object sender, RoutedEventArgs e)
         {
             Pacijent izabraniPacijent = (Pacijent)ListaPacijenata.SelectedValue;
-            if (izabraniPacijent is not null && izabraniPacijent.zdravstveniKarton is not null)
-                pocetna.contentControl.Content = new PregledNalogaPacijenta(this, izabraniPacijent);
+            if (izabraniPacijent is not null)
+                pocetna.contentControl.Content = new PregledNalogaPacijenta()
+                { DataContext = new PregledNalogaPacijentaViewModel(this, izabraniPacijent) }; ;
         }
 
         private void ZdravstveniKartonPacijenta_Click(object sender, RoutedEventArgs e)
         {
             Pacijent izabraniPacijent = (Pacijent)ListaPacijenata.SelectedValue;
             if (izabraniPacijent is not null && izabraniPacijent.zdravstveniKarton is not null)
-                pocetna.contentControl.Content = new PregledZdravstvenogKartona(this, izabraniPacijent);
+                pocetna.contentControl.Content = new PregledZdravstvenogKartona()
+                { DataContext = new PregledZdravstvenogKartonaViewModel(this, izabraniPacijent) }; 
         }
 
         private void IzmeniZdravstveniKarton_Click(object sender, RoutedEventArgs e)

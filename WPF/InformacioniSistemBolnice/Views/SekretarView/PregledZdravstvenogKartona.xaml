@@ -60,7 +60,7 @@
             <Label x:Name="OSIZ" Content="{Binding ZdravstveniKarton.PodaciOZaposlenjuIZanimanju.OSIZZdrZastite}" Canvas.Left="580" Canvas.Top="510" Height="28" Width="120"/>
             <Label x:Name="radUPosebnimUslovimaUnos" Content="{Binding ZdravstveniKarton.PodaciOZaposlenjuIZanimanju.RadPodPosebnimUslovima}" Canvas.Left="580" Canvas.Top="470" Height="28" Width="120"/>
             <Label x:Name="promjene" Content="{Binding ZdravstveniKarton.PodaciOZaposlenjuIZanimanju.Promjene}" Canvas.Left="580" Canvas.Top="550" Height="28" Width="120"/>
-            <Button Style="{StaticResource ResourceKey=MainButtons}" x:Name="Nazad"  Click="NazadBtn_Click" HorizontalAlignment="Left" VerticalAlignment="Top" Background="LightGray"  Width="50" Height="60" Margin="30,15,0,0" >
+            <Button Style="{StaticResource ResourceKey=MainButtons}" x:Name="Nazad" Command="{Binding Nazad}" HorizontalAlignment="Left" VerticalAlignment="Top" Background="LightGray"  Width="50" Height="60" Margin="30,15,0,0" >
                 <StackPanel Orientation="Vertical">
                     <Image Source="../../images/back.png" Width="30" Height="30" RenderOptions.BitmapScalingMode="Fant"/>
                     <TextBlock Text="Nazad" VerticalAlignment="Center" FontSize="14"/>

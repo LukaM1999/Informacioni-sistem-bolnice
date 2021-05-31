@@ -9,9 +9,12 @@ namespace Model
         public Specijalizacija Specijalizacija { get; set; }
         public ObservableCollection<Termin> ZakazaniTermini { get; set; }
 
-        public Lekar()
+        public Lekar() { }
+        
+        public Lekar(Adresa adresa, Korisnik korisnik)
         {
-
+            AdresaStanovanja = adresa;
+            Korisnik = korisnik;
         }
 
         public Lekar(Osoba o, Specijalizacija specijalizacija)

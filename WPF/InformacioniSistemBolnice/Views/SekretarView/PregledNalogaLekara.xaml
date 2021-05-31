@@ -20,7 +20,7 @@
             <TextBox x:Name="prezimeUnos" Text="{Binding Lekar.Prezime}" Canvas.Left="132" Canvas.Top="80" Width="140" Height="25" FontSize="14" />
             <TextBox x:Name="JMBGUnos" Text="{Binding Lekar.Jmbg}" Canvas.Left="132" Canvas.Top="120"  TextWrapping="Wrap" Width="140" Height="25" FontSize="14"/>
             <DatePicker x:Name="datumUnos" Text="{Binding Lekar.DatumRodjenja}" Canvas.Left="132" Canvas.Top="160"  Width="140" Height="25" FontSize="14"/>
-            <TextBox x:Name="drzavaUnos" Canvas.Left="132" Canvas.Top="200" Text="{Binding Lekar.AdresaStanovanja.Drzava}" TextWrapping="Wrap" Width="140" Height="25" FontSize="14" TextChanged="drzavaUnos_TextChanged"/>
+            <TextBox x:Name="drzavaUnos" Canvas.Left="132" Canvas.Top="200" Text="{Binding Lekar.AdresaStanovanja.Drzava}" TextWrapping="Wrap" Width="140" Height="25" FontSize="14"/>
             <TextBox x:Name="gradUnos" Canvas.Left="132" Canvas.Top="240" Text="{Binding Lekar.AdresaStanovanja.Grad}" Width="140" Height="25" FontSize="14" />
             <TextBox x:Name="ulicaUnos" Canvas.Left="132" Canvas.Top="280" Text="{Binding Lekar.AdresaStanovanja.Ulica}" Width="140" Height="25" FontSize="14"/>
             <TextBox x:Name="brojUnos" Canvas.Left="132" Canvas.Top="320" Text="{Binding Lekar.AdresaStanovanja.Broj}" Width="140" Height="25" FontSize="14" />
@@ -32,7 +32,7 @@
             <Label Content="Grad: " Canvas.Left="23" Canvas.Top="240" Width="58" Height="26"/>
             <Label Content="Ulica: " Canvas.Left="23" Canvas.Top="280" Width="94"/>
             <Label Content="Broj: " Canvas.Left="23" Canvas.Top="320" Width="70"/>
-            <Button Style="{StaticResource ResourceKey=MainButtons}" x:Name="Nazad"  Click="NazadBtn_Click" HorizontalAlignment="Left" VerticalAlignment="Top" Background="LightGray"  Width="50" Height="60" Margin="-150,10,0,0" >
+            <Button Style="{StaticResource ResourceKey=MainButtons}" x:Name="Nazad" Command="{Binding Nazad}" HorizontalAlignment="Left" VerticalAlignment="Top" Background="LightGray"  Width="50" Height="60" Margin="-150,10,0,0" >
                 <StackPanel Orientation="Vertical">
                     <Image Source="../../images/back.png" Width="30" Height="30" RenderOptions.BitmapScalingMode="Fant"/>
                     <TextBlock Text="Nazad" VerticalAlignment="Center" FontSize="14"/>

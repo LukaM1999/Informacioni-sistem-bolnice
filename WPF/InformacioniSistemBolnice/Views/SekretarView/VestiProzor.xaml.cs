@@ -4,6 +4,7 @@ using InformacioniSistemBolnice.DTO;
 using Repozitorijum;
 using Kontroler;
 using Model;
+using InformacioniSistemBolnice.ViewModels.SekretarViewModel;
 
 namespace InformacioniSistemBolnice
 {
@@ -19,12 +20,14 @@ namespace InformacioniSistemBolnice
         }
 
         private void KreirajVest_Clik(object sender, RoutedEventArgs e) =>
-            menu.pocetna.contentControl.Content = new KreirajVestProzor(menu.pocetna, menu, this);
+            menu.pocetna.contentControl.Content = new KreirajVestProzor()
+            { DataContext = new KreiranjeVestiViewModel(menu.pocetna, menu, this) };
 
         private void VidiVest_Click(object sender, RoutedEventArgs e)
         {
             Vest izabranaVest = (Vest)ListaVesti.SelectedItem;
-            PregledVesti pregledVesti = new PregledVesti(ListaVesti,izabranaVest);
+            PregledVesti pregledVesti = new PregledVesti()
+            { DataContext = new PregledVestiViewModel(ListaVesti, izabranaVest) };
             pregledVesti.Show();
         }
 
@@ -38,7 +41,8 @@ namespace InformacioniSistemBolnice
         {
             Vest izabranaVest = (Vest)ListaVesti.SelectedItem;
             if (izabranaVest is not null)
-                menu.pocetna.contentControl.Content = new IzmenaVesti(this, menu.pocetna, izabranaVest);
+                menu.pocetna.contentControl.Content = new IzmenaVesti()
+                { DataContext = new IzmenaVestiViewModel(this, menu.pocetna, izabranaVest) };
         }
     }
 }

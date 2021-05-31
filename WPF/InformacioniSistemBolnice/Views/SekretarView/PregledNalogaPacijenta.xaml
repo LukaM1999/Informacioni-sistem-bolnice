@@ -31,6 +31,6 @@
             <Label x:Name="brojLabela"  Content="{Binding Pacijent.AdresaStanovanja.Broj}" Canvas.Left="180" Canvas.Top="430" Width="150" Height="28" Background="White" FontSize="14"/>
             <Label x:Name="gradLabela"  Content="{Binding Pacijent.AdresaStanovanja.Grad}" Canvas.Left="180" Canvas.Top="350" Width="150" Height="28" Background="White" FontSize="14" />
         </Canvas>
-        <Button Content="Nazad" HorizontalAlignment="Left" Margin="50,32,0,0" VerticalAlignment="Top" Click="NazadBtn_Click"  Width="120" Height="25"/>
+        <Button Content="Nazad" HorizontalAlignment="Left" Margin="50,32,0,0" VerticalAlignment="Top" Command="{Binding Nazad}" Width="120" Height="25"/>
     </Grid>
 </UserControl>

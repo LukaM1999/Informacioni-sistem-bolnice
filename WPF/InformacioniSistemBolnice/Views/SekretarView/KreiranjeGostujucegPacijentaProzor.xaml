@@ -3,6 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:System="clr-namespace:System;assembly=System.Runtime"
         xmlns:local="clr-namespace:InformacioniSistemBolnice"
         mc:Ignorable="d"
         Height="650" Width="1000" Background="LightGray" Margin="0,0,0,30">
@@ -14,14 +15,14 @@
             <Label Content="Datum rodjenja: " Canvas.Left="40" Canvas.Top="200" Width="150" FontSize="14"/>
             <Label Content="Telefon: " Canvas.Left="40" Canvas.Top="250"  Width="95" FontSize="14"/>
             <Label Content="E-mail: "  Canvas.Left="40" Canvas.Top="300"  Width="95" FontSize="14"/>
-            <TextBox x:Name="imeUnos" Canvas.Top="50" Canvas.Left="160" Width="140" Height="27" FontSize="14"/>
-            <TextBox x:Name="prezimeUnos"  Canvas.Top="100" Canvas.Left="160" Width="140" Height="27" FontSize="14"/>
-            <TextBox x:Name="JMBGUnos"  Canvas.Top="150" Canvas.Left="160" Width="140" Height="27" FontSize="14"/>
-            <DatePicker x:Name="datumUnos"  Canvas.Top="200" Canvas.Left="160" Width="140" Height="27" FontSize="14"/>
-            <TextBox x:Name="telUnos" Text="" TextWrapping="Wrap" Canvas.Top="250" Canvas.Left="160" Width="140" Height="27" FontSize="14"/>
-            <TextBox x:Name="mailUnos" Text="" TextWrapping="Wrap"  Canvas.Top="300"  Canvas.Left="160" Width="140" Height="27" FontSize="14" />
-            <Button x:Name="potvrdiDugme" Content="Potvrdi" Canvas.Left="220" Canvas.Top="375" Width="140" Height="30" Click="KreirajGostujuciNalog_Click" Background="White" FontSize="14"/>
-            <Button Style="{StaticResource ResourceKey=MainButtons}" x:Name="Nazad"  Click="NazadBtn_Click" HorizontalAlignment="Left" VerticalAlignment="Top" Background="LightGray"  Width="50" Height="60" Margin="-150,10,0,0">
+            <TextBox x:Name="imeUnos" Text="{Binding GostujuciPacijent.Ime}" Canvas.Top="50" Canvas.Left="160" Width="140" Height="27" FontSize="14"/>
+            <TextBox x:Name="prezimeUnos" Text="{Binding GostujuciPacijent.Prezime}"  Canvas.Top="100" Canvas.Left="160" Width="140" Height="27" FontSize="14"/>
+            <TextBox x:Name="JMBGUnos" Text="{Binding GostujuciPacijent.Jmbg}"  Canvas.Top="150" Canvas.Left="160" Width="140" Height="27" FontSize="14"/>
+            <DatePicker x:Name="datumUnos" SelectedDate="{Binding GostujuciPacijent.DatumRodjenja}"  Canvas.Top="200" Canvas.Left="160" Width="140" Height="27" FontSize="14"/>
+            <TextBox x:Name="telUnos" Text="{Binding GostujuciPacijent.Telefon}"   TextWrapping="Wrap" Canvas.Top="250" Canvas.Left="160" Width="140" Height="27" FontSize="14"/>
+            <TextBox x:Name="mailUnos" Text="{Binding GostujuciPacijent.Email}" TextWrapping="Wrap"  Canvas.Top="300"  Canvas.Left="160" Width="140" Height="27" FontSize="14" />
+            <Button x:Name="potvrdiDugme" Content="Potvrdi" Canvas.Left="220" Canvas.Top="375" Width="140" Height="30" Command="{Binding KreirajGostujuciNalog}" Background="White" FontSize="14"/>
+            <Button Style="{StaticResource ResourceKey=MainButtons}" x:Name="Nazad"  Command="{Binding Nazad}" HorizontalAlignment="Left" VerticalAlignment="Top" Background="LightGray"  Width="50" Height="60" Margin="-150,10,0,0">
                 <StackPanel Orientation="Vertical">
                     <Image Source="../../images/back.png" Width="30" Height="30" RenderOptions.BitmapScalingMode="Fant"/>
                     <TextBlock Text="Nazad" VerticalAlignment="Center" FontSize="14"/>

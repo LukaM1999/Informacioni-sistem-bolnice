@@ -14,13 +14,13 @@
             <Label Content="Datum rodjenja: " Canvas.Left="23" Canvas.Top="135" Width="94"/>
             <Label Content="Telefon: " Canvas.Left="23" Canvas.Top="166" />
             <Label Content="E-mail: " Canvas.Left="23" Canvas.Top="197"/>
-            <Label x:Name="ime" Canvas.Left="132" Canvas.Top="46" Width="120" Height="28" FontSize="12" Background="White"/>
-            <Label x:Name="prezime" Canvas.Left="132" Canvas.Top="77" Width="120" Height="28" FontSize="12"  Background="White"/>
-            <Label x:Name="JMBG" Canvas.Left="132" Canvas.Top="108"  Width="120" Height="28" FontSize="12" Background="White"/>
-            <Label x:Name="datum" Canvas.Left="132" Canvas.Top="139"  Width="120"  Height="28" FontSize="12" Background="White"/>
-            <Label x:Name="tel" Canvas.Left="132" Canvas.Top="170" Width="120" Height="28" Background="White" FontSize="12"/>
-            <Label x:Name="mail" Canvas.Left="132" Canvas.Top="201" Width="120" Height="28" FontSize="12" Background="White" />
+            <Label x:Name="ime" Content="{Binding GostujuciPacijent.Ime}"  Canvas.Left="132" Canvas.Top="46" Width="120" Height="28" FontSize="12" Background="White"/>
+            <Label x:Name="prezime" Content="{Binding GostujuciPacijent.Prezime}" Canvas.Left="132" Canvas.Top="77" Width="120" Height="28" FontSize="12"  Background="White"/>
+            <Label x:Name="JMBG" Content="{Binding GostujuciPacijent.Jmbg}" Canvas.Left="132" Canvas.Top="108"  Width="120" Height="28" FontSize="12" Background="White"/>
+            <Label x:Name="datum" Content="{Binding GostujuciPacijent.DatumRodjenja}" Canvas.Left="132" Canvas.Top="139"  Width="120"  Height="28" FontSize="12" Background="White"/>
+            <Label x:Name="tel" Content="{Binding GostujuciPacijent.Telefon}" Canvas.Left="132" Canvas.Top="170" Width="120" Height="28" Background="White" FontSize="12"/>
+            <Label x:Name="mail" Content="{Binding GostujuciPacijent.Email}" Canvas.Left="132" Canvas.Top="201" Width="120" Height="28" FontSize="12" Background="White" />
         </Canvas>
-        <Button Content="Nazad" HorizontalAlignment="Left" Margin="20,16,0,0" VerticalAlignment="Top" Click="NazadBtn_Click"/>
+        <Button Content="Nazad" HorizontalAlignment="Left" Margin="20,16,0,0" VerticalAlignment="Top" Command="{Binding Nazad}"/>
     </Grid>
 </UserControl>

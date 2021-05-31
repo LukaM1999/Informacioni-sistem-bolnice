@@ -5,7 +5,7 @@ using System.Windows.Controls;
 using Repozitorijum;
 using Model;
 using Kontroler;
-
+using InformacioniSistemBolnice.ViewModels.SekretarViewModel;
 
 namespace InformacioniSistemBolnice
 {
@@ -37,13 +37,15 @@ namespace InformacioniSistemBolnice
 
         private void KreirajGostujuciNalog_Click(object sender, RoutedEventArgs e)
         {
-            this.pocetna.contentControl.Content = new KreiranjeGostujucegPacijentaProzor(this);
+            this.pocetna.contentControl.Content = new KreiranjeGostujucegPacijentaProzor()
+            { DataContext = new KreiranjeGostujucegNalogaViewModel(this)};
         }
 
         private void VidiGostujuciNalog_Click(object sender, RoutedEventArgs e)
         {
             if (listaGostujucihNaloga.SelectedValue != null)
-                this.pocetna.contentControl.Content = new PregledGostujucegNaloga(this, this.listaGostujucihNaloga);
+                this.pocetna.contentControl.Content = new PregledGostujucegNaloga()
+                { DataContext = new PregledGostujucegNalogaViewModel(this, (Pacijent)listaGostujucihNaloga.SelectedItem) };
         }
     }
 }

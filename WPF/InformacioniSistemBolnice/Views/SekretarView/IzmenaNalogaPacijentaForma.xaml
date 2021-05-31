@@ -19,7 +19,7 @@
             <TextBox x:Name="imeUnos" Text="{Binding Pacijent.Ime}" Canvas.Left="132" Canvas.Top="40" TextWrapping="Wrap" Width="140" Height="25" FontSize="14"/>
             <TextBox x:Name="prezimeUnos" Text="{Binding Pacijent.Prezime}" Canvas.Left="132" Canvas.Top="80" Width="140" Height="25" FontSize="14" />
             <TextBox x:Name="JMBGUnos" Text="{Binding Pacijent.Jmbg}" Canvas.Left="132" Canvas.Top="120"  TextWrapping="Wrap" Width="140" Height="25" FontSize="14"/>
-            <DatePicker x:Name="datumUnos" Text="{Binding Pacijent.DatumRodjenja}" Canvas.Left="132" Canvas.Top="160"  Width="140" Height="25" FontSize="14"/>
+            <DatePicker x:Name="datumUnos" SelectedDate="{Binding Pacijent.DatumRodjenja}"  Canvas.Left="132" Canvas.Top="160"  Width="140" Height="25" FontSize="14"/>
             <TextBox x:Name="drzavaUnos" Canvas.Left="132" Canvas.Top="200" Text="{Binding Pacijent.AdresaStanovanja.Drzava}" TextWrapping="Wrap" Width="140" Height="25" FontSize="14"/>
             <TextBox x:Name="gradUnos" Canvas.Left="132" Canvas.Top="240" Text="{Binding Pacijent.AdresaStanovanja.Grad}" Width="140" Height="25" FontSize="14" />
             <TextBox x:Name="ulicaUnos" Canvas.Left="132" Canvas.Top="280" Text="{Binding Pacijent.AdresaStanovanja.Ulica}" Width="140" Height="25" FontSize="14"/>
@@ -33,9 +33,9 @@
             <Label Content="Grad: " Canvas.Left="23" Canvas.Top="240" Width="58" Height="26"/>
             <Label Content="Ulica: " Canvas.Left="23" Canvas.Top="280" Width="94"/>
             <Label Content="Broj: " Canvas.Left="23" Canvas.Top="320" Width="70"/>
-            <Button x:Name="potvrdiDugme" Content="Potvrdi" Canvas.Left="200" Canvas.Top="580" Width="120" Height="30" Background="White" Click="PotvrdiDugme_Click" />
-            <Button Content="Kreiraj zdravstveni karton" Canvas.Left="23" Canvas.Top="550" Width="149" Height="23" Click="ZdravstveniKartonDugme_Click"/>
-            <Button Style="{StaticResource ResourceKey=MainButtons}" x:Name="Nazad"  Click="NazadBtn_Click" HorizontalAlignment="Left" VerticalAlignment="Top" Background="LightGray"  Width="50" Height="60" Margin="-150,10,0,0" >
+            <Button x:Name="potvrdiDugme" Content="Potvrdi" Canvas.Left="200" Canvas.Top="580" Width="120" Height="30" Background="White" Command="{Binding IzmeniPacijenta}" />
+            <Button Content="Kreiraj zdravstveni karton" Canvas.Left="23" Canvas.Top="550" Width="149" Height="23"/>
+            <Button Style="{StaticResource ResourceKey=MainButtons}" x:Name="Nazad"  Command="{Binding Nazad}" HorizontalAlignment="Left" VerticalAlignment="Top" Background="LightGray"  Width="50" Height="60" Margin="-150,10,0,0" >
                 <StackPanel Orientation="Vertical">
                     <Image Source="../../images/back.png" Width="30" Height="30" RenderOptions.BitmapScalingMode="Fant"/>
                     <TextBlock Text="Nazad" VerticalAlignment="Center" FontSize="14"/>

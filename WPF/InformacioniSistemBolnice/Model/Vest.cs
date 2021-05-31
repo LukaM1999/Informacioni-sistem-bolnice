@@ -9,6 +9,8 @@ namespace Model
         public string Id { get; set; }
         public DateTime VremeObjave { get; set; }
 
+        public Vest() { }
+
         public Vest(string sadrzajVesti, string naslov, DateTime vremeObjave)
         {
             Sadrzaj = sadrzajVesti;

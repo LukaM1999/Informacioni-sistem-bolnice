@@ -37,8 +37,9 @@ namespace InformacioniSistemBolnice
         private void DodajAlergenPacijentu_Click(object sender, RoutedEventArgs e)
         {
             ZdravstveniKarton zdravstveniKarton = izmenaZdravstvenogKartonaForma.ZdravstveniKarton;
+            Pacijent pacijent = izmenaZdravstvenogKartonaForma.Pacijent;
             SekretarKontroler.Instance.DodavanjeAlergenaIzZdravstvenogKartona
-                ((Alergen)ListaAlergena.SelectedItem, zdravstveniKarton.Jmbg);
+                ((Alergen)ListaAlergena.SelectedItem, pacijent.Jmbg);
             AzurirajPrikazAlergena();
             this.Close();
         }

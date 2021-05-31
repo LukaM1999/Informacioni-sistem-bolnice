@@ -13,7 +13,12 @@ namespace Model
         public Adresa AdresaStanovanja { get; set; }
         public Korisnik Korisnik { get; set; }
         public Osoba() {}
-        
+        public Osoba(Adresa adresa, Korisnik korisnik)
+        {
+            AdresaStanovanja = adresa;
+            Korisnik = korisnik;
+        }
+
         public Osoba(string ime, string prezime, string jmbg, DateTime datumRodjenja, string telefon, string email, Korisnik korisnik, Adresa adresa)
         {
             this.Ime = ime;

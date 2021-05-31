@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using InformacioniSistemBolnice.ViewModels.SekretarViewModel;
+using System.Windows;
 using System.Windows.Controls;
 
 namespace InformacioniSistemBolnice
@@ -6,6 +7,7 @@ namespace InformacioniSistemBolnice
     public partial class UCMenuSekretara : UserControl
     {
         public PocetnaStranicaSekretara pocetna;
+        public AlergeniProzor alergeni;
 
         public UCMenuSekretara(PocetnaStranicaSekretara pocetnaStranicaSekretara)
         {
@@ -20,7 +22,8 @@ namespace InformacioniSistemBolnice
             => pocetna.contentControl.Content = new TerminiPacijentaProzorSekretara(pocetna);
 
         private void UpravljanjeAlergenima_Click(object sender, RoutedEventArgs e)
-            => pocetna.contentControl.Content = new AlergeniProzor(pocetna);
+            => pocetna.contentControl.Content = new AlergeniProzor(pocetna)
+            { DataContext = new AlergeniViewModel(pocetna, alergeni)};
 
         private void GostujuciNalozi_Click(object sender, RoutedEventArgs e)
             => pocetna.contentControl.Content = new GostujuciNaloziProzor(pocetna);

@@ -7,12 +7,12 @@
         mc:Ignorable="d"
         Height="650" Width="1000">
     <Grid Background="LightGray">
-        <TextBox x:Name="naslovVesti" FontSize="16" AcceptsReturn="True" VerticalScrollBarVisibility="Visible" HorizontalAlignment="Left" Margin="70,104,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="900" Height="30"/>
-        <TextBox x:Name="sadrzajVesti" AcceptsReturn="True" FontSize="16"  VerticalScrollBarVisibility="Visible" Background="White"  HorizontalAlignment="Left" Margin="70,170,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Height="420" Width="900"/>
-        <Button Content="Kreiraj" HorizontalAlignment="Left" Margin="870,610,0,0" VerticalAlignment="Top" Click="KreirajVest_Click" Width="100" Background="White" FontSize="14"/>
+        <TextBox x:Name="naslovVesti" FontSize="16" AcceptsReturn="True" VerticalScrollBarVisibility="Visible" HorizontalAlignment="Left" Margin="70,104,0,0" Text="{Binding NovaVest.Id}" TextWrapping="Wrap" VerticalAlignment="Top" Width="900" Height="30"/>
+        <TextBox x:Name="sadrzajVesti" AcceptsReturn="True" FontSize="16"  VerticalScrollBarVisibility="Visible" Background="White"  HorizontalAlignment="Left" Margin="70,170,0,0" Text="{Binding NovaVest.Sadrzaj}"  TextWrapping="Wrap" VerticalAlignment="Top" Height="420" Width="900"/>
+        <Button Content="Kreiraj" HorizontalAlignment="Left" Margin="870,610,0,0" VerticalAlignment="Top" Command="{Binding KreirajVest}" Width="100" Background="White" FontSize="14"/>
         <Label Content="Naslov vesti" HorizontalAlignment="Left" Margin="35,74,0,0" VerticalAlignment="Top" Height="24"/>
         <Label Content="Sadrzaj vesti" HorizontalAlignment="Left" Margin="35,142,0,0" VerticalAlignment="Top"/>
-        <Button Style="{StaticResource ResourceKey=MainButtons}" x:Name="Nazad"  Click="NazadBtn_Click" HorizontalAlignment="Left" VerticalAlignment="Top" Background="LightGray"  Width="50" Height="60" Margin="10,10,0,0" >
+        <Button Style="{StaticResource ResourceKey=MainButtons}" x:Name="Nazad"  Command="{Binding Nazad}" HorizontalAlignment="Left" VerticalAlignment="Top" Background="LightGray"  Width="50" Height="60" Margin="10,10,0,0" >
             <StackPanel Orientation="Vertical">
                 <Image Source="../../images/back.png" Width="30" Height="30" RenderOptions.BitmapScalingMode="Fant"/>
                 <TextBlock Text="Nazad" VerticalAlignment="Center" FontSize="14"/>

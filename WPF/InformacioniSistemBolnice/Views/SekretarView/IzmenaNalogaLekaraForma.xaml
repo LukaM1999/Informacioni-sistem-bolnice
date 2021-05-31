@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:InformacioniSistemBolnice"
              mc:Ignorable="d" 
-            Height="650" Width="1000" Background="LightGray" Margin="0,0,0,30" DataContext='{Binding RelativeSource={RelativeSource Self}}'>
+            Height="650" Width="1000" Background="LightGray" Margin="0,0,0,30">
     <Grid Height="650" Width="1000" HorizontalAlignment="Center" VerticalAlignment="Center">
         <Canvas Height="640" Width="325" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="70,10,0,0">
             <Label Content="Ime: " Canvas.Left="23" Canvas.Top="40" Width="44" HorizontalAlignment="Right"/>
@@ -28,14 +28,14 @@
             <TextBox x:Name="telUnos" Text="{Binding Lekar.Telefon}" Canvas.Left="132" Canvas.Top="360" TextWrapping="Wrap" Width="140" Height="25" FontSize="14"/>
             <TextBox x:Name="mailUnos" Text="{Binding Lekar.Email}" Canvas.Left="132" Canvas.Top="400" Width="140" Height="25" FontSize="14" />
             <TextBox x:Name="korisnikUnos" Text="{Binding Lekar.Korisnik.KorisnickoIme}" Canvas.Left="132" Canvas.Top="440" TextWrapping="Wrap" Width="140" Height="25" FontSize="14"/>
-            <PasswordBox x:Name="lozinkaUnos"  Canvas.Left="132" Canvas.Top="480" Width="140" Height="25" FontSize="14" />
-            <ComboBox x:Name="specijalizacije"  SelectedItem="{Binding Lekar.Specijalizacija}" Text="{Binding Lekar.Specijalizacija.Naziv}"  Canvas.Left="132" Canvas.Top="520" Width="140" Height="25" FontSize="14" />
+            <TextBox x:Name="lozinkaUnos" Text="{Binding Lekar.Korisnik.Lozinka}" Canvas.Left="132" Canvas.Top="480" Width="140" Height="25" FontSize="14" />
+            <ComboBox x:Name="specijalizacije"  SelectedItem="{Binding Specijalizacije}" Text="{Binding Lekar.Specijalizacija.Naziv}"  Canvas.Left="132" Canvas.Top="520" Width="140" Height="25" FontSize="14" />
             <Label Content="Drzava: " Canvas.Left="23" Canvas.Top="200" Width="58"/>
             <Label Content="Grad: " Canvas.Left="23" Canvas.Top="240" Width="58" Height="26"/>
             <Label Content="Ulica: " Canvas.Left="23" Canvas.Top="280" Width="94"/>
             <Label Content="Broj: " Canvas.Left="23" Canvas.Top="320" Width="70"/>
-            <Button x:Name="potvrdiDugme" Content="Potvrdi" Canvas.Left="200" Canvas.Top="580" Width="120" Height="30" Background="White" Click="PotvrdiDugme_Click" />
-            <Button Style="{StaticResource ResourceKey=MainButtons}" x:Name="Nazad"  Click="NazadBtn_Click" HorizontalAlignment="Left" VerticalAlignment="Top" Background="LightGray"  Width="50" Height="60" Margin="-150,10,0,0" >
+            <Button x:Name="potvrdiDugme" Content="Potvrdi" Canvas.Left="200" Canvas.Top="580" Width="120" Height="30" Background="White" Command="{Binding IzmeniLekara}" />
+            <Button Style="{StaticResource ResourceKey=MainButtons}" x:Name="Nazad" Command="{Binding Nazad}" HorizontalAlignment="Left" VerticalAlignment="Top" Background="LightGray"  Width="50" Height="60" Margin="-150,10,0,0" >
                 <StackPanel Orientation="Vertical">
                     <Image Source="../../images/back.png" Width="30" Height="30" RenderOptions.BitmapScalingMode="Fant"/>
                     <TextBlock Text="Nazad" VerticalAlignment="Center" FontSize="14"/>

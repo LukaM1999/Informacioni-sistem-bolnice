@@ -173,5 +173,15 @@
     "KorisnickoIme": "lall",
     "Lozinka": "al",
     "Uloga": 1
+  },
+  {
+    "KorisnickoIme": " ",
+    "Lozinka": " ",
+    "Uloga": 2
+  },
+  {
+    "KorisnickoIme": "llalal ",
+    "Lozinka": "allalal ",
+    "Uloga": 2
   }
 ]

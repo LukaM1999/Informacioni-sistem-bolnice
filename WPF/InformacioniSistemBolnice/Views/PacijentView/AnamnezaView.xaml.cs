@@ -13,6 +13,7 @@ namespace InformacioniSistemBolnice.Views.PacijentView
         public AnamnezaView()
         {
             InitializeComponent();
+
         }
     }
 }

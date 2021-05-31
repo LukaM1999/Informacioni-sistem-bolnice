@@ -174,9 +174,6 @@
         },
         {
           "Naziv": "laktoza"
-        },
-        {
-          "Naziv": "pencilin"
         }
       ],
       "recepti": [],
@@ -207,9 +204,6 @@
         },
         {
           "Naziv": "laktoza"
-        },
-        {
-          "Naziv": "pencilin"
         }
       ]
     },
@@ -273,20 +267,20 @@
     },
     "Maliciozan": false,
     "ZakazaniTermini": [],
-    "Ime": "Mila",
-    "Prezime": "nanan",
-    "Jmbg": "nana",
-    "DatumRodjenja": "2021-05-17T00:00:00",
-    "Telefon": "nan",
-    "Email": "nan",
+    "Ime": "Mirjana",
+    "Prezime": "Ivkovic",
+    "Jmbg": "17059981128188",
+    "DatumRodjenja": "1981-05-17T00:00:00",
+    "Telefon": "0191991",
+    "Email": "mila99@gmail.com",
     "AdresaStanovanja": {
-      "Broj": "an",
-      "Ulica": "nann",
-      "Grad": "anna",
-      "Drzava": "nana"
+      "Broj": "9",
+      "Ulica": "Danila Kisa",
+      "Grad": "Novi Sad",
+      "Drzava": "Srbija"
     },
     "Korisnik": {
-      "KorisnickoIme": "nan",
+      "KorisnickoIme": "mila",
       "Lozinka": "nanan",
       "Uloga": 2
     }

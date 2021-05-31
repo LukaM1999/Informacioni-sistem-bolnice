@@ -3,6 +3,7 @@ using System.Windows.Controls;
 using Repozitorijum;
 using Model;
 using Kontroler;
+using InformacioniSistemBolnice.ViewModels.SekretarViewModel;
 
 namespace InformacioniSistemBolnice
 {
@@ -19,14 +20,16 @@ namespace InformacioniSistemBolnice
 
         private void RegistrujLekara_Click(object sender, RoutedEventArgs e)
         {
-            pocetna.contentControl.Content = new RegistracijaLekaraForma(pocetna);
+            pocetna.contentControl.Content = new RegistracijaLekaraForma()
+            { DataContext= new RegistracijaLekaraViewModel(pocetna) };
         }
 
         private void VidiLekara_Click(object sender, RoutedEventArgs e)
         {
             Lekar izabraniLekar = (Lekar)(ListaLekara.SelectedItem);
             if (izabraniLekar is not null)
-                pocetna.contentControl.Content = new PregledNalogaLekara(pocetna, this, (Lekar)ListaLekara.SelectedItem);
+                pocetna.contentControl.Content = new PregledNalogaLekara()
+                { DataContext = new PregledNalogaLekaraViewModel(pocetna, this, (Lekar)ListaLekara.SelectedItem) };
         }
 
         private void ObrisiLekara_Click(object sender, RoutedEventArgs e)
@@ -40,7 +43,8 @@ namespace InformacioniSistemBolnice
         {
             Lekar izabraniLekar = (Lekar)(ListaLekara.SelectedItem);
             if (izabraniLekar is not null)
-                pocetna.contentControl.Content = new IzmenaNalogaLekaraForma(pocetna, this, izabraniLekar);
+                pocetna.contentControl.Content = new IzmenaNalogaLekaraForma()
+                { DataContext = new IzmenaLekaraViewModel(pocetna, this, izabraniLekar) };
         }
     }
 }

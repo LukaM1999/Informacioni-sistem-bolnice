@@ -8,7 +8,7 @@
         Height="650" Width="1000" Background="LightGray">
     <Grid>
         <StackPanel Margin="0,50,0,0">
-            <ListView x:Name="ListaAlergena" Height="550" Width="900" FontSize="16">
+            <ListView x:Name="ListaAlergena"  Height="550" Width="900" FontSize="16">
                 <ListView.ItemContainerStyle>
                     <Style TargetType="{x:Type ListViewItem}">
                         <Setter Property="Background" Value="White" />
@@ -24,10 +24,10 @@
             </ListView>
         </StackPanel>
         <Canvas x:Name="RukovanjeAlergenima" Margin="0,0,0,600">
-            <Button x:Name="definisiAlergen" Content="Definisi novi alergen" Canvas.Left="2" Canvas.Top="13" Width="135" Click="DefinisiAlergen_Click" Margin="60,0,0,0" Background="White" FontSize="14"/>
-            <Button x:Name="obrisiAlergen" Content="Obrisi" Canvas.Left="301" Canvas.Top="13" Width="115" Click="ObrisiAlergen_Click" Margin="180,0,0,0" Background="White" FontSize="14"/>
-            <Button x:Name="izmjeniAlergen" Content="Izmeni" Canvas.Left="218" Canvas.Top="13" Width="115" Click="IzmeniAlergen_Click" Margin="130,0,0,0" Background="White" FontSize="14"/>
-            <Button x:Name="pregledListeAlergena" Content="Info" Canvas.Left="136" Canvas.Top="13" Width="115" Click="PregledAlergena_Click" Margin="75,0,0,0" Background="White" FontSize="14" />
+            <Button x:Name="definisiAlergen" Content="Definisi novi alergen" Canvas.Left="2" Canvas.Top="13" Width="135" Command="{Binding DefinisiAlergen}" Margin="60,0,0,0" Background="White" FontSize="14"/>
+            <Button x:Name="obrisiAlergen" Content="Obrisi" Canvas.Left="301" Canvas.Top="13" Width="115" Command="{Binding ObrisiAlergen}" Margin="180,0,0,0" Background="White" FontSize="14"/>
+            <Button x:Name="izmjeniAlergen" Content="Izmeni" Canvas.Left="218" Canvas.Top="13" Width="115" Command="{Binding IzmeniAlergen}"  Margin="130,0,0,0" Background="White" FontSize="14"/>
+            <Button x:Name="pregledListeAlergena" Content="Info" Canvas.Left="136" Canvas.Top="13" Width="115" Command="{Binding VidiAlergen}"  Margin="75,0,0,0" Background="White" FontSize="14" />
         </Canvas>
 
     </Grid>

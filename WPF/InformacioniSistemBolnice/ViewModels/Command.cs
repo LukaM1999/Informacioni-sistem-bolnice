@@ -14,7 +14,7 @@ namespace InformacioniSistemBolnice.ViewModels
 
         public Command(Action<object> execute, Predicate<object> canExecute = null)
         {
-            _execute = execute ?? throw new ArgumentNullException(nameof(execute));
+            _execute = execute;
             _canExecute = canExecute;
         }
 
