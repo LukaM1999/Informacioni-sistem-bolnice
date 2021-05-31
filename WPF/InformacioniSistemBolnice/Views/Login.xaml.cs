@@ -25,9 +25,10 @@ namespace InformacioniSistemBolnice
             InitializeComponent();
             KorisnikRepo.Instance.Deserijalizacija();
             PremestanjeStatickeOpremeRepo.Instance.Deserijalizacija();
-            Repozitorijum.StatickaOpremaRepo.Instance.Deserijalizacija();
+            StatickaOpremaRepo.Instance.Deserijalizacija();
             ProstorijaRepo.Instance.Deserijalizacija();
             RenoviranjeRepo.Instance.Deserijalizacija();
+            TransformacijaProstorijaRepo.Instance.Deserijalizacija();
             new Thread(RaspodelaStatickeOpremeServis.Instance.ProveraPremestajaOpreme).Start();
             new Thread(RenoviranjeServis.Instance.ProveraRenoviranja).Start();
         }

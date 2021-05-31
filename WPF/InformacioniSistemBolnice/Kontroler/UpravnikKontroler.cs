@@ -5,6 +5,7 @@ using InformacioniSistemBolnice.DTO;
 using Model;
 using Servis;
 using Repozitorijum;
+using InformacioniSistemBolnice.Servis.UpravljanjeProstorijama;
 
 namespace Kontroler
 {
@@ -61,6 +62,11 @@ namespace Kontroler
         public void BrisanjeZahtevaLeka(ZahtevDto dto)
         {
             ZahtevServis.Instance.ObrisiZahtev(dto);
+        }
+
+        public void TransformisiProstorije(TransformacijaProstorijaDto dto)
+        {
+            TransformacijaProstorijeServis.Instance.ZakaziTerminTransformacijeProstorija(dto);
         }
     }
 }
