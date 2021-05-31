@@ -15,7 +15,7 @@ using Repozitorijum;
 using Model;
 using Kontroler;
 
-namespace InformacioniSistemBolnice.Views.Upravnik
+namespace InformacioniSistemBolnice.Views.UpravnikView
 {
     public partial class ZahteviProzor : Window
     {

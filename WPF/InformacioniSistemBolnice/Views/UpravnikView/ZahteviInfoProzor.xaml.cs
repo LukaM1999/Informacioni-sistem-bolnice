@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Model;
 
-namespace InformacioniSistemBolnice.Views.Upravnik
+namespace InformacioniSistemBolnice.Views.UpravnikView
 {
     public partial class ZahteviInfoProzor : Window
     {
