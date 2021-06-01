@@ -1,0 +1,81 @@
+﻿<Window x:Class="InformacioniSistemBolnice.GlavniProzorPacijentaView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
+        xmlns:local="clr-namespace:InformacioniSistemBolnice"
+        xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"        
+        mc:Ignorable="d"
+        Title="Glavni prozor"
+        WindowStartupLocation="CenterScreen"
+        Height="720" Width="1280" FontSize="18"
+        Background="#fcecdd">
+
+    <Window.Resources>
+        <Style x:Key="NavigationContentStyle" TargetType="ContentControl">
+            <Setter Property="ContentTemplate" Value="{StaticResource KalendarViewTemplate}"/>
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding ElementName=NavigationMenuListBox, Path=SelectedItem}"
+                             Value="Profil">
+                    <Setter Property="ContentTemplate" Value="{StaticResource ProfilViewTemplate}"/>
+                </DataTrigger>
+                <DataTrigger Binding="{Binding ElementName=NavigationMenuListBox, Path=SelectedItem}" 
+                             Value="Istorija">
+                    <Setter Property="ContentTemplate" Value="{StaticResource IstorijaViewTemplate}"/>
+                </DataTrigger>
+                <DataTrigger Binding="{Binding ElementName=NavigationMenuListBox, Path=SelectedItem}"
+                             Value="Terapija">
+                    <Setter Property="ContentTemplate" Value="{StaticResource TerapijaViewTemplate}"/>
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
+
+    <Grid>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="21"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="125"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Menu Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" VerticalAlignment="Top" HorizontalAlignment="Stretch">
+                <Menu.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                        </Grid>
+                    </ItemsPanelTemplate>
+                </Menu.ItemsPanel>
+                <MenuItem Grid.Column="0" Header="Profil" FontSize="15" HorizontalAlignment="Center" VerticalAlignment="Center"></MenuItem>
+                <MenuItem Grid.Column="1" Header="Kalendar" FontSize="15" HorizontalAlignment="Center" VerticalAlignment="Center"></MenuItem>
+                <MenuItem Grid.Column="2" Header="Istorija" FontSize="15" HorizontalAlignment="Center" VerticalAlignment="Center"></MenuItem>
+                <MenuItem Grid.Column="3" Header="Terapija" FontSize="15" HorizontalAlignment="Center" VerticalAlignment="Center"></MenuItem>
+                <MenuItem Grid.Column="4" Header="Plaćanje" FontSize="15" HorizontalAlignment="Center" VerticalAlignment="Center"></MenuItem>
+                <MenuItem Grid.Column="5" Header="Pomoć" FontSize="15" HorizontalAlignment="Center" VerticalAlignment="Center"></MenuItem>
+                <MenuItem Grid.Column="6" Header="Odjava" FontSize="15" HorizontalAlignment="Center" VerticalAlignment="Center"></MenuItem>
+            </Menu>
+
+            <ListBox Grid.Row="1" Grid.Column="0" x:Name="NavigationMenuListBox" 
+                 Style="{StaticResource NavigationListBoxStyle}"
+                 ItemContainerStyle="{DynamicResource NavigationListBoxItemStyle}"
+                 ItemTemplate="{DynamicResource NavigationDataTemplate}"
+                 ItemsSource="{StaticResource NavigationMenuItems}"/>
+
+            <ContentControl Grid.Column="1" Grid.Row="1" Style="{StaticResource NavigationContentStyle}"/>
+        </Grid>
+    </Grid>
+</Window>

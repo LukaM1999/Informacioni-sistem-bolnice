@@ -172,7 +172,7 @@
     <Compile Update="Views\TerminInfoProzor.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Views\PacijentView\TerminiPacijentaView.xaml.cs">
+    <Compile Update="Views\PacijentView\GlavniProzorPacijentaView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Views\LekarView\UCLekInfo.xaml.cs">
@@ -222,6 +222,9 @@
     <Page Update="ResourceDictionaries\Dictionary1.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="ResourceDictionaries\PacijentDictionary.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Views\LekarView\GlavniProzorLekara.xaml">
       <SubType>Designer</SubType>
     </Page>
@@ -241,6 +244,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\PacijentView\KreiranjePodsetnikaView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\PacijentView\ProfilView.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\SekretarView\AlergeniProzor.xaml">
@@ -405,7 +411,7 @@
     <Page Update="Views\LekarView\TerminiLekaraProzor.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Views\PacijentView\TerminiPacijentaView.xaml">
+    <Page Update="Views\PacijentView\GlavniProzorPacijentaView.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\LekarView\UCLekInfo.xaml">

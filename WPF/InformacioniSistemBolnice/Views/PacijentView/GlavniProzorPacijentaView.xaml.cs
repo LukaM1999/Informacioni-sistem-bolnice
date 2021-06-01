@@ -1,27 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Windows;
+﻿using System.Windows;
 using Repozitorijum;
 using Model;
-using System.Collections.ObjectModel;
 using Servis;
-using Kontroler;
 using System.Threading;
 using InformacioniSistemBolnice.Views.Pacijent;
-using System.Diagnostics;
-using InformacioniSistemBolnice.ViewModels.Pacijent;
+using System.Globalization;
 using InformacioniSistemBolnice.ViewModels.PacijentViewModel;
 using InformacioniSistemBolnice.Views.PacijentView;
 
 namespace InformacioniSistemBolnice
 {
-    public partial class TerminiPacijentaView : Window
+    public partial class GlavniProzorPacijentaView : Window
     {
-        private Pacijent ulogovanPacijent;
+        public static Pacijent ulogovanPacijent;
 
-        public TerminiPacijentaView(string korisnickoIme, string lozinka)
+        public GlavniProzorPacijentaView(string korisnickoIme, string lozinka)
         {
+            Thread.CurrentThread.CurrentUICulture = new CultureInfo("sr-Latn-RS");
+            Thread.CurrentThread.CurrentCulture = new CultureInfo("sr-Latn-RS");
             InitializeComponent();
             InicijalizujProzor(korisnickoIme, lozinka);
             PokreniNiti();
@@ -44,15 +40,15 @@ namespace InformacioniSistemBolnice
             AnketaOBolniciRepo.Instance.Deserijalizacija();
             ulogovanPacijent = PacijentRepo.Instance.PronadjiUlogovanogPacijenta(korisnickoIme, lozinka);
             PacijentRepo.Instance.PostaviTermineUlogovanogPacijenta(ulogovanPacijent);
-            listaZakazanihTermina.ItemsSource = ulogovanPacijent.ZakazaniTermini;
+            //listaZakazanihTermina.ItemsSource = ulogovanPacijent.ZakazaniTermini;
         }
 
         private void OtvoriPomeranjeTermina(object sender, RoutedEventArgs e)
         {
-            Termin terminZaPomeranje = (Termin)listaZakazanihTermina.SelectedItem;
-            if (listaZakazanihTermina.SelectedIndex >= 0 && terminZaPomeranje.Vreme > DateTime.Now.AddHours(24)
-            && terminZaPomeranje.Status != StatusTermina.pomeren)
-                new PomeranjeTerminaPacijentaView(terminZaPomeranje).Show();
+            //Termin terminZaPomeranje = (Termin)listaZakazanihTermina.SelectedItem;
+            //if (listaZakazanihTermina.SelectedIndex >= 0 && terminZaPomeranje.Vreme > DateTime.Now.AddHours(24)
+            //&& terminZaPomeranje.Status != StatusTermina.pomeren)
+            //    new PomeranjeTerminaPacijentaView(terminZaPomeranje).Show();
         }
 
         private void OtvoriZakazivanjeTermina(object sender, RoutedEventArgs e)
@@ -62,7 +58,7 @@ namespace InformacioniSistemBolnice
 
         private void OtkaziTermin(object sender, RoutedEventArgs e)
         {
-            PacijentKontroler.Instance.OtkaziTermin((Termin)listaZakazanihTermina.SelectedValue);
+            //PacijentKontroler.Instance.OtkaziTermin((Termin)listaZakazanihTermina.SelectedValue);
         }
 
         private void OtvoriVesti(object sender, RoutedEventArgs e)
@@ -72,8 +68,8 @@ namespace InformacioniSistemBolnice
 
         private void OtvoriAnketu(object sender, RoutedEventArgs e)
         {
-            Termin izabranTermin = (Termin)listaZakazanihTermina.SelectedValue;
-            if (JeIzabranZavrsenTermin(izabranTermin)) new AnketaOLekaruFormaView(izabranTermin).Show();
+            //Termin izabranTermin = (Termin)listaZakazanihTermina.SelectedValue;
+            //if (JeIzabranZavrsenTermin(izabranTermin)) new AnketaOLekaruFormaView(izabranTermin).Show();
         }
 
         private void OtvoriPodsetnikFormu(object sender, RoutedEventArgs e)

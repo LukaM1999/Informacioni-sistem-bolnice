@@ -21,8 +21,10 @@
 
   <ItemGroup>
     <PackageReference Include="FluentScheduler" Version="5.5.1" />
+    <PackageReference Include="MahApps.Metro.IconPacks" Version="4.8.0" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
     <PackageReference Include="PropertyChanged.Fody" Version="3.3.3" />
+    <PackageReference Include="Syncfusion.SfScheduler.WPF" Version="19.1.0.65" />
   </ItemGroup>
 
   <ItemGroup>
