@@ -1,0 +1,28 @@
+﻿<Page x:Class="InformacioniSistemBolnice.Views.UpravnikView.LogovanjeProzor"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:InformacioniSistemBolnice.Views.UpravnikView"
+      xmlns:vm="clr-namespace:InformacioniSistemBolnice.ViewModels.UpavnikViewModel"
+      mc:Ignorable="d" 
+      d:DesignHeight="750" d:DesignWidth="430"
+      Title="LogovanjeProzor"
+      Height="750"
+      Width="430">
+
+    <Grid Background="White">
+        <Button Click="PrijaviSe"
+                Margin="0,612,0.4,76.4" Content="Prijavite se" FontSize="18" FontWeight="Bold" Foreground="White" BorderBrush="White" Background="#FF1289DD"/>
+        <Label Content="Korisničko ime:" Margin="66,317,187.4,387.4" FontSize="22" RenderTransformOrigin="0.37,0.047" Background="#FFFDFDFD" Foreground="#FF1289DD"
+               />
+        <TextBox x:Name="tbKorisnickoIme" HorizontalAlignment="Left" Height="40" Margin="66,368,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="284" RenderTransformOrigin="-0.471,-1.606" FontSize="20" Foreground="#FF1289DD"/>
+        <Label Content="Lozinka:" Margin="66,452,242.4,252.4" FontSize="22" Foreground="#FF1289DD"
+               />
+        <Image Source="/images/UpravnikImages/hospital.jpg" VerticalAlignment="Top" Height="302" Margin="10,10,4,0"/>
+        <Label Name="labKorImeGreska" Content="Uneto korisničko ime nije poznato" HorizontalAlignment="Left" Margin="66,413,0,0" VerticalAlignment="Top" Width="318" FontWeight="Bold" FontSize="14" Foreground="#FFF73E9B" Visibility="Hidden"/>
+        <Label Name="labLozGreska" Content="Pogrešno uneta lozinka" HorizontalAlignment="Left" Margin="66,545,0,0" VerticalAlignment="Top" Width="248" FontWeight="Bold" FontSize="14" Visibility="Hidden" Foreground="#FFF73E9B"/>
+        <PasswordBox x:Name="tbLozinka" HorizontalAlignment="Left" Margin="66,505,0,0" VerticalAlignment="Top" Height="40" Width="284" Foreground="#FF1289DD" FontSize="20"/>
+        <Label x:Name="labPraznoPolje" Content="Korisničko ime ili lozinka nije uneta" HorizontalAlignment="Left" Margin="66,584,0,0" VerticalAlignment="Top" Height="45" Width="284" FontSize="14" FontWeight="Bold" Foreground="#FFF73E9B" Visibility="Hidden"/>
+    </Grid>
+</Page>

@@ -1,0 +1,407 @@
+﻿<Page x:Class="InformacioniSistemBolnice.Views.UpravnikView.MeniProzor"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:InformacioniSistemBolnice.Views.UpravnikView"
+      mc:Ignorable="d" 
+      d:DesignHeight="750" d:DesignWidth="430"
+      Title="MeniProzor">
+    <Page.Resources>
+
+        <ImageBrush x:Key="tb_mouse_over"
+                    ImageSource="/Images/UpravnikImages/menu-logo.png"/>
+
+        <ImageBrush x:Key="tb_mouse_over_exit"
+                    ImageSource="/Images/UpravnikImages/exit-logo.png"/>
+
+        <Style x:Key="tb_style"
+               TargetType="{x:Type ToggleButton}">
+
+            <Setter Property="Template">
+
+                <Setter.Value>
+
+                    <ControlTemplate TargetType="{x:Type ToggleButton}">
+
+                        <Border x:Name="border"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                Background="{TemplateBinding Background}"
+                                SnapsToDevicePixels="True">
+
+                        </Border>
+
+                        <ControlTemplate.Triggers>
+
+                            <Trigger Property="IsMouseOver" Value="true">
+
+                                <Setter Property="Background"
+                                        TargetName="border"
+                                        Value="{StaticResource tb_mouse_over}"/>
+
+                                <Setter Property="BorderBrush"
+                                        TargetName="border"
+                                        Value="{StaticResource tb_mouse_over}"/>
+
+                            </Trigger>
+
+                            <Trigger Property="IsChecked" Value="true">
+
+                                <Setter Property="Background"
+                                        TargetName="border"
+                                        Value="{StaticResource tb_mouse_over}"/>
+
+                                <Setter Property="BorderBrush"
+                                        TargetName="border"
+                                        Value="{StaticResource tb_mouse_over}"/>
+
+                            </Trigger>
+
+                        </ControlTemplate.Triggers>
+
+                    </ControlTemplate>
+
+                </Setter.Value>
+
+            </Setter>
+
+        </Style>
+
+        <Style x:Key="tb_style_exit"
+               TargetType="{x:Type ToggleButton}">
+
+            <Setter Property="Template">
+
+                <Setter.Value>
+
+                    <ControlTemplate TargetType="{x:Type ToggleButton}">
+
+                        <Border x:Name="border"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                Background="{TemplateBinding Background}"
+                                SnapsToDevicePixels="True">
+
+                        </Border>
+
+                        <ControlTemplate.Triggers>
+
+                            <Trigger Property="IsMouseOver" Value="true">
+
+                                <Setter Property="Background"
+                                        TargetName="border"
+                                        Value="{StaticResource tb_mouse_over_exit}"/>
+
+                                <Setter Property="BorderBrush"
+                                        TargetName="border"
+                                        Value="{StaticResource tb_mouse_over_exit}"/>
+
+                            </Trigger>
+
+                            <Trigger Property="IsChecked" Value="true">
+
+                                <Setter Property="Background"
+                                        TargetName="border"
+                                        Value="{StaticResource tb_mouse_over_exit}"/>
+
+                                <Setter Property="BorderBrush"
+                                        TargetName="border"
+                                        Value="{StaticResource tb_mouse_over_exit}"/>
+
+                            </Trigger>
+
+                        </ControlTemplate.Triggers>
+
+                    </ControlTemplate>
+
+                </Setter.Value>
+
+            </Setter>
+
+        </Style>
+
+    </Page.Resources>
+
+    <Grid Background="White">
+
+        <!--Action bar-->
+        <Grid Height="76" 
+                  VerticalAlignment="Top" 
+                  Margin="0,0,0.4,0" 
+                  Background="#FF1289DD">
+
+            <Grid Width="76"
+                      Height="76"
+                      HorizontalAlignment="Right">
+
+                <ToggleButton x:Name="tgBtnOdjava" 
+                                  Margin="10,10,8,10"
+                                  Style="{StaticResource tb_style_exit}" Checked="tgBtnOdjava_Checked">
+
+                    <ToggleButton.Background>
+
+                        <ImageBrush ImageSource="/images/UpravnikImages/exit-logo.png"/>
+
+                    </ToggleButton.Background>
+
+                </ToggleButton>
+
+            </Grid>
+
+        </Grid>
+
+        
+        <DataGrid x:Name="dgListaZahteva" RowBackground="#FF5DB5F4" HorizontalAlignment="Left" Height="674" Margin="77,76,0,0" RowHeight="40" AutoGenerateColumns="False" VerticalAlignment="Top" Width="353" FontSize="14" BorderThickness="0,0,0,0" GridLinesVisibility="Horizontal" HorizontalGridLinesBrush="Black" CanUserAddRows="False" CanUserDeleteRows="False" CanUserResizeRows="False" BorderBrush="#FF3697DC">
+            <DataGrid.Background>
+                <SolidColorBrush Color="#FF1289DD" Opacity="1"/>
+            </DataGrid.Background>
+            <DataGrid.Columns>
+
+                <DataGridTextColumn Width="223"  Header="Potpis" Binding="{Binding Potpis}"/>
+
+                <DataGridTemplateColumn Width="50">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Height="40" Width="50" Background="#FF5DB5F4" Click="ObrisiZahtev">
+                                <StackPanel>
+                                    <Image Source="/images/UpravnikImages/trash-can.png" Width="20" Height="20"/>
+                                </StackPanel>
+                            </Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+                <DataGridTemplateColumn Width="50">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Height="40" Width="50" Background="#FF5DB5F4" Click="InfoZahteva">
+                                <StackPanel>
+                                    <Image Source="/images/UpravnikImages/info-logo.png" Width="20" Height="20"/>
+                                </StackPanel>
+                            </Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+            </DataGrid.Columns>
+
+            <DataGrid.ColumnHeaderStyle>
+                <Style TargetType="{x:Type DataGridColumnHeader}">
+                    <Setter Property="Background"  Value="White" />
+                    <Setter Property="Height" Value="35"/>
+                </Style>
+            </DataGrid.ColumnHeaderStyle>
+
+        </DataGrid>
+
+        <!--Navigacioni panel-->
+        <Grid x:Name="navPanel"
+                  Width="77"
+                  HorizontalAlignment="Left"
+                  Background="#FF1289DD" Margin="0,0,0,0.4">
+
+            <StackPanel x:Name="stPanel">
+
+                <!--Meni dugme-->
+                <Grid Height="76">
+
+                    <TextBlock Grid.Row="1"
+                                   Grid.Column="0"
+                                   Text="M E N U"
+                                   FontSize="16"
+                                   Foreground="White"
+                                   Background="Transparent"
+                                   HorizontalAlignment="Left"
+                                   VerticalAlignment="Center"
+                                   Margin="85,0,0,0">
+
+                        <TextBlock.Effect>
+
+                            <DropShadowEffect BlurRadius="10"
+                                                  ShadowDepth="1"
+                                                  Direction="90"
+                                                  Color="White"/>
+
+                        </TextBlock.Effect>
+
+                    </TextBlock>
+
+                    <ToggleButton x:Name="tgBtnMeni"
+                                      Grid.Column="0"
+                                      VerticalAlignment="Center"
+                                      HorizontalAlignment="Left"
+                                      Height="60"
+                                      Width="60" Margin="6,8,0,8"
+                                      Style="{StaticResource tb_style}">
+
+                        <ToggleButton.Background>
+
+                            <ImageBrush ImageSource="/images/UpravnikImages/menu-logo.png"/>
+
+                        </ToggleButton.Background>
+
+                        <ToggleButton.Triggers>
+
+                            <EventTrigger RoutedEvent="ToggleButton.Unchecked">
+
+                                <BeginStoryboard>
+
+                                    <Storyboard x:Name="SakrijStackPanel">
+
+                                        <DoubleAnimation Storyboard.TargetName="navPanel"
+                                                             Storyboard.TargetProperty="Width"
+                                                             BeginTime="0:0:0"
+                                                             From="180" To="77"
+                                                             Duration="0:0:0.2"/>
+
+                                    </Storyboard>
+
+                                </BeginStoryboard>
+
+                            </EventTrigger>
+
+                            <EventTrigger RoutedEvent="ToggleButton.Checked">
+
+                                <BeginStoryboard>
+
+                                    <Storyboard x:Name="PrikaziStackPanel">
+
+                                        <DoubleAnimation Storyboard.TargetName="navPanel"
+                                                             Storyboard.TargetProperty="Width"
+                                                             BeginTime="0:0:0"
+                                                             From="77" To="180"
+                                                             Duration="0:0:0.3"/>
+
+                                    </Storyboard>
+
+                                </BeginStoryboard>
+
+                            </EventTrigger>
+
+                        </ToggleButton.Triggers>
+                        <DataGrid/>
+
+                    </ToggleButton>
+
+                </Grid>
+
+                <ListView x:Name="listaMeni"
+                              Background="Transparent"
+                              BorderBrush="Transparent"
+                              ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+
+                    <ListViewItem HorizontalAlignment="Left"
+                                      Margin="0,0,0,15"
+                                      Selected="IzabranaOprema">
+
+                        <StackPanel Orientation="Horizontal"
+                                        Width="180">
+
+                            <Image Source="/images/UpravnikImages/warehouse-logo.png" 
+                                       Height="84" 
+                                       Width="68"/>
+
+                            <TextBlock Text="O P R E M A"
+                                           FontSize="14"
+                                           Foreground="White"
+                                           Background="Transparent"
+                                           HorizontalAlignment="Left"
+                                           VerticalAlignment="Center"
+                                           Margin="12,0,0,0">
+
+                                <TextBlock.Effect>
+
+                                    <DropShadowEffect BlurRadius="10"
+                                                          ShadowDepth="1"
+                                                          Direction="90"
+                                                          Color="White"/>
+
+                                </TextBlock.Effect>
+
+                            </TextBlock>
+
+
+                        </StackPanel>
+
+
+                    </ListViewItem>
+
+                    <ListViewItem HorizontalAlignment="Left"
+                                      Margin="0,0,0,15"
+                                      Selected="IzabraneSale">
+
+                        <StackPanel Orientation="Horizontal"
+                                        Width="180">
+
+                            <Image Source="/images/UpravnikImages/room-logo.png" 
+                                       Height="84" 
+                                       Width="68"/>
+
+                            <TextBlock Text="S A L E"
+                                           FontSize="14"
+                                           Foreground="White"
+                                           Background="Transparent"
+                                           HorizontalAlignment="Left"
+                                           VerticalAlignment="Center"
+                                           Margin="12,0,0,0">
+
+                                <TextBlock.Effect>
+
+                                    <DropShadowEffect BlurRadius="10"
+                                                          ShadowDepth="1"
+                                                          Direction="90"
+                                                          Color="White"/>
+
+                                </TextBlock.Effect>
+
+                            </TextBlock>
+
+
+                        </StackPanel>
+
+
+                    </ListViewItem>
+
+                    <ListViewItem HorizontalAlignment="Left"
+                                      Margin="0,0,0,15"
+                                      Selected="IzabraniLekovi">
+
+                        <StackPanel Orientation="Horizontal"
+                                        Width="180">
+
+                            <Image Source="/images/UpravnikImages/medicine-logo.png" 
+                                       Height="84" 
+                                       Width="68"/>
+
+                            <TextBlock Text="L E K O V I"
+                                           FontSize="14"
+                                           Foreground="White"
+                                           Background="Transparent"
+                                           HorizontalAlignment="Left"
+                                           VerticalAlignment="Center"
+                                           Margin="12,0,0,0">
+
+                                <TextBlock.Effect>
+
+                                    <DropShadowEffect BlurRadius="10"
+                                                          ShadowDepth="1"
+                                                          Direction="90"
+                                                          Color="White"/>
+
+                                </TextBlock.Effect>
+
+                            </TextBlock>
+
+
+                        </StackPanel>
+
+
+                    </ListViewItem>
+
+                </ListView>
+
+            </StackPanel>
+
+        </Grid>
+
+    </Grid>
+</Page>

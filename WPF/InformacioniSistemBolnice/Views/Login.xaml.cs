@@ -15,6 +15,7 @@ using Repozitorijum;
 using Model;
 using System.Threading;
 using Servis;
+using InformacioniSistemBolnice.Views.UpravnikView;
 
 namespace InformacioniSistemBolnice
 {
@@ -49,8 +50,10 @@ namespace InformacioniSistemBolnice
             switch (korisnik.Uloga)
             {
                 case UlogaKorisnika.upravnik:
-                    ProstorijeProzor prostorijeP = new ProstorijeProzor();
-                    prostorijeP.Show();
+                    //ProstorijeProzor prostorijeP = new ProstorijeProzor();
+                    //prostorijeP.Show();
+                    GlavniProzor prozor = new GlavniProzor();
+                    prozor.Show();
                     this.Hide();
                     return;
 

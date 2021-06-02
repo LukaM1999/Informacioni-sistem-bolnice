@@ -285,5 +285,17 @@
     },
     "Renoviranje": null,
     "TerminiProstorije": null
+  },
+  {
+    "Sprat": 2,
+    "Id": "ggggg",
+    "JeZauzeta": false,
+    "Tip": 4,
+    "Inventar": {
+      "DinamickaOprema": [],
+      "StatickaOprema": []
+    },
+    "Renoviranje": null,
+    "TerminiProstorije": []
   }
 ]

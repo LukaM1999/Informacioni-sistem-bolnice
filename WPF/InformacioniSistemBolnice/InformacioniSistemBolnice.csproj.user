@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <PropertyGroup />
+  <PropertyGroup>
+    <ShowAllFiles>true</ShowAllFiles>
+  </PropertyGroup>
   <ItemGroup>
     <ApplicationDefinition Update="App.xaml">
       <SubType>Designer</SubType>
@@ -92,6 +94,21 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Views\SekretarView\Lekari.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\UpravnikView\LekDodaj.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\UpravnikView\LekInfo.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\UpravnikView\LekIzmena.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\UpravnikView\Lekovi.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\UpravnikView\Magacin.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Views\UpravnikView\MagacinDodajDinamickuOpremu.xaml.cs">
@@ -214,6 +231,15 @@
     <Compile Update="Views\SekretarView\ZdravstveniKartonForma.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Views\UpravnikView\SalaDodaj.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\UpravnikView\Sale.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\UpravnikView\ZahtevInfo.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Views\UpravnikView\ZahteviProzor.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -319,6 +345,21 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\SekretarView\Lekari.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\UpravnikView\LekDodaj.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\UpravnikView\LekInfo.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\UpravnikView\LekIzmena.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\UpravnikView\Lekovi.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\UpravnikView\Magacin.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\UpravnikView\MagacinDodajDinamickuOpremu.xaml">
@@ -448,6 +489,15 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\SekretarView\ZdravstveniKartonForma.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\UpravnikView\SalaDodaj.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\UpravnikView\Sale.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\UpravnikView\ZahtevInfo.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\UpravnikView\ZahteviProzor.xaml">

@@ -1,0 +1,225 @@
+﻿<Page x:Class="InformacioniSistemBolnice.Views.UpravnikView.Sale"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:InformacioniSistemBolnice.Views.UpravnikView"
+      mc:Ignorable="d" 
+      d:DesignHeight="750" d:DesignWidth="430"
+      Title="Sale">
+
+    <Page.Resources>
+
+        <ImageBrush x:Key="tb_mouse_over"
+                    ImageSource="/images/UpravnikImages/arrow.png"/>
+
+        <Style x:Key="tb_style"
+               TargetType="{x:Type ToggleButton}">
+
+            <Setter Property="Template">
+
+                <Setter.Value>
+
+                    <ControlTemplate TargetType="{x:Type ToggleButton}">
+
+                        <Border x:Name="border"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                Background="{TemplateBinding Background}"
+                                SnapsToDevicePixels="True">
+
+                        </Border>
+
+                        <ControlTemplate.Triggers>
+
+                            <Trigger Property="IsMouseOver" Value="true">
+
+                                <Setter Property="Background"
+                                        TargetName="border"
+                                        Value="{StaticResource tb_mouse_over}"/>
+
+                                <Setter Property="BorderBrush"
+                                        TargetName="border"
+                                        Value="{StaticResource tb_mouse_over}"/>
+
+                            </Trigger>
+
+                            <Trigger Property="IsChecked" Value="true">
+
+                                <Setter Property="Background"
+                                        TargetName="border"
+                                        Value="{StaticResource tb_mouse_over}"/>
+
+                                <Setter Property="BorderBrush"
+                                        TargetName="border"
+                                        Value="{StaticResource tb_mouse_over}"/>
+
+                            </Trigger>
+
+                        </ControlTemplate.Triggers>
+
+                    </ControlTemplate>
+
+                </Setter.Value>
+
+            </Setter>
+
+        </Style>
+
+    </Page.Resources>
+
+    <Grid Background="White">
+
+        <!--Action bar-->
+        <Grid Height="76" 
+              VerticalAlignment="Top" 
+              Margin="0,0,0.4,0" 
+              Background="#FF1289DD">
+
+            <Label Width="70"
+                   Height="45"
+                   HorizontalAlignment="Center"
+                   Content="Sale"
+                   FontSize="26"
+                   Foreground="White" Margin="76,15,284,16">
+
+            </Label>
+
+            <Grid Height="76"
+                  Width="76"
+                  HorizontalAlignment="Left">
+
+                <ToggleButton x:Name="tgBtnVrati"
+                              BorderBrush="Transparent"
+                              Style="{StaticResource tb_style}" Click="VratiSe">
+
+                    <ToggleButton.Background>
+
+                        <ImageBrush ImageSource="/images/UpravnikImages/arrow.png"/>
+
+                    </ToggleButton.Background>
+
+                </ToggleButton>
+
+            </Grid>
+
+        </Grid>
+
+        <Button x:Name="btnRaspodela" 
+                Content="" 
+                HorizontalAlignment="Left" 
+                Margin="134,13,0,0" 
+                VerticalAlignment="Top" 
+                Width="50" 
+                Height="50"
+                BorderBrush="Transparent" Click="RaspodelaOpreme" >
+
+            <Button.Background>
+
+                <ImageBrush ImageSource="/images/UpravnikImages/data-transfer.png"/>
+
+            </Button.Background>
+
+        </Button>
+
+        <Button x:Name="btnPlus" 
+                Content="" 
+                HorizontalAlignment="Left" 
+                Margin="197,13,0,0" 
+                VerticalAlignment="Top" 
+                Width="50" 
+                Height="50"
+                BorderBrush="Transparent" Click="DodajProstoriju">
+
+            <Button.Background>
+
+                <ImageBrush ImageSource="/images/UpravnikImages/plus-logo.png"/>
+
+            </Button.Background>
+
+        </Button>
+
+        <Button x:Name="btnMinus" 
+                Content="" 
+                HorizontalAlignment="Left" 
+                Margin="255,12,0,0" 
+                VerticalAlignment="Top" 
+                Width="50" 
+                Height="50"
+                BorderBrush="Transparent" Click="ObrisiProstoriju">
+
+            <Button.Background>
+
+                <ImageBrush ImageSource="/images/UpravnikImages/minus-logo.png"/>
+
+            </Button.Background>
+
+        </Button>
+
+        <Button x:Name="btnIzmena" 
+                Content="" 
+                HorizontalAlignment="Left" 
+                Margin="314,12,0,0" 
+                VerticalAlignment="Top" 
+                Width="50" 
+                Height="50"
+                BorderBrush="Transparent" Click="IzmeniProstoriju">
+
+            <Button.Background>
+
+                <ImageBrush ImageSource="/images/UpravnikImages/edit-logo.png"/>
+
+            </Button.Background>
+
+        </Button>
+
+        <Button x:Name="btnInfo" 
+                Content="" 
+                HorizontalAlignment="Left" 
+                Margin="372,12,0,0" 
+                VerticalAlignment="Top" 
+                Width="50" 
+                Height="50"
+                BorderBrush="Transparent" Click="InfoProstorije">
+
+            <Button.Background>
+
+                <ImageBrush ImageSource="/images/UpravnikImages/info-logo.png"/>
+
+            </Button.Background>
+
+        </Button>
+        <DataGrid x:Name="dgListaProstorija" HorizontalAlignment="Left" 
+                  Height="674" 
+                  Margin="0,76,0,0"
+                  VerticalAlignment="Top"
+                  Width="430"
+                  AutoGenerateColumns="False"
+                  CanUserAddRows="False"
+                  ColumnWidth="*"
+                  RowHeight="40" FontSize="16"
+                  VerticalContentAlignment="Center">
+
+            <DataGrid.ColumnHeaderStyle>
+
+                <Style TargetType="{x:Type DataGridColumnHeader}">
+
+                    <Setter Property="FontSize" Value="18"/>
+
+                </Style>
+
+            </DataGrid.ColumnHeaderStyle>
+
+            <DataGrid.Columns>
+
+                <DataGridTextColumn Width="120"  Header="Id sale" Binding="{Binding Id}"/>
+
+                <DataGridTextColumn Width="210"  Header="Tip sale" Binding="{Binding Tip}"/>
+
+                <DataGridCheckBoxColumn Binding="{Binding JeZauzeto}" Header="Zauzeto"/>
+
+            </DataGrid.Columns>
+
+        </DataGrid>
+
+    </Grid>
+</Page>

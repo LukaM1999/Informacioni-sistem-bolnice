@@ -16,11 +16,29 @@
     <None Remove="images\menu.png" />
     <None Remove="images\profile.png" />
     <None Remove="images\schedule.png" />
+    <None Remove="images\UpravnikImages\arrow.png" />
+    <None Remove="images\UpravnikImages\back-arrow.png" />
+    <None Remove="images\UpravnikImages\back-logo.png" />
+    <None Remove="images\UpravnikImages\back.png" />
+    <None Remove="images\UpravnikImages\checkmark.png" />
+    <None Remove="images\UpravnikImages\data-transfer.png" />
+    <None Remove="images\UpravnikImages\edit-logo.png" />
+    <None Remove="images\UpravnikImages\exit-logo.png" />
+    <None Remove="images\UpravnikImages\hospital.jpg" />
+    <None Remove="images\UpravnikImages\info-logo.png" />
+    <None Remove="images\UpravnikImages\medicine-logo.png" />
+    <None Remove="images\UpravnikImages\menu-logo.png" />
+    <None Remove="images\UpravnikImages\minus-logo.png" />
+    <None Remove="images\UpravnikImages\plus-logo.png" />
+    <None Remove="images\UpravnikImages\room-logo.png" />
+    <None Remove="images\UpravnikImages\trash-can.png" />
+    <None Remove="images\UpravnikImages\warehouse-logo.png" />
     <None Remove="images\users.png" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="FluentScheduler" Version="5.5.1" />
+    <PackageReference Include="MaterialDesign.Icons" Version="1.1.0" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
     <PackageReference Include="PropertyChanged.Fody" Version="3.3.3" />
   </ItemGroup>
@@ -88,6 +106,23 @@
     <Resource Include="images\menu.png" />
     <Resource Include="images\profile.png" />
     <Resource Include="images\schedule.png" />
+    <Resource Include="images\UpravnikImages\arrow.png" />
+    <Resource Include="images\UpravnikImages\back-arrow.png" />
+    <Resource Include="images\UpravnikImages\back-logo.png" />
+    <Resource Include="images\UpravnikImages\back.png" />
+    <Resource Include="images\UpravnikImages\checkmark.png" />
+    <Resource Include="images\UpravnikImages\data-transfer.png" />
+    <Resource Include="images\UpravnikImages\edit-logo.png" />
+    <Resource Include="images\UpravnikImages\exit-logo.png" />
+    <Resource Include="images\UpravnikImages\hospital.jpg" />
+    <Resource Include="images\UpravnikImages\info-logo.png" />
+    <Resource Include="images\UpravnikImages\medicine-logo.png" />
+    <Resource Include="images\UpravnikImages\menu-logo.png" />
+    <Resource Include="images\UpravnikImages\minus-logo.png" />
+    <Resource Include="images\UpravnikImages\plus-logo.png" />
+    <Resource Include="images\UpravnikImages\room-logo.png" />
+    <Resource Include="images\UpravnikImages\trash-can.png" />
+    <Resource Include="images\UpravnikImages\warehouse-logo.png" />
     <Resource Include="images\users.png" />
   </ItemGroup>
 
