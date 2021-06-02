@@ -94,6 +94,9 @@
     <Compile Update="Views\SekretarView\Lekari.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Views\SekretarView\SekretarovProfil.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Views\UpravnikView\MagacinDodajDinamickuOpremu.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -325,6 +328,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\SekretarView\Lekari.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\SekretarView\SekretarovProfil.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\UpravnikView\MagacinDodajDinamickuOpremu.xaml">

@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using InformacioniSistemBolnice.Views.SekretarView;
+using System.Windows;
 
 namespace InformacioniSistemBolnice
 {
@@ -10,5 +11,18 @@ namespace InformacioniSistemBolnice
         }
 
         private void MenuBtn_Click(object sender, RoutedEventArgs e) => contentControl.Content = new UCMenuSekretara(this);
+
+        private void OdjaviSe_Click(object sender, RoutedEventArgs e)
+        {
+            Login login = new Login();
+            login.Show();
+            Close();
+        }
+
+        private void SekretarovProfil_Click(object sender, RoutedEventArgs e)
+        {
+            contentControl.Content = new SekretarovProfil(this);
+        }
+
     }
 }

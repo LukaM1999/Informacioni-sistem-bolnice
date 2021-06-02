@@ -16,7 +16,9 @@
     <None Remove="images\menu.png" />
     <None Remove="images\profile.png" />
     <None Remove="images\schedule.png" />
+    <None Remove="images\user.png" />
     <None Remove="images\users.png" />
+    <None Remove="Views\SekretarView\user.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -90,7 +92,9 @@
     <Resource Include="images\menu.png" />
     <Resource Include="images\profile.png" />
     <Resource Include="images\schedule.png" />
+    <Resource Include="images\user.png" />
     <Resource Include="images\users.png" />
+    <Resource Include="Views\SekretarView\user.png" />
   </ItemGroup>
 
   <ItemGroup>
