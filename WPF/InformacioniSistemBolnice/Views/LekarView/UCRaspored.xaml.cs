@@ -17,13 +17,14 @@ using Repozitorijum;
 using InformacioniSistemBolnice;
 using Kontroler;
 using InformacioniSistemBolnice.Views;
+using MahApps.Metro.Controls;
 
 namespace InformacioniSistemBolnice
 {
     /// <summary>
     /// Interaction logic for UCRaspored.xaml
     /// </summary>
-    public partial class UCRaspored : UserControl
+    public partial class UCRaspored : MetroContentControl
     {
         public Lekar lekar;
         public GlavniProzorLekara glavniProzor;

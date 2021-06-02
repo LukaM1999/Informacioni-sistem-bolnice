@@ -1,21 +1,22 @@
-﻿<UserControl x:Class="InformacioniSistemBolnice.UCBolnickoLecenjeForma"
-             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:InformacioniSistemBolnice.Views"
-             xmlns:system="clr-namespace:System;assembly=System.Runtime"
-             mc:Ignorable="d" 
-             d:DesignHeight="612" Width="834">
+﻿<mah:MetroContentControl x:Class="InformacioniSistemBolnice.UCBolnickoLecenjeForma"
+                         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+                         xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+                         xmlns:local="clr-namespace:InformacioniSistemBolnice.Views"
+                         xmlns:system="clr-namespace:System;assembly=System.Runtime"
+                         xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
+                         mc:Ignorable="d" 
+                         d:DesignHeight="612" Width="834">
     <Grid>
         <Button Content="Nazad" HorizontalAlignment="Left" Margin="50,35,0,0" VerticalAlignment="Top" Click="Button_Click" Height="30" Width="50"/>
         <DatePicker DisplayDateStart="{Binding Path=., Source={x:Static system:DateTime.Today}}" x:Name="Pocetak" HorizontalAlignment="Left" Margin="126,174,0,0" VerticalAlignment="Top" Height="24" Width="117"/>
         <Label Content="Pocetak:" HorizontalAlignment="Left" Margin="50,174,0,0" VerticalAlignment="Top" Height="24" Width="65"/>
         <DatePicker DisplayDateStart="{Binding Path=., Source={x:Static system:DateTime.Today}}" x:Name="Zavrsetak" HorizontalAlignment="Left" Margin="126,227,0,0" VerticalAlignment="Top" Height="24" Width="117"/>
         <Label Content="Zavrsetak:" HorizontalAlignment="Left" Margin="50,227,0,0" VerticalAlignment="Top" Height="24" Width="66"/>
-        <DataGrid Name="ProstorijeZaHospitalizaciju" Style="{StaticResource ResourceKey=Tables}" Margin="346,93,25,25"/>
+        <DataGrid Name="ProstorijeZaHospitalizaciju" Margin="346,93,25,25"/>
         <Label Content="Prostorije" HorizontalAlignment="Left" Margin="346,64,0,0" VerticalAlignment="Top"/>
         <Button Content="Potvrdi" HorizontalAlignment="Left" Margin="193,286,0,0" VerticalAlignment="Top" Height="30" Width="50" Click="Button_Click_1"/>
 
     </Grid>
-</UserControl>
+</mah:MetroContentControl>

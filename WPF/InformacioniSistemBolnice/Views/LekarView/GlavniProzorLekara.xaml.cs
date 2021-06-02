@@ -14,18 +14,19 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using InformacioniSistemBolnice.Servis.UpravljanjeBolnickimLecenjima;
 using InformacioniSistemBolnice.Views;
+using MahApps.Metro.Controls;
 using Model;
+using PropertyChanged;
 using Repozitorijum;
 using Servis;
 
 namespace InformacioniSistemBolnice
 {
-    /// <summary>
-    /// Interaction logic for GlavniProzorLekara.xaml
-    /// </summary>
-    public partial class GlavniProzorLekara : Window
+    [AddINotifyPropertyChangedInterface]
+    public partial class GlavniProzorLekara : MetroWindow
     {
         public Lekar ulogovanLekar;
+        public static ContentControl Kontrola { get; set; }
 
         public GlavniProzorLekara(string korisnickoIme, string lozinka)
         {
@@ -74,6 +75,11 @@ namespace InformacioniSistemBolnice
         private void BolnickaLecenja_Click(object sender, RoutedEventArgs e)
         {
             contentControl.Content = new UCBolnickaLecenja(this);
+        }
+
+        private void Podesavanja_Click(object sender, RoutedEventArgs e)
+        {
+            contentControl.Content = new Podesavanja(this);
         }
     }
 }

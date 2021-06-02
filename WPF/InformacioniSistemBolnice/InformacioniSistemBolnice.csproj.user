@@ -7,6 +7,15 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="Views\LekarView\Jezik.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\LekarView\Podesavanja.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\LekarView\Tema.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Views\LekarView\UCBolnickoLecenjeIzmena.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -229,6 +238,15 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\LekarView\GlavniProzorLekara.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\LekarView\Jezik.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\LekarView\Podesavanja.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\LekarView\Tema.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\LekarView\UCBolnickoLecenjeIzmena.xaml">

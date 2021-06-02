@@ -13,33 +13,25 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using MahApps.Metro.Controls;
-using Model;
-using Repozitorijum;
 
 namespace InformacioniSistemBolnice
 {
     /// <summary>
-    /// Interaction logic for UCPacijenti.xaml
+    /// Interaction logic for Jezik.xaml
     /// </summary>
-    public partial class UCPacijenti : MetroContentControl
+    public partial class Jezik : MetroContentControl
     {
-        private GlavniProzorLekara glavniProzorLekara;
-        public UCPacijenti(GlavniProzorLekara glavni)
+        private GlavniProzorLekara glavniProzor;
+        public Jezik(GlavniProzorLekara glavni)
         {
             InitializeComponent();
-            PacijentRepo.Instance.Deserijalizacija();
-            listaPacijenata.ItemsSource = PacijentRepo.Instance.Pacijenti;
-            glavniProzorLekara = glavni;
+            glavniProzor = glavni;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            if (listaPacijenata.SelectedIndex > -1)
-            {
-                IzmenaZdravstvenogKartonaLekar zk = new((Pacijent)listaPacijenata.SelectedItem, glavniProzorLekara);
-                zk.Show();
-
-            }
+            Podesavanja podesavanja = new(glavniProzor);
+            glavniProzor.contentControl.Content = podesavanja;
         }
     }
 }

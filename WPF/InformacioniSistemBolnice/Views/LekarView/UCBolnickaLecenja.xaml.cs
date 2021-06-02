@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using InformacioniSistemBolnice.Views;
+using MahApps.Metro.Controls;
 using Model;
 using Repozitorijum;
 
@@ -21,7 +22,7 @@ namespace InformacioniSistemBolnice
     /// <summary>
     /// Interaction logic for UCPacijenti.xaml
     /// </summary>
-    public partial class UCBolnickaLecenja : UserControl
+    public partial class UCBolnickaLecenja : MetroContentControl
     {
         public GlavniProzorLekara glavniProzorLekara;
         public UCBolnickaLecenja(GlavniProzorLekara glavni)

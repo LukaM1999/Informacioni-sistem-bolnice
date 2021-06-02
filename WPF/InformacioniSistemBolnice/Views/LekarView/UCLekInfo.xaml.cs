@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Xml;
 using Kontroler;
+using MahApps.Metro.Controls;
 using Model;
 using Repozitorijum;
 
@@ -22,7 +23,7 @@ namespace InformacioniSistemBolnice
     /// <summary>
     /// Interaction logic for UCLekInfo.xaml
     /// </summary>
-    public partial class UCLekInfo : UserControl
+    public partial class UCLekInfo : MetroContentControl
     {
         public GlavniProzorLekara glavniProzorLekara;
         private Lek lek;
