@@ -27,63 +27,7 @@
       ]
     },
     "Renoviranje": null,
-    "TerminiProstorije": [
-      {
-        "Vreme": "2021-05-07T08:00:00",
-        "Trajanje": 30.0,
-        "Tip": 0,
-        "Status": 0,
-        "AnketaOLekaru": null,
-        "PacijentJmbg": "1203998134132",
-        "LekarJmbg": "555556667",
-        "ProstorijaId": null,
-        "Hitan": true
-      },
-      {
-        "Vreme": "2021-05-14T07:00:00",
-        "Trajanje": 30.0,
-        "Tip": 0,
-        "Status": 0,
-        "AnketaOLekaru": null,
-        "PacijentJmbg": "1905981123124",
-        "LekarJmbg": "231568933",
-        "ProstorijaId": null,
-        "Hitan": false
-      },
-      {
-        "Vreme": "2021-05-27T12:00:00",
-        "Trajanje": 30.0,
-        "Tip": 1,
-        "Status": 0,
-        "AnketaOLekaru": null,
-        "PacijentJmbg": "1905981123124",
-        "LekarJmbg": "1605988156156",
-        "ProstorijaId": "P1",
-        "Hitan": false
-      },
-      {
-        "Vreme": "2021-05-28T14:00:00",
-        "Trajanje": 30.0,
-        "Tip": 0,
-        "Status": 0,
-        "AnketaOLekaru": null,
-        "PacijentJmbg": "1203998123123",
-        "LekarJmbg": "1209971",
-        "ProstorijaId": "P1",
-        "Hitan": false
-      },
-      {
-        "Vreme": "2021-05-27T08:00:00",
-        "Trajanje": 30.0,
-        "Tip": 1,
-        "Status": 0,
-        "AnketaOLekaru": null,
-        "PacijentJmbg": "1805999134144",
-        "LekarJmbg": "1605988156156",
-        "ProstorijaId": "P1",
-        "Hitan": false
-      }
-    ]
+    "TerminiProstorije": []
   },
   {
     "Sprat": 3,
@@ -113,19 +57,7 @@
       ]
     },
     "Renoviranje": null,
-    "TerminiProstorije": [
-      {
-        "Vreme": "2021-05-20T08:00:00",
-        "Trajanje": 30.0,
-        "Tip": 0,
-        "Status": 0,
-        "AnketaOLekaru": null,
-        "PacijentJmbg": "1905981123124",
-        "LekarJmbg": "231568933",
-        "ProstorijaId": null,
-        "Hitan": false
-      }
-    ]
+    "TerminiProstorije": []
   },
   {
     "Sprat": 4,
@@ -245,7 +177,7 @@
       ]
     },
     "Renoviranje": null,
-    "TerminiProstorije": null
+    "TerminiProstorije": []
   },
   {
     "Sprat": 5,
@@ -262,7 +194,7 @@
       ]
     },
     "Renoviranje": null,
-    "TerminiProstorije": null
+    "TerminiProstorije": []
   },
   {
     "Sprat": 5,
@@ -284,6 +216,6 @@
       ]
     },
     "Renoviranje": null,
-    "TerminiProstorije": null
+    "TerminiProstorije": []
   }
 ]

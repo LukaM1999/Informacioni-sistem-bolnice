@@ -6,7 +6,7 @@ using System.Collections.ObjectModel;
 
 namespace Repozitorijum
 {
-    public class ZdravstveniKartonRepo : Repozitorijum
+    public class ZdravstveniKartonRepo : IRepozitorijum
     {
         private const string Putanja = "../../../json/kartoni.json";
 
@@ -15,9 +15,10 @@ namespace Repozitorijum
 
         public ObservableCollection<ZdravstveniKarton> ZdravstveniKartoni { get; set; }
 
-        public void Deserijalizacija()
+        public ObservableCollection<object> Deserijalizacija()
         {
             ZdravstveniKartoni = JsonConvert.DeserializeObject<ObservableCollection<ZdravstveniKarton>>(File.ReadAllText(Putanja));
+            return new ObservableCollection<object> {ZdravstveniKartoni};
         }
 
         public void Serijalizacija()

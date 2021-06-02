@@ -11,7 +11,7 @@ using Model;
 
 namespace Repozitorijum
 {
-    public class LekRepo : Repozitorijum
+    public class LekRepo : IRepozitorijum
     {
         private const string Putanja = "../../../json/lekovi.json";
 
@@ -20,9 +20,10 @@ namespace Repozitorijum
 
         public ObservableCollection<Lek> Lekovi { get; set; }
 
-        public void Deserijalizacija()
+        public ObservableCollection<object> Deserijalizacija()
         {
             Lekovi = JsonConvert.DeserializeObject<ObservableCollection<Lek>>(File.ReadAllText(Putanja));
+            return new ObservableCollection<object> {Lekovi};
         }
 
         public void Serijalizacija()

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,13 +22,11 @@ using MahApps.Metro.Controls;
 
 namespace InformacioniSistemBolnice
 {
-    /// <summary>
-    /// Interaction logic for UCRaspored.xaml
-    /// </summary>
     public partial class UCRaspored : MetroContentControl
     {
         public Lekar lekar;
         public GlavniProzorLekara glavniProzor;
+        public ObservableCollection<Termin> zakazaniTermini = new();
         public UCRaspored(GlavniProzorLekara glavniProzorLekara)
         {
             InitializeComponent();
@@ -36,9 +35,8 @@ namespace InformacioniSistemBolnice
             ProstorijaRepo.Instance.Deserijalizacija();
             TerminRepo.Instance.Deserijalizacija();
             lekar = glavniProzorLekara.ulogovanLekar;
-            lekar.ZakazaniTermini.Clear();
             PronadjiTermineLekara();
-            ZakazaniTermini.ItemsSource = lekar.ZakazaniTermini;
+            ZakazaniTermini.ItemsSource = zakazaniTermini;
             glavniProzor = glavniProzorLekara;
         }
 
@@ -48,7 +46,7 @@ namespace InformacioniSistemBolnice
             {
                 if (lekar.Jmbg.Equals(termin.LekarJmbg))
                 {
-                    lekar.ZakazaniTermini.Add(termin);
+                    zakazaniTermini.Add(termin);
                 }
             }
         }
@@ -56,6 +54,7 @@ namespace InformacioniSistemBolnice
         private void Zakazi_Click(object sender, RoutedEventArgs e)
         {
             glavniProzor.contentControl.Content = new UCZakazivanje(glavniProzor);
+            PronadjiTermineLekara();
         }
 
         private void Otkazi_Click(object sender, RoutedEventArgs e)
@@ -63,6 +62,7 @@ namespace InformacioniSistemBolnice
             if (ZakazaniTermini.SelectedIndex > -1)
             {
                 LekarKontroler.Instance.Otkazivanje((Termin)ZakazaniTermini.SelectedItem);
+                zakazaniTermini.Remove((Termin)ZakazaniTermini.SelectedItem);
             }
         }
 
@@ -73,6 +73,7 @@ namespace InformacioniSistemBolnice
                 PomeranjeTerminaLekaraProzor pomeranje = new PomeranjeTerminaLekaraProzor((Termin)ZakazaniTermini.SelectedItem);
                 pomeranje.Show();
             }
+            PronadjiTermineLekara();
         }
 
         private void Pregled_Click(object sender, RoutedEventArgs e)

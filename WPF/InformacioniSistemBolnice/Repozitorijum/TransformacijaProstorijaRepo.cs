@@ -10,7 +10,8 @@ using Newtonsoft.Json;
 
 namespace Repozitorijum
 {
-    public class TransformacijaProstorijaRepo
+    public class TransformacijaProstorijaRepo : IRepozitorijum
+
     {
         private const string Putanja = "../../../json/transformacijaProstorijeTermini.json";
 
@@ -19,9 +20,10 @@ namespace Repozitorijum
 
         public ObservableCollection<TransformacijaProstorija> Termini { get; set; }
 
-        public void Deserijalizacija()
+        public ObservableCollection<object> Deserijalizacija()
         {
             Termini = JsonConvert.DeserializeObject<ObservableCollection<TransformacijaProstorija>>(File.ReadAllText(Putanja));
+            return new ObservableCollection<object> {Termini} ;
         }
 
         public void Serijalizacija()
@@ -41,21 +43,24 @@ namespace Repozitorijum
 
         public bool SeProstorijaVecRenovira(string idProstorije)
         {
-            foreach(TransformacijaProstorija termin in Termini)
+            foreach (TransformacijaProstorija termin in Termini)
             {
                 if (termin.IdPrveStareProstorije.Equals(idProstorije) || termin.PrvaNovaProstorija.Id.Equals(idProstorije))
                 {
                     return true;
                 }
+
                 if (termin.IdDrugeStareProstorije != null)
                 {
                     if (termin.IdDrugeStareProstorije.Equals(idProstorije)) return true;
                 }
+
                 if (termin.DrugaNovaProstorija != null)
                 {
                     if (termin.DrugaNovaProstorija.Id.Equals(idProstorije)) return true;
                 }
             }
+
             return false;
         }
 
