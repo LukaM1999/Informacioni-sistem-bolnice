@@ -9,6 +9,13 @@ namespace InformacioniSistemBolnice.ViewModels.PacijentViewModel
     public class ProfilViewModel
     {
         public string Title { get; } = "Profil";
+
+        public Model.Pacijent UlogovanPacijent { get; set; } = GlavniProzorPacijentaView.ulogovanPacijent;
+
+        public ProfilViewModel()
+        {
+            
+        }
     }
 
 }

@@ -16,8 +16,10 @@ using Repozitorijum;
 using Servis;
 using Kontroler;
 using System.Collections.ObjectModel;
+using InformacioniSistemBolnice.DTO;
 using InformacioniSistemBolnice.Servis;
 using InformacioniSistemBolnice.Utilities;
+using InformacioniSistemBolnice.ViewModels.PacijentViewModel;
 
 namespace InformacioniSistemBolnice
 {
@@ -35,8 +37,17 @@ namespace InformacioniSistemBolnice
 
         private void PomeriTermin(object sender, RoutedEventArgs e)
         {
-            PacijentKontroler.Instance.PomeriTermin(terminZaPomeranje, (Termin)ponudjeniTermini.SelectedValue);
+            Termin noviTermin = (Termin) ponudjeniTermini.SelectedValue;
+            PacijentKontroler.Instance.PomeriTermin(terminZaPomeranje, noviTermin);
             Close();
+            KalendarViewModel.Appointments.Remove(
+                (DTO.TerminDto) KalendarViewModel.Appointments.Select(dto => dto.Pocetak == terminZaPomeranje.Vreme));
+            KalendarViewModel.Appointments.Add(new TerminDto(TerminUtility.DobaviFormatiranPrikazTermina
+                    (noviTermin.Tip, noviTermin.LekarJmbg, noviTermin.ProstorijaId, noviTermin.Status),
+                noviTermin.Vreme, noviTermin.Vreme.AddMinutes(noviTermin.Trajanje),
+                new SolidColorBrush(Colors.Red), new SolidColorBrush(Colors.White), noviTermin.LekarJmbg,
+                noviTermin.PacijentJmbg, noviTermin.ProstorijaId, noviTermin.Hitan, noviTermin.Tip));
+            MessageBox.Show("Uspešno ste pomerili termin!");
         }
     }
 }

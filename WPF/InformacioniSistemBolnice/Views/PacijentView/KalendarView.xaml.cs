@@ -1,4 +1,6 @@
-﻿using System.Windows.Controls;
+﻿using System;
+using System.Windows;
+using System.Windows.Controls;
 using InformacioniSistemBolnice.DTO;
 using InformacioniSistemBolnice.ViewModels.PacijentViewModel;
 
@@ -9,6 +11,7 @@ namespace InformacioniSistemBolnice.Views.PacijentView
         public KalendarView()
         {
             InitializeComponent();
+            //GlavniProzorPacijentaView.IzabranaObavestenja = StatusObavestenja;
         }
 
         private void Schedule_AppointmentTapped(object sender, Syncfusion.UI.Xaml.Scheduler.AppointmentTappedArgs e)

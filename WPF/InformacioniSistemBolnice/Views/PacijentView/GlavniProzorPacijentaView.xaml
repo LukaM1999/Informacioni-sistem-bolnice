@@ -10,8 +10,8 @@
         Title="Glavni prozor"
         WindowStartupLocation="CenterScreen"
         Height="720" Width="1280" FontSize="18"
-        Background="#fcecdd">
-
+        Background="#fcecdd"
+        >
     <Window.Resources>
         <Style x:Key="NavigationContentStyle" TargetType="ContentControl">
             <Setter Property="ContentTemplate" Value="{StaticResource KalendarViewTemplate}"/>
@@ -27,6 +27,10 @@
                 <DataTrigger Binding="{Binding ElementName=NavigationMenuListBox, Path=SelectedItem}"
                              Value="Terapija">
                     <Setter Property="ContentTemplate" Value="{StaticResource TerapijaViewTemplate}"/>
+                </DataTrigger>
+                <DataTrigger  Binding="{Binding ElementName=AktivanProzor, Path=IzabranaObavestenja}"
+                              Value="true">
+                    <Setter Property="ContentTemplate" Value="{StaticResource ObavestenjeViewTemplate}"/>
                 </DataTrigger>
             </Style.Triggers>
         </Style>
@@ -75,7 +79,7 @@
                  ItemTemplate="{DynamicResource NavigationDataTemplate}"
                  ItemsSource="{StaticResource NavigationMenuItems}"/>
 
-            <ContentControl Grid.Column="1" Grid.Row="1" Style="{StaticResource NavigationContentStyle}"/>
+            <ContentControl x:Name="AktivanProzor" Grid.Column="1" Grid.Row="1" Style="{StaticResource NavigationContentStyle}"/>
         </Grid>
     </Grid>
 </Window>

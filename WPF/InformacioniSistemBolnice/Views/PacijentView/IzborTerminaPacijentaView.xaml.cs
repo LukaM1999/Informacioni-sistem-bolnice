@@ -15,6 +15,7 @@ using System.Windows.Shapes;
 using InformacioniSistemBolnice.DTO;
 using InformacioniSistemBolnice.Servis;
 using InformacioniSistemBolnice.Utilities;
+using InformacioniSistemBolnice.ViewModels.PacijentViewModel;
 using Kontroler;
 using Model;
 using Repozitorijum;
@@ -32,9 +33,16 @@ namespace InformacioniSistemBolnice
 
         private void ZakaziTermin(object sender, RoutedEventArgs e)
         {
-            PacijentKontroler.Instance.ZakaziTermin((Termin)ponudjeniTermini.SelectedValue);
+            Termin izabranTermin = (Termin) ponudjeniTermini.SelectedValue;
+            PacijentKontroler.Instance.ZakaziTermin(izabranTermin);
             Owner?.Close();
             Close();
+            KalendarViewModel.Appointments.Add(new TerminDto(TerminUtility.DobaviFormatiranPrikazTermina
+                    (izabranTermin.Tip, izabranTermin.LekarJmbg, izabranTermin.ProstorijaId, izabranTermin.Status),
+                izabranTermin.Vreme, izabranTermin.Vreme.AddMinutes(izabranTermin.Trajanje),
+                new SolidColorBrush(Colors.Red), new SolidColorBrush(Colors.White), izabranTermin.LekarJmbg,
+                izabranTermin.PacijentJmbg, izabranTermin.ProstorijaId, izabranTermin.Hitan, izabranTermin.Tip));
+            MessageBox.Show("Uspešno ste zakazali termin!");
         }
     }
 }

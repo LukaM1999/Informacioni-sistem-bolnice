@@ -43,22 +43,22 @@
         
         <!-- Prva kolona -->
         <TextBlock Grid.Row="1" Grid.Column="1" Text="Ime:" Margin="0,0,0,10"/>
-        <TextBox Grid.Row="2" Grid.Column="1" MinWidth="150" IsEnabled="False" Margin="0,0,0,20"/>
+        <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding UlogovanPacijent.Ime}" MinWidth="150" IsEnabled="False" Margin="0,0,0,20"/>
         
         <TextBlock Grid.Row="3" Grid.Column="1" Text="Prezime:" Margin="0,0,0,10"/>
-        <TextBox Grid.Row="4" Grid.Column="1" MinWidth="100" IsEnabled="False" Margin="0,0,0,20" />
+        <TextBox Grid.Row="4" Grid.Column="1" Text="{Binding UlogovanPacijent.Prezime}" MinWidth="100" IsEnabled="False" Margin="0,0,0,20" />
         
         <TextBlock Grid.Row="5" Grid.Column="1" Text="JMBG:" Margin="0,0,0,10"/>
-        <TextBox Grid.Row="6" Grid.Column="1" MinWidth="100" IsEnabled="False" Margin="0,0,0,20" />
+        <TextBox Grid.Row="6" Grid.Column="1" Text="{Binding UlogovanPacijent.Jmbg}" MinWidth="100" IsEnabled="False" Margin="0,0,0,20" />
         
         <TextBlock Grid.Row="7" Grid.Column="1" Text="Datum rodjenja:" Margin="0,0,0,10" />
-        <TextBox Grid.Row="8" Grid.Column="1" MinWidth="100" IsEnabled="False" Margin="0,0,0,20" />
+        <TextBox Grid.Row="8" Grid.Column="1" Text="{Binding UlogovanPacijent.DatumRodjenja}" MinWidth="100" IsEnabled="False" Margin="0,0,0,20" />
         
         <TextBlock Grid.Row="9" Grid.Column="1" Text="Broj telefona:" Margin="0,0,0,10" />
-        <TextBox Grid.Row="10" Grid.Column="1" MinWidth="100" Margin="0,0,0,20" />
+        <TextBox Grid.Row="10" Grid.Column="1" Text="{Binding UlogovanPacijent.Telefon}" MinWidth="100" Margin="0,0,0,20" />
         
         <TextBlock Grid.Row="11" Grid.Column="1" Text="E-mail:" Margin="0,0,0,10"/>
-        <TextBox Grid.Row="12" Grid.Column="1" HorizontalAlignment="Left" Width="170" />
+        <TextBox Grid.Row="12" Grid.Column="1" Text="{Binding UlogovanPacijent.Email}" HorizontalAlignment="Left" Width="170" />
         
         <!-- Druga kolona -->       
         <TextBlock Grid.Row="1" Grid.Column="3" Text="Država:"/>

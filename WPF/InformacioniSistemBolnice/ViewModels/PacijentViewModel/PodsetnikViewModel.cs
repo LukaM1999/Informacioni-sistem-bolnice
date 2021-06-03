@@ -6,28 +6,33 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 using InformacioniSistemBolnice.Utilities;
-using InformacioniSistemBolnice.ViewModels;
 using InformacioniSistemBolnice.Views.Pacijent;
 using Kontroler;
 using Model;
 
-namespace InformacioniSistemBolnice
+namespace InformacioniSistemBolnice.ViewModels.PacijentViewModel
 {
-    public class KreiranjePodsetnikaViewModel
+    public class PodsetnikViewModel
     {
-        private readonly Pacijent ulogovanPacijent;
+        private readonly Model.Pacijent ulogovanPacijent = GlavniProzorPacijentaView.ulogovanPacijent;
         public ICommand KreirajPacijentovPodsetnik { get; set; }
+        public ICommand KreiranjePodsetnika { get; set; }
 
-        public KreiranjePodsetnikaViewModel(Pacijent ulogovan)
+        public PodsetnikViewModel()
         {
-            ulogovanPacijent = ulogovan;
             KreirajPacijentovPodsetnik = new Command(o => KreirajPodsetnik());
+            KreiranjePodsetnika = new Command(o => OtvoriKreiranjePodsetnika());
+        }
+
+        private void OtvoriKreiranjePodsetnika()
+        {
+            new KreiranjePodsetnikaView { DataContext = this }.Show();
         }
 
         private void KreirajPodsetnik()
         {
             KreiranjePodsetnikaView podsetnikForma = (KreiranjePodsetnikaView)PronadjiProzorUtility.PronadjiProzor(this);
-            PacijentKontroler.Instance.UkljuciNoviPodsetnik(new Podsetnik(podsetnikForma.Sadrzaj.Text, 
+            PacijentKontroler.Instance.UkljuciNoviPodsetnik(new Podsetnik(podsetnikForma.Sadrzaj.Text,
                     podsetnikForma.Vreme.Text, ulogovanPacijent.Jmbg));
             podsetnikForma.Close();
         }
