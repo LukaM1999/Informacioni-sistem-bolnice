@@ -65,14 +65,14 @@ namespace InformacioniSistemBolnice
             {
                 RaspodelaDinamickeOpremeDto dtoRapsodelaUMagacin = new(izProstorije.Id, null,
                     (DinamickaOprema)listaDinamicke.SelectedItem, Int32.Parse(tbKolicinaDinamicka.Text));
-                UpravnikKontroler.Instance.RasporedjivanjeDinamickeOpreme(dtoRapsodelaUMagacin);
+                OpremaKontroler.Instance.RasporedjivanjeDinamickeOpreme(dtoRapsodelaUMagacin);
             }
             else
             {
                 if(cbDinamicka.SelectedItem != (Prostorija)ListaProstorija.SelectedItem){
                     RaspodelaDinamickeOpremeDto dtoRaspodelaUDruguProstoriju = new(izProstorije.Id, uProstoriju.Id,
                         (DinamickaOprema)listaDinamicke.SelectedItem, Int32.Parse(tbKolicinaDinamicka.Text));
-                    UpravnikKontroler.Instance.RasporedjivanjeDinamickeOpreme(dtoRaspodelaUDruguProstoriju);
+                    OpremaKontroler.Instance.RasporedjivanjeDinamickeOpreme(dtoRaspodelaUDruguProstoriju);
                 }
             }
             ListaProstorija.ItemsSource = Repozitorijum.ProstorijaRepo.Instance.Prostorije;
@@ -83,7 +83,7 @@ namespace InformacioniSistemBolnice
         {
             if ((bool)rbMagacin.IsChecked && listaStaticke.SelectedValue != null && datum.SelectedDate != null)
             {
-                UpravnikKontroler.Instance.RasporedjivanjeStatickeOpreme(new(izProstorije.Id, null, (StatickaOprema)listaStaticke.SelectedItem,
+                OpremaKontroler.Instance.RasporedjivanjeStatickeOpreme(new(izProstorije.Id, null, (StatickaOprema)listaStaticke.SelectedItem,
                     Int32.Parse(tbKolicinaStaticka.Text), (DateTime)datum.SelectedDate));
             }
             else
@@ -92,7 +92,7 @@ namespace InformacioniSistemBolnice
                     && cbStaticka.SelectedItem != null && datum.SelectedDate != null)
                 {
                     Prostorija uProstoriju = (Prostorija)cbStaticka.SelectedItem;
-                    UpravnikKontroler.Instance.RasporedjivanjeStatickeOpreme(new(izProstorije.Id, uProstoriju.Id,
+                    OpremaKontroler.Instance.RasporedjivanjeStatickeOpreme(new(izProstorije.Id, uProstoriju.Id,
                         (StatickaOprema)listaStaticke.SelectedItem, Int32.Parse(tbKolicinaStaticka.Text), (DateTime)datum.SelectedDate));
                 }
 

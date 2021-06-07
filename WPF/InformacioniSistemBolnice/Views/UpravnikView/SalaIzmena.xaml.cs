@@ -47,7 +47,7 @@ namespace InformacioniSistemBolnice.Views.UpravnikView
             if ((bool)rbSlobodna.IsChecked) dto.JeZauzeta = false;
             dto = new(Int32.Parse(tbSprat.Text), (TipProstorije)Enum.Parse(typeof(TipProstorije), cbTipProstorije.Text),
                     tbId.Text, dto.JeZauzeta, IzabranaProstorija.Inventar);
-            UpravnikKontroler.Instance.IzmenaProstorije(dto);
+            ProstorijaKontroler.Instance.IzmenaProstorije(dto);
             this.NavigationService.Navigate(new Sale());
         }
     }

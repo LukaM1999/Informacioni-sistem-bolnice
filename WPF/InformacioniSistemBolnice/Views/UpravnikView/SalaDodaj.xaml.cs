@@ -33,7 +33,7 @@ namespace InformacioniSistemBolnice.Views.UpravnikView
         private void Potvrdi(object sender, RoutedEventArgs e)
         {
             ProstorijaDto dto = new(Int32.Parse(tbSprat.Text), (TipProstorije)Enum.Parse(typeof(TipProstorije), cbTipProstorije.Text), tbId.Text, false, new());
-            UpravnikKontroler.Instance.KreiranjeProstorije(dto);
+            ProstorijaKontroler.Instance.KreiranjeProstorije(dto);
             this.NavigationService.Navigate(new Sale());
         }
 

@@ -38,7 +38,7 @@ namespace InformacioniSistemBolnice.Views.UpravnikView
 
         private void Potvrdi(object sender, RoutedEventArgs e)
         {
-            UpravnikKontroler.Instance.KreiranjeLeka(new(tbNaziv.Text, tbProizvodjac.Text, tbSastojci.Text,
+            LekKontroler.Instance.KreiranjeLeka(new(tbNaziv.Text, tbProizvodjac.Text, tbSastojci.Text,
                 tbZamena.Text, ListaAlergenaLeka));
             this.NavigationService.Navigate(new Lekovi());
         }

@@ -15,6 +15,8 @@ using System.Windows.Shapes;
 using InformacioniSistemBolnice.Views.UpravnikView;
 using Repozitorijum;
 using Model;
+using InformacioniSistemBolnice.Utilities;
+using InformacioniSistemBolnice.Servis.UpravljanjeIzvestajima;
 
 namespace InformacioniSistemBolnice.Views.UpravnikView
 {
@@ -60,6 +62,12 @@ namespace InformacioniSistemBolnice.Views.UpravnikView
             Zahtev izabraniZahtev = (Zahtev)dgListaZahteva.SelectedValue;
             this.NavigationService.Navigate(new ZahtevInfo(izabraniZahtev));
             dgListaZahteva.ItemsSource = ZahtevRepo.Instance.Zahtevi;
+        }
+
+        private void Izvestaj(object sender, RoutedEventArgs e)
+        {
+            IzvestajUtility izvestaj = new IzvestajUpravnikaServis();
+            izvestaj.GenerisiIzvestaj();
         }
     }
 }

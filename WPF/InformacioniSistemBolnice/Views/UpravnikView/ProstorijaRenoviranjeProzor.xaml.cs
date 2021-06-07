@@ -60,7 +60,7 @@ namespace InformacioniSistemBolnice
             }
             ProstorijaRenoviranjeDto dto = new ProstorijaRenoviranjeDto((DateTime)datumPocetkaRenoviranja.SelectedDate,
                     (DateTime)datumKrajaRenoviranja.SelectedDate, prostorija);
-            UpravnikKontroler.Instance.ZakazivanjeRenoviranja(dto);
+            ProstorijaKontroler.Instance.ZakazivanjeRenoviranja(dto);
             this.Close();
         }
 

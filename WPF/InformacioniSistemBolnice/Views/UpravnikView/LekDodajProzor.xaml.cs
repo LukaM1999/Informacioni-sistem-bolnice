@@ -33,7 +33,7 @@ namespace InformacioniSistemBolnice
         }
         private void btnPotvrdi_Click(object sender, RoutedEventArgs e)
         {
-            UpravnikKontroler.Instance.KreiranjeLeka(new(tbNaziv.Text, tbProizvodjac.Text, tbSastojci.Text,
+            LekKontroler.Instance.KreiranjeLeka(new(tbNaziv.Text, tbProizvodjac.Text, tbSastojci.Text,
                 tbZamena.Text, ListaAlergenaLeka));
             ListaLekova.ItemsSource = LekRepo.Instance.Lekovi;
             this.Close();

@@ -47,7 +47,7 @@ namespace InformacioniSistemBolnice
             if (listViewStatOpreme.SelectedValue != null)
             {
                 StatickaOprema oprema = (StatickaOprema)listViewStatOpreme.SelectedItem;
-                UpravnikKontroler.Instance.BrisanjeStatickeOpreme(new(oprema.Kolicina, oprema.Tip));
+                OpremaKontroler.Instance.BrisanjeStatickeOpreme(new(oprema.Kolicina, oprema.Tip));
                 listViewStatOpreme.ItemsSource = StatickaOpremaRepo.Instance.StatickaOprema;
             }
         }
@@ -69,7 +69,7 @@ namespace InformacioniSistemBolnice
             if (listViewDinamOpreme.SelectedValue != null)
             {
                 DinamickaOprema oprema = (DinamickaOprema)listViewDinamOpreme.SelectedItem;
-                UpravnikKontroler.Instance.BrisanjeDinamickeOpreme(new(oprema.Kolicina, oprema.Tip));
+                OpremaKontroler.Instance.BrisanjeDinamickeOpreme(new(oprema.Kolicina, oprema.Tip));
                 listViewDinamOpreme.ItemsSource = DinamickaOpremaRepo.Instance.DinamickaOprema;
             }
         }
@@ -88,7 +88,7 @@ namespace InformacioniSistemBolnice
                 Prostorija uProstoriju = (Prostorija)listaProstorija.SelectedItem;
                 RaspodelaDinamickeOpremeDto dto = new(null, uProstoriju.Id, (DinamickaOprema)listViewDinamOpreme.SelectedValue, 
                     Int32.Parse(tbKolDin.Text));
-                UpravnikKontroler.Instance.RasporedjivanjeDinamickeOpreme(dto);
+                OpremaKontroler.Instance.RasporedjivanjeDinamickeOpreme(dto);
                 listViewDinamOpreme.ItemsSource = Repozitorijum.DinamickaOpremaRepo.Instance.DinamickaOprema;
                 ListaProstorija.ItemsSource = ProstorijaRepo.Instance.Prostorije;
                 ListaProstorija.ItemsSource = ProstorijaRepo.Instance.Prostorije;
@@ -99,7 +99,7 @@ namespace InformacioniSistemBolnice
             if (listViewStatOpreme.SelectedValue != null && listaProstorijaS.SelectedValue != null && datumStat.SelectedDate != null)
             {
                 Prostorija prostorija = (Prostorija)listaProstorijaS.SelectedItem;
-                UpravnikKontroler.Instance.RasporedjivanjeStatickeOpreme(new(null, prostorija.Id, 
+                OpremaKontroler.Instance.RasporedjivanjeStatickeOpreme(new(null, prostorija.Id, 
                     (StatickaOprema)listViewStatOpreme.SelectedItem, Int32.Parse(tbKolStat.Text), (DateTime)datumStat.SelectedDate));
                 listViewStatOpreme.ItemsSource = Repozitorijum.StatickaOpremaRepo.Instance.StatickaOprema;
                 ListaProstorija.ItemsSource = ProstorijaRepo.Instance.Prostorije;

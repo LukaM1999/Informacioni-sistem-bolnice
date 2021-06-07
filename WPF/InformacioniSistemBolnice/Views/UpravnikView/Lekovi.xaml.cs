@@ -59,7 +59,7 @@ namespace InformacioniSistemBolnice.Views.UpravnikView
             if (dgListaLekova.SelectedValue != null)
             {
                 Lek izabraniLek = (Lek)dgListaLekova.SelectedValue;
-                UpravnikKontroler.Instance.BrisanjeLeka(new(izabraniLek.Naziv, izabraniLek.Proizvodjac, izabraniLek.Sastojci, izabraniLek.Zamena, izabraniLek.Alergen));
+                LekKontroler.Instance.BrisanjeLeka(new(izabraniLek.Naziv, izabraniLek.Proizvodjac, izabraniLek.Sastojci, izabraniLek.Zamena, izabraniLek.Alergen));
                 dgListaLekova.ItemsSource = LekRepo.Instance.Lekovi;
             }
         }

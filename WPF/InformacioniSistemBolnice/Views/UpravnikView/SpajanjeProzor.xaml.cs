@@ -48,7 +48,7 @@ namespace InformacioniSistemBolnice.Views.UpravnikView
                         , tbIdNovaProstorija.Text, false, new());
                     if (SeNekaProstorijaVecRenovira(prvaStaraProstorija, drugaStaraProstorija, novaProstorija))
                         return;
-                    UpravnikKontroler.Instance.TransformisiProstorije(new(true, prvaStaraProstorija.Id, 
+                    ProstorijaKontroler.Instance.TransformisiProstorije(new(true, prvaStaraProstorija.Id, 
                         drugaStaraProstorija.Id, novaProstorija, null, (DateTime)dpPocetak.SelectedDate
                         , (DateTime)dpKraj.SelectedDate));
                     Close();
@@ -64,7 +64,7 @@ namespace InformacioniSistemBolnice.Views.UpravnikView
                         , tbIdNovaProstorija2.Text, false, new());
                     if (SeNekaProstorijaVecRenovira(staraProstorija, prvaNovaProstorija, drugaNovaProstorija))
                         return;
-                    UpravnikKontroler.Instance.TransformisiProstorije(new(false, staraProstorija.Id, null
+                    ProstorijaKontroler.Instance.TransformisiProstorije(new(false, staraProstorija.Id, null
                         , prvaNovaProstorija, drugaNovaProstorija, (DateTime)dpPocetak.SelectedDate
                         , (DateTime)dpKraj.SelectedDate));
                     Close();

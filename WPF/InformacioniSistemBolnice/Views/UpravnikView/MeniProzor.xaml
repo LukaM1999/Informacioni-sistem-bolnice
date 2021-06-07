@@ -402,6 +402,7 @@
             </StackPanel>
 
         </Grid>
+        <Button Content="Button" HorizontalAlignment="Center" Height="82" Margin="0,483,0,0" VerticalAlignment="Top" Width="158" Click="Izvestaj"/>
 
     </Grid>
 </Page>

@@ -59,7 +59,7 @@ namespace InformacioniSistemBolnice.Views.UpravnikView
             if (dgListaProstorija.SelectedValue != null)
             {
                 Prostorija izabranaProstorija = (Prostorija)dgListaProstorija.SelectedValue;
-                UpravnikKontroler.Instance.UklanjanjeProstorije(new ProstorijaDto() { Id = izabranaProstorija.Id });
+                ProstorijaKontroler.Instance.UklanjanjeProstorije(new ProstorijaDto() { Id = izabranaProstorija.Id });
                 listaProstorija = ProstorijaRepo.Instance.Prostorije;
                 dgListaProstorija.ItemsSource = listaProstorija;
             }

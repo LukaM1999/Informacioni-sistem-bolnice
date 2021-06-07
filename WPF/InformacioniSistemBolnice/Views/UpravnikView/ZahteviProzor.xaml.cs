@@ -35,7 +35,7 @@ namespace InformacioniSistemBolnice.Views.UpravnikView
         private void btnObrisiZahtev_Click(object sender, RoutedEventArgs e)
         {
             Zahtev izabraniZahtev = (Zahtev)listaZahteva.SelectedValue;
-            UpravnikKontroler.Instance.BrisanjeZahtevaLeka(new(izabraniZahtev.Komentar, izabraniZahtev.Potpis));
+            ZahtevKontroler.Instance.BrisanjeZahtevaLeka(new(izabraniZahtev.Komentar, izabraniZahtev.Potpis));
             listaZahteva.ItemsSource = ZahtevRepo.Instance.Zahtevi;
         }
 

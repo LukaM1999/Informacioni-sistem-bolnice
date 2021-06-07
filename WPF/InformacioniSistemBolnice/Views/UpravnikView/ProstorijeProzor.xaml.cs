@@ -51,7 +51,7 @@ namespace InformacioniSistemBolnice
             if (ListaProstorija.SelectedValue != null)
             {
                 Prostorija izabranaProstorija = (Prostorija)ListaProstorija.SelectedValue;
-                UpravnikKontroler.Instance.UklanjanjeProstorije(new ProstorijaDto() { Id = izabranaProstorija.Id });
+                ProstorijaKontroler.Instance.UklanjanjeProstorije(new ProstorijaDto() { Id = izabranaProstorija.Id });
                 listaProstorija = ProstorijaRepo.Instance.Prostorije;
                 ListaProstorija.ItemsSource = listaProstorija;
             }

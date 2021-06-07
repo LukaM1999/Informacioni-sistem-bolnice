@@ -46,12 +46,12 @@ namespace InformacioniSistemBolnice.Views.UpravnikView
                 if (btnDinamicka.IsHitTestVisible)
                 {
                     StatickaOprema izabranaOprema = (StatickaOprema)dgListaOpreme.SelectedValue;
-                    this.NavigationService.Navigate(new SalaRaspodelaStaticke(izabranaOprema));
+                   // this.NavigationService.Navigate(new SalaRaspodelaStaticke(izabranaOprema));
                 }
                 if (btnStaticka.IsHitTestVisible)
                 {
                     DinamickaOprema izabranaOprema = (DinamickaOprema)dgListaOpreme.SelectedValue;
-                    this.NavigationService.Navigate(new SalaRaspodelaDinamicke(izabranaOprema));
+                    //this.NavigationService.Navigate(new SalaRaspodelaDinamicke(izabranaOprema));
                 }
             }
         }

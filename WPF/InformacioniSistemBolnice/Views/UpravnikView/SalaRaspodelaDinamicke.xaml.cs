@@ -43,7 +43,7 @@ namespace InformacioniSistemBolnice.Views.UpravnikView
             {
                 this.NavigationService.Navigate(new SalaRaspodela(IzabranaProstorija));
             }
-            if ((bool)rb.IsChecked)
+            if ((bool)rbMagacin_Copy.IsChecked)
             {
                 this.NavigationService.Navigate(new SalaRaspodela(IzabranaProstorija));
             }

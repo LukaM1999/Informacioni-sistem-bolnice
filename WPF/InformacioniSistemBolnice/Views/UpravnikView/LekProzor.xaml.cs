@@ -35,7 +35,7 @@ namespace InformacioniSistemBolnice
             if (listaLekova.SelectedValue != null)
             {
                 Lek izabraniLek = (Lek)listaLekova.SelectedValue;
-                UpravnikKontroler.Instance.BrisanjeLeka(new(izabraniLek.Naziv, izabraniLek.Proizvodjac, izabraniLek.Sastojci, izabraniLek.Zamena, izabraniLek.Alergen));
+                LekKontroler.Instance.BrisanjeLeka(new(izabraniLek.Naziv, izabraniLek.Proizvodjac, izabraniLek.Sastojci, izabraniLek.Zamena, izabraniLek.Alergen));
                 listaLekova.ItemsSource = LekRepo.Instance.Lekovi;
             }
         }

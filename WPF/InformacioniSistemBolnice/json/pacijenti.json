@@ -44,7 +44,19 @@
       ]
     },
     "Maliciozan": false,
-    "ZakazaniTermini": [],
+    "ZakazaniTermini": [
+      {
+        "Vreme": "2021-06-08T09:00:00",
+        "Trajanje": 30.0,
+        "Tip": 1,
+        "Status": 0,
+        "AnketaOLekaru": null,
+        "PacijentJmbg": "1203998123123",
+        "LekarJmbg": "1605988156156",
+        "ProstorijaId": "P1",
+        "Hitan": false
+      }
+    ],
     "Ime": "Milan",
     "Prezime": "Maric",
     "Jmbg": "1203998123123",
@@ -109,7 +121,19 @@
       ]
     },
     "Maliciozan": false,
-    "ZakazaniTermini": [],
+    "ZakazaniTermini": [
+      {
+        "Vreme": "2021-06-08T12:00:00",
+        "Trajanje": 30.0,
+        "Tip": 0,
+        "Status": 0,
+        "AnketaOLekaru": null,
+        "PacijentJmbg": "1905981123124",
+        "LekarJmbg": "1605988156156",
+        "ProstorijaId": "OS1",
+        "Hitan": false
+      }
+    ],
     "Ime": "Milica",
     "Prezime": "Markovic",
     "Jmbg": "1905981123124",

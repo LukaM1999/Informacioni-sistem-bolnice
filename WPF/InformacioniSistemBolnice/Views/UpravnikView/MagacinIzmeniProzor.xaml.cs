@@ -45,7 +45,7 @@ namespace InformacioniSistemBolnice
 
         private void dugmePotvrdi_Click(object sender, RoutedEventArgs e)
         {
-            UpravnikKontroler.Instance.IzmenaStatickeOpreme(new(Int32.Parse(tb1.Text), (TipStatickeOpreme)Enum.Parse(typeof(TipStatickeOpreme), cb1.Text)));
+            OpremaKontroler.Instance.IzmenaStatickeOpreme(new(Int32.Parse(tb1.Text), (TipStatickeOpreme)Enum.Parse(typeof(TipStatickeOpreme), cb1.Text)));
             ListaStatickeOpreme.ItemsSource = StatickaOpremaRepo.Instance.StatickaOprema;
             this.Close();
         }

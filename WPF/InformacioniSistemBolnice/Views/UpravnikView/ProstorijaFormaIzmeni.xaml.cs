@@ -52,7 +52,7 @@ namespace InformacioniSistemBolnice
             if((bool)rb2.IsChecked) dto.JeZauzeta = false;
             dto = new(Int32.Parse(tb1.Text), (TipProstorije)Enum.Parse(typeof(TipProstorije), tipIzmena.Text),
                     tb2.Text, dto.JeZauzeta, izabranaProstorija.Inventar);
-            UpravnikKontroler.Instance.IzmenaProstorije(dto);
+            ProstorijaKontroler.Instance.IzmenaProstorije(dto);
             ListaProstorija.ItemsSource = ProstorijaRepo.Instance.Prostorije;
             this.Close();
         }
