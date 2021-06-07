@@ -12,13 +12,21 @@ namespace Kontroler
         private static readonly Lazy<SekretarKontroler> Lazy = new(() => new SekretarKontroler());
         public static SekretarKontroler Instance => Lazy.Value;
 
-        public void KreiranjeNalogaLekara(LekarDto lekarDto) => LekarServis.Instance.KreirajNalog(lekarDto);
+        public bool KreiranjeNalogaLekara(LekarDto lekarDto)
+        {
+            if (LekarServis.Instance.KreirajNalog(lekarDto)) return true;
+            else return false;
+        }
 
         public void UklanjanjeNalogaLekara(Lekar lekar) => LekarServis.Instance.UkloniNalog(lekar);
 
         public void IzmenaNalogaLekara(LekarDto lekarDto, Lekar lekar) => LekarServis.Instance.IzmeniNalog(lekarDto, lekar);
 
-        public void KreiranjeNaloga(PacijentDto pacijentDto) => PacijentServis.Instance.KreirajNalog(pacijentDto);
+        public bool KreiranjeNaloga(PacijentDto pacijentDto)
+        {
+            if (PacijentServis.Instance.KreirajNalog(pacijentDto)) return true;
+            else return false;
+        }
 
         public void KreiranjeZdravstvenogKartona(ZdravstveniKartonDto zdravstveniKartonDto,
                                                 PodaciOZaposlenjuIZanimanjuDto podaciOZaposlenjuIZanimanjuDto)

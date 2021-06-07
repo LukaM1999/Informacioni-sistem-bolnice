@@ -21,6 +21,11 @@ namespace InformacioniSistemBolnice.DTO
         public bool Hitan { get; set; }
         public TipTermina IzabraniTip { get; set; }
 
+        public TerminDto()
+        {
+                
+        }
+
         public TerminDto(string naziv, DateTime pocetak, DateTime kraj, Brush bojaPozadine, Brush bojaSlova, string lekarJmbg, string pacijentJmbg, string prostorijaId, bool hitan, TipTermina izabraniTip)
         {
             Naziv = naziv;

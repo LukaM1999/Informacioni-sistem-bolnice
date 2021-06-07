@@ -14,13 +14,14 @@ namespace Servis
         private PacijentDto pacijentoviPodaci;
         private Pacijent pacijentZaIzmenu;
 
-        public void KreirajNalog(PacijentDto pacijentDto)
+        public bool KreirajNalog(PacijentDto pacijentDto)
         {
             Pacijent pacijent = new Pacijent(new Osoba(pacijentDto.Ime, pacijentDto.Prezime, pacijentDto.PacijentJmbg,
                                             DateTime.Parse(pacijentDto.DatumRodjenja.ToString("g")), pacijentDto.Telefon,
                                             pacijentDto.Email, KreirajKorisnika(pacijentDto),
                                             new Adresa(pacijentDto.Drzava, pacijentDto.Grad, pacijentDto.Ulica, pacijentDto.Broj)));
-            PacijentRepo.Instance.DodajPacijenta(pacijent);
+            if(PacijentRepo.Instance.DodajPacijenta(pacijent)) return true;
+            return false;
         }
 
 

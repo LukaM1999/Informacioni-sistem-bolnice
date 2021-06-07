@@ -47,6 +47,13 @@ namespace Repozitorijum
             return false;
         }
 
+        public bool KorisnikPostoji(Pacijent pacijentZaDodavanje)
+        {
+            foreach (Pacijent pacijent in Pacijenti)
+                if (pacijent.Korisnik.KorisnickoIme == pacijentZaDodavanje.Korisnik.KorisnickoIme) return true;
+            return false;
+        }
+
         public void PostaviTermineUlogovanogPacijenta(Pacijent ulogovanPacijent)
         {
             ObservableCollection<Termin> zakazaniTermini = new();
@@ -77,7 +84,7 @@ namespace Repozitorijum
 
         public bool DodajPacijenta(Pacijent pacijentZaDodavanje)
         {
-            if (Pacijenti.Contains(pacijentZaDodavanje)) return false;
+            if (KorisnikPostoji(pacijentZaDodavanje)) return false;
             Pacijenti.Add(pacijentZaDodavanje);
             Serijalizacija();
             return true;

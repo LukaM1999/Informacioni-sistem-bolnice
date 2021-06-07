@@ -4,6 +4,7 @@ using System.Windows.Controls;
 using InformacioniSistemBolnice.DTO;
 using Repozitorijum;
 using Kontroler;
+using InformacioniSistemBolnice.Validacija;
 
 namespace InformacioniSistemBolnice
 {
@@ -13,6 +14,5 @@ namespace InformacioniSistemBolnice
         {
             InitializeComponent();
         }
-
     }
 }

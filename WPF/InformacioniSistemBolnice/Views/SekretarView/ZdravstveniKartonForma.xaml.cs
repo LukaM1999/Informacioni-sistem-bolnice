@@ -44,6 +44,10 @@ namespace InformacioniSistemBolnice
                        kategorijaZdrZastiteUnos.SelectedItem.ToString()), (Alergen)ListaAlergena.SelectedItem);
         }
 
+
+
+
+
         private PodaciOZaposlenjuIZanimanjuDto PokupiPodatkeOZaposlenju()
         {
             return new(radnoMjestoUnos.Text, registarskiBrojUnos.Text, sifraDjelatnostiUnos.Text,
