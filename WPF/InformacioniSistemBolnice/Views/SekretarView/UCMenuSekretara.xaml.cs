@@ -22,8 +22,7 @@ namespace InformacioniSistemBolnice
             => pocetna.contentControl.Content = new TerminiPacijentaProzorSekretara(pocetna);
 
         private void UpravljanjeAlergenima_Click(object sender, RoutedEventArgs e)
-            => pocetna.contentControl.Content = new AlergeniProzor(pocetna)
-            { DataContext = new AlergeniViewModel(pocetna, alergeni)};
+            => pocetna.contentControl.Content = new AlergeniProzor(pocetna);
 
         private void GostujuciNalozi_Click(object sender, RoutedEventArgs e)
             => pocetna.contentControl.Content = new GostujuciNaloziProzor(pocetna);

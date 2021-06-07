@@ -33,7 +33,7 @@ namespace InformacioniSistemBolnice
 
         private void ObrisiVest_Clik(object sender, RoutedEventArgs e)
         {
-            SekretarKontroler.Instance.UklanjanjeVesti((Vest)ListaVesti.SelectedValue);
+            VestKontroler.Instance.UklanjanjeVesti((Vest)ListaVesti.SelectedValue);
             ListaVesti.ItemsSource = VestRepo.Instance.Vesti;
         }
 

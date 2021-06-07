@@ -17,14 +17,12 @@ using Repozitorijum;
 using Model;
 using InformacioniSistemBolnice.DTO;
 using Kontroler;
+using MahApps.Metro.Controls;
 
 
 namespace InformacioniSistemBolnice
 {
-    /// <summary>
-    /// Interaction logic for UCBolnickoLecenjeForma.xaml
-    /// </summary>
-    public partial class UCBolnickoLecenjeForma : UserControl
+    public partial class UCBolnickoLecenjeForma : MetroContentControl
     {
         private GlavniProzorLekara glavniProzor;
         public ObservableCollection<Prostorija> sobe = new();

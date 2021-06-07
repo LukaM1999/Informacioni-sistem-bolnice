@@ -27,7 +27,7 @@
 
         </Canvas>
         <Button Content="Kreiraj gostujuceg pacijenta" HorizontalAlignment="Left" Margin="100,20,0,0" VerticalAlignment="Top" Click="KreirajGostujuciNalog_Click" Background="White" FontSize="14"/>
-        <Button Content="Ukloni gostujuci nalog" HorizontalAlignment="Left" Margin="400,20,0,0" VerticalAlignment="Top" Click="UkloniGostujuciNalog_Click" Width="152" Background="White" FontSize="14"/>
+        <Button Content="Ukloni gostujuci nalog" HorizontalAlignment="Left" Margin="400,20,0,0" VerticalAlignment="Top" Click="UkloniGostujuciNalog_Click" Width="219" Background="White" FontSize="14"/>
         <Button Content="Info" HorizontalAlignment="Left" Margin="700,20,0,0" VerticalAlignment="Top" Background="White" Width="152" Click="VidiGostujuciNalog_Click" FontSize="14"/>
 
     </Grid>

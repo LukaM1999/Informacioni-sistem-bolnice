@@ -33,14 +33,19 @@
     <None Remove="images\UpravnikImages\room-logo.png" />
     <None Remove="images\UpravnikImages\trash-can.png" />
     <None Remove="images\UpravnikImages\warehouse-logo.png" />
+    <None Remove="images\user.png" />
     <None Remove="images\users.png" />
+    <None Remove="Views\SekretarView\user.png" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="FluentScheduler" Version="5.5.1" />
     <PackageReference Include="MaterialDesign.Icons" Version="1.1.0" />
+    <PackageReference Include="MahApps.Metro" Version="2.4.5" />
+    <PackageReference Include="MahApps.Metro.IconPacks" Version="4.8.0" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
     <PackageReference Include="PropertyChanged.Fody" Version="3.3.3" />
+    <PackageReference Include="Syncfusion.SfScheduler.WPF" Version="19.1.0.65" />
   </ItemGroup>
 
   <ItemGroup>
@@ -123,7 +128,9 @@
     <Resource Include="images\UpravnikImages\room-logo.png" />
     <Resource Include="images\UpravnikImages\trash-can.png" />
     <Resource Include="images\UpravnikImages\warehouse-logo.png" />
+    <Resource Include="images\user.png" />
     <Resource Include="images\users.png" />
+    <Resource Include="Views\SekretarView\user.png" />
   </ItemGroup>
 
   <ItemGroup>

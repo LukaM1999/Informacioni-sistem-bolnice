@@ -31,6 +31,19 @@
             <Label x:Name="brojLabela"  Content="{Binding Pacijent.AdresaStanovanja.Broj}" Canvas.Left="180" Canvas.Top="430" Width="150" Height="28" Background="White" FontSize="14"/>
             <Label x:Name="gradLabela"  Content="{Binding Pacijent.AdresaStanovanja.Grad}" Canvas.Left="180" Canvas.Top="350" Width="150" Height="28" Background="White" FontSize="14" />
         </Canvas>
-        <Button Content="Nazad" HorizontalAlignment="Left" Margin="50,32,0,0" VerticalAlignment="Top" Command="{Binding Nazad}" Width="120" Height="25"/>
+        <Button Style="{StaticResource ResourceKey=MainButtons}" HorizontalAlignment="Left" Margin="126,30,0,0" VerticalAlignment="Top" Command="{Binding Nazad}" Width="60" Height="62"  RenderTransformOrigin="0.5,0.5">
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleY="0.47"/>
+                    <RotateTransform/>
+                    <TranslateTransform Y="0.492"/>
+                </TransformGroup>
+            </Button.RenderTransform>
+            <StackPanel Orientation="Vertical">
+                <Image Source="../../images/back.png" Width="30" Height="30" RenderOptions.BitmapScalingMode="Fant"/>
+                <TextBlock Text="Nazad" VerticalAlignment="Center" FontSize="14"/>
+            </StackPanel>
+        </Button>
     </Grid>
 </UserControl>

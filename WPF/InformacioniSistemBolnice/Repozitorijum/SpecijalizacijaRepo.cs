@@ -7,7 +7,7 @@ using InformacioniSistemBolnice;
 
 namespace Repozitorijum
 {
-    public class SpecijalizacijaRepo : Repozitorijum
+    public class SpecijalizacijaRepo : IRepozitorijum
     {
         private const string Putanja = "../../../json/specijalizacije.json";
 
@@ -16,9 +16,10 @@ namespace Repozitorijum
 
         public ObservableCollection<Specijalizacija> Specijalizacije { get; set; }
 
-        public void Deserijalizacija()
+        public ObservableCollection<object> Deserijalizacija()
         {
             Specijalizacije = JsonConvert.DeserializeObject<ObservableCollection<Specijalizacija>>(File.ReadAllText(Putanja));
+            return new ObservableCollection<object> {Specijalizacije};
         }
 
         public void Serijalizacija()

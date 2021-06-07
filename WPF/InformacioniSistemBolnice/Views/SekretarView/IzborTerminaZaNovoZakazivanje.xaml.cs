@@ -170,7 +170,7 @@ namespace InformacioniSistemBolnice
         {
             if (ponudjeniTerminiZaNovoZakazivanje.SelectedIndex >= 0)
             {
-                SekretarKontroler.Instance.PomeranjeVanrednogTerminaPacijenta
+                TerminKontroler.Instance.PomeranjeVanrednogTerminaPacijenta
                 ((Termin)izborTerminaZaPomeranje.ponudjeniTerminiZaPomeranje.SelectedItem,
                 (Termin)ponudjeniTerminiZaNovoZakazivanje.SelectedItem);
                 this.Close();

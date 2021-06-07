@@ -12,14 +12,12 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using MahApps.Metro.Controls;
 using Model;
 
 namespace InformacioniSistemBolnice
 {
-    /// <summary>
-    /// Interaction logic for UCListaRecepata.xaml
-    /// </summary>
-    public partial class UCListaRecepata : UserControl
+    public partial class UCListaRecepata : MetroContentControl
     {
         public GlavniProzorLekara glavniProzorLekara;
         public Pacijent pacijent;

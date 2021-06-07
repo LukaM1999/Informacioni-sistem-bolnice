@@ -79,7 +79,7 @@ namespace InformacioniSistemBolnice
 
         private void potvrdaPomeranjaDugme_Click(object sender, RoutedEventArgs e)
         {
-            SekretarKontroler.Instance.PomjeranjeTerminaPacijenata((Termin)terminiPacijenta.listaZakazanihTermina.SelectedItem,
+            TerminKontroler.Instance.PomjeranjeTerminaPacijenata((Termin)terminiPacijenta.listaZakazanihTermina.SelectedItem,
                                                                    (Termin)ponudjeniTermini.SelectedItem);
             this.Close();
         }

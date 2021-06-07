@@ -21,6 +21,11 @@
             <Label x:Name="tel" Content="{Binding GostujuciPacijent.Telefon}" Canvas.Left="132" Canvas.Top="170" Width="120" Height="28" Background="White" FontSize="12"/>
             <Label x:Name="mail" Content="{Binding GostujuciPacijent.Email}" Canvas.Left="132" Canvas.Top="201" Width="120" Height="28" FontSize="12" Background="White" />
         </Canvas>
-        <Button Content="Nazad" HorizontalAlignment="Left" Margin="20,16,0,0" VerticalAlignment="Top" Command="{Binding Nazad}"/>
+        <Button Style="{StaticResource ResourceKey=MainButtons}" HorizontalAlignment="Left" Margin="20,16,0,0" VerticalAlignment="Top" Command="{Binding Nazad}">
+            <StackPanel Orientation="Vertical">
+                <Image Source="../../images/back.png" Width="30" Height="30" RenderOptions.BitmapScalingMode="Fant"/>
+                <TextBlock Text="Nazad" VerticalAlignment="Center" FontSize="14"/>
+            </StackPanel>
+        </Button>
     </Grid>
 </UserControl>

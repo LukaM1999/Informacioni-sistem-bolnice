@@ -10,7 +10,7 @@ using Newtonsoft.Json;
 
 namespace Repozitorijum
 {
-    public class AnketaOBolniciRepo : Repozitorijum
+    public class AnketaOBolniciRepo : IRepozitorijum
     {
         private const string Putanja = "../../../json/ankete.json";
 
@@ -19,10 +19,11 @@ namespace Repozitorijum
 
         public ObservableCollection<AnketaOBolnici> AnketeOBolnici { get; set; }
 
-        public void Deserijalizacija()
+        public ObservableCollection<object> Deserijalizacija()
         {
             lock (AnketeOBolnici)
                 AnketeOBolnici = JsonConvert.DeserializeObject<ObservableCollection<AnketaOBolnici>>(File.ReadAllText(Putanja));
+            return new ObservableCollection<object> {AnketeOBolnici};
         }
 
         public void Serijalizacija()

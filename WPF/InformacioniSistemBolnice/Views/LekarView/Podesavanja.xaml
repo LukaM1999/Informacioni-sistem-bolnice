@@ -1,0 +1,69 @@
+﻿<mah:MetroContentControl x:Class="InformacioniSistemBolnice.Podesavanja"
+                         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+                         xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+                         xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+                         xmlns:local="clr-namespace:InformacioniSistemBolnice"
+                         xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
+                         mc:Ignorable="d" 
+                         d:DesignHeight="612" Width="834">
+
+    <Grid>
+        <Button Background="Transparent" Margin="239,63,239,477" Cursor="Hand" Click="Button_Click">
+            <StackPanel Orientation="Horizontal">
+                <StackPanel.Resources>
+                    <Style TargetType="{x:Type Label}">
+                        <Setter Property="Margin" Value="0,0,50,0"/>
+                    </Style>
+                </StackPanel.Resources>
+                <Label Content="Jezik" FontSize="24" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+                <iconPacks:PackIconMaterial Kind="ChevronRight"  Width="40" Height="40" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+            </StackPanel>
+        </Button>
+        <Button Background="Transparent" Margin="239,163,239,377" Cursor="Hand" Click="Button_Click_1">
+            <StackPanel Orientation="Horizontal">
+                <StackPanel.Resources>
+                    <Style TargetType="{x:Type Label}">
+                        <Setter Property="Margin" Value="0,0,50,0"/>
+                    </Style>
+                </StackPanel.Resources>
+                <Label Content="Tema" FontSize="24" VerticalAlignment="Center" HorizontalAlignment="Left" BorderBrush="Transparent"/>
+                <iconPacks:PackIconMaterial Kind="ChevronRight"  Width="40" Height="40" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+            </StackPanel>
+        </Button>
+        <Button Background="Transparent" Margin="239,262,239,277" Cursor="Hand">
+            <StackPanel Orientation="Horizontal">
+                <StackPanel.Resources>
+                    <Style TargetType="{x:Type Label}">
+                        <Setter Property="Margin" Value="0,0,40,0"/>
+                    </Style>
+                </StackPanel.Resources>
+                <Label Content="Povratna informacija" FontSize="24" VerticalAlignment="Center" HorizontalAlignment="Left" BorderBrush="Transparent"/>
+                <iconPacks:PackIconMaterial Kind="ChevronRight"  Width="40" Height="40" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+            </StackPanel>
+        </Button>
+        <Button Background="Transparent" Margin="239,363,239,177" Cursor="Hand">
+            <StackPanel Orientation="Horizontal">
+                <StackPanel.Resources>
+                    <Style TargetType="{x:Type Label}">
+                        <Setter Property="Margin" Value="0,0,50,0"/>
+                    </Style>
+                </StackPanel.Resources>
+                <Label Content="Opste informacije" FontSize="24" VerticalAlignment="Center" HorizontalAlignment="Left" BorderBrush="Transparent"/>
+                <iconPacks:PackIconMaterial Kind="ChevronRight"  Width="40" Height="40" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+            </StackPanel>
+        </Button>
+        <Button Background="Transparent" Margin="239,463,239,77" Cursor="Hand" Click="Button_Click_2">
+            <StackPanel Orientation="Horizontal">
+                <StackPanel.Resources>
+                    <Style TargetType="{x:Type Label}">
+                        <Setter Property="Margin" Value="0,0,50,0"/>
+                    </Style>
+                </StackPanel.Resources>
+                <Label Content="Odjavi se" FontSize="24" VerticalAlignment="Center" HorizontalAlignment="Left" BorderBrush="Transparent"/>
+                <iconPacks:PackIconMaterial Kind="ChevronRight"  Width="40" Height="40" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+            </StackPanel>
+        </Button>
+    </Grid>
+</mah:MetroContentControl>

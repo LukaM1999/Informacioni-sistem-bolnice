@@ -16,14 +16,15 @@ namespace Servis
         private static readonly Lazy<LekarServis> Lazy = new(() => new LekarServis());
         public static LekarServis Instance => Lazy.Value;
 
-        public void KreirajNalog(LekarDto lekarDto)
+        public bool KreirajNalog(LekarDto lekarDto)
         {
             Lekar lekar = new(new Osoba(lekarDto.Ime, lekarDto.Prezime, lekarDto.LekarJmbg,
                                         DateTime.Parse(lekarDto.DatumRodjenja.ToString("g")),
                                         lekarDto.Telefon, lekarDto.Email, KreirajKorisnika(lekarDto),
                                         new Adresa(lekarDto.Drzava, lekarDto.Grad, lekarDto.Ulica, lekarDto.Broj)),
                                         new Specijalizacija(lekarDto.Specijalizacija));
-            LekarRepo.Instance.DodajLekara(lekar);
+            if (LekarRepo.Instance.DodajLekara(lekar)) return true;
+            return false;
         }
 
         private Korisnik KreirajKorisnika(LekarDto lekarDto)

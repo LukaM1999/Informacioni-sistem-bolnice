@@ -30,7 +30,7 @@ namespace InformacioniSistemBolnice
             if (listaZakazanihTermina.SelectedIndex >= 0)
             {
                 System.Diagnostics.Debug.WriteLine((Termin)listaZakazanihTermina.SelectedValue);
-                SekretarKontroler.Instance.Otkazivanje((Termin)listaZakazanihTermina.SelectedValue);
+                TerminKontroler.Instance.Otkazivanje((Termin)listaZakazanihTermina.SelectedValue);
                 listaZakazanihTermina.ItemsSource = TerminRepo.Instance.Termini;
             }
         }

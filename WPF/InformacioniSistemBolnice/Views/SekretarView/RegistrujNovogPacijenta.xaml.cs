@@ -23,8 +23,8 @@ namespace InformacioniSistemBolnice
                                              DateTime.Parse(datumUnos.Text), telUnos.Text, mailUnos.Text,
                                              korisnikUnos.Text, lozinkaUnos.Password,
                                              drzavaUnos.Text, gradUnos.Text, ulicaUnos.Text, brojUnos.Text);
-            SekretarKontroler.Instance.KreiranjeNaloga(pacijentDto);
-            SekretarKontroler.Instance.KreiranjeNaloga(pacijentDto);
+            NalogPacijentaKontroler.Instance.KreiranjeNaloga(pacijentDto);
+            NalogPacijentaKontroler.Instance.KreiranjeNaloga(pacijentDto);
             this.Visibility = Visibility.Hidden;
             this.pocetna.contentControl.Content = new UCMenuSekretara(menu.pocetna);
         }

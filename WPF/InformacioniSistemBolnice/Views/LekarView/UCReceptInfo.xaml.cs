@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using MahApps.Metro.Controls;
 using Model;
 using Repozitorijum;
 
@@ -20,7 +21,7 @@ namespace InformacioniSistemBolnice
     /// <summary>
     /// Interaction logic for UCReceptInfo.xaml
     /// </summary>
-    public partial class UCReceptInfo : UserControl
+    public partial class UCReceptInfo : MetroContentControl
     {
         public UCListaRecepata listaRecepata;
         public UCReceptInfo(UCListaRecepata recepti)

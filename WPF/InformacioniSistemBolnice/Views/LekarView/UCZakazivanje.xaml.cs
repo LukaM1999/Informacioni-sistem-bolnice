@@ -16,6 +16,7 @@ using System.Windows.Shapes;
 using Model;
 using InformacioniSistemBolnice;
 using InformacioniSistemBolnice.DTO;
+using MahApps.Metro.Controls;
 using Repozitorijum;
 
 namespace InformacioniSistemBolnice.Views
@@ -23,7 +24,7 @@ namespace InformacioniSistemBolnice.Views
     /// <summary>
     /// Interaction logic for UCZakazivanje.xaml
     /// </summary>
-    public partial class UCZakazivanje : UserControl
+    public partial class UCZakazivanje : MetroContentControl
     {
         private GlavniProzorLekara glavniProzor;
         public ObservableCollection<Prostorija> FiltriraneProstorije { get; set; }

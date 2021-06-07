@@ -7,7 +7,7 @@ using System.Linq;
 
 namespace Repozitorijum
 {
-    public class DinamickaOpremaRepo:Repozitorijum
+    public class DinamickaOpremaRepo:IRepozitorijum
     {
         private const string Putanja = "../../../json/dinamickaOprema.json";
 
@@ -16,9 +16,10 @@ namespace Repozitorijum
 
         public ObservableCollection<DinamickaOprema> DinamickaOprema {get; set;}
 
-        public void Deserijalizacija()
+        public ObservableCollection<object> Deserijalizacija()
         {
             DinamickaOprema = JsonConvert.DeserializeObject<ObservableCollection<DinamickaOprema>>(File.ReadAllText(Putanja));
+            return new ObservableCollection<object> {DinamickaOprema};
         }
 
         public void Serijalizacija()

@@ -121,7 +121,7 @@ namespace InformacioniSistemBolnice
 
         private void zakaziDugme_Click(object sender, RoutedEventArgs e)
         {
-            SekretarKontroler.Instance.ZakazivanjeTermina((Termin)ponudjeniTermini.SelectedValue);
+            TerminKontroler.Instance.ZakazivanjeTermina((Termin)ponudjeniTermini.SelectedValue);
             this.Close();
         }
     }

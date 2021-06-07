@@ -106,7 +106,7 @@ namespace InformacioniSistemBolnice
                     (Termin)this.terminiZaPomeranje.ponudjeniTerminiZaPomeranje.SelectedItem,
                     (Termin)this.ponudjeniTermini.SelectedItem,
                     ((Pacijent)this.terminiZaPomeranje.zakazivanjeHitnogTermina.pacijenti.SelectedItem).Jmbg);
-                SekretarKontroler.Instance.PomeranjeTermina(terminiLekaraZaPomeranjeDto);
+                UrgentniTerminKontroler.Instance.PomeranjeTermina(terminiLekaraZaPomeranjeDto);
                 AzurirajPrikaz();
             }
 

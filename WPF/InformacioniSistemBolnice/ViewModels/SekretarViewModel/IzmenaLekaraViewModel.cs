@@ -43,7 +43,7 @@ namespace InformacioniSistemBolnice.ViewModels.SekretarViewModel
             LekarDto lekarDto = new(Lekar.Ime, Lekar.Prezime, Lekar.Jmbg, Lekar.DatumRodjenja, adresa.Drzava, adresa.Grad,
                                     adresa.Ulica, adresa.Broj, Lekar.Telefon, Lekar.Email, korisnik.KorisnickoIme,
                                     korisnik.Lozinka, Lekar.Specijalizacija.Naziv);
-            SekretarKontroler.Instance.IzmenaNalogaLekara(lekarDto, (Lekar)listaLekara.SelectedValue);
+            NalogLekaraKontroler.Instance.IzmenaNalogaLekara(lekarDto, (Lekar)listaLekara.SelectedValue);
             pocetna.contentControl.Content = new Lekari(pocetna);
         }
     }

@@ -20,6 +20,6 @@
         <Label Content="ID:" HorizontalAlignment="Left" Margin="37,32,0,0" VerticalAlignment="Top" Height="42" Width="123"/>
         <Button Content="Potvrdi" HorizontalAlignment="Left" Margin="37,413,0,0" VerticalAlignment="Top" Height="45" Width="109" Click="Button_Click"/>
         <Label Content="Lekovi:" HorizontalAlignment="Left" Margin="362,27,0,0" VerticalAlignment="Top"/>
-        <DataGrid Style="{StaticResource ResourceKey=Tables}" x:Name="listaLekova" Margin="322,53,10,91"/>
+        <DataGrid x:Name="listaLekova" Margin="322,53,10,91"/>
     </Grid>
 </Window>

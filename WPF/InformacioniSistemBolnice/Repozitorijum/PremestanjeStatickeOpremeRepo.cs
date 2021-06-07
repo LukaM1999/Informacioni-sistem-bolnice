@@ -6,7 +6,7 @@ using Model;
 
 namespace Repozitorijum
 {
-    public class PremestanjeStatickeOpremeRepo : Repozitorijum
+    public class PremestanjeStatickeOpremeRepo : IRepozitorijum
     {
         private const string Putanja = "../../../json/statickaOpremaTermini.json";
 
@@ -15,9 +15,10 @@ namespace Repozitorijum
 
         public ObservableCollection<StatickaOpremaTermin> TerminiPremestanja { get; set; }
 
-        public void Deserijalizacija()
+        public ObservableCollection<object> Deserijalizacija()
         {
             TerminiPremestanja = JsonConvert.DeserializeObject<ObservableCollection<StatickaOpremaTermin>>(File.ReadAllText(Putanja));
+            return new ObservableCollection<object> {TerminiPremestanja};
         }
 
         public void Serijalizacija()

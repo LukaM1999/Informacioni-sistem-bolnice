@@ -27,7 +27,7 @@ namespace InformacioniSistemBolnice
 
         private void vidiVest_Click(object sender, RoutedEventArgs e)
         {
-            SekretarKontroler.Instance.PregledVesti((Vest)ListaVesti.SelectedItem);
+            VestKontroler.Instance.PregledVesti((Vest)ListaVesti.SelectedItem);
         }
     }
 }

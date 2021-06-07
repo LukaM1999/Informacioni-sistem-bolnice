@@ -21,7 +21,7 @@ namespace InformacioniSistemBolnice.ViewModels.SekretarViewModel
             gostujuciNaloziProzor = gostujuciNalozi;
             pocetna = gostujuciNaloziProzor.pocetna;
             GostujuciPacijent = new Model.Pacijent();
-            KreirajGostujuciNalog = new Command(o => KreiranjeGostujucegNaloga());
+            KreirajGostujuciNalog = new Command(o => KreiranjeGostujucegNaloga(), o => ValidanUnos());
             Nazad = new Command(o => PovratakNazad());
         }
 
@@ -31,7 +31,7 @@ namespace InformacioniSistemBolnice.ViewModels.SekretarViewModel
             GostujuciNalogDto gostujuciNalogDto = new GostujuciNalogDto(GostujuciPacijent.Ime, GostujuciPacijent.Prezime,
                                                     GostujuciPacijent.Jmbg, GostujuciPacijent.DatumRodjenja,
                                                     GostujuciPacijent.Telefon, GostujuciPacijent.Email);
-            SekretarKontroler.Instance.KreiranjeGostujucegPacijenta(gostujuciNalogDto);
+            NalogPacijentaKontroler.Instance.KreiranjeGostujucegPacijenta(gostujuciNalogDto);
             pocetna.contentControl.Content = new GostujuciNaloziProzor(gostujuciNaloziProzor.pocetna);
 
         }
@@ -39,6 +39,14 @@ namespace InformacioniSistemBolnice.ViewModels.SekretarViewModel
         private void PovratakNazad()
         {
             pocetna.contentControl.Content = gostujuciNaloziProzor.Content;
+        }
+
+        private bool ValidanUnos()
+        {
+            if (GostujuciPacijent.Ime is null || GostujuciPacijent.Prezime is null || GostujuciPacijent.Jmbg is null ||
+                GostujuciPacijent.DatumRodjenja.Equals(default(DateTime)) || GostujuciPacijent.Telefon is null ||
+                GostujuciPacijent.Email is null ) return false;
+            return true;
         }
     }
 }

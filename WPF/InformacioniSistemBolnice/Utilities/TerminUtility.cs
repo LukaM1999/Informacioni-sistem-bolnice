@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Model;
+using Repozitorijum;
 
 namespace InformacioniSistemBolnice.Utilities
 {
@@ -27,6 +28,15 @@ namespace InformacioniSistemBolnice.Utilities
         {
             return terminZaPomeranje.Vreme.
                 Subtract(new TimeSpan(terminZaPomeranje.Vreme.Hour - DanSati - PocetakRadnogVremenaSati, 0 , 0));
+        }
+
+        public static string DobaviFormatiranPrikazTermina(TipTermina tipTermina, string lekarJmbg, string prostorijaId,
+            StatusTermina statusTermina)
+        {
+            return "Tip termina: " + tipTermina + $"{Environment.NewLine}" +
+                   "Kod lekara: " + LekarRepo.Instance.NadjiLekara(lekarJmbg) + $"{Environment.NewLine}" +
+                   "U prostoriji: " + prostorijaId + $"{Environment.NewLine}" +
+                   "Status termina: " + statusTermina;
         }
     }
 }

@@ -4,10 +4,16 @@ using System.Collections.ObjectModel;
 using Kontroler;
 using InformacioniSistemBolnice.DTO;
 using System.Windows.Input;
+using System;
+using System.Windows;
+using InformacioniSistemBolnice.Validacija;
+using System.Windows.Controls;
+using PropertyChanged;
 
 namespace InformacioniSistemBolnice.ViewModels.SekretarViewModel
 {
-    public class RegistracijaLekaraViewModel
+    [AddINotifyPropertyChangedInterface]
+    public class RegistracijaLekaraViewModel 
     {
         public PocetnaStranicaSekretara pocetna;
         public ObservableCollection<Specijalizacija> Specijalizacije { get; set; }
@@ -17,6 +23,19 @@ namespace InformacioniSistemBolnice.ViewModels.SekretarViewModel
         public Specijalizacija SpecijalizacijaLekara { get; set; }
         public ICommand Nazad { get; set; }
         public ICommand RegistrujLekara { get; set; }
+        public ICommand ValidirajIme { get; set; }
+        public ICommand ValidirajPrezime { get; set; }
+        public ICommand ValidirajJMBG { get; set; }
+        public ICommand ValidirajTelefon{ get; set; }
+        public ICommand ValidirajEmailAdresu { get; set; }
+        public ValidationResult IspravnostImena { get; set; }
+        public ValidationResult IspravnostPrezimena { get; set; }
+        public ValidationResult IspravnostJMBG { get; set; }
+        public ValidationResult IspravnostTelefona { get; set; }
+        public ValidationResult IspravnostEmailAdrese { get; set; }
+
+        private Context _context;
+
         public RegistracijaLekaraViewModel(PocetnaStranicaSekretara pocetnaStranicaSekretara)
         {
             pocetna = pocetnaStranicaSekretara;
@@ -26,8 +45,14 @@ namespace InformacioniSistemBolnice.ViewModels.SekretarViewModel
             AdresaLekara = new Adresa();
             SpecijalizacijaLekara = new Specijalizacija();
             NoviLekar = new Lekar(AdresaLekara, NoviKorisnik);
-            RegistrujLekara = new Command(o => RegistracijaLekara());
+            RegistrujLekara = new Command(o => RegistracijaLekara(), o => ValidanUnos());
             Nazad = new Command(o => PovratakNazad());
+            ValidirajIme = new Command(o => ValidacijaImena());
+            ValidirajPrezime = new Command(o => ValidacijaPrezimena());
+            ValidirajJMBG = new Command(o => ValidacijaJMBG());
+            ValidirajTelefon = new Command(o => ValidacijaTelefona());
+            ValidirajEmailAdresu = new Command(o => ValidacijaEmailAdrese());
+           _context = new Context();
         }
 
         private void PovratakNazad()
@@ -35,12 +60,18 @@ namespace InformacioniSistemBolnice.ViewModels.SekretarViewModel
             pocetna.contentControl.Content = new Lekari(pocetna);
         }
 
-        private void RegistracijaLekara()
+        private bool RegistracijaLekara()
         {
             LekarDto lekarDto = PokupiPodatkeSaForme();
-            SekretarKontroler.Instance.KreiranjeNalogaLekara(lekarDto);
-            pocetna.contentControl.Content = new Lekari(pocetna);
+            if (NalogLekaraKontroler.Instance.KreiranjeNalogaLekara(lekarDto)) {
+                pocetna.contentControl.Content = new Lekari(pocetna);
+                return true;
+            }
+            MessageBox.Show("Korisnik sa unetim korisnickim imenom vec postoji!");
+            return false;
+        
         }
+
 
         private LekarDto PokupiPodatkeSaForme()
         {
@@ -49,6 +80,47 @@ namespace InformacioniSistemBolnice.ViewModels.SekretarViewModel
                                                          NoviLekar.AdresaStanovanja.Ulica, NoviLekar.AdresaStanovanja.Broj,
                                                         NoviLekar.Telefon, NoviLekar.Email, NoviLekar.Korisnik.KorisnickoIme
                                                         , NoviLekar.Korisnik.Lozinka, SpecijalizacijaLekara.Naziv);
+        }
+
+        private bool ValidanUnos()
+        {
+            if (NoviLekar.Ime is null || NoviLekar.Prezime is null || NoviLekar.Jmbg is null ||
+                NoviLekar.DatumRodjenja.Equals(default(DateTime)) || NoviLekar.AdresaStanovanja.Drzava is null ||
+                NoviLekar.AdresaStanovanja.Grad is null || NoviLekar.AdresaStanovanja.Ulica is null ||
+                NoviLekar.AdresaStanovanja.Broj is null || NoviLekar.Telefon is null ||
+                NoviLekar.Email is null || NoviLekar.Korisnik.KorisnickoIme is null ||
+                NoviLekar.Korisnik.Lozinka is null || SpecijalizacijaLekara.Naziv is null) return false;
+            return true;
+        }
+
+        private void ValidacijaImena()
+        {
+            _context.PostaviValidaciju(new ValidacijaIme());
+            IspravnostImena = _context.Validiraj(NoviLekar.Ime, null);
+        }
+
+        private void ValidacijaPrezimena()
+        {
+            _context.PostaviValidaciju(new ValidacijaPrezime());
+            IspravnostPrezimena = _context.Validiraj(NoviLekar.Prezime, null);
+        }
+
+        private void ValidacijaJMBG()
+        {
+            _context.PostaviValidaciju(new ValidacijaJMBG());
+            IspravnostJMBG = _context.Validiraj(NoviLekar.Jmbg, null);
+        }
+
+        private void ValidacijaTelefona()
+        {
+            _context.PostaviValidaciju(new ValidacijaTelefon());
+            IspravnostTelefona = _context.Validiraj(NoviLekar.Telefon, null);
+        }
+
+        private void ValidacijaEmailAdrese()
+        {
+            _context.PostaviValidaciju(new ValidacijaEmail());
+            IspravnostEmailAdrese = _context.Validiraj(NoviLekar.Email, null);
         }
     }
 }

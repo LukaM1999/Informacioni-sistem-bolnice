@@ -21,7 +21,7 @@ namespace InformacioniSistemBolnice.ViewModels.SekretarViewModel
 
         public DefinisanjeAlergenaViewModel(AlergeniProzor alergeniProzor)
         {
-            alergeni = alergeniProzor;
+            alergeni = alergeniProzor ;
             pocetna = alergeniProzor.pocetna;
             NoviAlergen = new Alergen(" ");
             DefinisiAlergen = new Command(o => DefinisanjeAlergena());
@@ -31,13 +31,13 @@ namespace InformacioniSistemBolnice.ViewModels.SekretarViewModel
         private void DefinisanjeAlergena()
         {
             AlergenDto alergenDto = new(NoviAlergen.Naziv);
-            SekretarKontroler.Instance.DefinisanjeAlergena(alergenDto);
-            pocetna.contentControl.Content = new AlergeniProzor(pocetna);
+            AlergenKontroler.Instance.DefinisanjeAlergena(alergenDto);
+            pocetna.contentControl.Content = new AlergeniProzor(pocetna) ;
         }
 
         private void PovratakNazad()
         {
-            pocetna.contentControl.Content = new AlergeniProzor(pocetna);
+            pocetna.contentControl.Content = new AlergeniProzor(pocetna) ;
         }
     }
 }

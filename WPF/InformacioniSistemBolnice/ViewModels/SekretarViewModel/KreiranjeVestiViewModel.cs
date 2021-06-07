@@ -29,7 +29,7 @@ namespace InformacioniSistemBolnice.ViewModels.SekretarViewModel
         {
             VestDto vestDto = new VestDto(NovaVest.Id, NovaVest.Sadrzaj);
             vestDto.VremeObjave = (DateTime.Now);
-            SekretarKontroler.Instance.KreiranjeVesti(vestDto);
+            VestKontroler.Instance.KreiranjeVesti(vestDto);
             pocetna.contentControl.Content = new VestiProzor(menu);
         }
 

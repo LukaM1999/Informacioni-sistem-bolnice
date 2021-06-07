@@ -5,7 +5,15 @@
              StartupUri="Views/Login.xaml"
     xmlns:theme="clr-namespace:Microsoft.Windows.Themes;assembly=PresentationFramework.Aero">
     <Application.Resources>
-        <ResourceDictionary Source="ResourceDictionaries/Dictionary1.xaml"/>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="ResourceDictionaries/Dictionary1.xaml"/>
+                <ResourceDictionary Source="ResourceDictionaries/PacijentDictionary.xaml"/>
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Controls.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Fonts.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Themes/Light.Blue.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
     </Application.Resources>
     
 </Application>

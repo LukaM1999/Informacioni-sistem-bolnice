@@ -35,7 +35,7 @@ namespace InformacioniSistemBolnice
         private void ObrisiLekara_Click(object sender, RoutedEventArgs e)
         {
             Lekar lekar = (Lekar)ListaLekara.SelectedValue;
-            SekretarKontroler.Instance.UklanjanjeNalogaLekara(lekar);
+            NalogLekaraKontroler.Instance.UklanjanjeNalogaLekara(lekar);
             pocetna.contentControl.Content = new Lekari(pocetna);
         }
 

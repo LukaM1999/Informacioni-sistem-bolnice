@@ -10,7 +10,7 @@ using Newtonsoft.Json;
 
 namespace Repozitorijum
 {
-    public class PodsetnikRepo : Repozitorijum
+    public class PodsetnikRepo : IRepozitorijum
     {
         private const string Putanja = "../../../json/podsetnici.json";
 
@@ -19,9 +19,10 @@ namespace Repozitorijum
 
         public ObservableCollection<Podsetnik> Podsetnici { get; set; }
 
-        public void Deserijalizacija()
+        public ObservableCollection<object> Deserijalizacija()
         {
             Podsetnici = JsonConvert.DeserializeObject<ObservableCollection<Podsetnik>>(File.ReadAllText(Putanja));
+            return new ObservableCollection<object> { Podsetnici };
         }
 
         public void Serijalizacija()
@@ -44,7 +45,7 @@ namespace Repozitorijum
         public ObservableCollection<Podsetnik> NadjiSvePoJmbg(string jmbgPacijenta)
         {
             ObservableCollection<Podsetnik> pacijentoviPodsetnici = new();
-            foreach (Podsetnik podsetnik in Podsetnici) 
+            foreach (Podsetnik podsetnik in Podsetnici)
                 if (podsetnik.PacijentJmbg == jmbgPacijenta) pacijentoviPodsetnici.Add(podsetnik);
             return pacijentoviPodsetnici;
         }

@@ -17,7 +17,6 @@ using Kontroler;
 using System.Collections.ObjectModel;
 using InformacioniSistemBolnice.DTO;
 using InformacioniSistemBolnice.Views.UpravnikView;
-using InformacioniSistemBolnice.DTO;
 
 namespace InformacioniSistemBolnice
 {

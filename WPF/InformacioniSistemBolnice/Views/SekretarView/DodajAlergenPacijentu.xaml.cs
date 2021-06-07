@@ -38,7 +38,7 @@ namespace InformacioniSistemBolnice
         {
             ZdravstveniKarton zdravstveniKarton = izmenaZdravstvenogKartonaForma.ZdravstveniKarton;
             Pacijent pacijent = izmenaZdravstvenogKartonaForma.Pacijent;
-            SekretarKontroler.Instance.DodavanjeAlergenaIzZdravstvenogKartona
+            ZdravstveniKartonKontroler.Instance.DodavanjeAlergenaIzZdravstvenogKartona
                 ((Alergen)ListaAlergena.SelectedItem, pacijent.Jmbg);
             AzurirajPrikazAlergena();
             this.Close();

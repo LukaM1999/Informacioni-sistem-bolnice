@@ -1,0 +1,32 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
+using System.Windows.Shapes;
+
+namespace InformacioniSistemBolnice.Views.SekretarView
+{
+    public partial class SekretarovProfil : UserControl
+    {
+        public PocetnaStranicaSekretara pocetna;
+        public SekretarovProfil(PocetnaStranicaSekretara pocetnaStranicaSekretara)
+        {
+            InitializeComponent();
+            pocetna = pocetnaStranicaSekretara;
+        }
+
+        private void NazadBtn_Click(object sender, RoutedEventArgs e)
+        {
+            pocetna.contentControl.Content = new UCMenuSekretara(pocetna);
+        }
+    }
+}

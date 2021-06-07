@@ -23,12 +23,12 @@
                 </ListView.ItemContainerStyle>
             </ListView>
         </StackPanel>
-        <Canvas x:Name="RukovanjePacijentima" Width="1000" Height="650">
+        <Canvas x:Name="RukovanjePacijentima" Width="1000" Height="650" Margin="-50,0,0,0">
             <Button x:Name="registrujPacijentaDugme" Content="Registruj" Canvas.Left="50" Canvas.Top="20" Width="100" Margin="10,0,0,0" Click="RegistrujPacijenta_Click" Background="White" FontSize="14"/>
             <Button x:Name="pregledajPacijentaDugme" Content="Info" Canvas.Left="150" Canvas.Top="20" Margin="20,0,0,0" Width="100" Click="VidiPacijenta_Click" Background="White" FontSize="14"/>
             <Button x:Name="obrisiPacijentaDugme" Content="Obrisi" Canvas.Left="250" Canvas.Top="20" Margin="30,0,0,0" Width="100" Click="ObrisiPacijenta_Click" Background="White" FontSize="14"/>
             <Button x:Name="izmeniPacijentaDugme" Content="Izmeni" Canvas.Left="350" Canvas.Top="20" Margin="40,0,0,0" Width="100" Click="IzmeniPacijenta_Click" Background="White" FontSize="14"/>
-            <Button x:Name="zdravstveniKartonPacijentaDugme" Content="Zdravstveni karton pacijenta" Canvas.Left="500" Canvas.Top="20" Width="190" Click="ZdravstveniKartonPacijenta_Click" Background="White" FontSize="14"/>
+            <Button x:Name="zdravstveniKartonPacijentaDugme" Content="Zdravstveni karton" Canvas.Left="500" Canvas.Top="20" Width="190" Click="ZdravstveniKartonPacijenta_Click" Background="White" FontSize="14"/>
             <Button Content="Izmeni zdravstveni karton pacijenta" Canvas.Left="700" Canvas.Top="20" Click="IzmeniZdravstveniKarton_Click" Background="White" FontSize="14"/>
         </Canvas>
 

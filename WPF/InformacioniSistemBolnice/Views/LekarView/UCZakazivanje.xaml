@@ -1,10 +1,12 @@
-﻿<UserControl
+﻿<mah:MetroContentControl
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:InformacioniSistemBolnice.Views"
-             xmlns:System="clr-namespace:System;assembly=System.Runtime" x:Class="InformacioniSistemBolnice.Views.UCZakazivanje"
+             xmlns:System="clr-namespace:System;assembly=System.Runtime"
+             xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
+             x:Class="InformacioniSistemBolnice.Views.UCZakazivanje"
              mc:Ignorable="d" 
              d:DesignHeight="612" d:DesignWidth="834"
              DataContext='{Binding RelativeSource={RelativeSource Self}}'>
@@ -22,11 +24,11 @@
         <Label Content="Tip:" HorizontalAlignment="Left" Margin="118,230,0,0" VerticalAlignment="Top" Height="34" Width="55"/>
         <CheckBox x:Name="hitno" Content="Hitno" HorizontalAlignment="Left" Margin="240,344,0,0" VerticalAlignment="Top" Height="24" Width="60"/>
         <Label VerticalAlignment="Top" Margin="348,34,0,0" Height="34" HorizontalAlignment="Left" Content="Pacijent:"/>
-        <DataGrid Style="{StaticResource ResourceKey=Tables}" x:Name="ListaPacijenata" Margin="348,74,23,70" CanUserAddRows="False"/>
+        <DataGrid x:Name="ListaPacijenata" Margin="348,74,23,70" CanUserAddRows="False"/>
         <Button Name="Potvrdi" Content="Potvrdi" HorizontalAlignment="Left" Margin="230,513,0,0" VerticalAlignment="Top" Height="29" Width="52" Click="Potvrdi_Click"/>
         <ComboBox Name="Prostorija" HorizontalAlignment="Left" Margin="208,289,0,0" VerticalAlignment="Top" Width="94">
         </ComboBox>
         <Label Content="Prostorija:" HorizontalAlignment="Left" Margin="117,0,0,0" VerticalAlignment="Center" Height="34" Width="55"/>
 
     </Grid>
-</UserControl>
+</mah:MetroContentControl>

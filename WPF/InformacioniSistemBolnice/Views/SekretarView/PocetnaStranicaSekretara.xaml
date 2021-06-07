@@ -16,11 +16,29 @@
                 <TextBlock Text="Menu" VerticalAlignment="Center" FontSize="11"/>
             </StackPanel>
         </Button>
-        <Border BorderThickness="1" BorderBrush="Black">
-            <Border BorderThickness="3"   Background="LightGray" BorderBrush="Black" HorizontalAlignment="Left" Height="54" Margin="140,20,0,0" VerticalAlignment="Top" Width="1000">
-                <Label Content="Klinika" FontFamily="Arial" FontSize=" 30" FontWeight="Bold" FontStretch="Medium" FontStyle="Italic" Margin="3,0,333,0"/>
-            </Border>
+        <Border BorderThickness="3" BorderBrush="Black" HorizontalAlignment="Left" Height="54" Margin="140,20,0,0" VerticalAlignment="Top" Width="1000">
+            <Grid  Background="LightGray"  HorizontalAlignment="Left" Height="54" VerticalAlignment="Center" Width="1000">
+                <Label Content="Klinika" FontFamily="Arial" FontSize=" 30" FontWeight="Bold" FontStretch="Medium" FontStyle="Italic" Margin="15,0,321,0"/>
+                <Button Style="{StaticResource ResourceKey=MainButtons}" x:Name="Profil"  Background="LightGray" Click="SekretarovProfil_Click" HorizontalAlignment="Right" VerticalAlignment="Top"  Width="45" Height="51" Margin="0,4,163,0">
+                    <StackPanel Orientation="Vertical">
+                        <Image  Source="D:\Informacioni-sistem-bolnice\WPF\InformacioniSistemBolnice\images\user.png" Width="45" Height="44" RenderOptions.BitmapScalingMode="Fant" OpacityMask="#FFC5A6A6"/>
+                        <TextBlock Text="Menu" VerticalAlignment="Center" FontSize="11"/>
+                    </StackPanel>
+                </Button>
+                <Button Style="{StaticResource ResourceKey=MainButtons}" x:Name="Obavjestenja"   Background="LightGray"  Click="MenuBtn_Click" HorizontalAlignment="Right" VerticalAlignment="Top"  Width="45" Height="51" Margin="0,4,90,0">
+                    <StackPanel Orientation="Vertical">
+                        <Image Source="../../images/bell.png" Width="41" Height="42" RenderOptions.BitmapScalingMode="Fant" OpacityMask="#FFC1B4B4"/>
+                        <TextBlock Text="Menu" VerticalAlignment="Center" FontSize="11"/>
+                    </StackPanel>
+                </Button>
+                <Button Style="{StaticResource ResourceKey=MainButtons}" x:Name="Odjava"  Background="LightGray" Click="OdjaviSe_Click" HorizontalAlignment="Right" VerticalAlignment="Top"  Width="45" Height="51" Margin="0,4,18,0">
+                    <StackPanel Orientation="Vertical">
+                        <Image Source="../../images/logout.png" Width="41" Height="42" RenderOptions.BitmapScalingMode="Fant"/>
+                        <TextBlock Text="Menu" VerticalAlignment="Center" FontSize="11"/>
+                    </StackPanel>
+                </Button>
+            </Grid>
         </Border>
-        <Image Source="C:\Users\PC\Documents\GitHub\Informacioni-sistem-bolnice\WPF\InformacioniSistemBolnice\images\hospital.png" Margin="30,22,1085,684" Stretch="Fill"/>
+        <Image Source="../../images/hospital.png" Margin="30,22,1085,684" Stretch="Fill"/>
     </Grid>
 </Window>

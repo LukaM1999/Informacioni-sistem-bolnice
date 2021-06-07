@@ -27,7 +27,7 @@ namespace InformacioniSistemBolnice.ViewModels.SekretarViewModel
 
         private void IzmenaAlergena()
         {
-            SekretarKontroler.Instance.IzmenaAlergena(new AlergenDto(Alergen.Naziv), (Alergen)listaAlergena.SelectedItem);
+            AlergenKontroler.Instance.IzmenaAlergena(new AlergenDto(Alergen.Naziv), (Alergen)listaAlergena.SelectedItem);
             pocetna.contentControl.Content = new AlergeniProzor(pocetna);
         }
 

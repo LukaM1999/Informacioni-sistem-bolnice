@@ -31,7 +31,7 @@ namespace InformacioniSistemBolnice
         {
             PodaciOZaposlenjuIZanimanjuDto podaciOZaposlenjuIZanimanjuDto = PokupiPodatkeOZaposlenju();
             ZdravstveniKartonDto zdravstveniKartonDto = PokupiPodatkeZdravstvenogKartona();
-            SekretarKontroler.Instance.KreiranjeZdravstvenogKartona(zdravstveniKartonDto, podaciOZaposlenjuIZanimanjuDto);
+            ZdravstveniKartonKontroler.Instance.KreiranjeZdravstvenogKartona(zdravstveniKartonDto, podaciOZaposlenjuIZanimanjuDto);
             pocetna.contentControl.Content = izmenaNalogaPacijentaForma;
         }
 
@@ -43,6 +43,10 @@ namespace InformacioniSistemBolnice
                        (KategorijaZdravstveneZastite)Enum.Parse(typeof(KategorijaZdravstveneZastite), 
                        kategorijaZdrZastiteUnos.SelectedItem.ToString()), (Alergen)ListaAlergena.SelectedItem);
         }
+
+
+
+
 
         private PodaciOZaposlenjuIZanimanjuDto PokupiPodatkeOZaposlenju()
         {

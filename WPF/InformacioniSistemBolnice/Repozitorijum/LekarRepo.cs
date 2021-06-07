@@ -6,7 +6,7 @@ using System.Collections.ObjectModel;
 
 namespace Repozitorijum
 {
-    public class LekarRepo : Repozitorijum
+    public class LekarRepo : IRepozitorijum
     {
         private const string Putanja = "../../../json/lekari.json";
 
@@ -15,9 +15,10 @@ namespace Repozitorijum
 
         public ObservableCollection<Lekar> Lekari { get; set; }
 
-        public void Deserijalizacija()
+        public ObservableCollection<object> Deserijalizacija()
         {
             Lekari = JsonConvert.DeserializeObject<ObservableCollection<Lekar>>(File.ReadAllText(Putanja));
+            return new ObservableCollection<object> {Lekari};
         }
 
         public void Serijalizacija()
@@ -31,6 +32,14 @@ namespace Repozitorijum
                 if (pronadjen.Jmbg == jmbg) return pronadjen;
             return null;
         }
+
+        public bool KorisnikPostoji(Lekar lekarZaDodavanje)
+        {
+            foreach (Lekar lekar in Lekari)
+                if (lekar.Korisnik.KorisnickoIme == lekarZaDodavanje.Korisnik.KorisnickoIme) return true;
+            return false;
+        }
+
 
         public Lekar NadjiLekaraIsteSpecijalizacije(Lekar lekarSpecijalista)
         {
@@ -47,7 +56,7 @@ namespace Repozitorijum
 
         public bool DodajLekara(Lekar lekarZaDodavanje)
         {
-            if (Lekari.Contains(lekarZaDodavanje)) return false;
+            if (KorisnikPostoji(lekarZaDodavanje)) return false;
             Lekari.Add(lekarZaDodavanje);
             Serijalizacija();
             return true;
