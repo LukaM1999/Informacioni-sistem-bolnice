@@ -38,7 +38,7 @@ namespace InformacioniSistemBolnice
             Prostorija prostorija = (Prostorija)prostorije.SelectedItem;
             HitnoZakazivanjeDto hitnoZakazivanjeDto = new(specijalizacijeLekara.SelectedItem.ToString(),
                                                           pacijent.Jmbg, prostorija.Id);
-            SekretarKontroler.Instance.ZakazivanjeHitnogTermina(hitnoZakazivanjeDto);
+            UrgentniTerminKontroler.Instance.ZakazivanjeHitnogTermina(hitnoZakazivanjeDto);
             AzurirajPrikaz();
         }
 

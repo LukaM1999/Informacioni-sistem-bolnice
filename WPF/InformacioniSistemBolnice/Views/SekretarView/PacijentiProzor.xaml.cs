@@ -40,7 +40,7 @@ namespace InformacioniSistemBolnice
         private void ObrisiPacijenta_Click(object sender, RoutedEventArgs e)
         {
             if (ListaPacijenata.SelectedValue != null)
-                SekretarKontroler.Instance.UklanjanjeNaloga((Pacijent)ListaPacijenata.SelectedItem);
+                NalogPacijentaKontroler.Instance.UklanjanjeNaloga((Pacijent)ListaPacijenata.SelectedItem);
             pocetna.contentControl.Content = new PacijentiProzor(pocetna);
         }
 

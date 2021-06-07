@@ -30,7 +30,7 @@ namespace InformacioniSistemBolnice
             ZdravstveniKarton zdravstveniKartonZaIzmenu = UzmiZdravstveniKartonPacijenta();
             PodaciOZaposlenjuIZanimanjuDto podaciOZaposlenjuIZanimanjuDto = PokupiPodatkeOZanimanju();
             ZdravstveniKartonDto zdravstveniKartonDto = PokupiPodatkeZdravstvenogKartona();
-            SekretarKontroler.Instance.IzmenaZdravstvenogKartona(zdravstveniKartonDto, zdravstveniKartonZaIzmenu,
+            ZdravstveniKartonKontroler.Instance.IzmenaZdravstvenogKartona(zdravstveniKartonDto, zdravstveniKartonZaIzmenu,
                 podaciOZaposlenjuIZanimanjuDto);
             pocetna.contentControl.Content = new PacijentiProzor(pocetna);
         }
@@ -73,7 +73,7 @@ namespace InformacioniSistemBolnice
         {
             if (AlergeniPacijenta.SelectedItem != null)
             {
-                SekretarKontroler.Instance.UklanjanjeAlergenaIzZdravstvenogKartona
+                ZdravstveniKartonKontroler.Instance.UklanjanjeAlergenaIzZdravstvenogKartona
                     ((Alergen)AlergeniPacijenta.SelectedItem, ZdravstveniKarton.Jmbg);
                 AzurirajPrikazAlergenaPacijenta();
             }

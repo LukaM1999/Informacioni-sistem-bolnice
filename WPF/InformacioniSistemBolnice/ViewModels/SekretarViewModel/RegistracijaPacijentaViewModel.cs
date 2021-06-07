@@ -51,7 +51,7 @@ namespace InformacioniSistemBolnice.ViewModels.SekretarViewModel
                                                 NoviPacijent.Korisnik.KorisnickoIme, NoviPacijent.Korisnik.Lozinka,
                                                 NoviPacijent.AdresaStanovanja.Drzava, NoviPacijent.AdresaStanovanja.Grad,
                                                 NoviPacijent.AdresaStanovanja.Ulica, NoviPacijent.AdresaStanovanja.Broj);
-            if (SekretarKontroler.Instance.KreiranjeNaloga(registracijaPacijentaDto))
+            if (NalogPacijentaKontroler.Instance.KreiranjeNaloga(registracijaPacijentaDto))
             {
                 pocetna.contentControl.Content = new PacijentiProzor(pocetna);
                 return true;

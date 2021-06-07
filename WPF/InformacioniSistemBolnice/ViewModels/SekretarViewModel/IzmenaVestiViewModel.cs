@@ -27,7 +27,7 @@ namespace InformacioniSistemBolnice.ViewModels.SekretarViewModel
         public void IzmenaVesti()
         {
             VestDto vestDto = new VestDto(Vest.Id, Vest.Sadrzaj);
-            SekretarKontroler.Instance.IzmenaVesti(vestDto, (Vest)vesti.ListaVesti.SelectedItem);
+            VestKontroler.Instance.IzmenaVesti(vestDto, (Vest)vesti.ListaVesti.SelectedItem);
             VestRepo.Instance.Deserijalizacija();
             vesti.ListaVesti.ItemsSource = VestRepo.Instance.Vesti;
             pocetna.contentControl.Content = vesti.Content;

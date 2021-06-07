@@ -63,7 +63,7 @@ namespace InformacioniSistemBolnice.ViewModels.SekretarViewModel
         private bool RegistracijaLekara()
         {
             LekarDto lekarDto = PokupiPodatkeSaForme();
-            if (SekretarKontroler.Instance.KreiranjeNalogaLekara(lekarDto)) {
+            if (NalogLekaraKontroler.Instance.KreiranjeNalogaLekara(lekarDto)) {
                 pocetna.contentControl.Content = new Lekari(pocetna);
                 return true;
             }

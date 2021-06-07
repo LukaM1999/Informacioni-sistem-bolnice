@@ -31,7 +31,7 @@ namespace InformacioniSistemBolnice.ViewModels.SekretarViewModel
             GostujuciNalogDto gostujuciNalogDto = new GostujuciNalogDto(GostujuciPacijent.Ime, GostujuciPacijent.Prezime,
                                                     GostujuciPacijent.Jmbg, GostujuciPacijent.DatumRodjenja,
                                                     GostujuciPacijent.Telefon, GostujuciPacijent.Email);
-            SekretarKontroler.Instance.KreiranjeGostujucegPacijenta(gostujuciNalogDto);
+            NalogPacijentaKontroler.Instance.KreiranjeGostujucegPacijenta(gostujuciNalogDto);
             pocetna.contentControl.Content = new GostujuciNaloziProzor(gostujuciNaloziProzor.pocetna);
 
         }

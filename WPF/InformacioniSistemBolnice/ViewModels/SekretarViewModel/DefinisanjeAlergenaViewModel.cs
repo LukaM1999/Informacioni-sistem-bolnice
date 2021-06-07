@@ -31,7 +31,7 @@ namespace InformacioniSistemBolnice.ViewModels.SekretarViewModel
         private void DefinisanjeAlergena()
         {
             AlergenDto alergenDto = new(NoviAlergen.Naziv);
-            SekretarKontroler.Instance.DefinisanjeAlergena(alergenDto);
+            AlergenKontroler.Instance.DefinisanjeAlergena(alergenDto);
             pocetna.contentControl.Content = new AlergeniProzor(pocetna) ;
         }
 

@@ -27,7 +27,7 @@ namespace InformacioniSistemBolnice
 
         private void ObrisiAlergen_Click(object sender, RoutedEventArgs e)
         {
-            SekretarKontroler.Instance.UklanjanjeAlergena((Alergen)ListaAlergena.SelectedItem);
+            AlergenKontroler.Instance.UklanjanjeAlergena((Alergen)ListaAlergena.SelectedItem);
 
         }
 
