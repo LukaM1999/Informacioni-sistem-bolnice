@@ -24,6 +24,7 @@ namespace InformacioniSistemBolnice
     {
         public int kolicina;
         private ObservableCollection<Prostorija> listaProstorija { get; set; }
+
         public ProstorijeProzor()
         {
             InitializeComponent();

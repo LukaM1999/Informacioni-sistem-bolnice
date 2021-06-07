@@ -16,6 +16,7 @@
     <None Remove="images\menu.png" />
     <None Remove="images\profile.png" />
     <None Remove="images\schedule.png" />
+    <None Remove="images\UpravnikImages\arrow-right.png" />
     <None Remove="images\UpravnikImages\arrow.png" />
     <None Remove="images\UpravnikImages\back-arrow.png" />
     <None Remove="images\UpravnikImages\back-logo.png" />
@@ -111,6 +112,7 @@
     <Resource Include="images\menu.png" />
     <Resource Include="images\profile.png" />
     <Resource Include="images\schedule.png" />
+    <Resource Include="images\UpravnikImages\arrow-right.png" />
     <Resource Include="images\UpravnikImages\arrow.png" />
     <Resource Include="images\UpravnikImages\back-arrow.png" />
     <Resource Include="images\UpravnikImages\back-logo.png" />

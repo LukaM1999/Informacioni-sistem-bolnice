@@ -188,7 +188,8 @@
             </Button.Background>
 
         </Button>
-        <DataGrid x:Name="dgListaProstorija" HorizontalAlignment="Left" 
+        <StackPanel>
+            <DataGrid x:Name="dgListaProstorija" HorizontalAlignment="Left" ItemsSource="{Binding}"
                   Height="674" 
                   Margin="0,76,0,0"
                   VerticalAlignment="Top"
@@ -199,27 +200,28 @@
                   RowHeight="40" FontSize="16"
                   VerticalContentAlignment="Center">
 
-            <DataGrid.ColumnHeaderStyle>
+                <DataGrid.ColumnHeaderStyle>
 
-                <Style TargetType="{x:Type DataGridColumnHeader}">
+                    <Style TargetType="{x:Type DataGridColumnHeader}">
 
-                    <Setter Property="FontSize" Value="18"/>
+                        <Setter Property="FontSize" Value="18"/>
 
-                </Style>
+                    </Style>
 
-            </DataGrid.ColumnHeaderStyle>
+                </DataGrid.ColumnHeaderStyle>
 
-            <DataGrid.Columns>
+                <DataGrid.Columns>
 
-                <DataGridTextColumn Width="120"  Header="Id sale" Binding="{Binding Id}"/>
+                    <DataGridTextColumn Width="120"  Header="Id sale" Binding="{Binding Id}"/>
 
-                <DataGridTextColumn Width="210"  Header="Tip sale" Binding="{Binding Tip}"/>
+                    <DataGridTextColumn Width="210"  Header="Tip sale" Binding="{Binding Tip}"/>
 
-                <DataGridCheckBoxColumn Binding="{Binding JeZauzeto}" Header="Zauzeto"/>
+                    <DataGridCheckBoxColumn Binding="{Binding JeZauzeta}" Header="Zauzeto"/>
 
-            </DataGrid.Columns>
+                </DataGrid.Columns>
 
-        </DataGrid>
+            </DataGrid>
+        </StackPanel>
 
     </Grid>
 </Page>

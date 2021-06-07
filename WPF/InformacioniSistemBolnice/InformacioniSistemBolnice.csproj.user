@@ -249,6 +249,21 @@
     <Compile Update="Views\UpravnikView\SalaDodaj.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Views\UpravnikView\SalaInfo.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\UpravnikView\SalaIzmena.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\UpravnikView\SalaRaspodela.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\UpravnikView\SalaRaspodelaDinamicke.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\UpravnikView\SalaRaspodelaStaticke.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Views\UpravnikView\Sale.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -528,6 +543,21 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\UpravnikView\SalaDodaj.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\UpravnikView\SalaInfo.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\UpravnikView\SalaIzmena.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\UpravnikView\SalaRaspodela.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\UpravnikView\SalaRaspodelaDinamicke.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\UpravnikView\SalaRaspodelaStaticke.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\UpravnikView\Sale.xaml">

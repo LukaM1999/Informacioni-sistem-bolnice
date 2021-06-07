@@ -14,6 +14,9 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Repozitorijum;
 using Kontroler;
+using Model;
+using InformacioniSistemBolnice.DTO;
+using System.Collections.ObjectModel;
 
 namespace InformacioniSistemBolnice.Views.UpravnikView
 {
@@ -22,11 +25,14 @@ namespace InformacioniSistemBolnice.Views.UpravnikView
     /// </summary>
     public partial class Sale : Page
     {
+        private ObservableCollection<Prostorija> listaProstorija { get; set; }
+
         public Sale()
         {
             InitializeComponent();
             ProstorijaRepo.Instance.Deserijalizacija();
             dgListaProstorija.ItemsSource = ProstorijaRepo.Instance.Prostorije;
+            listaProstorija = ProstorijaRepo.Instance.Prostorije;
         }
 
         private void VratiSe(object sender, RoutedEventArgs e)
@@ -36,7 +42,11 @@ namespace InformacioniSistemBolnice.Views.UpravnikView
 
         private void RaspodelaOpreme(object sender, RoutedEventArgs e)
         {
-
+            if (dgListaProstorija.SelectedValue != null)
+            {
+                Prostorija izabranaProstorija = (Prostorija)dgListaProstorija.SelectedValue;
+                this.NavigationService.Navigate(new SalaRaspodela(izabranaProstorija));
+            }
         }
 
         private void DodajProstoriju(object sender, RoutedEventArgs e)
@@ -46,18 +56,31 @@ namespace InformacioniSistemBolnice.Views.UpravnikView
 
         private void ObrisiProstoriju(object sender, RoutedEventArgs e)
         {
-
-
+            if (dgListaProstorija.SelectedValue != null)
+            {
+                Prostorija izabranaProstorija = (Prostorija)dgListaProstorija.SelectedValue;
+                UpravnikKontroler.Instance.UklanjanjeProstorije(new ProstorijaDto() { Id = izabranaProstorija.Id });
+                listaProstorija = ProstorijaRepo.Instance.Prostorije;
+                dgListaProstorija.ItemsSource = listaProstorija;
+            }
         }
 
         private void IzmeniProstoriju(object sender, RoutedEventArgs e)
         {
-
+            if (dgListaProstorija.SelectedValue != null)
+            {
+                Prostorija izabranaProstorija = (Prostorija)dgListaProstorija.SelectedValue;
+                this.NavigationService.Navigate(new SalaIzmena(izabranaProstorija));
+            }
         }
 
         private void InfoProstorije(object sender, RoutedEventArgs e)
         {
-
+            if (dgListaProstorija.SelectedValue != null)
+            {
+                Prostorija izabranaProstorija = (Prostorija)dgListaProstorija.SelectedValue;
+                this.NavigationService.Navigate(new SalaInfo(izabranaProstorija));
+            }
         }
     }
 }

@@ -118,7 +118,11 @@
                 VerticalAlignment="Top" 
                 Width="215" Height="61" 
                 Foreground="White" 
-                Background="#FF46A6EB" Click="StatickaOprema"/>
+                Background="#FF46A6EB" Click="StatickaOprema">
+            <Button.BorderBrush>
+                <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.WindowColorKey}}"/>
+            </Button.BorderBrush>
+        </Button>
 
         <DataGrid x:Name="dgListaOpreme" HorizontalAlignment="Left" 
                   Height="613" Margin="0,137,0,0" 
