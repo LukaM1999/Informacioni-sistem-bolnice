@@ -34,7 +34,7 @@ namespace InformacioniSistemBolnice
         private void ZakaziTermin(object sender, RoutedEventArgs e)
         {
             Termin izabranTermin = (Termin) ponudjeniTermini.SelectedValue;
-            PacijentKontroler.Instance.ZakaziTermin(izabranTermin);
+            TerminKontroler.Instance.ZakaziTermin(izabranTermin);
             Owner?.Close();
             Close();
             KalendarViewModel.Appointments.Add(new TerminDto(TerminUtility.DobaviFormatiranPrikazTermina

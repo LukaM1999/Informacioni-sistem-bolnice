@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using InformacioniSistemBolnice.Utilities;
 
 namespace InformacioniSistemBolnice.Views.PacijentView
 {
@@ -20,6 +21,7 @@ namespace InformacioniSistemBolnice.Views.PacijentView
         public ProfilView()
         {
             InitializeComponent();
+            Drzave.ItemsSource = DrzavaUtility.DobaviSveDrzave();
         }
     }
 }

@@ -20,6 +20,10 @@
                              Value="Profil">
                     <Setter Property="ContentTemplate" Value="{StaticResource ProfilViewTemplate}"/>
                 </DataTrigger>
+                <DataTrigger  Binding="{Binding ElementName=NavigationMenuListBox, Path=SelectedItem}"
+                              Value="Obaveštenja">
+                    <Setter Property="ContentTemplate" Value="{StaticResource ObavestenjeViewTemplate}"/>
+                </DataTrigger>
                 <DataTrigger Binding="{Binding ElementName=NavigationMenuListBox, Path=SelectedItem}" 
                              Value="Istorija">
                     <Setter Property="ContentTemplate" Value="{StaticResource IstorijaViewTemplate}"/>
@@ -27,10 +31,6 @@
                 <DataTrigger Binding="{Binding ElementName=NavigationMenuListBox, Path=SelectedItem}"
                              Value="Terapija">
                     <Setter Property="ContentTemplate" Value="{StaticResource TerapijaViewTemplate}"/>
-                </DataTrigger>
-                <DataTrigger  Binding="{Binding ElementName=AktivanProzor, Path=IzabranaObavestenja}"
-                              Value="true">
-                    <Setter Property="ContentTemplate" Value="{StaticResource ObavestenjeViewTemplate}"/>
                 </DataTrigger>
             </Style.Triggers>
         </Style>
@@ -65,10 +65,10 @@
                     </ItemsPanelTemplate>
                 </Menu.ItemsPanel>
                 <MenuItem Grid.Column="0" Header="Profil" FontSize="15" HorizontalAlignment="Center" VerticalAlignment="Center"></MenuItem>
-                <MenuItem Grid.Column="1" Header="Kalendar" FontSize="15" HorizontalAlignment="Center" VerticalAlignment="Center"></MenuItem>
-                <MenuItem Grid.Column="2" Header="Istorija" FontSize="15" HorizontalAlignment="Center" VerticalAlignment="Center"></MenuItem>
-                <MenuItem Grid.Column="3" Header="Terapija" FontSize="15" HorizontalAlignment="Center" VerticalAlignment="Center"></MenuItem>
-                <MenuItem Grid.Column="4" Header="Plaćanje" FontSize="15" HorizontalAlignment="Center" VerticalAlignment="Center"></MenuItem>
+                <MenuItem Grid.Column="1" Header="Obaveštenja" FontSize="15" HorizontalAlignment="Center" VerticalAlignment="Center"></MenuItem>
+                <MenuItem Grid.Column="2" Header="Kalendar" FontSize="15" HorizontalAlignment="Center" VerticalAlignment="Center"></MenuItem>
+                <MenuItem Grid.Column="3" Header="Istorija" FontSize="15" HorizontalAlignment="Center" VerticalAlignment="Center"></MenuItem>
+                <MenuItem Grid.Column="4" Header="Terapija" FontSize="15" HorizontalAlignment="Center" VerticalAlignment="Center"></MenuItem>
                 <MenuItem Grid.Column="5" Header="Pomoć" FontSize="15" HorizontalAlignment="Center" VerticalAlignment="Center"></MenuItem>
                 <MenuItem Grid.Column="6" Header="Odjava" FontSize="15" HorizontalAlignment="Center" VerticalAlignment="Center"></MenuItem>
             </Menu>
@@ -79,7 +79,7 @@
                  ItemTemplate="{DynamicResource NavigationDataTemplate}"
                  ItemsSource="{StaticResource NavigationMenuItems}"/>
 
-            <ContentControl x:Name="AktivanProzor" Grid.Column="1" Grid.Row="1" Style="{StaticResource NavigationContentStyle}"/>
+            <ContentControl Grid.Column="1" Grid.Row="1" Style="{StaticResource NavigationContentStyle}"/>
         </Grid>
     </Grid>
 </Window>

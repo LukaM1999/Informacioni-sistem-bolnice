@@ -30,7 +30,7 @@ namespace InformacioniSistemBolnice.ViewModels.PacijentViewModel
 
         private void SacuvajIzmene()
         {
-            PacijentKontroler.Instance.DodajBeleske(ulogovanPacijent, PacijentovaAnamneza.BeleskePacijenta);
+            ZdravstveniKartonKontroler.Instance.DodajAnamnezaBeleske(ulogovanPacijent, PacijentovaAnamneza.BeleskePacijenta);
             AnamnezaView anamnezaForma = (AnamnezaView)PronadjiProzorUtility.PronadjiProzor(this);
             anamnezaForma.Close();
         }

@@ -39,5 +39,8 @@ namespace Kontroler
 
         public void DodavanjeAnamneze(AnamnezaDto anamneza) => AnamnezaServis.Instance.DodajAnamnezu(anamneza);
 
+        public void DodajAnamnezaBeleske(Pacijent ulogovanPacijent, string beleske)
+            => AnamnezaServis.Instance.DodajBeleske(ulogovanPacijent, beleske);
+
     }
 }

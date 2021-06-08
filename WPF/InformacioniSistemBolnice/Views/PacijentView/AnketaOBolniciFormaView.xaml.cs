@@ -32,7 +32,7 @@ namespace InformacioniSistemBolnice
                 UBroj(IzabranoRadioDugme(Profesionalizam)), UBroj(IzabranoRadioDugme(Strpljenje)),
                 UBroj(IzabranoRadioDugme(Komunikativnost)), UBroj(IzabranoRadioDugme(Azurnost)),
                 UBroj(IzabranoRadioDugme(Korisnost)), Komentari.Text, pacijentovJmbg, DateTime.Now);
-            PacijentKontroler.Instance.PosaljiAnketuOBolnici(anketa);
+            AnketaKontroler.Instance.PosaljiAnketuOBolnici(anketa);
             Close();
         }
 

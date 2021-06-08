@@ -38,7 +38,7 @@ namespace InformacioniSistemBolnice
         private void PomeriTermin(object sender, RoutedEventArgs e)
         {
             Termin noviTermin = (Termin) ponudjeniTermini.SelectedValue;
-            PacijentKontroler.Instance.PomeriTermin(terminZaPomeranje, noviTermin);
+            TerminKontroler.Instance.PomeriTermin(terminZaPomeranje, noviTermin);
             Close();
             KalendarViewModel.Appointments.Remove(
                 (DTO.TerminDto) KalendarViewModel.Appointments.Select(dto => dto.Pocetak == terminZaPomeranje.Vreme));

@@ -62,34 +62,7 @@
                     <TextBlock Padding="0,5,0,0" FontSize="14" Text="Pomeri termin" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontWeight="SemiBold" />
                 </StackPanel>
             </Button>
-            <Button Style="{DynamicResource IconTextButtonStyle}"
-                    HorizontalAlignment="Right"
-                    Width="120"
-                    Margin="0,10,30,10"
-                    Command="{Binding PregledTermina}"
-                    ToolTip="Pregledajte izabrani termin iz kalendara">
-                <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
-                    <iconPacks:PackIconMaterial Kind="Magnify" 
-                                                Width="40" Height="40" 
-                                                HorizontalAlignment="Center"/>
-                    <TextBlock Padding="0,5,0,0" FontSize="14" Text="Uvid u termin" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontWeight="SemiBold" />
-                </StackPanel>
-            </Button>
         </StackPanel>
-
-        <ToggleButton Name="StatusObavestenja" Grid.Row="0" Grid.Column="1" Style="{DynamicResource ToggleButtonStyle}"
-                HorizontalAlignment="Right"
-                Width="120"
-                Margin="0,10,30,10"
-                Command="{Binding StatusObavestenja}"
-                ToolTip="Pregled, kreiranje, brisanje obaveštenja i podsetnika">
-            <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
-                <iconPacks:PackIconMaterial Kind="Bell" 
-                                            Width="40" Height="40" 
-                                            HorizontalAlignment="Center"/>
-                <TextBlock Padding="0,5,0,0" FontSize="14" Text="Obaveštenja" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontWeight="SemiBold" />
-            </StackPanel>
-        </ToggleButton>
         <syncfusion:SfScheduler x:Name="Schedule" 
                                 Grid.Row="1" 
                                 Grid.Column="0"

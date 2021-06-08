@@ -26,13 +26,13 @@ namespace InformacioniSistemBolnice.ViewModels.PacijentViewModel
 
         private void OtvoriKreiranjePodsetnika()
         {
-            new KreiranjePodsetnikaView { DataContext = this }.Show();
+            new KreiranjePodsetnikaView { DataContext = this }.ShowDialog();
         }
 
         private void KreirajPodsetnik()
         {
             KreiranjePodsetnikaView podsetnikForma = (KreiranjePodsetnikaView)PronadjiProzorUtility.PronadjiProzor(this);
-            PacijentKontroler.Instance.UkljuciNoviPodsetnik(new Podsetnik(podsetnikForma.Sadrzaj.Text,
+            PodsetnikKontroler.Instance.UkljuciNoviPodsetnik(new Podsetnik(podsetnikForma.Sadrzaj.Text,
                     podsetnikForma.Vreme.Text, ulogovanPacijent.Jmbg));
             podsetnikForma.Close();
         }

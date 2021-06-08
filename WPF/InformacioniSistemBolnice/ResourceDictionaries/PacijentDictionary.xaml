@@ -169,6 +169,10 @@
                     <Setter TargetName="MenuItemIcon" Property="Kind" Value="Account"/>
                     <Setter TargetName="MenuItemText" Property="TextBlock.Text" Value="Profil"/>
                 </DataTrigger>
+                <DataTrigger Binding="{Binding}" Value="Obaveštenja">
+                    <Setter TargetName="MenuItemIcon" Property="Kind" Value="Bell"/>
+                    <Setter TargetName="MenuItemText" Property="TextBlock.Text" Value="Obaveštenja"/>
+                </DataTrigger>
                 <DataTrigger Binding="{Binding}" Value="Kalendar">
                     <Setter TargetName="MenuItemIcon" Property="Kind" Value="Calendar"/>
                     <Setter TargetName="MenuItemText" Property="TextBlock.Text" Value="Kalendar"/>
@@ -180,10 +184,6 @@
                 <DataTrigger Binding="{Binding}" Value="Terapija">
                     <Setter TargetName="MenuItemIcon" Property="Kind" Value="Pill"/>
                     <Setter TargetName="MenuItemText" Property="TextBlock.Text" Value="Terapija"/>
-                </DataTrigger>
-                <DataTrigger Binding="{Binding}" Value="Placanje">
-                    <Setter TargetName="MenuItemIcon" Property="Kind" Value="Cash"/>
-                    <Setter TargetName="MenuItemText" Property="TextBlock.Text" Value="Plaćanje"/>
                 </DataTrigger>
                 <DataTrigger Binding="{Binding}" Value="Pomoc">
                     <Setter TargetName="MenuItemIcon" Property="Kind" Value="HelpCircle"/>
@@ -199,9 +199,9 @@
         <x:Array x:Key="NavigationMenuItems" Type="system:String">
             <system:String>Profil</system:String>
             <system:String>Kalendar</system:String>
+            <system:String>Obaveštenja</system:String>
             <system:String>Istorija</system:String>
             <system:String>Terapija</system:String>
-            <system:String>Placanje</system:String>
             <system:String>Pomoc</system:String>
             <system:String>Odjava</system:String>
         </x:Array>
@@ -221,5 +221,41 @@
         <DataTemplate x:Key="ObavestenjeViewTemplate">
             <views:ObavestenjeView/>
         </DataTemplate>
+
+    <Style x:Key="PlaceHolder" TargetType="{x:Type TextBox}" BasedOn="{StaticResource {x:Type TextBox}}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type TextBox}">
+                    <Grid>
+                        <TextBox Text="{Binding Path=Text,
+                                                RelativeSource={RelativeSource TemplatedParent}, 
+                                                Mode=TwoWay,
+                                                UpdateSourceTrigger=PropertyChanged}"
+                                 x:Name="textSource" 
+                                 Background="Transparent" 
+                                 Panel.ZIndex="2" />
+                        <TextBox Text="{TemplateBinding Tag}" Background="{TemplateBinding Background}" Panel.ZIndex="1">
+                            <TextBox.Style>
+                                <Style TargetType="{x:Type TextBox}">
+                                    <Setter Property="Foreground" Value="Transparent"/>
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding Path=Text, Source={x:Reference textSource}}" Value="">
+                                            <Setter Property="Foreground" Value="LightGray"/>
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </TextBox.Style>
+                        </TextBox>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsFocused" Value="True">
+                            <Setter Property="FocusManager.FocusedElement" TargetName="textSource" 
+                                    Value="{Binding RelativeSource={RelativeSource Self}}" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
 
 </ResourceDictionary>

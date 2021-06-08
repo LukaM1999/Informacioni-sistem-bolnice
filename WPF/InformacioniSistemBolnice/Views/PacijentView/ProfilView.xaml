@@ -62,7 +62,7 @@
         
         <!-- Druga kolona -->       
         <TextBlock Grid.Row="1" Grid.Column="3" Text="Država:"/>
-        <ComboBox Grid.Row="2" Grid.Column="3" MinWidth="150" IsEnabled="False" Margin="0,0,0,20" />
+        <ComboBox Name="Drzave" Grid.Row="2" Grid.Column="3" MinWidth="150" IsEnabled="True" Margin="0,0,0,20" />
         
         <TextBlock Grid.Row="3" Grid.Column="3" Text="Grad:" />
         <ComboBox Grid.Row="4" Grid.Column="3" MinWidth="100" IsEnabled="False" Margin="0,0,0,20"/>

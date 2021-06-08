@@ -29,7 +29,6 @@ namespace InformacioniSistemBolnice.ViewModels.PacijentViewModel
         public ICommand ZakazivanjeTermina { get; set; }
         public ICommand OtkazivanjeTermina { get; set; }
         public ICommand PomeranjeTermina { get; set; }
-        public ICommand PregledTermina { get; set; }
         public ICommand StatusObavestenja { get; set; }
         public bool IzabranaObavestenja { get; set; }
 
@@ -43,17 +42,11 @@ namespace InformacioniSistemBolnice.ViewModels.PacijentViewModel
                             termin.ProstorijaId, termin.Status), termin.Vreme, termin.Vreme.AddMinutes(termin.Trajanje),
                         new SolidColorBrush(Colors.Red), new SolidColorBrush(Colors.White), termin.LekarJmbg,
                         termin.PacijentJmbg, termin.ProstorijaId, termin.Hitan, termin.Tip)));
-            PregledTermina = new Command(o => PregledajTermin(), o => IzabranTermin is not null);
             ZakazivanjeTermina = new Command(o => ZakaziTermin());
             OtkazivanjeTermina = new Command(o => OtkaziTermin(), o => IzabranTermin is not null);
             PomeranjeTermina = new Command(o => PomeriTermin(), o => IzabranTermin is not null &&
                                                                      IzabranTermin.Pocetak > DateTime.Now.AddHours(24) && !IzabranTermin.Naziv.Contains("pomeren"));
             StatusObavestenja = new Command(o => PromeniStatusObavestenja());
-        }
-
-        public void PregledajTermin()
-        {
-
         }
 
         public void ZakaziTermin()
@@ -63,7 +56,7 @@ namespace InformacioniSistemBolnice.ViewModels.PacijentViewModel
 
         public void OtkaziTermin()
         {
-            PacijentKontroler.Instance.OtkaziTermin(TerminRepo.Instance.
+            TerminKontroler.Instance.OtkaziTermin(TerminRepo.Instance.
                 NadjiTermin(IzabranTermin.Pocetak, IzabranTermin.PacijentJmbg, IzabranTermin.LekarJmbg));
             Appointments.Remove(IzabranTermin);
             MessageBox.Show("Uspešno ste otkazali termin!");
