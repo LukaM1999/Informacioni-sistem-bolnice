@@ -4,6 +4,8 @@ using Repozitorijum;
 using Model;
 using Kontroler;
 using InformacioniSistemBolnice.ViewModels.SekretarViewModel;
+using InformacioniSistemBolnice.Servis.UpravljanjeIzvestajima;
+using InformacioniSistemBolnice.Utilities;
 
 namespace InformacioniSistemBolnice
 {
@@ -45,6 +47,12 @@ namespace InformacioniSistemBolnice
             if (izabraniLekar is not null)
                 pocetna.contentControl.Content = new IzmenaNalogaLekaraForma()
                 { DataContext = new IzmenaLekaraViewModel(pocetna, this, izabraniLekar) };
+        }
+
+        private void Izvestaj_Click(object sender, RoutedEventArgs e)
+        {
+            IzvestajUtility izvestaj = new IzvestajSekretaraServis();
+            izvestaj.GenerisiIzvestaj();
         }
     }
 }
