@@ -30,6 +30,9 @@
     <Compile Update="Views\PacijentView\AnamnezaView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Views\PacijentView\IzvestajView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Views\PacijentView\KreiranjePodsetnikaView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -121,7 +124,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Views\UpravnikView\Magacin.xaml.cs">
-          <SubType>Code</SubType>
+      <SubType>Code</SubType>
     </Compile>
     <Compile Update="Views\SekretarView\SekretarovProfil.xaml.cs">
       <SubType>Code</SubType>
@@ -306,6 +309,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\PacijentView\AnamnezaView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\PacijentView\IzvestajView.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\PacijentView\KreiranjePodsetnikaView.xaml">
