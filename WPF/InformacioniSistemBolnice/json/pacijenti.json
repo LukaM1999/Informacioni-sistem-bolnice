@@ -132,7 +132,37 @@
     }
   },
   {
-    "zdravstveniKarton": null,
+    "zdravstveniKarton": {
+      "alergeni": [
+        {
+          "Naziv": "jagode"
+        }
+      ],
+      "recepti": [],
+      "BrojKartona": "K171717",
+      "BrojKnjizice": "K1919191",
+      "Jmbg": "1601989123162",
+      "ImeJednogRoditelja": "Milos",
+      "LiceZaZdravstvenuZastitu": "Milan",
+      "PolPacijenta": 0,
+      "BracnoStanje": 0,
+      "KategorijaZdravstveneZastite": 0,
+      "PodaciOZaposlenjuIZanimanju": {
+        "RadnoMjesto": "lala ",
+        "RegistarskiBroj": "lalal ",
+        "SifraDelatnosti": "lall ",
+        "PosaoKojiObavlja": "all ",
+        "OSIZZdrZastite": "lal ",
+        "RadPodPosebnimUslovima": "all ",
+        "Promjene": "la "
+      },
+      "Anamneza": null,
+      "Alergeni": [
+        {
+          "Naziv": "jagode"
+        }
+      ]
+    },
     "Maliciozan": false,
     "ZakazaniTermini": null,
     "Ime": "Ivan",

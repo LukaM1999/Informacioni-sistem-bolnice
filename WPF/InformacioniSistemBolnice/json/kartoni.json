@@ -2,31 +2,31 @@
   {
     "alergeni": [
       {
-        "Naziv": "laktoza"
+        "Naziv": "jagode"
       }
     ],
     "recepti": [],
-    "BrojKartona": "alal",
-    "BrojKnjizice": "alall",
-    "Jmbg": "alal ",
-    "ImeJednogRoditelja": "alal",
-    "LiceZaZdravstvenuZastitu": "alla",
-    "PolPacijenta": 1,
+    "BrojKartona": "K171717",
+    "BrojKnjizice": "K1919191",
+    "Jmbg": "1601989123162",
+    "ImeJednogRoditelja": "Milos",
+    "LiceZaZdravstvenuZastitu": "Milan",
+    "PolPacijenta": 0,
     "BracnoStanje": 0,
-    "KategorijaZdravstveneZastite": 4,
+    "KategorijaZdravstveneZastite": 0,
     "PodaciOZaposlenjuIZanimanju": {
-      "RadnoMjesto": "alal ",
-      "RegistarskiBroj": "lall ",
-      "SifraDelatnosti": "lal ",
-      "PosaoKojiObavlja": "lal ",
+      "RadnoMjesto": "lala ",
+      "RegistarskiBroj": "lalal ",
+      "SifraDelatnosti": "lall ",
+      "PosaoKojiObavlja": "all ",
       "OSIZZdrZastite": "lal ",
-      "RadPodPosebnimUslovima": "llal ",
-      "Promjene": "lall "
+      "RadPodPosebnimUslovima": "all ",
+      "Promjene": "la "
     },
     "Anamneza": null,
     "Alergeni": [
       {
-        "Naziv": "laktoza"
+        "Naziv": "jagode"
       }
     ]
   }

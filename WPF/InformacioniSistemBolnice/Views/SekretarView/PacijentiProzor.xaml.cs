@@ -64,7 +64,8 @@ namespace InformacioniSistemBolnice
             Pacijent izabraniPacijent = (Pacijent)ListaPacijenata.SelectedValue;
             if (izabraniPacijent is not null && izabraniPacijent.zdravstveniKarton is not null)
                 pocetna.contentControl.Content = new PregledZdravstvenogKartona()
-                { DataContext = new PregledZdravstvenogKartonaViewModel(this, izabraniPacijent) }; 
+                { DataContext = new PregledZdravstvenogKartonaViewModel(this, izabraniPacijent) };
+            else MessageBox.Show("Nije kreiran zdravstveni karton za pacijenta");
         }
 
         private void IzmeniZdravstveniKarton_Click(object sender, RoutedEventArgs e)
@@ -72,6 +73,7 @@ namespace InformacioniSistemBolnice
             Pacijent izabraniPacijent = (Pacijent)ListaPacijenata.SelectedValue;
             if (izabraniPacijent is not null && izabraniPacijent.zdravstveniKarton is not null)
                 pocetna.contentControl.Content = new IzmenaZdravstvenogKartonaForma(this, pocetna, izabraniPacijent);
+            else MessageBox.Show("Nije kreiran zdravstveni karton za pacijenta");
         }
     }
 }
