@@ -60,6 +60,9 @@
     <Compile Update="Views\SekretarView\DodajAlergenPacijentu.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Views\SekretarView\Feedback.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Views\SekretarView\GostujuciNaloziProzor.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -345,6 +348,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\SekretarView\DodajAlergenPacijentu.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\SekretarView\Feedback.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\SekretarView\GostujuciNaloziProzor.xaml">

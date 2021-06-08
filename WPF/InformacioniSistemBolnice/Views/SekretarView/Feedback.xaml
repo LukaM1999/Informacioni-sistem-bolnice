@@ -1,0 +1,20 @@
+﻿<UserControl x:Class="InformacioniSistemBolnice.Views.SekretarView.Feedback"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:InformacioniSistemBolnice.Views.SekretarView"
+             mc:Ignorable="d" 
+             Height="650" Width="1000" Background="LightGray">
+    <Grid>
+        <Label Content="Feedback" FontWeight="Bold" FontSize="20" HorizontalAlignment="Left" Margin="330,65,0,0" VerticalAlignment="Top" Height="33" Width="287"/>
+        <TextBox HorizontalAlignment="Left" Style="{StaticResource PlaceHolder}" Text="{Binding Poruka}" Tag="Unesite vaše utiske..." Margin="335,114,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="348" Height="366"/>
+        <Button Content="Posalji" HorizontalAlignment="Left" Margin="634,502,0,0" VerticalAlignment="Top" Command="{Binding SlanjeFeedbacka}"/>
+        <Button Style="{StaticResource ResourceKey=MainButtons}" x:Name="Nazad"  Command="{Binding Nazad}" HorizontalAlignment="Left" VerticalAlignment="Top" Background="LightGray"  Width="50" Height="60" Margin="88,40,0,0" >
+            <StackPanel Orientation="Vertical">
+                <Image Source="../../images/back.png" Width="30" Height="30" RenderOptions.BitmapScalingMode="Fant"/>
+                <TextBlock Text="Nazad" VerticalAlignment="Center" FontSize="14"/>
+            </StackPanel>
+        </Button>
+    </Grid>
+</UserControl>

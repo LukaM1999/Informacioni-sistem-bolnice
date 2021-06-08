@@ -1,4 +1,5 @@
-﻿using InformacioniSistemBolnice.Views.SekretarView;
+﻿using InformacioniSistemBolnice.ViewModels.SekretarViewModel;
+using InformacioniSistemBolnice.Views.SekretarView;
 using System.Windows;
 
 namespace InformacioniSistemBolnice
@@ -24,5 +25,9 @@ namespace InformacioniSistemBolnice
             contentControl.Content = new SekretarovProfil(this);
         }
 
+        private void Feedback_Click(object sender, RoutedEventArgs e)
+        {
+            contentControl.Content = new Feedback() { DataContext = new FeedbackViewModel(this, new UCMenuSekretara(this)) }; ;
+        }
     }
 }
