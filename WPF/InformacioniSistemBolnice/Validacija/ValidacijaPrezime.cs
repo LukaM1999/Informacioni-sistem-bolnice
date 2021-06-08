@@ -23,7 +23,7 @@ namespace InformacioniSistemBolnice.Validacija
                 {
                     return new ValidationResult(true, "");
                 }
-                return new ValidationResult(false, "Pogresan unos! \n Moguce je uneti samo slova");
+                return new ValidationResult(false, "Pogresan unos!\n Moguce je uneti samo slova");
             }
             catch
             {

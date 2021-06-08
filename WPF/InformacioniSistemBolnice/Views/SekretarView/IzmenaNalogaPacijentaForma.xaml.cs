@@ -3,6 +3,7 @@ using System.Windows.Controls;
 using InformacioniSistemBolnice.DTO;
 using Model;
 using Kontroler;
+using InformacioniSistemBolnice.ViewModels.SekretarViewModel;
 
 namespace InformacioniSistemBolnice
 {

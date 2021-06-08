@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:InformacioniSistemBolnice"
+             xmlns:validation ="clr-namespace:InformacioniSistemBolnice.Validacija"
              mc:Ignorable="d" 
             Height="650" Width="1000" Background="LightGray" Margin="0,0,0,30">
     <Grid Height="650" Width="1000" HorizontalAlignment="Center" VerticalAlignment="Center">
@@ -17,24 +18,118 @@
             <Label Content="Korisnicko ime: " Canvas.Left="23" Canvas.Top="440" Width="94"/>
             <Label Content="Lozinka: " Canvas.Left="23" Canvas.Top="480" Width="70"/>
             <Label Content="Specijalizacija: " Canvas.Left="23" Canvas.Top="520" Width="94"/>
-            <TextBox x:Name="imeUnos" Canvas.Left="132" Canvas.Top="40" Text="{Binding Lekar.Ime}" TextWrapping="Wrap" Width="140" Height="25" FontSize="14"/>
-            <TextBox x:Name="prezimeUnos" Canvas.Left="132" Text="{Binding Lekar.Prezime}" Canvas.Top="80" Width="140" Height="25" FontSize="14" />
-            <TextBox x:Name="JMBGUnos" Canvas.Left="132" Canvas.Top="120" Text="{Binding Lekar.Jmbg}" TextWrapping="Wrap" Width="140" Height="25" FontSize="14"/>
+            <TextBox x:Name="imeUnos" Canvas.Left="132" Canvas.Top="40" TextWrapping="Wrap" Width="140" Height="25" FontSize="14">
+                <TextBox.Text>
+                    <Binding Path="Lekar.Ime">
+                        <Binding.ValidationRules>
+                            <validation:ValidacijaIme/>
+                        </Binding.ValidationRules>
+                    </Binding>
+                </TextBox.Text>
+            </TextBox>
+            <TextBox x:Name="prezimeUnos" Canvas.Left="132" Canvas.Top="80" Width="140" Height="25" FontSize="14">
+                <TextBox.Text>
+                    <Binding Path="Lekar.Prezime">
+                        <Binding.ValidationRules>
+                            <validation:ValidacijaPrezime/>
+                        </Binding.ValidationRules>
+                    </Binding>
+                </TextBox.Text>
+            </TextBox>
+            <TextBox x:Name="JMBGUnos" Canvas.Left="132" Canvas.Top="120" TextWrapping="Wrap" Width="140" Height="25" FontSize="14">
+                <TextBox.Text>
+                    <Binding Path="Lekar.Jmbg">
+                        <Binding.ValidationRules>
+                            <validation:ValidacijaJMBG/>
+                        </Binding.ValidationRules>
+                    </Binding>
+                </TextBox.Text>
+            </TextBox>
             <DatePicker x:Name="datumUnos" Text="{Binding Lekar.DatumRodjenja}" Canvas.Left="132" Canvas.Top="160"  Width="140" Height="25" FontSize="14"/>
-            <TextBox x:Name="drzavaUnos" Text="{Binding Lekar.AdresaStanovanja.Drzava}" Canvas.Left="132" Canvas.Top="200" TextWrapping="Wrap" Width="140" Height="25" FontSize="14"/>
-            <TextBox x:Name="gradUnos" Text="{Binding Lekar.AdresaStanovanja.Grad}" Canvas.Left="132" Canvas.Top="240" Width="140" Height="25" FontSize="14" />
-            <TextBox x:Name="ulicaUnos" Text="{Binding Lekar.AdresaStanovanja.Ulica}" Canvas.Left="132" Canvas.Top="280" Width="140" Height="25" FontSize="14"/>
-            <TextBox x:Name="brojUnos" Text="{Binding Lekar.AdresaStanovanja.Broj}" Canvas.Left="132" Canvas.Top="320" Width="140" Height="25" FontSize="14" />
-            <TextBox x:Name="telUnos" Text="{Binding Lekar.Telefon}" Canvas.Left="132" Canvas.Top="360" TextWrapping="Wrap" Width="140" Height="25" FontSize="14"/>
-            <TextBox x:Name="mailUnos" Text="{Binding Lekar.Email}" Canvas.Left="132" Canvas.Top="400" Width="140" Height="25" FontSize="14" />
+            <TextBox x:Name="drzavaUnos" Canvas.Left="132" Canvas.Top="200" TextWrapping="Wrap" Width="140" Height="25" FontSize="14">
+                <TextBox.Text>
+                    <Binding Path="Lekar.AdresaStanovanja.Drzava">
+                        <Binding.ValidationRules>
+                            <validation:ValidacijaAdreseDrzava/>
+                        </Binding.ValidationRules>
+                    </Binding>
+                </TextBox.Text>
+            </TextBox>
+            <TextBox x:Name="gradUnos"  Canvas.Left="132" Canvas.Top="240" Width="140" Height="25" FontSize="14">
+                <TextBox.Text>
+                    <Binding Path="Lekar.AdresaStanovanja.Grad">
+                        <Binding.ValidationRules>
+                            <validation:ValidacijaAdreseGrad/>
+                        </Binding.ValidationRules>
+                    </Binding>
+                </TextBox.Text>
+            </TextBox>
+            <TextBox x:Name="ulicaUnos" Canvas.Left="132" Canvas.Top="280" Width="140" Height="25" FontSize="14">
+                <TextBox.Text>
+                    <Binding Path="Lekar.AdresaStanovanja.Ulica">
+                        <Binding.ValidationRules>
+                            <validation:ValidacijaAdreseUlica/>
+                        </Binding.ValidationRules>
+                    </Binding>
+                </TextBox.Text>
+            </TextBox>
+            <TextBox x:Name="brojUnos" Canvas.Left="132" Canvas.Top="320" Width="140" Height="25" FontSize="14">
+                <TextBox.Text>
+                    <Binding Path="Lekar.AdresaStanovanja.Broj">
+                        <Binding.ValidationRules>
+                            <validation:ValidacijaAdreseBroj/>
+                        </Binding.ValidationRules>
+                    </Binding>
+                </TextBox.Text>
+            </TextBox>
+            <TextBox x:Name="telUnos" Canvas.Left="132" Canvas.Top="360" TextWrapping="Wrap" Width="140" Height="25" FontSize="14">
+                <TextBox.Text>
+                    <Binding Path="Lekar.Telefon">
+                        <Binding.ValidationRules>
+                            <validation:ValidacijaPrezime/>
+                        </Binding.ValidationRules>
+                    </Binding>
+                </TextBox.Text>
+            </TextBox>
+            <TextBox x:Name="mailUnos" Canvas.Left="132" Canvas.Top="400" Width="140" Height="25" FontSize="14">
+                <TextBox.Text>
+                    <Binding Path="Lekar.Email">
+                        <Binding.ValidationRules>
+                            <validation:ValidacijaEmail/>
+                        </Binding.ValidationRules>
+                    </Binding>
+                </TextBox.Text>
+            </TextBox>
             <TextBox x:Name="korisnikUnos" Text="{Binding Lekar.Korisnik.KorisnickoIme}" Canvas.Left="132" Canvas.Top="440" TextWrapping="Wrap" Width="140" Height="25" FontSize="14"/>
             <TextBox x:Name="lozinkaUnos" Text="{Binding Lekar.Korisnik.Lozinka}" Canvas.Left="132" Canvas.Top="480" Width="140" Height="25" FontSize="14" />
-            <ComboBox x:Name="specijalizacije"  SelectedItem="{Binding Specijalizacije}" Text="{Binding Lekar.Specijalizacija.Naziv}"  Canvas.Left="132" Canvas.Top="520" Width="140" Height="25" FontSize="14" />
+            <ComboBox x:Name="specijalizacije"   ItemsSource="{Binding Specijalizacije}" SelectedItem="{Binding SpecijalizacijaLekara}" SelectedIndex="0" Canvas.Left="132" Canvas.Top="520" Width="160" Height="30" FontSize="14" />
             <Label Content="Drzava: " Canvas.Left="23" Canvas.Top="200" Width="58"/>
             <Label Content="Grad: " Canvas.Left="23" Canvas.Top="240" Width="58" Height="26"/>
             <Label Content="Ulica: " Canvas.Left="23" Canvas.Top="280" Width="94"/>
             <Label Content="Broj: " Canvas.Left="23" Canvas.Top="320" Width="70"/>
-            <Button x:Name="potvrdiDugme" Content="Potvrdi" Canvas.Left="200" Canvas.Top="580" Width="120" Height="30" Background="White" Command="{Binding IzmeniLekara}" />
+            <Button x:Name="potvrdiDugme" Content="Potvrdi" Canvas.Left="200" Canvas.Top="580" Width="120" Height="30" Background="White" Command="{Binding IzmeniLekara}">
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="IsEnabled" Value="False"/>
+                        <Style.Triggers>
+                            <MultiDataTrigger>
+                                <MultiDataTrigger.Conditions>
+                                    <Condition Binding="{Binding Path=(Validation.HasError), ElementName=imeUnos}" Value="False"/>
+                                    <Condition Binding="{Binding Path=(Validation.HasError), ElementName=prezimeUnos}" Value="False"/>
+                                    <Condition Binding="{Binding Path=(Validation.HasError), ElementName=mailUnos}" Value="False"/>
+                                    <Condition Binding="{Binding Path=(Validation.HasError), ElementName=JMBGUnos}" Value="False"/>
+                                    <Condition Binding="{Binding Path=(Validation.HasError), ElementName=telUnos}" Value="False"/>
+                                    <Condition Binding="{Binding Path=(Validation.HasError), ElementName=drzavaUnos}" Value="False"/>
+                                    <Condition Binding="{Binding Path=(Validation.HasError), ElementName=ulicaUnos}" Value="False"/>
+                                    <Condition Binding="{Binding Path=(Validation.HasError), ElementName=gradUnos}" Value="False"/>
+                                    <Condition Binding="{Binding Path=(Validation.HasError), ElementName=brojUnos}" Value="False"/>
+                                </MultiDataTrigger.Conditions>
+                                <Setter Property="IsEnabled" Value="True"/>
+                            </MultiDataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>
             <Button Style="{StaticResource ResourceKey=MainButtons}" x:Name="Nazad" Command="{Binding Nazad}" HorizontalAlignment="Left" VerticalAlignment="Top" Background="LightGray"  Width="50" Height="60" Margin="-150,10,0,0" >
                 <StackPanel Orientation="Vertical">
                     <Image Source="../../images/back.png" Width="30" Height="30" RenderOptions.BitmapScalingMode="Fant"/>
@@ -42,6 +137,6 @@
                 </StackPanel>
             </Button>
         </Canvas>
-        
+
     </Grid>
 </UserControl>
