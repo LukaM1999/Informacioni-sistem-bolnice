@@ -17,7 +17,7 @@
                         <Setter Property="Margin" Value="0,0,50,0"/>
                     </Style>
                 </StackPanel.Resources>
-                <Label Content="Jezik" FontSize="24" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+                <Label Content="{local:Loc Jezik}" FontSize="24" VerticalAlignment="Center" HorizontalAlignment="Left"/>
                 <iconPacks:PackIconMaterial Kind="ChevronRight"  Width="40" Height="40" HorizontalAlignment="Right" VerticalAlignment="Center"/>
             </StackPanel>
         </Button>
@@ -28,7 +28,7 @@
                         <Setter Property="Margin" Value="0,0,50,0"/>
                     </Style>
                 </StackPanel.Resources>
-                <Label Content="Tema" FontSize="24" VerticalAlignment="Center" HorizontalAlignment="Left" BorderBrush="Transparent"/>
+                <Label Content="{local:Loc Tema}" FontSize="24" VerticalAlignment="Center" HorizontalAlignment="Left" BorderBrush="Transparent"/>
                 <iconPacks:PackIconMaterial Kind="ChevronRight"  Width="40" Height="40" HorizontalAlignment="Right" VerticalAlignment="Center"/>
             </StackPanel>
         </Button>
@@ -39,7 +39,7 @@
                         <Setter Property="Margin" Value="0,0,40,0"/>
                     </Style>
                 </StackPanel.Resources>
-                <Label Content="Povratna informacija" FontSize="24" VerticalAlignment="Center" HorizontalAlignment="Left" BorderBrush="Transparent"/>
+                <Label Content="{local:Loc Feedback}" FontSize="24" VerticalAlignment="Center" HorizontalAlignment="Left" BorderBrush="Transparent"/>
                 <iconPacks:PackIconMaterial Kind="ChevronRight"  Width="40" Height="40" HorizontalAlignment="Right" VerticalAlignment="Center"/>
             </StackPanel>
         </Button>
@@ -50,7 +50,7 @@
                         <Setter Property="Margin" Value="0,0,50,0"/>
                     </Style>
                 </StackPanel.Resources>
-                <Label Content="Opste informacije" FontSize="24" VerticalAlignment="Center" HorizontalAlignment="Left" BorderBrush="Transparent"/>
+                <Label Content="{local:Loc About}" FontSize="24" VerticalAlignment="Center" HorizontalAlignment="Left" BorderBrush="Transparent"/>
                 <iconPacks:PackIconMaterial Kind="ChevronRight"  Width="40" Height="40" HorizontalAlignment="Right" VerticalAlignment="Center"/>
             </StackPanel>
         </Button>
@@ -61,7 +61,7 @@
                         <Setter Property="Margin" Value="0,0,50,0"/>
                     </Style>
                 </StackPanel.Resources>
-                <Label Content="Odjavi se" FontSize="24" VerticalAlignment="Center" HorizontalAlignment="Left" BorderBrush="Transparent"/>
+                <Label Content="{local:Loc Odjava}" FontSize="24" VerticalAlignment="Center" HorizontalAlignment="Left" BorderBrush="Transparent"/>
                 <iconPacks:PackIconMaterial Kind="ChevronRight"  Width="40" Height="40" HorizontalAlignment="Right" VerticalAlignment="Center"/>
             </StackPanel>
         </Button>

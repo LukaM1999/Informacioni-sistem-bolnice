@@ -9,7 +9,13 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="Views\LekarView\LekarAnamnezaView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Views\LekarView\Jezik.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\LekarView\Karton.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Views\LekarView\Podesavanja.xaml.cs">
@@ -290,10 +296,16 @@
     <Page Update="ResourceDictionaries\PacijentDictionary.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="Views\LekarView\LekarAnamnezaView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Views\LekarView\GlavniProzorLekara.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\LekarView\Jezik.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\LekarView\Karton.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\LekarView\Podesavanja.xaml">

@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using InformacioniSistemBolnice.ViewModels.LekarViewModel;
 using MahApps.Metro.Controls;
 using Model;
 
@@ -32,8 +33,8 @@ namespace InformacioniSistemBolnice
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            UCPacijenti pacijenti = new UCPacijenti(glavniProzorLekara);
-            glavniProzorLekara.contentControl.Content = pacijenti;
+            Karton karton = new Karton() {DataContext = new KartonViewModel(glavniProzorLekara, pacijent.Jmbg)};
+            glavniProzorLekara.contentControl.Content = karton;
         }
         private void Button_Click1(object sender, RoutedEventArgs e)
         {

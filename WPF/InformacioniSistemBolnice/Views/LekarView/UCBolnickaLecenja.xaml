@@ -8,7 +8,7 @@
                          mc:Ignorable="d"                     
                          d:DesignHeight="612" Width="834">
     <Grid>
-        <DataGrid x:Name="BolnickaLecenja" Margin="0,0,153,0" CanUserAddRows="False" CanUserResizeColumns="True" CanUserResizeRows="True"/>
+        <DataGrid x:Name="BolnickaLecenja" Margin="0,85,150,0" CanUserAddRows="False" CanUserResizeColumns="True" CanUserResizeRows="True"/>
         <Button Content="Karton" HorizontalAlignment="Left" Margin="735,35,0,0" VerticalAlignment="Top" Height="39" Width="54" Click="Button_Click"/>
         <Button Content="Izmena" HorizontalAlignment="Left" Margin="735,135,0,0" VerticalAlignment="Top" Height="39" Width="54" Click="Button_Click_1"/>
     </Grid>

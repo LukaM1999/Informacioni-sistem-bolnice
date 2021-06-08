@@ -24,11 +24,11 @@
             </Button>
             <StackPanel Grid.Row="1" Grid.Column="0" >
                 <Label Content="Srpski" FontSize="24" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,120,0,0"/>
-                <RadioButton GroupName="grupa" Name="Srpski" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,50,0,0"/>
+                <RadioButton GroupName="grupa" Name="Srpski" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,50,0,0" Checked="Srpski_Checked"/>
             </StackPanel>
             <StackPanel Grid.Row="1" Grid.Column="1" >
                 <Label Content="English" FontSize="24" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,120,0,0"/>
-                <RadioButton GroupName="grupa" Name="Engleski" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,50,0,0"/>
+                <RadioButton GroupName="grupa" Name="Engleski" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,50,0,0" Checked="Engleski_Checked"/>
             </StackPanel>
         </Grid>
             

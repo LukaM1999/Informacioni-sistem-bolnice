@@ -52,9 +52,9 @@
         "AnamnezaId": null,
         "SadasnjaBolest": "asdcsdcsd",
         "RanijeBolesti": "fgbfgbf",
-        "PorodicneAnamneze": "fgvbfg",
+        "PorodicneAnamneze": "Dijabetes",
         "Zakljucak": "Sve u redu.",
-        "BeleskePacijenta": "Neke beleske."
+        "BeleskePacijenta": null
       },
       "Alergeni": [
         {

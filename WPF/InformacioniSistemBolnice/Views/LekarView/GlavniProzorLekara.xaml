@@ -14,37 +14,37 @@
         <Button Style="{StaticResource ResourceKey=MainButtons}" x:Name="Raspored" Margin="40,140,0,0" Click="RasporedBtn_Click" HorizontalAlignment="Left" VerticalAlignment="Top">
             <StackPanel Orientation="Vertical">
                 <iconPacks:PackIconMaterial Kind="Calendar" Width="50" Height="50" HorizontalAlignment="Center"/>
-                <TextBlock Text="Raspored" VerticalAlignment="Center" FontSize="14"/>
+                <TextBlock Text="{local:Loc Raspored}" VerticalAlignment="Center" FontSize="14" HorizontalAlignment="Center"/>
             </StackPanel>
         </Button>
         <Button Style="{StaticResource ResourceKey=MainButtons}" x:Name="Pacijenti" Margin="40,250,0,0" Click="PacijentiBtn_Click" HorizontalAlignment="Left" VerticalAlignment="Top">
             <StackPanel Orientation="Vertical">
                 <iconPacks:BootstrapIcons Kind="People" Width="50" Height="50"/>
-                <TextBlock Text="Pacijenti" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="14"/>
+                <TextBlock Text="{local:Loc Pacijenti}" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="14"/>
             </StackPanel>
         </Button>
         <Button Style="{StaticResource ResourceKey=MainButtons}" x:Name="Lekovi" Margin="40,360,0,0" Click="Lekovi_Click" HorizontalAlignment="Left" VerticalAlignment="Top">
             <StackPanel Orientation="Vertical">
                 <iconPacks:PackIconMaterial Kind="MedicalBag" Width="50" Height="50" HorizontalAlignment="Center"/>
-                <TextBlock Text="Lekovi" FontSize="14" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                <TextBlock Text="{local:Loc Lekovi}" FontSize="14" VerticalAlignment="Center" HorizontalAlignment="Center"/>
             </StackPanel>
         </Button>
         <Button Style="{StaticResource ResourceKey=MainButtons}" x:Name="Odjava" Margin="40,630,0,0" Click="OdjavaBtn_Click" HorizontalAlignment="Left" VerticalAlignment="Top">
             <StackPanel Orientation="Vertical">
                 <iconPacks:PackIconMaterial Kind="Logout" Width="50" Height="50" HorizontalAlignment="Center"></iconPacks:PackIconMaterial>
-                <TextBlock Text="Odjavi se" VerticalAlignment="Center" FontSize="14" HorizontalAlignment="Center"/>
+                <TextBlock Text="{local:Loc Odjava}" VerticalAlignment="Center" FontSize="14" HorizontalAlignment="Center"/>
             </StackPanel>
         </Button>
         <Button Style="{StaticResource ResourceKey=MainButtons}" x:Name="Podesavanja" Margin="879,26,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Click="Podesavanja_Click">
             <StackPanel Orientation="Vertical">
                 <iconPacks:PackIconMaterial Kind="SettingsHelper" Width="50" Height="50" HorizontalAlignment="Center"></iconPacks:PackIconMaterial>
-                <TextBlock Text="Podesavanja" VerticalAlignment="Center" FontSize="14" HorizontalAlignment="Center"/>
+                <TextBlock Text="{local:Loc Podesavanja}" VerticalAlignment="Center" FontSize="14" HorizontalAlignment="Center"/>
             </StackPanel>
         </Button>
         <Button Style="{StaticResource ResourceKey=MainButtons}" x:Name="Profil" Margin="749,26,0,0" HorizontalAlignment="Left" VerticalAlignment="Top">
             <StackPanel Orientation="Vertical">
                 <iconPacks:PackIconMaterial Kind="Account" Width="50" Height="50" HorizontalAlignment="Center"></iconPacks:PackIconMaterial>
-                <TextBlock Text="Profil" VerticalAlignment="Center" FontSize="14" HorizontalAlignment="Center"/>
+                <TextBlock Text="{local:Loc Profil}" VerticalAlignment="Center" FontSize="14" HorizontalAlignment="Center"/>
             </StackPanel>
         </Button>
         <Button Style="{StaticResource ResourceKey=MainButtons}" x:Name="Notifikacije" Margin="619,26,0,0" HorizontalAlignment="Left" VerticalAlignment="Top">
@@ -53,10 +53,10 @@
                 <TextBlock Text="Notifikacije" VerticalAlignment="Center" FontSize="14" HorizontalAlignment="Center"/>
             </StackPanel>
         </Button>
-        <Button Style="{StaticResource ResourceKey=MainButtons}" x:Name="BolnickaLecenja" Margin="40,470,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Height="80" Click="BolnickaLecenja_Click">
-            <StackPanel Orientation="Vertical" Width="100" Height="80">
+        <Button Style="{StaticResource ResourceKey=MainButtons}" x:Name="BolnickaLecenja" Margin="40,470,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Click="BolnickaLecenja_Click">
+            <StackPanel Orientation="Vertical" Width="122" Height="80">
                 <iconPacks:PackIconMaterial Kind="Bed" Width="50" Height="50" HorizontalAlignment="Center"></iconPacks:PackIconMaterial>
-                <TextBlock Text="Bolnicka lecenja" VerticalAlignment="Center" FontSize="14" HorizontalAlignment="Center"/>
+                <TextBlock Text="{local:Loc BolnickaLecenja}" VerticalAlignment="Center" FontSize="14" HorizontalAlignment="Center"/>
             </StackPanel>
         </Button>
     </Grid>
