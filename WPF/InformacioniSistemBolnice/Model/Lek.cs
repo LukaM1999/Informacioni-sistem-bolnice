@@ -23,5 +23,10 @@ namespace Model
             Zamena = zamena;
             Alergen = alergeni;
         }
+
+        public override string ToString()
+        {
+            return Naziv;
+        }
     }
 }

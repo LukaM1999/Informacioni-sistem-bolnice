@@ -9,7 +9,28 @@
           "Naziv": "gluten"
         }
       ],
-      "recepti": [],
+      "recepti": [
+        {
+          "terapije": [
+            {
+              "PocetakTerapije": "2021-06-10T00:00:00",
+              "KrajTerapije": "2021-06-19T00:00:00",
+              "MeraLeka": 50.0,
+              "RedovnostTerapije": 6.0,
+              "Lek": {
+                "Naziv": "Brufen",
+                "Proizvodjac": "Galenika",
+                "Sastojci": "celuloza, mikrokristalna; kroskarmeloza-natrijum; laktoza, monohidrat; silicijum-dioksid koloidni bezvodni;",
+                "Zamena": "Analgin",
+                "Alergen": [],
+                "Tip": 0,
+                "Kolicina": 0
+              }
+            }
+          ],
+          "ReceptId": "Brufen"
+        }
+      ],
       "BrojKartona": "K132333",
       "BrojKnjizice": "123141515111",
       "Jmbg": "1905981123124",
@@ -50,7 +71,7 @@
         "Vreme": "2021-06-08T12:00:00",
         "Trajanje": 30.0,
         "Tip": 0,
-        "Status": 0,
+        "Status": 4,
         "AnketaOLekaru": null,
         "PacijentJmbg": "1905981123124",
         "LekarJmbg": "1605988156156",
@@ -61,7 +82,7 @@
         "Vreme": "2021-06-08T12:30:00+02:00",
         "Trajanje": 30.0,
         "Tip": 1,
-        "Status": 0,
+        "Status": 4,
         "AnketaOLekaru": null,
         "PacijentJmbg": "1905981123124",
         "LekarJmbg": "1605988156156",
