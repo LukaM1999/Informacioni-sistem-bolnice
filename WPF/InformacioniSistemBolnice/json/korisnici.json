@@ -5,104 +5,9 @@
     "Uloga": 0
   },
   {
-    "KorisnickoIme": "pacijent1",
-    "Lozinka": "pacijent1",
-    "Uloga": 2
-  },
-  {
     "KorisnickoIme": "sekretar1",
     "Lozinka": "sekretar1",
     "Uloga": 3
-  },
-  {
-    "KorisnickoIme": "lekar1",
-    "Lozinka": "lekar1",
-    "Uloga": 1
-  },
-  {
-    "KorisnickoIme": "pilence",
-    "Lozinka": "pilence",
-    "Uloga": 2
-  },
-  {
-    "KorisnickoIme": "sonja",
-    "Lozinka": "sonja",
-    "Uloga": 2
-  },
-  {
-    "KorisnickoIme": "luka",
-    "Lozinka": "luka",
-    "Uloga": 2
-  },
-  {
-    "KorisnickoIme": "maja",
-    "Lozinka": "majica",
-    "Uloga": 2
-  },
-  {
-    "KorisnickoIme": "milos",
-    "Lozinka": "milosm",
-    "Uloga": 2
-  },
-  {
-    "KorisnickoIme": "marija",
-    "Lozinka": "marija",
-    "Uloga": 2
-  },
-  {
-    "KorisnickoIme": "zoran",
-    "Lozinka": "zoranzoran",
-    "Uloga": 2
-  },
-  {
-    "KorisnickoIme": "mitar",
-    "Lozinka": "mitarm",
-    "Uloga": 2
-  },
-  {
-    "KorisnickoIme": "all",
-    "Lozinka": "lla",
-    "Uloga": 2
-  },
-  {
-    "KorisnickoIme": "9q9q",
-    "Lozinka": "99q",
-    "Uloga": 2
-  },
-  {
-    "KorisnickoIme": "kakkAKAK",
-    "Lozinka": "AKAK",
-    "Uloga": 2
-  },
-  {
-    "KorisnickoIme": "lalal",
-    "Lozinka": "lal",
-    "Uloga": 2
-  },
-  {
-    "KorisnickoIme": "akka",
-    "Lozinka": "kak",
-    "Uloga": 2
-  },
-  {
-    "KorisnickoIme": "lal",
-    "Lozinka": "lalal",
-    "Uloga": 2
-  },
-  {
-    "KorisnickoIme": "lal",
-    "Lozinka": "l",
-    "Uloga": 2
-  },
-  {
-    "KorisnickoIme": "lal",
-    "Lozinka": "lal",
-    "Uloga": 2
-  },
-  {
-    "KorisnickoIme": "serg",
-    "Lozinka": "serg",
-    "Uloga": 2
   },
   {
     "KorisnickoIme": "milica",
@@ -110,113 +15,28 @@
     "Uloga": 2
   },
   {
-    "KorisnickoIme": "gagag",
-    "Lozinka": "gagag",
-    "Uloga": 2
-  },
-  {
-    "KorisnickoIme": "drNikola",
-    "Lozinka": "drNikola",
-    "Uloga": 1
-  },
-  {
-    "KorisnickoIme": "llalal",
-    "Lozinka": "llall",
-    "Uloga": 1
-  },
-  {
-    "KorisnickoIme": "kKKk",
-    "Lozinka": "akakka",
-    "Uloga": 2
-  },
-  {
-    "KorisnickoIme": "lal",
-    "Lozinka": "ll",
-    "Uloga": 1
-  },
-  {
-    "KorisnickoIme": "lal",
-    "Lozinka": "lal",
-    "Uloga": 1
-  },
-  {
     "KorisnickoIme": "lekar2",
     "Lozinka": "lekar2",
     "Uloga": 1
   },
   {
-    "KorisnickoIme": "lal",
-    "Lozinka": "kaka",
-    "Uloga": 2
-  },
-  {
-    "KorisnickoIme": "lal",
-    "Lozinka": "al",
-    "Uloga": 2
-  },
-  {
-    "KorisnickoIme": "nan",
-    "Lozinka": "nanan",
-    "Uloga": 2
-  },
-  {
-    "KorisnickoIme": "lall",
-    "Lozinka": "al",
+    "KorisnickoIme": "lekar1",
+    "Lozinka": "lekar1",
     "Uloga": 1
   },
   {
-    "KorisnickoIme": "llalal ",
-    "Lozinka": "allalal ",
+    "KorisnickoIme": "milos ",
+    "Lozinka": "milos ",
     "Uloga": 2
   },
   {
-    "KorisnickoIme": "milan ",
-    "Lozinka": "mamam ",
+    "KorisnickoIme": "marija ",
+    "Lozinka": "marija ",
     "Uloga": 2
   },
   {
-    "KorisnickoIme": "milan ",
-    "Lozinka": "lallala ",
-    "Uloga": 2
-  },
-  {
-    "KorisnickoIme": "milan",
-    "Lozinka": "laalalal ",
-    "Uloga": 2
-  },
-  {
-    "KorisnickoIme": "milan",
-    "Lozinka": "laalalal ",
-    "Uloga": 2
-  },
-  {
-    "KorisnickoIme": "milan",
-    "Lozinka": "laalalal ",
-    "Uloga": 2
-  },
-  {
-    "KorisnickoIme": "mila",
-    "Lozinka": "laalalal ",
-    "Uloga": 2
-  },
-  {
-    "KorisnickoIme": "milan ",
-    "Lozinka": "lalala ",
-    "Uloga": 2
-  },
-  {
-    "KorisnickoIme": "milan ",
-    "Lozinka": "lalla ",
-    "Uloga": 2
-  },
-  {
-    "KorisnickoIme": "milica",
-    "Lozinka": "lalalalala ",
-    "Uloga": 2
-  },
-  {
-    "KorisnickoIme": "milan",
-    "Lozinka": "lalalalala ",
+    "KorisnickoIme": "ivan ",
+    "Lozinka": "ivan ",
     "Uloga": 2
   }
 ]

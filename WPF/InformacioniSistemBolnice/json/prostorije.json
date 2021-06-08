@@ -38,6 +38,17 @@
         "LekarJmbg": "1605988156156",
         "ProstorijaId": "P1",
         "Hitan": false
+      },
+      {
+        "Vreme": "2021-06-08T12:30:00+02:00",
+        "Trajanje": 30.0,
+        "Tip": 1,
+        "Status": 0,
+        "AnketaOLekaru": null,
+        "PacijentJmbg": "1905981123124",
+        "LekarJmbg": "1605988156156",
+        "ProstorijaId": "P1",
+        "Hitan": true
       }
     ]
   },
@@ -80,6 +91,17 @@
         "LekarJmbg": "1605988156156",
         "ProstorijaId": "OS1",
         "Hitan": false
+      },
+      {
+        "Vreme": "2021-06-08T12:30:00+02:00",
+        "Trajanje": 30.0,
+        "Tip": 1,
+        "Status": 0,
+        "AnketaOLekaru": null,
+        "PacijentJmbg": "1203998123123",
+        "LekarJmbg": "1209971",
+        "ProstorijaId": "OS1",
+        "Hitan": true
       }
     ]
   },

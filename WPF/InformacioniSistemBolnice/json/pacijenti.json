@@ -3,82 +3,6 @@
     "zdravstveniKarton": {
       "alergeni": [
         {
-          "Naziv": "jagode"
-        },
-        {
-          "Naziv": "polen"
-        },
-        {
-          "Naziv": "pencilin"
-        }
-      ],
-      "recepti": [],
-      "BrojKartona": "K121",
-      "BrojKnjizice": "1515155151",
-      "Jmbg": "1203998123123",
-      "ImeJednogRoditelja": "Milos",
-      "LiceZaZdravstvenuZastitu": "Mitar Miric",
-      "PolPacijenta": 0,
-      "BracnoStanje": 0,
-      "KategorijaZdravstveneZastite": 5,
-      "PodaciOZaposlenjuIZanimanju": {
-        "RadnoMjesto": "nema",
-        "RegistarskiBroj": "nema",
-        "SifraDelatnosti": "nema",
-        "PosaoKojiObavlja": "nema",
-        "OSIZZdrZastite": "nema",
-        "RadPodPosebnimUslovima": "nema",
-        "Promjene": "nema"
-      },
-      "Anamneza": null,
-      "Alergeni": [
-        {
-          "Naziv": "jagode"
-        },
-        {
-          "Naziv": "polen"
-        },
-        {
-          "Naziv": "pencilin"
-        }
-      ]
-    },
-    "Maliciozan": false,
-    "ZakazaniTermini": [
-      {
-        "Vreme": "2021-06-08T09:00:00",
-        "Trajanje": 30.0,
-        "Tip": 1,
-        "Status": 0,
-        "AnketaOLekaru": null,
-        "PacijentJmbg": "1203998123123",
-        "LekarJmbg": "1605988156156",
-        "ProstorijaId": "P1",
-        "Hitan": false
-      }
-    ],
-    "Ime": "Milan",
-    "Prezime": "Maric",
-    "Jmbg": "1203998123123",
-    "DatumRodjenja": "1998-03-12T00:00:00",
-    "Telefon": "06455151551",
-    "Email": "milanm@gmail.com",
-    "AdresaStanovanja": {
-      "Broj": "kakakk",
-      "Ulica": "kakakk",
-      "Grad": "kakka",
-      "Drzava": "akkak"
-    },
-    "Korisnik": {
-      "KorisnickoIme": "milan",
-      "Lozinka": "milan",
-      "Uloga": 2
-    }
-  },
-  {
-    "zdravstveniKarton": {
-      "alergeni": [
-        {
           "Naziv": "laktoza"
         },
         {
@@ -132,6 +56,17 @@
         "LekarJmbg": "1605988156156",
         "ProstorijaId": "OS1",
         "Hitan": false
+      },
+      {
+        "Vreme": "2021-06-08T12:30:00+02:00",
+        "Trajanje": 30.0,
+        "Tip": 1,
+        "Status": 0,
+        "AnketaOLekaru": null,
+        "PacijentJmbg": "1905981123124",
+        "LekarJmbg": "1605988156156",
+        "ProstorijaId": "P1",
+        "Hitan": true
       }
     ],
     "Ime": "Milica",
@@ -153,124 +88,68 @@
     }
   },
   {
-    "zdravstveniKarton": {
-      "alergeni": [
-        {
-          "Naziv": "jagode"
-        },
-        {
-          "Naziv": "polen"
-        },
-        {
-          "Naziv": "laktoza"
-        }
-      ],
-      "recepti": [],
-      "BrojKartona": "K191991",
-      "BrojKnjizice": "2281910010",
-      "Jmbg": "1805999134144",
-      "ImeJednogRoditelja": "Mitar",
-      "LiceZaZdravstvenuZastitu": "lalal",
-      "PolPacijenta": 0,
-      "BracnoStanje": 0,
-      "KategorijaZdravstveneZastite": 3,
-      "PodaciOZaposlenjuIZanimanju": {
-        "RadnoMjesto": "nema",
-        "RegistarskiBroj": "nema",
-        "SifraDelatnosti": "nema",
-        "PosaoKojiObavlja": "nema",
-        "OSIZZdrZastite": "alal",
-        "RadPodPosebnimUslovima": "ll",
-        "Promjene": "nema"
-      },
-      "Anamneza": null,
-      "Alergeni": [
-        {
-          "Naziv": "jagode"
-        },
-        {
-          "Naziv": "polen"
-        },
-        {
-          "Naziv": "laktoza"
-        }
-      ]
-    },
+    "zdravstveniKarton": null,
     "Maliciozan": false,
-    "ZakazaniTermini": [],
+    "ZakazaniTermini": null,
     "Ime": "Milos",
     "Prezime": "Ivezic",
-    "Jmbg": "1805999134144",
-    "DatumRodjenja": "1999-05-18T00:00:00",
-    "Telefon": "064141414",
-    "Email": "milosm@gmail.com",
+    "Jmbg": "1309974145143",
+    "DatumRodjenja": "1974-09-13T00:00:00",
+    "Telefon": "064555151551",
+    "Email": "imilose@gmail.com",
     "AdresaStanovanja": {
-      "Broj": "5",
-      "Ulica": "LazeKostica",
-      "Grad": "NoviSad",
-      "Drzava": "Srbija"
-    },
-    "Korisnik": {
-      "KorisnickoIme": "milos",
-      "Lozinka": "akakka",
-      "Uloga": 2
-    }
-  },
-  {
-    "zdravstveniKarton": {
-      "alergeni": [
-        {
-          "Naziv": "laktoza"
-        },
-        {
-          "Naziv": "polen"
-        }
-      ],
-      "recepti": [],
-      "BrojKartona": "lala",
-      "BrojKnjizice": "lalla",
-      "Jmbg": "nana",
-      "ImeJednogRoditelja": "alla",
-      "LiceZaZdravstvenuZastitu": "alla",
-      "PolPacijenta": 0,
-      "BracnoStanje": 0,
-      "KategorijaZdravstveneZastite": 1,
-      "PodaciOZaposlenjuIZanimanju": {
-        "RadnoMjesto": "alall ",
-        "RegistarskiBroj": "all ",
-        "SifraDelatnosti": "al ",
-        "PosaoKojiObavlja": "lall ",
-        "OSIZZdrZastite": "al ",
-        "RadPodPosebnimUslovima": "lal ",
-        "Promjene": "lal "
-      },
-      "Anamneza": null,
-      "Alergeni": [
-        {
-          "Naziv": "laktoza"
-        },
-        {
-          "Naziv": "polen"
-        }
-      ]
-    },
-    "Maliciozan": false,
-    "ZakazaniTermini": [],
-    "Ime": "Mirjana",
-    "Prezime": "Ivkovic",
-    "Jmbg": "17059981128188",
-    "DatumRodjenja": "1981-05-17T00:00:00",
-    "Telefon": "0191991",
-    "Email": "mila99@gmail.com",
-    "AdresaStanovanja": {
-      "Broj": "9",
-      "Ulica": "Danila Kisa",
+      "Broj": "13",
+      "Ulica": "Suboticka",
       "Grad": "Novi Sad",
       "Drzava": "Srbija"
     },
     "Korisnik": {
-      "KorisnickoIme": "mila",
-      "Lozinka": "nanan",
+      "KorisnickoIme": "milos ",
+      "Lozinka": "milos ",
+      "Uloga": 2
+    }
+  },
+  {
+    "zdravstveniKarton": null,
+    "Maliciozan": false,
+    "ZakazaniTermini": null,
+    "Ime": "Marija",
+    "Prezime": "Vukovic",
+    "Jmbg": "0501993123124",
+    "DatumRodjenja": "1993-01-05T00:00:00",
+    "Telefon": "0623131331313",
+    "Email": "vmarija@gmail.com",
+    "AdresaStanovanja": {
+      "Broj": "12",
+      "Ulica": "Laze Kostica",
+      "Grad": "Novi Sad",
+      "Drzava": "Srbija"
+    },
+    "Korisnik": {
+      "KorisnickoIme": "marija ",
+      "Lozinka": "marija ",
+      "Uloga": 2
+    }
+  },
+  {
+    "zdravstveniKarton": null,
+    "Maliciozan": false,
+    "ZakazaniTermini": null,
+    "Ime": "Ivan",
+    "Prezime": "Maric",
+    "Jmbg": "1601989123162",
+    "DatumRodjenja": "1989-01-16T00:00:00",
+    "Telefon": "064515151515",
+    "Email": "maricivan@yahoo.com",
+    "AdresaStanovanja": {
+      "Broj": "7",
+      "Ulica": "Ive Andrica",
+      "Grad": "Beograd",
+      "Drzava": "Srbija"
+    },
+    "Korisnik": {
+      "KorisnickoIme": "ivan ",
+      "Lozinka": "ivan ",
       "Uloga": 2
     }
   }
