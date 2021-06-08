@@ -11,5 +11,14 @@
     ],
     "Tip": 0,
     "Kolicina": 0
+  },
+  {
+    "Naziv": "Brufen",
+    "Proizvodjac": "Galenika",
+    "Sastojci": "celuloza, mikrokristalna; kroskarmeloza-natrijum; laktoza, monohidrat; silicijum-dioksid koloidni bezvodni;",
+    "Zamena": "Analgin",
+    "Alergen": [],
+    "Tip": 0,
+    "Kolicina": 0
   }
 ]

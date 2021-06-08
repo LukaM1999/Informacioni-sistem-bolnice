@@ -36,7 +36,7 @@ namespace InformacioniSistemBolnice
         {
             if (listaLekova.SelectedIndex > -1)
             {
-                LekarKontroler.Instance.IzdavanjeRecepta(new((DateTime)Pocetak.SelectedDate, (DateTime)Kraj.SelectedDate,
+                ZdravstveniKartonKontroler.Instance.IzdavanjeRecepta(new((DateTime)Pocetak.SelectedDate, (DateTime)Kraj.SelectedDate,
                     double.Parse(Mera.Text), double.Parse(Redovnost.Text), 
                     Id.Text, pacijent, (Lek)listaLekova.SelectedItem));
                 this.Close();

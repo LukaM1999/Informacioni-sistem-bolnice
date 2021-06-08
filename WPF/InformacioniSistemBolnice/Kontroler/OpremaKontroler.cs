@@ -11,7 +11,7 @@ namespace Kontroler
     public class OpremaKontroler
     {
         private static readonly Lazy<OpremaKontroler> Lazy = new(() => new OpremaKontroler());
-        public static OpremaKontroler Instance { get { return Lazy.Value; } }
+        public static OpremaKontroler Instance => Lazy.Value;
 
         public void KreiranjeStatickeOpreme(StatickaOpremaDto dto) { StatickaOpremaServis.Instance.KreiranjeOpreme(dto); }
 

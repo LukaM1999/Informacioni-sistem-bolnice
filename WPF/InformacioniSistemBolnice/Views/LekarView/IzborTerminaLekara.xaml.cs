@@ -143,7 +143,7 @@ namespace InformacioniSistemBolnice
         private void zakaziDugme_Click(object sender, RoutedEventArgs e)
         {
             if (ponudjeniTermini.SelectedIndex == -1) return;
-            LekarKontroler.Instance.Zakazivanje((Termin)ponudjeniTermini.SelectedItem);
+            TerminKontroler.Instance.ZakaziTermin((Termin)ponudjeniTermini.SelectedItem);
             Close();
         }
     }

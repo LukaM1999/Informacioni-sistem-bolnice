@@ -97,7 +97,9 @@
             </TextBox>
             <Label Content="{Binding IspravnostEmailAdrese.ErrorContent}" Foreground="Red" Width="180" Height="25" Canvas.Left="280" Canvas.Top="400"></Label>
             <TextBox x:Name="korisnikUnos" Text="{Binding NoviLekar.Korisnik.KorisnickoIme}" Canvas.Left="132" Canvas.Top="440" TextWrapping="Wrap" Width="140" Height="25" FontSize="14"/>
-            <TextBox  Text="{Binding NoviLekar.Lozinka}"  x:Name="lozinkaUnos"  Canvas.Left="132" Canvas.Top="480" Width="140" Height="25" FontSize="14" />
+            <TextBox FontFamily="ms-appx:///Assets/PassDot.ttf#PassDot" Text="{Binding NoviLekar.Korisnik.Lozinka}"  x:Name="lozinkaUnos"  Canvas.Left="132" Canvas.Top="480" Width="140" Height="25" FontSize="14"/>
+
+
             <ComboBox x:Name="specijalizacijeLekara" ItemsSource="{Binding Specijalizacije}" SelectedItem="{Binding SpecijalizacijaLekara}" Canvas.Left="132" Canvas.Top="520" Width="140" Height="25" FontSize="14"/>
             <Button x:Name="potvrdiDugme" Content="Potvrdi"  Canvas.Left="200" Canvas.Top="571" Width="120" Height="30" Command="{Binding RegistrujLekara}" Background="White">
                 <Button.Style>

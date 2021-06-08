@@ -14,12 +14,12 @@ namespace Servis
 
         public void KreiranjeAlergena(AlergenDto alergenDto)
         {
-            AlergenRepo.Instance.DodajAlergen(new Alergen(alergenDto.Naziv));
+            AlergenRepo.Instance.Dodaj(new Alergen(alergenDto.Naziv));
         }
 
         public void UklanjanjeAlergena(Alergen alergen)
         {
-            AlergenRepo.Instance.BrisiPoNazivu(alergen.Naziv);
+            AlergenRepo.Instance.ObrisiPoId(alergen.Naziv);
             AlergenRepo.Instance.Serijalizacija();
         }
 

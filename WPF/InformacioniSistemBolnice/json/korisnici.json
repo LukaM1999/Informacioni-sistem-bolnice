@@ -15,8 +15,8 @@
     "Uloga": 3
   },
   {
-    "KorisnickoIme": "lekar3",
-    "Lozinka": "lekar3",
+    "KorisnickoIme": "lekar1",
+    "Lozinka": "lekar1",
     "Uloga": 1
   },
   {
@@ -140,11 +140,6 @@
     "Uloga": 1
   },
   {
-    "KorisnickoIme": "lekar1",
-    "Lozinka": "lekar1",
-    "Uloga": 1
-  },
-  {
     "KorisnickoIme": "lekar2",
     "Lozinka": "lekar2",
     "Uloga": 1
@@ -173,31 +168,6 @@
     "KorisnickoIme": "llalal ",
     "Lozinka": "allalal ",
     "Uloga": 2
-  },
-  {
-    "KorisnickoIme": " ",
-    "Lozinka": " ",
-    "Uloga": 1
-  },
-  {
-    "KorisnickoIme": "lekar1",
-    "Lozinka": " ",
-    "Uloga": 1
-  },
-  {
-    "KorisnickoIme": "lekar1",
-    "Lozinka": " ",
-    "Uloga": 1
-  },
-  {
-    "KorisnickoIme": "lekar1",
-    "Lozinka": " ",
-    "Uloga": 1
-  },
-  {
-    "KorisnickoIme": "lekar2",
-    "Lozinka": " ",
-    "Uloga": 1
   },
   {
     "KorisnickoIme": "milan ",
@@ -230,19 +200,9 @@
     "Uloga": 2
   },
   {
-    "KorisnickoIme": "milan",
-    "Lozinka": " ",
-    "Uloga": 1
-  },
-  {
     "KorisnickoIme": "milan ",
     "Lozinka": "lalala ",
     "Uloga": 2
-  },
-  {
-    "KorisnickoIme": "lekar1 ",
-    "Lozinka": " ",
-    "Uloga": 1
   },
   {
     "KorisnickoIme": "milan ",
@@ -258,25 +218,5 @@
     "KorisnickoIme": "milan",
     "Lozinka": "lalalalala ",
     "Uloga": 2
-  },
-  {
-    "KorisnickoIme": "lekar1 ",
-    "Lozinka": " ",
-    "Uloga": 1
-  },
-  {
-    "KorisnickoIme": "lekar1 ",
-    "Lozinka": " ",
-    "Uloga": 1
-  },
-  {
-    "KorisnickoIme": "lekar1 ",
-    "Lozinka": " ",
-    "Uloga": 1
-  },
-  {
-    "KorisnickoIme": "lekar2 ",
-    "Lozinka": " ",
-    "Uloga": 1
   }
 ]

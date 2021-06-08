@@ -13,25 +13,25 @@ namespace Servis
 
         public void KreiranjeOpreme(DinamickaOpremaDto dto)
         {
-            if (DinamickaOpremaRepo.Instance.NadjiPoTipu(dto.Tip) == null)
+            if (DinamickaOpremaRepo.Instance.NadjiPoId(dto.Tip) == null)
             {
-                DinamickaOpremaRepo.Instance.DodajDinamickuOpremu(new(dto.Kolicina, dto.Tip));
+                DinamickaOpremaRepo.Instance.Dodaj(new DinamickaOprema(dto.Kolicina, dto.Tip));
                 return;
             }
-            DinamickaOprema izabranaOprema = DinamickaOpremaRepo.Instance.NadjiPoTipu(dto.Tip);
+            DinamickaOprema izabranaOprema = DinamickaOpremaRepo.Instance.NadjiPoId(dto.Tip) as DinamickaOprema;
             izabranaOprema.Kolicina += dto.Kolicina;
             DinamickaOpremaRepo.Instance.Serijalizacija();
         }
 
         public void UklanjanjeOpreme(DinamickaOpremaDto dto)
         {
-            DinamickaOpremaRepo.Instance.BrisiPoTipu(dto.Tip);
+            DinamickaOpremaRepo.Instance.ObrisiPoId(dto.Tip);
             DinamickaOpremaRepo.Instance.Serijalizacija();
         }
 
         public void IzmenaOpreme(DinamickaOpremaDto dto)
         {
-            DinamickaOprema izabranaOprema = DinamickaOpremaRepo.Instance.NadjiPoTipu(dto.Tip);
+            DinamickaOprema izabranaOprema = DinamickaOpremaRepo.Instance.NadjiPoId(dto.Tip) as DinamickaOprema;
             izabranaOprema.Kolicina = dto.Kolicina;
             DinamickaOpremaRepo.Instance.Serijalizacija();
         }

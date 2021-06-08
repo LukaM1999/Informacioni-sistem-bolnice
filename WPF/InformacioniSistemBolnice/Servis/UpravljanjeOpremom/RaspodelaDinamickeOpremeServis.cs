@@ -32,7 +32,7 @@ namespace Servis
 
         private void RaspodeliOpremuUIzMagacinaUProstoriju(RaspodelaDinamickeOpremeDto dto)
         {
-            DinamickaOprema izabranaOprema = DinamickaOpremaRepo.Instance.NadjiPoTipu(dto.Oprema.Tip);
+            DinamickaOprema izabranaOprema = DinamickaOpremaRepo.Instance.NadjiPoId(dto.Oprema.Tip) as DinamickaOprema;
             izabranaOprema.Kolicina -= dto.Kolicina;
             DinamickaOpremaRepo.Instance.Serijalizacija();
             Prostorija izabranaProstorija = null;
@@ -55,14 +55,14 @@ namespace Servis
             DinamickaOprema izabranaOpremaProstorije = izabranaProstorija.Inventar.NadjiDinamickuOpremuPoTipu(dto.Oprema.Tip);
             izabranaOpremaProstorije.Kolicina -= dto.Kolicina;
             ProstorijaRepo.Instance.Serijalizacija();
-            if (DinamickaOpremaRepo.Instance.NadjiPoTipu(dto.Oprema.Tip) != null)
+            if (DinamickaOpremaRepo.Instance.NadjiPoId(dto.Oprema.Tip) != null)
             {
-                DinamickaOprema izabranaOprema = DinamickaOpremaRepo.Instance.NadjiPoTipu(dto.Oprema.Tip);
+                DinamickaOprema izabranaOprema = DinamickaOpremaRepo.Instance.NadjiPoId(dto.Oprema.Tip) as DinamickaOprema;
                 izabranaOprema.Kolicina += dto.Kolicina;
                 DinamickaOpremaRepo.Instance.Serijalizacija();
                 return;
             }
-            DinamickaOpremaRepo.Instance.DodajDinamickuOpremu(new(dto.Kolicina, dto.Oprema.Tip));
+            DinamickaOpremaRepo.Instance.Dodaj(new DinamickaOprema(dto.Kolicina, dto.Oprema.Tip));
             DinamickaOpremaRepo.Instance.Serijalizacija();
         }
 

@@ -6,7 +6,7 @@ using System.Collections.ObjectModel;
 
 namespace Repozitorijum
 {
-    public class BolnickoLecenjeRepo : IRepozitorijum
+    public class BolnickoLecenjeRepo : IRepozitorijum, IOsnovniUpiti
     {
         private const string Putanja = "../../../json/bolnickaLecenja.json";
 
@@ -33,23 +33,23 @@ namespace Repozitorijum
             BolnickaLecenja = new ObservableCollection<BolnickoLecenje>();
         }
 
-        public BolnickoLecenje NadjiLecenje(string jmbgPacijenta)
+        public object NadjiPoId(object id)
         {
             foreach (BolnickoLecenje pronadjeno in BolnickaLecenja)
-                if (pronadjeno.JmbgPacijenta.Equals(jmbgPacijenta)) return pronadjeno;
+                if (pronadjeno.JmbgPacijenta.Equals(id as string)) return pronadjeno;
             return null;
         }
 
-        public bool DodajLecenje(BolnickoLecenje lecenje)
+        public bool ObrisiPoId(object lecenje)
         {
-            if (NadjiLecenje(lecenje.JmbgPacijenta) != null) return false;
-            BolnickaLecenja.Add(lecenje);
-            return true;
+            return BolnickaLecenja.Remove(NadjiPoId((lecenje as BolnickoLecenje).JmbgPacijenta) as BolnickoLecenje);
         }
 
-        public bool ObrisiLecenje(BolnickoLecenje lecenje)
+        public bool Dodaj(object lecenje)
         {
-            return BolnickaLecenja.Remove(NadjiLecenje(lecenje.JmbgPacijenta));
+            if (NadjiPoId((lecenje as BolnickoLecenje).JmbgPacijenta) != null) return false;
+            BolnickaLecenja.Add(lecenje as BolnickoLecenje);
+            return true;
         }
     }
 }

@@ -55,7 +55,7 @@ namespace InformacioniSistemBolnice
         {
             if (Zavrsetak.SelectedDate != null)
             {
-                LekarKontroler.Instance.IzmeniBolnickoLecenje(new((DateTime)Pocetak.SelectedDate,
+                BolnickoLecenjeKontroler.Instance.IzmeniBolnickoLecenje(new((DateTime)Pocetak.SelectedDate,
                     (DateTime)Zavrsetak.SelectedDate, pacijent, prostorija));
             }
         }

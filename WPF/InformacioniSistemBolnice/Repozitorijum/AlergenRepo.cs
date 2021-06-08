@@ -6,7 +6,7 @@ using System.Collections.ObjectModel;
 
 namespace Repozitorijum
 {
-    public class AlergenRepo : IRepozitorijum
+    public class AlergenRepo : IRepozitorijum, IOsnovniUpiti
     {
         private const string Putanja = "../../../json/alergeni.json";
 
@@ -32,32 +32,33 @@ namespace Repozitorijum
             Alergeni = new ObservableCollection<Alergen>();
         }
 
-        public Alergen NadjiPoNazivu(string naziv)
+        public object NadjiPoId(object id)
         {
             foreach (Alergen pronadjen in Alergeni)
             {
-                if (pronadjen.Naziv != naziv) continue;
+                if (pronadjen.Naziv != id as string) continue;
                 return pronadjen;
             }
             return null;
         }
 
-        public bool DodajAlergen(Alergen alergenZaDodavanje)
-        {
-            if (Alergeni.Contains(alergenZaDodavanje)) return false;
-            Alergeni.Add(alergenZaDodavanje);
-            Serijalizacija();
-            return true;
-        }
-
-        public bool BrisiPoNazivu(string naziv)
+        public bool ObrisiPoId(object id)
         {
             foreach (Alergen pronadjen in Alergeni)
             {
-                if (pronadjen.Naziv != naziv) continue;
+                if (pronadjen.Naziv != id as string) continue;
                 return Alergeni.Remove(pronadjen);
             }
             return false;
+        }
+
+        public bool Dodaj(object objekat)
+        {
+            foreach (var alergen in Alergeni)
+                if (alergen.Naziv == (objekat as Alergen).Naziv) return false;
+            Alergeni.Add(objekat as Alergen);
+            Serijalizacija();
+            return true;
         }
     }
 }

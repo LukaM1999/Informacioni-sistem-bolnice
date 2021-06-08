@@ -61,7 +61,7 @@ namespace InformacioniSistemBolnice
         {
             if (Pocetak.SelectedDate != null && Zavrsetak.SelectedDate != null && ProstorijeZaHospitalizaciju.SelectedIndex > -1)
             {
-                LekarKontroler.Instance.KreirajBolnickoLecenje(new((DateTime)Pocetak.SelectedDate, 
+                BolnickoLecenjeKontroler.Instance.KreirajBolnickoLecenje(new((DateTime)Pocetak.SelectedDate, 
                     (DateTime)Zavrsetak.SelectedDate, pacijent, (Prostorija)ProstorijeZaHospitalizaciju.SelectedItem));
             }
         }

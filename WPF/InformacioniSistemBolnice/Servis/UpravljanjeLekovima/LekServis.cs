@@ -16,19 +16,19 @@ namespace Servis
 
         public void KreiranjeLeka(LekDto dto)
         {
-            LekRepo.Instance.DodajLek(new(dto.Naziv, dto.Proizvodjac, dto.Sastojci, dto.Zamena, dto.Alergeni));
+            LekRepo.Instance.Dodaj(new Lek(dto.Naziv, dto.Proizvodjac, dto.Sastojci, dto.Zamena, dto.Alergeni));
         }
         public void UklanjanjeLeka(LekDto dto)
         {
-            LekRepo.Instance.BrisiPoNazivu(dto.Naziv);
+            LekRepo.Instance.ObrisiPoId(dto.Naziv);
             LekRepo.Instance.Serijalizacija();
         }
         public void IzmenaLeka(LekDto dto)
         {
-            LekRepo.Instance.NadjiPoNazivu(dto.Naziv).Proizvodjac = dto.Proizvodjac;
-            LekRepo.Instance.NadjiPoNazivu(dto.Naziv).Zamena = dto.Zamena;
-            LekRepo.Instance.NadjiPoNazivu(dto.Naziv).Sastojci = dto.Sastojci;
-            LekRepo.Instance.NadjiPoNazivu(dto.Naziv).Alergen = dto.Alergeni;
+            (LekRepo.Instance.NadjiPoId(dto.Naziv) as Lek).Proizvodjac = dto.Proizvodjac;
+            (LekRepo.Instance.NadjiPoId(dto.Naziv) as Lek).Zamena = dto.Zamena;
+            (LekRepo.Instance.NadjiPoId(dto.Naziv) as Lek).Sastojci = dto.Sastojci;
+            (LekRepo.Instance.NadjiPoId(dto.Naziv) as Lek).Alergen = dto.Alergeni;
             LekRepo.Instance.Serijalizacija();
         }
     }

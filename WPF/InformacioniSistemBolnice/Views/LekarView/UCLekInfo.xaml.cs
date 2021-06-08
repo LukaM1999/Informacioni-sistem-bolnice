@@ -49,10 +49,10 @@ namespace InformacioniSistemBolnice
 
         private void Button_Click1(object sender, RoutedEventArgs e)
         { 
-            LekarKontroler.Instance.IzmenaLeka(new(lek.Naziv, lek.Proizvodjac, sastojci.Text, zamena.Text, lek.Alergen));
+            LekKontroler.Instance.IzmenaLeka(new(lek.Naziv, lek.Proizvodjac, sastojci.Text, zamena.Text, lek.Alergen));
             if (!string.IsNullOrWhiteSpace(komentar.Text))
             {
-                LekarKontroler.Instance.KreirajZahtev(new(komentar.Text,
+                ZahtevKontroler.Instance.KreirajZahtev(new(komentar.Text,
                     (glavniProzorLekara.ulogovanLekar.Ime + " " + glavniProzorLekara.ulogovanLekar.Prezime)));
                 MessageBox.Show("Uspesno ste poslali zahtev");
             }

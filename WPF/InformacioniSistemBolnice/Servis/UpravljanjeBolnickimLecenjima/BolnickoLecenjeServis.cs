@@ -45,7 +45,7 @@ namespace Servis
                 MessageBox.Show("Zauzeti svi kreveti u prostoriji");
                 return;
             }
-            BolnickoLecenjeRepo.Instance.DodajLecenje(new(lecenje.Pocetak, lecenje.Zavrsetak,
+            BolnickoLecenjeRepo.Instance.Dodaj(new BolnickoLecenje(lecenje.Pocetak, lecenje.Zavrsetak,
                 lecenje.Prostorija.Id, lecenje.Pacijent.Jmbg));
             BolnickoLecenjeRepo.Instance.Serijalizacija();
         }
@@ -89,7 +89,7 @@ namespace Servis
 
         public void IzmeniBolnickoLecenje(BolnickoLecenjeDto lecenjeDto)
         {
-            BolnickoLecenje lecenje = BolnickoLecenjeRepo.Instance.NadjiLecenje(lecenjeDto.Pacijent.Jmbg);
+            BolnickoLecenje lecenje = BolnickoLecenjeRepo.Instance.NadjiPoId(lecenjeDto.Pacijent.Jmbg) as BolnickoLecenje;
             lecenje.ZavrsetakLecenja = lecenjeDto.Zavrsetak;
             BolnickoLecenjeRepo.Instance.Serijalizacija();
         }

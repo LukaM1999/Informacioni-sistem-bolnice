@@ -20,14 +20,10 @@ namespace Kontroler
 
         public void IzmenaProstorije(ProstorijaDto dto) => ProstorijaServis.Instance.IzmenaProstorije(dto);
 
-        public void TransformisiProstorije(TransformacijaProstorijaDto dto)
-        {
-            TransformacijaProstorijeServis.Instance.ZakaziTerminTransformacijeProstorija(dto);
-        }
+        public void TransformisiProstorije(TransformacijaProstorijaDto dto) 
+            => TransformacijaProstorijeServis.Instance.ZakaziTerminTransformacijeProstorija(dto);
 
-        public void ZakazivanjeRenoviranja(ProstorijaRenoviranjeDto dto)
-        {
-            RenoviranjeServis.Instance.ZakazivanjeRenoviranja(dto);
-        }
+        public void ZakazivanjeRenoviranja(ProstorijaRenoviranjeDto dto) 
+            => RenoviranjeServis.Instance.ZakazivanjeRenoviranja(dto);
     }
 }

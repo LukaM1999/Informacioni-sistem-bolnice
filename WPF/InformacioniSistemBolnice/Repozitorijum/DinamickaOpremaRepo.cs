@@ -7,7 +7,7 @@ using System.Linq;
 
 namespace Repozitorijum
 {
-    public class DinamickaOpremaRepo:IRepozitorijum
+    public class DinamickaOpremaRepo:IRepozitorijum, IOsnovniUpiti
     {
         private const string Putanja = "../../../json/dinamickaOprema.json";
 
@@ -27,30 +27,32 @@ namespace Repozitorijum
             File.WriteAllText(Putanja, JsonConvert.SerializeObject(DinamickaOprema, Formatting.Indented));
         }
 
-        public DinamickaOprema NadjiPoTipu(TipDinamickeOpreme tip)
+        public object NadjiPoId(object id)
         {
             foreach (DinamickaOprema pronadjena in DinamickaOprema)
             {
-                if (!pronadjena.Tip.Equals(tip)) continue;
+                if (!pronadjena.Tip.Equals(id as TipDinamickeOpreme?)) continue;
                 return pronadjena;
             }
             return null;
         }
 
-        public bool BrisiPoTipu(TipDinamickeOpreme tip)
+        public bool ObrisiPoId(object id)
         {
             foreach (DinamickaOprema pronadjena in DinamickaOprema)
             {
-                if (pronadjena.Tip != tip) continue;
+                if (pronadjena.Tip != id as TipDinamickeOpreme?) continue;
                 return DinamickaOprema.Remove(pronadjena);
             }
             return false;
         }
 
-        public void DodajDinamickuOpremu(DinamickaOprema novaOprema)
+        public bool Dodaj(object objekat)
         {
-            DinamickaOprema.Add(novaOprema);
+            if(NadjiPoId((objekat as DinamickaOprema).Tip) != null) return false;
+            DinamickaOprema.Add(objekat as DinamickaOprema);
             Serijalizacija();
+            return true;
         }
     }
 }

@@ -11,7 +11,7 @@ using Model;
 
 namespace Repozitorijum
 {
-    public class LekRepo : IRepozitorijum
+    public class LekRepo : IRepozitorijum, IOsnovniUpiti
     {
         private const string Putanja = "../../../json/lekovi.json";
 
@@ -31,27 +31,30 @@ namespace Repozitorijum
             File.WriteAllText(Putanja, JsonConvert.SerializeObject(Lekovi, Formatting.Indented));
         }
 
-        public Lek NadjiPoNazivu(string naziv)
+        public object NadjiPoId(object id)
         {
             foreach (Lek pronadjen in Lekovi)
-                if (pronadjen.Naziv == naziv) return pronadjen;
+                if (pronadjen.Naziv == id as string) return pronadjen;
             return null;
         }
 
-        public bool BrisiPoNazivu(string naziv)
+        public bool ObrisiPoId(object id)
         {
             foreach (Lek pronadjen in Lekovi)
             {
-                if (pronadjen.Naziv != naziv) continue;
+                if (pronadjen.Naziv != id as string) continue;
                 return Lekovi.Remove(pronadjen);
             }
             return false;
         }
 
-        public void DodajLek(Lek noviLek)
+        public bool Dodaj(object noviLek)
         {
-            Lekovi.Add(noviLek);
+            foreach (var lek in Lekovi)
+                if (NadjiPoId((noviLek as Lek).Naziv).ToString() == lek.Naziv) return false;
+            Lekovi.Add(noviLek as Lek);
             Serijalizacija();
+            return true;
         }
     }
 }

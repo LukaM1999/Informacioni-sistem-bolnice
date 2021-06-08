@@ -17,7 +17,7 @@ namespace Kontroler
         public bool KreiranjeNaloga(PacijentDto pacijentDto)
         {
             if (PacijentServis.Instance.KreirajNalog(pacijentDto)) return true;
-            else return false;
+            return false;
         }
 
         public void UklanjanjeNaloga(Pacijent pacijent) => PacijentServis.Instance.UkloniNalog(pacijent);

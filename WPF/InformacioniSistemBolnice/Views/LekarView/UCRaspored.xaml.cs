@@ -61,7 +61,7 @@ namespace InformacioniSistemBolnice
         {
             if (ZakazaniTermini.SelectedIndex > -1)
             {
-                LekarKontroler.Instance.Otkazivanje((Termin)ZakazaniTermini.SelectedItem);
+                TerminKontroler.Instance.OtkaziTermin((Termin)ZakazaniTermini.SelectedItem);
                 zakazaniTermini.Remove((Termin)ZakazaniTermini.SelectedItem);
             }
         }

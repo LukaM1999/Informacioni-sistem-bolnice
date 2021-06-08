@@ -62,8 +62,7 @@ namespace InformacioniSistemBolnice
 
         private void potvrdaZakazivanjaDugme_Click(object sender, RoutedEventArgs e)
         {
-            LekarKontroler.Instance.Zakazivanje((Termin)listaZakazanihTermina.SelectedItem);
-
+            TerminKontroler.Instance.ZakaziTermin((Termin)listaZakazanihTermina.SelectedItem);
         }
     }
 }

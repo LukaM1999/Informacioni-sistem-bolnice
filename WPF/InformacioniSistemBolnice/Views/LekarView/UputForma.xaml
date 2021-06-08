@@ -11,7 +11,7 @@
     <Grid>
         <ComboBox x:Name="specijalizacije" HorizontalAlignment="Left" Margin="43,72,0,0" VerticalAlignment="Top" Width="182" Height="29"/>
         <Label Content="Specijalizacija:" HorizontalAlignment="Left" Margin="43,41,0,0" VerticalAlignment="Top"/>
-        <DataGrid Style="{StaticResource ResourceKey=Tables}" x:Name="lekari" Margin="332,72,44,121"/>
+        <DataGrid x:Name="lekari" Margin="332,72,44,121"/>
         <Label Content="Lekar:" HorizontalAlignment="Left" Margin="332,41,0,0" VerticalAlignment="Top" Height="26" Width="90"/>
         <Button Content="Zakazi" HorizontalAlignment="Left" Margin="682,344,0,0" VerticalAlignment="Top" Height="32" Width="74" Click="Button_Click_1"/>
         <Button Content="Pronadji" HorizontalAlignment="Left" Margin="151,116,0,0" VerticalAlignment="Top" Height="23" Width="74" Click="Button_Click"/>

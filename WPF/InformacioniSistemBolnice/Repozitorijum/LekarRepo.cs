@@ -33,14 +33,6 @@ namespace Repozitorijum
             return null;
         }
 
-        public bool KorisnikPostoji(Lekar lekarZaDodavanje)
-        {
-            foreach (Lekar lekar in Lekari)
-                if (lekar.Korisnik.KorisnickoIme == lekarZaDodavanje.Korisnik.KorisnickoIme) return true;
-            return false;
-        }
-
-
         public Lekar NadjiLekaraIsteSpecijalizacije(Lekar lekarSpecijalista)
         {
             foreach (Lekar pronadjen in Lekari)
@@ -56,7 +48,7 @@ namespace Repozitorijum
 
         public bool DodajLekara(Lekar lekarZaDodavanje)
         {
-            if (KorisnikPostoji(lekarZaDodavanje)) return false;
+            if (NadjiLekara(lekarZaDodavanje.Jmbg) != null) return false;
             Lekari.Add(lekarZaDodavanje);
             Serijalizacija();
             return true;

@@ -23,8 +23,7 @@ namespace Servis
                                         lekarDto.Telefon, lekarDto.Email, KreirajKorisnika(lekarDto),
                                         new Adresa(lekarDto.Drzava, lekarDto.Grad, lekarDto.Ulica, lekarDto.Broj)),
                                         new Specijalizacija(lekarDto.Specijalizacija));
-            if (LekarRepo.Instance.DodajLekara(lekar)) return true;
-            return false;
+            return LekarRepo.Instance.DodajLekara(lekar);
         }
 
         private Korisnik KreirajKorisnika(LekarDto lekarDto)

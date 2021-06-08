@@ -19,7 +19,7 @@ namespace InformacioniSistemBolnice.Servis.UpravljanjeBolnickimLecenjima
             while (true)
             {
                 foreach (BolnickoLecenje lecenje in BolnickoLecenjeRepo.Instance.BolnickaLecenja.ToList())
-                    if (lecenje.ZavrsetakLecenja < DateTime.Today) BolnickoLecenjeRepo.Instance.ObrisiLecenje(lecenje);
+                    if (lecenje.ZavrsetakLecenja < DateTime.Today) BolnickoLecenjeRepo.Instance.ObrisiPoId(lecenje);
                 BolnickoLecenjeRepo.Instance.Serijalizacija();
                 Thread.Sleep(2000);
             }

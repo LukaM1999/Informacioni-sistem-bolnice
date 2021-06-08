@@ -11,7 +11,7 @@ namespace Kontroler
     public class LekKontroler
     {
         private static readonly Lazy<LekKontroler> Lazy = new(() => new LekKontroler());
-        public static LekKontroler Instance { get { return Lazy.Value; } }
+        public static LekKontroler Instance => Lazy.Value;
 
         public void KreiranjeLeka(LekDto dto) { LekServis.Instance.KreiranjeLeka(dto); }
 

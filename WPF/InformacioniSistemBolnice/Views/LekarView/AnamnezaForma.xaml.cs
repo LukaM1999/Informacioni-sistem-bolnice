@@ -35,7 +35,7 @@ namespace InformacioniSistemBolnice
         {
             AnamnezaDto anamneza =
                 new(pacijent.Jmbg, SadasnjaBolest.Text, IstorijaBolesti.Text, PorodicneBolesti.Text, Zakljucak.Text);
-            LekarKontroler.Instance.DodavanjeAnamneze(anamneza);
+            ZdravstveniKartonKontroler.Instance.DodavanjeAnamneze(anamneza);
             this.Close();
         }
     }

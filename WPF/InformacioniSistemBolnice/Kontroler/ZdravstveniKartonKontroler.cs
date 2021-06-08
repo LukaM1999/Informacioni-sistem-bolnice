@@ -35,5 +35,9 @@ namespace Kontroler
         public void UklanjanjeAlergenaIzZdravstvenogKartona(Alergen alergen, string jmbg)
                 => ZdravstveniKartonServis.Instance.ObrisiAlergenPacijentu(alergen, jmbg);
 
+        public void IzdavanjeRecepta(ReceptDto recept) => ReceptServis.Instance.IzdajRecept(recept);
+
+        public void DodavanjeAnamneze(AnamnezaDto anamneza) => AnamnezaServis.Instance.DodajAnamnezu(anamneza);
+
     }
 }

@@ -41,7 +41,7 @@ namespace InformacioniSistemBolnice.ViewModels.SekretarViewModel
             pocetna = pocetnaStranicaSekretara;
             SpecijalizacijaRepo.Instance.Deserijalizacija();
             Specijalizacije = SpecijalizacijaRepo.Instance.Specijalizacije;
-            NoviKorisnik = new Korisnik(" ", " ", UlogaKorisnika.pacijent);
+            NoviKorisnik = new Korisnik(null, null, UlogaKorisnika.pacijent);
             AdresaLekara = new Adresa();
             SpecijalizacijaLekara = new Specijalizacija();
             NoviLekar = new Lekar(AdresaLekara, NoviKorisnik);
@@ -62,6 +62,7 @@ namespace InformacioniSistemBolnice.ViewModels.SekretarViewModel
 
         private bool RegistracijaLekara()
         {
+            LekarRepo.Instance.Deserijalizacija();
             LekarDto lekarDto = PokupiPodatkeSaForme();
             if (NalogLekaraKontroler.Instance.KreiranjeNalogaLekara(lekarDto)) {
                 pocetna.contentControl.Content = new Lekari(pocetna);
@@ -69,7 +70,6 @@ namespace InformacioniSistemBolnice.ViewModels.SekretarViewModel
             }
             MessageBox.Show("Korisnik sa unetim korisnickim imenom vec postoji!");
             return false;
-        
         }
 
 
@@ -78,8 +78,8 @@ namespace InformacioniSistemBolnice.ViewModels.SekretarViewModel
             return new LekarDto(NoviLekar.Ime, NoviLekar.Prezime, NoviLekar.Jmbg, NoviLekar.DatumRodjenja,
                                                          NoviLekar.AdresaStanovanja.Drzava, NoviLekar.AdresaStanovanja.Grad,
                                                          NoviLekar.AdresaStanovanja.Ulica, NoviLekar.AdresaStanovanja.Broj,
-                                                        NoviLekar.Telefon, NoviLekar.Email, NoviLekar.Korisnik.KorisnickoIme
-                                                        , NoviLekar.Korisnik.Lozinka, SpecijalizacijaLekara.Naziv);
+                                                         NoviLekar.Telefon, NoviLekar.Email, NoviLekar.Korisnik.KorisnickoIme,
+                                                         NoviLekar.Korisnik.Lozinka, SpecijalizacijaLekara.Naziv);
         }
 
         private bool ValidanUnos()

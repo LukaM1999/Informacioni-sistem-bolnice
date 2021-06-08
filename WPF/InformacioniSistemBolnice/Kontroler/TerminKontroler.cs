@@ -13,15 +13,15 @@ namespace Kontroler
         private static readonly Lazy<TerminKontroler> Lazy = new(() => new TerminKontroler());
         public static TerminKontroler Instance => Lazy.Value;
 
-        public void ZakazivanjeTermina(Termin termin) => TerminServis.Instance.ZakaziTermin(termin);
+        public void ZakaziTermin(Termin izabranTermin) => TerminServis.Instance.ZakaziTermin(izabranTermin);
 
-        public void PomjeranjeTerminaPacijenata(Termin terminZaPomeranje, Termin noviTermin)
-                => TerminServis.Instance.PomeriTermin(terminZaPomeranje, noviTermin);
+        public void OtkaziTermin(Termin izabranTermin) => TerminServis.Instance.OtkaziTermin(izabranTermin);
 
-        public void Otkazivanje(Termin termin) => TerminServis.Instance.OtkaziTermin(termin);
+        public void PomeriTermin(Termin terminZaPomeranje, Termin noviTermin)
+            => TerminServis.Instance.PomeriTermin(terminZaPomeranje, noviTermin);
 
-        public void PomeranjeVanrednogTerminaPacijenta(Termin stariTermin, Termin noviTermin)
-                => UrgentniSistemServis.Instance.PomeranjeVanrednogTermina(stariTermin, noviTermin);
+        public void PomeriVanredanTerminPacijenta(Termin stariTermin, Termin noviTermin)
+            => UrgentniSistemServis.Instance.PomeranjeVanrednogTermina(stariTermin, noviTermin);
 
     }
 }

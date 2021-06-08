@@ -13,9 +13,8 @@ namespace Kontroler
         private static readonly Lazy<ZahtevKontroler> Lazy = new(() => new ZahtevKontroler());
         public static ZahtevKontroler Instance { get { return Lazy.Value; } }
 
-        public void BrisanjeZahtevaLeka(ZahtevDto dto)
-        {
-            ZahtevServis.Instance.ObrisiZahtev(dto);
-        }
+        public void BrisanjeZahtevaLeka(ZahtevDto dto) => ZahtevServis.Instance.ObrisiZahtev(dto);
+
+        public void KreirajZahtev(ZahtevDto zahtev) => ZahtevServis.Instance.KreirajZahtev(zahtev);
     }
 }
