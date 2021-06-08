@@ -30,6 +30,9 @@
     <Compile Update="Views\PacijentView\AnamnezaView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Views\PacijentView\FeedbackPacijentaView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Views\PacijentView\IzvestajView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -309,6 +312,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\PacijentView\AnamnezaView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\PacijentView\FeedbackPacijentaView.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\PacijentView\IzvestajView.xaml">

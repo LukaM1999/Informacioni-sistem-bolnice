@@ -5,13 +5,18 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
         xmlns:local="clr-namespace:InformacioniSistemBolnice"
-        xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"        
+        xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"  
+        xmlns:vm="clr-namespace:InformacioniSistemBolnice.ViewModels.PacijentViewModel"
         mc:Ignorable="d"
         Title="Glavni prozor"
         WindowStartupLocation="CenterScreen"
-        Height="720" Width="1280" FontSize="18"
-        Background="#fcecdd"
-        >
+        Height="730" Width="1280" FontSize="18"
+        Background="#fcecdd">
+
+    <Window.DataContext>
+        <vm:GlavniProzorPacijentaViewModel/>
+    </Window.DataContext>
+
     <Window.Resources>
         <Style x:Key="NavigationContentStyle" TargetType="ContentControl">
             <Setter Property="ContentTemplate" Value="{StaticResource KalendarViewTemplate}"/>
@@ -39,7 +44,7 @@
     <Grid>
         <Grid>
             <Grid.RowDefinitions>
-                <RowDefinition Height="21"/>
+                <RowDefinition Height="30"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
@@ -59,18 +64,20 @@
                                 <ColumnDefinition Width="Auto"></ColumnDefinition>
                                 <ColumnDefinition Width="Auto"></ColumnDefinition>
                                 <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                <ColumnDefinition Width="Auto"></ColumnDefinition>
                                 <ColumnDefinition Width="*"></ColumnDefinition>
                             </Grid.ColumnDefinitions>
                         </Grid>
                     </ItemsPanelTemplate>
                 </Menu.ItemsPanel>
                 <MenuItem Grid.Column="0" Header="Profil" FontSize="15" HorizontalAlignment="Center" VerticalAlignment="Center"></MenuItem>
-                <MenuItem Grid.Column="1" Header="Obaveštenja" FontSize="15" HorizontalAlignment="Center" VerticalAlignment="Center"></MenuItem>
-                <MenuItem Grid.Column="2" Header="Kalendar" FontSize="15" HorizontalAlignment="Center" VerticalAlignment="Center"></MenuItem>
+                <MenuItem Grid.Column="1" Header="Kalendar" FontSize="15" HorizontalAlignment="Center" VerticalAlignment="Center"></MenuItem>
+                <MenuItem Grid.Column="2" Header="Obaveštenja" FontSize="15" HorizontalAlignment="Center" VerticalAlignment="Center"></MenuItem>
                 <MenuItem Grid.Column="3" Header="Istorija" FontSize="15" HorizontalAlignment="Center" VerticalAlignment="Center"></MenuItem>
                 <MenuItem Grid.Column="4" Header="Terapija" FontSize="15" HorizontalAlignment="Center" VerticalAlignment="Center"></MenuItem>
                 <MenuItem Grid.Column="5" Header="Pomoć" FontSize="15" HorizontalAlignment="Center" VerticalAlignment="Center"></MenuItem>
-                <MenuItem Grid.Column="6" Header="Odjava" FontSize="15" HorizontalAlignment="Center" VerticalAlignment="Center"></MenuItem>
+                <MenuItem Grid.Column="6" Header="Feedback" FontSize="15" HorizontalAlignment="Center" VerticalAlignment="Center" Command="{Binding OtvaranjeFeedbacka}"></MenuItem>
+                <MenuItem Grid.Column="7" Header="Odjava" FontSize="15" HorizontalAlignment="Center" VerticalAlignment="Center"></MenuItem>
             </Menu>
 
             <ListBox Grid.Row="1" Grid.Column="0" x:Name="NavigationMenuListBox" 

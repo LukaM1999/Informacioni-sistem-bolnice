@@ -26,15 +26,6 @@ namespace InformacioniSistemBolnice
             PokreniNiti();
         }
 
-        private void PokreniNiti()
-        {
-            new Thread(() => new ZavrsenTerminServis<Pacijent>().PokreniProveruZavrsenostiTermina(ulogovanPacijent)).Start();
-            new Thread(() => AntiTrollServis.Instance.ProveriMalicioznostPacijenta(ulogovanPacijent.Jmbg)).Start();
-            PrikazBolnickeAnketeServis.Instance.OtvoriAnketuOBolnici(ulogovanPacijent);
-            ObavestenjePacijentaServis.Instance.UkljuciPodsetnike(ulogovanPacijent.Jmbg);
-            new Thread(() => ObavestenjeTerapijeServis.Instance.UkljuciObavestenja(ulogovanPacijent)).Start();
-        }
-
         private void InicijalizujProzor(string korisnickoIme, string lozinka)
         {
             TerminRepo.Instance.Deserijalizacija();
@@ -43,12 +34,15 @@ namespace InformacioniSistemBolnice
             AnketaOBolniciRepo.Instance.Deserijalizacija();
             ulogovanPacijent = PacijentRepo.Instance.PronadjiUlogovanogPacijenta(korisnickoIme, lozinka);
             PacijentRepo.Instance.PostaviTermineUlogovanogPacijenta(ulogovanPacijent);
-            //listaZakazanihTermina.ItemsSource = ulogovanPacijent.ZakazaniTermini;
         }
 
-        private void OtvoriVesti(object sender, RoutedEventArgs e)
+        private void PokreniNiti()
         {
-            new VestiView().Show();
+            new Thread(() => new ZavrsenTerminServis<Pacijent>().PokreniProveruZavrsenostiTermina(ulogovanPacijent)).Start();
+            new Thread(() => AntiTrollServis.Instance.ProveriMalicioznostPacijenta(ulogovanPacijent.Jmbg)).Start();
+            PrikazBolnickeAnketeServis.Instance.OtvoriAnketuOBolnici(ulogovanPacijent);
+            ObavestenjePacijentaServis.Instance.UkljuciPodsetnike(ulogovanPacijent.Jmbg);
+            new Thread(() => ObavestenjeTerapijeServis.Instance.UkljuciObavestenja(ulogovanPacijent)).Start();
         }
 
         private void OtvoriAnketu(object sender, RoutedEventArgs e)
