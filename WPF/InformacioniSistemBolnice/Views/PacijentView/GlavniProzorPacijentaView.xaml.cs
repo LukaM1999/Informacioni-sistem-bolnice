@@ -61,5 +61,36 @@ namespace InformacioniSistemBolnice
             if (ulogovanPacijent.zdravstveniKarton is { Anamneza: { } })
                 new AnamnezaView { DataContext = new AnamnezaViewModel(ulogovanPacijent) }.Show();
         }
+
+        private void IzaberiProfil(object sender, RoutedEventArgs e)
+        {
+            NavigationMenuListBox.SelectedItem = "Profil";
+        }
+
+        private void IzaberiKalendar(object sender, RoutedEventArgs e)
+        {
+            NavigationMenuListBox.SelectedItem = "Kalendar";
+        }
+
+        private void IzaberiObavestenja(object sender, RoutedEventArgs e)
+        {
+            NavigationMenuListBox.SelectedItem = "Obaveštenja";
+        }
+
+        private void IzaberiIstoriju(object sender, RoutedEventArgs e)
+        {
+            NavigationMenuListBox.SelectedItem = "Istorija";
+        }
+
+        private void IzaberiTerapiju(object sender, RoutedEventArgs e)
+        {
+            NavigationMenuListBox.SelectedItem = "Terapija";
+        }
+
+        private void IzaberiPomoc(object sender, RoutedEventArgs e)
+        {
+            NavigationMenuListBox.SelectedItem = "Pomoc";
+        }
+
     }
 }

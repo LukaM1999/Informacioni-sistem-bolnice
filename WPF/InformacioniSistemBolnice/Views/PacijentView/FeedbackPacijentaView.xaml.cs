@@ -14,9 +14,6 @@ using System.Windows.Shapes;
 
 namespace InformacioniSistemBolnice.Views.PacijentView
 {
-    /// <summary>
-    /// Interaction logic for FeedbackPacijentaView.xaml
-    /// </summary>
     public partial class FeedbackPacijentaView : Window
     {
         public FeedbackPacijentaView()
