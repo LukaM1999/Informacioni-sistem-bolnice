@@ -31,6 +31,7 @@ namespace InformacioniSistemBolnice
             RenoviranjeRepo.Instance.Deserijalizacija();
             TransformacijaProstorijaRepo.Instance.Deserijalizacija();
             LekarRepo.Instance.Deserijalizacija();
+            FeedbackRepo.Instance.Deserijalizacija();
             //new Thread(RaspodelaStatickeOpremeServis.Instance.ProveraPremestajaOpreme).Start();
             //new Thread(RenoviranjeServis.Instance.ProveraRenoviranja).Start();
         }

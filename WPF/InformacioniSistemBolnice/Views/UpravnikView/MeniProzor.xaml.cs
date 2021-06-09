@@ -40,6 +40,11 @@ namespace InformacioniSistemBolnice.Views.UpravnikView
             this.NavigationService.Navigate(new Lekovi());
         }
 
+        private void Feedback(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new FeedbackUpravnik());
+        }
+
         private void IzabranaOprema(object sender, RoutedEventArgs e)
         {
             this.NavigationService.Navigate(new Magacin());

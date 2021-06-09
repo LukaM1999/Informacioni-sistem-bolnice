@@ -157,10 +157,11 @@
                 </Button.Background>
 
             </Button>
+            <Button Content="Feedback" HorizontalAlignment="Left" Margin="162,0,0,0" VerticalAlignment="Center" Click="Feedback"/>
 
         </Grid>
 
-        
+
         <DataGrid x:Name="dgListaZahteva" RowBackground="#FF5DB5F4" HorizontalAlignment="Left" Height="674" Margin="77,76,0,0" RowHeight="40" AutoGenerateColumns="False" VerticalAlignment="Top" Width="353" FontSize="14" BorderThickness="0,0,0,0" GridLinesVisibility="Horizontal" HorizontalGridLinesBrush="Black" CanUserAddRows="False" CanUserDeleteRows="False" CanUserResizeRows="False" BorderBrush="#FF3697DC">
             <DataGrid.Background>
                 <SolidColorBrush Color="#FF1289DD" Opacity="1"/>

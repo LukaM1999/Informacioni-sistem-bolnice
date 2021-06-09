@@ -1,8 +1,14 @@
 [
   {
+    "ImeKorisnika": "Milica Markovic",
+    "UlogaKorisnika": "pacijent",
+    "Poruka": "Svaka cast onome ko je ovo napravio jako se lako snalazim. Odusevljen sam.",
+    "VremeSlanja": "2021-06-09T12:47:49.8819422+02:00"
+  },
+  {
     "ImeKorisnika": "Darko Peric",
     "UlogaKorisnika": "lekar",
-    "Poruka": "Stvarno je ovaj programer odlicno odradio svoj posao. Vrlo jednostavan dizajn. Nadam se da je dobio max poena.",
-    "VremeSlanja": "2021-06-09T12:05:59.8537895+02:00"
+    "Poruka": "Ovaj programer je odlicno odradio svoj posao. Sigurno je dobio 100%",
+    "VremeSlanja": "2021-06-09T12:49:39.5277465+02:00"
   }
 ]

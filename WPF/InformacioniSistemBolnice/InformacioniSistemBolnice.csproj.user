@@ -144,6 +144,9 @@
     <Compile Update="Views\SekretarView\Lekari.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Views\UpravnikView\FeedbackUpravnik.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Views\UpravnikView\LekDodaj.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -462,6 +465,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\SekretarView\Lekari.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\UpravnikView\FeedbackUpravnik.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\UpravnikView\LekDodaj.xaml">
