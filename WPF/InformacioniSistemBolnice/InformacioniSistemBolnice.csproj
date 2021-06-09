@@ -29,9 +29,12 @@
     <None Remove="images\UpravnikImages\info-logo.png" />
     <None Remove="images\UpravnikImages\medicine-logo.png" />
     <None Remove="images\UpravnikImages\menu-logo.png" />
+    <None Remove="images\UpravnikImages\merge.png" />
     <None Remove="images\UpravnikImages\minus-logo.png" />
     <None Remove="images\UpravnikImages\plus-logo.png" />
+    <None Remove="images\UpravnikImages\report.png" />
     <None Remove="images\UpravnikImages\room-logo.png" />
+    <None Remove="images\UpravnikImages\split.png" />
     <None Remove="images\UpravnikImages\trash-can.png" />
     <None Remove="images\UpravnikImages\warehouse-logo.png" />
     <None Remove="images\user.png" />
@@ -128,9 +131,12 @@
     <Resource Include="images\UpravnikImages\info-logo.png" />
     <Resource Include="images\UpravnikImages\medicine-logo.png" />
     <Resource Include="images\UpravnikImages\menu-logo.png" />
+    <Resource Include="images\UpravnikImages\merge.png" />
     <Resource Include="images\UpravnikImages\minus-logo.png" />
     <Resource Include="images\UpravnikImages\plus-logo.png" />
+    <Resource Include="images\UpravnikImages\report.png" />
     <Resource Include="images\UpravnikImages\room-logo.png" />
+    <Resource Include="images\UpravnikImages\split.png" />
     <Resource Include="images\UpravnikImages\trash-can.png" />
     <Resource Include="images\UpravnikImages\warehouse-logo.png" />
     <Resource Include="images\user.png" />
