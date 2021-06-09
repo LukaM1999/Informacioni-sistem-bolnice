@@ -6,11 +6,12 @@ using Model;
 using Repozitorijum;
 using InformacioniSistemBolnice.DTO;
 using Kontroler;
+using System.Windows.Controls;
 
 namespace InformacioniSistemBolnice
 {
    
-    public partial class IzborTerminaPacijenta : Window
+    public partial class IzborTerminaPacijenta : UserControl
     {
         private ObservableCollection<Termin> slobodniTermini = new();
         public Lekar IzabraniLekar { get; set; }
@@ -18,10 +19,17 @@ namespace InformacioniSistemBolnice
         public TipTermina IzabraniTip { get; set; }
         public Prostorija IzabranaProstorija { get; set; }
 
+        public PocetnaStranicaSekretara _pocetna;
+
         private readonly TimeSpan intervalDana;
-        public IzborTerminaPacijenta(ZakazivanjeTerminaSekretarDto zakazivanje)
+
+        public ZakazivanjeTerminaSekretara zakazivanjeTermina;
+        public IzborTerminaPacijenta(ZakazivanjeTerminaSekretarDto zakazivanje, PocetnaStranicaSekretara pocetna, 
+            ZakazivanjeTerminaSekretara zakazivanjeTerminaSekretara)
         {
             InitializeComponent();
+            _pocetna = pocetna;
+            zakazivanjeTermina = zakazivanjeTerminaSekretara;
             IzabraniLekar = zakazivanje.IzabranLekar;
             IzabraniPacijent = zakazivanje.IzabranPacijent;
             IzabraniTip = zakazivanje.IzabraniTip;
@@ -122,7 +130,13 @@ namespace InformacioniSistemBolnice
         private void zakaziDugme_Click(object sender, RoutedEventArgs e)
         {
             TerminKontroler.Instance.ZakaziTermin((Termin)ponudjeniTermini.SelectedValue);
-            this.Close();
+            _pocetna.contentControl.Content = new TerminiPacijentaProzorSekretara(_pocetna);
+            
+        }
+
+        private void NazadBtn_Click(object sender, RoutedEventArgs e)
+        {
+            _pocetna.contentControl.Content = zakazivanjeTermina.Content;
         }
     }
 }

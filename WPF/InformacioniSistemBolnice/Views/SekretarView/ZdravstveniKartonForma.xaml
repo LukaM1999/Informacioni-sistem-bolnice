@@ -14,7 +14,7 @@
             <ColumnDefinition Width="400*"/>
             <ColumnDefinition Width="300*"/>
         </Grid.ColumnDefinitions>
-        <Canvas Height="470" Width="326" HorizontalAlignment="Center" VerticalAlignment="Center">
+        <Canvas Height="470" Width="326" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,77,0,0">
             <Label Content="Broj kartona: " Canvas.Left="31" Width="96" Canvas.Top="-24"/>
             <Label Content="Broj knjizice: " Canvas.Left="31" Canvas.Top="7" Width="94"/>
             <Label Content="JMBG: " Canvas.Left="31" Canvas.Top="38" Width="70"/>

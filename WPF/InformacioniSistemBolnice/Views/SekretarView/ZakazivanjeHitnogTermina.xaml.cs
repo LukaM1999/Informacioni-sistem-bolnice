@@ -18,7 +18,6 @@ namespace InformacioniSistemBolnice
             InitializeComponent();
             upravljanjeUrgentnimSistemomProzor = upravljanje;
             pocetna = upravljanje.pocetna;
-            vrijeme.Content = DateTime.Now.TimeOfDay.ToString();
             GenerisiListe();
         }
 
@@ -34,12 +33,16 @@ namespace InformacioniSistemBolnice
 
         private void ZakaziHitanTermin_Click(object sender, RoutedEventArgs e)
         {
-            Pacijent pacijent = (Pacijent)pacijenti.SelectedItem;
-            Prostorija prostorija = (Prostorija)prostorije.SelectedItem;
-            HitnoZakazivanjeDto hitnoZakazivanjeDto = new(specijalizacijeLekara.SelectedItem.ToString(),
-                                                          pacijent.Jmbg, prostorija.Id);
-            UrgentniTerminKontroler.Instance.ZakazivanjeHitnogTermina(hitnoZakazivanjeDto);
-            AzurirajPrikaz();
+            if (Validiraj())
+            {
+                Pacijent pacijent = (Pacijent)pacijenti.SelectedItem;
+                Prostorija prostorija = (Prostorija)prostorije.SelectedItem;
+                HitnoZakazivanjeDto hitnoZakazivanjeDto = new(specijalizacijeLekara.SelectedItem.ToString(),
+                                                              pacijent.Jmbg, prostorija.Id);
+                UrgentniTerminKontroler.Instance.ZakazivanjeHitnogTermina(hitnoZakazivanjeDto);
+                MessageBox.Show("Vanredni termin uspjesno kreiran!");
+                AzurirajPrikaz();
+            } 
         }
 
         private void AzurirajPrikaz()
@@ -53,6 +56,16 @@ namespace InformacioniSistemBolnice
         {
             IzborTerminaZaPomeranje izborTerminaZaPomeranje = new IzborTerminaZaPomeranje(this);
             izborTerminaZaPomeranje.Show();
+        }
+
+        public bool Validiraj() 
+        {
+            if (specijalizacijeLekara.SelectedItem == null || pacijenti.SelectedItem == null || prostorije.SelectedItem == null)
+            {
+                MessageBox.Show("Forma nije popunjena!\nUnesite potrebne podatke!");
+                return false;
+            }
+            else return true;
         }
 
         private void NazadBtn_Click(object sender, RoutedEventArgs e)

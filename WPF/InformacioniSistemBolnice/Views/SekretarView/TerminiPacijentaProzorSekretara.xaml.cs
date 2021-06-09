@@ -21,8 +21,8 @@ namespace InformacioniSistemBolnice
 
         private void ZakaziTermin_Click(object sender, RoutedEventArgs e)
         {
-            ZakazivanjeTerminaSekretara zakazivanjeTerminaSekretara = new ZakazivanjeTerminaSekretara(this);
-            zakazivanjeTerminaSekretara.Show();
+            ZakazivanjeTerminaSekretara zakazivanjeTerminaSekretara = new ZakazivanjeTerminaSekretara(this, pocetna);
+            pocetna.contentControl.Content = zakazivanjeTerminaSekretara.Content;
         }
 
         private void OtkaziTermin_Click(object sender, RoutedEventArgs e)

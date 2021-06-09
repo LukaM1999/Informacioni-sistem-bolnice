@@ -7,16 +7,14 @@
         mc:Ignorable="d"
         Height="480" Width="665" Background="LightGray" Margin="0,0,0,30">
     <Grid  Height="480" Width="665" HorizontalAlignment="Center" VerticalAlignment="Center">
-        <Label Content="Trenutno Vreme:" HorizontalAlignment="Left" Margin="170,168,0,0" VerticalAlignment="Top"/>
-        <Label Content="Specijalizacija lekara:" HorizontalAlignment="Left" Margin="169,208,0,0" VerticalAlignment="Top"/>
-        <Label Content="Pacijent:" HorizontalAlignment="Left" Margin="170,248,0,0" VerticalAlignment="Top"/>
-        <Label Content="Prostorija:" HorizontalAlignment="Left" Margin="170,287,0,0" VerticalAlignment="Top"/>
-        <ComboBox x:Name="specijalizacijeLekara" HorizontalAlignment="Left" Margin="358,210,0,0" VerticalAlignment="Top" Width="140"/>
-        <ComboBox x:Name="pacijenti" HorizontalAlignment="Left" Margin="358,252,0,0" VerticalAlignment="Top" Width="140"/>
-        <ComboBox x:Name="prostorije" HorizontalAlignment="Left" Margin="358,290,0,0" VerticalAlignment="Top" Width="140"/>
-        <Button Content="Zakazi hitan TerminiProstorije" HorizontalAlignment="Left" Margin="234,88,0,0" VerticalAlignment="Top" Click="ZakaziHitanTermin_Click"/>
-        <Label  x:Name="vrijeme" Content="" HorizontalAlignment="Left" Margin="356,167,0,0" VerticalAlignment="Top" Width="39"/>
-        <Button Content="Pomeri zakazani TerminiProstorije" HorizontalAlignment="Left" Margin="405,87,0,0" VerticalAlignment="Top" Width="140" Click="PomeriPostojeciTermin_Click" Height="24"/>
+        <Label Content="Specijalizacija lekara:" HorizontalAlignment="Left" Margin="187,168,0,0" VerticalAlignment="Top"/>
+        <Label Content="Pacijent:" HorizontalAlignment="Left" Margin="252,211,0,0" VerticalAlignment="Top"/>
+        <Label Content="Prostorija:" HorizontalAlignment="Left" Margin="244,253,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="specijalizacijeLekara" HorizontalAlignment="Left" Margin="352,170,0,0" VerticalAlignment="Top" Width="140"/>
+        <ComboBox x:Name="pacijenti" HorizontalAlignment="Left" Margin="352,211,0,0" VerticalAlignment="Top" Width="140"/>
+        <ComboBox x:Name="prostorije" HorizontalAlignment="Left" Margin="352,254,0,0" VerticalAlignment="Top" Width="140"/>
+        <Button Content="Zakazi hitan termin" HorizontalAlignment="Left" Margin="192,118,0,0" VerticalAlignment="Top" Click="ZakaziHitanTermin_Click" Height="27"/>
+        <Button Content="Pomeri zakazani termin" HorizontalAlignment="Left" Margin="344,118,0,0" VerticalAlignment="Top" Width="152" Click="PomeriPostojeciTermin_Click" Height="27"/>
         <Button Style="{StaticResource ResourceKey=MainButtons}" x:Name="Nazad"  Click="NazadBtn_Click" HorizontalAlignment="Left" VerticalAlignment="Top" Background="LightGray"  Width="50" Height="60" >
             <StackPanel Orientation="Vertical">
                 <Image Source="../../images/back.png" Width="30" Height="30" RenderOptions.BitmapScalingMode="Fant"/>
