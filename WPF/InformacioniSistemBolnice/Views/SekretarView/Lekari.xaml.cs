@@ -6,6 +6,7 @@ using Kontroler;
 using InformacioniSistemBolnice.ViewModels.SekretarViewModel;
 using InformacioniSistemBolnice.Servis.UpravljanjeIzvestajima;
 using InformacioniSistemBolnice.Utilities;
+using InformacioniSistemBolnice.Views.SekretarView;
 
 namespace InformacioniSistemBolnice
 {
@@ -53,6 +54,12 @@ namespace InformacioniSistemBolnice
         {
             IzvestajUtility izvestaj = new IzvestajSekretaraServis();
             izvestaj.GenerisiIzvestaj();
+        }
+
+        private void IzgenerisiGrafik_Click(object sender, RoutedEventArgs e)
+        {
+            pocetna.contentControl.Content = new IzborIntervalaZauzetostiLekara()
+            { DataContext = new IntervalZauzetostiViewModel(this.pocetna) };
         }
     }
 }
