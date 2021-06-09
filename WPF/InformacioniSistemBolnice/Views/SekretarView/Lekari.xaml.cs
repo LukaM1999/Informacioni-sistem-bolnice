@@ -52,8 +52,7 @@ namespace InformacioniSistemBolnice
 
         private void Izvestaj_Click(object sender, RoutedEventArgs e)
         {
-            IzvestajUtility izvestaj = new IzvestajSekretaraServis();
-            izvestaj.GenerisiIzvestaj();
+            IzvestajKontroler.Instance.GenerisiSekretarovIzvestaj();
         }
 
         private void IzgenerisiGrafik_Click(object sender, RoutedEventArgs e)

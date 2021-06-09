@@ -16,5 +16,10 @@ namespace Kontroler
         {
             IzvestajPacijentaServis.Instance.GenerisiIzvestaj();
         }
+
+        public void GenerisiSekretarovIzvestaj()
+        {
+            IzvestajSekretaraServis.Instance.GenerisiIzvestaj();
+        }
     }
 }

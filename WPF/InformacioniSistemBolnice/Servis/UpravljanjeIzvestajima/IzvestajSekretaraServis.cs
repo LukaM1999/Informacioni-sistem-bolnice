@@ -18,6 +18,8 @@ namespace InformacioniSistemBolnice.Servis.UpravljanjeIzvestajima
 {
     public class IzvestajSekretaraServis : IzvestajUtility
     {
+        private static readonly Lazy<IzvestajSekretaraServis> Lazy = new(() => new IzvestajSekretaraServis());
+        public static IzvestajSekretaraServis Instance => Lazy.Value;
         public override void KreirajDokument()
         {
             using (PdfDocument doc = new PdfDocument())
@@ -30,7 +32,6 @@ namespace InformacioniSistemBolnice.Servis.UpravljanjeIzvestajima
                 tabela.Columns.Add("Lekar");
                 tabela.Columns.Add("Pocetak zauzetosti");
                 tabela.Columns.Add("Kraj zauzetosti");
-                tabela.Rows.Add(new string[] { "Lekar", "Pocetak zauzetosti", "Kraj zauzetosti" });
                 foreach (Lekar lekar in LekarRepo.Instance.Lekari)
                 {
                     foreach (Termin termin in lekar.ZakazaniTermini)
