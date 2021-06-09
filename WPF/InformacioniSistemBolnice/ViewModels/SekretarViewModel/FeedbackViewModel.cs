@@ -29,7 +29,7 @@ namespace InformacioniSistemBolnice.ViewModels.SekretarViewModel
 
         public void PosaljiFeedback()
         {
-            FeedbackKontroler.Instance.PosaljiFeedback(new FeedbackDto("sekretar1", "2".ToString(), Poruka));
+            FeedbackKontroler.Instance.PosaljiFeedback(new FeedbackDto("sekretar1", "sekretar", Poruka));
             pocetna.contentControl.Content = menu.Content;
         }
 

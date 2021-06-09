@@ -21,6 +21,9 @@
     <Compile Update="Views\LekarView\Karton.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Views\LekarView\LekarFeedbackView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Views\LekarView\LekarIzborTermina.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -333,6 +336,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\LekarView\Karton.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\LekarView\LekarFeedbackView.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\LekarView\LekarIzborTermina.xaml">

@@ -12,8 +12,10 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using InformacioniSistemBolnice.ViewModels.LekarViewModel;
 using InformacioniSistemBolnice.Views.LekarView;
 using MahApps.Metro.Controls;
+using Model;
 
 namespace InformacioniSistemBolnice
 {
@@ -48,6 +50,13 @@ namespace InformacioniSistemBolnice
         private void Button_Click_3(object sender, RoutedEventArgs e)
         {
             glavniProzor.contentControl.Content = new About(glavniProzor);
+        }
+
+        private void Button_Click_4(object sender, RoutedEventArgs e)
+        {
+            LekarFeedbackView feedback = new LekarFeedbackView()
+                { DataContext = new LekarFeedbackViewModel(glavniProzor)};
+            glavniProzor.contentControl.Content = feedback;
         }
     }
 }

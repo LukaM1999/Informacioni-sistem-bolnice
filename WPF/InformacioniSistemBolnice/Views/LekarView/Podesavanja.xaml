@@ -32,7 +32,7 @@
                 <iconPacks:PackIconMaterial Kind="ChevronRight"  Width="40" Height="40" HorizontalAlignment="Right" VerticalAlignment="Center"/>
             </StackPanel>
         </Button>
-        <Button Background="Transparent" Margin="239,262,239,277" Cursor="Hand">
+        <Button Background="Transparent" Margin="239,262,239,277" Cursor="Hand" Click="Button_Click_4">
             <StackPanel Orientation="Horizontal">
                 <StackPanel.Resources>
                     <Style TargetType="{x:Type Label}">
