@@ -5,6 +5,7 @@ using Repozitorijum;
 using Kontroler;
 using Model;
 using InformacioniSistemBolnice.ViewModels.SekretarViewModel;
+using InformacioniSistemBolnice.Views.SekretarView;
 
 namespace InformacioniSistemBolnice
 {
@@ -26,9 +27,8 @@ namespace InformacioniSistemBolnice
         private void VidiVest_Click(object sender, RoutedEventArgs e)
         {
             Vest izabranaVest = (Vest)ListaVesti.SelectedItem;
-            PregledVesti pregledVesti = new PregledVesti()
-            { DataContext = new PregledVestiViewModel(ListaVesti, izabranaVest) };
-            pregledVesti.Show();
+            menu.pocetna.contentControl.Content = new PregledVesti()
+            { DataContext = new PregledVestiViewModel(this, izabranaVest) }; 
         }
 
         private void ObrisiVest_Clik(object sender, RoutedEventArgs e)

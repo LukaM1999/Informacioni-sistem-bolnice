@@ -8,11 +8,11 @@
        Height="650" Width="1000" Background="LightGray" Margin="0,0,0,30">
     <Grid>
         <Canvas Height="650" Width="1000">
-            <DataGrid x:Name="listaZakazanihTermina" Height="550" Width="900" Canvas.Top="57" CanUserAddRows="False" Background="White" Canvas.Left="48" CanUserResizeColumns="False"/>
-            <Button x:Name="zakaziDugme" Content ="Zakazi" Canvas.Left="100" Canvas.Top="20" Width="80" Click="ZakaziTermin_Click" Background="White" FontSize="14"/>
-            <Button Content="Pomeri" Canvas.Left="200" Canvas.Top="20" Width="80" Click="PomeriTermin_Click" Background="White" FontSize="14"/>
-            <Button Content="Uvid" Canvas.Left="300" Canvas.Top="20" Width="80" Background="White" FontSize="14"/>
-            <Button Content="Otkazi" HorizontalAlignment="Left" Canvas.Left="400" Canvas.Top="20" Width="80" Click="OtkaziTermin_Click" Background="White" FontSize="14"/>
+            <DataGrid x:Name="listaZakazanihTermina" Height="550" Width="760" Canvas.Top="57" CanUserAddRows="False" Background="White" Canvas.Left="120" CanUserResizeColumns="False"/>
+            <Button x:Name="zakaziDugme" Content ="Zakazi" Canvas.Left="200" Canvas.Top="14" Width="80" Click="ZakaziTermin_Click" Background="White" FontSize="14"/>
+            <Button Content="Pomeri" Canvas.Left="300" Canvas.Top="14" Width="80" Click="PomeriTermin_Click" Background="White" FontSize="14"/>
+            <Button Content="Uvid" Canvas.Left="400" Canvas.Top="14" Width="80" Background="White" FontSize="14"/>
+            <Button Content="Otkazi" HorizontalAlignment="Left" Canvas.Left="500" Canvas.Top="14" Width="80" Click="OtkaziTermin_Click" Background="White" FontSize="14"/>
         </Canvas>
        
     </Grid>

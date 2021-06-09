@@ -1,8 +1,10 @@
-﻿using System.Windows;
+﻿
+using System.Windows.Controls;
 
-namespace InformacioniSistemBolnice
+
+namespace InformacioniSistemBolnice.Views.SekretarView
 {
-    public partial class PregledVesti : Window
+    public partial class PregledVesti : UserControl
     {
         public PregledVesti()
         {

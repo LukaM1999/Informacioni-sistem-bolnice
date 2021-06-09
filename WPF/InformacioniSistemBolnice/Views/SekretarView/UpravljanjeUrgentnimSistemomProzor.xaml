@@ -8,9 +8,9 @@
         Height="650" Width="1000" Background="LightGray" Margin="0,0,0,30">
     <Grid Height="650" Width="1000">
         <StackPanel Margin="0,60,0,0">
-            <DataGrid x:Name="ListaTermina" Height="550" Width="659" CanUserAddRows="False" Margin="5,5,5,5"/>
+            <DataGrid x:Name="ListaTermina" Height="550" Width="882" CanUserAddRows="False" Margin="5,5,5,5"/>
         </StackPanel>
         <Canvas x:Name="RukovanjePacijentima" />
-        <Button Content="Zakazi hitan pregled" HorizontalAlignment="Left" VerticalAlignment="Top" Click="zakaziHitanTermin" Margin="197,20,0,0" Background="White"/>
+        <Button Content="Zakazi hitan pregled" HorizontalAlignment="Left" VerticalAlignment="Top" Click="zakaziHitanTermin" Margin="95,20,0,0" Background="White"/>
     </Grid>
 </UserControl>

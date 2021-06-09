@@ -132,6 +132,9 @@
     <Compile Update="Views\SekretarView\PregledNalogaLekara.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Views\SekretarView\PregledVesti.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Views\SekretarView\RegistracijaLekaraForma.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -193,9 +196,6 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Views\SekretarView\PregledGostujucegNaloga.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="Views\SekretarView\PregledVesti.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Views\SekretarView\PregledZdravstvenogKartona.xaml.cs">
@@ -449,6 +449,9 @@
     <Page Update="Views\SekretarView\PregledNalogaLekara.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="Views\SekretarView\PregledVesti.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Views\SekretarView\RegistracijaLekaraForma.xaml">
       <SubType>Designer</SubType>
     </Page>
@@ -513,9 +516,6 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\SekretarView\PregledGostujucegNaloga.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="Views\SekretarView\PregledVesti.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\SekretarView\PregledZdravstvenogKartona.xaml">
