@@ -17,6 +17,9 @@ namespace InformacioniSistemBolnice.Servis.UpravljanjeIzvestajima
 {
     public class IzvestajUpravnikaServis : IzvestajUtility
     {
+        private static readonly Lazy<IzvestajUpravnikaServis> Lazy = new(() => new IzvestajUpravnikaServis());
+        public static IzvestajUpravnikaServis Instance => Lazy.Value;
+
         public override void KreirajDokument()
         {
             using (PdfDocument doc = new PdfDocument())

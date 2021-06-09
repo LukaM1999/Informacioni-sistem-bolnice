@@ -17,6 +17,7 @@ using Repozitorijum;
 using Model;
 using InformacioniSistemBolnice.Utilities;
 using InformacioniSistemBolnice.Servis.UpravljanjeIzvestajima;
+using Kontroler;
 
 namespace InformacioniSistemBolnice.Views.UpravnikView
 {
@@ -66,8 +67,7 @@ namespace InformacioniSistemBolnice.Views.UpravnikView
 
         private void NapraviIzvestaj(object sender, RoutedEventArgs e)
         {
-            IzvestajUtility izvestaj = new IzvestajUpravnikaServis();
-            izvestaj.GenerisiIzvestaj();
+            IzvestajKontroler.Instance.GenerisiUpravnikovIzvestaj();
         }
     }
 }

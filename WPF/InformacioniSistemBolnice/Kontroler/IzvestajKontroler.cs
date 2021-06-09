@@ -26,5 +26,10 @@ namespace Kontroler
         {
             IzvestajSekretaraServis.Instance.GenerisiIzvestaj();
         }
+
+        public void GenerisiUpravnikovIzvestaj()
+        {
+            IzvestajUpravnikaServis.Instance.GenerisiIzvestaj();
+        }
     }
 }

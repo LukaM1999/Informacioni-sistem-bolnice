@@ -29,7 +29,7 @@ namespace InformacioniSistemBolnice.Servis.UpravljanjeIzvestajima
                 PdfGrid pdfTabela = new PdfGrid();
                 pdfTabela.DataSource = NapuniTabelu(new DataTable()); ;
                 pdfTabela.Draw(page, new PointF(0, 0));
-                doc.Save("D:\\izvestaji\\zauzetostProstorije.pdf");
+                doc.Save("D:\\izvestaji\\anamneza.pdf");
                 doc.Close(true);
             }
         }

@@ -25,28 +25,10 @@ namespace InformacioniSistemBolnice.Servis.UpravljanjeIzvestajima
             using (PdfDocument doc = new PdfDocument())
             {
                 PdfPage page = doc.Pages.Add();
-
                 PdfGrid pdfTable = new PdfGrid();
-
-                DataTable tabela = new DataTable();
-                tabela.Columns.Add("Lekar");
-                tabela.Columns.Add("Pocetak zauzetosti");
-                tabela.Columns.Add("Kraj zauzetosti");
-                foreach (Lekar lekar in LekarRepo.Instance.Lekari)
-                {
-                    foreach (Termin termin in lekar.ZakazaniTermini)
-                    {
-                        tabela.Rows.Add(new string[] { lekar.Ime + " " + lekar.Prezime, termin.Vreme.ToString("g"),
-                        termin.Vreme.AddMinutes(termin.Trajanje).ToString("g") });
-                    }
-                }
-
-                pdfTable.DataSource = tabela;
-
+                pdfTable.DataSource = NapuniTabelu(new DataTable());
                 pdfTable.Draw(page, new PointF(0, 0));
-
                 doc.Save("D:\\izvestaji\\zauzetostLekara.pdf");
-
                 doc.Close(true);
             }
         }
@@ -54,6 +36,22 @@ namespace InformacioniSistemBolnice.Servis.UpravljanjeIzvestajima
         public override void PrikaziObavestenje()
         {
             MessageBox.Show("Uspesno kreiran izvestaj! Izvestaj se nalazi u D:\\izvestaji");
+        }
+
+        private DataTable NapuniTabelu(DataTable tabela)
+        {
+            tabela.Columns.Add("Lekar");
+            tabela.Columns.Add("Pocetak zauzetosti");
+            tabela.Columns.Add("Kraj zauzetosti");
+            foreach (Lekar lekar in LekarRepo.Instance.Lekari)
+            {
+                foreach (Termin termin in lekar.ZakazaniTermini)
+                {
+                    tabela.Rows.Add(new string[] { lekar.Ime + " " + lekar.Prezime, termin.Vreme.ToString("g"),
+                        termin.Vreme.AddMinutes(termin.Trajanje).ToString("g") });
+                }
+            }
+            return tabela;
         }
     }
 }
