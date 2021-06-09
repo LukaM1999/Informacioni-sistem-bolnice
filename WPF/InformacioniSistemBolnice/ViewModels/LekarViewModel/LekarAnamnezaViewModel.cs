@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 using InformacioniSistemBolnice.DTO;
+using InformacioniSistemBolnice.Servis.UpravljanjeIzvestajima;
+using InformacioniSistemBolnice.Utilities;
 using Kontroler;
 using Model;
 
@@ -15,10 +17,10 @@ namespace InformacioniSistemBolnice.ViewModels.LekarViewModel
     {
         public GlavniProzorLekara pocetna;
         public Model.Pacijent Pacijent { get; set; }
-        public Anamneza Anamneza { get; set; }
+        public static Anamneza Anamneza { get; set; }
         public ICommand Potvrdi { get; set; }
         public ICommand Nazad { get; set; }
-
+        public ICommand Izvestaj { get; set; }
 
         public LekarAnamnezaViewModel(Model.Pacijent prosledjen, GlavniProzorLekara glavni)
         {
@@ -28,6 +30,7 @@ namespace InformacioniSistemBolnice.ViewModels.LekarViewModel
             Anamneza = Pacijent.zdravstveniKarton.Anamneza;
             Potvrdi = new Command(o => Potvrda());
             Nazad = new Command(o => Odustani());
+            Izvestaj = new Command(o => Generisi());
         }
 
         private void Potvrda()
@@ -42,6 +45,11 @@ namespace InformacioniSistemBolnice.ViewModels.LekarViewModel
         {
             Karton karton = new Karton() { DataContext = new KartonViewModel(pocetna, Pacijent.Jmbg) };
             pocetna.contentControl.Content = karton;
+        }
+
+        private void Generisi()
+        {
+            IzvestajKontroler.Instance.GenerisiLekarovIzvestaj();
         }
     }
 }

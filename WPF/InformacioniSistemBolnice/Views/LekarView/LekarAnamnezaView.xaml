@@ -19,7 +19,7 @@
         <TextBox Text="{Binding Anamneza.Zakljucak}" VerticalScrollBarVisibility="Auto" x:Name="Zakljucak" HorizontalAlignment="Left" Margin="265,306,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="110" Width="425" Background="{DynamicResource {x:Static SystemColors.InactiveSelectionHighlightBrushKey}}"/>
         <Button Command="{Binding Potvrdi}" Content="Potvrdi" HorizontalAlignment="Left" Margin="633,452,0,0" VerticalAlignment="Top" Height="39" Width="57" />
         <Button Content="Nazad" HorizontalAlignment="Left" Margin="50,35,0,0" VerticalAlignment="Top" Command="{Binding Nazad}" Height="30" Width="50"/>
-        <Button HorizontalAlignment="Left" Margin="265,444,0,0" VerticalAlignment="Top" Height="55" Width="55">
+        <Button Command="{Binding Izvestaj}" HorizontalAlignment="Left" Margin="265,444,0,0" VerticalAlignment="Top" Height="55" Width="55">
             <iconPacks:Codicons Kind="FilePdf" Width="35" Height="35"></iconPacks:Codicons>
         </Button>
 
