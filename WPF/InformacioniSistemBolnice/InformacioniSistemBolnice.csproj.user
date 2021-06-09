@@ -72,7 +72,13 @@
     <Compile Update="Views\SekretarView\GostujuciNaloziProzor.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Views\SekretarView\GrafikZauzetostiLekara.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Views\SekretarView\IzborHitnogTermina.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\SekretarView\IzborIntervalaZauzetostiLekara.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Views\SekretarView\IzborTerminaPacijenta.xaml.cs">
@@ -368,10 +374,16 @@
     <Page Update="Views\SekretarView\GostujuciNaloziProzor.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="Views\SekretarView\GrafikZauzetostiLekara.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Views\SekretarView\IzborHitnogTermina.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\LekarView\IzborTerminaLekara.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\SekretarView\IzborIntervalaZauzetostiLekara.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\SekretarView\IzborTerminaPacijenta.xaml">
