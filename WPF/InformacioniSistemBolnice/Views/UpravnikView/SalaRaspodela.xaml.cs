@@ -23,15 +23,19 @@ namespace InformacioniSistemBolnice.Views.UpravnikView
     public partial class SalaRaspodela : Page
     {
         private Prostorija IzabranaProstorija { get; set; }
+        private bool RaspodelaDinamicke { get; set; }
 
         public SalaRaspodela(Prostorija izabranaProstorija)
         {
             InitializeComponent();
             labela.Content = izabranaProstorija.Id;
-            IzabranaProstorija = ProstorijaRepo.Instance.NadjiPoId(izabranaProstorija.Id);
+            IzabranaProstorija = izabranaProstorija;
             dgListaOpreme.ItemsSource = IzabranaProstorija.Inventar.DinamickaOprema;
             btnDinamicka.IsHitTestVisible = false;
             btnDinamicka.Foreground = Brushes.Black;
+            RaspodelaDinamicke = true;
+            StatickaOpremaRepo.Instance.Deserijalizacija();
+            DinamickaOpremaRepo.Instance.Deserijalizacija();
         }
 
         private void VratiSe(object sender, RoutedEventArgs e)
@@ -43,15 +47,15 @@ namespace InformacioniSistemBolnice.Views.UpravnikView
         {
             if (dgListaOpreme.SelectedValue != null)
             {
-                if (btnDinamicka.IsHitTestVisible)
-                {
-                    StatickaOprema izabranaOprema = (StatickaOprema)dgListaOpreme.SelectedValue;
-                   // this.NavigationService.Navigate(new SalaRaspodelaStaticke(izabranaOprema));
-                }
-                if (btnStaticka.IsHitTestVisible)
+                if (RaspodelaDinamicke)
                 {
                     DinamickaOprema izabranaOprema = (DinamickaOprema)dgListaOpreme.SelectedValue;
-                    //this.NavigationService.Navigate(new SalaRaspodelaDinamicke(izabranaOprema));
+                    this.NavigationService.Navigate(new SalaRaspodelaDinamicke(izabranaOprema, IzabranaProstorija));
+                }
+                else
+                {
+                    StatickaOprema izabranaOprema = (StatickaOprema)dgListaOpreme.SelectedValue;
+                    this.NavigationService.Navigate(new SalaRaspodelaStaticke(izabranaOprema, IzabranaProstorija));
                 }
             }
         }
@@ -63,6 +67,7 @@ namespace InformacioniSistemBolnice.Views.UpravnikView
             btnDinamicka.Foreground = Brushes.Black;
             btnStaticka.IsHitTestVisible = true;
             btnStaticka.Foreground = Brushes.White;
+            RaspodelaDinamicke = true;
         }
 
         private void StatickaOprema(object sender, RoutedEventArgs e)
@@ -72,6 +77,7 @@ namespace InformacioniSistemBolnice.Views.UpravnikView
             btnStaticka.Foreground = Brushes.Black;
             btnDinamicka.IsHitTestVisible = true;
             btnDinamicka.Foreground = Brushes.White;
+            RaspodelaDinamicke = false;
         }
     }
 }

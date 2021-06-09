@@ -188,17 +188,17 @@
             </Button.Background>
 
         </Button>
-        <StackPanel>
-            <DataGrid x:Name="dgListaProstorija" HorizontalAlignment="Left" ItemsSource="{Binding}"
-                  Height="674" 
+        <Canvas Margin="0,76,0,0">
+
+            <DataGrid x:Name="dgListaProstorija" ItemsSource="{Binding}"
+                  Height="480" 
                   Margin="0,76,0,0"
-                  VerticalAlignment="Top"
                   Width="430"
                   AutoGenerateColumns="False"
                   CanUserAddRows="False"
                   ColumnWidth="*"
                   RowHeight="40" FontSize="16"
-                  VerticalContentAlignment="Center">
+                  VerticalContentAlignment="Center" Canvas.Top="93" ScrollViewer.CanContentScroll="True">
 
                 <DataGrid.ColumnHeaderStyle>
 
@@ -221,7 +221,28 @@
                 </DataGrid.Columns>
 
             </DataGrid>
-        </StackPanel>
+            <Button Content="FILTER" Canvas.Left="292" Height="46" Width="128" RenderTransformOrigin="0.508,0.556" Canvas.Top="3" FontSize="16" Click="Filtriraj"/>
+            <TextBox x:Name="tbFilter" Canvas.Left="218" Canvas.Top="60" TextWrapping="Wrap" Width="69" Height="36" FontSize="16" Text="0"/>
+            <Label Content="Kolicina:" Canvas.Left="142" Canvas.Top="62" FontSize="16" Width="71"/>
+            <RadioButton x:Name="rbStaticka" Content="STATICKA" Canvas.Left="10" Canvas.Top="67" FontSize="16" Checked="rbStaticka_Checked"/>
+            <RadioButton x:Name="rbDinamicka" Content="DINAMICKA" Canvas.Left="10" Canvas.Top="17" FontSize="16" Width="113" Checked="rbDinamicka_Checked"/>
+            <Button x:Name="btnReset" Content="RESET" Canvas.Left="292" Height="46" Width="128" RenderTransformOrigin="0.508,0.556" Canvas.Top="55" FontSize="16" Click="Resetuj"/>
+            <ComboBox x:Name="cbTipOpreme" Canvas.Left="181" Canvas.Top="10" Width="106" Height="36" FontSize="14" SelectedIndex="0"/>
+            <Label Content="Tip:" Canvas.Left="142" Canvas.Top="12" FontSize="16" Width="34"/>
+            <Button x:Name="btnSpajanje" Content="Spajanje" Height="50" Canvas.Left="154" Canvas.Top="108" Width="133" Click="SpojiProstorije" FontSize="16"/>
+            <Button Name="btnRazdvajanje" Content="Razdvajanje" Height="50" Canvas.Left="292" Canvas.Top="108" Width="128" Click="RazdvojiProstorije" FontSize="16"/>
+            <Button Content="RENOVIRANJE" Height="50" Canvas.Left="10" Canvas.Top="106" Width="137" RenderTransformOrigin="0.5,0.5" FontSize="16" Click="RenoviranjeProstorije">
+                <Button.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform AngleY="0.382"/>
+                        <RotateTransform/>
+                        <TranslateTransform Y="0.393"/>
+                    </TransformGroup>
+                </Button.RenderTransform>
+            </Button>
+
+        </Canvas>
 
     </Grid>
 </Page>

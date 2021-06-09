@@ -5,10 +5,68 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:InformacioniSistemBolnice.Views.UpravnikView"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="750" d:DesignWidth="430"
       Title="SalaRaspodelaStaticke">
 
-    <Grid>
-        
+    <Grid Background="White">
+        <Grid Height="76" 
+              VerticalAlignment="Top" 
+              Margin="0,0,0.4,0" 
+              Background="#FF1289DD">
+
+            <Label 
+                   Name="labOprema"
+                   Width="223"
+                   Height="45"
+                   HorizontalAlignment="Center"
+                   FontSize="26"
+                   Foreground="White" Margin="0,16,0,15">
+
+            </Label>
+
+            <Grid Height="76"
+                  Width="76"
+                  HorizontalAlignment="Left">
+
+                <Button x:Name="btnVrati"
+                              BorderBrush="Transparent" Click="VratiSe">
+
+                    <Button.Background>
+
+                        <ImageBrush ImageSource="/images/UpravnikImages/arrow.png"/>
+
+                    </Button.Background>
+
+                </Button>
+
+                <Button x:Name="btnPotvrdi"
+                              BorderBrush="Transparent" Margin="347,0,-347,0" Click="Potvrdi">
+
+                    <Button.Background>
+
+                        <ImageBrush ImageSource="/images/UpravnikImages/checkmark.png"/>
+
+                    </Button.Background>
+
+                </Button>
+            </Grid>
+
+        </Grid>
+
+        <Grid Margin="0,81,0,0">
+            <Canvas>
+
+                <TextBox x:Name="tbKolicina" Width="200" Height="35" FontSize="16" Margin="192,50,38,584"/>
+                <Label Content="Kolicina:" Height="30" FontSize="16" Margin="46,52,307,587"/>
+                <RadioButton x:Name="rbMagacin" Content="Magacin" HorizontalAlignment="Left" Margin="46,196,0,0" VerticalAlignment="Top" FontSize="16" VerticalContentAlignment="Center" Checked="rbMagacin_Checked"/>
+                <RadioButton x:Name="rbProstorije" Content="Prostorija" HorizontalAlignment="Left" Margin="192,196,0,0" VerticalAlignment="Top" FontSize="16" VerticalContentAlignment="Center" Checked="rbProstorije_Checked"/>
+                <Label Content="Izaberite destinaciju opreme:" Height="30" FontSize="16" Margin="46,150,165,489"/>
+                <ComboBox Name="cbListaProstorija" Height="40" Margin="192,233,38,396" Width="200"/>
+                <DatePicker x:Name="dpDatum" Canvas.Left="192" Canvas.Top="317" Height="36" Width="151" FontSize="16"/>
+                <Label Content="Datum:" Height="30" FontSize="16" Canvas.Left="46" Canvas.Top="317"/>
+            </Canvas>
+
+        </Grid>
+
     </Grid>
 </Page>

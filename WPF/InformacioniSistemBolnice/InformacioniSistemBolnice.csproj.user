@@ -121,7 +121,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Views\UpravnikView\Magacin.xaml.cs">
-          <SubType>Code</SubType>
+      <SubType>Code</SubType>
     </Compile>
     <Compile Update="Views\SekretarView\SekretarovProfil.xaml.cs">
       <SubType>Code</SubType>
@@ -169,6 +169,12 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Views\SekretarView\PregledZdravstvenogKartona.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\UpravnikView\OpremaDodaj.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\UpravnikView\OpremaIzmeniDinamicku.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Views\UpravnikView\ProstorijaForma.xaml.cs">
@@ -262,6 +268,15 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Views\UpravnikView\SalaRaspodelaStaticke.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\UpravnikView\SalaRazdvajanje.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\UpravnikView\SalaRenoviranje.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\UpravnikView\SalaSpajanje.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Views\UpravnikView\Sale.xaml.cs">
@@ -461,6 +476,12 @@
     <Page Update="Views\SekretarView\PregledZdravstvenogKartona.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="Views\UpravnikView\OpremaDodaj.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\UpravnikView\OpremaIzmeniDinamicku.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Views\UpravnikView\ProstorijaForma.xaml">
       <SubType>Designer</SubType>
     </Page>
@@ -558,6 +579,15 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\UpravnikView\SalaRaspodelaStaticke.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\UpravnikView\SalaRazdvajanje.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\UpravnikView\SalaRenoviranje.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\UpravnikView\SalaSpajanje.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\UpravnikView\Sale.xaml">

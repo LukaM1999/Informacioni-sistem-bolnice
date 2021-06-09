@@ -103,24 +103,29 @@
             </Grid>
 
         </Grid>
-        <Button Content="DINMIČKA" 
+        <Button x:Name="btnDinamicka"
+                Content="DINMIČKA" 
                 HorizontalAlignment="Left" 
                 Margin="0,76,0,0" 
                 VerticalAlignment="Top" 
                 Width="215" Height="61" 
                 Background="#FF46A6EB" 
-                Foreground="White" Click="DinamickaOprema"
-                />
+                Foreground="White" Click="DinamickaOprema">
+            <Button.BorderBrush>
+                <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.ActiveCaptionColorKey}}"/>
+            </Button.BorderBrush>
+        </Button>
 
-        <Button Content="STATIČKA" 
+        <Button x:Name="btnStaticka"
+                Content="STATIČKA" 
                 HorizontalAlignment="Left" 
                 Margin="215,76,0,0" 
                 VerticalAlignment="Top" 
                 Width="215" Height="61" 
-                Foreground="White" 
-                Background="#FF46A6EB" Click="StatickaOprema">
+                Background="#FF46A6EB" 
+                    Foreground="White" Click="DinamickaOprema">
             <Button.BorderBrush>
-                <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.WindowColorKey}}"/>
+                <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.ActiveCaptionColorKey}}"/>
             </Button.BorderBrush>
         </Button>
 
@@ -141,14 +146,31 @@
 
         </DataGrid>
 
-        <Button x:Name="btnPlus" 
+        <Button x:Name="btnRaspodela" 
                 Content="" 
                 HorizontalAlignment="Left" 
-                Margin="195,12,0,0" 
+                Margin="192,12,0,0" 
                 VerticalAlignment="Top" 
                 Width="50" 
                 Height="50"
-                BorderBrush="Transparent">
+                BorderBrush="Transparent" Click="Raspodeli">
+
+            <Button.Background>
+
+                <ImageBrush ImageSource="/images/UpravnikImages/data-transfer.png"/>
+
+            </Button.Background>
+
+        </Button>
+
+        <Button x:Name="btnPlus" 
+                Content="" 
+                HorizontalAlignment="Left" 
+                Margin="249,12,0,0" 
+                VerticalAlignment="Top" 
+                Width="50" 
+                Height="50"
+                BorderBrush="Transparent" Click="DodajOpremu">
 
             <Button.Background>
 
@@ -161,11 +183,11 @@
         <Button x:Name="btnMinus" 
                 Content="" 
                 HorizontalAlignment="Left" 
-                Margin="255,12,0,0" 
+                Margin="309,12,0,0" 
                 VerticalAlignment="Top" 
                 Width="50" 
                 Height="50"
-                BorderBrush="Transparent">
+                BorderBrush="Transparent" Click="BrisiOpremu">
 
             <Button.Background>
 
@@ -178,32 +200,15 @@
         <Button x:Name="btnIzmena" 
                 Content="" 
                 HorizontalAlignment="Left" 
-                Margin="314,12,0,0" 
+                Margin="368,12,0,0" 
                 VerticalAlignment="Top" 
                 Width="50" 
                 Height="50"
-                BorderBrush="Transparent">
+                BorderBrush="Transparent" Click="IzmeniOpremu">
 
             <Button.Background>
 
                 <ImageBrush ImageSource="/images/UpravnikImages/edit-logo.png"/>
-
-            </Button.Background>
-
-        </Button>
-
-        <Button x:Name="btnInfo" 
-                Content="" 
-                HorizontalAlignment="Left" 
-                Margin="372,12,0,0" 
-                VerticalAlignment="Top" 
-                Width="50" 
-                Height="50"
-                BorderBrush="Transparent">
-
-            <Button.Background>
-
-                <ImageBrush ImageSource="/images/UpravnikImages/info-logo.png"/>
 
             </Button.Background>
 
