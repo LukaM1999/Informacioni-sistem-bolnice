@@ -68,37 +68,26 @@
     "Maliciozan": false,
     "ZakazaniTermini": [
       {
-        "Vreme": "2021-06-08T12:00:00",
+        "Vreme": "2021-06-09T08:00:00",
         "Trajanje": 30.0,
-        "Tip": 0,
-        "Status": 4,
+        "Tip": 1,
+        "Status": 0,
         "AnketaOLekaru": null,
         "PacijentJmbg": "1905981123124",
         "LekarJmbg": "1605988156156",
-        "ProstorijaId": "OS1",
+        "ProstorijaId": "P1",
         "Hitan": false
       },
       {
-        "Vreme": "2021-06-08T12:30:00+02:00",
+        "Vreme": "2021-06-09T22:30:00+02:00",
         "Trajanje": 30.0,
         "Tip": 1,
-        "Status": 4,
+        "Status": 0,
         "AnketaOLekaru": null,
         "PacijentJmbg": "1905981123124",
         "LekarJmbg": "1605988156156",
         "ProstorijaId": "P1",
         "Hitan": true
-      },
-      {
-        "Vreme": "2021-06-09T11:00:00",
-        "Trajanje": 30.0,
-        "Tip": 1,
-        "Status": 4,
-        "AnketaOLekaru": null,
-        "PacijentJmbg": "1905981123124",
-        "LekarJmbg": "1605988156156",
-        "ProstorijaId": "P1",
-        "Hitan": false
       }
     ],
     "Ime": "Milica",
@@ -152,7 +141,19 @@
       ]
     },
     "Maliciozan": false,
-    "ZakazaniTermini": null,
+    "ZakazaniTermini": [
+      {
+        "Vreme": "2021-06-09T23:00:00+02:00",
+        "Trajanje": 30.0,
+        "Tip": 1,
+        "Status": 0,
+        "AnketaOLekaru": null,
+        "PacijentJmbg": "1309974145143",
+        "LekarJmbg": "1605988156156",
+        "ProstorijaId": "P1",
+        "Hitan": true
+      }
+    ],
     "Ime": "Milos",
     "Prezime": "Ivezic",
     "Jmbg": "1309974145143",
@@ -204,7 +205,7 @@
       ]
     },
     "Maliciozan": false,
-    "ZakazaniTermini": null,
+    "ZakazaniTermini": [],
     "Ime": "Marija",
     "Prezime": "Vukovic",
     "Jmbg": "0501993123124",
@@ -256,7 +257,7 @@
       ]
     },
     "Maliciozan": false,
-    "ZakazaniTermini": null,
+    "ZakazaniTermini": [],
     "Ime": "Ivan",
     "Prezime": "Maric",
     "Jmbg": "1601989123162",

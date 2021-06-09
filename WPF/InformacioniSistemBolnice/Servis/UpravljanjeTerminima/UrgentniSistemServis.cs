@@ -27,6 +27,10 @@ namespace Servis
             pomocni = slobodanTermin;
             this.zakazivanjeHitnogTerminaDto = zakazivanjeHitnogTerminaDto;
             GenerisanjeNajblizegSlobodnogTerminaZaOdredjenuSpecijalizaciju();
+            foreach (Termin t in slobodniTermini)
+            {
+                System.Diagnostics.Debug.WriteLine(t);
+            }
             if (slobodniTermini.Count == 0)
             {
                 MessageBox.Show("Svi termini kod lekara izabrane specijalizacije su zakazani u narednom periodu(1h). \n" +
@@ -41,7 +45,11 @@ namespace Servis
         {
             Termin hitan = UzmiNajbliziSlobodanTerminIzListeSlobodnihTermina();
             hitan.Status = StatusTermina.zakazan;
-            TerminServis.Instance.ZakaziTermin(hitan);
+            TerminPacijentaServis.Instance.ZakaziTerminKodPacijenta(hitan);
+            TerminLekaraServis.Instance.ZakaziTerminKodLekara(hitan);
+            TerminProstorijeServis.Instance.ZakaziTerminUnutarProstorije(hitan);
+            TerminRepo.Instance.DodajTermin(hitan);
+            TerminRepo.Instance.Serijalizacija();
         }
 
         private Termin UzmiNajbliziSlobodanTerminIzListeSlobodnihTermina()
@@ -76,10 +84,11 @@ namespace Servis
         {
             foreach (Termin predlozenTermin in slobodniTermini.ToList())
             {
-                TerminRepo.Instance.NadjiTermin(predlozenTermin.Vreme, predlozenTermin.LekarJmbg,
-                                                 predlozenTermin.PacijentJmbg);
-                slobodniTermini.Remove(predlozenTermin);
-                break;
+                foreach (var termin in lekar.ZakazaniTermini)
+                {
+                    if(termin.Vreme  == predlozenTermin.Vreme)
+                        slobodniTermini.Remove(predlozenTermin);
+                }
             }
         }
 

@@ -43,7 +43,7 @@ namespace Model
 
         public override string ToString()
         {
-            return Vreme.ToString("MM/dd/yyyy HH:mm") + " " + LekarJmbg;
+            return Vreme.ToString("MM/dd/yyyy HH:mm") + " " + LekarJmbg + " " + PacijentJmbg;
         }
 
         public void PopuniAnketuOLekaru(AnketaOLekaru popunjenaAnketa)

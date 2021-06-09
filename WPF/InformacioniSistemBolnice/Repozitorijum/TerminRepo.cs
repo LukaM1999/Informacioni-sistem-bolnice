@@ -48,7 +48,8 @@ namespace Repozitorijum
 
         public bool DodajTermin(Termin terminZaDodavanje)
         {
-            if (Termini.Contains(terminZaDodavanje)) return false;
+            if (NadjiTermin(terminZaDodavanje.Vreme, terminZaDodavanje.PacijentJmbg, 
+                terminZaDodavanje.LekarJmbg) != null) return false;
             Termini.Add(terminZaDodavanje);
             return true;
         }

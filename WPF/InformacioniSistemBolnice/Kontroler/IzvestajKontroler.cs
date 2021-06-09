@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using InformacioniSistemBolnice.Servis.UpravljanjeIzvestajima;
+using InformacioniSistemBolnice.Utilities;
 
 namespace Kontroler
 {
@@ -19,7 +20,8 @@ namespace Kontroler
 
         public void GenerisiLekarovIzvestaj()
         {
-            IzvestajLekaraServis.Instance.GenerisiIzvestaj();
+            IzvestajUtility izvestaj = new IzvestajLekaraServis();
+            izvestaj.GenerisiIzvestaj();
         }
 
         public void GenerisiSekretarovIzvestaj()
