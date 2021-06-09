@@ -40,7 +40,7 @@ namespace InformacioniSistemBolnice
         {
             if (listaRecepata.SelectedIndex > -1)
             {
-                UCReceptInfo recept = new UCReceptInfo(this);
+                UCReceptInfo recept = new UCReceptInfo(glavniProzorLekara, (Recept)listaRecepata.SelectedItem, this);
                 glavniProzorLekara.contentControl.Content = recept;
             }
         }

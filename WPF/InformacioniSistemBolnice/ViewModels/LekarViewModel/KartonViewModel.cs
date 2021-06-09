@@ -42,8 +42,8 @@ namespace InformacioniSistemBolnice.ViewModels.LekarViewModel
 
         private void PropisiRecept()
         {
-            ReceptForma recept = new ReceptForma(Pacijent);
-            recept.Show();
+            ReceptView recept = new ReceptView(Pacijent, pocetna);
+            pocetna.contentControl.Content = recept;
         }
 
         private void PrikaziRecepte()
@@ -54,13 +54,13 @@ namespace InformacioniSistemBolnice.ViewModels.LekarViewModel
 
         private void IzdajUput()
         {
-            UputForma uputForma = new(Pacijent);
-            uputForma.Show();
+            UputView uput = new(Pacijent, pocetna);
+            pocetna.contentControl.Content = uput;
         }
 
         private void PosaljiNaBolnicko()
         {
-            UCBolnickoLecenjeForma forma = new(Pacijent, pocetna);
+            UCBolnickoLecenjeForma forma = new(Pacijent, pocetna, this);
             pocetna.contentControl.Content = forma;
         }
 

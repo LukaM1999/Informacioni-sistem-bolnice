@@ -8,7 +8,7 @@
                          mc:Ignorable="d" 
                          d:DesignHeight="612" d:DesignWidth="834">
     <Grid>
-        <DataGrid Name="ZakazaniTermini" Margin="0,85,150,0"/>
+        <DataGrid Name="ZakazaniTermini" Margin="0,85,144,0" CanUserAddRows="False"/>
         <Button Name="Pregled" Content="Karton" HorizontalAlignment="Left" Margin="730,35,0,0" VerticalAlignment="Top" Height="39" Width="54" Click="Pregled_Click"/>
         <Button Name="Pomeri" Content="Pomeri" HorizontalAlignment="Left" Margin="730,335,0,0" VerticalAlignment="Top" Height="39" Width="54" Click="Pomeri_Click"/>
         <Button Name="Otkazi" Content="Otkazi" HorizontalAlignment="Left" Margin="730,235,0,0" VerticalAlignment="Top" Height="39" Width="54" Click="Otkazi_Click"/>

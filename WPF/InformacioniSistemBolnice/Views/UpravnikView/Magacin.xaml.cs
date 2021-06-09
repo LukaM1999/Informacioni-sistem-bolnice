@@ -77,12 +77,12 @@ namespace InformacioniSistemBolnice.Views.UpravnikView
                 if (JeDinamicka)
                 {
                     DinamickaOprema izabranaOprema = (DinamickaOprema)dgListaOpreme.SelectedValue;
-                    this.NavigationService.Navigate(new OpremaIzmeni(izabranaOprema));
+                   // this.NavigationService.Navigate(new OpremaIzmeni(izabranaOprema));
                 }
                 else
                 {
                     StatickaOprema izabranaOprema = (StatickaOprema)dgListaOpreme.SelectedValue;
-                    this.NavigationService.Navigate(new OpremaIzmeniStaticku(izabranaOprema));
+                  //  this.NavigationService.Navigate(new OpremaIzmeniStaticku(izabranaOprema));
                 }
             }
         }

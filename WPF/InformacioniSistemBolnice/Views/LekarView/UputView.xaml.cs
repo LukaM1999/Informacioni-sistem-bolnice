@@ -11,26 +11,31 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 using InformacioniSistemBolnice.DTO;
+using InformacioniSistemBolnice.ViewModels.LekarViewModel;
+using MahApps.Metro.Controls;
 using Model;
 using Repozitorijum;
 
-namespace InformacioniSistemBolnice
+namespace InformacioniSistemBolnice.Views.LekarView
 {
     /// <summary>
-    /// Interaction logic for UputForma.xaml
+    /// Interaction logic for UputView.xaml
     /// </summary>
-    public partial class UputForma : Window
+    public partial class UputView : MetroContentControl
     {
         public ObservableCollection<Lekar> imajuSpecijalizaciju = new();
         public List<string> listaSpecijalizacija = new();
         public ObservableCollection<Prostorija> FiltriraneProstorije { get; set; }
-        public Pacijent pacijent;
+        public Model.Pacijent pacijent;
+        private GlavniProzorLekara glavniProzor;
 
-        public UputForma(Pacijent pacijent)
+        public UputView(Model.Pacijent pacijent, GlavniProzorLekara glavni)
         {
             InitializeComponent();
+            glavniProzor = glavni;
             LekarRepo.Instance.Deserijalizacija();
             SpecijalizacijaRepo.Instance.Deserijalizacija();
             ProstorijaRepo.Instance.Deserijalizacija();
@@ -48,6 +53,12 @@ namespace InformacioniSistemBolnice
             {
                 listaSpecijalizacija.Add(specijalizacija.Naziv);
             }
+        }
+
+        private void Nazad_Click(object sender, RoutedEventArgs e)
+        {
+            glavniProzor.contentControl.Content = new Karton()
+                {DataContext = new KartonViewModel(glavniProzor, pacijent.Jmbg)};
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -80,8 +91,8 @@ namespace InformacioniSistemBolnice
                 UputDto uputDto = new UputDto((DateTime)pocetak.SelectedDate, (DateTime)kraj.SelectedDate,
                     (Lekar)lekari.SelectedItem, pacijent, (Prostorija)prostorija.SelectionBoxItem,
                     (TipTermina)Enum.Parse(typeof(TipTermina), tip.SelectedItem.ToString()), (bool)hitno.IsChecked);
-                IzborTerminaLekara izborTerminaLekara = new(uputDto);
-                izborTerminaLekara.Show();
+                LekarIzborTermina izbor = new(glavniProzor, uputDto, this);
+                glavniProzor.contentControl.Content = izbor;
             }
         }
 
@@ -97,11 +108,10 @@ namespace InformacioniSistemBolnice
                         if (ponudjenaProstorija.Tip == TipProstorije.prostorijaZaPreglede)
                             FiltriraneProstorije.Add(ponudjenaProstorija);
                     }
-                    else if (ponudjenaProstorija.Tip == TipProstorije.operacionaSala) 
+                    else if (ponudjenaProstorija.Tip == TipProstorije.operacionaSala)
                         FiltriraneProstorije.Add(ponudjenaProstorija);
                 }
             }
         }
     }
 }
-

@@ -120,6 +120,9 @@
   <data name="About" xml:space="preserve">
     <value>Opste informacije</value>
   </data>
+  <data name="Autor" xml:space="preserve">
+    <value>Autor: Mihajlo Kisic, RA183-2018</value>
+  </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="back" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\images\back.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -162,6 +165,9 @@
   </data>
   <data name="Podesavanja" xml:space="preserve">
     <value>Podesavanja</value>
+  </data>
+  <data name="Predmet" xml:space="preserve">
+    <value>Interakcija covek-racunar</value>
   </data>
   <data name="Profil" xml:space="preserve">
     <value>Profil</value>

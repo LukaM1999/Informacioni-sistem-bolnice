@@ -27,11 +27,13 @@ namespace InformacioniSistemBolnice
         private GlavniProzorLekara glavniProzor;
         public ObservableCollection<Prostorija> sobe = new();
         public Pacijent pacijent;
-        public UCBolnickoLecenjeForma(Pacijent izabran, GlavniProzorLekara glavni)
+        public object prethodniProzor;
+        public UCBolnickoLecenjeForma(Pacijent izabran, GlavniProzorLekara glavni, object prethodni)
         {
             InitializeComponent();
             BolnickoLecenjeRepo.Instance.Deserijalizacija();
             ProstorijaRepo.Instance.Deserijalizacija();
+            prethodniProzor = prethodni;
             glavniProzor = glavni;
             pacijent = izabran;
             PronalaziProstorijeZaHospitalizaciju();
@@ -53,8 +55,7 @@ namespace InformacioniSistemBolnice
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            UCBolnickaLecenja lecenja = new UCBolnickaLecenja(glavniProzor);
-            glavniProzor.contentControl.Content = lecenja;
+            glavniProzor.contentControl.Content = prethodniProzor;
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
@@ -63,6 +64,8 @@ namespace InformacioniSistemBolnice
             {
                 BolnickoLecenjeKontroler.Instance.KreirajBolnickoLecenje(new((DateTime)Pocetak.SelectedDate, 
                     (DateTime)Zavrsetak.SelectedDate, pacijent, (Prostorija)ProstorijeZaHospitalizaciju.SelectedItem));
+                UCBolnickaLecenja lecenja = new UCBolnickaLecenja(glavniProzor);
+                glavniProzor.contentControl.Content = lecenja;
             }
         }
     }

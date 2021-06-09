@@ -24,7 +24,7 @@ namespace InformacioniSistemBolnice.ViewModels.LekarViewModel
         {
             pocetna = glavni;
             Pacijent = prosledjen;
-            if (Pacijent.zdravstveniKarton.Anamneza == null) return;
+            if (Pacijent.zdravstveniKarton.Anamneza == null) Pacijent.zdravstveniKarton.Anamneza = new Anamneza();
             Anamneza = Pacijent.zdravstveniKarton.Anamneza;
             Potvrdi = new Command(o => Potvrda());
             Nazad = new Command(o => Odustani());

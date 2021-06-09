@@ -12,6 +12,10 @@ namespace Model
         public string Zakljucak { get; set; }
         public string BeleskePacijenta { get; set; }
 
+        public Anamneza()
+        {
+        }
+
         public Anamneza(string sadasnja, string ranije, string porodicne, string zakljucak)
         {
             SadasnjaBolest = sadasnja;

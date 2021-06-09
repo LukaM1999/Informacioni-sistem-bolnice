@@ -70,6 +70,15 @@ namespace InformacioniSistemBolnice.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Autor: Mihajlo Kisic, RA183-2018.
+        /// </summary>
+        public static string Autor {
+            get {
+                return ResourceManager.GetString("Autor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
         public static byte[] back {
@@ -199,6 +208,15 @@ namespace InformacioniSistemBolnice.Properties {
         public static string Podesavanja {
             get {
                 return ResourceManager.GetString("Podesavanja", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Interakcija covek-racunar.
+        /// </summary>
+        public static string Predmet {
+            get {
+                return ResourceManager.GetString("Predmet", resourceCulture);
             }
         }
         

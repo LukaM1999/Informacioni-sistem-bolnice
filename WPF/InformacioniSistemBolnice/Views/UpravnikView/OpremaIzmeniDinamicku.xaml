@@ -28,7 +28,7 @@
                   HorizontalAlignment="Left">
 
                 <Button x:Name="btnVrati"
-                              BorderBrush="Transparent" Click="VratiSe">
+                              BorderBrush="Transparent" >
 
                     <Button.Background>
 
@@ -39,7 +39,7 @@
                 </Button>
 
                 <Button x:Name="btnDalje"
-                              BorderBrush="Transparent" Margin="347,0,-347,0" Click="Potvrdi">
+                              BorderBrush="Transparent" Margin="347,0,-347,0" >
 
                     <Button.Background>
 

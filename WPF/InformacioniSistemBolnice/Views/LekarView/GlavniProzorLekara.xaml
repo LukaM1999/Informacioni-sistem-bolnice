@@ -47,12 +47,6 @@
                 <TextBlock Text="{local:Loc Profil}" VerticalAlignment="Center" FontSize="14" HorizontalAlignment="Center"/>
             </StackPanel>
         </Button>
-        <Button Style="{StaticResource ResourceKey=MainButtons}" x:Name="Notifikacije" Margin="619,26,0,0" HorizontalAlignment="Left" VerticalAlignment="Top">
-            <StackPanel Orientation="Vertical">
-                <iconPacks:PackIconMaterialDesign Kind="Notifications" Width="50" Height="50" HorizontalAlignment="Center"></iconPacks:PackIconMaterialDesign>
-                <TextBlock Text="Notifikacije" VerticalAlignment="Center" FontSize="14" HorizontalAlignment="Center"/>
-            </StackPanel>
-        </Button>
         <Button Style="{StaticResource ResourceKey=MainButtons}" x:Name="BolnickaLecenja" Margin="40,470,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Click="BolnickaLecenja_Click">
             <StackPanel Orientation="Vertical" Width="122" Height="80">
                 <iconPacks:PackIconMaterial Kind="Bed" Width="50" Height="50" HorizontalAlignment="Center"></iconPacks:PackIconMaterial>

@@ -16,14 +16,12 @@ using System.Windows.Shapes;
 using Model;
 using InformacioniSistemBolnice;
 using InformacioniSistemBolnice.DTO;
+using InformacioniSistemBolnice.Views.LekarView;
 using MahApps.Metro.Controls;
 using Repozitorijum;
 
 namespace InformacioniSistemBolnice.Views
 {
-    /// <summary>
-    /// Interaction logic for UCZakazivanje.xaml
-    /// </summary>
     public partial class UCZakazivanje : MetroContentControl
     {
         private GlavniProzorLekara glavniProzor;
@@ -48,10 +46,13 @@ namespace InformacioniSistemBolnice.Views
         {
             if (pocetak.SelectedDate != null && kraj.SelectedDate != null && ListaPacijenata.SelectedIndex > -1 && tip.SelectedIndex > -1)
             {
-                IzborTerminaLekara izborTerminaLekara = new(new((DateTime)pocetak.SelectedDate, (DateTime)kraj.SelectedDate,
-                    glavniProzor.ulogovanLekar, (global::Model.Pacijent)ListaPacijenata.SelectedItem, (Prostorija)Prostorija.SelectionBoxItem,
-                    (TipTermina)Enum.Parse(typeof(TipTermina), tip.SelectedItem.ToString()), (bool)hitno.IsChecked));
-                izborTerminaLekara.Show();
+                LekarIzborTermina izbor = new LekarIzborTermina(glavniProzor, 
+                    new((DateTime)pocetak.SelectedDate, (DateTime)kraj.SelectedDate,
+                    glavniProzor.ulogovanLekar, (global::Model.Pacijent)ListaPacijenata.SelectedItem, 
+                    (Prostorija)Prostorija.SelectionBoxItem,
+                    (TipTermina)Enum.Parse(typeof(TipTermina), tip.SelectedItem.ToString()), (bool)hitno.IsChecked), 
+                    this);
+                glavniProzor.contentControl.Content = izbor;
             }
         }
         private void tip_SelectedIndexChanged(object sender, EventArgs e)

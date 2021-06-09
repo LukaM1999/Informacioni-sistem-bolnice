@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using InformacioniSistemBolnice.Views.LekarView;
 using MahApps.Metro.Controls;
 
 namespace InformacioniSistemBolnice
@@ -42,6 +43,11 @@ namespace InformacioniSistemBolnice
             Login login = new Login();
             login.Show();
             glavniProzor.Close();
+        }
+
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+            glavniProzor.contentControl.Content = new About(glavniProzor);
         }
     }
 }

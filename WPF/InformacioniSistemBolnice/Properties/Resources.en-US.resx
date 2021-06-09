@@ -120,6 +120,9 @@
   <data name="About" xml:space="preserve">
     <value>About</value>
   </data>
+  <data name="Autor" xml:space="preserve">
+    <value>Author: Mihajlo Kisic, RA183-2018</value>
+  </data>
   <data name="BolnickaLecenja" xml:space="preserve">
     <value>Medical treatments</value>
   </data>
@@ -140,6 +143,9 @@
   </data>
   <data name="Podesavanja" xml:space="preserve">
     <value>Settings</value>
+  </data>
+  <data name="Predmet" xml:space="preserve">
+    <value>Human-computer interaction</value>
   </data>
   <data name="Profil" xml:space="preserve">
     <value>Profile</value>
