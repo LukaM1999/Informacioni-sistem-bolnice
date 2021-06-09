@@ -29,6 +29,26 @@
             }
           ],
           "ReceptId": "Brufen"
+        },
+        {
+          "terapije": [
+            {
+              "PocetakTerapije": "2021-06-10T00:00:00",
+              "KrajTerapije": "2021-06-12T00:00:00",
+              "MeraLeka": 56.0,
+              "RedovnostTerapije": 56.0,
+              "Lek": {
+                "Naziv": "Brufen",
+                "Proizvodjac": "Galenika",
+                "Sastojci": "celuloza, mikrokristalna; kroskarmeloza-natrijum; laktoza, monohidrat; silicijum-dioksid koloidni bezvodni;",
+                "Zamena": "Analgin",
+                "Alergen": [],
+                "Tip": 0,
+                "Kolicina": 0
+              }
+            }
+          ],
+          "ReceptId": "56"
         }
       ],
       "BrojKartona": "K132333",
@@ -52,9 +72,9 @@
         "AnamnezaId": null,
         "SadasnjaBolest": "asdcsdcsd",
         "RanijeBolesti": "fgbfgbf",
-        "PorodicneAnamneze": "fgvbfg",
+        "PorodicneAnamneze": "Dijabetes",
         "Zakljucak": "Sve u redu.",
-        "BeleskePacijenta": "Neke beleske."
+        "BeleskePacijenta": null
       },
       "Alergeni": [
         {

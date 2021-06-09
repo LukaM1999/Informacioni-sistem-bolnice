@@ -23,20 +23,22 @@ namespace InformacioniSistemBolnice
     /// </summary>
     public partial class UCReceptInfo : MetroContentControl
     {
-        public UCListaRecepata listaRecepata;
-        public UCReceptInfo(UCListaRecepata recepti)
+        public GlavniProzorLekara glavniProzor;
+        public Recept recept;
+        public object prethodniProzor;
+        public UCReceptInfo(GlavniProzorLekara glavni, Recept izabran, object prethodni)
         {
             InitializeComponent();
             PacijentRepo.Instance.Deserijalizacija();
-            Recept r = (Recept)recepti.listaRecepata.SelectedItem;
-            listaTerapija.ItemsSource = r.terapije;
-            ID.Content = r.ReceptId;
-            listaRecepata = recepti;
+            glavniProzor = glavni;
+            recept = izabran;
+            listaTerapija.ItemsSource = recept.terapije;
+            prethodniProzor = prethodni;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            listaRecepata.glavniProzorLekara.contentControl.Content = listaRecepata;
+            glavniProzor.contentControl.Content = prethodniProzor;
         }
 
         private void Button_Click1(object sender, RoutedEventArgs e)
@@ -44,18 +46,8 @@ namespace InformacioniSistemBolnice
             if (listaTerapija.SelectedIndex > -1)
             {
                 Terapija terapija = (Terapija)listaTerapija.SelectedItem;
-                IspuniPodatkeOLeku(terapija);
-            }
-        }
-
-        private void IspuniPodatkeOLeku(Terapija terapija)
-        {
-            if (terapija.Lek != null)
-            {
-                naziv.Content = terapija.Lek.Naziv;
-                proizvodjac.Content = terapija.Lek.Proizvodjac;
-                sastojci.Content = terapija.Lek.Sastojci;
-                zamena.Content = terapija.Lek.Zamena;
+                UCLekInfo lek = new UCLekInfo(glavniProzor, terapija.Lek, this);
+                glavniProzor.contentControl.Content = lek;
             }
         }
     }

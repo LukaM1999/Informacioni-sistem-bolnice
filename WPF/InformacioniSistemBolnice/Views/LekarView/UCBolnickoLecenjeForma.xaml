@@ -14,9 +14,9 @@
         <Label Content="Pocetak:" HorizontalAlignment="Left" Margin="50,174,0,0" VerticalAlignment="Top" Height="24" Width="65"/>
         <DatePicker DisplayDateStart="{Binding Path=., Source={x:Static system:DateTime.Today}}" x:Name="Zavrsetak" HorizontalAlignment="Left" Margin="126,227,0,0" VerticalAlignment="Top" Height="24" Width="117"/>
         <Label Content="Zavrsetak:" HorizontalAlignment="Left" Margin="50,227,0,0" VerticalAlignment="Top" Height="24" Width="66"/>
-        <DataGrid Name="ProstorijeZaHospitalizaciju" Margin="346,93,25,25"/>
+        <DataGrid Name="ProstorijeZaHospitalizaciju" Margin="346,93,25,25" CanUserAddRows="False"/>
         <Label Content="Prostorije" HorizontalAlignment="Left" Margin="346,64,0,0" VerticalAlignment="Top"/>
-        <Button Content="Potvrdi" HorizontalAlignment="Left" Margin="193,286,0,0" VerticalAlignment="Top" Height="30" Width="50" Click="Button_Click_1"/>
+        <Button Content="Potvrdi" HorizontalAlignment="Left" Margin="193,286,0,0" VerticalAlignment="Top" Click="Button_Click_1"/>
 
     </Grid>
 </mah:MetroContentControl>

@@ -18,7 +18,7 @@
         <Label Content="Prostorija:" HorizontalAlignment="Left" Margin="282,282,0,0" VerticalAlignment="Top" Height="24" Width="66"/>
         <Label Name="ImePacijenta" Content="" HorizontalAlignment="Center" Margin="0,230,0,0" VerticalAlignment="Top" Height="24" Width="118"/>
         <Label Name="NazivProstorije" Content="" HorizontalAlignment="Center" Margin="0,282,0,0" VerticalAlignment="Top" Height="24" Width="118"/>
-        <Button Content="Izmeni" HorizontalAlignment="Left" Margin="458,388,0,0" VerticalAlignment="Top" Height="30" Width="50" Click="Button_Click_1"/>
+        <Button Content="Izmeni" HorizontalAlignment="Left" Margin="429,388,0,0" VerticalAlignment="Top" Click="Button_Click_1"/>
 
     </Grid>
 </mah:MetroContentControl>

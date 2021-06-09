@@ -54,13 +54,15 @@
         </Grid>
 
         <Grid Margin="0,81,0,0">
+            <Canvas>
 
-            <TextBox x:Name="tbKolicina" Width="200" Height="35" FontSize="16" Margin="192,50,38,584"/>
-            <Label Content="Kolicina:" Height="30" FontSize="16" Margin="46,52,307,587"/>
-            <RadioButton x:Name="rbMagacin" Content="Magacin" HorizontalAlignment="Left" Margin="46,196,0,0" VerticalAlignment="Top" FontSize="16" VerticalContentAlignment="Center"/>
-            <RadioButton x:Name="rbMagacin_Copy" Content="Prostorija" HorizontalAlignment="Center" Margin="0,196,0,0" VerticalAlignment="Top" FontSize="16" VerticalContentAlignment="Center"/>
-            <Label Content="Izaberite destinaciju opreme:" Height="30" FontSize="16" Margin="46,150,165,489"/>
-            <ComboBox Name="cbListaProstorija" Height="40" Margin="192,233,38,396" />
+                <TextBox x:Name="tbKolicina" Width="200" Height="35" FontSize="16" Margin="192,50,38,584"/>
+                <Label Content="Kolicina:" Height="30" FontSize="16" Margin="46,52,307,587"/>
+                <RadioButton x:Name="rbMagacin" Content="Magacin" HorizontalAlignment="Left" Margin="46,196,0,0" VerticalAlignment="Top" FontSize="16" VerticalContentAlignment="Center" Checked="rbMagacin_Checked"/>
+                <RadioButton x:Name="rbProstorije" Content="Prostorija" HorizontalAlignment="Left" Margin="192,196,0,0" VerticalAlignment="Top" FontSize="16" VerticalContentAlignment="Center" Checked="rbProstorije_Checked"/>
+                <Label Content="Izaberite destinaciju opreme:" Height="30" FontSize="16" Margin="46,150,165,489"/>
+                <ComboBox Name="cbListaProstorija" Height="40" Margin="192,233,38,396" Width="200"/>
+            </Canvas>
 
         </Grid>
 

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,25 +11,29 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
-using System.Collections.ObjectModel;
-using Model;
-using Repozitorijum;
-using InformacioniSistemBolnice;
 using InformacioniSistemBolnice.DTO;
 using Kontroler;
-using Servis;
+using MahApps.Metro.Controls;
+using Model;
+using Repozitorijum;
 
-namespace InformacioniSistemBolnice
+namespace InformacioniSistemBolnice.Views.LekarView
 {
-    public partial class IzborTerminaLekara : Window
+    public partial class LekarIzborTermina : MetroContentControl
     {
+        private GlavniProzorLekara glavni;
         public ObservableCollection<Termin> slobodniTermini = new();
         public UputDto uput;
-        public IzborTerminaLekara(UputDto noviUput)
+        public object prethodni;
+
+        public LekarIzborTermina(GlavniProzorLekara glavniProzor, UputDto noviUput, object prethodniProzor)
         {
             InitializeComponent();
+            glavni = glavniProzor;
             uput = noviUput;
+            prethodni = prethodniProzor;
             /*TimeSpan intervalDana = uput.Kraj - uput.Pocetak;
             DateTime slobodanTermin = uput.Pocetak.AddHours(7);*/
             GeneriseSlobodneTermine(uput.Kraj - uput.Pocetak, uput.Pocetak.AddHours(7));
@@ -37,6 +42,11 @@ namespace InformacioniSistemBolnice
             //slobodniTermini.Clear();
             NemaSlobodnihTermina();
             ponudjeniTermini.ItemsSource = slobodniTermini;
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            glavni.contentControl.Content = prethodni;
         }
 
         private void NemaSlobodnihTermina()
@@ -144,7 +154,7 @@ namespace InformacioniSistemBolnice
         {
             if (ponudjeniTermini.SelectedIndex == -1) return;
             TerminKontroler.Instance.ZakaziTermin((Termin)ponudjeniTermini.SelectedItem);
-            Close();
+            glavni.contentControl.Content = new UCRaspored(glavni);
         }
     }
 }

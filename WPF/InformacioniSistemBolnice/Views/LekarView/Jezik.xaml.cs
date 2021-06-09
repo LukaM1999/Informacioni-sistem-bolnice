@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -33,5 +34,16 @@ namespace InformacioniSistemBolnice
             Podesavanja podesavanja = new(glavniProzor);
             glavniProzor.contentControl.Content = podesavanja;
         }
+
+        private void Srpski_Checked(object sender, RoutedEventArgs e)
+        {
+            TranslationSource.Instance.CurrentCulture = new System.Globalization.CultureInfo("sr-SR");
+        }
+
+        private void Engleski_Checked(object sender, RoutedEventArgs e)
+        {
+            TranslationSource.Instance.CurrentCulture = new System.Globalization.CultureInfo("en-US");
+        }
+
     }
 }

@@ -20,9 +20,9 @@
             <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
 
-        <TextBlock Text="Vaš feedback:" TextAlignment="Right" Margin="10,10,0,0"></TextBlock>
+        <TextBlock Text="Vaši utisci:" TextAlignment="Right" Margin="10,10,0,0"></TextBlock>
         <TextBox Grid.Row="0" Grid.Column="1" Width="190" Height="200" TextWrapping="Wrap" Style="{StaticResource PlaceHolder}" Tag="Unesite vaše utiske..."
-                 Text="{Binding Poruka}"/>
+                 Text="{Binding Poruka, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
         <Button Grid.Row="1" Grid.Column="1" ToolTip="Pošaljite feedback" HorizontalAlignment="Left" Margin="40,0,0,0" Content="Pošalji" MaxHeight="30" MaxWidth="70"
                 Command="{Binding SlanjeFeedbacka}"/>
         <Button Grid.Row="1" Grid.Column="1" ToolTip="Odustanite od slanja" IsCancel="True" HorizontalAlignment="Right" Margin="0,0,40,0" MaxHeight="30" MaxWidth="70" Content="Odustani"></Button>

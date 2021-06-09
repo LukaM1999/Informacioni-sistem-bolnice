@@ -14,17 +14,20 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Repozitorijum;
 using Kontroler;
+using Model;
 
 namespace InformacioniSistemBolnice.Views.UpravnikView
 {
     public partial class Magacin : Page
     {
+        private bool JeDinamicka { get; set; }
         public Magacin()
         {
             InitializeComponent();
             DinamickaOpremaRepo.Instance.Deserijalizacija();
             StatickaOpremaRepo.Instance.Deserijalizacija();
             dgListaOpreme.ItemsSource = DinamickaOpremaRepo.Instance.DinamickaOprema;
+            JeDinamicka = true;
         }
 
         private void VratiNaPrethodniProzor(object sender, RoutedEventArgs e)
@@ -35,11 +38,53 @@ namespace InformacioniSistemBolnice.Views.UpravnikView
         private void DinamickaOprema(object sender, RoutedEventArgs e)
         {
             dgListaOpreme.ItemsSource = DinamickaOpremaRepo.Instance.DinamickaOprema;
+            btnDinamicka.IsHitTestVisible = false;
+            btnDinamicka.Foreground = Brushes.Black;
+            btnStaticka.IsHitTestVisible = true;
+            btnStaticka.Foreground = Brushes.White;
+            JeDinamicka = true;
         }
 
         private void StatickaOprema(object sender, RoutedEventArgs e)
         {
             dgListaOpreme.ItemsSource = StatickaOpremaRepo.Instance.StatickaOprema;
+            btnStaticka.IsHitTestVisible = false;
+            btnStaticka.Foreground = Brushes.Black;
+            btnDinamicka.IsHitTestVisible = true;
+            btnDinamicka.Foreground = Brushes.White;
+            JeDinamicka = false;
+        }
+
+        private void Raspodeli(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void DodajOpremu(object sender, RoutedEventArgs e)
+        {
+            this.NavigationService.Navigate(new OpremaDodaj());
+        }
+
+        private void BrisiOpremu(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void IzmeniOpremu(object sender, RoutedEventArgs e)
+        {
+            if (dgListaOpreme.SelectedValue != null)
+            {
+                if (JeDinamicka)
+                {
+                    DinamickaOprema izabranaOprema = (DinamickaOprema)dgListaOpreme.SelectedValue;
+                   // this.NavigationService.Navigate(new OpremaIzmeni(izabranaOprema));
+                }
+                else
+                {
+                    StatickaOprema izabranaOprema = (StatickaOprema)dgListaOpreme.SelectedValue;
+                  //  this.NavigationService.Navigate(new OpremaIzmeniStaticku(izabranaOprema));
+                }
+            }
         }
     }
 }

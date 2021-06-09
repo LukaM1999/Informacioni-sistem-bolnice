@@ -64,7 +64,7 @@ namespace InformacioniSistemBolnice.Views.UpravnikView
             dgListaZahteva.ItemsSource = ZahtevRepo.Instance.Zahtevi;
         }
 
-        private void Izvestaj(object sender, RoutedEventArgs e)
+        private void NapraviIzvestaj(object sender, RoutedEventArgs e)
         {
             IzvestajUtility izvestaj = new IzvestajUpravnikaServis();
             izvestaj.GenerisiIzvestaj();

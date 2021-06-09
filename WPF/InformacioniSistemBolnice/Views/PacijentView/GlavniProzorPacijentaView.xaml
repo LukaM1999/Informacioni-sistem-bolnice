@@ -44,7 +44,7 @@
     <Grid>
         <Grid>
             <Grid.RowDefinitions>
-                <RowDefinition Height="30"/>
+                <RowDefinition Height="29"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
@@ -70,12 +70,12 @@
                         </Grid>
                     </ItemsPanelTemplate>
                 </Menu.ItemsPanel>
-                <MenuItem Grid.Column="0" Header="Profil" FontSize="15" HorizontalAlignment="Center" VerticalAlignment="Center"></MenuItem>
-                <MenuItem Grid.Column="1" Header="Kalendar" FontSize="15" HorizontalAlignment="Center" VerticalAlignment="Center"></MenuItem>
-                <MenuItem Grid.Column="2" Header="Obaveštenja" FontSize="15" HorizontalAlignment="Center" VerticalAlignment="Center"></MenuItem>
-                <MenuItem Grid.Column="3" Header="Istorija" FontSize="15" HorizontalAlignment="Center" VerticalAlignment="Center"></MenuItem>
-                <MenuItem Grid.Column="4" Header="Terapija" FontSize="15" HorizontalAlignment="Center" VerticalAlignment="Center"></MenuItem>
-                <MenuItem Grid.Column="5" Header="Pomoć" FontSize="15" HorizontalAlignment="Center" VerticalAlignment="Center"></MenuItem>
+                <MenuItem Grid.Column="0" Header="Profil" FontSize="15" Click="IzaberiProfil" HorizontalAlignment="Center" VerticalAlignment="Center"></MenuItem>
+                <MenuItem Grid.Column="1" Header="Kalendar" FontSize="15" Click="IzaberiKalendar" HorizontalAlignment="Center" VerticalAlignment="Center"></MenuItem>
+                <MenuItem Grid.Column="2" Header="Obaveštenja" FontSize="15" Click="IzaberiObavestenja" HorizontalAlignment="Center" VerticalAlignment="Center"></MenuItem>
+                <MenuItem Grid.Column="3" Header="Istorija" FontSize="15" Click="IzaberiIstoriju"  HorizontalAlignment="Center" VerticalAlignment="Center"></MenuItem>
+                <MenuItem Grid.Column="4" Header="Terapija" FontSize="15" Click="IzaberiTerapiju" HorizontalAlignment="Center" VerticalAlignment="Center"></MenuItem>
+                <MenuItem Grid.Column="5" Header="Pomoć" FontSize="15" Click="IzaberiPomoc" HorizontalAlignment="Center" VerticalAlignment="Center"></MenuItem>
                 <MenuItem Grid.Column="6" Header="Feedback" FontSize="15" HorizontalAlignment="Center" VerticalAlignment="Center" Command="{Binding OtvaranjeFeedbacka}"></MenuItem>
                 <MenuItem Grid.Column="7" Header="Odjava" FontSize="15" HorizontalAlignment="Center" VerticalAlignment="Center"></MenuItem>
             </Menu>
@@ -87,6 +87,7 @@
                  ItemsSource="{StaticResource NavigationMenuItems}"/>
 
             <ContentControl Grid.Column="1" Grid.Row="1" Style="{StaticResource NavigationContentStyle}"/>
+
         </Grid>
     </Grid>
 </Window>

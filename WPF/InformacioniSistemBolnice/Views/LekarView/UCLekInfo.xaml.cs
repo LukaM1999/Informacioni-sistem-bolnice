@@ -20,18 +20,17 @@ using Repozitorijum;
 
 namespace InformacioniSistemBolnice
 {
-    /// <summary>
-    /// Interaction logic for UCLekInfo.xaml
-    /// </summary>
     public partial class UCLekInfo : MetroContentControl
     {
         public GlavniProzorLekara glavniProzorLekara;
         private Lek lek;
+        private object prethodniProzor;
 
-        public UCLekInfo(GlavniProzorLekara glavni, Lek izabranLek)
+        public UCLekInfo(GlavniProzorLekara glavni, Lek izabranLek, object prethodni)
         {
             InitializeComponent();
             ZahtevRepo.Instance.Deserijalizacija();
+            prethodniProzor = prethodni;
             glavniProzorLekara = glavni;
             lek = izabranLek;
             naziv.Content = lek.Naziv;
@@ -41,10 +40,9 @@ namespace InformacioniSistemBolnice
             Alergeni.ItemsSource = lek.Alergen;
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Nazad_Click(object sender, RoutedEventArgs e)
         {
-            UCLekovi lekovi = new UCLekovi(glavniProzorLekara);
-            glavniProzorLekara.contentControl.Content = lekovi;
+            glavniProzorLekara.contentControl.Content = prethodniProzor;
         }
 
         private void Button_Click1(object sender, RoutedEventArgs e)

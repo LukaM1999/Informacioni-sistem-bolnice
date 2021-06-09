@@ -147,6 +147,17 @@
 
             </Grid>
 
+            <Button x:Name="btnIzvestaj"
+                              BorderBrush="Transparent" Click="NapraviIzvestaj" Margin="258,3,92,3">
+
+                <Button.Background>
+
+                    <ImageBrush ImageSource="/images/UpravnikImages/report.png"/>
+
+                </Button.Background>
+
+            </Button>
+
         </Grid>
 
         
@@ -402,7 +413,6 @@
             </StackPanel>
 
         </Grid>
-        <Button Content="Button" HorizontalAlignment="Center" Height="82" Margin="0,483,0,0" VerticalAlignment="Top" Width="158" Click="Izvestaj"/>
 
     </Grid>
 </Page>

@@ -53,12 +53,11 @@ namespace InformacioniSistemBolnice
 
         private void RasporedBtn_Click(object sender, RoutedEventArgs e)
         {
-            TerminiLekaraProzor terminiLekara = new TerminiLekaraProzor(ulogovanLekar, this);
             contentControl.Content = new UCRaspored(this);
         }
         private void PacijentiBtn_Click(object sender, RoutedEventArgs e)
         {
-            this.contentControl.Content = new UCPacijenti(this);
+            contentControl.Content = new UCPacijenti(this);
         }
         private void OdjavaBtn_Click(object sender, RoutedEventArgs e)
         {

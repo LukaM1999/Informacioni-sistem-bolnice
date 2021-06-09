@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using InformacioniSistemBolnice.ViewModels.LekarViewModel;
 using InformacioniSistemBolnice.Views;
 using MahApps.Metro.Controls;
 using Model;
@@ -19,9 +20,6 @@ using Repozitorijum;
 
 namespace InformacioniSistemBolnice
 {
-    /// <summary>
-    /// Interaction logic for UCPacijenti.xaml
-    /// </summary>
     public partial class UCBolnickaLecenja : MetroContentControl
     {
         public GlavniProzorLekara glavniProzorLekara;
@@ -38,10 +36,10 @@ namespace InformacioniSistemBolnice
         {
             if (BolnickaLecenja.SelectedIndex > -1)
             {
-                BolnickoLecenje lecenje = (BolnickoLecenje)BolnickaLecenja.SelectedItem;
-                Pacijent naLecenju = PacijentRepo.Instance.NadjiPoJmbg(lecenje.JmbgPacijenta);
-                IzmenaZdravstvenogKartonaLekar zk = new(naLecenju, glavniProzorLekara);
-                zk.Show();
+                Karton karton = new Karton();
+                karton.DataContext = new KartonViewModel(glavniProzorLekara,
+                    ((BolnickoLecenje)BolnickaLecenja.SelectedItem).JmbgPacijenta);
+                glavniProzorLekara.contentControl.Content = karton;
             }
         }
 

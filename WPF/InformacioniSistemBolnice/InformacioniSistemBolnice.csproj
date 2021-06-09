@@ -29,9 +29,12 @@
     <None Remove="images\UpravnikImages\info-logo.png" />
     <None Remove="images\UpravnikImages\medicine-logo.png" />
     <None Remove="images\UpravnikImages\menu-logo.png" />
+    <None Remove="images\UpravnikImages\merge.png" />
     <None Remove="images\UpravnikImages\minus-logo.png" />
     <None Remove="images\UpravnikImages\plus-logo.png" />
+    <None Remove="images\UpravnikImages\report.png" />
     <None Remove="images\UpravnikImages\room-logo.png" />
+    <None Remove="images\UpravnikImages\split.png" />
     <None Remove="images\UpravnikImages\trash-can.png" />
     <None Remove="images\UpravnikImages\warehouse-logo.png" />
     <None Remove="images\user.png" />
@@ -58,48 +61,20 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Update="Views\LekarView\IzborTerminaLekara.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="Views\LekarView\IzmenaZdravstvenogKartonaLekar.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Update="Views\LekarView\PomeranjeTerminaLekaraProzor.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="Views\LekarView\TerminiLekaraProzor.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Views\Lekar\UCPacijenti - Copy.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Views\LekarView\ZakazivanjeTerminaLekaraProzor.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
   </ItemGroup>
 
   <ItemGroup>
-    <Page Update="Views\LekarView\IzborTerminaLekara.xaml">
-      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="Views\LekarView\IzmenaZdravstvenogKartonaLekar.xaml">
-      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
-      <SubType>Designer</SubType>
-    </Page>
     <Page Update="Views\LekarView\PomeranjeTerminaLekaraProzor.xaml">
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Views\LekarView\TerminiLekaraProzor.xaml">
-      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
-      <SubType>Designer</SubType>
-    </Page>
     <Page Update="Views\Lekar\UCPacijenti - Copy.xaml">
-      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="Views\LekarView\ZakazivanjeTerminaLekaraProzor.xaml">
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
       <SubType>Designer</SubType>
     </Page>
@@ -128,9 +103,12 @@
     <Resource Include="images\UpravnikImages\info-logo.png" />
     <Resource Include="images\UpravnikImages\medicine-logo.png" />
     <Resource Include="images\UpravnikImages\menu-logo.png" />
+    <Resource Include="images\UpravnikImages\merge.png" />
     <Resource Include="images\UpravnikImages\minus-logo.png" />
     <Resource Include="images\UpravnikImages\plus-logo.png" />
+    <Resource Include="images\UpravnikImages\report.png" />
     <Resource Include="images\UpravnikImages\room-logo.png" />
+    <Resource Include="images\UpravnikImages\split.png" />
     <Resource Include="images\UpravnikImages\trash-can.png" />
     <Resource Include="images\UpravnikImages\warehouse-logo.png" />
     <Resource Include="images\user.png" />

@@ -16,6 +16,7 @@ using System.Windows.Shapes;
 using Model;
 using Repozitorijum;
 using InformacioniSistemBolnice;
+using InformacioniSistemBolnice.ViewModels.LekarViewModel;
 using Kontroler;
 using InformacioniSistemBolnice.Views;
 using MahApps.Metro.Controls;
@@ -80,9 +81,9 @@ namespace InformacioniSistemBolnice
         {
             if (ZakazaniTermini.SelectedIndex >= 0)
             {
-                IzmenaZdravstvenogKartonaLekar izmena = new IzmenaZdravstvenogKartonaLekar(
-                    (Termin)ZakazaniTermini.SelectedItem, glavniProzor);
-                izmena.Show();
+                Karton karton = new Karton()
+                { DataContext = new KartonViewModel(glavniProzor, ((Termin)ZakazaniTermini.SelectedItem).PacijentJmbg) };
+                glavniProzor.contentControl.Content = karton;
             }
         }
     }

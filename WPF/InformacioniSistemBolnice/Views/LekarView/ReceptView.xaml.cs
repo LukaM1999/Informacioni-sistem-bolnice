@@ -10,24 +10,26 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
-using InformacioniSistemBolnice.DTO;
+using InformacioniSistemBolnice.ViewModels.LekarViewModel;
+using InformacioniSistemBolnice.Views.UpravnikView;
+using Kontroler;
+using MahApps.Metro.Controls;
 using Model;
 using Repozitorijum;
-using Kontroler;
 
-namespace InformacioniSistemBolnice
+namespace InformacioniSistemBolnice.Views.LekarView
 {
-    /// <summary>
-    /// Interaction logic for ReceptForma.xaml
-    /// </summary>
-    public partial class ReceptForma : Window
+    public partial class ReceptView : MetroContentControl
     {
-        public Pacijent pacijent;
-        public ReceptForma(Pacijent pacijent)
+        private GlavniProzorLekara glavniProzor;
+        public Model.Pacijent pacijent;
+        public ReceptView(Model.Pacijent pacijent, GlavniProzorLekara glavni)
         {
             InitializeComponent();
             LekRepo.Instance.Deserijalizacija();
+            glavniProzor = glavni;
             this.pacijent = pacijent;
             listaLekova.ItemsSource = LekRepo.Instance.Lekovi;
         }
@@ -37,10 +39,17 @@ namespace InformacioniSistemBolnice
             if (listaLekova.SelectedIndex > -1)
             {
                 ZdravstveniKartonKontroler.Instance.IzdavanjeRecepta(new((DateTime)Pocetak.SelectedDate, (DateTime)Kraj.SelectedDate,
-                    double.Parse(Mera.Text), double.Parse(Redovnost.Text), 
+                    double.Parse(Mera.Text), double.Parse(Redovnost.Text),
                     Id.Text, pacijent, (Lek)listaLekova.SelectedItem));
-                this.Close();
+                glavniProzor.contentControl.Content = new Karton()
+                    {DataContext = new KartonViewModel(glavniProzor, pacijent.Jmbg)};
             }
+        }
+
+        private void Nazad_Click(object sender, RoutedEventArgs e)
+        {
+            glavniProzor.contentControl.Content = new Karton()
+                { DataContext = new KartonViewModel(glavniProzor, pacijent.Jmbg) };
         }
     }
 }

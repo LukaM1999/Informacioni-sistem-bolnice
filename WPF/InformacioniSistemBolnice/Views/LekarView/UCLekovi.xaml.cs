@@ -18,9 +18,6 @@ using Repozitorijum;
 
 namespace InformacioniSistemBolnice
 {
-    /// <summary>
-    /// Interaction logic for UCLekovi.xaml
-    /// </summary>
     public partial class UCLekovi : MetroContentControl
     {
         private GlavniProzorLekara glavniProzorLekara;
@@ -36,7 +33,7 @@ namespace InformacioniSistemBolnice
         {
             if (listaLekova.SelectedIndex > -1)
             {
-                UCLekInfo ucLek = new UCLekInfo(glavniProzorLekara, (Lek)listaLekova.SelectedItem);
+                UCLekInfo ucLek = new UCLekInfo(glavniProzorLekara, (Lek)listaLekova.SelectedItem, this);
                 glavniProzorLekara.contentControl.Content = ucLek;
             }
         }
