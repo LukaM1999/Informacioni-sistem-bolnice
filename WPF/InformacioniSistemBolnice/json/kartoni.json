@@ -2,31 +2,62 @@
   {
     "alergeni": [
       {
-        "Naziv": "jagode"
+        "Naziv": "laktoza"
       }
     ],
     "recepti": [],
-    "BrojKartona": "K171717",
-    "BrojKnjizice": "K1919191",
-    "Jmbg": "1601989123162",
-    "ImeJednogRoditelja": "Milos",
-    "LiceZaZdravstvenuZastitu": "Milan",
-    "PolPacijenta": 0,
+    "BrojKartona": "K1231",
+    "BrojKnjizice": "1213134415151",
+    "Jmbg": "0501993123124",
+    "ImeJednogRoditelja": "Mitar",
+    "LiceZaZdravstvenuZastitu": "Milica Markovic",
+    "PolPacijenta": 1,
     "BracnoStanje": 0,
     "KategorijaZdravstveneZastite": 0,
     "PodaciOZaposlenjuIZanimanju": {
-      "RadnoMjesto": "lala ",
-      "RegistarskiBroj": "lalal ",
-      "SifraDelatnosti": "lall ",
-      "PosaoKojiObavlja": "all ",
-      "OSIZZdrZastite": "lal ",
-      "RadPodPosebnimUslovima": "all ",
-      "Promjene": "la "
+      "RadnoMjesto": " Code Tribe",
+      "RegistarskiBroj": "K5151 ",
+      "SifraDelatnosti": "S41414 ",
+      "PosaoKojiObavlja": "Softver developer ",
+      "OSIZZdrZastite": "nema ",
+      "RadPodPosebnimUslovima": "nema ",
+      "Promjene": "nema "
     },
     "Anamneza": null,
     "Alergeni": [
       {
-        "Naziv": "jagode"
+        "Naziv": "laktoza"
+      }
+    ]
+  },
+  {
+    "alergeni": [
+      {
+        "Naziv": "polen"
+      }
+    ],
+    "recepti": [],
+    "BrojKartona": "K41414",
+    "BrojKnjizice": "12345678901",
+    "Jmbg": "1309974145143",
+    "ImeJednogRoditelja": "Marko",
+    "LiceZaZdravstvenuZastitu": "Milica Markovic",
+    "PolPacijenta": 0,
+    "BracnoStanje": 1,
+    "KategorijaZdravstveneZastite": 0,
+    "PodaciOZaposlenjuIZanimanju": {
+      "RadnoMjesto": "FTN, Novi Sad",
+      "RegistarskiBroj": "R14141 ",
+      "SifraDelatnosti": "S151515 ",
+      "PosaoKojiObavlja": "Profesor ",
+      "OSIZZdrZastite": "nema ",
+      "RadPodPosebnimUslovima": "nema ",
+      "Promjene": "nema "
+    },
+    "Anamneza": null,
+    "Alergeni": [
+      {
+        "Naziv": "polen"
       }
     ]
   }
