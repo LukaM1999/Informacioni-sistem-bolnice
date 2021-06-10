@@ -103,7 +103,9 @@
             </Grid>
 
         </Grid>
-        <Button x:Name="btnDinamicka"
+        <Grid>
+            <Canvas>
+                <Button x:Name="btnDinamicka"
                 Content="DINMIČKA" 
                 HorizontalAlignment="Left" 
                 Margin="0,76,0,0" 
@@ -111,23 +113,25 @@
                 Width="215" Height="61" 
                 Background="#FF46A6EB" 
                 Foreground="White" Click="DinamickaOprema">
-            <Button.BorderBrush>
-                <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.ActiveCaptionColorKey}}"/>
-            </Button.BorderBrush>
-        </Button>
+                    <Button.BorderBrush>
+                        <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.ActiveCaptionColorKey}}"/>
+                    </Button.BorderBrush>
+                </Button>
 
-        <Button x:Name="btnStaticka"
+                <Button x:Name="btnStaticka"
                 Content="STATIČKA" 
                 HorizontalAlignment="Left" 
                 Margin="215,76,0,0" 
                 VerticalAlignment="Top" 
                 Width="215" Height="61" 
                 Background="#FF46A6EB" 
-                    Foreground="White" Click="DinamickaOprema">
-            <Button.BorderBrush>
-                <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.ActiveCaptionColorKey}}"/>
-            </Button.BorderBrush>
-        </Button>
+                    Foreground="White" Click="StatickaOprema">
+                    <Button.BorderBrush>
+                        <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.ActiveCaptionColorKey}}"/>
+                    </Button.BorderBrush>
+                </Button>
+            </Canvas>
+        </Grid>
 
         <DataGrid x:Name="dgListaOpreme" HorizontalAlignment="Left" 
                   Height="613" Margin="0,137,0,0" 

@@ -9,6 +9,13 @@
   <ItemGroup>
     <None Remove="images\back.png" />
     <None Remove="images\bell.png" />
+    <None Remove="images\DemoSlike\cetvrta.png" />
+    <None Remove="images\DemoSlike\druga.png" />
+    <None Remove="images\DemoSlike\peta.png" />
+    <None Remove="images\DemoSlike\prva.png" />
+    <None Remove="images\DemoSlike\sedma.png" />
+    <None Remove="images\DemoSlike\sesta.png" />
+    <None Remove="images\DemoSlike\treca.png" />
     <None Remove="images\gear.png" />
     <None Remove="images\hospital.png" />
     <None Remove="images\logout.png" />
@@ -25,6 +32,7 @@
     <None Remove="images\UpravnikImages\data-transfer.png" />
     <None Remove="images\UpravnikImages\edit-logo.png" />
     <None Remove="images\UpravnikImages\exit-logo.png" />
+    <None Remove="images\UpravnikImages\feedback.png" />
     <None Remove="images\UpravnikImages\hospital.jpg" />
     <None Remove="images\UpravnikImages\info-logo.png" />
     <None Remove="images\UpravnikImages\medicine-logo.png" />
@@ -36,6 +44,7 @@
     <None Remove="images\UpravnikImages\room-logo.png" />
     <None Remove="images\UpravnikImages\split.png" />
     <None Remove="images\UpravnikImages\trash-can.png" />
+    <None Remove="images\UpravnikImages\video.png" />
     <None Remove="images\UpravnikImages\warehouse-logo.png" />
     <None Remove="images\user.png" />
     <None Remove="images\users.png" />
@@ -83,6 +92,13 @@
   <ItemGroup>
     <Resource Include="images\back.png" />
     <Resource Include="images\bell.png" />
+    <Resource Include="images\DemoSlike\cetvrta.png" />
+    <Resource Include="images\DemoSlike\druga.png" />
+    <Resource Include="images\DemoSlike\peta.png" />
+    <Resource Include="images\DemoSlike\prva.png" />
+    <Resource Include="images\DemoSlike\sedma.png" />
+    <Resource Include="images\DemoSlike\sesta.png" />
+    <Resource Include="images\DemoSlike\treca.png" />
     <Resource Include="images\gear.png" />
     <Resource Include="images\hospital.png" />
     <Resource Include="images\logout.png" />
@@ -99,6 +115,7 @@
     <Resource Include="images\UpravnikImages\data-transfer.png" />
     <Resource Include="images\UpravnikImages\edit-logo.png" />
     <Resource Include="images\UpravnikImages\exit-logo.png" />
+    <Resource Include="images\UpravnikImages\feedback.png" />
     <Resource Include="images\UpravnikImages\hospital.jpg" />
     <Resource Include="images\UpravnikImages\info-logo.png" />
     <Resource Include="images\UpravnikImages\medicine-logo.png" />
@@ -110,6 +127,7 @@
     <Resource Include="images\UpravnikImages\room-logo.png" />
     <Resource Include="images\UpravnikImages\split.png" />
     <Resource Include="images\UpravnikImages\trash-can.png" />
+    <Resource Include="images\UpravnikImages\video.png" />
     <Resource Include="images\UpravnikImages\warehouse-logo.png" />
     <Resource Include="images\user.png" />
     <Resource Include="images\users.png" />

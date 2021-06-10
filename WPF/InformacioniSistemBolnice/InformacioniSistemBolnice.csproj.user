@@ -144,6 +144,9 @@
     <Compile Update="Views\SekretarView\Lekari.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Views\UpravnikView\Demo.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Views\UpravnikView\FeedbackUpravnik.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -211,6 +214,12 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Views\UpravnikView\OpremaIzmeniDinamicku.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\UpravnikView\OpremaIzmeniStaticku.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\UpravnikView\OpremaRaspodeliStaticku.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Views\UpravnikView\ProstorijaForma.xaml.cs">
@@ -467,6 +476,9 @@
     <Page Update="Views\SekretarView\Lekari.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="Views\UpravnikView\Demo.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Views\UpravnikView\FeedbackUpravnik.xaml">
       <SubType>Designer</SubType>
     </Page>
@@ -537,6 +549,12 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\UpravnikView\OpremaIzmeniDinamicku.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\UpravnikView\OpremaIzmeniStaticku.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\UpravnikView\OpremaRaspodeliStaticku.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\UpravnikView\ProstorijaForma.xaml">

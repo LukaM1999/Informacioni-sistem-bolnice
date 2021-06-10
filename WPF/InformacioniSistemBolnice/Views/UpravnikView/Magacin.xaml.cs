@@ -15,6 +15,7 @@ using System.Windows.Shapes;
 using Repozitorijum;
 using Kontroler;
 using Model;
+using InformacioniSistemBolnice.ViewModels.UpavnikViewModel;
 
 namespace InformacioniSistemBolnice.Views.UpravnikView
 {
@@ -24,9 +25,12 @@ namespace InformacioniSistemBolnice.Views.UpravnikView
         public Magacin()
         {
             InitializeComponent();
+            ProstorijaRepo.Instance.Deserijalizacija();
             DinamickaOpremaRepo.Instance.Deserijalizacija();
             StatickaOpremaRepo.Instance.Deserijalizacija();
             dgListaOpreme.ItemsSource = DinamickaOpremaRepo.Instance.DinamickaOprema;
+            btnDinamicka.IsHitTestVisible = false;
+            btnDinamicka.Foreground = Brushes.Black;
             JeDinamicka = true;
         }
 
@@ -57,17 +61,46 @@ namespace InformacioniSistemBolnice.Views.UpravnikView
 
         private void Raspodeli(object sender, RoutedEventArgs e)
         {
-
+            if(dgListaOpreme.SelectedValue != null)
+            {
+                if (JeDinamicka)
+                {
+                    DinamickaOprema izabranaOprema = (DinamickaOprema)dgListaOpreme.SelectedValue;
+                    OpremaRaspodeliDinamicku prozor = new();
+                    OpremaRaspodeliDinamicku prozor2 = prozor;
+                    prozor.DataContext = new OpremaRaspodeliDinamickuViewModel(prozor2, izabranaOprema);
+                    this.NavigationService.Navigate(prozor);
+                }
+                else
+                {
+                    StatickaOprema izabranaOprema = (StatickaOprema)dgListaOpreme.SelectedValue;
+                    this.NavigationService.Navigate(new OpremaRaspodeliStaticku(izabranaOprema));
+                }
+            }
         }
 
         private void DodajOpremu(object sender, RoutedEventArgs e)
         {
-            this.NavigationService.Navigate(new OpremaDodaj());
+            this.NavigationService.Navigate(new OpremaDodaj(JeDinamicka));
         }
 
         private void BrisiOpremu(object sender, RoutedEventArgs e)
         {
-
+            if (dgListaOpreme.SelectedValue != null)
+            {
+                if (JeDinamicka)
+                {
+                    DinamickaOprema oprema = (DinamickaOprema)dgListaOpreme.SelectedItem;
+                    OpremaKontroler.Instance.BrisanjeDinamickeOpreme(new(oprema.Kolicina, oprema.Tip));
+                    dgListaOpreme.ItemsSource = DinamickaOpremaRepo.Instance.DinamickaOprema;
+                }
+                else
+                {
+                    StatickaOprema oprema = (StatickaOprema)dgListaOpreme.SelectedItem;
+                    OpremaKontroler.Instance.BrisanjeStatickeOpreme(new(oprema.Kolicina, oprema.Tip));
+                    dgListaOpreme.ItemsSource = StatickaOpremaRepo.Instance.StatickaOprema;
+                }
+            }
         }
 
         private void IzmeniOpremu(object sender, RoutedEventArgs e)
@@ -77,12 +110,12 @@ namespace InformacioniSistemBolnice.Views.UpravnikView
                 if (JeDinamicka)
                 {
                     DinamickaOprema izabranaOprema = (DinamickaOprema)dgListaOpreme.SelectedValue;
-                   // this.NavigationService.Navigate(new OpremaIzmeni(izabranaOprema));
+                    this.NavigationService.Navigate(new OpremaIzmeniDinamicku(izabranaOprema));
                 }
                 else
                 {
                     StatickaOprema izabranaOprema = (StatickaOprema)dgListaOpreme.SelectedValue;
-                  //  this.NavigationService.Navigate(new OpremaIzmeniStaticku(izabranaOprema));
+                    this.NavigationService.Navigate(new OpremaIzmeniStaticku(izabranaOprema));
                 }
             }
         }

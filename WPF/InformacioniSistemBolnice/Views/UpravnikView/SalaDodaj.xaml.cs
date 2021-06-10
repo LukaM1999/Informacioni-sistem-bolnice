@@ -28,13 +28,18 @@ namespace InformacioniSistemBolnice.Views.UpravnikView
         public SalaDodaj()
         {
             InitializeComponent();
+            cbTipProstorije.ItemsSource = Enum.GetValues(typeof(TipProstorije));
+            cbTipProstorije.SelectedIndex = 0;
         }
 
         private void Potvrdi(object sender, RoutedEventArgs e)
         {
-            ProstorijaDto dto = new(Int32.Parse(tbSprat.Text), (TipProstorije)Enum.Parse(typeof(TipProstorije), cbTipProstorije.Text), tbId.Text, false, new());
-            ProstorijaKontroler.Instance.KreiranjeProstorije(dto);
-            this.NavigationService.Navigate(new Sale());
+            if (!string.IsNullOrEmpty(tbId.Text))
+            {
+                ProstorijaDto dto = new(Int32.Parse(tbSprat.Text), (TipProstorije)Enum.Parse(typeof(TipProstorije), cbTipProstorije.Text), tbId.Text, false, new());
+                ProstorijaKontroler.Instance.KreiranjeProstorije(dto);
+                this.NavigationService.Navigate(new Sale());
+            }
         }
 
         private void VratiSe(object sender, RoutedEventArgs e)

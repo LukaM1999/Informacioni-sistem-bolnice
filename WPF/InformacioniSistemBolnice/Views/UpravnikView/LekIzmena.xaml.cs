@@ -33,6 +33,7 @@ namespace InformacioniSistemBolnice.Views.UpravnikView
             AlergenRepo.Instance.Deserijalizacija();
             IzabraniLek = izabraniLek;
             cbAlergeni.ItemsSource = AlergenRepo.Instance.Alergeni;
+            cbAlergeni.SelectedIndex = 0;
             dgListaAlergena.ItemsSource = IzabraniLek.Alergen;
             ListaAlergenaLeka = izabraniLek.Alergen;
             labAlergenPoruka.Visibility = Visibility.Hidden;
@@ -44,9 +45,15 @@ namespace InformacioniSistemBolnice.Views.UpravnikView
 
         private void Potvrdi(object sender, RoutedEventArgs e)
         {
-            LekKontroler.Instance.IzmenaLeka(new(tbNaziv.Text, tbProizvodjac.Text, tbSastojci.Text,
-                tbZamena.Text, ListaAlergenaLeka));
-            this.NavigationService.Navigate(new Lekovi());
+            if (!string.IsNullOrWhiteSpace(tbNaziv.Text)
+                && !string.IsNullOrWhiteSpace(tbProizvodjac.Text)
+                && !string.IsNullOrWhiteSpace(tbSastojci.Text)
+                && !string.IsNullOrWhiteSpace(tbZamena.Text))
+            {
+                LekKontroler.Instance.IzmenaLeka(new(tbNaziv.Text, tbProizvodjac.Text, tbSastojci.Text,
+                    tbZamena.Text, ListaAlergenaLeka));
+                this.NavigationService.Navigate(new Lekovi());
+            }
         }
 
         private void VratiSe(object sender, RoutedEventArgs e)

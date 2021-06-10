@@ -12,8 +12,8 @@
     <Grid>
         <Label Content="Feedback" FontWeight="Bold" FontSize="20" HorizontalAlignment="Left" Margin="36,137,0,0" VerticalAlignment="Top" Height="33" Width="287"/>
         <iconPacks:PackIconMaterial Kind="CommentText" Width="36" Height="26" Margin="126,132,0,0"/>
-        <TextBox Name="TextBox" HorizontalAlignment="Center" Style="{StaticResource PlaceHolder}" Text="{Binding Poruka}" Tag="Unesite vaše utiske..." TextWrapping="Wrap" VerticalAlignment="Center" Width="348" Height="366"/>
-        <Button Content="Potvrdi" HorizontalAlignment="Center" Margin="0,598,0,0" VerticalAlignment="Top" Click="Button_Click" Width="120"/>
-        <Button Content="Nazad" HorizontalAlignment="Left" Margin="41,42,0,0" VerticalAlignment="Top" Click="VratiSe"/>
+        <TextBox Name="TextBox" HorizontalAlignment="Center" Style="{StaticResource PlaceHolder}" Text="{Binding Komentar}" Tag="Unesite vaše utiske..." TextWrapping="Wrap" VerticalAlignment="Center" Width="348" Height="366"/>
+        <Button Content="Potvrdi" HorizontalAlignment="Center" Margin="0,591,0,0" VerticalAlignment="Top" Command="{Binding Potvrdi}" Width="410" Height="48" FontSize="16"/>
+        <Button Content="Nazad" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Command="{Binding Nazad}" Height="52" Width="82"/>
     </Grid>
 </Page>

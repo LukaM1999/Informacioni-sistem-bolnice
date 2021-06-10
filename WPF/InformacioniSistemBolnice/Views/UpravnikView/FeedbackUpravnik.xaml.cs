@@ -23,18 +23,5 @@ namespace InformacioniSistemBolnice.Views.UpravnikView
         {
             InitializeComponent();
         }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            FeedbackKontroler.Instance.PosaljiFeedback(new FeedbackDto("upravnik1",
-                "upravnik", TextBox.Text));
-            NavigationService.Navigate(new MeniProzor());
-        }
-
-        private void VratiSe(object sender, RoutedEventArgs e)
-        {
-            NavigationService.Navigate(new MeniProzor());
-        }
-
     }
 }

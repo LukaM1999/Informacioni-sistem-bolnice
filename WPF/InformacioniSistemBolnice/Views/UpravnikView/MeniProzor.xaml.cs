@@ -18,6 +18,7 @@ using Model;
 using InformacioniSistemBolnice.Utilities;
 using InformacioniSistemBolnice.Servis.UpravljanjeIzvestajima;
 using Kontroler;
+using InformacioniSistemBolnice.ViewModels.UpavnikViewModel;
 
 namespace InformacioniSistemBolnice.Views.UpravnikView
 {
@@ -42,7 +43,10 @@ namespace InformacioniSistemBolnice.Views.UpravnikView
 
         private void Feedback(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new FeedbackUpravnik());
+            FeedbackUpravnik feedback = new();
+            FeedbackUpravnik feedback2 = feedback;
+            feedback.DataContext = new FeedBackUpravnikViewModel(feedback2);
+            NavigationService.Navigate(feedback);
         }
 
         private void IzabranaOprema(object sender, RoutedEventArgs e)
@@ -73,6 +77,11 @@ namespace InformacioniSistemBolnice.Views.UpravnikView
         private void NapraviIzvestaj(object sender, RoutedEventArgs e)
         {
             IzvestajKontroler.Instance.GenerisiUpravnikovIzvestaj();
+        }
+
+        private void Demo(object sender, RoutedEventArgs e)
+        {
+            this.NavigationService.Navigate(new Demo());
         }
     }
 }

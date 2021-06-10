@@ -22,11 +22,21 @@ namespace InformacioniSistemBolnice.Views.UpravnikView
     /// </summary>
     public partial class OpremaDodaj : Page
     {
-        public OpremaDodaj()
+        private bool JeDinamicka { get; set; }
+        public OpremaDodaj(bool jeDinamicka)
         {
             InitializeComponent();
-            cbTip.ItemsSource = Enum.GetValues(typeof(TipProstorije));
-            cbTip.SelectedIndex = 0;
+            JeDinamicka = jeDinamicka;
+            if (jeDinamicka)
+            {
+                cbTip.ItemsSource = Enum.GetValues(typeof(TipDinamickeOpreme));
+                cbTip.SelectedIndex = 0;
+            }
+            else
+            {
+                cbTip.ItemsSource = Enum.GetValues(typeof(TipStatickeOpreme));
+                cbTip.SelectedIndex = 0;
+            }
         }
 
         private void VratiSe(object sender, RoutedEventArgs e)
@@ -38,9 +48,18 @@ namespace InformacioniSistemBolnice.Views.UpravnikView
         {
             if (tbKolicina.Text.All(char.IsDigit) && !string.IsNullOrWhiteSpace(tbKolicina.Text))
             {
-                OpremaKontroler.Instance.KreiranjeStatickeOpreme(new(Int32.Parse(tbKolicina.Text),
-                    (TipStatickeOpreme)Enum.Parse(typeof(TipStatickeOpreme), cbTip.Text)));
-                this.NavigationService.Navigate(new Magacin());
+                if (JeDinamicka)
+                {
+                    OpremaKontroler.Instance.KreiranjeDinamickeOpreme(new(Int32.Parse(tbKolicina.Text),
+                        (TipDinamickeOpreme)Enum.Parse(typeof(TipDinamickeOpreme), cbTip.Text)));
+                    this.NavigationService.Navigate(new Magacin());
+                }
+                else
+                {
+                    OpremaKontroler.Instance.KreiranjeStatickeOpreme(new(Int32.Parse(tbKolicina.Text),
+                        (TipStatickeOpreme)Enum.Parse(typeof(TipStatickeOpreme), cbTip.Text)));
+                    this.NavigationService.Navigate(new Magacin());
+                }
             }
         }
     }

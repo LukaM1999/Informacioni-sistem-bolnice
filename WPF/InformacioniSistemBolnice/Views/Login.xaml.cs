@@ -32,8 +32,8 @@ namespace InformacioniSistemBolnice
             TransformacijaProstorijaRepo.Instance.Deserijalizacija();
             LekarRepo.Instance.Deserijalizacija();
             FeedbackRepo.Instance.Deserijalizacija();
-            //new Thread(RaspodelaStatickeOpremeServis.Instance.ProveraPremestajaOpreme).Start();
-            //new Thread(RenoviranjeServis.Instance.ProveraRenoviranja).Start();
+            new Thread(RaspodelaStatickeOpremeServis.Instance.ProveraPremestajaOpreme).Start();
+            new Thread(RenoviranjeServis.Instance.ProveraRenoviranja).Start();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

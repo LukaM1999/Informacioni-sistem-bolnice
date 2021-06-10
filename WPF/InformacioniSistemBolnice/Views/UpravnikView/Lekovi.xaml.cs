@@ -16,6 +16,7 @@ using Kontroler;
 using Model;
 using Repozitorijum;
 using InformacioniSistemBolnice.Views.UpravnikView;
+using InformacioniSistemBolnice.ViewModels.UpavnikViewModel;
 
 namespace InformacioniSistemBolnice.Views.UpravnikView
 {
@@ -41,7 +42,10 @@ namespace InformacioniSistemBolnice.Views.UpravnikView
             if (dgListaLekova.SelectedValue != null)
             {
                 Lek izabraniLek = (Lek)dgListaLekova.SelectedValue;
-                this.NavigationService.Navigate(new LekInfo(izabraniLek));
+                LekInfo prozor = new LekInfo(izabraniLek);
+                LekInfo prozor2 = prozor;
+                prozor.DataContext = new LekInfoViewModel(prozor2, izabraniLek);
+                this.NavigationService.Navigate(prozor);
             }
         }
 

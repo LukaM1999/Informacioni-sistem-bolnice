@@ -148,7 +148,7 @@
             </Grid>
 
             <Button x:Name="btnIzvestaj"
-                              BorderBrush="Transparent" Click="NapraviIzvestaj" Margin="258,3,92,3">
+                              BorderBrush="Transparent" Click="NapraviIzvestaj" Margin="258,10,97,10">
 
                 <Button.Background>
 
@@ -157,7 +157,28 @@
                 </Button.Background>
 
             </Button>
-            <Button Content="Feedback" HorizontalAlignment="Left" Margin="162,0,0,0" VerticalAlignment="Center" Click="Feedback"/>
+            
+            <Button x:Name="btnFeedback"
+                              BorderBrush="Transparent" Click="Feedback" Margin="179,10,177,10">
+
+                <Button.Background>
+
+                    <ImageBrush ImageSource="/images/UpravnikImages/feedback.png"/>
+
+                </Button.Background>
+
+            </Button>
+
+            <Button x:Name="btnDemo"
+                              BorderBrush="Transparent" Click="Demo" Margin="94,10,262,10">
+
+                <Button.Background>
+
+                    <ImageBrush ImageSource="/images/UpravnikImages/video.png"/>
+
+                </Button.Background>
+
+            </Button>
 
         </Grid>
 

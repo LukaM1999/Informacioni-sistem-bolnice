@@ -31,6 +31,7 @@ namespace InformacioniSistemBolnice.Views.UpravnikView
             tbSprat.Text = izabranaProstorija.Sprat.ToString();
             tbId.Text = izabranaProstorija.Id;
             cbTipProstorije.SelectedItem = izabranaProstorija.Tip;
+            cbTipProstorije.IsHitTestVisible = false;
             if (izabranaProstorija.JeZauzeta) rbZauzet.IsChecked = true;
             else rbSlobodna.IsChecked = true;
         }
@@ -42,13 +43,17 @@ namespace InformacioniSistemBolnice.Views.UpravnikView
 
         private void Potvrdi(object sender, RoutedEventArgs e)
         {
-            ProstorijaDto dto = new();
-            if ((bool)rbZauzet.IsChecked) dto.JeZauzeta = true;
-            if ((bool)rbSlobodna.IsChecked) dto.JeZauzeta = false;
-            dto = new(Int32.Parse(tbSprat.Text), (TipProstorije)Enum.Parse(typeof(TipProstorije), cbTipProstorije.Text),
-                    tbId.Text, dto.JeZauzeta, IzabranaProstorija.Inventar);
-            ProstorijaKontroler.Instance.IzmenaProstorije(dto);
-            this.NavigationService.Navigate(new Sale());
+            if (!string.IsNullOrEmpty(tbId.Text) && !string.IsNullOrEmpty(tbSprat.Text)
+                && tbSprat.Text.All(char.IsDigit))
+            {
+                ProstorijaDto dto = new();
+                if ((bool)rbZauzet.IsChecked) dto.JeZauzeta = true;
+                if ((bool)rbSlobodna.IsChecked) dto.JeZauzeta = false;
+                dto = new(Int32.Parse(tbSprat.Text), (TipProstorije)Enum.Parse(typeof(TipProstorije), cbTipProstorije.Text),
+                        tbId.Text, dto.JeZauzeta, IzabranaProstorija.Inventar);
+                ProstorijaKontroler.Instance.IzmenaProstorije(dto);
+                this.NavigationService.Navigate(new Sale());
+            }
         }
     }
 }

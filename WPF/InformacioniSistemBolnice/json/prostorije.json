@@ -12,7 +12,15 @@
         },
         {
           "Tip": 1,
-          "Kolicina": 115
+          "Kolicina": 117
+        },
+        {
+          "Tip": 5,
+          "Kolicina": 29
+        },
+        {
+          "Tip": 0,
+          "Kolicina": 2
         }
       ],
       "StatickaOprema": [
@@ -159,7 +167,7 @@
       "DinamickaOprema": [
         {
           "Tip": 0,
-          "Kolicina": 0
+          "Kolicina": 2
         },
         {
           "Tip": 1,
@@ -211,7 +219,7 @@
       "DinamickaOprema": [
         {
           "Tip": 0,
-          "Kolicina": 0
+          "Kolicina": 4
         }
       ],
       "StatickaOprema": []
@@ -225,7 +233,12 @@
     "JeZauzeta": false,
     "Tip": 3,
     "Inventar": {
-      "DinamickaOprema": [],
+      "DinamickaOprema": [
+        {
+          "Tip": 0,
+          "Kolicina": 6
+        }
+      ],
       "StatickaOprema": [
         {
           "Tip": 0,
@@ -277,59 +290,9 @@
   },
   {
     "Sprat": 2,
-    "Id": "nelex",
-    "JeZauzeta": true,
+    "Id": "PR1",
+    "JeZauzeta": false,
     "Tip": 2,
-    "Inventar": {
-      "DinamickaOprema": [
-        {
-          "Tip": 3,
-          "Kolicina": 65
-        },
-        {
-          "Tip": 1,
-          "Kolicina": 65
-        },
-        {
-          "Tip": 2,
-          "Kolicina": 10
-        }
-      ],
-      "StatickaOprema": [
-        {
-          "Tip": 1,
-          "Kolicina": 10
-        },
-        {
-          "Tip": 3,
-          "Kolicina": 10
-        }
-      ]
-    },
-    "Renoviranje": {
-      "PocetakRenoviranja": "2021-06-09T00:00:00",
-      "KrajRenoviranja": "2021-06-10T00:00:00",
-      "idProstorije": "nelex"
-    },
-    "TerminiProstorije": []
-  },
-  {
-    "Sprat": 2,
-    "Id": "ee",
-    "JeZauzeta": false,
-    "Tip": 4,
-    "Inventar": {
-      "DinamickaOprema": [],
-      "StatickaOprema": []
-    },
-    "Renoviranje": null,
-    "TerminiProstorije": []
-  },
-  {
-    "Sprat": 2,
-    "Id": "ww",
-    "JeZauzeta": false,
-    "Tip": 4,
     "Inventar": {
       "DinamickaOprema": [],
       "StatickaOprema": []

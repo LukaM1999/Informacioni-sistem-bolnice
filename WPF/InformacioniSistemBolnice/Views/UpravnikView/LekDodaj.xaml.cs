@@ -34,13 +34,20 @@ namespace InformacioniSistemBolnice.Views.UpravnikView
             ListaAlergenaLeka = new ObservableCollection<Alergen>();
             labAlergenPoruka.Visibility = Visibility.Hidden;
             dgListaAlergena.ItemsSource = ListaAlergenaLeka;
+            cbAlergeni.SelectedIndex = 0;
         }
 
         private void Potvrdi(object sender, RoutedEventArgs e)
         {
-            LekKontroler.Instance.KreiranjeLeka(new(tbNaziv.Text, tbProizvodjac.Text, tbSastojci.Text,
-                tbZamena.Text, ListaAlergenaLeka));
-            this.NavigationService.Navigate(new Lekovi());
+            if (!string.IsNullOrWhiteSpace(tbNaziv.Text)
+                && !string.IsNullOrWhiteSpace(tbProizvodjac.Text)
+                && !string.IsNullOrWhiteSpace(tbSastojci.Text)
+                && !string.IsNullOrWhiteSpace(tbZamena.Text))
+            {
+                LekKontroler.Instance.KreiranjeLeka(new(tbNaziv.Text, tbProizvodjac.Text, tbSastojci.Text,
+                    tbZamena.Text, ListaAlergenaLeka));
+                this.NavigationService.Navigate(new Lekovi());
+            }
         }
 
         private void VratiSe(object sender, RoutedEventArgs e)

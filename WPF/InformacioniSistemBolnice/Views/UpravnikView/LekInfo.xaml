@@ -28,7 +28,7 @@
                   HorizontalAlignment="Left">
 
                 <Button x:Name="btnVrati"
-                              BorderBrush="Transparent" Click="VratiSe">
+                              BorderBrush="Transparent" Command="{Binding Nazad}">
 
                     <Button.Background>
 
@@ -41,15 +41,15 @@
 
         </Grid>
 
-        <TextBox x:Name="tbZamena" HorizontalAlignment="Left" Margin="124,263,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="268" Height="30" IsReadOnly="True" FontSize="16"/>
+        <TextBox x:Name="tbZamena" Text="{Binding Zamena}" HorizontalAlignment="Left" Margin="124,263,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="268" Height="30" IsReadOnly="True" FontSize="16"/>
         <Label Content="Zamena:" HorizontalAlignment="Left" Margin="10,263,0,0" VerticalAlignment="Top" Height="30" Width="90" FontSize="16"/>
-        <TextBox x:Name="tbSastojci" HorizontalAlignment="Left" Margin="124,329,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="268" Height="158" IsReadOnly="True" FontSize="16"/>
+        <TextBox x:Name="tbSastojci" Text="{Binding Sastojci}" HorizontalAlignment="Left" Margin="124,329,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="268" Height="158" IsReadOnly="True" FontSize="16"/>
         <Label Content="Sastojci:" HorizontalAlignment="Left" Margin="10,329,0,0" VerticalAlignment="Top" Height="30" Width="90" FontSize="16"/>
-        <TextBox x:Name="tbNaziv" HorizontalAlignment="Left" Margin="124,132,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="268" Height="30" IsReadOnly="True" FontSize="16"/>
+        <TextBox x:Name="tbNaziv" Text="{Binding Naziv}" HorizontalAlignment="Left" Margin="124,132,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="268" Height="30" IsReadOnly="True" FontSize="16"/>
         <Label Content="Naziv:" HorizontalAlignment="Left" Margin="10,132,0,0" VerticalAlignment="Top" Height="30" Width="90" FontSize="16"/>
-        <TextBox x:Name="tbProizvodjac" HorizontalAlignment="Left" Margin="124,196,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="268" Height="30" IsReadOnly="True" FontSize="16"/>
+        <TextBox x:Name="tbProizvodjac" Text="{Binding Proizvodjac}" HorizontalAlignment="Left" Margin="124,196,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="268" Height="30" IsReadOnly="True" FontSize="16"/>
         <Label Content="Proizvodjac:" HorizontalAlignment="Left" Margin="10,196,0,0" VerticalAlignment="Top" Height="30" Width="90" FontSize="16"/>
-        <DataGrid x:Name="dgListaAlergena" Margin="124,524,38,36" FontSize="16"
+        <DataGrid x:Name="dgListaAlergena" Margin="124,524,38,36" FontSize="16" ItemsSource="{Binding ListaAlergena}"
                   RowHeight="40" ColumnWidth="*"/>
         <Label Content="Alergeni:" HorizontalAlignment="Left" Margin="10,524,0,0" VerticalAlignment="Top" Height="30" Width="90" FontSize="16"/>
 

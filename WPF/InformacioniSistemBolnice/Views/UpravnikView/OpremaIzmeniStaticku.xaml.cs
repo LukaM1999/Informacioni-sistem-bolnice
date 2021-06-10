@@ -1,4 +1,5 @@
-﻿using Model;
+﻿using Kontroler;
+using Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,20 +14,18 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using Kontroler;
-using InformacioniSistemBolnice.DTO;
 
 namespace InformacioniSistemBolnice.Views.UpravnikView
 {
     /// <summary>
-    /// Interaction logic for OpremaIzmeni.xaml
+    /// Interaction logic for OpremaIzmeniStaticku.xaml
     /// </summary>
-    public partial class OpremaIzmeniDinamicku : Page
+    public partial class OpremaIzmeniStaticku : Page
     {
-        public OpremaIzmeniDinamicku(DinamickaOprema oprema)
+        public OpremaIzmeniStaticku(StatickaOprema oprema)
         {
             InitializeComponent();
-            cbTip.ItemsSource = Enum.GetValues(typeof(TipDinamickeOpreme));
+            cbTip.ItemsSource = Enum.GetValues(typeof(TipStatickeOpreme));
             cbTip.SelectedItem = oprema.Tip;
             cbTip.IsHitTestVisible = false;
             tbKolicina.Text = oprema.Kolicina.ToString();
@@ -41,8 +40,8 @@ namespace InformacioniSistemBolnice.Views.UpravnikView
         {
             if (tbKolicina.Text.All(char.IsDigit) && !string.IsNullOrWhiteSpace(tbKolicina.Text))
             {
-                OpremaKontroler.Instance.IzmenaDinamickeOpreme(new(Int32.Parse(tbKolicina.Text),
-                    (TipDinamickeOpreme)Enum.Parse(typeof(TipDinamickeOpreme), cbTip.Text)));
+                OpremaKontroler.Instance.IzmenaStatickeOpreme(new(Int32.Parse(tbKolicina.Text),
+                    (TipStatickeOpreme)Enum.Parse(typeof(TipStatickeOpreme), cbTip.Text)));
                 this.NavigationService.Navigate(new Magacin());
             }
         }
