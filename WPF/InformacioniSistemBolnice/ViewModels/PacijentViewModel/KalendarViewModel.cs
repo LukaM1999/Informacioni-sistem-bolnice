@@ -34,12 +34,12 @@ namespace InformacioniSistemBolnice.ViewModels.PacijentViewModel
         public bool IzabranaObavestenja { get; set; }
         public DateTime PrikazanDatum { get; set; } = DateTime.Today;
         public string TipPogleda { get; set; } = "Nedeljni pogled";
-        public bool ObavestenjaPritisnuta { get; set; }
         private readonly Model.Pacijent ulogovanPacijent = GlavniProzorPacijentaView.ulogovanPacijent;
 
         public KalendarViewModel()
         {
-            Appointments = new ObservableCollection<TerminDto>(ulogovanPacijent.ZakazaniTermini.Select(termin =>
+            Appointments = new ObservableCollection<TerminDto>(ulogovanPacijent.ZakazaniTermini.
+                Where(termin => termin.Status != StatusTermina.zavrsen).Select(termin =>
                     new TerminDto(TerminUtility.DobaviFormatiranPrikazTermina(termin.Tip, termin.LekarJmbg,
                             termin.ProstorijaId, termin.Status), termin.Vreme, termin.Vreme.AddMinutes(termin.Trajanje),
                         new SolidColorBrush(Colors.Red), new SolidColorBrush(Colors.White), termin.LekarJmbg,
@@ -58,7 +58,8 @@ namespace InformacioniSistemBolnice.ViewModels.PacijentViewModel
 
         public void OtkaziTermin()
         {
-            MessageBoxResult odluka = MessageBox.Show("Da li ste sigurni da želite da otkažete izabrani termin?", "Potvrda otkazivanja", MessageBoxButton.YesNo);
+            MessageBoxResult odluka = MessageBox.Show("Da li ste sigurni da želite da otkažete izabrani termin?",
+                "Potvrda otkazivanja", MessageBoxButton.YesNo);
             if (odluka == MessageBoxResult.No) return;
             TerminKontroler.Instance.OtkaziTermin(TerminRepo.Instance.
                 NadjiTermin(IzabranTermin.Pocetak, IzabranTermin.PacijentJmbg, IzabranTermin.LekarJmbg));

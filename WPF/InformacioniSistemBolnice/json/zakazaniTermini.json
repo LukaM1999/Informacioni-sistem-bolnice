@@ -34,15 +34,7 @@
     "Trajanje": 30.0,
     "Tip": 1,
     "Status": 4,
-    "AnketaOLekaru": {
-      "Ljubaznost": 4,
-      "Profesionalizam": 2,
-      "Strpljenje": 3,
-      "Komunikativnost": 4,
-      "Azurnost": 5,
-      "Korisnost": 4,
-      "GeneralniKomentari": "Neki komentar."
-    },
+    "AnketaOLekaru": null,
     "PacijentJmbg": "1905981123124",
     "LekarJmbg": "1605988156156",
     "ProstorijaId": "P1",

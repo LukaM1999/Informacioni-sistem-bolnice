@@ -46,17 +46,6 @@ namespace InformacioniSistemBolnice
             new Thread(() => ObavestenjeTerapijeServis.Instance.UkljuciObavestenja(ulogovanPacijent)).Start();
         }
 
-        private void OtvoriAnketu(object sender, RoutedEventArgs e)
-        {
-            //Termin izabranTermin = (Termin)listaZakazanihTermina.SelectedValue;
-            //if (JeIzabranZavrsenTermin(izabranTermin)) new AnketaOLekaruFormaView(izabranTermin).Show();
-        }
-
-        private bool JeIzabranZavrsenTermin(Termin izabranTermin)
-        {
-            return izabranTermin is { Status: StatusTermina.zavrsen, AnketaOLekaru: null };
-        }
-
         private void IzaberiProfil(object sender, RoutedEventArgs e)
         {
             NavigationMenuListBox.SelectedItem = "Profil";
@@ -95,7 +84,7 @@ namespace InformacioniSistemBolnice
                 MessageBoxButton.YesNo);
             if (odluka is MessageBoxResult.No) return;
             new Login().Show();
-            PronadjiProzorUtility.PronadjiProzor(this).Close();
+            Application.Current.MainWindow?.Close();
         }
     }
 }

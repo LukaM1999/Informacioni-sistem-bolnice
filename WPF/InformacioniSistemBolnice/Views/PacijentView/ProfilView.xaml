@@ -81,12 +81,8 @@
             <TextBlock Grid.Row="11" Grid.Column="3" Text="Zanimanje:" Margin="0,0,0,10" />
             <TextBox Grid.Row="12" Grid.Column="3" HorizontalAlignment="Left" IsEnabled="False" Text="{Binding UlogovanPacijent.zdravstveniKarton.PodaciOZaposlenjuIZanimanju.PosaoKojiObavlja}" Width="170" />
         </StackPanel>
-        <!-- Druga kolona -->       
-        
-        <!-- Treca kolona -->
         <Image Source="{Binding UlogovanPacijent.SlikaPutanja}"  Grid.Row="1" Grid.Column="3" 
                Grid.RowSpan="2" Width="Auto" Height="Auto" MaxHeight="350" Margin="20,0,0,0" VerticalAlignment="Top"
-
                MaxWidth="350" HorizontalAlignment="Left"/>
 
         <Button Grid.Row="2" Grid.Column="3"
