@@ -58,6 +58,17 @@
         "LekarJmbg": "1605988156156",
         "ProstorijaId": "P1",
         "Hitan": true
+      },
+      {
+        "Vreme": "2021-06-12T09:30:00",
+        "Trajanje": 30.0,
+        "Tip": 1,
+        "Status": 0,
+        "AnketaOLekaru": null,
+        "PacijentJmbg": "1905981123124",
+        "LekarJmbg": "1605988156156",
+        "ProstorijaId": "P1",
+        "Hitan": false
       }
     ],
     "Ime": "Darko",

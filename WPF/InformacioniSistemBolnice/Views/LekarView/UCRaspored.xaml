@@ -4,6 +4,7 @@
                          xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
                          xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
                          xmlns:local="clr-namespace:InformacioniSistemBolnice.Views"
+                         xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
                          xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
                          mc:Ignorable="d" 
                          d:DesignHeight="612" d:DesignWidth="834">
@@ -13,6 +14,10 @@
         <Button Name="Pomeri" Content="Pomeri" HorizontalAlignment="Left" Margin="730,335,0,0" VerticalAlignment="Top" Height="39" Width="54" Click="Pomeri_Click"/>
         <Button Name="Otkazi" Content="Otkazi" HorizontalAlignment="Left" Margin="730,235,0,0" VerticalAlignment="Top" Height="39" Width="54" Click="Otkazi_Click"/>
         <Button Name="Zakazi"  Content="Zakazi" HorizontalAlignment="Left" Margin="730,135,0,0" VerticalAlignment="Top" Height="39" Width="54" Click="Zakazi_Click"/>
+        <DatePicker Name="datum" HorizontalAlignment="Left" Margin="0,48,0,0" VerticalAlignment="Top" SelectedDateChanged="datum_SelectedDateChanged" KeyUp="datum_KeyUp"/>
+        <Button HorizontalAlignment="Left" Margin="127,48,0,0" VerticalAlignment="Top" Click="Button_Click">
+            <iconPacks:MaterialDesign Kind="Refresh"></iconPacks:MaterialDesign>
+        </Button>
 
     </Grid>
 </mah:MetroContentControl>

@@ -44,6 +44,7 @@ namespace InformacioniSistemBolnice
 
         private void PronadjiTermineLekara()
         {
+            zakazaniTermini.Clear();
             foreach (Termin termin in TerminRepo.Instance.Termini.ToList())
             {
                 if (lekar.Jmbg.Equals(termin.LekarJmbg))
@@ -85,6 +86,50 @@ namespace InformacioniSistemBolnice
                 { DataContext = new KartonViewModel(glavniProzor, ((Termin)ZakazaniTermini.SelectedItem).PacijentJmbg) };
                 glavniProzor.contentControl.Content = karton;
             }
+        }
+
+        private bool Nadji(DateTime text, Termin p)
+        {
+            return text.Day == p.Vreme.Day;
+        }
+
+        private void datum_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
+        {
+            ObservableCollection<Termin> Filter = new ObservableCollection<Termin>();
+            foreach (var lek in zakazaniTermini)
+            {
+                if (string.IsNullOrWhiteSpace(datum.SelectedDate.ToString())) ZakazaniTermini.ItemsSource = zakazaniTermini;
+                else
+                {
+                    if (Nadji((DateTime) datum.SelectedDate, lek))
+                        Filter.Add(lek);
+                }
+            }
+
+            ZakazaniTermini.ItemsSource = Filter;
+        }
+
+        private void datum_KeyUp(object sender, KeyEventArgs e)
+        {
+            ObservableCollection<Termin> Filter = new ObservableCollection<Termin>();
+            foreach (var lek in zakazaniTermini)
+            {
+                if (string.IsNullOrWhiteSpace(datum.SelectedDate.ToString())) 
+                    ZakazaniTermini.ItemsSource = zakazaniTermini;
+                else
+                {
+                    if (Nadji((DateTime)datum.SelectedDate, lek))
+                        Filter.Add(lek);
+                }
+            }
+
+            ZakazaniTermini.ItemsSource = Filter;
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            PronadjiTermineLekara();
+            ZakazaniTermini.ItemsSource = zakazaniTermini;
         }
     }
 }
