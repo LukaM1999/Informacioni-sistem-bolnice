@@ -10,23 +10,25 @@
         Title="PocetnaStranicaSekretara"  Height="800" MaxHeight="800" MaxWidth="1200" Width="1200"  MinHeight="800" MinWidth="1200">
     <Grid>
         <Border BorderThickness="3" BorderBrush="Black"  Height="650" Width="1000" Margin="100,70,0,0" Background="LightGray">
-            <ContentControl x:Name="contentControl" HorizontalAlignment="Left" VerticalAlignment="Top" Height="650" Width="1000" />
+            <ContentControl x:Name="contentControl" HorizontalAlignment="Left" VerticalAlignment="Top" Height="650" Width="1000" >
+                <Label Content="Dobrodošli!" FontStyle="Italic" FontSize="48" HorizontalAlignment="Left" Margin="419,262,0,0" VerticalAlignment="Top"/>
+            </ContentControl>
         </Border>
 
-        <Button Style="{StaticResource ResourceKey=MainButtons}" x:Name="Nazad"  Click="MenuBtn_Click" HorizontalAlignment="Left" VerticalAlignment="Top"  Width="45" Height="51" Margin="45,100,0,0">
+        <Button Style="{StaticResource ResourceKey=MainButtons}" x:Name="Nazad"  Click="MenuBtn_Click" HorizontalAlignment="Left" VerticalAlignment="Top"  Width="45" Height="60" Margin="45,110,0,0">
             <StackPanel Orientation="Vertical">
-                <Image Source="../../images/menu.png" Width="30" Height="30" RenderOptions.BitmapScalingMode="Fant"/>
-                <TextBlock Text="Menu" VerticalAlignment="Center" FontSize="11"/>
+                <Image Source="../../images/menu.png" Width="40" Height="40" RenderOptions.BitmapScalingMode="Fant"/>
+                <TextBlock Text="Menu" HorizontalAlignment="Center" FontSize="11"/>
             </StackPanel>
         </Button>
         <Border BorderThickness="3" BorderBrush="Black" HorizontalAlignment="Left" Height="54" Margin="140,20,0,0" VerticalAlignment="Top" Width="1000">
-            <Grid  Background="LightGray"  HorizontalAlignment="Left" Height="54" VerticalAlignment="Center" Width="1000">
-                <Label Content="Klinika" FontFamily="Arial" FontSize=" 30" FontWeight="Bold" FontStretch="Medium" FontStyle="Italic" Margin="15,0,321,0"/>
+            <Grid  Background="LightGray"  HorizontalAlignment="Center" Height="54" VerticalAlignment="Center" Width="1009">
+                <Label Content="Klinika" FontFamily="Arial" FontSize=" 30" FontWeight="Bold" FontStretch="Medium" FontStyle="Italic" Margin="39,0,297,0"/>
                 <Button Style="{StaticResource ResourceKey=MainButtons}" x:Name="Feedback"  Background="LightGray" Click="Feedback_Click" HorizontalAlignment="Right" VerticalAlignment="Top"  Width="45" Height="51" Margin="0,4,233,0">
                     <StackPanel Orientation="Vertical">
                         <iconPacks:PackIconMaterial Kind="CommentText" Width="50" Height="47" HorizontalAlignment="Center"/>
                         <TextBlock Text="Menu" VerticalAlignment="Center" FontSize="11"/>
-                        
+
                     </StackPanel>
                 </Button>
                 <Button Style="{StaticResource ResourceKey=MainButtons}" x:Name="Profil"  Background="LightGray" Click="SekretarovProfil_Click" HorizontalAlignment="Right" VerticalAlignment="Top"  Width="45" Height="51" Margin="0,4,163,0">
@@ -48,9 +50,9 @@
                         <TextBlock Text="Menu" VerticalAlignment="Center" FontSize="11"/>
                     </StackPanel>
                 </Button>
-                
+
             </Grid>
         </Border>
-        <Image Source="../../images/hospital.png" Margin="30,22,1085,684" Stretch="Fill"/>
+        <Image Source="../../images/hospital.png" Margin="30,8,1078,684" Stretch="Fill"/>
     </Grid>
 </Window>

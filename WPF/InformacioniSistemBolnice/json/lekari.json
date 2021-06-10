@@ -97,7 +97,7 @@
     ],
     "Ime": "Marko",
     "Prezime": "Lazic",
-    "Jmbg": "1209971",
+    "Jmbg": "12099711231212",
     "DatumRodjenja": "1971-09-12T00:00:00",
     "Telefon": "0641551551",
     "Email": "lmarko@gmail.com",
@@ -110,6 +110,110 @@
     "Korisnik": {
       "KorisnickoIme": "lekar2",
       "Lozinka": "lekar2",
+      "Uloga": 1
+    }
+  },
+  {
+    "Specijalizacija": {
+      "Naziv": "Infektolog"
+    },
+    "ZakazaniTermini": [
+      {
+        "Vreme": "2021-06-10T01:00:00+02:00",
+        "Trajanje": 30.0,
+        "Tip": 1,
+        "Status": 0,
+        "AnketaOLekaru": null,
+        "PacijentJmbg": "1905981123124",
+        "LekarJmbg": "1209967123145",
+        "ProstorijaId": "P1",
+        "Hitan": true
+      }
+    ],
+    "Ime": "Mirjana",
+    "Prezime": "Maric",
+    "Jmbg": "1209967123145",
+    "DatumRodjenja": "1999-09-12T00:00:00",
+    "Telefon": "064515151515",
+    "Email": "mmirjana@gmail.com",
+    "AdresaStanovanja": {
+      "Broj": "11",
+      "Ulica": "Kosovska",
+      "Grad": "Novi Sad",
+      "Drzava": "Srbija"
+    },
+    "Korisnik": {
+      "KorisnickoIme": "mirjana",
+      "Lozinka": "mirjana",
+      "Uloga": 1
+    }
+  },
+  {
+    "Specijalizacija": {
+      "Naziv": "Psihijatar"
+    },
+    "ZakazaniTermini": [],
+    "Ime": "Nemanja",
+    "Prezime": "Radovic",
+    "Jmbg": "1203969123145",
+    "DatumRodjenja": "1969-03-12T00:00:00",
+    "Telefon": "064324214141",
+    "Email": "nemanjar69@gmail.com",
+    "AdresaStanovanja": {
+      "Broj": "3",
+      "Ulica": "Laze Kostica",
+      "Grad": "Novi Sad",
+      "Drzava": "Srbija"
+    },
+    "Korisnik": {
+      "KorisnickoIme": "drnemanja",
+      "Lozinka": "nemanja",
+      "Uloga": 1
+    }
+  },
+  {
+    "Specijalizacija": {
+      "Naziv": "Neurolog"
+    },
+    "ZakazaniTermini": [],
+    "Ime": "Milena",
+    "Prezime": "Jankovic",
+    "Jmbg": "0101979123123",
+    "DatumRodjenja": "1979-01-01T00:00:00",
+    "Telefon": "06414141441",
+    "Email": "jmilena@yahoo.com",
+    "AdresaStanovanja": {
+      "Broj": "12",
+      "Ulica": "Sime Milosevica",
+      "Grad": "Novi Sad",
+      "Drzava": "Srbija"
+    },
+    "Korisnik": {
+      "KorisnickoIme": "drmilena",
+      "Lozinka": "milena",
+      "Uloga": 1
+    }
+  },
+  {
+    "Specijalizacija": {
+      "Naziv": "Dermatolog"
+    },
+    "ZakazaniTermini": [],
+    "Ime": "Mirko",
+    "Prezime": "Veljkovic",
+    "Jmbg": "0102989123123",
+    "DatumRodjenja": "1989-01-01T00:00:00",
+    "Telefon": "064151515515",
+    "Email": "mirkov@yahoo.com",
+    "AdresaStanovanja": {
+      "Broj": "12",
+      "Ulica": "Mike Antica",
+      "Grad": "Novi Sad",
+      "Drzava": "Srbija"
+    },
+    "Korisnik": {
+      "KorisnickoIme": "drmirko",
+      "Lozinka": "mirko",
       "Uloga": 1
     }
   }

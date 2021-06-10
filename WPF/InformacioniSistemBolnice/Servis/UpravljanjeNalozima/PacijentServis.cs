@@ -20,7 +20,9 @@ namespace Servis
                                             DateTime.Parse(pacijentDto.DatumRodjenja.ToString("g")), pacijentDto.Telefon,
                                             pacijentDto.Email, KreirajKorisnika(pacijentDto),
                                             new Adresa(pacijentDto.Drzava, pacijentDto.Grad, pacijentDto.Ulica, pacijentDto.Broj)));
-            if(PacijentRepo.Instance.DodajPacijenta(pacijent)) return true;
+            ObservableCollection<Termin> zakazaniTermini = new ObservableCollection<Termin>();
+            pacijent.ZakazaniTermini = zakazaniTermini;
+            if (PacijentRepo.Instance.DodajPacijenta(pacijent)) return true;
             return false;
         }
 

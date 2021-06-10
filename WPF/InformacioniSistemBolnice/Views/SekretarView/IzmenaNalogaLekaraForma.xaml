@@ -102,7 +102,7 @@
             </TextBox>
             <TextBox x:Name="korisnikUnos" Text="{Binding Lekar.Korisnik.KorisnickoIme}" Canvas.Left="132" Canvas.Top="440" TextWrapping="Wrap" Width="140" Height="25" FontSize="14"/>
             <TextBox x:Name="lozinkaUnos" Text="{Binding Lekar.Korisnik.Lozinka}" Canvas.Left="132" Canvas.Top="480" Width="140" Height="25" FontSize="14" />
-            <ComboBox x:Name="specijalizacije"   ItemsSource="{Binding Specijalizacije}" SelectedItem="{Binding SpecijalizacijaLekara}" SelectedIndex="0" Canvas.Left="132" Canvas.Top="520" Width="160" Height="30" FontSize="14" />
+            <ComboBox x:Name="specijalizacije"   ItemsSource="{Binding Specijalizacije}" SelectedItem="{Binding SpecijalizacijaLekara}" SelectedIndex="{Binding IndexSpecijalizacije}" Canvas.Left="132" Canvas.Top="520" Width="160" Height="30" FontSize="14" />
             <Label Content="Drzava: " Canvas.Left="23" Canvas.Top="200" Width="58"/>
             <Label Content="Grad: " Canvas.Left="23" Canvas.Top="240" Width="58" Height="26"/>
             <Label Content="Ulica: " Canvas.Left="23" Canvas.Top="280" Width="94"/>

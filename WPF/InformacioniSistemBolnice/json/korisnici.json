@@ -38,5 +38,25 @@
     "KorisnickoIme": "ivan ",
     "Lozinka": "ivan ",
     "Uloga": 2
+  },
+  {
+    "KorisnickoIme": "mirjana",
+    "Lozinka": "mirjana",
+    "Uloga": 1
+  },
+  {
+    "KorisnickoIme": "drnemanja",
+    "Lozinka": "nemanja",
+    "Uloga": 1
+  },
+  {
+    "KorisnickoIme": "drmilena",
+    "Lozinka": "milena",
+    "Uloga": 1
+  },
+  {
+    "KorisnickoIme": "drmirko",
+    "Lozinka": "mirko",
+    "Uloga": 1
   }
 ]

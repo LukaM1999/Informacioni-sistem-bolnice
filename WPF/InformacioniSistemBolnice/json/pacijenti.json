@@ -121,6 +121,17 @@
         "LekarJmbg": "1209971",
         "ProstorijaId": "P1",
         "Hitan": false
+      },
+      {
+        "Vreme": "2021-06-10T01:00:00+02:00",
+        "Trajanje": 30.0,
+        "Tip": 1,
+        "Status": 0,
+        "AnketaOLekaru": null,
+        "PacijentJmbg": "1905981123124",
+        "LekarJmbg": "1209967123145",
+        "ProstorijaId": "P1",
+        "Hitan": true
       }
     ],
     "Ime": "Milica",
@@ -146,6 +157,9 @@
       "alergeni": [
         {
           "Naziv": "polen"
+        },
+        {
+          "Naziv": "jagode"
         }
       ],
       "recepti": [],
@@ -170,6 +184,9 @@
       "Alergeni": [
         {
           "Naziv": "polen"
+        },
+        {
+          "Naziv": "jagode"
         }
       ]
     },
@@ -222,7 +239,7 @@
       "BracnoStanje": 0,
       "KategorijaZdravstveneZastite": 0,
       "PodaciOZaposlenjuIZanimanju": {
-        "RadnoMjesto": " Code Tribe",
+        "RadnoMjesto": "Code Tribe",
         "RegistarskiBroj": "K5151 ",
         "SifraDelatnosti": "S41414 ",
         "PosaoKojiObavlja": "Softver developer ",

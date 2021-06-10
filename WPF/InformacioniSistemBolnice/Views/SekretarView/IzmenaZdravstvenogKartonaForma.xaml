@@ -57,12 +57,12 @@
                     <TextBlock Text="Nazad" VerticalAlignment="Center" FontSize="14"/>
                 </StackPanel>
             </Button>
-            <Button Content="Dodaj"   Click="DodajAlergen_Click" Canvas.Left="750" Canvas.Top="485" Width="60"/>
-            <Button Content="Obrisi"  Click="ObrisiAlergen_Click" Canvas.Left="830" Canvas.Top="485" Width="60"/>
+            <Button Content="Dodaj"   Click="DodajAlergen_Click" Canvas.Left="762" Canvas.Top="445" Width="60" Height="20"/>
+            <Button Content="Obrisi"  Click="ObrisiAlergen_Click" Canvas.Left="852" Canvas.Top="445" Width="60" Height="20"/>
             <ComboBox x:Name="polUnos" Text="{Binding ZdravstveniKarton.PolPacijenta}" Canvas.Left="178" Canvas.Top="506" Width="120"  ItemsSource="{Binding Source={local:EnumBindingSource {x:Type model:Pol}}}"/>
             <ComboBox x:Name="bracnoStanjeUnos" Text="{Binding ZdravstveniKarton.BracnoStanje}" Canvas.Left="180" Canvas.Top="553" Width="120"  ItemsSource="{Binding Source={local:EnumBindingSource {x:Type model:BracnoStanje}}}"/>
             <ComboBox x:Name="kategorijaZdrZastiteUnos" Text="{Binding ZdravstveniKarton.KategorijaZdravstveneZastite}" Canvas.Left="580" Canvas.Top="150" Width="118"  ItemsSource="{Binding Source={local:EnumBindingSource {x:Type model:KategorijaZdravstveneZastite}}}"/>
-            <Button Content="Potvrdi izmjene"  Click="IzmeniZdravstveniKarton_Click" Canvas.Left="876" Canvas.Top="600" Width="120" Height="28" Background="White"/>
+            <Button Content="Potvrdi izmjene"  Click="IzmeniZdravstveniKarton_Click" Canvas.Left="872" Canvas.Top="572" Width="120" Height="28" Background="White"/>
             <Label  x:Name="JMBGLabela" Content="{Binding Pacijent.Jmbg}" Canvas.Left="175" Canvas.Top="190" Height="26" Width="115"/>
             <Label x:Name="prezimeLabela"  Content="{Binding Pacijent.Prezime}" Canvas.Left="175" Canvas.Top="230"  Width="120" Height="26"/>
             <Label x:Name="imeLabela" Content="{Binding Pacijent.Ime}" Canvas.Left="175" Canvas.Top="310"   Width="120" Height="26"/>
@@ -71,7 +71,7 @@
             <Label x:Name="telefon" Content="{Binding Pacijent.Telefon}" Canvas.Left="175" Canvas.Top="470"  Width="120" Height="28"/>
         </Canvas>
         <Label Content="Alergeni" Grid.Column="2" HorizontalAlignment="Left" Margin="28,105,0,0" VerticalAlignment="Top" />
-        <ListView  Name ="AlergeniPacijenta" ItemsSource="{Binding ZdravstveniKarton.Alergeni}" SelectedItem="{Binding SelektovaniAlergen}" Grid.Column="2" Margin="32,140,28,190">
+        <ListView  Name ="AlergeniPacijenta" ItemsSource="{Binding ZdravstveniKarton.Alergeni}" SelectedItem="{Binding SelektovaniAlergen}" Grid.Column="2" Margin="44,140,42,190">
             <ListView.View>
                 <GridView>
                     <GridViewColumn/>

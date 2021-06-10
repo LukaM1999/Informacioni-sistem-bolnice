@@ -23,6 +23,9 @@ namespace InformacioniSistemBolnice
             pacijentiProzor = pacijenti;
             pocetna = pocetnaStranica;
             AlergenRepo.Instance.Deserijalizacija();
+            kategorijaZdrZastiteUnos.SelectedItem = ZdravstveniKarton.KategorijaZdravstveneZastite;
+            polUnos.SelectedItem = ZdravstveniKarton.PolPacijenta;
+            bracnoStanjeUnos.SelectedItem = ZdravstveniKarton.BracnoStanje;
         }
 
         private void IzmeniZdravstveniKarton_Click(object sender, RoutedEventArgs e)

@@ -14,6 +14,7 @@ namespace InformacioniSistemBolnice.ViewModels.SekretarViewModel
         public Lekari lekari;
         public ListView listaLekara;
         public Lekar Lekar { get; set; }
+        public int IndexSpecijalizacije { get; set; }
         public Specijalizacija SpecijalizacijaLekara { get; set; }
         public ObservableCollection<Specijalizacija> Specijalizacije { get; set; }
         public ICommand Nazad { get; set; }
@@ -30,6 +31,7 @@ namespace InformacioniSistemBolnice.ViewModels.SekretarViewModel
             SpecijalizacijaLekara = Lekar.Specijalizacija;
             IzmeniLekara = new Command(o => IzmenaLekara());
             Nazad = new Command(o => PovratakNazad());
+            IndexSpecijalizacije = NadjiIndexSpecijalizacije();
         }
 
         private void PovratakNazad()
@@ -46,6 +48,17 @@ namespace InformacioniSistemBolnice.ViewModels.SekretarViewModel
                                      korisnik.Lozinka, SpecijalizacijaLekara.Naziv);
             NalogLekaraKontroler.Instance.IzmenaNalogaLekara(lekarDto, (Lekar)listaLekara.SelectedValue);
             pocetna.contentControl.Content = new Lekari(pocetna);
+        }
+
+        public int NadjiIndexSpecijalizacije()
+        {
+            int index = 0;
+            foreach(Specijalizacija specijalizacija in SpecijalizacijaRepo.Instance.Specijalizacije)
+            {
+                if (SpecijalizacijaLekara.Naziv == specijalizacija.Naziv) break;
+                index++;
+            }
+            return index;
         }
     }
 }
