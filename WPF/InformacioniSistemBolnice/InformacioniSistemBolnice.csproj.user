@@ -30,7 +30,10 @@
     <Compile Update="Views\LekarView\Podesavanja.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Views\LekarView\PomeranjeTermina.xaml.cs">
+    <Compile Update="Views\LekarView\LekarPomeranjeTermina.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\LekarView\ProfilLekara.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Views\LekarView\ReceptView.xaml.cs">
@@ -353,7 +356,10 @@
     <Page Update="Views\LekarView\Podesavanja.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Views\LekarView\PomeranjeTermina.xaml">
+    <Page Update="Views\LekarView\LekarPomeranjeTermina.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\LekarView\ProfilLekara.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\LekarView\ReceptView.xaml">
@@ -516,9 +522,6 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\SekretarView\PomeranjeTermina.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="Views\LekarView\PomeranjeTerminaLekaraProzor.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\PacijentView\PomeranjeTerminaPacijentaView.xaml">

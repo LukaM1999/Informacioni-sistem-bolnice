@@ -19,6 +19,7 @@ using InformacioniSistemBolnice;
 using InformacioniSistemBolnice.ViewModels.LekarViewModel;
 using Kontroler;
 using InformacioniSistemBolnice.Views;
+using InformacioniSistemBolnice.Views.LekarView;
 using MahApps.Metro.Controls;
 
 namespace InformacioniSistemBolnice
@@ -71,10 +72,9 @@ namespace InformacioniSistemBolnice
         {
             if (ZakazaniTermini.SelectedIndex > -1)
             {
-                PomeranjeTerminaLekaraProzor pomeranje = new PomeranjeTerminaLekaraProzor((Termin)ZakazaniTermini.SelectedItem);
-                pomeranje.Show();
+                glavniProzor.contentControl.Content = new LekarPomeranjeTermina(glavniProzor, (Termin)ZakazaniTermini.SelectedItem);
+                PronadjiTermineLekara();
             }
-            PronadjiTermineLekara();
         }
 
         private void Pregled_Click(object sender, RoutedEventArgs e)

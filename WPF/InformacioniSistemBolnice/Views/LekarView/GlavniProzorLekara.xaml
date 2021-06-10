@@ -41,7 +41,7 @@
                 <TextBlock Text="{local:Loc Podesavanja}" VerticalAlignment="Center" FontSize="14" HorizontalAlignment="Center"/>
             </StackPanel>
         </Button>
-        <Button Style="{StaticResource ResourceKey=MainButtons}" x:Name="Profil" Margin="749,26,0,0" HorizontalAlignment="Left" VerticalAlignment="Top">
+        <Button Style="{StaticResource ResourceKey=MainButtons}" x:Name="Profil" Margin="749,26,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Click="Profil_Click">
             <StackPanel Orientation="Vertical">
                 <iconPacks:PackIconMaterial Kind="Account" Width="50" Height="50" HorizontalAlignment="Center"></iconPacks:PackIconMaterial>
                 <TextBlock Text="{local:Loc Profil}" VerticalAlignment="Center" FontSize="14" HorizontalAlignment="Center"/>

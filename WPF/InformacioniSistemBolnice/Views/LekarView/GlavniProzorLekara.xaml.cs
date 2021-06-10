@@ -14,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using InformacioniSistemBolnice.Servis.UpravljanjeBolnickimLecenjima;
 using InformacioniSistemBolnice.Views;
+using InformacioniSistemBolnice.Views.LekarView;
 using MahApps.Metro.Controls;
 using Model;
 using PropertyChanged;
@@ -79,6 +80,11 @@ namespace InformacioniSistemBolnice
         private void Podesavanja_Click(object sender, RoutedEventArgs e)
         {
             contentControl.Content = new Podesavanja(this);
+        }
+
+        private void Profil_Click(object sender, RoutedEventArgs e)
+        {
+            contentControl.Content = new ProfilLekara(this);
         }
     }
 }

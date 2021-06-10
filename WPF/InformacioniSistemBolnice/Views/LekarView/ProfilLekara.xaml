@@ -1,0 +1,26 @@
+﻿<mah:MetroContentControl x:Class="InformacioniSistemBolnice.Views.LekarView.ProfilLekara"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+             xmlns:local="clr-namespace:InformacioniSistemBolnice.Views.LekarView"
+             xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
+             mc:Ignorable="d" 
+             d:DesignHeight="612" d:DesignWidth="834"
+             DataContext='{Binding RelativeSource={RelativeSource Self}}'>
+    <Grid>
+        <Label x:Name="ime" Content="{Binding Lekar.Ime}" HorizontalAlignment="Left" Margin="135,170,0,0" VerticalAlignment="Top" FontSize="16" Width="180" Height="40"/>
+        <Label x:Name="prezime" Content="{Binding Lekar.Prezime}" HorizontalAlignment="Left" Margin="135,226,0,0" VerticalAlignment="Top" FontSize="16" Width="180" Height="40"/>
+        <Label x:Name="jmbg" Content="{Binding Lekar.Jmbg}" HorizontalAlignment="Left" Margin="135,0,0,0" VerticalAlignment="Center" FontSize="16" Width="180" Height="40"/>
+        <Label x:Name="datum" Content="{Binding Lekar.DatumRodjenja}" HorizontalAlignment="Left" Margin="135,344,0,0" VerticalAlignment="Top" FontSize="16" Width="180" Height="40"/>
+        <Label x:Name="email" Content="{Binding Lekar.Email}" HorizontalAlignment="Left" Margin="135,400,0,0" VerticalAlignment="Top" FontSize="16" Width="180" Height="40"/>
+        <Label x:Name="drzava" Content="{Binding Lekar.AdresaStanovanja.Drzava}" HorizontalAlignment="Left" Margin="356,170,0,0" VerticalAlignment="Top" FontSize="16" Width="180" Height="40"/>
+        <Label x:Name="grad" Content="{Binding Lekar.AdresaStanovanja.Grad}" HorizontalAlignment="Left" Margin="356,226,0,0" VerticalAlignment="Top" FontSize="16" Width="180" Height="40"/>
+        <Label x:Name="ulica" Content="{Binding Lekar.AdresaStanovanja.Ulica}" HorizontalAlignment="Left" Margin="356,0,0,0" VerticalAlignment="Center" FontSize="16" Width="180" Height="40"/>
+        <Label x:Name="broj" Content="{Binding Lekar.AdresaStanovanja.Broj}" HorizontalAlignment="Left" Margin="541,0,0,0" VerticalAlignment="Center" FontSize="16" Width="180" Height="40"/>
+        <Label x:Name="specijalizacija" Content="{Binding Lekar.Specijalizacija.Naziv}" HorizontalAlignment="Left" Margin="356,400,0,0" VerticalAlignment="Top" FontSize="16" Width="180" Height="40"/>
+        <Label x:Name="telefon" Content="{Binding Lekar.Telefon}" HorizontalAlignment="Left" Margin="356,344,0,0" VerticalAlignment="Top" FontSize="16" Width="180" Height="40"/>
+
+    </Grid>
+</mah:MetroContentControl>

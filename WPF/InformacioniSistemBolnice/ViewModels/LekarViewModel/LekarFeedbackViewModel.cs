@@ -21,10 +21,10 @@ namespace InformacioniSistemBolnice.ViewModels.LekarViewModel
         public LekarFeedbackViewModel(GlavniProzorLekara glavni)
         {
             pocetni = glavni;
-            SlanjeFeedbacka = new Command(o => PosaljiFeedback());
+            SlanjeFeedbacka = new Command(PosaljiFeedback);
             Nazad = new Command(o => PovratakNazad());
         }
-        public void PosaljiFeedback()
+        public void PosaljiFeedback(object o)
         {
             FeedbackKontroler.Instance.PosaljiFeedback(new FeedbackDto(pocetni.ulogovanLekar.ToString(), 
                 pocetni.ulogovanLekar.Korisnik.Uloga.ToString(), Poruka));

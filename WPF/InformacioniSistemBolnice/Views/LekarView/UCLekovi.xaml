@@ -11,5 +11,6 @@
     <Grid>
         <DataGrid x:Name="listaLekova" Margin="0,85,150,0" CanUserAddRows="False" CanUserResizeColumns="True" CanUserResizeRows="True"/>
         <Button Content="Info" HorizontalAlignment="Left" Margin="735,35,0,0" VerticalAlignment="Top" Height="39" Width="54" Click="Button_Click"/>
+        <TextBox x:Name="searchBox" HorizontalAlignment="Left" Margin="0,42,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" KeyUp="TextBox_KeyUp"/>
     </Grid>
 </mah:MetroContentControl>

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -39,6 +40,26 @@ namespace InformacioniSistemBolnice
                 glavniProzorLekara.contentControl.Content = karton;
 
             }
+        }
+
+        private void TextBox_KeyUp(object sender, KeyEventArgs e)
+        {
+            ObservableCollection<Pacijent> Filter = new ObservableCollection<Pacijent>();
+            foreach (var pacijent in PacijentRepo.Instance.Pacijenti)
+            {
+                if (Nadji(searchBox.Text.ToLower(), pacijent))
+                {
+                    Filter.Add(pacijent);
+                }
+            }
+
+            listaPacijenata.ItemsSource = Filter;
+        }
+
+        private bool Nadji(string text, Pacijent p)
+        {
+            return p.Ime.ToLower().Contains(text) || p.Prezime.ToLower().Contains(text) ||
+                   p.Jmbg.ToLower().StartsWith(text);
         }
     }
 }

@@ -27,7 +27,7 @@
         <DataGrid x:Name="ListaPacijenata" Margin="348,74,23,70" CanUserAddRows="False"/>
         <Button x:Name="Potvrdi" Content="Potvrdi" HorizontalAlignment="Left" Margin="245,515,0,0" VerticalAlignment="Top"  Click="Potvrdi_Click"/>
         <ComboBox x:Name="Prostorija" HorizontalAlignment="Left" Margin="206,289,0,0" VerticalAlignment="Top" Width="94"/>
-        <Label Content="Prostorija:" HorizontalAlignment="Left" Margin="117,0,0,0" VerticalAlignment="Center" Height="34" Width="55"/>
+        <Label Content="Prostorija:" HorizontalAlignment="Left" Margin="117,0,0,0" VerticalAlignment="Center" Height="34" Width="84"/>
 
         <Button Content="Nazad" HorizontalAlignment="Left" Margin="50,35,0,0" VerticalAlignment="Top" Click="Nazad_Click" Height="30" Width="50"/>
 

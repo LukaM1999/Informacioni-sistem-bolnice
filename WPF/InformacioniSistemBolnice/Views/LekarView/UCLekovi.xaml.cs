@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -36,6 +37,25 @@ namespace InformacioniSistemBolnice
                 UCLekInfo ucLek = new UCLekInfo(glavniProzorLekara, (Lek)listaLekova.SelectedItem, this);
                 glavniProzorLekara.contentControl.Content = ucLek;
             }
+        }
+
+        private void TextBox_KeyUp(object sender, KeyEventArgs e)
+        {
+            ObservableCollection<Lek> Filter = new ObservableCollection<Lek>();
+            foreach (var lek in LekRepo.Instance.Lekovi)
+            {
+                if (Nadji(searchBox.Text.ToLower(), lek))
+                {
+                    Filter.Add(lek);
+                }
+            }
+
+            listaLekova.ItemsSource = Filter;
+        }
+
+        private bool Nadji(string text, Lek p)
+        {
+            return p.Naziv.ToLower().Contains(text) || p.Proizvodjac.ToLower().Contains(text);
         }
     }
 }

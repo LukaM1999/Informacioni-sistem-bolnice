@@ -61,19 +61,12 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Update="Views\LekarView\PomeranjeTerminaLekaraProzor.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Update="Views\Lekar\UCPacijenti - Copy.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
 
   <ItemGroup>
-    <Page Update="Views\LekarView\PomeranjeTerminaLekaraProzor.xaml">
-      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
-      <SubType>Designer</SubType>
-    </Page>
     <Page Update="Views\Lekar\UCPacijenti - Copy.xaml">
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
       <SubType>Designer</SubType>
