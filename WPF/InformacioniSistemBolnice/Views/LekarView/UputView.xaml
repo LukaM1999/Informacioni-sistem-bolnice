@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:InformacioniSistemBolnice.Views.LekarView"
+             xmlns:local="clr-namespace:InformacioniSistemBolnice"
              xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
              xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
              xmlns:system="clr-namespace:System;assembly=System.Runtime"
@@ -23,7 +23,7 @@
             </DataGrid.RenderTransform>
         </DataGrid>
         <Label Content="Lekar:" HorizontalAlignment="Left" Margin="392,58,0,0" VerticalAlignment="Top" Height="26" Width="90"/>
-        <Button Content="Zakazi" HorizontalAlignment="Left" Margin="278,478,0,0" VerticalAlignment="Top" Click="Button_Click_1"/>
+        <Button Content="{local:Loc Potvrdi}" HorizontalAlignment="Left" Margin="278,478,0,0" VerticalAlignment="Top" Click="Button_Click_1"/>
         <Button Content="Pronadji" HorizontalAlignment="Left" Margin="261,144,0,0" VerticalAlignment="Top" Click="Button_Click"/>
         <DatePicker DisplayDateStart="{Binding Path=., Source={x:Static system:DateTime.Today}}" x:Name="pocetak" HorizontalAlignment="Left" Margin="206,202,0,0" VerticalAlignment="Top" Height="24" Width="117"/>
         <Label Content="Pocetak:" HorizontalAlignment="Left" Margin="141,197,0,0" VerticalAlignment="Top" Height="34"/>
@@ -37,7 +37,7 @@
         <ComboBox x:Name="prostorija" HorizontalAlignment="Left" Margin="232,349,0,0" VerticalAlignment="Top" Width="94"/>
         <Label Content="Tip:" HorizontalAlignment="Left" Margin="141,304,0,0" VerticalAlignment="Top" Height="34" Width="55"/>
         <CheckBox x:Name="hitno" Content="Hitno" HorizontalAlignment="Left" Margin="266,395,0,0" VerticalAlignment="Top" Height="24" Width="60"/>
-        <Button Content="Nazad" HorizontalAlignment="Left" Margin="50,35,0,0" VerticalAlignment="Top" Click="Nazad_Click" Height="30" Width="50"/>
+        <Button Content="{local:Loc Nazad}" HorizontalAlignment="Left" Margin="50,35,0,0" VerticalAlignment="Top" Click="Nazad_Click" Height="30" Width="50"/>
 
 
     </Grid>

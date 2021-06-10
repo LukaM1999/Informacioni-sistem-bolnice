@@ -185,6 +185,15 @@ namespace InformacioniSistemBolnice.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Nazad.
+        /// </summary>
+        public static string Nazad {
+            get {
+                return ResourceManager.GetString("Nazad", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Odjava.
         /// </summary>
         public static string Odjava {
@@ -208,6 +217,15 @@ namespace InformacioniSistemBolnice.Properties {
         public static string Podesavanja {
             get {
                 return ResourceManager.GetString("Podesavanja", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Potvrdi.
+        /// </summary>
+        public static string Potvrdi {
+            get {
+                return ResourceManager.GetString("Potvrdi", resourceCulture);
             }
         }
         

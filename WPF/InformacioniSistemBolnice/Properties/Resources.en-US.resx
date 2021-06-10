@@ -135,6 +135,9 @@
   <data name="Lekovi" xml:space="preserve">
     <value>Medicines</value>
   </data>
+  <data name="Nazad" xml:space="preserve">
+    <value>Back</value>
+  </data>
   <data name="Odjava" xml:space="preserve">
     <value>Log out</value>
   </data>
@@ -143,6 +146,9 @@
   </data>
   <data name="Podesavanja" xml:space="preserve">
     <value>Settings</value>
+  </data>
+  <data name="Potvrdi" xml:space="preserve">
+    <value>Confirm</value>
   </data>
   <data name="Predmet" xml:space="preserve">
     <value>Human-computer interaction</value>

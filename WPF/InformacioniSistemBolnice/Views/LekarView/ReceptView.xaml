@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:InformacioniSistemBolnice.Views.LekarView"
+             xmlns:local="clr-namespace:InformacioniSistemBolnice"
              xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
              xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
              xmlns:system="clr-namespace:System;assembly=System.Runtime"
@@ -20,9 +20,9 @@
         <TextBox Name="Mera" HorizontalAlignment="Left" Margin="220,268,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="136" Height="21"/>
         <TextBox x:Name="Redovnost" HorizontalAlignment="Left" Margin="220,334,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="136" Height="21"/>
         <Label Content="ID:" HorizontalAlignment="Left" Margin="92,82,0,0" VerticalAlignment="Top" Height="42" Width="122"/>
-        <Button Content="Potvrdi" HorizontalAlignment="Left" Margin="301,431,0,0" VerticalAlignment="Top" Click="Button_Click"/>
+        <Button Content="{local:Loc Potvrdi}" HorizontalAlignment="Left" Margin="301,431,0,0" VerticalAlignment="Top" Click="Button_Click"/>
         <Label Content="Lekovi:" HorizontalAlignment="Left" Margin="432,51,0,0" VerticalAlignment="Top"/>
         <DataGrid x:Name="listaLekova" Margin="432,82,10,154" CanUserAddRows="False"/>
-        <Button Content="Nazad" HorizontalAlignment="Left" Margin="50,35,0,0" VerticalAlignment="Top" Click="Nazad_Click" Height="30" Width="50"/>
+        <Button Content="{local:Loc Nazad}" HorizontalAlignment="Left" Margin="50,35,0,0" VerticalAlignment="Top" Click="Nazad_Click" Height="30" Width="50"/>
     </Grid>
 </mah:MetroContentControl>

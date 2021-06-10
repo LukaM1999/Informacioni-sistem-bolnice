@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:InformacioniSistemBolnice.Views.LekarView"
+             xmlns:local="clr-namespace:InformacioniSistemBolnice"
              xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
              xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
              mc:Ignorable="d" 
@@ -12,7 +12,7 @@
         <Label Content="Feedback" FontWeight="Bold" FontSize="20" HorizontalAlignment="Left" Margin="224,84,0,0" VerticalAlignment="Top" Height="33" Width="287"/>
         <iconPacks:PackIconMaterial Kind="CommentText" Width="36" Height="26" Margin="314,79,0,0"/>
         <TextBox HorizontalAlignment="Left" Style="{StaticResource PlaceHolder}" Text="{Binding Poruka}" Tag="Unesite vaše utiske..." Margin="230,126,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="348" Height="366"/>
-        <Button Content="Posalji" HorizontalAlignment="Left" Margin="528,513,0,0" VerticalAlignment="Top" Command="{Binding SlanjeFeedbacka}"/>
+        <Button Content="{local:Loc Potvrdi}" HorizontalAlignment="Left" Margin="528,513,0,0" VerticalAlignment="Top" Command="{Binding SlanjeFeedbacka}"/>
         <Button Command="{Binding Nazad}" HorizontalAlignment="Left" Margin="31,38,0,0" VerticalAlignment="Top" Background="Transparent" Cursor="Hand" BorderThickness="0">
             <iconPacks:Codicons Kind="ChevronLeft" Height="35" Width="35"></iconPacks:Codicons>
         </Button>

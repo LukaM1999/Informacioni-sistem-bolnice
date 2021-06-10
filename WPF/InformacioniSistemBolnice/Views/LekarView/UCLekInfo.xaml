@@ -19,10 +19,10 @@
         <TextBox x:Name="sastojci" HorizontalAlignment="Left" Margin="169,241,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="222" Height="48"/>
         <TextBox x:Name="zamena" HorizontalAlignment="Left" Margin="169,294,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="222" Height="48" RenderTransformOrigin="0.514,0.479"/>
         <TextBox x:Name="komentar" HorizontalAlignment="Left" Margin="169,347,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="222" Height="68"/>
-        <Button Content="Potvrda" HorizontalAlignment="Left" Margin="740,508,0,0" VerticalAlignment="Top" Click="Button_Click1"/>
+        <Button Content="{local:Loc Potvrdi}" HorizontalAlignment="Left" Margin="740,508,0,0" VerticalAlignment="Top" Click="Button_Click1"/>
         <DataGrid x:Name="Alergeni" Margin="433,126,35,138"/>
         <Label Content="Alergeni:" HorizontalAlignment="Left" Margin="433,73,0,0" VerticalAlignment="Top" Height="48" Width="86"/>
-        <Button Content="Nazad" HorizontalAlignment="Left" Margin="50,35,0,0" VerticalAlignment="Top" Click="Nazad_Click" Height="30" Width="50"/>
+        <Button Content="{local:Loc Nazad}" HorizontalAlignment="Left" Margin="50,35,0,0" VerticalAlignment="Top" Click="Nazad_Click" Height="30" Width="50"/>
 
     </Grid>
 </mah:MetroContentControl>

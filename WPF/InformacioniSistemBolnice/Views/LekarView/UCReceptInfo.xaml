@@ -10,7 +10,7 @@
     <Grid>
         <DataGrid x:Name="listaTerapija" Margin="178,124,178,124"/>
         <Label Content="Terapije" HorizontalAlignment="Left" Margin="178,78,0,0" VerticalAlignment="Top" Height="41" Width="77"/>
-        <Button Content="Nazad" HorizontalAlignment="Left" Margin="50,35,0,0" VerticalAlignment="Top" Height="30" Width="64" Click="Button_Click"/>
+        <Button Content="{local:Loc Nazad}" HorizontalAlignment="Left" Margin="50,35,0,0" VerticalAlignment="Top" Height="30" Width="64" Click="Button_Click"/>
         <Button Content="Opis leka" HorizontalAlignment="Left" Margin="592,84,0,0" VerticalAlignment="Top" Height="30" Width="64" Click="Button_Click1"/>
 
     </Grid>

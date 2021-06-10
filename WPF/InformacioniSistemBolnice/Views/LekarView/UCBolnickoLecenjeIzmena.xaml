@@ -9,7 +9,7 @@
                          mc:Ignorable="d" 
                          d:DesignHeight="612" Width="834">
     <Grid>
-        <Button Content="Nazad" HorizontalAlignment="Left" Margin="50,35,0,0" VerticalAlignment="Top" Click="Button_Click" Height="30" Width="50"/>
+        <Button Content="{local:Loc Nazad}" HorizontalAlignment="Left" Margin="50,35,0,0" VerticalAlignment="Top" Click="Button_Click" Height="30" Width="50"/>
         <DatePicker Name="Pocetak" HorizontalAlignment="Center" Margin="0,125,0,0" VerticalAlignment="Top" Height="24" Width="118" IsEnabled="False"/>
         <Label Content="Pocetak:" HorizontalAlignment="Left" Margin="282,125,0,0" VerticalAlignment="Top" Height="24" Width="66"/>
         <DatePicker DisplayDateStart="{Binding Path=., Source={x:Static system:DateTime.Today}}" Name="Zavrsetak" HorizontalAlignment="Center" Margin="0,178,0,0" VerticalAlignment="Top" Height="24" Width="118" IsEnabled="False"/>
@@ -18,7 +18,7 @@
         <Label Content="Prostorija:" HorizontalAlignment="Left" Margin="282,282,0,0" VerticalAlignment="Top" Height="24" Width="66"/>
         <Label Name="ImePacijenta" Content="" HorizontalAlignment="Center" Margin="0,230,0,0" VerticalAlignment="Top" Height="24" Width="118"/>
         <Label Name="NazivProstorije" Content="" HorizontalAlignment="Center" Margin="0,282,0,0" VerticalAlignment="Top" Height="24" Width="118"/>
-        <Button Content="Izmeni" HorizontalAlignment="Left" Margin="429,388,0,0" VerticalAlignment="Top" Click="Button_Click_1"/>
+        <Button Content="{local:Loc Potvrdi}" HorizontalAlignment="Left" Margin="429,388,0,0" VerticalAlignment="Top" Click="Button_Click_1"/>
 
     </Grid>
 </mah:MetroContentControl>

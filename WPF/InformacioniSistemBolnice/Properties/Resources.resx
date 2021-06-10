@@ -157,6 +157,9 @@
   <data name="menu" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\images\menu.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="Nazad" xml:space="preserve">
+    <value>Nazad</value>
+  </data>
   <data name="Odjava" xml:space="preserve">
     <value>Odjava</value>
   </data>
@@ -165,6 +168,9 @@
   </data>
   <data name="Podesavanja" xml:space="preserve">
     <value>Podesavanja</value>
+  </data>
+  <data name="Potvrdi" xml:space="preserve">
+    <value>Potvrdi</value>
   </data>
   <data name="Predmet" xml:space="preserve">
     <value>Interakcija covek-racunar</value>
