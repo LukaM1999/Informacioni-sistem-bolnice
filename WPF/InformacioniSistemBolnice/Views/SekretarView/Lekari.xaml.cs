@@ -7,6 +7,7 @@ using InformacioniSistemBolnice.ViewModels.SekretarViewModel;
 using InformacioniSistemBolnice.Servis.UpravljanjeIzvestajima;
 using InformacioniSistemBolnice.Utilities;
 using InformacioniSistemBolnice.Views.SekretarView;
+using System.Collections.ObjectModel;
 
 namespace InformacioniSistemBolnice
 {
@@ -59,6 +60,27 @@ namespace InformacioniSistemBolnice
         {
             pocetna.contentControl.Content = new IzborIntervalaZauzetostiLekara()
             { DataContext = new IntervalZauzetostiViewModel(this.pocetna) };
+        }
+
+
+        private bool Nadji(string text, Lekar l)
+        {
+            return l.Ime.ToLower().Contains(text) || l.Prezime.ToLower().Contains(text) ||
+                   l.Jmbg.ToLower().StartsWith(text);
+        }
+
+        private void TextBox_KeyUp(object sender, System.Windows.Input.KeyEventArgs e)
+        {
+            ObservableCollection<Lekar> Filter = new ObservableCollection<Lekar>();
+            foreach (var lekar in LekarRepo.Instance.Lekari)
+            {
+                if (Nadji(searchBox.Text.ToLower(), lekar))
+                {
+                    Filter.Add(lekar);
+                }
+            }
+
+            ListaLekara.ItemsSource = Filter;
         }
     }
 }

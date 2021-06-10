@@ -2,18 +2,22 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:InformacioniSistemBolnice"
         mc:Ignorable="d"
        Height="650" Width="1000" Background="LightGray" Margin="0,0,0,30">
     <Grid>
-        <Canvas Height="650" Width="1000">
-            <DataGrid x:Name="listaZakazanihTermina" Height="550" Width="760" Canvas.Top="57" CanUserAddRows="False" Background="White" Canvas.Left="120" CanUserResizeColumns="False"/>
-            <Button x:Name="zakaziDugme" Content ="Zakazi" Canvas.Left="200" Canvas.Top="14" Width="80" Click="ZakaziTermin_Click" Background="White" FontSize="14"/>
-            <Button Content="Pomeri" Canvas.Left="300" Canvas.Top="14" Width="80" Click="PomeriTermin_Click" Background="White" FontSize="14"/>
-            <Button Content="Uvid" Canvas.Left="400" Canvas.Top="14" Width="80" Background="White" FontSize="14"/>
-            <Button Content="Otkazi" HorizontalAlignment="Left" Canvas.Left="500" Canvas.Top="14" Width="80" Click="OtkaziTermin_Click" Background="White" FontSize="14"/>
+        <Canvas Width="1000" Margin="2,9,-2,591">
+            <DataGrid x:Name="listaZakazanihTermina" Height="508" Width="760" Canvas.Top="105" CanUserAddRows="False" Background="White" Canvas.Left="132" CanUserResizeColumns="False"/>
+            <Button x:Name="zakaziDugme" Content ="Zakazi" Canvas.Left="134" Canvas.Top="14"  Height="30" Width="80" Click="ZakaziTermin_Click" Background="White" FontSize="14"/>
+            <Button Content="Pomeri" Canvas.Left="234" Canvas.Top="14" Width="80" Click="PomeriTermin_Click" Background="White" FontSize="14"  Height="30"/>
+            <Button Content="Uvid" Canvas.Left="338" Canvas.Top="14" Width="80" Background="White" FontSize="14"  Height="30"/>
+            <Button Content="Otkazi" Canvas.Left="436" Canvas.Top="14" Width="80" Height="30" Click="OtkaziTermin_Click" Background="White" FontSize="14"/>
         </Canvas>
-       
+        <DatePicker Name="datum" HorizontalAlignment="Left" Height="30" Margin="136,70,0,0" VerticalAlignment="Top" SelectedDateChanged="datum_SelectedDateChanged" KeyUp="datum_KeyUp" Width="335"/>
+        <Button HorizontalAlignment="Left" Margin="489,70,0,0" VerticalAlignment="Top" Click="Button_Click">
+            <iconPacks:MaterialDesign Kind="Refresh"></iconPacks:MaterialDesign>
+        </Button>
     </Grid>
 </UserControl>

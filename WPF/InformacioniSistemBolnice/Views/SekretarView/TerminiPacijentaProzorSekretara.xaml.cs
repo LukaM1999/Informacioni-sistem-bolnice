@@ -3,6 +3,8 @@ using System.Windows.Controls;
 using Repozitorijum;
 using Kontroler;
 using Model;
+using System.Collections.ObjectModel;
+using System;
 
 namespace InformacioniSistemBolnice
 {
@@ -43,8 +45,59 @@ namespace InformacioniSistemBolnice
                pomjeranje.Show();
             }
         }
+
+        private void datum_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
+        {
+            ObservableCollection<Termin> Filter = new ObservableCollection<Termin>();
+            foreach (var termin in TerminRepo.Instance.Termini)
+            {
+                if (datum.SelectedDate is null)
+                {
+                    listaZakazanihTermina.ItemsSource = TerminRepo.Instance.Termini;
+                }
+                else
+                {
+                    if (Nadji((DateTime)datum.SelectedDate, termin))
+                        Filter.Add(termin);
+                }
+            }
+
+            listaZakazanihTermina.ItemsSource = Filter;
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            listaZakazanihTermina.ItemsSource = TerminRepo.Instance.Termini;
+        }
+
+
+        private bool Nadji(DateTime text, Termin p)
+        {
+            return text.Day == p.Vreme.Day;
+        }
+
+        private void datum_KeyUp(object sender, System.Windows.Input.KeyEventArgs e)
+        {
+            ObservableCollection<Termin> Filter = new ObservableCollection<Termin>();
+            foreach (var lek in TerminRepo.Instance.Termini)
+            {
+                if (datum.SelectedDate is null)
+                {
+
+                    listaZakazanihTermina.ItemsSource = TerminRepo.Instance.Termini;
+                }
+                else
+                {
+                    if (Nadji((DateTime)datum.SelectedDate, lek))
+                        Filter.Add(lek);
+                }
+            }
+
+            listaZakazanihTermina.ItemsSource = Filter;
+        }
     }
 }
+
 
 
 

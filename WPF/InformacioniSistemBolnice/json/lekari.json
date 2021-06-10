@@ -16,17 +16,6 @@
         "Hitan": true
       },
       {
-        "Vreme": "2021-06-09T23:00:00+02:00",
-        "Trajanje": 30.0,
-        "Tip": 1,
-        "Status": 0,
-        "AnketaOLekaru": null,
-        "PacijentJmbg": "1309974145143",
-        "LekarJmbg": "1605988156156",
-        "ProstorijaId": "P1",
-        "Hitan": true
-      },
-      {
         "Vreme": "2021-06-09T23:30:00+02:00",
         "Trajanje": 30.0,
         "Tip": 1,
@@ -55,6 +44,28 @@
         "Status": 0,
         "AnketaOLekaru": null,
         "PacijentJmbg": "1905981123124",
+        "LekarJmbg": "1605988156156",
+        "ProstorijaId": "P1",
+        "Hitan": false
+      },
+      {
+        "Vreme": "2021-06-10T04:30:00+02:00",
+        "Trajanje": 30.0,
+        "Tip": 1,
+        "Status": 0,
+        "AnketaOLekaru": null,
+        "PacijentJmbg": "1905981123124",
+        "LekarJmbg": "1605988156156",
+        "ProstorijaId": "P1",
+        "Hitan": true
+      },
+      {
+        "Vreme": "2021-06-07T11:30:00+02:00",
+        "Trajanje": 30.0,
+        "Tip": 1,
+        "Status": 3,
+        "AnketaOLekaru": null,
+        "PacijentJmbg": "1309974145143",
         "LekarJmbg": "1605988156156",
         "ProstorijaId": "P1",
         "Hitan": false
@@ -198,7 +209,19 @@
     "Specijalizacija": {
       "Naziv": "Dermatolog"
     },
-    "ZakazaniTermini": [],
+    "ZakazaniTermini": [
+      {
+        "Vreme": "2021-06-10T04:30:00+02:00",
+        "Trajanje": 30.0,
+        "Tip": 1,
+        "Status": 0,
+        "AnketaOLekaru": null,
+        "PacijentJmbg": "1905981123124",
+        "LekarJmbg": "0102989123123",
+        "ProstorijaId": "P1",
+        "Hitan": true
+      }
+    ],
     "Ime": "Mirko",
     "Prezime": "Veljkovic",
     "Jmbg": "0102989123123",

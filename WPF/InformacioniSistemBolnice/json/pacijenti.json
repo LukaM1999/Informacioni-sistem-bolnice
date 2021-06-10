@@ -132,6 +132,17 @@
         "LekarJmbg": "1605988156156",
         "ProstorijaId": "P1",
         "Hitan": false
+      },
+      {
+        "Vreme": "2021-06-10T04:30:00+02:00",
+        "Trajanje": 30.0,
+        "Tip": 1,
+        "Status": 0,
+        "AnketaOLekaru": null,
+        "PacijentJmbg": "1905981123124",
+        "LekarJmbg": "1605988156156",
+        "ProstorijaId": "P1",
+        "Hitan": true
       }
     ],
     "Ime": "Milica",
@@ -193,15 +204,15 @@
     "Maliciozan": false,
     "ZakazaniTermini": [
       {
-        "Vreme": "2021-06-09T23:00:00+02:00",
+        "Vreme": "2021-06-07T11:30:00+02:00",
         "Trajanje": 30.0,
         "Tip": 1,
-        "Status": 0,
+        "Status": 3,
         "AnketaOLekaru": null,
         "PacijentJmbg": "1309974145143",
         "LekarJmbg": "1605988156156",
         "ProstorijaId": "P1",
-        "Hitan": true
+        "Hitan": false
       }
     ],
     "Ime": "Milos",
@@ -293,7 +304,7 @@
       "PodaciOZaposlenjuIZanimanju": {
         "RadnoMjesto": "Idea",
         "RegistarskiBroj": "R123",
-        "SifraDelatnosti": "S131",
+        "SifraDelatnosti": "S13",
         "PosaoKojiObavlja": "Prodavac",
         "OSIZZdrZastite": "nema",
         "RadPodPosebnimUslovima": "nema",

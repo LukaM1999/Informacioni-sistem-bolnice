@@ -76,5 +76,25 @@ namespace InformacioniSistemBolnice
                 pocetna.contentControl.Content = new IzmenaZdravstvenogKartonaForma(this, pocetna, izabraniPacijent);
             else MessageBox.Show("Nije kreiran zdravstveni karton za pacijenta");
         }
+
+        private bool Nadji(string text, Pacijent p)
+        {
+            return p.Ime.ToLower().Contains(text) || p.Prezime.ToLower().Contains(text) ||
+                   p.Jmbg.ToLower().StartsWith(text);
+        }
+
+        private void TextBox_KeyUp(object sender, System.Windows.Input.KeyEventArgs e)
+        {
+            ObservableCollection<Pacijent> Filter = new ObservableCollection<Pacijent>();
+            foreach (var pacijent in PacijentRepo.Instance.Pacijenti)
+            {
+                if (Nadji(searchBox.Text.ToLower(), pacijent))
+                {
+                    Filter.Add(pacijent);
+                }
+            }
+
+            ListaPacijenata.ItemsSource = Filter;
+        }
     }
 }
