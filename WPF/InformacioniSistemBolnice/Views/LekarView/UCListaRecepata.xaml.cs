@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,6 +16,7 @@ using System.Windows.Shapes;
 using InformacioniSistemBolnice.ViewModels.LekarViewModel;
 using MahApps.Metro.Controls;
 using Model;
+using Repozitorijum;
 
 namespace InformacioniSistemBolnice
 {
@@ -43,6 +45,35 @@ namespace InformacioniSistemBolnice
                 UCReceptInfo recept = new UCReceptInfo(glavniProzorLekara, (Recept)listaRecepata.SelectedItem, this);
                 glavniProzorLekara.contentControl.Content = recept;
             }
+        }
+
+        private void TextBox_KeyUp(object sender, KeyEventArgs e)
+        {
+            ObservableCollection<Recept> Filter = new ObservableCollection<Recept>();
+            foreach (var pacijent in pacijent.zdravstveniKarton.recepti)
+            {
+                if (Nadji(searchBox.Text.ToLower(), pacijent))
+                {
+                    Filter.Add(pacijent);
+                }
+            }
+
+            listaRecepata.ItemsSource = Filter;
+        }
+
+        private bool Nadji(string text, Recept p)
+        {
+            foreach (Terapija t in p.terapije)
+            {
+                return Validno(text, p, t);
+            }
+
+            return false;
+        }
+
+        private bool Validno(string text, Recept p, Terapija t)
+        {
+            return p.ReceptId.ToLower().Contains(text) || t.Lek.Naziv.ToLower().Contains(text);
         }
 
     }

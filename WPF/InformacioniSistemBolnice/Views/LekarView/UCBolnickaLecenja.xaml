@@ -1,15 +1,19 @@
-﻿<mah:MetroContentControl x:Class="InformacioniSistemBolnice.UCBolnickaLecenja"
+﻿<mah:MetroContentControl
                          xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                          xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                          xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
                          xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
                          xmlns:local="clr-namespace:InformacioniSistemBolnice"
                          xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
+                         xmlns:Custom="http://metro.mahapps.com/winfx/xaml/iconpacks" x:Class="InformacioniSistemBolnice.UCBolnickaLecenja"
                          mc:Ignorable="d"                     
                          d:DesignHeight="612" Width="834">
     <Grid>
         <DataGrid x:Name="BolnickaLecenja" Margin="0,85,150,0" CanUserAddRows="False" CanUserResizeColumns="True" CanUserResizeRows="True"/>
         <Button Content="Karton" HorizontalAlignment="Left" Margin="735,35,0,0" VerticalAlignment="Top" Height="39" Width="54" Click="Button_Click"/>
         <Button Content="Izmena" HorizontalAlignment="Left" Margin="735,135,0,0" VerticalAlignment="Top" Height="39" Width="54" Click="Button_Click_1"/>
+        <DatePicker x:Name="datum" VerticalAlignment="Top" SelectedDateChanged="datum_SelectedDateChanged" Margin="0,48,0,0" KeyUp="datum_KeyUp" HorizontalAlignment="Left"/>
+        <Button HorizontalAlignment="Left" Margin="127,48,0,0" VerticalAlignment="Top" Click="Refresh_Click" Content="{Custom:MaterialDesign Refresh}"/>
+
     </Grid>
 </mah:MetroContentControl>

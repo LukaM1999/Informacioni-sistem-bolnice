@@ -58,6 +58,7 @@ namespace InformacioniSistemBolnice
         {
             glavniProzor.contentControl.Content = new UCZakazivanje(glavniProzor);
             PronadjiTermineLekara();
+            ZakazaniTermini.ItemsSource = zakazaniTermini;
         }
 
         private void Otkazi_Click(object sender, RoutedEventArgs e)
@@ -65,7 +66,8 @@ namespace InformacioniSistemBolnice
             if (ZakazaniTermini.SelectedIndex > -1)
             {
                 TerminKontroler.Instance.OtkaziTermin((Termin)ZakazaniTermini.SelectedItem);
-                zakazaniTermini.Remove((Termin)ZakazaniTermini.SelectedItem);
+                PronadjiTermineLekara();
+                ZakazaniTermini.ItemsSource = zakazaniTermini;
             }
         }
 
@@ -75,6 +77,7 @@ namespace InformacioniSistemBolnice
             {
                 glavniProzor.contentControl.Content = new LekarPomeranjeTermina(glavniProzor, (Termin)ZakazaniTermini.SelectedItem);
                 PronadjiTermineLekara();
+                ZakazaniTermini.ItemsSource = zakazaniTermini;
             }
         }
 
@@ -96,9 +99,13 @@ namespace InformacioniSistemBolnice
         private void datum_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
         {
             ObservableCollection<Termin> Filter = new ObservableCollection<Termin>();
-            foreach (var lek in zakazaniTermini)
+            foreach (var lek in zakazaniTermini.ToList())
             {
-                if (string.IsNullOrWhiteSpace(datum.SelectedDate.ToString())) ZakazaniTermini.ItemsSource = zakazaniTermini;
+                if (datum.SelectedDate is null)
+                {
+                    PronadjiTermineLekara();
+                    ZakazaniTermini.ItemsSource = zakazaniTermini;
+                }
                 else
                 {
                     if (Nadji((DateTime) datum.SelectedDate, lek))
@@ -112,10 +119,13 @@ namespace InformacioniSistemBolnice
         private void datum_KeyUp(object sender, KeyEventArgs e)
         {
             ObservableCollection<Termin> Filter = new ObservableCollection<Termin>();
-            foreach (var lek in zakazaniTermini)
+            foreach (var lek in zakazaniTermini.ToList())
             {
-                if (string.IsNullOrWhiteSpace(datum.SelectedDate.ToString())) 
+                if (datum.SelectedDate is null)
+                {
+                    PronadjiTermineLekara();
                     ZakazaniTermini.ItemsSource = zakazaniTermini;
+                }
                 else
                 {
                     if (Nadji((DateTime)datum.SelectedDate, lek))

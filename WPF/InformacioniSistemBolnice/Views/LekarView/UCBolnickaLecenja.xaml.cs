@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -51,5 +52,54 @@ namespace InformacioniSistemBolnice
                 glavniProzorLekara.contentControl.Content = lecenje;
             }
         }
+
+        private bool Nadji(DateTime text, BolnickoLecenje p)
+        {
+            return text.Day == p.PocetakLecenja.Day || text.Day == p.ZavrsetakLecenja.Day;
+        }
+
+        private void datum_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
+        {
+            ObservableCollection<BolnickoLecenje> Filter = new ObservableCollection<BolnickoLecenje>();
+            foreach (var lek in BolnickoLecenjeRepo.Instance.BolnickaLecenja)
+            {
+                if (datum.SelectedDate is null)
+                {
+                    BolnickaLecenja.ItemsSource = BolnickoLecenjeRepo.Instance.BolnickaLecenja;
+                }
+                else
+                {
+                    if (Nadji((DateTime)datum.SelectedDate, lek))
+                        Filter.Add(lek);
+                }
+            }
+
+            BolnickaLecenja.ItemsSource = Filter;
+        }
+
+        private void datum_KeyUp(object sender, KeyEventArgs e)
+        {
+            ObservableCollection<BolnickoLecenje> Filter = new ObservableCollection<BolnickoLecenje>();
+            foreach (var lek in BolnickoLecenjeRepo.Instance.BolnickaLecenja)
+            {
+                if (datum.SelectedDate is null)
+                {
+                    BolnickaLecenja.ItemsSource = BolnickoLecenjeRepo.Instance.BolnickaLecenja;
+                }
+                else
+                {
+                    if (Nadji((DateTime)datum.SelectedDate, lek))
+                        Filter.Add(lek);
+                }
+            }
+
+            BolnickaLecenja.ItemsSource = Filter;
+        }
+
+        private void Refresh_Click(object sender, RoutedEventArgs e)
+        {
+            BolnickaLecenja.ItemsSource = BolnickoLecenjeRepo.Instance.BolnickaLecenja;
+        }
+
     }
 }

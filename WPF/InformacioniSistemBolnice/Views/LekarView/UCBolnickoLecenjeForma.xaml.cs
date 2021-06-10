@@ -16,6 +16,7 @@ using System.Windows.Shapes;
 using Repozitorijum;
 using Model;
 using InformacioniSistemBolnice.DTO;
+using InformacioniSistemBolnice.ViewModels.LekarViewModel;
 using Kontroler;
 using MahApps.Metro.Controls;
 
@@ -55,7 +56,7 @@ namespace InformacioniSistemBolnice
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            glavniProzor.contentControl.Content = prethodniProzor;
+            glavniProzor.contentControl.Content = new Karton(){DataContext = new KartonViewModel(glavniProzor, pacijent.Jmbg)};
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
