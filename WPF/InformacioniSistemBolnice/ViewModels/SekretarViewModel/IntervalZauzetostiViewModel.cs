@@ -24,6 +24,8 @@ namespace InformacioniSistemBolnice.ViewModels.SekretarViewModel
         public IntervalZauzetostiViewModel(PocetnaStranicaSekretara pocetna) 
         {
             GenerisiGrafZauzetosti = new Command(o => GenerisanjeGrafaZauzetosti());
+            PocetakIntervala = DateTime.Parse("6/1/2021");
+            KrajIntervala = DateTime.Parse("7/1/2021");
             ParoviVremeBrojTermina = new();
             this.pocetna = pocetna;
         }

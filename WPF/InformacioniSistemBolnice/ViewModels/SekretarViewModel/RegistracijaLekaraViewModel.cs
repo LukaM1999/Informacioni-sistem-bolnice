@@ -45,6 +45,7 @@ namespace InformacioniSistemBolnice.ViewModels.SekretarViewModel
             AdresaLekara = new Adresa();
             SpecijalizacijaLekara = new Specijalizacija();
             NoviLekar = new Lekar(AdresaLekara, NoviKorisnik);
+            NoviLekar.DatumRodjenja = DateTime.Parse("6/1/2021");
             RegistrujLekara = new Command(o => RegistracijaLekara(), o => ValidanUnos());
             Nazad = new Command(o => PovratakNazad());
             ValidirajIme = new Command(o => ValidacijaImena());

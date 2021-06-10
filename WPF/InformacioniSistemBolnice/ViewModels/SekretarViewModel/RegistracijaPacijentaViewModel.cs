@@ -42,6 +42,7 @@ namespace InformacioniSistemBolnice.ViewModels.SekretarViewModel
             NoviPacijent = new (NovaOsoba);
             RegistrujPacijenta = new Command(o => RegistracijaPacijenta(), o => ValidanUnos());
             Nazad = new Command(o => PovratakNazad());
+            NoviPacijent.DatumRodjenja = DateTime.Parse("6/1/2021");
         }
 
         private bool RegistracijaPacijenta()
