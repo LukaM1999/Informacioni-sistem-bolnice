@@ -24,6 +24,11 @@ namespace Model
             GeneralniKomentari = generalniKomentari;
         }
 
+        public AnketaOLekaru()
+        {
+            
+        }
+
         public override string ToString()
         {
             return "Popunjena";

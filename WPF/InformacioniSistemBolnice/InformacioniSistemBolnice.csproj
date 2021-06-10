@@ -39,6 +39,7 @@
     <None Remove="images\UpravnikImages\warehouse-logo.png" />
     <None Remove="images\user.png" />
     <None Remove="images\users.png" />
+    <None Remove="Slike\Maturska.jpg" />
     <None Remove="Views\SekretarView\user.png" />
   </ItemGroup>
 
@@ -113,6 +114,7 @@
     <Resource Include="images\UpravnikImages\warehouse-logo.png" />
     <Resource Include="images\user.png" />
     <Resource Include="images\users.png" />
+    <Resource Include="Slike\Maturska.jpg" />
     <Resource Include="Views\SekretarView\user.png" />
   </ItemGroup>
 
@@ -121,6 +123,10 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Tutorijal\" />
   </ItemGroup>
 
 </Project>

@@ -4,111 +4,104 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:InformacioniSistemBolnice"
+             xmlns:model="clr-namespace:Model"
              xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks" 
              xmlns:vm="clr-namespace:InformacioniSistemBolnice.ViewModels.PacijentViewModel"
+             xmlns:System="clr-namespace:System;assembly=System.Runtime"
              mc:Ignorable="d" 
              d:DesignHeight="695" d:DesignWidth="800"
              FontSize="24">
     <UserControl.DataContext>
         <vm:ProfilViewModel/>
     </UserControl.DataContext>
+    <UserControl.Resources>
+        <ObjectDataProvider x:Key="BracnoStanje"
+                            MethodName="GetValues" ObjectType="{x:Type System:Enum}">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="model:BracnoStanje"/>
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+        <ObjectDataProvider x:Key="Pol"
+                            MethodName="GetValues" ObjectType="{x:Type System:Enum}">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="model:Pol"/>
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+    </UserControl.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="20"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="3*"/>
+            <RowDefinition Height="*"/>
             <RowDefinition Height="20"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="30"/>
             <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition Width="40"/>
             <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition Width="40"/>
             <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="30"/>
         </Grid.ColumnDefinitions>
+        <StackPanel Grid.Row="1" Grid.Column="1" Grid.RowSpan="2" Orientation="Vertical" Margin="0,0,30,0">
+            <TextBlock Grid.Row="1" Text="Ime:" Margin="0,0,0,10"/>
+            <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding UlogovanPacijent.Ime}" MinWidth="150" IsEnabled="False" Margin="0,0,0,20"/>
         
-        <!-- Prva kolona -->
-        <TextBlock Grid.Row="1" Grid.Column="1" Text="Ime:" Margin="0,0,0,10"/>
-        <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding UlogovanPacijent.Ime}" MinWidth="150" IsEnabled="False" Margin="0,0,0,20"/>
+            <TextBlock Grid.Row="3" Grid.Column="1" Text="Prezime:" Margin="0,0,0,10"/>
+            <TextBox Grid.Row="4" Grid.Column="1" Text="{Binding UlogovanPacijent.Prezime}" MinWidth="100" IsEnabled="False" Margin="0,0,0,20" />
         
-        <TextBlock Grid.Row="3" Grid.Column="1" Text="Prezime:" Margin="0,0,0,10"/>
-        <TextBox Grid.Row="4" Grid.Column="1" Text="{Binding UlogovanPacijent.Prezime}" MinWidth="100" IsEnabled="False" Margin="0,0,0,20" />
+            <TextBlock Grid.Row="5" Grid.Column="1" Text="JMBG:" Margin="0,0,0,10"/>
+            <TextBox Grid.Row="6" Grid.Column="1" Text="{Binding UlogovanPacijent.Jmbg}" MinWidth="100" IsEnabled="False" Margin="0,0,0,20" />
         
-        <TextBlock Grid.Row="5" Grid.Column="1" Text="JMBG:" Margin="0,0,0,10"/>
-        <TextBox Grid.Row="6" Grid.Column="1" Text="{Binding UlogovanPacijent.Jmbg}" MinWidth="100" IsEnabled="False" Margin="0,0,0,20" />
+            <TextBlock Grid.Row="7" Grid.Column="1" Text="Datum rodjenja:" Margin="0,0,0,10" />
+            <TextBox Grid.Row="8" Grid.Column="1" Text="{Binding UlogovanPacijent.DatumRodjenja, StringFormat='dd.MM.yyyy.'}" MinWidth="100" IsEnabled="False" Margin="0,0,0,20" />
         
-        <TextBlock Grid.Row="7" Grid.Column="1" Text="Datum rodjenja:" Margin="0,0,0,10" />
-        <TextBox Grid.Row="8" Grid.Column="1" Text="{Binding UlogovanPacijent.DatumRodjenja}" MinWidth="100" IsEnabled="False" Margin="0,0,0,20" />
+            <TextBlock Grid.Row="9" Grid.Column="1" Text="Broj telefona:" Margin="0,0,0,10" />
+            <TextBox Grid.Row="10" Grid.Column="1" IsEnabled="False" Text="{Binding UlogovanPacijent.Telefon}" MinWidth="100" Margin="0,0,0,20" />
         
-        <TextBlock Grid.Row="9" Grid.Column="1" Text="Broj telefona:" Margin="0,0,0,10" />
-        <TextBox Grid.Row="10" Grid.Column="1" Text="{Binding UlogovanPacijent.Telefon}" MinWidth="100" Margin="0,0,0,20" />
+            <TextBlock Grid.Row="11" Grid.Column="1" Text="E-mail:" Margin="0,0,0,10"/>
+            <TextBox Grid.Row="12" Grid.Column="1" IsEnabled="False" Text="{Binding UlogovanPacijent.Email}" HorizontalAlignment="Left" Width="170" />
+
+        </StackPanel>
+        <StackPanel Grid.Row="1" Grid.Column="2" Grid.RowSpan="2" Orientation="Vertical">
+            <TextBlock Text="Država:" Margin="0,0,0,10"/>
+            <ComboBox Name="Drzave" MinWidth="150" IsEnabled="False" SelectedItem="{Binding UlogovanPacijent.AdresaStanovanja.Drzava}" Margin="0,0,0,20" />
         
-        <TextBlock Grid.Row="11" Grid.Column="1" Text="E-mail:" Margin="0,0,0,10"/>
-        <TextBox Grid.Row="12" Grid.Column="1" Text="{Binding UlogovanPacijent.Email}" HorizontalAlignment="Left" Width="170" />
+            <TextBlock Grid.Row="3" Grid.Column="3" Text="Grad:" Margin="0,0,0,10" />
+            <ComboBox Grid.Row="4" Grid.Column="3" MinWidth="100" ItemsSource="{Binding Gradovi}" IsEnabled="False" SelectedItem="{Binding UlogovanPacijent.AdresaStanovanja.Grad}" Margin="0,0,0,20"/>
         
+            <TextBlock Grid.Row="5" Grid.Column="3" Text="Adresa:" Margin="0,0,0,10" />
+            <TextBox Grid.Row="6" Grid.Column="3" MinWidth="100" IsEnabled="False" Text="{Binding Adresa}"  Margin="0,0,0,20" />
+        
+            <TextBlock Grid.Row="7" Grid.Column="3" Text="Pol:" Margin="0,0,0,10" />
+            <ComboBox Grid.Row="8" Grid.Column="3" MinWidth="100" IsEnabled="False" ItemsSource="{Binding Source={StaticResource Pol}}" SelectedItem="{Binding UlogovanPacijent.zdravstveniKarton.PolPacijenta}" Margin="0,0,0,20" />
+        
+            <TextBlock Grid.Row="9" Grid.Column="3" Text="Bračno stanje:" Margin="0,0,0,10" />
+            <ComboBox Grid.Row="10" Grid.Column="3" MinWidth="100" IsEnabled="False" ItemsSource="{Binding Source={StaticResource BracnoStanje}}" SelectedItem="{Binding UlogovanPacijent.zdravstveniKarton.BracnoStanje}" Margin="0,0,0,20" />
+        
+            <TextBlock Grid.Row="11" Grid.Column="3" Text="Zanimanje:" Margin="0,0,0,10" />
+            <TextBox Grid.Row="12" Grid.Column="3" HorizontalAlignment="Left" IsEnabled="False" Text="{Binding UlogovanPacijent.zdravstveniKarton.PodaciOZaposlenjuIZanimanju.PosaoKojiObavlja}" Width="170" />
+        </StackPanel>
         <!-- Druga kolona -->       
-        <TextBlock Grid.Row="1" Grid.Column="3" Text="Država:"/>
-        <ComboBox Name="Drzave" Grid.Row="2" Grid.Column="3" MinWidth="150" IsEnabled="True" Margin="0,0,0,20" />
-        
-        <TextBlock Grid.Row="3" Grid.Column="3" Text="Grad:" />
-        <ComboBox Grid.Row="4" Grid.Column="3" MinWidth="100" IsEnabled="False" Margin="0,0,0,20"/>
-        
-        <TextBlock Grid.Row="5" Grid.Column="3" Text="Adresa:" />
-        <TextBox Grid.Row="6" Grid.Column="3" MinWidth="100" Margin="0,0,0,20" />
-        
-        <TextBlock Grid.Row="7" Grid.Column="3" Text="Pol:" />
-        <ComboBox Grid.Row="8" Grid.Column="3" MinWidth="100" Margin="0,0,0,20" />
-        
-        <TextBlock Grid.Row="9" Grid.Column="3" Text="Bračno stanje:" />
-        <ComboBox Grid.Row="10" Grid.Column="3" MinWidth="100" Margin="0,0,0,20" />
-        
-        <TextBlock Grid.Row="11" Grid.Column="3" Text="Zanimanje:" />
-        <TextBox Grid.Row="12" Grid.Column="3" HorizontalAlignment="Left" Width="170" />
         
         <!-- Treca kolona -->
-        <Image Source="/InformacioniSistemBolnice;component/Images/Maturska.jpg" Grid.Row="1" Grid.Column="5" 
-               Grid.RowSpan="8" Width="Auto" Height="Auto" MaxHeight="500" 
-               MaxWidth="400" HorizontalAlignment="Left"/>
-        
-        <Button Grid.Row="9" Grid.Column="5" Grid.RowSpan="5"
+        <Image Source="{Binding UlogovanPacijent.SlikaPutanja}"  Grid.Row="1" Grid.Column="3" 
+               Grid.RowSpan="2" Width="Auto" Height="Auto" MaxHeight="350" Margin="20,0,0,0" VerticalAlignment="Top"
+
+               MaxWidth="350" HorizontalAlignment="Left"/>
+
+        <Button Grid.Row="2" Grid.Column="3"
                 Style="{DynamicResource IconTextButtonStyle}"
                 HorizontalAlignment="Center"
-                Margin="0,20,0,0"> 
+                VerticalAlignment="Center"
+                Margin="30,0,0,0"
+                ToolTip="Pregledajte vašu anamnezu i napišite beleške"
+                Command="{Binding OtvaranjeAnamneze}"> 
             <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
-                <iconPacks:PackIconMaterial Kind="CardAccountDetails" 
+                <iconPacks:PackIconMaterial Kind="FileAccount"
                                             Width="125" Height="100" 
                                             HorizontalAlignment="Center"
                                             Padding="0,10,0,0"/>
-                <TextBlock Text="Zdravstveni karton" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontWeight="SemiBold" />
-            </StackPanel>
-        </Button>
-        
-        <!-- Cetvrta kolona -->
-        <Button Grid.Row="10" Grid.Column="6" Grid.RowSpan="3"
-                Style="{DynamicResource IconTextButtonStyle}"
-                HorizontalAlignment="Right"
-                VerticalAlignment="Bottom"
-                Margin="0,20,0,0"> 
-            <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
-                <iconPacks:PackIconMaterial Kind="EmailSend"
-                                            Width="125" Height="100" 
-                                            HorizontalAlignment="Center"
-                                            Padding="0,10,0,0"/>
-                <TextBlock Text="Zahtev za izmenu info" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontWeight="SemiBold" />
+                <TextBlock Text="Pregled anamneze" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontWeight="SemiBold" />
             </StackPanel>
         </Button>
     </Grid>

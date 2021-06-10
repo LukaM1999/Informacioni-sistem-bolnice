@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:InformacioniSistemBolnice.Views"
+             xmlns:root="clr-namespace:InformacioniSistemBolnice"
              xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks" 
              xmlns:vm="clr-namespace:InformacioniSistemBolnice.ViewModels.PacijentViewModel"
              mc:Ignorable="d" 
@@ -11,6 +12,23 @@
     <UserControl.DataContext>
         <vm:IstorijaViewModel/>
     </UserControl.DataContext>
+
+    <UserControl.Resources>
+        <root:IsUrgentConverter x:Key="IsUrgentConverter"></root:IsUrgentConverter>
+        <root:SurveyConverter x:Key="SurveyConverter"></root:SurveyConverter>
+        <Style TargetType="DataGridCell">
+            <Style.Setters>
+                <Setter Property="TextBlock.TextAlignment" Value="Center" />
+            </Style.Setters>
+        </Style>
+        <Style TargetType="DataGridColumnHeader">
+            <Setter Property="HorizontalContentAlignment"
+                    Value="Center" />
+            <Setter Property="FontSize" Value="20"></Setter>
+            <Setter Property="FontWeight" Value="DemiBold"></Setter>
+        </Style>
+    </UserControl.Resources>
+
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="100"/>
@@ -18,14 +36,14 @@
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         
         <Button Grid.Row="0" Grid.Column="0"
                 Style="{DynamicResource IconTextButtonStyle}"
-                HorizontalAlignment="Right"
                 Width="120"
-                Margin="0,10,30,10"> 
+                Margin="0,10,30,10"
+                Command="{Binding OtvaranjeAnkete}"
+                ToolTip="Ocenite lekara kod kog ste imali pregled ili operaciju"> 
             <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
                 <iconPacks:PackIconMaterial Kind="StarPlus" 
                                             Width="40" Height="40" 
@@ -33,22 +51,20 @@
                 <TextBlock Padding="0,5,0,0" FontSize="14" Text="Ocenite lekara" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontWeight="SemiBold" />
             </StackPanel>
         </Button>
-        
-        <Button Grid.Row="0" Grid.Column="1"
-                Style="{DynamicResource IconTextButtonStyle}"
-                HorizontalAlignment="Left"
-                Width="120"
-                Margin="30,10,0,10"> 
-            <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
-                <iconPacks:PackIconMaterial Kind="TextBoxSearch" 
-                                            Width="40" Height="40" 
-                                            HorizontalAlignment="Center"/>
-                <TextBlock Padding="0,5,0,0" FontSize="14" Text="Anamneza" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontWeight="SemiBold" />
-            </StackPanel>
-        </Button>
-        
-        <DataGrid Name="Istorija" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" 
-                  ItemsSource="{Binding ZavrseniTermini}"
-                  CanUserAddRows="False" CanUserReorderColumns="False"/>
+
+        <DataGrid Name="Istorija" Grid.Row="1" Grid.Column="0"
+                  ItemsSource="{Binding ZavrseniTermini, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                  CanUserAddRows="False" CanUserReorderColumns="False" AutoGenerateColumns="False" IsReadOnly="True"
+                  ColumnWidth="*" SelectedItem="{Binding IzabranTermin}">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Tip termina" Binding="{Binding IzabraniTip}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Početak termina" Binding="{Binding Pocetak, StringFormat='dd.MM.yyyy. HH:mm'}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Trajanje termina" Binding="{Binding Trajanje}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Kod lekara" Binding="{Binding Lekar}"></DataGridTextColumn>
+                <DataGridTextColumn Header="U prostoriji" Binding="{Binding ProstorijaId}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Hitan termin?" Binding="{Binding Hitan, Converter={StaticResource IsUrgentConverter}}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Anketa o lekaru" Binding="{Binding Anketa, Converter={StaticResource SurveyConverter}}"></DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
 </UserControl>

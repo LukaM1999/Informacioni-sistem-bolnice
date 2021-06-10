@@ -37,6 +37,10 @@
                              Value="Terapija">
                     <Setter Property="ContentTemplate" Value="{StaticResource TerapijaViewTemplate}"/>
                 </DataTrigger>
+                <DataTrigger Binding="{Binding ElementName=NavigationMenuListBox, Path=SelectedItem}"
+                             Value="Pomoc">
+                    <Setter Property="ContentTemplate" Value="{StaticResource PomocViewTemplate}"/>
+                </DataTrigger>
             </Style.Triggers>
         </Style>
     </Window.Resources>
@@ -76,15 +80,18 @@
                 <MenuItem Grid.Column="3" Header="Istorija" FontSize="15" Click="IzaberiIstoriju"  HorizontalAlignment="Center" VerticalAlignment="Center"></MenuItem>
                 <MenuItem Grid.Column="4" Header="Terapija" FontSize="15" Click="IzaberiTerapiju" HorizontalAlignment="Center" VerticalAlignment="Center"></MenuItem>
                 <MenuItem Grid.Column="5" Header="Pomoć" FontSize="15" Click="IzaberiPomoc" HorizontalAlignment="Center" VerticalAlignment="Center"></MenuItem>
-                <MenuItem Grid.Column="6" Header="Feedback" FontSize="15" HorizontalAlignment="Center" VerticalAlignment="Center" Command="{Binding OtvaranjeFeedbacka}"></MenuItem>
-                <MenuItem Grid.Column="7" Header="Odjava" FontSize="15" HorizontalAlignment="Center" VerticalAlignment="Center"></MenuItem>
+                <MenuItem Grid.Column="6" Header="Feedback" FontSize="15" HorizontalAlignment="Center" VerticalAlignment="Center" 
+                          Command="{Binding OtvaranjeFeedbacka}"></MenuItem>
+                <MenuItem Grid.Column="7" Header="Odjava" FontSize="15" HorizontalAlignment="Center" VerticalAlignment="Center"
+                          Command="{Binding Odjavljivanje}"></MenuItem>
             </Menu>
 
             <ListBox Grid.Row="1" Grid.Column="0" x:Name="NavigationMenuListBox" 
                  Style="{StaticResource NavigationListBoxStyle}"
                  ItemContainerStyle="{DynamicResource NavigationListBoxItemStyle}"
                  ItemTemplate="{DynamicResource NavigationDataTemplate}"
-                 ItemsSource="{StaticResource NavigationMenuItems}"/>
+                 ItemsSource="{StaticResource NavigationMenuItems}"
+                 SelectionChanged="OdjaviSe"/>
 
             <ContentControl Grid.Column="1" Grid.Row="1" Style="{StaticResource NavigationContentStyle}"/>
 

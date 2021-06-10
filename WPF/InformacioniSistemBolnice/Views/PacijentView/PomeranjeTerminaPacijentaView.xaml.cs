@@ -19,6 +19,7 @@ using System.Collections.ObjectModel;
 using InformacioniSistemBolnice.DTO;
 using InformacioniSistemBolnice.Servis;
 using InformacioniSistemBolnice.Utilities;
+using InformacioniSistemBolnice.ViewModels;
 using InformacioniSistemBolnice.ViewModels.PacijentViewModel;
 
 namespace InformacioniSistemBolnice
@@ -27,21 +28,25 @@ namespace InformacioniSistemBolnice
     {
         private readonly Termin terminZaPomeranje;
 
+        public ICommand PomeranjeTermina { get; set; }
+
         public PomeranjeTerminaPacijentaView(Termin izabranTermin)
         {
             InitializeComponent();
+            DataContext = this;
             terminZaPomeranje = izabranTermin;
             ponudjeniTermini.ItemsSource =
                 new PredlogSlobodnihTerminaServis(izabranTermin).PonudiSlobodneTermineZaPomeranje();
+            PomeranjeTermina = new Command(o => PomeriTermin(), o => terminZaPomeranje is not null);
         }
 
-        private void PomeriTermin(object sender, RoutedEventArgs e)
+        private void PomeriTermin()
         {
-            Termin noviTermin = (Termin) ponudjeniTermini.SelectedValue;
+            Termin noviTermin = (Termin)ponudjeniTermini.SelectedValue;
             TerminKontroler.Instance.PomeriTermin(terminZaPomeranje, noviTermin);
             Close();
-            KalendarViewModel.Appointments.Remove(
-                (DTO.TerminDto) KalendarViewModel.Appointments.Select(dto => dto.Pocetak == terminZaPomeranje.Vreme));
+            KalendarViewModel.Appointments.Remove(KalendarViewModel.Appointments
+                .Single(dto => dto.Pocetak == terminZaPomeranje.Vreme));
             KalendarViewModel.Appointments.Add(new TerminDto(TerminUtility.DobaviFormatiranPrikazTermina
                     (noviTermin.Tip, noviTermin.LekarJmbg, noviTermin.ProstorijaId, noviTermin.Status),
                 noviTermin.Vreme, noviTermin.Vreme.AddMinutes(noviTermin.Trajanje),

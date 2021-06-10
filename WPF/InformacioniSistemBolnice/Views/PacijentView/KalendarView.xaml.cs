@@ -16,8 +16,8 @@ namespace InformacioniSistemBolnice.Views.PacijentView
 
         private void Schedule_AppointmentTapped(object sender, Syncfusion.UI.Xaml.Scheduler.AppointmentTappedArgs e)
         {
-            KalendarViewModel kalendarViewModel = (KalendarViewModel) DataContext;
-            kalendarViewModel.IzabranTermin = (TerminDto) e.Appointment?.Data;
+            KalendarViewModel kalendarViewModel = (KalendarViewModel)DataContext;
+            kalendarViewModel.IzabranTermin = (TerminDto)e.Appointment?.Data;
         }
     }
 }

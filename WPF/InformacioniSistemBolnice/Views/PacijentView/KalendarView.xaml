@@ -7,11 +7,19 @@
              xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"        
              xmlns:local="clr-namespace:InformacioniSistemBolnice.Views.PacijentView"
              xmlns:vm="clr-namespace:InformacioniSistemBolnice.ViewModels.PacijentViewModel"
+             xmlns:sys="clr-namespace:System;assembly=System.Runtime"
+             xmlns:informacioniSistemBolnice="clr-namespace:InformacioniSistemBolnice"
              mc:Ignorable="d" 
-             d:DesignHeight="695" d:DesignWidth="800">
+             d:DesignHeight="695" d:DesignWidth="800"
+             FontSize="20" FontWeight="DemiBold">
     <UserControl.DataContext>
         <vm:KalendarViewModel/>
     </UserControl.DataContext>
+
+    <UserControl.Resources>
+        <informacioniSistemBolnice:SchedulerViewTypeConverter x:Key="SchedulerViewTypeConverter"/>
+    </UserControl.Resources>
+
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="100"/>
@@ -23,6 +31,22 @@
         </Grid.ColumnDefinitions>
 
         <StackPanel Grid.ColumnSpan="2" Orientation="Horizontal" Margin="30,0,30,0">
+            <DatePicker SelectedDate="{Binding PrikazanDatum, 
+                Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                        Margin="0, 10, 30, 10" Height="35"
+                        ToolTip="Izaberite datum koji&#x0a;hoćete da vidite u kalendaru"
+                        HorizontalContentAlignment="Center">
+                <DatePicker.Resources>
+                    <Style TargetType="DatePickerTextBox">
+                        <Setter Property="IsReadOnly" Value="True"/>
+                    </Style>
+                </DatePicker.Resources>
+            </DatePicker>
+            <ComboBox ItemsSource="{StaticResource SchedulerViewTypes}"
+                      SelectedItem="{Binding TipPogleda, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                      Margin="0, 10, 30, 10"
+                      Width="120" Height="35"
+                      ToolTip="Izaberite kakav pregled nad&#x0a;terminima želite da imate"/>
             <Button Style="{DynamicResource IconTextButtonStyle}"
                     HorizontalAlignment="Right"
                     Width="120"
@@ -54,7 +78,7 @@
                     Width="120"
                     Margin="0,10,30,10"
                     Command="{Binding PomeranjeTermina}"
-                    ToolTip="Pomerite izabrani termin iz kalendara">
+                    ToolTip="Pomerite izabrani termin iz kalendara&#xA;(ako je termin za najmanje 24 sata)">
                 <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
                     <iconPacks:PackIconMaterial Kind="Clock" 
                                                 Width="40" Height="40" 
@@ -63,14 +87,16 @@
                 </StackPanel>
             </Button>
         </StackPanel>
-        <syncfusion:SfScheduler x:Name="Schedule" 
+        <syncfusion:SfScheduler x:Name="Schedule"
                                 Grid.Row="1" 
                                 Grid.Column="0"
                                 Grid.ColumnSpan="2" 
-                                ViewType="Week"
+                                ViewType="{Binding TipPogleda, Converter={StaticResource SchedulerViewTypeConverter}}"
                                 FirstDayOfWeek="Monday"
                                 ItemsSource="{Binding Appointments}"
-                                EnableReminder="True" AppointmentTapped="Schedule_AppointmentTapped">
+                                EnableReminder="True" AppointmentTapped="Schedule_AppointmentTapped"
+                                AppointmentEditFlag="None"
+                                DisplayDate="{Binding PrikazanDatum, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
             <syncfusion:SfScheduler.AppointmentMapping>
                 <syncfusion:AppointmentMapping 
                     Subject="Naziv"

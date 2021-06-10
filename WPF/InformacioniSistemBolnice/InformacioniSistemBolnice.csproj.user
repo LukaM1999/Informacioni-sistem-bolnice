@@ -63,6 +63,9 @@
     <Compile Update="Views\PacijentView\ObavestenjeView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Views\PacijentView\PomocView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Views\SekretarView\AlergeniProzor.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -381,6 +384,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\PacijentView\ObavestenjeView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\PacijentView\PomocView.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\PacijentView\ProfilView.xaml">

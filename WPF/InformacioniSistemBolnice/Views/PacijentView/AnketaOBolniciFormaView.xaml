@@ -6,7 +6,8 @@
         xmlns:vm="clr-namespace:InformacioniSistemBolnice.ViewModels.Pacijent"
         xmlns:local="clr-namespace:InformacioniSistemBolnice"
         mc:Ignorable="d"
-        Title="AnketaOBolniciFormaView" Height="551" Width="528">
+        Title="Anketa o bolnici" Height="590" Width="528"
+        Background="#fcecdd">
     <Window.DataContext>
         <vm:AnketaOBolniciFormaViewModel/>
     </Window.DataContext>
@@ -16,7 +17,7 @@
             <Label Content="Veoma&#xD;&#xA;zadovoljan" Canvas.Left="112" Canvas.Top="28" Height="44" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Width="75"/>
             <RadioButton GroupName="Ljubaznost" x:Name="Ljubaznost4" Content="" Canvas.Left="220" Canvas.Top="77" />
             <Label Content="Zadovoljan" Canvas.Left="192" Canvas.Top="28" Height="44" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Width="75"/>
-            <RadioButton GroupName="Ljubaznost" x:Name="Ljubaznost3" Content="" Canvas.Left="300" Canvas.Top="77" />
+            <RadioButton GroupName="Ljubaznost" x:Name="Ljubaznost3" IsChecked="True" Content="" Canvas.Left="300" Canvas.Top="77" />
             <Label Content="Uzdrzan" Canvas.Left="272" Canvas.Top="28" Height="44" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Width="75"/>
             <RadioButton GroupName="Ljubaznost" x:Name="Ljubaznost2" Content="" Canvas.Left="380" Canvas.Top="77" />
             <Label Content="Nezadovoljan" Canvas.Left="344" Canvas.Top="28" Height="44" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Width="91"/>
@@ -27,7 +28,7 @@
         <Canvas x:Name="Profesionalizam">
             <RadioButton GroupName="Profesionalizam" x:Name="Profesionalizam5" Content="" Canvas.Left="140" Canvas.Top="117" />
             <RadioButton GroupName="Profesionalizam" x:Name="Profesionalizam4" Content="" Canvas.Left="220" Canvas.Top="117" />
-            <RadioButton GroupName="Profesionalizam" x:Name="Profesionalizam3" Content="" Canvas.Left="300" Canvas.Top="117" />
+            <RadioButton GroupName="Profesionalizam" x:Name="Profesionalizam3" IsChecked="True" Content="" Canvas.Left="300" Canvas.Top="117" />
             <RadioButton GroupName="Profesionalizam" x:Name="Profesionalizam2" Content="" Canvas.Left="380" Canvas.Top="117" />
             <RadioButton GroupName="Profesionalizam" x:Name="Profesionalizam1" Content="" Canvas.Left="460" Canvas.Top="117" />
         </Canvas>
@@ -35,7 +36,7 @@
         <Canvas x:Name="Strpljenje">
             <RadioButton GroupName="Strpljenje" x:Name="Strpljenje5" Content="" Canvas.Left="140" Canvas.Top="159" />
             <RadioButton GroupName="Strpljenje" x:Name="Strpljenje4" Content="" Canvas.Left="220" Canvas.Top="159" />
-            <RadioButton GroupName="Strpljenje" x:Name="Strpljenje3" Content="" Canvas.Left="300" Canvas.Top="159" />
+            <RadioButton GroupName="Strpljenje" x:Name="Strpljenje3" IsChecked="True" Content="" Canvas.Left="300" Canvas.Top="159" />
             <RadioButton GroupName="Strpljenje" x:Name="Strpljenje2" Content="" Canvas.Left="380" Canvas.Top="159" />
             <RadioButton GroupName="Strpljenje" x:Name="Strpljenje1" Content="" Canvas.Left="460" Canvas.Top="159" />
         </Canvas>
@@ -43,7 +44,7 @@
         <Canvas x:Name="Komunikativnost">
             <RadioButton GroupName="Komunikativnost" x:Name="Komunikativnost5" Content="" Canvas.Left="140" Canvas.Top="202" />
             <RadioButton GroupName="Komunikativnost" x:Name="Komunikativnost4" Content="" Canvas.Left="220" Canvas.Top="202" />
-            <RadioButton GroupName="Komunikativnost" x:Name="Komunikativnost3" Content="" Canvas.Left="300" Canvas.Top="202" />
+            <RadioButton GroupName="Komunikativnost" x:Name="Komunikativnost3" IsChecked="True" Content="" Canvas.Left="300" Canvas.Top="202" />
             <RadioButton GroupName="Komunikativnost" x:Name="Komunikativnost2" Content="" Canvas.Left="380" Canvas.Top="202" />
             <RadioButton GroupName="Komunikativnost" x:Name="Komunikativnost1" Content="" Canvas.Left="460" Canvas.Top="202" />
         </Canvas>
@@ -51,7 +52,7 @@
         <Canvas x:Name="Azurnost">
             <RadioButton GroupName="Azurnost" x:Name="Azurnost5" Content="" Canvas.Left="140" Canvas.Top="242" />
             <RadioButton GroupName="Azurnost" x:Name="Azurnost4" Content="" Canvas.Left="220" Canvas.Top="242" />
-            <RadioButton GroupName="Azurnost" x:Name="Azurnost3" Content="" Canvas.Left="300" Canvas.Top="242" />
+            <RadioButton GroupName="Azurnost" x:Name="Azurnost3" IsChecked="True" Content="" Canvas.Left="300" Canvas.Top="242" />
             <RadioButton GroupName="Azurnost" x:Name="Azurnost2" Content="" Canvas.Left="380" Canvas.Top="242" />
             <RadioButton GroupName="Azurnost" x:Name="Azurnost1" Content="" Canvas.Left="460" Canvas.Top="242" />
         </Canvas>
@@ -59,13 +60,14 @@
         <Canvas x:Name="Korisnost">
             <RadioButton GroupName="Korisnost" x:Name="Korisnost5" Content="" Canvas.Left="140" Canvas.Top="283" />
             <RadioButton GroupName="Korisnost" x:Name="Korisnost4" Content="" Canvas.Left="220" Canvas.Top="283" />
-            <RadioButton GroupName="Korisnost" x:Name="Korisnost3" Content="" Canvas.Left="300" Canvas.Top="283" />
+            <RadioButton GroupName="Korisnost" x:Name="Korisnost3" IsChecked="True" Content="" Canvas.Left="300" Canvas.Top="283" />
             <RadioButton GroupName="Korisnost" x:Name="Korisnost2" Content="" Canvas.Left="380" Canvas.Top="283" />
             <RadioButton GroupName="Korisnost" x:Name="Korisnost1" Content="" Canvas.Left="460" Canvas.Top="283" />
         </Canvas>
         <Label Content="Korisnost:" Canvas.Left="19" Canvas.Top="273"/>
         <Label Content="Komentari:" Canvas.Left="19" Canvas.Top="328"/>
-        <TextBox x:Name="Komentari" Canvas.Left="112" Canvas.Top="333" TextWrapping="Wrap" Height="131" Width="287"/>
-        <Button x:Name="PotvrdaDugme" Content="Potvrda" Canvas.Left="235" Canvas.Top="486" Width="58" Click="Potvrda"/>
+        <TextBox x:Name="Komentari" Style="{StaticResource PlaceHolder}" Tag="Unesite komentar o iskustvu pri poseti bolnice..." Canvas.Left="112" Canvas.Top="333" TextWrapping="Wrap" Height="131" Width="321"/>
+        <Button x:Name="Potvrdi" Content="Pošalji" ToolTip="Potvrdite slanje ankete o bolnici" Canvas.Left="174" Canvas.Top="486" Width="70" Click="Potvrda"/>
+        <Button x:Name="Odustani" IsCancel="True" ToolTip="Odustanite od slanja ankete o bolnici" Content="Odustani" Canvas.Left="298" Canvas.Top="486" Width="70" Click="Potvrda"/>
     </Canvas>
 </Window>

@@ -24,6 +24,7 @@ namespace InformacioniSistemBolnice.Servis
         {
             izabranLekar = LekarRepo.Instance.NadjiLekara(zakazivanje.LekarJmbg);
             intervalDana = zakazivanje.MaxDatum - zakazivanje.MinDatum;
+            if (intervalDana.Equals(new TimeSpan(0, 0, 0, 0))) intervalDana = intervalDana.Add(new TimeSpan(1, 0, 0, 0));
             slobodanTermin = zakazivanje.MinDatum.AddHours(TerminUtility.PocetakRadnogVremenaSati);
             zakazivanjeInfo = zakazivanje;
         }
@@ -60,7 +61,7 @@ namespace InformacioniSistemBolnice.Servis
             PronadjiSlobodneTermineZaViseDana(TerminUtility.DodatniDaniPredlaganjaTermina);
             slobodanTermin = zakazivanjeInfo.MaxDatum.AddHours(TerminUtility.PocetakRadnogVremenaSati);
             PronadjiSlobodneTermineZaViseDana(TerminUtility.DodatniDaniPredlaganjaTermina);
-            foreach (Termin predlozenTermin in slobodniTermini) IzbaciPoklapajuce(predlozenTermin);
+            foreach (Termin predlozenTermin in slobodniTermini.ToList()) IzbaciPoklapajuce(predlozenTermin);
             return slobodniTermini;
         }
 
@@ -84,7 +85,7 @@ namespace InformacioniSistemBolnice.Servis
         {
             for (int j = 0; j < TerminUtility.PolucasovniTerminiRadnogDana; j++)
             {
-                slobodniTermini.Add(new Termin(slobodanTermin, TerminUtility.PodrazumevanoTrajanjeTermina, 
+                slobodniTermini.Add(new Termin(slobodanTermin, TerminUtility.PodrazumevanoTrajanjeTermina,
                     TipTermina.pregled, StatusTermina.slobodan,
                     zakazivanjeInfo.PacijentJmbg, izabranLekar.Jmbg, zakazivanjeInfo.ProstorijaId));
                 PostaviIdSlobodneProstorije();
@@ -109,7 +110,7 @@ namespace InformacioniSistemBolnice.Servis
         {
             foreach (Prostorija prostorija in ProstorijaRepo.Instance.Prostorije)
             {
-                if (prostorija.Tip != TipProstorije.prostorijaZaPreglede || 
+                if (prostorija.Tip != TipProstorije.prostorijaZaPreglede ||
                     prostorija.NadjiTerminPoDatumu(slobodanTermin) is not null) continue;
                 if (prostorija.Renoviranje is null || !JeTerminUOpseguRenoviranja(prostorija)) return prostorija;
             }

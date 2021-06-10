@@ -6,9 +6,36 @@
         xmlns:local="clr-namespace:InformacioniSistemBolnice"
         xmlns:system="clr-namespace:System;assembly=mscorlib"
         mc:Ignorable="d"
-        Title="PomeranjeTerminaPacijentaView" Height="450" Width="400">
+        Title="Pomeranje termina" Height="500" Width="700"
+        Background="#fcecdd">
+    <Window.Resources>
+        <local:DoctorConverter x:Key="DoctorConverter"></local:DoctorConverter>
+        <Style TargetType="DataGridCell">
+            <Style.Setters>
+                <Setter Property="TextBlock.TextAlignment" Value="Center" />
+                <Setter Property="TextBlock.FontSize" Value="16"></Setter>
+            </Style.Setters>
+        </Style>
+        <Style TargetType="DataGridColumnHeader">
+            <Setter Property="HorizontalContentAlignment"
+                    Value="Center" />
+            <Setter Property="FontSize" Value="20"></Setter>
+            <Setter Property="FontWeight" Value="DemiBold"></Setter>
+        </Style>
+    </Window.Resources>
+
     <Canvas>
-        <DataGrid x:Name="ponudjeniTermini" Height="377" Width="400" CanUserAddRows="False"/>
-        <Button x:Name="pomeriDugme" Content="Pomeri" Canvas.Left="170" Canvas.Top="394" Width="60" Click="PomeriTermin"/>
+        <DataGrid x:Name="ponudjeniTermini" Height="298" Width="640" CanUserAddRows="False" CanUserReorderColumns="False" AutoGenerateColumns="False" IsReadOnly="True"
+                  ColumnWidth="*" Canvas.Top="95" Canvas.Left="30">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Početak termina" Binding="{Binding Vreme, StringFormat='dd.MM.yyyy. HH:mm'}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Trajanje termina" Binding="{Binding Trajanje}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Kod lekara" Binding="{Binding LekarJmbg, Converter={StaticResource DoctorConverter}}"></DataGridTextColumn>
+                <DataGridTextColumn Header="U prostoriji" Binding="{Binding ProstorijaId}"></DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button x:Name="Pomeri" ToolTip="Pomerite stari termin na vreme izabranog termina" Content="Pomeri" Canvas.Left="241" Canvas.Top="424" Width="70" Command="{Binding PomeranjeTermina}"/>
+        <Button x:Name="Odustani" Content="Odustani" ToolTip="Odustanite od pomeranja termina" Canvas.Left="387" Canvas.Top="424" Width="70" IsCancel="True"/>
+        <Label Content="Izaberite neki od ponuđenih termina i pomerite stari termin na to vreme&#x0a;pritiskom na dugme Pomeri" FontSize="18" FontWeight="DemiBold" Canvas.Left="30" Canvas.Top="22" RenderTransformOrigin="1.4,1.057"/>
     </Canvas>
 </Window>

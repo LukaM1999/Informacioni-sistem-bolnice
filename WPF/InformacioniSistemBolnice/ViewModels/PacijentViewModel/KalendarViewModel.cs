@@ -15,6 +15,7 @@ using InformacioniSistemBolnice.Utilities;
 using InformacioniSistemBolnice.ViewModels.PacijentViewModel.PacijentKomande;
 using InformacioniSistemBolnice.Views.PacijentView;
 using Kontroler;
+using MahApps.Metro.Controls;
 using Model;
 using Repozitorijum;
 
@@ -31,7 +32,8 @@ namespace InformacioniSistemBolnice.ViewModels.PacijentViewModel
         public ICommand PomeranjeTermina { get; set; }
         public ICommand StatusObavestenja { get; set; }
         public bool IzabranaObavestenja { get; set; }
-
+        public DateTime PrikazanDatum { get; set; } = DateTime.Today;
+        public string TipPogleda { get; set; } = "Nedeljni pogled";
         public bool ObavestenjaPritisnuta { get; set; }
         private readonly Model.Pacijent ulogovanPacijent = GlavniProzorPacijentaView.ulogovanPacijent;
 
@@ -51,21 +53,24 @@ namespace InformacioniSistemBolnice.ViewModels.PacijentViewModel
 
         public void ZakaziTermin()
         {
-            new ZakazivanjeTerminaPacijentaView(ulogovanPacijent.Jmbg).Show();
+            new ZakazivanjeTerminaPacijentaView(ulogovanPacijent.Jmbg).ShowDialog();
         }
 
         public void OtkaziTermin()
         {
+            MessageBoxResult odluka = MessageBox.Show("Da li ste sigurni da želite da otkažete izabrani termin?", "Potvrda otkazivanja", MessageBoxButton.YesNo);
+            if (odluka == MessageBoxResult.No) return;
             TerminKontroler.Instance.OtkaziTermin(TerminRepo.Instance.
                 NadjiTermin(IzabranTermin.Pocetak, IzabranTermin.PacijentJmbg, IzabranTermin.LekarJmbg));
             Appointments.Remove(IzabranTermin);
             MessageBox.Show("Uspešno ste otkazali termin!");
+            IzabranTermin = null;
         }
 
         public void PomeriTermin()
         {
             new PomeranjeTerminaPacijentaView(TerminRepo.Instance.
-                NadjiTermin(IzabranTermin.Pocetak, IzabranTermin.PacijentJmbg, IzabranTermin.LekarJmbg)).Show();
+                NadjiTermin(IzabranTermin.Pocetak, IzabranTermin.PacijentJmbg, IzabranTermin.LekarJmbg)).ShowDialog();
         }
 
         public void PromeniStatusObavestenja()

@@ -6,7 +6,11 @@
         xmlns:local="clr-namespace:InformacioniSistemBolnice.Views.PacijentView"
         xmlns:vm="clr-namespace:InformacioniSistemBolnice.ViewModels.PacijentViewModel"
         mc:Ignorable="d"
-        Title="AnamnezaView" Height="600" Width="815">
+        Title="Pregled anamneze" Height="600" Width="815"
+        Background="#fcecdd">
+    <Window.DataContext>
+        <vm:AnamnezaViewModel></vm:AnamnezaViewModel>
+    </Window.DataContext>
     <Grid>
         <Label Content="Sadasnja bolest:" HorizontalAlignment="Left" Margin="134,46,0,0" VerticalAlignment="Top" Height="53" Width="152"/>
         <Label Content="Istorija bolesti:" HorizontalAlignment="Left" Margin="134,104,0,0" VerticalAlignment="Top" Height="53" Width="152"/>
@@ -17,8 +21,8 @@
         <TextBox Name="PorodicneBolesti" Text="{Binding PacijentovaAnamneza.PorodicneAnamneze}" IsEnabled="False" HorizontalAlignment="Left" Margin="256,151,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="53" Width="425" Background="{DynamicResource {x:Static SystemColors.InactiveSelectionHighlightBrushKey}}"/>
         <TextBox Name="Zakljucak" Text="{Binding PacijentovaAnamneza.Zakljucak}" IsEnabled="False" HorizontalAlignment="Left" Margin="256,223,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="110" Width="425" Background="{DynamicResource {x:Static SystemColors.InactiveSelectionHighlightBrushKey}}"/>
         <Label Content="Beleske:" HorizontalAlignment="Left" Margin="134,353,0,0" VerticalAlignment="Top" Height="53" Width="152"/>
-        <TextBox x:Name="Beleske" Text="{Binding PacijentovaAnamneza.BeleskePacijenta}" HorizontalAlignment="Left" Margin="256,353,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="110" Width="425" Background="{DynamicResource {x:Static SystemColors.InactiveSelectionHighlightBrushKey}}"/>
-        <Button Content="Potvrdi" HorizontalAlignment="Left" Margin="712,487,0,0" VerticalAlignment="Top" Height="39" Width="57" Command="{Binding SacuvajIzmeneAnamneze}"/>
-
+        <TextBox x:Name="Beleske" Style="{StaticResource PlaceHolder}" Tag="Upišite svoje beleške..."  Text="{Binding PacijentovaAnamneza.BeleskePacijenta}" HorizontalAlignment="Left" Margin="256,353,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="110" Width="425" Background="{DynamicResource {x:Static SystemColors.InactiveSelectionHighlightBrushKey}}"/>
+        <Button Content="Sačuvaj" ToolTip="Sačuvajte promene beležaka anamneze"  HorizontalAlignment="Left" Margin="313,492,0,0" VerticalAlignment="Top" Height="39" Width="70" Command="{Binding SacuvajIzmeneAnamneze}"/>
+        <Button Content="Odustani" IsCancel="True" ToolTip="Odustanite od izmene beležaka" HorizontalAlignment="Left" Margin="503,492,0,0" VerticalAlignment="Top" Height="39" Width="70"/>
     </Grid>
 </Window>

@@ -17,5 +17,10 @@ namespace Model
             Ulica = ulica;
             Broj = broj;
         }
+
+        public override string ToString()
+        {
+            return Ulica + " " + Broj;
+        }
     }
 }

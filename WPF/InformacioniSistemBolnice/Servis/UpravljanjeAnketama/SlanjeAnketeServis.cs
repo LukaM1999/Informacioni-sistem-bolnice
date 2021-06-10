@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using InformacioniSistemBolnice;
+using InformacioniSistemBolnice.DTO;
+using InformacioniSistemBolnice.ViewModels.PacijentViewModel;
 using Model;
 using Repozitorijum;
 
@@ -17,9 +19,10 @@ namespace Servis
 
         public void PosaljiAnketuOLekaru(Termin zavrsenTermin, AnketaDto novaAnketa)
         {
-            zavrsenTermin.PopuniAnketuOLekaru(new AnketaOLekaru(novaAnketa.Ljubaznost, novaAnketa.Profesionalizam, 
+            AnketaOLekaru popunjena = new AnketaOLekaru(novaAnketa.Ljubaznost, novaAnketa.Profesionalizam,
                 novaAnketa.Strpljenje, novaAnketa.Komunikativnost, novaAnketa.Azurnost,
-                novaAnketa.Korisnost, novaAnketa.GeneralniKomentari));
+                novaAnketa.Korisnost, novaAnketa.GeneralniKomentari);
+            zavrsenTermin.PopuniAnketuOLekaru(popunjena);
             TerminRepo.Instance.Serijalizacija();
         }
 

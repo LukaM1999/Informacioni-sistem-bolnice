@@ -6,6 +6,7 @@ using System.Threading;
 using InformacioniSistemBolnice.Views.Pacijent;
 using System.Globalization;
 using System.Windows.Controls.Primitives;
+using InformacioniSistemBolnice.Utilities;
 using InformacioniSistemBolnice.ViewModels.PacijentViewModel;
 using InformacioniSistemBolnice.Views.PacijentView;
 using PropertyChanged;
@@ -56,12 +57,6 @@ namespace InformacioniSistemBolnice
             return izabranTermin is { Status: StatusTermina.zavrsen, AnketaOLekaru: null };
         }
 
-        private void OtvoriAnamnezu(object sender, RoutedEventArgs e)
-        {
-            if (ulogovanPacijent.zdravstveniKarton is { Anamneza: { } })
-                new AnamnezaView { DataContext = new AnamnezaViewModel(ulogovanPacijent) }.Show();
-        }
-
         private void IzaberiProfil(object sender, RoutedEventArgs e)
         {
             NavigationMenuListBox.SelectedItem = "Profil";
@@ -92,5 +87,15 @@ namespace InformacioniSistemBolnice
             NavigationMenuListBox.SelectedItem = "Pomoc";
         }
 
+        private void OdjaviSe(object sender, RoutedEventArgs e)
+        {
+            if ((string)NavigationMenuListBox.SelectedItem != "Odjava") return;
+            NavigationMenuListBox.SelectedItem = "Kalendar";
+            MessageBoxResult odluka = MessageBox.Show("Da li ste sigurni da želite da se odjavite", "Potvrda odjavljivanja",
+                MessageBoxButton.YesNo);
+            if (odluka is MessageBoxResult.No) return;
+            new Login().Show();
+            PronadjiProzorUtility.PronadjiProzor(this).Close();
+        }
     }
 }

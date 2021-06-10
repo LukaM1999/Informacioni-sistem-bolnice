@@ -15,6 +15,7 @@ using System.Windows.Shapes;
 using InformacioniSistemBolnice.DTO;
 using InformacioniSistemBolnice.Servis;
 using InformacioniSistemBolnice.Utilities;
+using InformacioniSistemBolnice.ViewModels;
 using InformacioniSistemBolnice.ViewModels.PacijentViewModel;
 using Kontroler;
 using Model;
@@ -25,13 +26,16 @@ namespace InformacioniSistemBolnice
 {
     public partial class IzborTerminaPacijentaView : Window
     {
+        public ICommand ZakazivanjeTermina { get; set; }
         public IzborTerminaPacijentaView(ZakazivanjeTerminaDto zakazivanje)
         {
             InitializeComponent();
+            DataContext = this;
             ponudjeniTermini.ItemsSource = new PredlogSlobodnihTerminaServis(zakazivanje).PonudiSlobodneTermine();
+            ZakazivanjeTermina = new Command(o => ZakaziTermin(), o => ponudjeniTermini.SelectedIndex > -1);
         }
 
-        private void ZakaziTermin(object sender, RoutedEventArgs e)
+        private void ZakaziTermin()
         {
             Termin izabranTermin = (Termin) ponudjeniTermini.SelectedValue;
             TerminKontroler.Instance.ZakaziTermin(izabranTermin);

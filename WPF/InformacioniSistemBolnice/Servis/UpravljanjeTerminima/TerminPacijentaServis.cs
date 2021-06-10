@@ -22,6 +22,7 @@ namespace Servis
 
         public void OtkaziTerminKodPacijenta(Termin terminZaOtkazivanje)
         {
+            if (terminZaOtkazivanje is null) return;
             Pacijent pacijent = PacijentRepo.Instance.NadjiPoJmbg(terminZaOtkazivanje.PacijentJmbg);
             pacijent.ObrisiTermin(terminZaOtkazivanje);
             PacijentRepo.Instance.Serijalizacija();

@@ -15,7 +15,15 @@
     "Trajanje": 30.0,
     "Tip": 0,
     "Status": 4,
-    "AnketaOLekaru": null,
+    "AnketaOLekaru": {
+      "Ljubaznost": 3,
+      "Profesionalizam": 3,
+      "Strpljenje": 3,
+      "Komunikativnost": 3,
+      "Azurnost": 3,
+      "Korisnost": 3,
+      "GeneralniKomentari": ""
+    },
     "PacijentJmbg": "1905981123124",
     "LekarJmbg": "1605988156156",
     "ProstorijaId": "OS1",
@@ -26,7 +34,15 @@
     "Trajanje": 30.0,
     "Tip": 1,
     "Status": 4,
-    "AnketaOLekaru": null,
+    "AnketaOLekaru": {
+      "Ljubaznost": 4,
+      "Profesionalizam": 2,
+      "Strpljenje": 3,
+      "Komunikativnost": 4,
+      "Azurnost": 5,
+      "Korisnost": 4,
+      "GeneralniKomentari": "Neki komentar."
+    },
     "PacijentJmbg": "1905981123124",
     "LekarJmbg": "1605988156156",
     "ProstorijaId": "P1",
@@ -44,10 +60,10 @@
     "Hitan": true
   },
   {
-    "Vreme": "2021-06-09T11:00:00",
+    "Vreme": "2021-06-10T09:00:00+02:00",
     "Trajanje": 30.0,
     "Tip": 1,
-    "Status": 4,
+    "Status": 0,
     "AnketaOLekaru": null,
     "PacijentJmbg": "1905981123124",
     "LekarJmbg": "1605988156156",

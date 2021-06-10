@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:vm="clr-namespace:InformacioniSistemBolnice.ViewModels.Pacijent"
         mc:Ignorable="d"
-        Title="KreiranjePodsetnikaView" Height="600" Width="280">
+        Title="KreiranjePodsetnikaView" Height="600" Width="280"
+        Background="#fcecdd">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"/>

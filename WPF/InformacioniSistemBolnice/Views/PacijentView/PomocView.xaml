@@ -1,0 +1,80 @@
+﻿<UserControl x:Class="InformacioniSistemBolnice.Views.PacijentView.PomocView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:InformacioniSistemBolnice.Views.PacijentView"
+             xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+             mc:Ignorable="d" 
+             Height="680" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="4*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,0,0,10">
+            <Button Style="{DynamicResource IconTextButtonStyle}"
+                    Width="120"
+                    Margin="0,10,20,10"
+                    Click="Play_Click"
+                    ToolTip="Pustite snimak"> 
+                <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
+                    <iconPacks:PackIconMaterial Kind="Play" 
+                                                Width="40" Height="40" 
+                                                HorizontalAlignment="Center"/>
+                    <TextBlock Padding="0,0,0,0" FontSize="14" Text="Pusti snimak" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontWeight="SemiBold" />
+                </StackPanel>
+            </Button>
+            <Button Style="{DynamicResource IconTextButtonStyle}"
+                    Width="120"
+                    Margin="0,10,20,10"
+                    Click="Pause_Click"
+                    ToolTip="Pauzirajte snimak"> 
+                <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
+                    <iconPacks:PackIconMaterial Kind="Pause" 
+                                                Width="40" Height="40" 
+                                                HorizontalAlignment="Center"/>
+                    <TextBlock Padding="0,0,0,0" FontSize="14" Text="Pauziraj snimak" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontWeight="SemiBold" />
+                </StackPanel>
+            </Button>
+            <Button Style="{DynamicResource IconTextButtonStyle}"
+                    Width="120"
+                    Margin="0,10,20,10"
+                    Click="Stop_Click"
+                    ToolTip="Zaustavite snimak"> 
+                <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
+                    <iconPacks:PackIconMaterial Kind="Stop" 
+                                                Width="40" Height="40" 
+                                                HorizontalAlignment="Center"/>
+                    <TextBlock Padding="0,0,0,0" FontSize="14" Text="Zaustavi snimak" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontWeight="SemiBold" />
+                </StackPanel>
+            </Button>
+        </StackPanel>
+        <Label Content="Tutorijal" HorizontalContentAlignment="Center"  HorizontalAlignment="Center" Height="56" VerticalAlignment="Center" Width="150" FontSize="26"/>
+        <MediaElement Grid.Row="1" Name="Player" LoadedBehavior="Manual" MediaOpened="Player_MediaOpened" MediaEnded="Player_MediaEnded"  Margin="50,50,50,50"/>
+        <Slider ToolTip="Premotajte snimak" Grid.Row="1" Name="timelineSlider" ValueChanged="timelineSlider_ValueChanged" Width="350" Thumb.DragStarted="timelineSlider_DragStarted" Thumb.DragCompleted="timelineSlider_DragCompleted" Height="11" VerticalAlignment="Bottom">
+            <Slider.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="180.125"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Slider.RenderTransform>
+        </Slider>
+        <Slider ToolTip="Promenite intenzitet zvuka" Grid.Row="1" x:Name="volumeSlider" ValueChanged="volumeSlider_ValueChanged" Height="13" Width="150" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,0,0">
+            <Slider.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="180.125"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Slider.RenderTransform>
+        </Slider>
+    </Grid>
+</UserControl>

@@ -36,6 +36,7 @@ namespace InformacioniSistemBolnice
                 UBroj(IzabranoRadioDugme(Korisnost)), Komentari.Text);
             AnketaKontroler.Instance.PosaljiAnketuOLekaru(izabranTermin, novaAnketa);
             Close();
+            MessageBox.Show("Uspešno ste ocenili lekara!");
         }
 
         private static RadioButton IzabranoRadioDugme(Panel grupaZadovoljstva)

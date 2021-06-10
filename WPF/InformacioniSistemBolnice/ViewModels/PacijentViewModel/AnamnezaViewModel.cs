@@ -16,13 +16,12 @@ namespace InformacioniSistemBolnice.ViewModels.PacijentViewModel
 {
     public class AnamnezaViewModel
     {
-        private readonly Model.Pacijent ulogovanPacijent;
+        private readonly Model.Pacijent ulogovanPacijent = GlavniProzorPacijentaView.ulogovanPacijent;
         public Anamneza PacijentovaAnamneza { get; set; }
         public ICommand SacuvajIzmeneAnamneze { get; set; }
 
-        public AnamnezaViewModel(Model.Pacijent ulogovan)
+        public AnamnezaViewModel()
         {
-            ulogovanPacijent = ulogovan;
             ZdravstveniKarton kartonPacijenta = ulogovanPacijent.zdravstveniKarton;
             PacijentovaAnamneza = kartonPacijenta.Anamneza;
             SacuvajIzmeneAnamneze = new Command(o => SacuvajIzmene());
@@ -33,6 +32,7 @@ namespace InformacioniSistemBolnice.ViewModels.PacijentViewModel
             ZdravstveniKartonKontroler.Instance.DodajAnamnezaBeleske(ulogovanPacijent, PacijentovaAnamneza.BeleskePacijenta);
             AnamnezaView anamnezaForma = (AnamnezaView)PronadjiProzorUtility.PronadjiProzor(this);
             anamnezaForma.Close();
+            MessageBox.Show("Uspešno ste izmenili beleške anamneze!");
         }
     }
 }

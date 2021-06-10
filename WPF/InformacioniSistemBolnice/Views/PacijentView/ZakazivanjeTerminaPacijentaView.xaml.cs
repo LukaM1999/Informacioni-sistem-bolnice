@@ -16,12 +16,16 @@ using Repozitorijum;
 using Model;
 using Servis;
 using Kontroler;
+using PropertyChanged;
 
 namespace InformacioniSistemBolnice
 {
+    [AddINotifyPropertyChangedInterface]
     public partial class ZakazivanjeTerminaPacijentaView : Window
     {
         public string pacijentJmbg;
+
+        public DateTime MinDatum { get; set; } = DateTime.Today;
 
         public ZakazivanjeTerminaPacijentaView(string jmbgPacijenta)
         {
@@ -36,7 +40,7 @@ namespace InformacioniSistemBolnice
             ZakazivanjeTerminaDto zakazivanje = new((DateTime)minDatumTermina.SelectedDate,
             (DateTime)maxDatumTermina.SelectedDate, ((Lekar)lekari.SelectedItem).Jmbg, pacijentJmbg,
             vremePrioritet: (bool)vremeRadio.IsChecked);
-            new IzborTerminaPacijentaView(zakazivanje) { Owner = this }.Show();
+            new IzborTerminaPacijentaView(zakazivanje) { Owner = this }.ShowDialog();
         }
     }
 }

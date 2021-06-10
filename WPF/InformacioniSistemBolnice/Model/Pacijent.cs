@@ -12,8 +12,9 @@ namespace Model
     public class Pacijent : Osoba, IUcesnikPregleda
     {
         public bool Maliciozan { get; set; }
-        public ZdravstveniKarton zdravstveniKarton;
+        public ZdravstveniKarton zdravstveniKarton { get; set; }
         public ObservableCollection<Termin> ZakazaniTermini { get; set; }
+        public string SlikaPutanja { get; set; } = "";
 
         public Pacijent() {}
         public Pacijent(Osoba o) 

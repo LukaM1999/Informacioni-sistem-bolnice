@@ -6,19 +6,27 @@
         xmlns:local="clr-namespace:InformacioniSistemBolnice"
         xmlns:system="clr-namespace:System;assembly=mscorlib"
         mc:Ignorable="d"
-        Title="ZakazivanjeTerminaPacijentaView" Height="309" Width="324">
+        Title="Zakazivanje termina" Height="350" Width="324"
+        DataContext='{Binding RelativeSource={RelativeSource Self}}'
+        Background="#fcecdd">
     <Grid>
 
         <Canvas>
-            <DatePicker x:Name="minDatumTermina" Canvas.Left="160" Canvas.Top="46" DisplayDateStart="{Binding Path=., Source={x:Static system:DateTime.Today}}"/>
-            <DatePicker x:Name="maxDatumTermina" Canvas.Left="160" Canvas.Top="84" DisplayDateStart="{Binding ., Source={x:Static system:DateTime.Today}}"/>
-            <ComboBox x:Name="lekari" Width="102" Height="23" Canvas.Left="160" Canvas.Top="127" ScrollViewer.VerticalScrollBarVisibility="Visible"></ComboBox>
+            <DatePicker x:Name="minDatumTermina" ToolTip="Izaberite kada najranije&#x0a;možete da odete na pregled" Canvas.Left="160" Canvas.Top="46" DisplayDateStart="{Binding Path=., Source={x:Static system:DateTime.Today}}" 
+                        SelectedDate="{Binding MinDatum, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+            <DatePicker x:Name="maxDatumTermina" ToolTip="Izaberite kada najkasnije&#x0a;možete da odete na pregled" Canvas.Left="160" Canvas.Top="84" DisplayDateStart="{Binding MinDatum}" 
+                        SelectedDate="{Binding MinDatum, Mode=OneWay}"/>
+            <ComboBox x:Name="lekari" ToolTip="Izaberite lekara koji želite da&#x0a;Vas pregleda" SelectedIndex="0" Width="102" Height="23" Canvas.Left="160" Canvas.Top="127" ScrollViewer.VerticalScrollBarVisibility="Visible"></ComboBox>
             <Label x:Name="minDatumLabela" Content="Min datum:" Canvas.Left="48" Canvas.Top="44"/>
             <Label x:Name="maxDatumLabela" Content="Max datum:" Canvas.Left="48" Canvas.Top="83"/>
             <Label x:Name="lekarLabela" Content="Lekar:" Canvas.Left="78" Canvas.Top="127"/>
-            <RadioButton x:Name="lekarRadio" Content="Lekar" IsChecked="True" Canvas.Left="91" Canvas.Top="185" />
-            <RadioButton x:Name="vremeRadio" Content="Vreme" Canvas.Left="162" Canvas.Top="185" />
-            <Button x:Name="potvrdaZakazivanjaDugme" Content="Potvrdi" Canvas.Left="129" Canvas.Top="229" Width="66" Click="OtvoriIzborTermina" RenderTransformOrigin="0.852,0.423"/>
+            <RadioButton x:Name="lekarRadio" ToolTip="Ako se ne pronađe slobodan termin u izabranom&#x0a;intervalu, on će se proširiti kako bi&#x0a;mogao da Vas pregleda izabran lekar"
+                         Content="Lekar" IsChecked="True" Canvas.Left="91" Canvas.Top="212" />
+            <RadioButton x:Name="vremeRadio" ToolTip="Ako se ne pronađe slobodan termin u izabranom&#x0a;intervalu, on se neće menjati već će Vam se ponuditi&#x0a;termini kod drugog lekara koji je slobodan" 
+                         Content="Vreme" Canvas.Left="162" Canvas.Top="212" />
+            <Label Content="Šta Vam je prioritet?" Canvas.Left="96" Canvas.Top="170" RenderTransformOrigin="0.374,0.279" Width="119"/>
+            <Button x:Name="potvrdaZakazivanjaDugme" ToolTip="Nastavite sa izborom termina" Content="Potvrdi" Canvas.Left="77" Canvas.Top="262" Width="66" Click="OtvoriIzborTermina" RenderTransformOrigin="0.852,0.423"/>
+            <Button x:Name="Odustani" Content="Odustani" ToolTip="Odustanite od izbora termina" IsCancel="True" Canvas.Left="176" Canvas.Top="262" Width="66" RenderTransformOrigin="0.852,0.423"/>
         </Canvas>
 
     </Grid>

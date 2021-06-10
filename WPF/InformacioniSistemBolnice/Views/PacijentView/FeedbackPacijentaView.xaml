@@ -6,7 +6,8 @@
         xmlns:local="clr-namespace:InformacioniSistemBolnice.Views.PacijentView"
         xmlns:vm="clr-namespace:InformacioniSistemBolnice.ViewModels.PacijentViewModel"
         mc:Ignorable="d"
-        Title="Feedback" Height="300" Width="330">
+        Title="Feedback" Height="300" Width="330"
+        Background="#fcecdd">
     <Window.DataContext>
         <vm:FeedbackPacijentaViewModel/>
     </Window.DataContext>
