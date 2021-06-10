@@ -8,9 +8,6 @@
         mc:Ignorable="d"
         Title="Anketa o bolnici" Height="590" Width="528"
         Background="#fcecdd">
-    <Window.DataContext>
-        <vm:AnketaOBolniciFormaViewModel/>
-    </Window.DataContext>
     <Canvas>
         <Canvas x:Name="Ljubaznost">
             <RadioButton GroupName="Ljubaznost" x:Name="Ljubaznost5" Content="" Canvas.Left="140" Canvas.Top="77" />
